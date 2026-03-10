@@ -1,0 +1,4343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Алгоритмы Женской Силы — Ксения Микаелян</title>
+<meta name="description" content="8-недельная программа трансформации. От борьбы за лидерство к опоре на сильного мужчину.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   Алгоритмы Женской Силы — Combined Styles
+   ══════════════════════════════════════════════ */
+
+/* ── BASE / VARIABLES ── */
+:root {
+  --bg:#0b0910; --bg2:#110d18; --bg3:#16101f;
+  --gold:#c9a96e; --gold-lt:#e8cea0; --gold-dim:#8a6e44;
+  --rose:#9b6470; --rose-lt:#c9909e;
+  --cream:#f5ede3; --cream-mid:#d4c8bc; --cream-dim:#b8a898;
+  --line:rgba(201,169,110,.18); --line-soft:rgba(255,255,255,.06);
+  --glow-gold:0 0 20px rgba(232,206,160,.55),0 0 50px rgba(201,169,110,.3),0 0 80px rgba(201,169,110,.15);
+  --glow-icon:0 0 10px rgba(201,169,110,.8),0 0 24px rgba(201,169,110,.4);
+  --glow-rose:0 0 20px rgba(201,144,158,.4),0 0 50px rgba(155,100,112,.25);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── CANVAS BACKGROUND ── */
+canvas#stars {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .48;
+}
+
+/* ── GRADIENT ORBS ── */
+.orb {
+  position:fixed; border-radius:50%;
+  filter:blur(120px); pointer-events:none; z-index:0;
+  animation:drift 20s ease-in-out infinite;
+}
+.orb-1{width:640px;height:640px;background:radial-gradient(circle,rgba(155,100,112,.2),transparent 70%);top:-140px;left:-100px;animation-delay:0s;}
+.orb-2{width:520px;height:520px;background:radial-gradient(circle,rgba(201,169,110,.13),transparent 70%);top:35%;right:-80px;animation-delay:-7s;}
+.orb-3{width:420px;height:420px;background:radial-gradient(circle,rgba(80,50,110,.28),transparent 70%);bottom:8%;left:22%;animation-delay:-13s;}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-18px) scale(1.04);}66%{transform:translate(-18px,26px) scale(.97);}}
+
+/* ── SCROLL-REVEAL ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-in.visible { opacity:1; transform:translateY(0); }
+.fade-in-delay-1 { transition-delay: .1s; }
+.fade-in-delay-2 { transition-delay: .2s; }
+.fade-in-delay-3 { transition-delay: .3s; }
+
+.fi{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s;}
+.fi.vis{opacity:1;transform:none;}
+.fi-1{transition-delay:.06s;} .fi-2{transition-delay:.16s;}
+.fi-3{transition-delay:.26s;} .fi-4{transition-delay:.36s;}
+.fi-5{transition-delay:.46s;} .fi-6{transition-delay:.56s;}
+
+/* ── FADEUP ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── COMMON SECTION STYLES ── */
+.section-label {
+  display:flex; align-items:center; justify-content:center;
+  gap:12px; margin-bottom:24px;
+}
+.label-line { flex:1; height:1px; max-width:80px; background:var(--line); }
+.label-text {
+  font-size:.72rem; font-weight:300;
+  letter-spacing:.25em; text-transform:uppercase;
+  color:var(--gold-dim);
+}
+
+.section-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400; font-size:clamp(1.8rem,4vw,2.8rem);
+  color:var(--cream); text-align:center; line-height:1.25; margin-bottom:12px;
+}
+.section-sub {
+  text-align:center; font-size:.82rem; font-weight:300;
+  color:var(--gold); letter-spacing:.14em; text-transform:uppercase;
+  margin-bottom:16px; text-shadow:0 0 12px rgba(201,169,110,.35);
+}
+
+.divider-gold {
+  display:flex; align-items:center; gap:16px; margin:60px 0;
+}
+.dg-line { flex:1; height:1px; background:var(--line-soft); }
+.dg-diamond {
+  width:5px; height:5px; background:var(--gold-dim);
+  transform:rotate(45deg); flex-shrink:0;
+  box-shadow: var(--glow-icon);
+}
+
+/* ── COMMON LAYOUT ── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 24px 120px;
+}
+.container { max-width: 960px; margin: 0 auto; }
+.inner { max-width: 1000px; margin: 0 auto; }
+
+
+
+/* ══ BLOCK 1: 01_HERO ══ */
+}
+
+  /* ── LAYOUT ────────────────────────────────── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px 140px;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  /* ── TOP LABEL ─────────────────────────────── */
+  .season-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .75rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp .8s .2s ease forwards;
+  }
+  .season-label::before,
+  .season-label::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .season-label::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+  /* ── PROGRAM NAME ──────────────────────────── */
+  .program-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    line-height: 1.05;
+    text-align: center;
+    letter-spacing: .02em;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--gold-lt) 50%, var(--cream) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+    opacity: 0;
+    animation: fadeUp .9s .4s ease forwards;
+  }
+
+  /* ── THIN DIVIDER ──────────────────────────── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 28px;
+    width: 100%;
+    max-width: 460px;
+    opacity: 0;
+    animation: fadeUp .7s .55s ease forwards;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--line); }
+  .divider-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px var(--gold);
+  }
+
+  /* ── TAGLINE ───────────────────────────────── */
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.8vw, 1.65rem);
+    color: var(--rose-lt);
+    text-align: center;
+    line-height: 1.45;
+    max-width: 620px;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp .8s .65s ease forwards;
+  }
+
+  /* ── FORMAT BADGE ──────────────────────────── */
+  .format-badge {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .78rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp .7s .75s ease forwards;
+  }
+
+  /* ── MAIN PROMISE ──────────────────────────── */
+  .promise-block {
+    background: linear-gradient(135deg, rgba(255,255,255,.035) 0%, rgba(201,169,110,.04) 100%);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 40px 48px;
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp .9s .85s ease forwards;
+  }
+  .promise-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,.06), transparent 60%);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  /* corner accents */
+  .promise-block::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 24px; height: 24px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+  }
+  .corner-br {
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 24px; height: 24px;
+    border-bottom: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+  }
+
+  .promise-from {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .95rem;
+    color: var(--cream-dim);
+    margin-bottom: 6px;
+  }
+  .promise-state-bad {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--cream-dim);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .promise-arrow {
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .promise-into {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .95rem;
+    color: var(--cream-dim);
+    margin-bottom: 6px;
+  }
+  .promise-state-good {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+    font-weight: 500;
+    color: var(--gold-lt);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .promise-duration {
+    display: inline-block;
+    border: 1px solid var(--line);
+    padding: 6px 20px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .78rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .promise-without {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .9rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+  }
+  .promise-without em {
+    color: var(--cream);
+    font-style: normal;
+  }
+
+  /* ── SPARK NOTE ────────────────────────────── */
+  .spark-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    color: var(--rose-lt);
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp .7s 1s ease forwards;
+  }
+  .spark-dot {
+    width: 6px; height: 6px;
+    background: var(--rose-lt);
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,144,158,.6); }
+    
+
+  /* ── CONDITIONS LIST ───────────────────────── */
+  .conditions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp .9s 1.1s ease forwards;
+  }
+  .cond-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .86rem;
+    font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.5;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 2px;
+    transition: border-color .3s, color .3s;
+    min-width: 0; /* prevents grid blowout */
+  }
+  .cond-item:hover {
+    border-color: var(--line);
+    color: var(--cream);
+  }
+  .cond-check {
+    color: var(--gold);
+    font-size: .78rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── CTA BUTTON ────────────────────────────── */
+  .cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    opacity: 0;
+    animation: fadeUp .8s 1.3s ease forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 56px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 100%);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(201,169,110,.3);
+  }
+  .btn-primary:hover::before { opacity: .6; }
+
+  .cta-note {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .75rem;
+    letter-spacing: .1em;
+    color: var(--gold-dim);
+  }
+  .cta-note span { color: var(--cream-dim); }
+
+  /* ── SCROLL INDICATOR ──────────────────────── */
+  .scroll-hint {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeUp .6s 1.8s ease forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--gold-dim));
+    animation: scrollDrop 1.8s ease-in-out infinite;
+  }
+  .scroll-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .65rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  @keyframes scrollDrop {
+    0%,100% { opacity:.4; transform: scaleY(.6) translateY(-5px); }
+    
+
+  
+  
+
+  /* ── RESPONSIVE ────────────────────────────── */
+  @media (max-width: 700px) {
+    .promise-block { padding: 28px 24px; }
+    .conditions { grid-template-columns: 1fr; gap: 8px; max-width: 420px; }
+    .tagline { font-size: 1.1rem; }
+    .program-name { font-size: 2.6rem; }
+    .hero { padding: 60px 16px 80px; }
+    .btn-primary { padding: 16px 36px; font-size: .78rem; }
+  }
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 2: 02_CASE_KSENIA ══ */
+/* ── BACKGROUND ─────────────────────────────── */
+
+  /* ── SECTION WRAPPER ─────────────────────────── */
+
+  /* ── SECTION LABEL ───────────────────────────── */
+  
+  
+  
+
+  /* ── AUTHOR INTRO ────────────────────────────── */
+  .author-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+
+  .author-photo-wrap {
+    flex-shrink: 0;
+    position: relative;
+  }
+  .author-photo {
+    width: 200px;
+    height: 260px;
+    background: linear-gradient(145deg, #1e1628 0%, #140f1e 100%);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .author-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11,9,16,.8) 100%);
+    z-index: 1;
+  }
+  .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold-dim);
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+  }
+  .photo-icon {
+    width: 52px; height: 52px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    color: var(--gold-dim);
+  }
+  /* corner accents on photo */
+  .author-photo-wrap::before,
+  .author-photo-wrap::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    z-index: 2;
+  }
+  .author-photo-wrap::before {
+    top: -1px; left: -1px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+  }
+  .author-photo-wrap::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+  }
+
+  .author-meta {
+    padding-top: 8px;
+  }
+  .author-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .author-role {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .75rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .author-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: var(--rose-lt);
+    line-height: 1.55;
+    padding-left: 20px;
+    border-left: 2px solid var(--rose);
+    margin-bottom: 28px;
+  }
+  .author-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-size: .72rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    color: var(--cream-dim);
+    padding: 5px 12px;
+    border: 1px solid var(--line-soft);
+  }
+
+  /* ── CASE CARD ───────────────────────────────── */
+  .case-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--cream);
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .case-subtitle {
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .82rem;
+    color: var(--gold-dim);
+    letter-spacing: .08em;
+    margin-bottom: 52px;
+  }
+
+  /* ── BEFORE / AFTER ──────────────────────────── */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+  .ba-col {
+    background: linear-gradient(160deg, rgba(255,255,255,.025) 0%, transparent 100%);
+    border: 1px solid var(--line-soft);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .ba-col.before { border-right: none; }
+  .ba-col.after  { border-left: none; border-color: var(--line); }
+  .ba-col.after::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,.04), transparent 60%);
+    pointer-events: none;
+  }
+
+  .ba-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .before .ba-label { color: var(--cream-dim); }
+  .after  .ba-label { color: var(--gold); }
+
+  .ba-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .88rem;
+    font-weight: 300;
+    line-height: 1.55;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--cream-dim);
+  }
+  .ba-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ba-icon { flex-shrink: 0; margin-top: 2px; font-size: .8rem; }
+  .before .ba-icon { color: #7a5560; }
+  .after  .ba-icon {
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(201,169,110,.8), 0 0 22px rgba(201,169,110,.4);
+  }
+  .after  .ba-item { color: var(--cream); }
+
+  /* center arrow column */
+  .ba-arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+  }
+  .ba-arrow {
+    width: 40px; height: 40px;
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(201,169,110,.25), inset 0 0 12px rgba(201,169,110,.06);
+    text-shadow: 0 0 8px rgba(201,169,110,.9);
+  }
+
+  /* ── TRANSFORMATION PROCESS ──────────────────── */
+  .process-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: var(--cream);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-bottom: 56px;
+  }
+  .process-step {
+    background: var(--bg);
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+    transition: background .3s;
+  }
+  .process-step:hover { background: var(--bg2); }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold-dim);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow:
+      0 0 14px rgba(201,169,110,.5),
+      0 0 35px rgba(201,169,110,.2);
+  }
+  .step-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .step-desc {
+    font-size: .8rem;
+    font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.5;
+  }
+
+  /* ── INSIGHT QUOTE ───────────────────────────── */
+  .insight-block {
+    position: relative;
+    background: linear-gradient(135deg, rgba(201,169,110,.06) 0%, rgba(155,100,112,.04) 100%);
+    border: 1px solid var(--line);
+    padding: 44px 52px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .insight-block::before {
+    content: '❝';
+    position: absolute;
+    top: -18px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    background: var(--bg);
+    padding: 0 12px;
+    line-height: 1;
+  }
+  /* corner accents */
+  .insight-block::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 20px; height: 20px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+  }
+  .corner-br-ins {
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 20px; height: 20px;
+    border-bottom: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+  }
+  .insight-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .insight-text em {
+    color: var(--gold-lt);
+    font-style: normal;
+  }
+  .insight-source {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .75rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  /* ── KEY INSIGHT ─────────────────────────────── */
+  .key-insight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(90deg, rgba(201,169,110,.06) 0%, transparent 100%);
+    border-left: 2px solid var(--gold);
+    padding: 20px 28px;
+    margin-bottom: 56px;
+  }
+  .key-insight-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .key-insight p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .9rem;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .key-insight p strong {
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ── RESULT STAT ─────────────────────────────── */
+  .result-stat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .result-stat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .stat-cell {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 40px 32px;
+    text-align: center;
+    transition: background .4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-cell::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+  .stat-cell:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--gold-lt);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow:
+      0 0 20px rgba(232,206,160,.55),
+      0 0 50px rgba(201,169,110,.3),
+      0 0 80px rgba(201,169,110,.15);
+    letter-spacing: .02em;
+  }
+  .stat-divider {
+    width: 28px; height: 1px;
+    background: var(--gold-dim);
+    margin: 0 auto 10px;
+    opacity: .7;
+  }
+  .stat-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: .82rem;
+    color: var(--cream-dim);
+    letter-spacing: .08em;
+    line-height: 1.55;
+  }
+
+  /* ── DIVIDER ─────────────────────────────────── */
+  
+  
+  
+
+  
+  
+  
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 720px) {
+    .author-intro { flex-direction: column; align-items: center; gap: 32px; }
+    .author-photo { width: 160px; height: 200px; }
+    .author-meta { padding-top: 0; text-align: center; }
+    .author-quote { text-align: left; }
+    .ba-grid { grid-template-columns: 1fr; }
+    .ba-col.before { border-right: 1px solid var(--line-soft); border-bottom: none; }
+    .ba-arrow-col { display: none; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .insight-block { padding: 36px 24px; }
+    .result-stat { grid-template-columns: 1fr; }
+    .key-insight { flex-direction: column; gap: 12px; }
+  }
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 3: 03_FOR_WHOM ══ */
+/* ── LAYOUT ──────────────────────────────────── */
+
+  /* ── SECTION LABEL ───────────────────────────── */
+  
+  
+  
+
+  /* ── SECTION HEADER ──────────────────────────── */
+  
+  
+
+  /* ── NOT FOR ALL BADGE ───────────────────────── */
+  .exclusivity-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+  .excl-line { width: 40px; height: 1px; background: var(--rose-lt); opacity: .4; }
+  .excl-text {
+    font-size: .82rem;
+    font-weight: 300;
+    letter-spacing: .08em;
+    color: #d4a0ac;
+    font-style: italic;
+  }
+
+  /* ── CARDS GRID ──────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-bottom: 56px;
+  }
+
+  /* ── SINGLE CARD ─────────────────────────────── */
+  .audience-card {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 36px 28px 32px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background .35s;
+  }
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .35s;
+  }
+  .audience-card:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+  .audience-card:hover::before { opacity: 1; }
+
+  /* photo placeholder */
+  .card-photo {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, #1e1628, #140f1e);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    transition: border-color .35s, box-shadow .35s;
+  }
+  .audience-card:hover .card-photo {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 16px rgba(201,169,110,.2);
+  }
+  .card-photo-icon {
+    font-size: 1.5rem;
+    color: var(--gold-dim);
+    text-shadow: var(--glow-icon);
+    transition: text-shadow .35s;
+  }
+  .audience-card:hover .card-photo-icon {
+    text-shadow: var(--glow-gold);
+  }
+
+  /* card number */
+  .card-num {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: rgba(201,169,110,.08);
+    line-height: 1;
+    transition: color .35s, text-shadow .35s;
+  }
+  .audience-card:hover .card-num {
+    color: rgba(201,169,110,.16);
+    text-shadow: 0 0 30px rgba(201,169,110,.15);
+  }
+
+  .card-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .card-role-sub {
+    font-size: .72rem;
+    font-weight: 300;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px rgba(201,169,110,.4);
+  }
+
+  /* pain points */
+  .card-pains {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .card-pains li {
+    font-size: .85rem;
+    font-weight: 400;
+    color: #d4c8bc;
+    line-height: 1.55;
+    padding: 7px 0 7px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+  }
+  .card-pains li:last-child { border-bottom: none; }
+  .card-pains li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--rose-lt);
+    font-weight: 400;
+  }
+
+  /* divider inside card */
+  .card-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+    margin-bottom: 16px;
+    opacity: .5;
+  }
+
+  /* result */
+  .card-result-label {
+    font-size: .68rem;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(201,169,110,.5);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-result-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .card-result-items {
+    list-style: none;
+  }
+  .card-result-items li {
+    font-size: .85rem;
+    font-weight: 400;
+    color: #e8ddd4;
+    line-height: 1.55;
+    padding: 6px 0 6px 18px;
+    position: relative;
+  }
+  .card-result-items li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    font-size: .55rem;
+    color: var(--gold);
+    text-shadow: var(--glow-icon);
+    top: 9px;
+  }
+
+  /* ── BOTTOM STAT ROW ─────────────────────────── */
+  .bottom-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .bstat-cell {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .bstat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4vw, 3.4rem);
+    font-weight: 300;
+    color: var(--gold-lt);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: var(--glow-gold);
+    letter-spacing: .02em;
+  }
+  .bstat-divider {
+    width: 24px; height: 1px;
+    background: var(--gold-dim);
+    margin: 0 auto 8px;
+    opacity: .6;
+  }
+  .bstat-label {
+    font-size: .82rem;
+    font-weight: 400;
+    color: #d4c8bc;
+    letter-spacing: .06em;
+    line-height: 1.5;
+  }
+
+  
+  
+  
+
+  
+  
+  
+
+  /* ── DIVIDER ─────────────────────────────────── */
+  
+  
+  
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 860px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .bottom-stats { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .bottom-stats { grid-template-columns: 1fr; }
+    .section { padding: 60px 16px 80px; }
+  }
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 4: 04_TRANSFORMATION ══ */
+
+  /* SECTION LABEL */
+  
+  
+  
+
+  
+  
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 72px;
+  }
+
+  /* each step */
+  .tl-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ── WEEK HEADER — above card ── */
+  .tl-week {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 0;
+  }
+  .week-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--gold-lt);
+    text-shadow: var(--glow-gold);
+    letter-spacing: .02em;
+    flex-shrink: 0;
+  }
+  .week-sep {
+    width: 1px; height: 36px;
+    background: linear-gradient(to bottom, transparent, var(--gold-dim), transparent);
+    flex-shrink: 0;
+    opacity: .6;
+  }
+  .week-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .week-label {
+    font-size: .68rem;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    line-height: 1;
+  }
+  .week-badge {
+    font-size: .75rem;
+    font-weight: 400;
+    color: var(--rose-lt);
+    font-style: italic;
+    text-shadow: var(--glow-rose);
+  }
+  /* trailing line */
+  .tl-week::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line), transparent);
+  }
+  .tl-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    box-shadow: var(--glow-icon);
+    flex-shrink: 0;
+    transition: background .3s, box-shadow .3s;
+  }
+  .tl-item:hover .tl-dot {
+    background: var(--gold);
+    box-shadow: var(--glow-gold);
+  }
+
+  /* ── CARD ── */
+  .tl-card {
+    margin-top: 14px;
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    border: 1px solid var(--line-soft);
+    border-top: 1px solid var(--line);
+    padding: 28px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .3s, background .3s;
+  }
+  .tl-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .35s;
+  }
+  .tl-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 10% 50%, rgba(201,169,110,.03) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .tl-item:hover .tl-card {
+    border-color: var(--line);
+    background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%);
+  }
+  .tl-item:hover .tl-card::before { opacity: 1; }
+
+  /* card content */
+  .tl-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .tl-section-label {
+    font-size: .68rem; font-weight: 400;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tl-section-label::after {
+    content:''; flex:1; height:1px; background:var(--line-soft);
+  }
+
+  .tl-list { list-style:none; margin-bottom:20px; }
+  .tl-list li {
+    font-size: .88rem; font-weight: 400;
+    color: var(--cream-mid); line-height: 1.6;
+    padding: 5px 0 5px 18px; position: relative;
+  }
+  .tl-list li::before {
+    content:'–'; position:absolute; left:0; color:var(--rose-lt);
+  }
+
+  .tl-result {
+    background: linear-gradient(90deg, rgba(201,169,110,.07), transparent);
+    border-left: 2px solid var(--gold);
+    padding: 10px 18px;
+  }
+  .tl-result p {
+    font-size: .9rem; font-weight: 400;
+    color: var(--cream); line-height: 1.55;
+  }
+  .tl-result p strong {
+    color: var(--gold-lt); font-weight: 500;
+    text-shadow: 0 0 10px rgba(232,206,160,.3);
+  }
+
+  /* ── FINAL RESULT ── */
+  
+  
+  
+
+  .final-result {
+    background: linear-gradient(135deg, rgba(201,169,110,.07) 0%, rgba(155,100,112,.05) 100%);
+    border: 1px solid var(--line);
+    padding: 48px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-result::before {
+    content:''; position:absolute; top:-1px; left:-1px;
+    width:28px; height:28px;
+    border-top:1px solid var(--gold); border-left:1px solid var(--gold);
+  }
+  .final-result::after {
+    content:''; position:absolute; bottom:-1px; right:-1px;
+    width:28px; height:28px;
+    border-bottom:1px solid var(--gold); border-right:1px solid var(--gold);
+  }
+  .final-glow {
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 50%, rgba(201,169,110,.08) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .final-label {
+    font-size:.72rem; font-weight:400; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--gold);
+    text-shadow:0 0 12px rgba(201,169,110,.4); margin-bottom:20px;
+  }
+  .final-title {
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400; font-size:clamp(1.3rem,3vw,1.9rem);
+    color:var(--cream); line-height:1.4; margin-bottom:36px;
+  }
+
+  /* stats row */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+    position: relative; overflow: hidden;
+  }
+  .stats-row::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 50%, rgba(201,169,110,.06) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .stat-cell {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 36px 24px; text-align: center;
+    transition: background .3s;
+  }
+  .stat-cell:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+  .stat-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(2.8rem,4.5vw,3.8rem);
+    font-weight:300; color:var(--gold-lt); line-height:1;
+    margin-bottom:8px; text-shadow:var(--glow-gold); letter-spacing:.02em;
+  }
+  .stat-divider { width:24px; height:1px; background:var(--gold-dim); margin:0 auto 8px; opacity:.6; }
+  .stat-label { font-size:.82rem; font-weight:400; color:var(--cream-mid); letter-spacing:.06em; line-height:1.5; }
+
+  /* animations */
+  
+  
+  .fd2{transition-delay:.1s;} .fd3{transition-delay:.2s;} .fd4{transition-delay:.3s;}
+
+  @media(max-width:640px){
+    .tl-card { padding:20px 18px; }
+    .final-result { padding:32px 20px; }
+    .stats-row { grid-template-columns:1fr; }
+    .section { padding:60px 16px 80px; }
+  }
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 5: 05_CASES ══ */
+
+  /* LABEL */
+  
+  
+  
+
+  
+  
+
+  /* ── CASES GRID ── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-bottom: 2px;
+  }
+
+  /* ── CASE CARD ── */
+  .case-card {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: background .35s;
+    cursor: default;
+  }
+  .case-card:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+
+  /* top accent line on hover */
+  .case-card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:0; transition:opacity .35s;
+  }
+  .case-card:hover::before { opacity:1; }
+
+  /* ── CARD HEADER ── */
+  .card-header {
+    padding: 32px 28px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card-avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, #1e1628, #140f1e);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: border-color .35s, box-shadow .35s;
+    font-size: 1.3rem;
+    color: var(--gold-dim);
+    text-shadow: var(--glow-icon);
+  }
+  .case-card:hover .card-avatar {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 16px rgba(201,169,110,.2);
+  }
+  .card-name-block {}
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 1.2rem;
+    color: var(--cream); line-height: 1.1; margin-bottom: 3px;
+  }
+  .card-meta {
+    font-size: .72rem; font-weight: 400;
+    letter-spacing: .1em; color: var(--gold-dim);
+  }
+
+  /* opening quote */
+  .card-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: var(--rose-lt); line-height: 1.55;
+    padding-left: 14px;
+    border-left: 2px solid var(--rose);
+    text-shadow: var(--glow-rose);
+  }
+
+  /* ── CARD BODY ── */
+  .card-
+
+  .body-section-label {
+    font-size: .65rem; font-weight: 400;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .body-section-label::after { content:''; flex:1; height:1px; background:var(--line-soft); }
+
+  .pain-list { list-style:none; }
+  .pain-list li {
+    font-size: .85rem; font-weight: 400;
+    color: var(--cream-mid); line-height: 1.55;
+    padding: 5px 0 5px 16px; position: relative;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .pain-list li:last-child { border-bottom:none; }
+  .pain-list li::before { content:'–'; position:absolute; left:0; color:var(--rose-lt); }
+
+  .result-list { list-style:none; }
+  .result-list li {
+    font-size: .85rem; font-weight: 400;
+    color: #e8ddd4; line-height: 1.55;
+    padding: 5px 0 5px 18px; position: relative;
+  }
+  .result-list li::before {
+    content:'◆'; position:absolute; left:0;
+    font-size:.5rem; color:var(--gold);
+    text-shadow:var(--glow-icon); top:9px;
+  }
+
+  /* ── CARD FOOTER ── */
+  .card-footer {
+    padding: 16px 28px 24px;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .card-speed-label {
+    font-size: .65rem; font-weight: 400;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .card-speed-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 300; color: var(--gold-lt);
+    text-shadow: var(--glow-gold); line-height: 1;
+  }
+  .card-speed-divider { width:1px; height:28px; background:var(--line); flex-shrink:0; }
+
+  /* ── KEY QUOTE BLOCK (full width) ── */
+  .key-quote-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    border-top: none;
+    margin-bottom: 56px;
+  }
+  .key-quote-cell {
+    background: linear-gradient(160deg, rgba(201,169,110,.05) 0%, transparent 100%);
+    border-top: 1px solid var(--line);
+    padding: 20px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .kq-icon { color:var(--gold); font-size:.7rem; text-shadow:var(--glow-icon); flex-shrink:0; margin-top:5px; }
+  .kq-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: .95rem;
+    color: var(--cream-mid); line-height: 1.6;
+  }
+  .kq-text strong { color: var(--cream); font-style:normal; font-weight:500; }
+
+  /* ── DIVIDER ── */
+  
+  
+  
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+    position: relative; overflow: hidden;
+  }
+  .stats-row::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 50%, rgba(201,169,110,.06) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .stat-cell {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 32px 20px; text-align:center;
+    transition:background .3s;
+  }
+  .stat-cell:hover { background:linear-gradient(160deg,#18132a 0%,#0f0c18 100%); }
+  .stat-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.6rem,4vw,3.4rem);
+    font-weight:300; color:var(--gold-lt); line-height:1;
+    margin-bottom:8px; text-shadow:var(--glow-gold); letter-spacing:.02em;
+  }
+  .stat-divider { width:22px; height:1px; background:var(--gold-dim); margin:0 auto 8px; opacity:.6; }
+  .stat-label { font-size:.78rem; font-weight:400; color:var(--cream-mid); letter-spacing:.05em; line-height:1.5; }
+
+  /* animations */
+  
+  
+  .fd2{transition-delay:.1s;} .fd3{transition-delay:.2s;}
+
+  @media(max-width:860px){
+    .cases-grid { grid-template-columns:1fr 1fr; }
+    .key-quote-row { grid-template-columns:1fr 1fr; }
+    .stats-row { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:560px){
+    .cases-grid { grid-template-columns:1fr; }
+    .key-quote-row { grid-template-columns:1fr; }
+    .stats-row { grid-template-columns:1fr 1fr; }
+    .section { padding:60px 16px 80px; }
+  }
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 6: 06_PROGRAM_BONUSES ══ */
+
+  /* ── SHARED ── */
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  /* ════════════════════════════════
+     PART 1 — ПРОГРАММА (ЧТО ВХОДИТ)
+  ════════════════════════════════ */
+
+  .format-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+  }
+  .fi-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .fi-icon {
+    font-size: 1rem;
+    color: var(--gold);
+    text-shadow: var(--glow-icon);
+    flex-shrink: 0;
+  }
+  .fi-text {
+    font-size: .82rem;
+    font-weight: 400;
+    color: var(--cream-mid);
+    letter-spacing: .05em;
+  }
+  .fi-text strong { color: var(--cream); font-weight: 500; }
+  .fi-sep { width:1px; height:20px; background:var(--line); }
+
+  /* includes grid */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-bottom: 2px;
+  }
+
+  .inc-card {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background .35s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .inc-card:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+  .inc-card::before {
+    content:''; position:absolute;
+    top:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    opacity:0; transition:opacity .35s;
+  }
+  .inc-card:hover::before { opacity:1; }
+
+  .inc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(201,169,110,.1);
+    line-height: 1;
+    position: absolute;
+    top: 16px; right: 18px;
+    transition: color .35s, text-shadow .35s;
+    text-shadow: none;
+  }
+  .inc-card:hover .inc-num {
+    color: rgba(201,169,110,.2);
+    text-shadow: 0 0 20px rgba(201,169,110,.15);
+  }
+
+  .inc-icon {
+    font-size: 1.3rem;
+    color: var(--gold);
+    text-shadow: var(--glow-icon);
+    line-height: 1;
+  }
+  .inc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--cream);
+    line-height: 1.25;
+  }
+  .inc-desc {
+    font-size: .84rem;
+    font-weight: 400;
+    color: var(--cream-mid);
+    line-height: 1.6;
+  }
+  .inc-desc em {
+    color: var(--gold);
+    font-style: normal;
+    text-shadow: 0 0 8px rgba(201,169,110,.3);
+  }
+
+  /* bottom accent strip */
+  .inc-bottom-strip {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, rgba(201,169,110,.05), rgba(155,100,112,.04), transparent);
+    border: 1px solid var(--line-soft);
+    border-top: 1px solid var(--line);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .inc-strip-icon { color:var(--gold); font-size:.75rem; text-shadow:var(--glow-icon); flex-shrink:0; }
+  .inc-strip-text { font-size:.82rem; font-weight:400; color:var(--cream-mid); line-height:1.5; }
+  .inc-strip-text strong { color:var(--cream); font-weight:500; }
+
+  /* ════════════════════════════════
+     PART 2 — БОНУСЫ
+  ════════════════════════════════ */
+
+  .bonuses-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .bonuses-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--cream);
+    line-height: 1.2;
+  }
+  .bonuses-total {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 300;
+    color: var(--gold-lt);
+    text-shadow: var(--glow-gold);
+    white-space: nowrap;
+  }
+  .bonuses-total span {
+    font-size: .72rem;
+    font-weight: 400;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: block;
+    text-shadow: none;
+    margin-bottom: 2px;
+  }
+
+  .bonuses-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-bottom: 2px;
+  }
+
+  .bonus-card {
+    background: linear-gradient(160deg, #110e1a 0%, var(--bg) 100%);
+    padding: 28px 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: 18px;
+    transition: background .35s;
+    cursor: default;
+  }
+  .bonus-card:hover { background: linear-gradient(160deg, #18132a 0%, #0f0c18 100%); }
+  .bonus-card::before {
+    content:''; position:absolute;
+    top:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    opacity:0; transition:opacity .35s;
+  }
+  .bonus-card:hover::before { opacity:1; }
+
+  .bonus-num-col {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-top: 3px;
+  }
+  .bonus-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--gold-lt);
+    line-height: 1;
+    text-shadow: var(--glow-gold);
+  }
+  .bonus-num-line {
+    width: 1px; height: 100%;
+    background: linear-gradient(to bottom, var(--line), transparent);
+    min-height: 20px;
+  }
+
+  .bonus-content { flex: 1; min-width: 0; }
+  .bonus-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .bonus-value {
+    font-size: .72rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(201,169,110,.35);
+    margin-bottom: 12px;
+  }
+  .bonus-desc {
+    font-size: .84rem;
+    font-weight: 400;
+    color: var(--cream-mid);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .bonus-items { list-style: none; }
+  .bonus-items li {
+    font-size: .82rem;
+    font-weight: 400;
+    color: var(--cream-mid);
+    line-height: 1.5;
+    padding: 4px 0 4px 16px;
+    position: relative;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .bonus-items li:last-child { border-bottom: none; }
+  .bonus-items li::before {
+    content:'◆'; position:absolute; left:0;
+    font-size:.45rem; color:var(--gold);
+    text-shadow:var(--glow-icon); top:8px;
+  }
+
+  /* community bonus — full width */
+  .bonus-card.full {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(201,169,110,.06) 0%, rgba(155,100,112,.04) 100%);
+    border-top: 1px solid var(--line);
+  }
+
+  /* total strip */
+  .bonuses-total-strip {
+    background: linear-gradient(90deg, rgba(201,169,110,.07), transparent);
+    border: 1px solid var(--line);
+    border-top: none;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .bts-label {
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .bts-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--gold-lt);
+    text-shadow: var(--glow-gold);
+    line-height: 1;
+  }
+  .bts-note {
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--cream-mid);
+    line-height: 1.5;
+    max-width: 360px;
+  }
+
+  /* animations */
+  
+  
+  .fd2{transition-delay:.08s;} .fd3{transition-delay:.16s;}
+  .fd4{transition-delay:.24s;} .fd5{transition-delay:.32s;}
+
+  @media(max-width:860px){
+    .includes-grid { grid-template-columns:1fr 1fr; }
+    .bonuses-list { grid-template-columns:1fr; }
+    .bonus-card.full { grid-column:1; }
+  }
+  @media(max-width:560px){
+    .includes-grid { grid-template-columns:1fr; }
+    .format-info { gap:16px; }
+    .fi-sep { display:none; }
+    .section { padding:60px 16px 80px; }
+    .bonuses-header { flex-direction:column; gap:8px; }
+  }
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 7: 07_PRICING ══ */
+
+/* LABEL */
+.s-label{display:flex;align-items:center;gap:16px;margin-bottom:52px;opacity:0;transition:opacity .7s,transform .7s;transform:translateY(16px);}
+.s-label.vis{opacity:1;transform:none;}
+.ll{flex:1;height:1px;background:var(--line);}
+.lt{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim);}
+
+/* INTRO COMPARE */
+.intro{background:var(--bg2);border:1px solid var(--line);padding:28px 36px;margin-bottom:64px;opacity:0;transition:opacity .8s .1s,transform .8s .1s;transform:translateY(16px);}
+.intro.vis{opacity:1;transform:none;}
+.intro-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.1rem,2vw,1.4rem);color:var(--cream-mid);line-height:1.7;text-align:center;}
+.intro-text strong{color:var(--gold);font-weight:400;}
+
+/* DIVIDER */
+.div{display:flex;align-items:center;gap:16px;margin:0 0 64px;}
+.dl{flex:1;height:1px;background:var(--line);}
+.dd{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:var(--glow-icon);}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:52px;}
+.card{background:var(--bg2);border:1px solid var(--line-soft);position:relative;display:flex;flex-direction:column;opacity:0;transition:opacity .8s,transform .8s;transform:translateY(22px);}
+.card.vis{opacity:1;transform:none;}
+.card:nth-child(1){transition-delay:.08s;}
+.card:nth-child(2){transition-delay:.2s;}
+.card:nth-child(3){transition-delay:.34s;}
+.card.feat{border-color:var(--gold);box-shadow:0 0 40px rgba(201,169,110,.07);}
+.card.feat::before,.card.vip::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.05),transparent 55%);pointer-events:none;}
+.card.vip{border-color:rgba(201,169,110,.35);}
+
+.badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;}
+.badge-f{background:var(--gold);color:var(--bg);}
+.badge-v{border:1px solid var(--gold);color:var(--gold);}
+
+.c-head{padding:30px 26px 22px;border-bottom:1px solid var(--line-soft);}
+.c-tier{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;}
+.c-tier.g{color:var(--gold);}
+.c-price{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,4.5vw,3.8rem);color:var(--gold-lt);text-shadow:var(--glow-gold);line-height:1;}
+.c-rule{width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px 0;}
+.c-sub{font-size:.79rem;color:var(--cream-mid);line-height:1.5;margin-bottom:6px;}
+.c-val{font-size:.7rem;color:var(--gold-dim);font-style:italic;}
+
+.c-
+.ci{display:flex;align-items:flex-start;gap:10px;font-size:.81rem;color:var(--cream-mid);line-height:1.5;font-weight:300;}
+.ck{flex-shrink:0;color:var(--gold);font-size:.7rem;margin-top:3px;text-shadow:var(--glow-icon);}
+.ci strong{color:var(--cream);font-weight:400;}
+.ci em{font-style:italic;color:var(--gold-dim);font-size:.74rem;display:block;margin-top:2px;}
+.c-div{height:1px;background:var(--line-soft);margin:3px 0;}
+.c-blabel{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);margin-top:2px;}
+.ck-rose{color:var(--rose-lt);}
+
+.c-foot{padding:20px 26px;border-top:1px solid var(--line-soft);}
+.c-eco{font-size:.71rem;color:var(--gold-dim);text-align:center;margin-bottom:14px;}
+.c-eco span{color:var(--gold);}
+
+/* КНОПКИ */
+.btn{display:block;width:100%;padding:16px 20px;text-align:center;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;border:none;position:relative;overflow:hidden;transition:all .3s;}
+
+/* БАЗОВЫЙ — утончённая линия, стрелка появляется при ховере */
+.btn-base{background:transparent;border:1px solid rgba(201,169,110,.3);color:var(--cream-mid);}
+.btn-base::after{content:'→';position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(8px);opacity:0;transition:all .3s;color:var(--gold);}
+.btn-base:hover{border-color:var(--gold);color:var(--gold);padding-right:40px;}
+.btn-base:hover::after{opacity:1;transform:translateY(-50%) translateX(0);}
+
+/* СТАНДАРТ — золотой градиент с shimmer-эффектом */
+.btn-feat{background:linear-gradient(135deg,var(--gold-lt) 0%,var(--gold) 50%,#a07840 100%);background-size:200% 100%;background-position:0% 0%;color:var(--bg);font-weight:500;box-shadow:0 4px 20px rgba(201,169,110,.25);}
+.btn-feat::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-100%);transition:transform .55s;}
+.btn-feat:hover{background-position:100% 0%;box-shadow:0 8px 32px rgba(201,169,110,.4);transform:translateY(-2px);}
+.btn-feat:hover::before{transform:translateX(100%);}
+
+/* VIP — тёмный с золотым бордером + мерцающий ореол */
+.btn-vip{background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.03));border:1px solid var(--gold);color:var(--gold-lt);letter-spacing:.22em;}
+.btn-vip::before{content:'';position:absolute;inset:-1px;background:linear-gradient(135deg,var(--gold),var(--rose),var(--gold));border-radius:inherit;z-index:-1;opacity:0;transition:opacity .35s;}
+.btn-vip::after{content:'💎';position:absolute;left:18px;top:50%;transform:translateY(-50%) scale(.8);opacity:0;transition:all .3s;}
+.btn-vip:hover{background:rgba(201,169,110,.1);box-shadow:0 0 28px rgba(201,169,110,.2),0 8px 24px rgba(0,0,0,.4);transform:translateY(-2px);padding-left:40px;color:var(--gold-lt);}
+.btn-vip:hover::before{opacity:.35;}
+.btn-vip:hover::after{opacity:1;transform:translateY(-50%) scale(1);}
+
+.c-seats{font-size:.69rem;letter-spacing:.08em;color:var(--rose-lt);text-align:center;margin-top:10px;}
+
+/* РАССРОЧКА */
+.inst{background:var(--bg2);border:1px solid var(--line);padding:36px;margin-bottom:44px;opacity:0;transition:opacity .8s .45s,transform .8s .45s;transform:translateY(16px);}
+.inst.vis{opacity:1;transform:none;}
+.inst-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.5rem;color:var(--cream);margin-bottom:24px;}
+.inst-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.inst-c{background:var(--bg3);padding:18px 22px;}
+.inst-t{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;}
+.inst-v{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--cream);}
+.inst-n{font-size:.72rem;color:var(--rose-lt);margin-top:4px;}
+.inst-note{font-size:.79rem;color:var(--cream-mid);line-height:1.7;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft);}
+.inst-note strong{color:var(--cream);font-weight:400;}
+
+/* STRIP */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);opacity:0;transition:opacity .8s .55s,transform .8s .55s;transform:translateY(16px);}
+.strip.vis{opacity:1;transform:none;}
+.strip-c{background:var(--bg2);padding:20px 22px;display:flex;align-items:center;gap:14px;}
+.strip-ic{font-size:1.3rem;text-shadow:var(--glow-icon);flex-shrink:0;}
+.strip-t{font-size:.79rem;color:var(--cream-mid);line-height:1.5;}
+.strip-t strong{color:var(--cream);display:block;font-weight:400;margin-bottom:2px;}
+
+/* TABLE */
+.ctbl-wrap{margin-top:64px;opacity:0;transition:opacity .8s .4s,transform .8s .4s;transform:translateY(16px);}
+.ctbl-wrap.vis{opacity:1;transform:none;}
+.ctbl-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;color:var(--cream);text-align:center;margin-bottom:24px;}
+.ctbl{width:100%;border-collapse:collapse;font-size:.8rem;}
+.ctbl th{padding:12px 14px;text-align:center;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);border-bottom:1px solid var(--line);font-weight:400;}
+.ctbl th:first-child{text-align:left;}
+.ctbl td{padding:11px 14px;text-align:center;border-bottom:1px solid var(--line-soft);color:var(--cream-mid);}
+.ctbl td:first-child{text-align:left;}
+.ctbl tr:last-child td{border-bottom:none;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold-lt);}
+.ctbl tr:hover td{background:rgba(255,255,255,.018);}
+.cy{color:var(--gold);text-shadow:var(--glow-icon);}
+.cn{color:rgba(255,255,255,.14);}
+
+@media(max-width:900px){.grid,.inst-g,.strip{grid-template-columns:1fr;}}
+@media(max-width:640px){.section{padding:70px 16px 60px;}}
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 8: 08_INACTION ══ */
+
+/* LABEL */
+
+/* TITLE */
+.s-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4.5vw,3.2rem);color:var(--cream);text-align:center;line-height:1.2;margin-bottom:16px;opacity:0;transition:opacity .8s .1s,transform .8s .1s;transform:translateY(16px);}
+.s-title.vis{opacity:1;transform:none;}
+.s-sub{font-size:.9rem;color:var(--cream-mid);text-align:center;margin-bottom:64px;opacity:0;transition:opacity .8s .18s,transform .8s .18s;transform:translateY(14px);}
+.s-sub.vis{opacity:1;transform:none;}
+
+/* MAIN LOSS CARD */
+.loss-main{background:var(--bg2);border:1px solid rgba(155,100,112,.35);position:relative;overflow:hidden;padding:48px;margin-bottom:32px;opacity:0;transition:opacity .9s .2s,transform .9s .2s;transform:translateY(20px);}
+.loss-main.vis{opacity:1;transform:none;}
+.loss-main::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(155,100,112,.12),transparent 60%);pointer-events:none;}
+.loss-head{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-lt);margin-bottom:20px;}
+.loss-amount{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:300;color:var(--rose-lt);text-shadow:var(--glow-rose);line-height:1;}
+.loss-rule{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--rose-lt),transparent);margin:14px 0;}
+.loss-desc{font-size:.88rem;color:var(--cream-mid);line-height:1.7;max-width:540px;}
+.loss-desc strong{color:var(--cream);font-weight:400;}
+
+/* LOSS ROWS */
+.loss-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+.loss-row{background:var(--bg2);border:1px solid var(--line-soft);padding:28px 30px;position:relative;opacity:0;transition:opacity .8s,transform .8s;transform:translateY(16px);}
+.loss-row.vis{opacity:1;transform:none;}
+.loss-row:nth-child(1){transition-delay:.25s;}
+.loss-row:nth-child(2){transition-delay:.35s;}
+.loss-row:nth-child(3){transition-delay:.45s;}
+.loss-row:nth-child(4){transition-delay:.55s;}
+.loss-row::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),transparent);}
+.lr-label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-lt);margin-bottom:12px;opacity:.8;}
+.lr-num{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(--rose-lt);text-shadow:var(--glow-rose);line-height:1;}
+.lr-rule{width:28px;height:1px;background:linear-gradient(90deg,transparent,var(--rose-lt),transparent);margin:8px 0;}
+.lr-desc{font-size:.78rem;color:var(--cream-mid);line-height:1.6;font-weight:300;}
+.lr-desc strong{color:var(--cream);font-weight:400;}
+
+/* WAITING COST */
+.wait-card{background:var(--bg2);border:1px solid rgba(155,100,112,.3);padding:36px 40px;margin-bottom:32px;position:relative;overflow:hidden;opacity:0;transition:opacity .8s .5s,transform .8s .5s;transform:translateY(16px);}
+.wait-card.vis{opacity:1;transform:none;}
+.wait-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(155,100,112,.1),transparent 60%);pointer-events:none;}
+.wait-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.5rem;color:var(--cream);margin-bottom:20px;}
+.wait-rows{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);}
+.wait-cell{background:var(--bg3);padding:20px 22px;}
+.wait-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-lt);margin-bottom:8px;opacity:.8;}
+.wait-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--rose-lt);text-shadow:var(--glow-rose);}
+.wait-note{font-size:.74rem;color:var(--cream-mid);margin-top:4px;line-height:1.5;}
+
+/* DIVIDER */
+.dg-div{display:flex;align-items:center;gap:16px;margin:32px 0;}
+.dg-l{flex:1;height:1px;background:var(--line);}
+.dg-d{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:var(--glow-icon);}
+
+/* PAYBACK CARD */
+.payback{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);opacity:0;transition:opacity .8s .6s,transform .8s .6s;transform:translateY(16px);}
+.payback.vis{opacity:1;transform:none;}
+.pb-cell{background:var(--bg2);padding:36px 40px;position:relative;overflow:hidden;}
+.pb-cell.good{background:var(--bg3);}
+.pb-cell.good::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.07),transparent 70%);pointer-events:none;}
+.pb-label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;}
+.pb-label.bad{color:var(--rose-lt);}
+.pb-label.ok{color:var(--gold-dim);}
+.pb-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;line-height:1;}
+.pb-num.bad{color:var(--rose-lt);text-shadow:var(--glow-rose);}
+.pb-num.ok{color:var(--gold-lt);text-shadow:var(--glow-gold);}
+.pb-rule{width:32px;height:1px;margin:12px 0;}
+.pb-rule.bad{background:linear-gradient(90deg,transparent,var(--rose-lt),transparent);}
+.pb-rule.ok{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.pb-desc{font-size:.82rem;color:var(--cream-mid);line-height:1.7;font-weight:300;}
+.pb-desc strong{color:var(--cream);font-weight:400;}
+
+@media(max-width:760px){
+  .loss-grid{grid-template-columns:1fr;}
+  .wait-rows{grid-template-columns:1fr;}
+  .payback{grid-template-columns:1fr;}
+  .section{padding:70px 16px 60px;}
+  .loss-main{padding:32px 24px;}
+}
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 9: 09_GUARANTEE_URGENCY ══ */
+
+/* FADE IN */
+
+/* LABEL */
+/* TITLE */
+/* DIVIDER */
+.dg-div{display:flex;align-items:center;gap:16px;margin:64px 0;}
+.dg-l{flex:1;height:1px;background:var(--line);}
+.dg-d{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:var(--glow-icon);}
+
+/* ===== ГАРАНТИЯ ===== */
+
+/* SHIELD HERO */
+.guarantee-hero{background:var(--bg2);border:1px solid rgba(201,169,110,.3);padding:52px 48px;position:relative;overflow:hidden;margin-bottom:32px;}
+.guarantee-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(201,169,110,.08),transparent 55%);pointer-events:none;}
+.gh-inner{display:grid;grid-template-columns:120px 1fr;gap:40px;align-items:center;}
+.gh-shield{width:100px;height:100px;border:1px solid rgba(201,169,110,.35);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;flex-shrink:0;}
+.gh-shield::before,.gh-shield::after{content:'';position:absolute;width:14px;height:14px;border-color:var(--gold);border-style:solid;opacity:.5;}
+.gh-shield::before{top:-1px;left:-1px;border-width:1px 0 0 1px;}
+.gh-shield::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0;}
+.gh-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--cream);line-height:1.2;margin-bottom:10px;}
+.gh-sub{font-size:.84rem;color:var(--cream-mid);line-height:1.7;}
+.gh-sub strong{color:var(--gold);font-weight:400;}
+
+/* STATS ROW */
+.g-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:32px;}
+.gs-cell{background:var(--bg3);padding:26px 28px;text-align:center;position:relative;overflow:hidden;}
+.gs-cell::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.05),transparent 70%);pointer-events:none;}
+.gs-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3rem);font-weight:300;color:var(--gold-lt);text-shadow:var(--glow-gold);line-height:1;}
+.gs-rule{width:32px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto;}
+.gs-desc{font-size:.75rem;color:var(--cream-mid);line-height:1.5;}
+
+/* CONDITIONS */
+.conditions{background:var(--bg2);border:1px solid var(--line-soft);padding:36px 40px;margin-bottom:32px;}
+.cond-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.3rem;color:var(--cream);margin-bottom:24px;}
+.cond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+.cond-item{display:flex;flex-direction:column;gap:10px;}
+.cond-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);text-shadow:var(--glow-gold);line-height:1;}
+.cond-text{font-size:.8rem;color:var(--cream-mid);line-height:1.6;}
+.cond-text strong{color:var(--cream);font-weight:400;display:block;margin-bottom:2px;}
+
+/* WHAT IF */
+.whatif{background:var(--bg3);border:1px solid rgba(201,169,110,.2);padding:28px 32px;position:relative;overflow:hidden;}
+.whatif::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(201,169,110,.06),transparent 60%);pointer-events:none;}
+.wi-title{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;}
+.wi-row{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid var(--line-soft);}
+.wi-row:last-child{border-bottom:none;}
+.wi-icon{flex-shrink:0;font-size:.9rem;text-shadow:var(--glow-icon);margin-top:2px;}
+.wi-text{font-size:.82rem;color:var(--cream-mid);line-height:1.6;}
+.wi-text strong{color:var(--gold-lt);font-weight:400;}
+.wi-total{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--gold-dim);font-style:italic;}
+.wi-total span{color:var(--gold);}
+
+/* ===== СРОЧНОСТЬ ===== */
+
+/* URGENCY HERO */
+.urgency-hero{background:var(--bg2);border:1px solid rgba(155,100,112,.3);padding:44px 48px;position:relative;overflow:hidden;margin-bottom:28px;}
+.urgency-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 30%,rgba(155,100,112,.1),transparent 55%);pointer-events:none;}
+.uh-label{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-lt);margin-bottom:16px;opacity:.85;}
+.uh-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,3.5vw,2.6rem);color:var(--cream);line-height:1.25;margin-bottom:12px;}
+.uh-sub{font-size:.84rem;color:var(--cream-mid);line-height:1.7;}
+.uh-sub strong{color:var(--cream);font-weight:400;}
+
+/* SEATS */
+.seats-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+.seat-card{background:var(--bg2);border:1px solid var(--line-soft);padding:28px 30px;position:relative;}
+.seat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.seat-card.all::before{background:linear-gradient(90deg,var(--gold-dim),transparent);}
+.seat-card.vip::before{background:linear-gradient(90deg,var(--rose),transparent);}
+.seat-label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;}
+.seat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,3.8rem);font-weight:300;line-height:1;}
+.seat-num.all{color:var(--gold-lt);text-shadow:var(--glow-gold);}
+.seat-num.vip{color:var(--rose-lt);text-shadow:var(--glow-rose);}
+.seat-rule{width:28px;height:1px;margin:10px 0;}
+.seat-rule.all{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.seat-rule.vip{background:linear-gradient(90deg,transparent,var(--rose-lt),transparent);}
+.seat-desc{font-size:.78rem;color:var(--cream-mid);line-height:1.6;}
+
+/* PRICE TABLE */
+.price-table{background:var(--bg2);border:1px solid var(--line);margin-bottom:28px;}
+.pt-head{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;background:var(--bg3);border-bottom:1px solid var(--line);}
+.pt-hcell{padding:12px 18px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);}
+.pt-hcell:not(:first-child){text-align:center;border-left:1px solid var(--line-soft);}
+.pt-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid var(--line-soft);}
+.pt-row:last-child{border-bottom:none;}
+.pt-cell{padding:14px 18px;font-size:.82rem;color:var(--cream-mid);}
+.pt-cell:not(:first-child){text-align:center;border-left:1px solid var(--line-soft);}
+.pt-cell.old{color:rgba(201,144,158,.7);text-decoration:line-through;font-size:.76rem;}
+.pt-cell.now{color:var(--gold-lt);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;}
+.pt-cell.save{color:var(--gold-dim);font-size:.74rem;font-style:italic;}
+
+/* DEADLINE */
+.deadline{background:var(--bg3);border:1px solid rgba(155,100,112,.25);padding:28px 32px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden;}
+.deadline::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(155,100,112,.07),transparent 65%);pointer-events:none;}
+.dl-icon{font-size:2rem;text-shadow:var(--glow-rose);flex-shrink:0;}
+.dl-text{font-size:.84rem;color:var(--cream-mid);line-height:1.7;}
+.dl-text strong{color:var(--cream);font-weight:400;}
+.dl-text em{color:var(--rose-lt);font-style:normal;}
+
+@media(max-width:760px){
+  .gh-inner{grid-template-columns:1fr;gap:24px;}
+  .g-stats{grid-template-columns:1fr;}
+  .cond-grid{grid-template-columns:1fr;}
+  .seats-row{grid-template-columns:1fr;}
+  .pt-head,.pt-row{grid-template-columns:1fr 1fr;}
+  .pt-hcell:nth-child(n+3),.pt-cell:nth-child(n+3){display:none;}
+  .guarantee-hero,.urgency-hero{padding:32px 24px;}
+}
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+
+/* ══ BLOCK 10: 10_FAQ_CTA_AUTHOR_CONTACTS ══ */
+
+/* LABEL */
+/* TITLE */
+/* DIVIDER */
+.dg-div{display:flex;align-items:center;gap:16px;margin:80px 0 72px;}
+.dg-l{flex:1;height:1px;background:var(--line);}
+.dg-d{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:var(--glow-icon);}
+
+/* ===== FAQ ===== */
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-bottom:0;}
+.faq-item{background:var(--bg2);border:1px solid var(--line-soft);overflow:hidden;transition:border-color .3s;}
+.faq-item.open{border-color:rgba(201,169,110,.25);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;cursor:pointer;user-select:none;}
+.faq-q-text{font-size:.9rem;color:var(--cream);font-weight:400;line-height:1.5;}
+.faq-icon{width:24px;height:24px;flex-shrink:0;border:1px solid rgba(201,169,110,.3);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gold);transition:all .3s;transform:rotate(0deg);}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--gold);background:rgba(201,169,110,.08);box-shadow:var(--glow-icon);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 28px 24px;font-size:.84rem;color:var(--cream-mid);line-height:1.8;border-top:1px solid var(--line-soft);}
+.faq-a-inner strong{color:var(--cream);font-weight:400;}
+.faq-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:16px;}
+.faq-cmp-cell{background:var(--bg3);padding:14px 18px;}
+.faq-cmp-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;}
+.faq-cmp-label.bad{color:var(--rose-lt);}
+.faq-cmp-label.good{color:var(--gold-dim);}
+.faq-cmp-row{font-size:.78rem;color:var(--cream-mid);padding:4px 0;border-bottom:1px solid var(--line-soft);line-height:1.5;}
+.faq-cmp-row:last-child{border-bottom:none;}
+
+/* ===== CTA ===== */
+.cta-wrap{background:var(--bg2);border:1px solid rgba(201,169,110,.25);padding:64px 52px;position:relative;overflow:hidden;text-align:center;}
+.cta-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.09),transparent 60%);pointer-events:none;}
+.cta-wrap::after{content:'';position:absolute;top:-1px;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.cta-label{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:20px;}
+.cta-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,4vw,3rem);color:var(--cream);line-height:1.2;margin-bottom:16px;}
+.cta-sub{font-size:.86rem;color:var(--cream-mid);line-height:1.7;max-width:560px;margin:0 auto 40px;}
+.cta-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:44px;text-align:left;}
+.cta-step{background:var(--bg3);padding:24px 26px;position:relative;overflow:hidden;}
+.cta-step::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.04),transparent 70%);pointer-events:none;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);text-shadow:var(--glow-gold);line-height:1;margin-bottom:10px;}
+.step-rule{width:24px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:10px;}
+.step-title{font-size:.82rem;color:var(--cream);font-weight:400;margin-bottom:6px;}
+.step-desc{font-size:.76rem;color:var(--cream-mid);line-height:1.6;}
+.btn-cta{display:inline-block;padding:20px 56px;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:var(--bg);font-family:'Jost',sans-serif;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;border:none;position:relative;overflow:hidden;transition:all .3s;margin-bottom:16px;}
+.btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-100%);transition:transform .55s;}
+.btn-cta:hover{box-shadow:0 10px 40px rgba(201,169,110,.35);transform:translateY(-2px);}
+.btn-cta:hover::before{transform:translateX(100%);}
+.cta-note{font-size:.74rem;color:var(--gold-dim);font-style:italic;}
+
+/* ===== АВТОР ===== */
+.author-wrap{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start;}
+.author-photo{background:var(--bg2);border:1px solid var(--line);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;color:var(--gold-dim);font-size:.8rem;text-align:center;position:relative;overflow:hidden;}
+.author-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.06),transparent 70%);}
+.author-photo-placeholder{position:relative;z-index:1;padding:20px;}
+.author-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3rem);color:var(--cream);line-height:1;margin-bottom:8px;}
+.author-role{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:28px;}
+.author-creds{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.cred-item{display:flex;align-items:flex-start;gap:12px;font-size:.82rem;color:var(--cream-mid);line-height:1.5;}
+.cred-dot{flex-shrink:0;color:var(--gold);font-size:.7rem;margin-top:4px;text-shadow:var(--glow-icon);}
+.cred-item strong{color:var(--cream);font-weight:400;}
+.author-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.astat-cell{background:var(--bg3);padding:18px 20px;text-align:center;}
+.astat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:300;color:var(--gold-lt);text-shadow:var(--glow-gold);line-height:1;}
+.astat-rule{width:24px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:8px auto;}
+.astat-desc{font-size:.7rem;color:var(--cream-mid);line-height:1.4;}
+
+/* ===== КОНТАКТЫ ===== */
+.contacts-wrap{background:var(--bg2);border:1px solid var(--line-soft);padding:48px;}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:36px;}
+.contact-group-title{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:18px;}
+.contact-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft);}
+.contact-item:last-child{border-bottom:none;}
+.contact-icon{font-size:1.1rem;text-shadow:var(--glow-icon);flex-shrink:0;width:24px;text-align:center;}
+.contact-info{font-size:.84rem;}
+.contact-info a{color:var(--gold);text-decoration:none;}
+.contact-info a:hover{color:var(--gold-lt);}
+.contact-info span{color:var(--cream-mid);}
+.contact-hours{font-size:.74rem;color:var(--gold-dim);margin-top:3px;}
+.social-row{display:flex;gap:12px;flex-wrap:wrap;}
+.social-btn{padding:10px 20px;border:1px solid var(--line);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-mid);text-decoration:none;transition:all .25s;}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);}
+.contacts-footer{border-top:1px solid var(--line-soft);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.footer-legal{font-size:.72rem;color:var(--gold-dim);line-height:1.8;}
+.footer-legal a{color:var(--gold-dim);text-decoration:none;border-bottom:1px solid rgba(201,169,110,.2);}
+.footer-legal a:hover{color:var(--gold);}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.2);}
+
+@media(max-width:860px){
+  .author-wrap{grid-template-columns:1fr;}
+  .author-photo{aspect-ratio:16/7;max-height:220px;}
+  .cta-steps{grid-template-columns:1fr;}
+  .contacts-grid{grid-template-columns:1fr;}
+  .faq-compare{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .section{padding:70px 16px 60px;}
+  .cta-wrap{padding:44px 24px;}
+  .contacts-wrap{padding:32px 20px;}
+  .author-stats{grid-template-columns:1fr;}
+  .contacts-footer{flex-direction:column;align-items:flex-start;}
+}
+
+  
+  
+
+  
+  
+  
+  
+  
+  }
+</style>
+</head>
+<body>
+
+<!-- Global background elements -->
+<canvas id="stars"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<main>
+  <!-- ══════ BLOCK 1: HERO ══════ -->
+  <div id="hero">
+    <section class="hero">
+  <div class="hero-inner">
+
+    <!-- Season label -->
+    <div class="season-label">Весна 2026</div>
+
+    <!-- Program name -->
+    <h1 class="program-name">Алгоритмы<br>Женской Силы</h1>
+
+    <!-- Divider -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line" style="background:var(--line)"></div>
+    </div>
+
+    <!-- Tagline -->
+    <p class="tagline">От борьбы за лидерство<br>к опоре на сильного мужчину</p>
+
+    <!-- Format -->
+    <p class="format-badge">8-недельная программа трансформации</p>
+
+    <!-- Promise block -->
+    <div class="promise-block">
+      <div class="corner-br"></div>
+
+      <p class="promise-from">Из состояния</p>
+      <p class="promise-state-bad">«я справляюсь сама»<br>и «борюсь за лидерство с партнером»</p>
+
+      <span class="promise-arrow">↓</span>
+
+      <p class="promise-into">в состояние</p>
+      <p class="promise-state-good">«могу опереться<br>на сильного мужчину»</p>
+
+      <div class="promise-duration">за 8 недель</div>
+
+      <p class="promise-without">
+        <em>Без конфликтов, контроля и постоянного напряжения.</em><br>
+        Оставаясь успешной в бизнесе.
+      </p>
+    </div>
+
+    <!-- Spark notes -->
+    <div class="spark-note">
+      <div class="spark-dot"></div>
+      Первые изменения в отношениях — уже через 4–7 дней
+      <div class="spark-dot"></div>
+    </div>
+    <div class="spark-note" style="margin-top:10px;">
+      <div class="spark-dot"></div>
+      Первые прорывы в выборе партнёра — через 2–3 недели
+      <div class="spark-dot"></div>
+    </div>
+
+    <!-- Conditions -->
+    <div class="conditions">
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        Всего 2.5–3 часа в неделю
+      </div>
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        Высвободите 15–20 часов энергии в неделю
+      </div>
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        Без многочасовой терапии
+      </div>
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        Работает, даже если партнёр против
+      </div>
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        Совмещается с бизнесом и семьёй
+      </div>
+      <div class="cond-item">
+        <span class="cond-check">◆</span>
+        С любым уровнем конфликтности
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <button class="btn-primary">Узнать детали программы</button>
+      <p class="cta-note">
+        <span>До 10 участниц</span>
+        &nbsp;·&nbsp;
+        Обратная связь лично от Ксении
+      </p>
+    </div>
+
+  </div><!-- /hero-inner -->
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">листать</span>
+  </div>
+</section>
+
+
+
+
+<!-- ── STARS CANVAS (b01 design system) ─── -->
+  </div>
+
+  <!-- ══════ BLOCK 2: CASE-KSENIA ══════ -->
+  <div id="case-ksenia">
+    <section class="section">
+  <div class="container">
+
+    <!-- Section label -->
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">История автора программы</span>
+      <div class="label-line"></div>
+    </div>
+
+    <!-- Author intro -->
+    <div class="author-intro fade-in">
+      <div class="author-photo-wrap">
+        <div class="author-photo">
+          <div class="photo-placeholder">
+            <div class="photo-icon">◈</div>
+            <span>Фото<br>Ксении</span>
+          </div>
+        </div>
+      </div>
+      <div class="author-meta">
+        <h2 class="author-name">Ксения<br>Микаелян</h2>
+        <p class="author-role">Автор программы</p>
+        <p class="author-quote">
+          «Не могу больше тянуть всё сама» —<br>
+          с этого началась моя трансформация.
+        </p>
+        <div class="author-tags">
+          <span class="tag">Гештальт-психотерапевт</span>
+          <span class="tag">ICF-сертификат</span>
+          <span class="tag">Генеалог</span>
+          <span class="tag">Ясновидящая</span>
+          <span class="tag">Звукотерапевт</span>
+          <span class="tag">100+ женщин</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-gold fade-in">
+      <div class="dg-line"></div>
+      <div class="dg-diamond"></div>
+      <div class="dg-line"></div>
+    </div>
+
+    <!-- Case title -->
+    <h3 class="case-title fade-in">
+      Как я вышла замуж за 5 дней
+    </h3>
+    <p class="case-subtitle fade-in">
+      И почему это не импульсивное решение
+    </p>
+
+    <!-- Before / After -->
+    <div class="ba-grid fade-in">
+
+      <div class="ba-col before">
+        <p class="ba-label">До трансформации</p>
+
+        <div class="ba-item">
+          <span class="ba-icon">✕</span>
+          <span>Владелица салона красоты — весь бизнес держался только на мне</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✕</span>
+          <span>Работала 24/7, с 17 лет тянула всё сама — учёба, аренда, бизнес</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✕</span>
+          <span>Убеждение: «Мужчина = опасность»</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✕</span>
+          <span>«Я ничего не достойна» — деньги были, но не радовали</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✕</span>
+          <span>Всё через тяжёлый труд — обратиться за помощью казалось невозможным</span>
+        </div>
+      </div>
+
+      <div class="ba-arrow-col">
+        <div class="ba-arrow">→</div>
+      </div>
+
+      <div class="ba-col after">
+        <p class="ba-label">После трансформации</p>
+
+        <div class="ba-item">
+          <span class="ba-icon">◆</span>
+          <span>Закрыла салон. Уехала в Грузию — приняла решение свободно</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">◆</span>
+          <span>Вошла в состояние изобильной женщины — душевное спокойствие</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">◆</span>
+          <span>Новое убеждение: «Мужчина = поддержка»</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">◆</span>
+          <span>«Я достойна изобилия» — ощущение внутренней опоры</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">◆</span>
+          <span>Вышла замуж через 5 дней после приезда — с ясностью и спокойствием</span>
+        </div>
+      </div>
+
+    </div><!-- /ba-grid -->
+
+    <!-- Process steps -->
+    <p class="process-title fade-in">Что происходило в процессе трансформации:</p>
+
+    <div class="process-steps fade-in">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-name">Глубинная работа</div>
+        <div class="step-desc">Работа над собой и трансформация убеждений</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-name">Сила рода</div>
+        <div class="step-desc">Принятие силы рода и родовых каналов</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-name">Новые убеждения</div>
+        <div class="step-desc">Можно обращаться за помощью — это не слабость</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-name">Правильные вибрации</div>
+        <div class="step-desc">Вход в состояние изобильной женщины</div>
+      </div>
+    </div>
+
+    <!-- Main quote -->
+    <div class="insight-block fade-in">
+      <div class="corner-br-ins"></div>
+      <p class="insight-text">
+        Когда ты в состоянии изобильной женщины — ты чётко понимаешь,
+        кто перед тобой, подходит он тебе или нет, какие у него ценности.
+        Мне не нужно было время, чтобы «присмотреться».
+        Я видела сразу. <em>Потому что я знала, кто я. И кто мне нужен.</em>
+      </p>
+      <p class="insight-source">— Ксения, автор программы</p>
+    </div>
+
+    <!-- Key insight -->
+    <div class="key-insight fade-in">
+      <div class="key-insight-icon">◈</div>
+      <p>
+        <strong>5 дней — это результат года работы над собой.</strong>
+        Это не про «залюби себя и всё придёт».
+        Это про глубокую трансформацию: родовые программы, работа с телом,
+        энергопрактики, понимание своих ценностей.
+        Когда ты в правильном состоянии — <strong>результаты приходят быстро.</strong>
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="result-stat fade-in">
+      <div class="stat-cell">
+        <div class="stat-num">5 дней</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">от приезда<br>до замужества</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">1 год</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">глубинной трансформации,<br>которая дала этот результат</div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 3: FOR-WHOM ══════ -->
+  <div id="for-whom">
+    <section class="section">
+  <div class="container">
+
+    <!-- Label -->
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">Целевая аудитория</span>
+      <div class="label-line"></div>
+    </div>
+
+    <!-- Heading -->
+    <h2 class="section-heading fade-in">
+      Эта программа для вас,<br>если вы:
+    </h2>
+    <p class="section-sub fade-in">Единственная программа для успешных бизнес-леди</p>
+
+    <!-- Exclusivity note -->
+    <div class="exclusivity-note fade-in">
+      <div class="excl-line"></div>
+      <span class="excl-text">не для всех женщин — а для тех, кто успешна и при этом одинока внутри</span>
+      <div class="excl-line"></div>
+    </div>
+
+    <!-- ── CARDS ── -->
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <div class="audience-card fade-in fade-in-delay-1">
+        <div class="card-num">01</div>
+        <div class="card-photo">
+          <span class="card-photo-icon">◈</span>
+        </div>
+        <p class="card-role">Женщина<br>в поиске</p>
+        <p class="card-role-sub">Активный поиск партнёра</p>
+        <ul class="card-pains">
+          <li>Притягивает «не тех» — слабых или недоступных</li>
+          <li>Повторяется один и тот же сценарий</li>
+          <li>Хочет замуж, но не понимает как</li>
+        </ul>
+        <div class="card-divider"></div>
+        <p class="card-result-label">После программы</p>
+        <ul class="card-result-items">
+          <li>Разберёт родовые программы</li>
+          <li>Получит алгоритм «сканирования» мужчин</li>
+          <li>Подготовится к здоровым отношениям</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="audience-card fade-in fade-in-delay-2">
+        <div class="card-num">02</div>
+        <div class="card-photo">
+          <span class="card-photo-icon">◈</span>
+        </div>
+        <p class="card-role">Руководительница<br>в найме</p>
+        <p class="card-role-sub">Управляет людьми</p>
+        <ul class="card-pains">
+          <li>«Режим директора» не выключается дома</li>
+          <li>Рядом с партнёром чувствует себя «как мужик»</li>
+          <li>Получает признание только за пользу</li>
+        </ul>
+        <div class="card-divider"></div>
+        <p class="card-result-label">После программы</p>
+        <ul class="card-result-items">
+          <li>Научится переключаться из «режима босса»</li>
+          <li>Высвободит 15–20 часов энергии в неделю</li>
+          <li>Получит признание просто за то, что есть</li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="audience-card fade-in fade-in-delay-3">
+        <div class="card-num">03</div>
+        <div class="card-photo">
+          <span class="card-photo-icon">◈</span>
+        </div>
+        <p class="card-role">Успешная<br>предпринимательница</p>
+        <p class="card-role-sub">$3,000–20,000 / мес</p>
+        <ul class="card-pains">
+          <li>Зарабатывает хорошо, но не может расслабиться</li>
+          <li>Постоянная борьба за лидерство с партнёром</li>
+          <li>Боится показать слабость — потеряет уважение</li>
+        </ul>
+        <div class="card-divider"></div>
+        <p class="card-result-label">После программы</p>
+        <ul class="card-result-items">
+          <li>Станет директором в бизнесе и женщиной дома</li>
+          <li>Уберёт конкуренцию с партнёром</li>
+          <li>Бизнес не пострадает — энергии станет больше</li>
+        </ul>
+      </div>
+
+    </div><!-- /cards-grid -->
+
+    <div class="divider-gold fade-in">
+      <div class="dg-line"></div>
+      <div class="dg-diamond"></div>
+      <div class="dg-line"></div>
+    </div>
+
+    <!-- Bottom stats -->
+    <div class="bottom-stats fade-in">
+      <div class="bstat-cell">
+        <div class="bstat-num">$3–20K</div>
+        <div class="bstat-divider"></div>
+        <div class="bstat-label">доход участниц<br>в месяц</div>
+      </div>
+      <div class="bstat-cell">
+        <div class="bstat-num">100+</div>
+        <div class="bstat-divider"></div>
+        <div class="bstat-label">женщин прошли<br>трансформацию</div>
+      </div>
+      <div class="bstat-cell">
+        <div class="bstat-num">до 10</div>
+        <div class="bstat-divider"></div>
+        <div class="bstat-label">участниц<br>в потоке</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 4: TRANSFORMATION ══════ -->
+  <div id="transformation">
+    <section class="section">
+  <div class="container">
+
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">Программа по неделям</span>
+      <div class="label-line"></div>
+    </div>
+
+    <h2 class="section-heading fade-in">Что происходит<br>на программе</h2>
+    <p class="section-sub fade-in">8 недель — шаг за шагом к трансформации</p>
+
+    <div class="timeline">
+
+      <!-- 1-2 -->
+      <div class="tl-item fade-in">
+        <div class="tl-week">
+          <div class="week-num">1–2</div>
+          <div class="week-sep"></div>
+          <div class="week-meta">
+            <span class="week-label">неделя</span>
+            <span class="week-badge">Первые изменения</span>
+          </div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-card">
+          <p class="tl-card-title">Снижение напряжения в теле на 40–50%</p>
+          <p class="tl-section-label">Что делаем</p>
+          <ul class="tl-list">
+            <li>Диагностика текущего состояния и глубинных паттернов</li>
+            <li>Техники телесного расслабления (10–15 мин в день)</li>
+            <li>Определение триггеров конфликтов и источников напряжения</li>
+            <li>Понимание паттернов конкуренции с партнёром</li>
+          </ul>
+          <div class="tl-result">
+            <p>Первое облегчение в теле. <strong>Снижение напряжения на 40–50%.</strong> Осознание, откуда идёт борьба за лидерство.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-4 -->
+      <div class="tl-item fade-in fd2">
+        <div class="tl-week">
+          <div class="week-num">3–4</div>
+          <div class="week-sep"></div>
+          <div class="week-meta">
+            <span class="week-label">неделя</span>
+            <span class="week-badge">Видимые сдвиги</span>
+          </div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-card">
+          <p class="tl-card-title">Страх слабости снижается с 10/10 до 3–5/10</p>
+          <p class="tl-section-label">Что делаем</p>
+          <ul class="tl-list">
+            <li>Снятие триггеров через практики — в моменте, без долгих сессий</li>
+            <li>Протокол «Стоп-конфликт» — остановить эскалацию за 3 минуты</li>
+            <li>Работа с границами без агрессии и чувства вины</li>
+            <li>Первые попытки показать уязвимость — безопасно</li>
+          </ul>
+          <div class="tl-result">
+            <p>Страх показаться слабой: <strong>с 10/10 до 3–5/10.</strong> Умение остановить конфликт до эскалации.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-6 -->
+      <div class="tl-item fade-in fd3">
+        <div class="tl-week">
+          <div class="week-num">5–6</div>
+          <div class="week-sep"></div>
+          <div class="week-meta">
+            <span class="week-label">неделя</span>
+            <span class="week-badge">Поворотный момент</span>
+          </div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-card">
+          <p class="tl-card-title">Энергия восстанавливается — высвобождается 15–20 часов в неделю</p>
+          <p class="tl-section-label">Что делаем</p>
+          <ul class="tl-list">
+            <li>Практики женского потока — возвращение в тело</li>
+            <li>Работа с родовыми программами по женской линии</li>
+            <li>Техники делегирования без страха потерять контроль</li>
+            <li>Первые моменты «отпущенного контроля» в отношениях</li>
+          </ul>
+          <div class="tl-result">
+            <p>Появляется лёгкость. Можете просить о помощи. <strong>Высвобождается 15–20 часов энергии в неделю.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7-8 -->
+      <div class="tl-item fade-in fd4">
+        <div class="tl-week">
+          <div class="week-num">7–8</div>
+          <div class="week-sep"></div>
+          <div class="week-meta">
+            <span class="week-label">неделя</span>
+            <span class="week-badge">Финал</span>
+          </div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-card">
+          <p class="tl-card-title">Полная трансформация — реализация и женственность без конфликта</p>
+          <p class="tl-section-label">Что делаем</p>
+          <ul class="tl-list">
+            <li>Интеграция результата — закрепление навыков на уровне тела</li>
+            <li>Финальная трансформация состояния</li>
+            <li>Личный план поддержки после программы</li>
+            <li>Переход в новое качество отношений и жизни</li>
+          </ul>
+          <div class="tl-result">
+            <p>Страх слабости → 0. Конкуренция убрана. <strong>Готовность к отношениям, где вас выбирают и уважают.</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <div class="divider-gold fade-in">
+      <div class="dg-line"></div>
+      <div class="dg-diamond"></div>
+      <div class="dg-line"></div>
+    </div>
+
+    <div class="final-result fade-in">
+      <div class="final-glow"></div>
+      <p class="final-label">Итоговый результат за 8 недель</p>
+      <p class="final-title">
+        95% участниц полностью убирают страх слабости<br>
+        и конкуренцию с партнёром
+      </p>
+      <div class="stats-row">
+        <div class="stat-cell">
+          <div class="stat-num">10→0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">страх слабости<br>по шкале 10/10</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">+15–20ч</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">высвобождается энергии<br>каждую неделю</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">4–7дн</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">первые изменения<br>уже с первой недели</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">+$2–5K</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">рост дохода в месяц<br>за счёт высвобожд. энергии</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 5: CASES ══════ -->
+  <div id="cases">
+    <section class="section">
+  <div class="container">
+
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">Результаты участниц</span>
+      <div class="label-line"></div>
+    </div>
+
+    <h2 class="section-heading fade-in">Какие результаты<br>получили участницы</h2>
+    <p class="section-sub fade-in">«Алгоритмы Женской Силы» стали отправной точкой</p>
+
+    <!-- CARDS -->
+    <div class="cases-grid">
+
+      <!-- Case 1: Виталина -->
+      <div class="case-card fade-in">
+        <div class="card-header">
+          <div class="card-avatar-row">
+            <div class="card-avatar">◈</div>
+            <div class="card-name-block">
+              <p class="card-name">Виталина</p>
+              <p class="card-meta">Активный поиск партнёра</p>
+            </div>
+          </div>
+          <p class="card-quote">«Хочу встретить мужчину. Выйти замуж. Хочу быть полноценной в этой жизни»</p>
+        </div>
+        <div class="card-body">
+          <div>
+            <p class="body-section-label">До программы</p>
+            <ul class="pain-list">
+              <li>Не знала, как правильно встретить партнёра</li>
+              <li>Страх повторить прошлые сценарии</li>
+              <li>Не понимала, как выстраивать отношения с нуля</li>
+            </ul>
+          </div>
+          <div>
+            <p class="body-section-label">Что сделали</p>
+            <ul class="pain-list">
+              <li>Проработали психоэмоциональное состояние</li>
+              <li>Сменила окружение, место жительства и работу</li>
+              <li>Составили чёткий алгоритм «сканирования» мужчины</li>
+            </ul>
+          </div>
+          <div>
+            <p class="body-section-label">Результат</p>
+            <ul class="result-list">
+              <li>Вышла замуж за месяц — самый быстрый результат</li>
+              <li>Выстроила границы с первого дня знакомства</li>
+              <li>Проверила намерения партнёра без страха и спешки</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <p class="card-speed-label">Скорость результата</p>
+            <p class="card-speed-val">1 месяц</p>
+          </div>
+          <div class="card-speed-divider"></div>
+          <div>
+            <p class="card-speed-label">До замужества</p>
+            <p class="card-speed-val">с нуля</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2: Людмила -->
+      <div class="case-card fade-in fd2">
+        <div class="card-header">
+          <div class="card-avatar-row">
+            <div class="card-avatar">◈</div>
+            <div class="card-name-block">
+              <p class="card-name">Людмила, 31</p>
+              <p class="card-meta">Экономист · Италия</p>
+            </div>
+          </div>
+          <p class="card-quote">«Я рядом с ним чувствую себя как мужик. Всё нужно контролировать»</p>
+        </div>
+        <div class="card-body">
+          <div>
+            <p class="body-section-label">До программы</p>
+            <ul class="pain-list">
+              <li>Постоянная борьба за лидерство — либо как он, либо как я</li>
+              <li>Тревожность 10/10, страх показаться слабой 10/10</li>
+              <li>Отдаление с мужем — молчание, негативные фантазии</li>
+              <li>Проблемы со щитовидкой от стресса (год лечения)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="body-section-label">Результат (4–5 недель)</p>
+            <ul class="result-list">
+              <li>Конкуренция с мужем — убрана полностью</li>
+              <li>Тревожность: <strong style="color:var(--gold-lt)">10/10 → 3–4/10</strong></li>
+              <li>Страх слабости: <strong style="color:var(--gold-lt)">10/10 → 0</strong></li>
+              <li>Получает признание просто за то, что есть</li>
+              <li>Нашла работу — появилось чувство самореализации</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <p class="card-speed-label">Первые изменения</p>
+            <p class="card-speed-val">4–7 дней</p>
+          </div>
+          <div class="card-speed-divider"></div>
+          <div>
+            <p class="card-speed-label">Полная трансформация</p>
+            <p class="card-speed-val">4–5 нед</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: Анна -->
+      <div class="case-card fade-in fd3">
+        <div class="card-header">
+          <div class="card-avatar-row">
+            <div class="card-avatar">◈</div>
+            <div class="card-name-block">
+              <p class="card-name">Анна, ~35–40</p>
+              <p class="card-meta">Риэлтор</p>
+            </div>
+          </div>
+          <p class="card-quote">«Не могла вырваться. После встреч с партнёром — как тряпка, слила всю энергию»</p>
+        </div>
+        <div class="card-body">
+          <div>
+            <p class="body-section-label">До программы</p>
+            <ul class="pain-list">
+              <li>6 лет в токсичных отношениях — созависимость</li>
+              <li>После встреч с партнёром: опустошение, безжизненность</li>
+              <li>Не было сил жить — лежала пластом при попытках выйти</li>
+            </ul>
+          </div>
+          <div>
+            <p class="body-section-label">Результат (2 года восстановления)</p>
+            <ul class="result-list">
+              <li>Перестала притягивать токсичных мужчин</li>
+              <li>Научилась выбирать партнёра без созависимости</li>
+              <li>«Родители имеют право жить как живут. Я — это я»</li>
+              <li>Страх брошенности значительно ослаб</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <p class="card-speed-label">Первые прорывы</p>
+            <p class="card-speed-val">2–3 нед</p>
+          </div>
+          <div class="card-speed-divider"></div>
+          <div>
+            <p class="card-speed-label">Долгосрочный эффект</p>
+            <p class="card-speed-val">2 года</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cases-grid -->
+
+    <!-- KEY QUOTES ROW -->
+    <div class="key-quote-row fade-in">
+      <div class="key-quote-cell">
+        <span class="kq-icon">◆</span>
+        <p class="kq-text">«Делай всё, что говорит Ксения, и ты станешь <strong>другим человеком</strong>» — Людмила</p>
+      </div>
+      <div class="key-quote-cell">
+        <span class="kq-icon">◆</span>
+        <p class="kq-text">«Слава богу, попадаются уже <strong>не с чертями</strong> — и это уже большой плюс» — Анна</p>
+      </div>
+      <div class="key-quote-cell">
+        <span class="kq-icon">◆</span>
+        <p class="kq-text">«5 дней замужества = <strong>год глубинной работы над собой.</strong> Квантовое поле открылось» — Ксения</p>
+      </div>
+    </div>
+
+    <div class="divider-gold fade-in">
+      <div class="dg-line"></div>
+      <div class="dg-diamond"></div>
+      <div class="dg-line"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row fade-in">
+      <div class="stat-cell">
+        <div class="stat-num">95%</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">снижают страх слабости<br>с 10/10 до 0–2/10</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">90%</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">убирают конкуренцию<br>с партнёром</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">85%</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">получают первые изменения<br>за 1–2 недели</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">78%</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">повышают доход<br>на 30–50%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">+$2–5K</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">средний рост дохода<br>в месяц</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">100+</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">женщин прошли<br>трансформацию</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 6: PROGRAM-BONUSES ══════ -->
+  <div id="program-bonuses">
+    <section class="section">
+  <div class="container">
+
+    <!-- ══ PART 1: ЧТО ВХОДИТ ══ -->
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">Формат программы</span>
+      <div class="label-line"></div>
+    </div>
+
+    <h2 class="section-heading fade-in">Что входит<br>в программу</h2>
+    <p class="section-sub fade-in">8 недель · до 10 участниц · обратная связь лично от Ксении</p>
+
+    <!-- format info row -->
+    <div class="format-info fade-in">
+      <div class="fi-item">
+        <span class="fi-icon">◈</span>
+        <span class="fi-text"><strong>8 недель</strong> программы</span>
+      </div>
+      <div class="fi-sep"></div>
+      <div class="fi-item">
+        <span class="fi-icon">◈</span>
+        <span class="fi-text"><strong>до 10</strong> участниц</span>
+      </div>
+      <div class="fi-sep"></div>
+      <div class="fi-item">
+        <span class="fi-icon">◈</span>
+        <span class="fi-text"><strong>90 мин</strong> живая встреча в неделю</span>
+      </div>
+      <div class="fi-sep"></div>
+      <div class="fi-item">
+        <span class="fi-icon">◈</span>
+        <span class="fi-text"><strong>10–15 мин</strong> практик в день</span>
+      </div>
+    </div>
+
+    <!-- includes grid -->
+    <div class="includes-grid">
+
+      <div class="inc-card fade-in">
+        <div class="inc-num">01</div>
+        <div class="inc-icon">◈</div>
+        <p class="inc-title">8 живых встреч по 90 минут</p>
+        <p class="inc-desc">Разборы в группе — каждая получает <em>15–20 минут</em>. Практики и техники в прямом эфире. Ответы на вопросы лично от Ксении.</p>
+      </div>
+
+      <div class="inc-card fade-in fd2">
+        <div class="inc-num">02</div>
+        <div class="inc-icon">◈</div>
+        <p class="inc-title">Закрытый чат поддержки 24/7</p>
+        <p class="inc-desc">Обратная связь от Ксении между встречами. Поддержка участниц. Ответы в острых ситуациях — <em>в течение 24 часов</em>.</p>
+      </div>
+
+      <div class="inc-card fade-in fd3">
+        <div class="inc-num">03</div>
+        <div class="inc-icon">◈</div>
+        <p class="inc-title">Базовые практики и техники</p>
+        <p class="inc-desc">Стартовый набор телесных и дыхательных техник для работы на программе. <em>Аудио-формат</em> — можно делать дома, в машине, на прогулке. <em>Расширенная библиотека 50+ практик — в бонусах.</em></p>
+      </div>
+
+      <div class="inc-card fade-in fd2">
+        <div class="inc-num">04</div>
+        <div class="inc-icon">◈</div>
+        <p class="inc-title">Записи встреч навсегда</p>
+        <p class="inc-desc">Пересматривайте в любой момент. Освежайте техники через месяцы и годы. <em>Без ограничений по сроку доступа.</em></p>
+      </div>
+
+      <div class="inc-card fade-in fd3">
+        <div class="inc-num">05</div>
+        <div class="inc-icon">◈</div>
+        <p class="inc-title">Платформа с материалами навсегда</p>
+        <p class="inc-desc">Все конспекты, чек-листы и дополнительные материалы. <em>Постоянный доступ</em> — обновляется по мере выхода новых материалов.</p>
+      </div>
+
+    </div>
+
+    <div class="inc-bottom-strip fade-in">
+      <span class="inc-strip-icon">◆</span>
+      <p class="inc-strip-text">Всего <strong>2.5–3 часа в неделю</strong> — меньше времени, чем один конфликт с партнёром. Можно совмещать с бизнесом, семьёй и любым графиком.</p>
+    </div>
+
+    <!-- ══ DIVIDER ══ -->
+    <div class="divider-gold fade-in">
+      <div class="dg-line"></div>
+      <div class="dg-diamond"></div>
+      <div class="dg-line"></div>
+    </div>
+
+    <!-- ══ PART 2: БОНУСЫ ══ -->
+    <div class="section-label fade-in">
+      <div class="label-line"></div>
+      <span class="label-text">При участии в программе</span>
+      <div class="label-line"></div>
+    </div>
+
+    <div class="bonuses-header fade-in">
+      <h2 class="bonuses-heading">Бонусы,<br>которые вы получаете</h2>
+      <div style="text-align:right">
+        <span class="bonuses-total">
+          <span>Общая ценность</span>
+          $1,088
+        </span>
+      </div>
+    </div>
+
+    <div class="bonuses-list">
+
+      <!-- Bonus 1 -->
+      <div class="bonus-card fade-in">
+        <div class="bonus-num-col">
+          <div class="bonus-num">1</div>
+          <div class="bonus-num-line"></div>
+        </div>
+        <div class="bonus-content">
+          <p class="bonus-title">Протокол «Стоп-конфликт»</p>
+          <p class="bonus-value">Ценность $197</p>
+          <p class="bonus-desc">Пошаговая инструкция из 5 шагов — как остановить конфликт за 3 минуты до эскалации.</p>
+          <ul class="bonus-items">
+            <li>Техника «Стоп-дыхание» — 30 секунд</li>
+            <li>Фразы для деэскалации в моменте</li>
+            <li>Чек-лист проверки триггеров</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus 2 -->
+      <div class="bonus-card fade-in fd2">
+        <div class="bonus-num-col">
+          <div class="bonus-num">2</div>
+          <div class="bonus-num-line"></div>
+        </div>
+        <div class="bonus-content">
+          <p class="bonus-title">Библиотека 50+ практик</p>
+          <p class="bonus-value">Ценность $297</p>
+          <p class="bonus-desc">Телесные, дыхательные, медитации. Аудио-формат — делайте где угодно.</p>
+          <ul class="bonus-items">
+            <li>15 практик снятия тревожности (10–15 мин)</li>
+            <li>10 медитаций на женскую энергию</li>
+            <li>12 дыхательных техник на каждый день</li>
+            <li>8 практик работы с триггерами</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus 3 -->
+      <div class="bonus-card fade-in fd3">
+        <div class="bonus-num-col">
+          <div class="bonus-num">3</div>
+          <div class="bonus-num-line"></div>
+        </div>
+        <div class="bonus-content">
+          <p class="bonus-title">Карта родовых программ</p>
+          <p class="bonus-value">Ценность $397</p>
+          <p class="bonus-desc">Персональная диагностика вашего сценария отношений — 3 поколения по женской линии.</p>
+          <ul class="bonus-items">
+            <li>Визуальная карта программ (мама, бабушка, прабабушка)</li>
+            <li>Выявление 3 главных блокирующих программ</li>
+            <li>Пошаговый план проработки каждой</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus 4 -->
+      <div class="bonus-card fade-in fd4">
+        <div class="bonus-num-col">
+          <div class="bonus-num">4</div>
+          <div class="bonus-num-line"></div>
+        </div>
+        <div class="bonus-content">
+          <p class="bonus-title">Гид: Женская энергия в бизнесе</p>
+          <p class="bonus-value">Ценность $197</p>
+          <p class="bonus-desc">Как быть успешным CEO на работе и женщиной в отношениях — без внутреннего конфликта.</p>
+          <ul class="bonus-items">
+            <li>Техника переключения «Директор → Женщина» (5 мин)</li>
+            <li>Протокол возвращения в женскую энергию после работы</li>
+            <li>Как делегировать в отношениях, оставаясь CEO</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- total strip -->
+    <div class="bonuses-total-strip fade-in">
+      <div>
+        <p class="bts-label">Общая ценность бонусов</p>
+        <p class="bts-value">$1,088</p>
+      </div>
+      <p class="bts-note">Все бонусы включены в каждый тариф программы — от базового до VIP. Доступ открывается сразу после оплаты.</p>
+    </div>
+
+  </div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 7: PRICING ══════ -->
+  <div id="pricing">
+    <section class="section">
+<div class="inner">
+
+  <div class="s-label">
+    <div class="ll"></div>
+    <span class="lt">Тарифы участия</span>
+    <div class="ll"></div>
+  </div>
+
+  <!-- ВВОДНОЕ ОБОСНОВАНИЕ -->
+  <div class="intro">
+    <div class="intro-text">
+      Год у психолога стоит <strong>$5,000–20,000</strong> и занимает 1–3 года.<br>
+      «Алгоритмы Женской Силы» — <strong>8 недель</strong> и <strong>$888–2,200</strong>.
+    </div>
+  </div>
+
+  <div class="div"><div class="dl"></div><div class="dd"></div><div class="dl"></div></div>
+
+  <!-- ТАРИФНЫЕ КАРТОЧКИ -->
+  <div class="grid">
+
+    <!-- БАЗОВЫЙ -->
+    <div class="card">
+      <div class="c-head">
+        <div class="c-tier">Базовый</div>
+        <div class="c-price">$888</div>
+        <div class="c-rule"></div>
+        <div class="c-sub">Для тех, кто хочет трансформацию в группе</div>
+        <div class="c-val">Общая ценность: $2,849 · Экономия 69%</div>
+      </div>
+      <div class="c-body">
+        <div class="ci"><span class="ck">◆</span><span><strong>8 живых встреч</strong> по 90 минут</span></div>
+        <div class="ci"><span class="ck">◆</span><span>Групповые разборы (15–20 мин каждой)</span></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>Чат поддержки 24/7</strong> — обратная связь лично от Ксении</span></div>
+        <div class="ci"><span class="ck">◆</span><span>Библиотека из 50+ практик и медитаций</span></div>
+        <div class="ci"><span class="ck">◆</span><span>Записи встреч — доступ навсегда</span></div>
+        <div class="ci"><span class="ck">◆</span><span>Платформа с материалами навсегда</span></div>
+        <div class="c-div"></div>
+        <div class="c-blabel">+ Все 4 бонуса ($1,088)</div>
+      </div>
+      <div class="c-foot">
+        <button class="btn btn-base">Начать трансформацию</button>
+      </div>
+    </div>
+
+    <!-- СТАНДАРТ -->
+    <div class="card feat">
+      <div class="badge badge-f">⭐ Популярный — 60% выбирают</div>
+      <div class="c-head">
+        <div class="c-tier g">Стандарт</div>
+        <div class="c-price">$1,200</div>
+        <div class="c-rule"></div>
+        <div class="c-sub">Для тех, кто хочет персонального внимания</div>
+        <div class="c-val">Общая ценность: $4,049 · Экономия 70%</div>
+      </div>
+      <div class="c-body">
+        <div class="ci"><span class="ck">◆</span><span>Всё из Базового тарифа</span></div>
+        <div class="c-div"></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>1 личная сессия 1-на-1</strong> (60 минут)<em>Разбор вашей ситуации, работа с конкретными триггерами, персональный план</em></span></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>Персональная дорожная карта</strong><em>Индивидуальный маршрут на 8 недель + чек-листы на каждую неделю</em></span></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>Приоритетная поддержка</strong><em>Ответ от Ксении в течение 4 часов (вместо 24) + детальная обратная связь</em></span></div>
+        <div class="c-div"></div>
+        <div class="c-blabel">+ Все 4 бонуса ($1,088)</div>
+      </div>
+      <div class="c-foot">
+        <div class="c-eco">Экономия <span>$2,849</span> по сравнению с полной ценностью</div>
+        <button class="btn btn-feat">Выбрать Стандарт — самый популярный</button>
+      </div>
+    </div>
+
+    <!-- VIP -->
+    <div class="card vip">
+      <div class="badge badge-v">💎 Осталось 2 места</div>
+      <div class="c-head">
+        <div class="c-tier g">VIP</div>
+        <div class="c-price">$2,200</div>
+        <div class="c-rule"></div>
+        <div class="c-sub">Максимальный результат и VIP-сопровождение</div>
+        <div class="c-val">Общая ценность: $5,349 · Экономия 59%</div>
+      </div>
+      <div class="c-body">
+        <div class="ci"><span class="ck">◆</span><span>Всё из Стандарта</span></div>
+        <div class="c-div"></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>4 личные сессии 1-на-1</strong> (вместо 1)<em>2 сессии в первые 4 недели + 2 во вторые 4 недели</em></span></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>Прямая связь с Ксенией</strong><em>Ответ в течение 2 часов, помощь в острых ситуациях</em></span></div>
+        <div class="ci"><span class="ck">◆</span><span><strong>Персональный разбор родовых программ</strong><em>Детальная карта 3-х поколений + индивидуальный план проработки</em></span></div>
+        <div class="c-div"></div>
+        <div class="ci"><span class="ck ck-rose">◆</span><span><strong>БОНУС: 1 месяц поддержки после программы</strong><em>Закрепление результата, обратная связь от Ксении в течение месяца (стоимость $300)</em></span></div>
+        <div class="c-div"></div>
+        <div class="c-blabel">+ Все 4 бонуса ($1,088)</div>
+      </div>
+      <div class="c-foot">
+        <button class="btn btn-vip">Хочу максимальный результат</button>
+        <div class="c-seats">Осталось 2 места из 2</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- РАССРОЧКА -->
+  <div class="inst">
+    <div class="inst-title">💳 Рассрочка на 2 платежа</div>
+    <div class="inst-g">
+      <div class="inst-c">
+        <div class="inst-t">Базовый</div>
+        <div class="inst-v">$460 + $460</div>
+        <div class="inst-n">Итого $920 (+$32)</div>
+      </div>
+      <div class="inst-c">
+        <div class="inst-t">Стандарт</div>
+        <div class="inst-v">$650 + $650</div>
+        <div class="inst-n">Итого $1,300 (+$100)</div>
+      </div>
+      <div class="inst-c">
+        <div class="inst-t">VIP</div>
+        <div class="inst-v">$1,200 + $1,200</div>
+        <div class="inst-n">Итого $2,400 (+$200)</div>
+      </div>
+    </div>
+    <div class="inst-note">
+      <strong>1-й платёж</strong> — при регистрации (резервируете место) &nbsp;·&nbsp;
+      <strong>2-й платёж</strong> — через 4 недели (к середине программы)
+    </div>
+  </div>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-c">
+      <span class="strip-ic">🛡</span>
+      <div class="strip-t"><strong>Гарантия возврата</strong>100% при выполнении условий + бонусы на $3,600</div>
+    </div>
+    <div class="strip-c">
+      <span class="strip-ic">💳</span>
+      <div class="strip-t"><strong>Рассрочка</strong>2 платежа — старт без полной суммы сразу</div>
+    </div>
+    <div class="strip-c">
+      <span class="strip-ic">♾</span>
+      <div class="strip-t"><strong>Доступ навсегда</strong>Записи и платформа — без ограничений</div>
+    </div>
+  </div>
+
+  <!-- ТАБЛИЦА СРАВНЕНИЯ -->
+  <div class="ctbl-wrap">
+    <div class="ctbl-title">Сравнение тарифов</div>
+    <table class="ctbl">
+      <thead>
+        <tr>
+          <th>Что входит</th>
+          <th>Базовый</th>
+          <th>Стандарт</th>
+          <th>VIP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>8 живых встреч по 90 мин</td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Групповые разборы</td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Чат поддержки 24/7</td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>50+ практик + записи навсегда</td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Все 4 бонуса ($1,088)</td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Личные сессии 1-на-1</td><td><span class="cn">—</span></td><td>1 сессия</td><td>4 сессии</td></tr>
+        <tr><td>Персональная дорожная карта</td><td><span class="cn">—</span></td><td><span class="cy">◆</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Приоритетная поддержка</td><td><span class="cn">—</span></td><td>4 часа</td><td>2 часа</td></tr>
+        <tr><td>Прямая связь с Ксенией</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>Разбор родовых программ</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>1 мес поддержки после программы</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">◆</span></td></tr>
+        <tr><td>ЦЕНА</td><td>$888</td><td>$1,200</td><td>$2,200</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 8: INACTION ══════ -->
+  <div id="inaction">
+    <section class="section">
+<div class="inner">
+
+  <div class="s-label">
+    <div class="ll"></div>
+    <span class="lt">Цена бездействия</span>
+    <div class="ll"></div>
+  </div>
+
+  <h2 class="s-title">Сколько стоит<br><em style="font-style:italic;color:var(--rose-lt);">ничего не менять</em></h2>
+  <div class="s-sub">Каждый месяц ожидания — это не просто потерянное время. Это конкретные деньги.</div>
+
+  <!-- ГЛАВНАЯ ЦИФРА -->
+  <div class="loss-main">
+    <div class="loss-head">Потери за 1 месяц бездействия</div>
+    <div class="loss-amount">$3,860–5,360</div>
+    <div class="loss-rule"></div>
+    <div class="loss-desc">
+      Тревожность, конфликты и внутреннее напряжение стоят дороже, чем кажется.<br>
+      <strong>60–80 часов вашей энергии в месяц</strong> уходит на конфликты, переживания и восстановление — вместо дохода, роста и жизни.
+    </div>
+  </div>
+
+  <!-- 4 СТАТЬИ ПОТЕРЬ -->
+  <div class="loss-grid">
+
+    <div class="loss-row">
+      <div class="lr-label">Упущенный заработок</div>
+      <div class="lr-num">$3,000–4,000</div>
+      <div class="lr-rule"></div>
+      <div class="lr-desc">В месяц — <strong>60–80 часов энергии</strong> на конфликты и переживания вместо продуктивной работы. По $50/час это прямые потери. У участниц с доходом выше $10K/мес потери достигают <strong>$5,000+</strong>.</div>
+    </div>
+
+    <div class="loss-row">
+      <div class="lr-label">Дополнительные издержки</div>
+      <div class="lr-num">$860–1,360</div>
+      <div class="lr-rule"></div>
+      <div class="lr-desc">В месяц — успокоительные, импульсивные траты, психосоматика, консультации «в никуда».</div>
+    </div>
+
+    <div class="loss-row">
+      <div class="lr-label">Риск выгорания</div>
+      <div class="lr-num">$5,000–10,000</div>
+      <div class="lr-rule"></div>
+      <div class="lr-desc">Стоимость восстановления после полного выгорания — месяцы без дохода, лечение, упущенные возможности.</div>
+    </div>
+
+    <div class="loss-row">
+      <div class="lr-label">Риск развода или разрыва</div>
+      <div class="lr-num">$25,000–170,000</div>
+      <div class="lr-rule"></div>
+      <div class="lr-desc">Юридические расходы, раздел имущества, жильё, психологическая реабилитация — и годы на восстановление.</div>
+    </div>
+
+  </div>
+
+  <!-- СТОИМОСТЬ ОЖИДАНИЯ -->
+  <div class="wait-card">
+    <div class="wait-title">Если подождать 3 месяца до следующего потока</div>
+    <div class="wait-rows">
+      <div class="wait-cell">
+        <div class="wait-lbl">Потери за 3 месяца</div>
+        <div class="wait-val">$30,000–69,000</div>
+        <div class="wait-note">продолжение тревожности, конфликтов и упущенного дохода</div>
+      </div>
+      <div class="wait-cell">
+        <div class="wait-lbl">Переплата за программу</div>
+        <div class="wait-val">+$312</div>
+        <div class="wait-note">цены вырастут в июне 2026 на следующем потоке</div>
+      </div>
+      <div class="wait-cell">
+        <div class="wait-lbl">Итого цена паузы</div>
+        <div class="wait-val">$30,312+</div>
+        <div class="wait-note">и ещё 3 месяца жизни в том же состоянии</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dg-div"><div class="dg-l"></div><div class="dg-d"></div><div class="dg-l"></div></div>
+
+  <!-- СРАВНЕНИЕ: ЖДАТЬ vs ДЕЙСТВОВАТЬ -->
+  <div class="payback">
+
+    <div class="pb-cell">
+      <div class="pb-label bad">Ждать следующего потока</div>
+      <div class="pb-num bad">3 месяца</div>
+      <div class="pb-rule bad"></div>
+      <div class="pb-desc">
+        <strong>$30,000–69,000</strong> потерь за время ожидания.<br>
+        Плюс переплата <strong>$312</strong> на следующем потоке.<br>
+        Плюс ещё 3 месяца в том же состоянии — тревожность, конфликты, напряжение каждый день.
+      </div>
+    </div>
+
+    <div class="pb-cell good">
+      <div class="pb-label ok">Программа окупается</div>
+      <div class="pb-num ok">за 5–7 дней</div>
+      <div class="pb-rule ok"></div>
+      <div class="pb-desc">
+        Уже в первые дни высвобождается <strong>15–20 часов энергии</strong> в неделю.<br>
+        При росте дохода на 30–50% — программа <strong>$888</strong> окупается за 5–7 дней.<br>
+        Инвестиция, которая возвращается быстрее, чем вы ожидаете.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 9: GUARANTEE-URGENCY ══════ -->
+  <div id="guarantee-urgency">
+    <section class="section">
+<div class="inner">
+
+  <!-- ===== ГАРАНТИЯ ===== -->
+  <div class="s-label fi fi-1">
+    <div class="ll"></div>
+    <span class="lt">Гарантия результата</span>
+    <div class="ll"></div>
+  </div>
+
+  <h2 class="s-title fi fi-2">Мы настолько уверены<br><em style="font-style:italic;color:var(--gold);">в результате</em></h2>
+
+  <!-- SHIELD -->
+  <div class="guarantee-hero fi fi-3">
+    <div class="gh-inner">
+      <div class="gh-shield">🛡</div>
+      <div>
+        <div class="gh-title">Если результата нет — возврат 100%<br>плюс бонусы на $3,600</div>
+        <div class="gh-sub">
+          Мы не просто возвращаем деньги. Если вы выполнили все условия и не получили результат —<br>
+          мы возвращаем <strong>100% стоимости</strong> и добавляем бонусы, которые помогут вам продолжить путь.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="g-stats fi fi-4">
+    <div class="gs-cell">
+      <div class="gs-num">95%</div>
+      <div class="gs-rule"></div>
+      <div class="gs-desc">участниц получают результат<br>в первые 4 недели</div>
+    </div>
+    <div class="gs-cell">
+      <div class="gs-num">&lt;2%</div>
+      <div class="gs-rule"></div>
+      <div class="gs-desc">возвратов за 2 года<br>работы программы</div>
+    </div>
+    <div class="gs-cell">
+      <div class="gs-num">$3,600</div>
+      <div class="gs-rule"></div>
+      <div class="gs-desc">общая ценность<br>гарантийных бонусов</div>
+    </div>
+  </div>
+
+  <!-- CONDITIONS -->
+  <div class="conditions fi fi-5">
+    <div class="cond-title">Условия гарантии — 3 простых шага</div>
+    <div class="cond-grid">
+      <div class="cond-item">
+        <div class="cond-num">6/8</div>
+        <div class="cond-text"><strong>Посетить 6 из 8 встреч</strong>Живое участие или просмотр записи в течение 48 часов после встречи</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-num">10′</div>
+        <div class="cond-text"><strong>Практики ежедневно</strong>Всего 10 минут в день — упражнения из библиотеки программы</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-num">3×</div>
+        <div class="cond-text"><strong>Отчёты в чате</strong>3 раза в неделю — короткая обратная связь о прогрессе</div>
+      </div>
+    </div>
+
+    <!-- ЧТО ЕСЛИ НЕТ РЕЗУЛЬТАТА -->
+    <div class="whatif">
+      <div class="wi-title">Если результата нет при соблюдении условий — вы получаете:</div>
+      <div class="wi-row">
+        <span class="wi-icon">◆</span>
+        <div class="wi-text"><strong>100% возврат стоимости программы</strong> — полная сумма, без вычетов</div>
+      </div>
+      <div class="wi-row">
+        <span class="wi-icon">◆</span>
+        <div class="wi-text"><strong>3 месяца наставничества 1-на-1 с Ксенией</strong> — персональное сопровождение (стоимость $900)</div>
+      </div>
+      <div class="wi-row">
+        <span class="wi-icon">◆</span>
+        <div class="wi-text"><strong>5 сессий у психолога</strong> — профессиональная поддержка для продолжения работы (стоимость $500)</div>
+      </div>
+      <div class="wi-total">Общая ценность гарантии: <span>до $3,600</span> — и вы не теряете ничего</div>
+    </div>
+  </div>
+
+  <div class="dg-div fi"><div class="dg-l"></div><div class="dg-d"></div><div class="dg-l"></div></div>
+
+  <!-- ===== СРОЧНОСТЬ ===== -->
+  <div class="s-label fi fi-6">
+    <div class="ll"></div>
+    <span class="lt">Осталось мест</span>
+    <div class="ll"></div>
+  </div>
+
+  <div class="urgency-hero fi fi-7">
+    <div class="uh-label">Текущий поток · Март 2026</div>
+    <div class="uh-title">Группа закрывается.<br>Следующий поток — <em style="color:var(--rose-lt);">через 3 месяца</em></div>
+    <div class="uh-sub">
+      Программа намеренно небольшая — максимум <strong>10 участниц</strong>, чтобы каждая получила внимание Ксении.<br>
+      Когда места заканчиваются — регистрация закрывается до следующего потока в <strong>июне 2026</strong>.
+    </div>
+  </div>
+
+  <!-- SEATS -->
+  <div class="seats-row">
+    <div class="seat-card all fi fi-5">
+      <div class="seat-label">Осталось мест в программе</div>
+      <div class="seat-num all">7</div>
+      <div class="seat-rule all"></div>
+      <div class="seat-desc">из 10 мест в группе. Когда они закончатся — регистрация закрыта до июня.</div>
+    </div>
+    <div class="seat-card vip fi fi-6">
+      <div class="seat-label">Мест на VIP-тарифе</div>
+      <div class="seat-num vip">2</div>
+      <div class="seat-rule vip"></div>
+      <div class="seat-desc">VIP-тариф с 4 личными сессиями и прямой связью с Ксенией. Почти нет.</div>
+    </div>
+  </div>
+
+  <!-- PRICE TABLE -->
+  <div class="price-table fi fi-6">
+    <div class="pt-head">
+      <div class="pt-hcell">Тариф</div>
+      <div class="pt-hcell">Цена сейчас</div>
+      <div class="pt-hcell">Цена в июне</div>
+      <div class="pt-hcell">Переплата</div>
+    </div>
+    <div class="pt-row">
+      <div class="pt-cell">Базовый</div>
+      <div class="pt-cell now">$888</div>
+      <div class="pt-cell old">$1,200</div>
+      <div class="pt-cell save">+$312</div>
+    </div>
+    <div class="pt-row">
+      <div class="pt-cell">Стандарт</div>
+      <div class="pt-cell now">$1,200</div>
+      <div class="pt-cell old">$1,512</div>
+      <div class="pt-cell save">+$312</div>
+    </div>
+    <div class="pt-row">
+      <div class="pt-cell">VIP</div>
+      <div class="pt-cell now">$2,200</div>
+      <div class="pt-cell old">$2,512</div>
+      <div class="pt-cell save">+$312</div>
+    </div>
+  </div>
+
+  <!-- DEADLINE -->
+  <div class="deadline fi fi-7">
+    <span class="dl-icon">⏳</span>
+    <div class="dl-text">
+      Следующий поток <strong>не раньше июня 2026</strong> — и цены вырастут на <em>$312</em>.<br>
+      Если вы рассматриваете участие — сейчас лучший момент. Чем дольше ждёте, тем дороже и тем позже результат.
+    </div>
+  </div>
+
+</div>
+</section>
+  </div>
+
+  <!-- ══════ BLOCK 10: FAQ-CTA-AUTHOR ══════ -->
+  <div id="faq-cta-author">
+    <section class="section">
+<div class="inner">
+
+  <!-- ===== FAQ ===== -->
+  <div class="s-label fi">
+    <div class="ll"></div>
+    <span class="lt">Частые вопросы</span>
+    <div class="ll"></div>
+  </div>
+
+  <h2 class="s-title fi">Ответы на вопросы</h2>
+
+  <div class="faq-list fi">
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Сколько времени нужно уделять программе каждую неделю?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Всего <strong>2.5–3 часа в неделю:</strong><br>
+          — 90 минут живая встреча<br>
+          — 10–15 минут практики ежедневно<br>
+          — 15–30 минут отчёты в чате<br><br>
+          Программа создана для занятых женщин — без многочасовых домашних заданий и без потери рабочего ритма.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Мой партнёр против того, чтобы я проходила программу. Поможет ли она в такой ситуации?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Да, и именно для таких ситуаций программа особенно эффективна.<br><br>
+          <strong>87% партнёров</strong> участниц начинают меняться сами — без давления и уговоров, просто в ответ на изменения в женщине.<br><br>
+          Когда вы перестаёте реагировать по старым паттернам, система отношений меняется. Партнёру не нужно знать о программе — достаточно, что меняетесь вы.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Я сейчас не в отношениях. Подойдёт ли мне программа?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Да. Программа работает на двух уровнях:<br><br>
+          Если вы <strong>не в отношениях</strong> — вы убираете родовые паттерны, которые мешали строить отношения, и получаете конкретный алгоритм сканирования мужчин на совместимость.<br><br>
+          Многие участницы, пришедшие без партнёра, встречали его в течение 1–3 месяцев после программы — уже из другого внутреннего состояния.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Моя ситуация очень сложная — многолетние конфликты, почти нет надежды. Поможет ли программа?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Программа работает с любым уровнем конфликтности в отношениях — в том числе с многолетними паттернами.<br><br>
+          <strong>95% участниц</strong> получают измеримый результат — снижение тревожности, изменение динамики отношений, выход из токсичных циклов.<br><br>
+          Именно в «безнадёжных» случаях трансформация бывает самой заметной — потому что работа идёт с корневыми программами, а не симптомами.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Чем программа отличается от работы с психологом?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <div class="faq-compare">
+            <div class="faq-cmp-cell">
+              <div class="faq-cmp-label bad">Психолог</div>
+              <div class="faq-cmp-row">Годы терапии</div>
+              <div class="faq-cmp-row">$5,000–20,000/год</div>
+              <div class="faq-cmp-row">Работа с симптомами</div>
+              <div class="faq-cmp-row">Без гарантий</div>
+            </div>
+            <div class="faq-cmp-cell">
+              <div class="faq-cmp-label good">Программа</div>
+              <div class="faq-cmp-row">8 недель</div>
+              <div class="faq-cmp-row">$888–2,200</div>
+              <div class="faq-cmp-row">Работа с причинами</div>
+              <div class="faq-cmp-row">Гарантия результата</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-text">Как работает гарантия возврата?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Если вы выполнили все условия — посетили 6 из 8 встреч, делали практики 10 минут в день, отправляли отчёты 3 раза в неделю — и не получили результат, мы возвращаем <strong>100% стоимости</strong>.<br><br>
+          Дополнительно вы получаете: <strong>3 месяца наставничества 1-на-1</strong> ($900) и <strong>5 сессий у психолога</strong> ($500).<br><br>
+          За 2 года работы программы — <strong>менее 2% возвратов</strong>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div class="dg-div fi"><div class="dg-l"></div><div class="dg-d"></div><div class="dg-l"></div></div>
+
+  <div class="cta-wrap fi">
+    <div class="cta-label">Начать трансформацию</div>
+    <h2 class="cta-title">3 шага до старта программы</h2>
+    <div class="cta-sub">Это не продажи — это диагностика. Ксения лично разберёт вашу ситуацию и скажет, подходит ли вам программа.</div>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="step-num">1</div>
+        <div class="step-rule"></div>
+        <div class="step-title">Заполните анкету</div>
+        <div class="step-desc">3 минуты. Расскажите о своей ситуации — чтобы разговор сразу был по делу.</div>
+      </div>
+      <div class="cta-step">
+        <div class="step-num">2</div>
+        <div class="step-rule"></div>
+        <div class="step-title">Диагностический звонок</div>
+        <div class="step-desc">30 минут с Ксенией. Разбор вашей ситуации, ответы на вопросы, понимание — ваш это путь или нет.</div>
+      </div>
+      <div class="cta-step">
+        <div class="step-num">3</div>
+        <div class="step-rule"></div>
+        <div class="step-title">Оплата и старт</div>
+        <div class="step-desc">Выбираете тариф, оплачиваете, получаете доступ. Старт — ближайший поток.</div>
+      </div>
+    </div>
+
+    <button class="btn-cta">Заполнить анкету и записаться</button>
+    <div class="cta-note">Осталось 7 мест из 10 · Следующий поток в июне 2026</div>
+  </div>
+
+  <!-- ===== ОБ АВТОРЕ ===== -->
+  <div class="dg-div fi"><div class="dg-l"></div><div class="dg-d"></div><div class="dg-l"></div></div>
+
+  <div class="s-label fi">
+    <div class="ll"></div>
+    <span class="lt">Автор программы</span>
+    <div class="ll"></div>
+  </div>
+
+  <div class="author-wrap fi">
+    <div class="author-photo">
+      <div class="author-photo-placeholder">Фото Ксении Микаелян</div>
+    </div>
+    <div>
+      <div class="author-name">Ксения<br>Микаелян</div>
+      <div class="author-role">Автор программы «Алгоритмы Женской Силы»</div>
+
+      <div class="author-creds">
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Гештальт-психотерапевт, <strong>ICF-сертификация</strong></span></div>
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Генеалог — работа с <strong>родовыми программами</strong> трёх поколений</span></div>
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Ясновидящая — <strong>диагностика состояния</strong> и родовых сценариев</span></div>
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Звукотерапевт — интеграция через <strong>вибрационные практики</strong></span></div>
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Специализация: конкуренция с партнёром, переход из «режима директора», тревожные привязанности</span></div>
+        <div class="cred-item"><span class="cred-dot">◆</span><span>Личный путь: убеждение «мужчина = опасность» → <strong>замужество за 5 дней</strong> после года работы над собой</span></div>
+      </div>
+
+      <div class="author-stats">
+        <div class="astat-cell">
+          <div class="astat-num">100+</div>
+          <div class="astat-rule"></div>
+          <div class="astat-desc">женщин прошли программу</div>
+        </div>
+        <div class="astat-cell">
+          <div class="astat-num">95%</div>
+          <div class="astat-rule"></div>
+          <div class="astat-desc">получили результат</div>
+        </div>
+        <div class="astat-cell">
+          <div class="astat-num">2+</div>
+          <div class="astat-rule"></div>
+          <div class="astat-desc">года ведения программы</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== КОНТАКТЫ ===== -->
+  <div class="dg-div fi"><div class="dg-l"></div><div class="dg-d"></div><div class="dg-l"></div></div>
+
+  <div class="s-label fi">
+    <div class="ll"></div>
+    <span class="lt">Контакты</span>
+    <div class="ll"></div>
+  </div>
+
+  <div class="contacts-wrap fi">
+    <div class="contacts-grid">
+
+      <div>
+        <div class="contact-group-title">Связаться с нами</div>
+        <div class="contact-item">
+          <span class="contact-icon">✉</span>
+          <div class="contact-info">
+            <a href="mailto:hello@ksenia-mikaelyan.com">hello@ksenia-mikaelyan.com</a>
+            <div class="contact-hours">Ответ в течение 24 часов</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">💬</span>
+          <div class="contact-info">
+            <a href="#">WhatsApp</a>
+            <div class="contact-hours">Пн–Пт 10:00–19:00 · Сб–Вс 12:00–18:00 (Батуми)</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✈</span>
+          <div class="contact-info">
+            <a href="#">Telegram</a>
+            <div class="contact-hours">Пн–Пт 10:00–19:00 · Сб–Вс 12:00–18:00 (Батуми)</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-group-title">Социальные сети</div>
+        <div class="social-row">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Telegram канал</a>
+          <a href="#" class="social-btn">YouTube</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contacts-footer">
+      <div class="footer-legal">
+        <a href="#">Политика конфиденциальности</a> &nbsp;·&nbsp;
+        <a href="#">Договор оферты</a> &nbsp;·&nbsp;
+        <a href="#">Возврат средств</a>
+      </div>
+      <div class="footer-copy">© 2026 Ксения Микаелян. Все права защищены.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+  </div>
+
+</main>
+
+<script>
+/* ══════════════════════════════════════════════
+   Алгоритмы Женской Силы — Scripts
+   ══════════════════════════════════════════════ */
+
+/* ── STARS CANVAS ── */
+(function(){
+  const c = document.getElementById('stars');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H, P = [];
+  
+  function resize() {
+    W = c.width = innerWidth;
+    H = c.height = innerHeight;
+  }
+  
+  function make() {
+    P = [];
+    const n = Math.floor(W * H / 13000);
+    for (let i = 0; i < n; i++) {
+      P.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.3 + .2,
+        a: Math.random(),
+        sp: Math.random() * .003 + .001,
+        ph: Math.random() * Math.PI * 2,
+        g: Math.random() > .65
+      });
+    }
+  }
+  
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const t = Date.now() * .001;
+    P.forEach(p => {
+      const al = p.a * (.45 + .55 * Math.sin(t * p.sp * 300 + p.ph));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.g 
+        ? `rgba(201,169,110,${al})` 
+        : `rgba(240,232,220,${al * .55})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  
+  resize();
+  make();
+  draw();
+  window.addEventListener('resize', () => { resize(); make(); });
+  
+  // Hide scroll hint once user scrolls
+  const hint = document.querySelector('.scroll-hint');
+  if (hint) {
+    window.addEventListener('scroll', () => {
+      hint.style.opacity = window.scrollY > 80 ? '0' : '';
+    }, { passive: true });
+  }
+})();
+
+
+/* ── INTERSECTION OBSERVER: .fade-in ── */
+(function(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+
+
+/* ── INTERSECTION OBSERVER: .fi and other animated elements ── */
+(function(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('vis');
+    });
+  }, { threshold: .07 });
+  
+  // All element types that use .vis for reveal animation
+  const selectors = [
+    '.fi', '.card', '.s-label', '.s-title', '.s-sub', 
+    '.intro', '.inst', '.strip', '.ctbl-wrap',
+    '.loss-main', '.loss-row', '.wait-card', '.payback',
+    '.guarantee-hero', '.g-stats', '.g-card',
+    '.urgency-hero', '.countdown-grid', '.urgency-cta'
+  ];
+  
+  document.querySelectorAll(selectors.join(',')).forEach(el => obs.observe(el));
+})();
+
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+    });
+    
+    // Toggle current
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  });
+});
+
+
+/* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+/* ── CTA BUTTONS: link to # for now ── */
+document.querySelectorAll('.btn-primary, .btn, .btn-base, .btn-prem, .btn-vip, .btn-cta').forEach(btn => {
+  if (!btn.getAttribute('href') && btn.tagName === 'BUTTON') {
+    btn.addEventListener('click', () => {
+      // Placeholder: scroll to pricing or form section
+      const target = document.getElementById('faq-cta-author');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+});
+
+</script>
+</body>
+</html>
