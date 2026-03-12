@@ -337,17 +337,19 @@ canvas#stars {
 
   /* ── SPARK NOTE ────────────────────────────── */
   .spark-note {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: .82rem;
+    font-size: clamp(.68rem, 2.2vw, .82rem);
     letter-spacing: .1em;
     color: var(--rose-lt);
     margin-bottom: 44px;
     opacity: 0;
     animation: fadeUp .7s 1s ease forwards;
+    text-align: center;
   }
   .spark-dot {
     width: 6px; height: 6px;
@@ -2056,7 +2058,7 @@ canvas#stars {
 
 .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;}
 .badge-f{background:var(--gold);color:var(--bg);}
-.badge-v{border:1px solid var(--gold);color:var(--gold);}
+.badge-v{border:1px solid var(--gold);color:var(--gold);background:var(--bg2);}
 
 .c-head{padding:30px 26px 22px;border-bottom:1px solid var(--line-soft);}
 .c-tier{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;}
