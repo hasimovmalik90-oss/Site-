@@ -2563,7 +2563,7 @@ canvas#stars {
 
     <!-- CTA -->
     <div class="cta-wrap">
-      <button class="btn-primary">Узнать детали программы</button>
+      <button class="btn-primary" data-target="program-bonuses">Узнать детали программы</button>
       <p class="cta-note">
         <span>До 10 участниц</span>
         &nbsp;·&nbsp;
@@ -4312,8 +4312,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelectorAll('.btn-primary, .btn, .btn-base, .btn-prem, .btn-vip, .btn-cta').forEach(btn => {
   if (!btn.getAttribute('href') && btn.tagName === 'BUTTON') {
     btn.addEventListener('click', () => {
-      // Placeholder: scroll to pricing or form section
-      const target = document.getElementById('faq-cta-author');
+      const customTarget = btn.getAttribute('data-target');
+      const target = document.getElementById(customTarget || 'faq-cta-author');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
