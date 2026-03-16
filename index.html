@@ -4384,7 +4384,7 @@ document.querySelectorAll('.btn-primary, .btn, .btn-base, .btn-prem, .btn-vip, .
 
 /* success */
 .anketa-success{text-align:center;padding:60px 20px;}
-.anketa-success-icon{font-size:2rem;margin-bottom:16px;display:block;color:var(--gold);text-shadow:var(--glow-gold);}
+.anketa-success svg{display:block;margin:0 auto;}
 .anketa-success h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;color:var(--cream);margin-bottom:12px;text-shadow:0 0 22px rgba(212,181,120,.35);}
 .anketa-success p{color:var(--gold-dim);font-size:.85rem;line-height:1.6;}
 
@@ -4483,7 +4483,7 @@ document.querySelectorAll('.btn-primary, .btn, .btn-base, .btn-prem, .btn-vip, .
     </form>
 
     <div class="anketa-success" id="anketa-success" style="display:none;">
-      <span class="anketa-success-icon">&#9830;</span>
+      <svg width="28" height="28" viewBox="0 0 28 28" style="margin-bottom:16px;filter:drop-shadow(0 0 12px rgba(212,181,120,.8)) drop-shadow(0 0 28px rgba(212,181,120,.4));"><rect x="14" y="2" width="17" height="17" rx="2" transform="rotate(45 14 2)" fill="var(--gold)"/></svg>
       <h3>Анкета отправлена!</h3>
       <p>Ксения свяжется с тобой в ближайшее время.<br>Жди сообщение в Telegram.</p>
     </div>
@@ -4503,6 +4503,9 @@ document.getElementById('anketa-form').addEventListener('submit', function(e) {
   }).then(function(r) {
     if (r.ok) {
       document.getElementById('anketa-form').style.display = 'none';
+      document.querySelector('.anketa-title').style.display = 'none';
+      document.querySelector('.anketa-subtitle').style.display = 'none';
+      document.querySelector('.anketa-head-divider').style.display = 'none';
       document.getElementById('anketa-success').style.display = 'block';
     } else {
       btn.disabled = false;
