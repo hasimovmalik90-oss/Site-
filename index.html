@@ -4064,7 +4064,7 @@ canvas#stars {
       </div>
     </div>
 
-    <a href="https://docs.google.com/forms/d/1BLfxbc5peWVdAGON2ZWsG196ZgrYECiYuwYPKBhz4v4/viewform" target="_blank" rel="noopener" class="btn-cta" style="display:inline-block;text-decoration:none;text-align:center;">Заполнить анкету и записаться</a>
+    <button type="button" class="btn-cta" onclick="document.getElementById('anketa-modal').style.display='flex'">Заполнить анкету и записаться</button>
     <div class="cta-note">Осталось 7 мест из 10 · Следующий поток в июне 2026</div>
   </div>
 
@@ -4315,5 +4315,152 @@ document.querySelectorAll('.btn-primary, .btn, .btn-base, .btn-prem, .btn-vip, .
 });
 
 </script>
+
+<!-- ===== АНКЕТА МОДАЛЬНОЕ ОКНО ===== -->
+<style>
+.anketa-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(11,9,16,.92);align-items:center;justify-content:center;padding:20px;overflow-y:auto;}
+.anketa-box{background:var(--bg2);border:1px solid var(--line);max-width:560px;width:100%;padding:48px 36px;position:relative;max-height:90vh;overflow-y:auto;}
+.anketa-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--gold-dim);font-size:1.6rem;cursor:pointer;line-height:1;}
+.anketa-close:hover{color:var(--gold);}
+.anketa-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cream);text-align:center;margin-bottom:32px;}
+.anketa-field{margin-bottom:24px;}
+.anketa-label{display:block;font-family:'Jost',sans-serif;font-size:.85rem;color:var(--cream);margin-bottom:4px;letter-spacing:.04em;}
+.anketa-hint{display:block;font-size:.75rem;color:var(--gold-dim);font-style:italic;margin-bottom:8px;}
+.anketa-field input,.anketa-field textarea,.anketa-field select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--cream);font-family:'Jost',sans-serif;font-size:.88rem;padding:12px 14px;outline:none;transition:border-color .3s;box-sizing:border-box;}
+.anketa-field input:focus,.anketa-field textarea:focus,.anketa-field select:focus{border-color:var(--gold);}
+.anketa-field textarea{resize:vertical;min-height:90px;}
+.anketa-field select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a6e44' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.anketa-field select option{background:var(--bg2);color:var(--cream);}
+.anketa-submit{display:block;width:100%;padding:18px;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:var(--bg);font-family:'Jost',sans-serif;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;border:none;margin-top:8px;transition:all .3s;}
+.anketa-submit:hover{box-shadow:0 10px 40px rgba(201,169,110,.35);transform:translateY(-2px);}
+.anketa-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.anketa-success{text-align:center;padding:60px 20px;}
+.anketa-success h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;color:var(--cream);margin-bottom:12px;}
+.anketa-success p{color:var(--gold-dim);font-size:.88rem;}
+@media(max-width:600px){.anketa-box{padding:32px 20px;}}
+</style>
+
+<div class="anketa-overlay" id="anketa-modal">
+  <div class="anketa-box">
+    <button type="button" class="anketa-close" onclick="document.getElementById('anketa-modal').style.display='none'">&times;</button>
+    <div class="anketa-title">Анкета для записи</div>
+
+    <form id="anketa-form" action="https://formspree.io/f/mnjggrwa" method="POST">
+
+      <div class="anketa-field">
+        <label class="anketa-label">Как к тебе обращаться?</label>
+        <span class="anketa-hint">Знаем, что с любовью и уважением — а по имени?</span>
+        <input type="text" name="name" required placeholder="Твоё имя">
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">Серьёзные люди хотят знать твой номер.</label>
+        <span class="anketa-hint">Чтобы <s>названивать</s> пригласить тебя на диагностический звонок с Ксенией</span>
+        <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">А почта у тебя есть?</label>
+        <span class="anketa-hint">Чтобы отправлять туда <s>спам</s> полезные материалы и доступ к программе</span>
+        <input type="email" name="email" required placeholder="email@example.com">
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">И последнее — твой Telegram.</label>
+        <span class="anketa-hint">Чтобы <s>преследовать</s> написать тебе лично с ответом на анкету</span>
+        <input type="text" name="telegram" required placeholder="@username">
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">Расскажи, что сейчас болит больше всего.</label>
+        <span class="anketa-hint">Здесь нет правильных ответов — просто честно</span>
+        <textarea name="pain" required placeholder="Опиши свою ситуацию..."></textarea>
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">Как давно ты с этим живёшь?</label>
+        <span class="anketa-hint">Чтобы <s>пожалеть</s> точнее подобрать формат работы</span>
+        <input type="text" name="duration" required placeholder="Например: полгода, 3 года...">
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">Насколько ты готова меняться прямо сейчас?</label>
+        <span class="anketa-hint">Честный ответ помогает Ксении <s>давить</s> мягко направить тебя</span>
+        <select name="readiness" required>
+          <option value="" disabled selected>Выбери вариант</option>
+          <option value="Полностью готова">Полностью готова — хоть завтра</option>
+          <option value="Скорее готова">Скорее готова, но немного страшно</option>
+          <option value="Пока присматриваюсь">Пока присматриваюсь</option>
+          <option value="Нужен толчок">Нужен толчок — сама не решусь</option>
+        </select>
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">Сколько ты зарабатываешь в месяц?</label>
+        <span class="anketa-hint">Чтобы <s>оценивать</s> подобрать подходящий тариф</span>
+        <select name="income" required>
+          <option value="" disabled selected>Выбери вариант</option>
+          <option value="до 50 000 ₽">до 50 000 ₽</option>
+          <option value="50 000 – 100 000 ₽">50 000 – 100 000 ₽</option>
+          <option value="100 000 – 200 000 ₽">100 000 – 200 000 ₽</option>
+          <option value="200 000 – 500 000 ₽">200 000 – 500 000 ₽</option>
+          <option value="500 000+ ₽">500 000+ ₽</option>
+        </select>
+      </div>
+
+      <div class="anketa-field">
+        <label class="anketa-label">На какой тариф смотришь?</label>
+        <span class="anketa-hint">Чтобы <s>продавать</s> сразу говорить по делу на звонке</span>
+        <select name="tariff" required>
+          <option value="" disabled selected>Выбери вариант</option>
+          <option value="Базовый">Базовый</option>
+          <option value="Премиум">Премиум</option>
+          <option value="VIP">VIP</option>
+          <option value="Ещё не решила">Ещё не решила</option>
+        </select>
+      </div>
+
+      <button type="submit" class="anketa-submit" id="anketa-submit-btn">Подтверждаю — отправить анкету</button>
+
+    </form>
+
+    <div class="anketa-success" id="anketa-success" style="display:none;">
+      <h3>Анкета отправлена!</h3>
+      <p>Ксения свяжется с тобой в ближайшее время. Жди сообщение в Telegram.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('anketa-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('anketa-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Отправляем...';
+  fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(r) {
+    if (r.ok) {
+      document.getElementById('anketa-form').style.display = 'none';
+      document.getElementById('anketa-success').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Подтверждаю — отправить анкету';
+      alert('Ошибка при отправке. Попробуйте ещё раз.');
+    }
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Подтверждаю — отправить анкету';
+    alert('Ошибка сети. Проверьте подключение.');
+  });
+});
+
+document.getElementById('anketa-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script>
+
 </body>
 </html>
