@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Расшифровка теста — Ксения Микаелян</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0b0910; --bg2:#110d18; --bg3:#16101f;
+  --gold:#c9a96e; --gold-lt:#e8cea0; --gold-dim:#8a6e44;
+  --rose:#9b6470; --rose-lt:#c9909e;
+  --cream:#f5ede3; --cream-mid:#d4c8bc; --cream-dim:#b8a898;
+  --line:rgba(201,169,110,.18); --line-soft:rgba(255,255,255,.06);
+  --glow-gold:0 0 20px rgba(232,206,160,.55),0 0 50px rgba(201,169,110,.3),0 0 80px rgba(201,169,110,.15);
+  --glow-icon:0 0 10px rgba(201,169,110,.8),0 0 24px rgba(201,169,110,.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;animation:drift 20s ease-in-out infinite;}
+.orb-1{width:640px;height:640px;background:radial-gradient(circle,rgba(155,100,112,.2),transparent 70%);top:-140px;left:-100px;animation-delay:0s;}
+.orb-2{width:520px;height:520px;background:radial-gradient(circle,rgba(201,169,110,.13),transparent 70%);top:35%;right:-80px;animation-delay:-7s;}
+.orb-3{width:420px;height:420px;background:radial-gradient(circle,rgba(80,50,110,.28),transparent 70%);bottom:8%;left:22%;animation-delay:-13s;}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-18px) scale(1.04);}66%{transform:translate(-18px,26px) scale(.97);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+/* ── LAYOUT ── */
+.page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:80px 24px 120px;}
+.inner{max-width:560px;width:100%;display:flex;flex-direction:column;align-items:center;}
+/* ── SEASON LABEL ── */
+.season-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Jost',sans-serif;font-weight:300;font-size:.75rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:36px;opacity:0;animation:fadeUp .8s .2s ease forwards;
+}
+.season-label::before,.season-label::after{content:'';display:block;width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.season-label::after{background:linear-gradient(90deg,var(--gold),transparent);}
+/* ── TITLE ── */
+.program-name{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(2.2rem,8vw,3.6rem);line-height:1.08;
+  text-align:center;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--cream) 0%,var(--gold-lt) 50%,var(--cream) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;width:100%;
+  opacity:0;animation:fadeUp .9s .4s ease forwards;
+}
+.program-name em{font-style:italic;}
+/* ── DIVIDER ── */
+.divider{
+  display:flex;align-items:center;gap:16px;
+  margin:22px 0 26px;width:100%;max-width:420px;
+  opacity:0;animation:fadeUp .7s .55s ease forwards;
+}
+.divider-line{flex:1;height:1px;background:var(--line);}
+.divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold);}
+/* ── TAGLINE ── */
+.tagline{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);
+  text-align:center;line-height:1.6;max-width:400px;margin-bottom:52px;
+  opacity:0;animation:fadeUp .8s .65s ease forwards;
+}
+.tagline strong{font-style:normal;font-weight:500;color:var(--gold-lt);}
+/* ── SECTION LABEL ── */
+.s-label{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+.ll{flex:1;height:1px;max-width:60px;background:var(--line);}
+.lt{font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;}
+/* ── INFO CARDS (callouts) ── */
+.info-card{
+  width:100%;
+  background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,rgba(201,169,110,.04) 100%);
+  border:1px solid var(--line);border-radius:2px;
+  padding:28px 24px;margin-bottom:12px;
+  opacity:0;animation:fadeUp .8s ease forwards;
+}
+.info-card p{font-size:.9rem;font-weight:300;color:var(--cream-dim);line-height:1.75;}
+.info-card p strong{font-weight:500;color:var(--cream);}
+.info-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.info-card ul li{display:flex;align-items:flex-start;gap:12px;font-size:.85rem;font-weight:300;color:var(--cream-dim);line-height:1.6;}
+.info-card ul li .d{color:var(--gold);font-size:.7rem;margin-top:5px;flex-shrink:0;text-shadow:var(--glow-icon);}
+.info-card ul li strong{font-weight:500;color:var(--cream-mid);}
+/* ── BLOCK SECTION HEADER ── */
+.blocks-head{
+  width:100%;margin:40px 0 16px;
+  opacity:0;animation:fadeUp .7s ease forwards;
+}
+/* ── ACCORDION BLOCK ── */
+.acc{
+  width:100%;margin-bottom:6px;
+  background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,rgba(201,169,110,.03) 100%);
+  border:1px solid var(--line);border-radius:2px;
+  opacity:0;animation:fadeUp .8s ease forwards;
+  transition:border-color .2s;
+}
+.acc.open{border-color:rgba(201,169,110,.35);}
+.acc-header{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px 22px;cursor:pointer;
+  -webkit-user-select:none;user-select:none;
+}
+.acc-header:active{opacity:.8;}
+.acc-num{
+  font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;
+  color:var(--gold-dim);line-height:1;flex-shrink:0;
+  transition:color .2s,text-shadow .2s;min-width:28px;text-align:center;margin-top:2px;
+}
+.acc.open .acc-num{color:var(--gold);text-shadow:var(--glow-icon);}
+.acc-meta{flex:1;}
+.acc-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;
+  color:var(--cream);line-height:1.25;margin-bottom:4px;
+}
+.acc-desc{font-size:.78rem;font-weight:300;color:var(--cream-dim);line-height:1.55;letter-spacing:.01em;}
+.acc-chevron{
+  color:var(--gold-dim);font-size:1.2rem;flex-shrink:0;
+  transition:transform .25s,color .2s;margin-top:6px;
+}
+.acc.open .acc-chevron{transform:rotate(90deg);color:var(--gold);}
+.acc-body{
+  display:none;
+  padding:0 22px 24px;
+  border-top:1px solid rgba(201,169,110,.1);
+}
+.acc.open .acc-body{display:block;}
+/* ── QUESTION ── */
+.q{padding:22px 0;border-bottom:1px solid var(--line-soft);}
+.q:last-child{border-bottom:none;padding-bottom:0;}
+.q-num{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;}
+.q-text{
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;
+  color:var(--cream);line-height:1.35;margin-bottom:18px;
+}
+.answer{margin-bottom:14px;}
+.answer:last-child{margin-bottom:0;}
+.ans-label{
+  display:flex;align-items:center;gap:9px;
+  font-size:.75rem;font-weight:400;letter-spacing:.06em;
+  color:var(--gold);margin-bottom:6px;
+  text-shadow:var(--glow-icon);
+}
+.ans-label .dm{font-size:.65rem;flex-shrink:0;}
+.ans-body{
+  font-size:.85rem;font-weight:300;color:var(--cream-dim);
+  line-height:1.75;padding-left:18px;
+}
+.ans-body em{font-style:italic;color:var(--gold-lt);}
+.ans-body strong{font-weight:500;color:var(--cream);}
+/* ── PULL QUOTE ── */
+.pull-quote{
+  width:100%;margin:40px 0;
+  border-left:1px solid var(--gold);
+  padding:20px 24px;
+  background:rgba(201,169,110,.04);
+  opacity:0;animation:fadeUp .8s ease forwards;
+}
+.pull-quote p{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,3vw,1.25rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.55;margin-bottom:10px;
+}
+.pull-quote cite{font-size:.72rem;letter-spacing:.12em;color:var(--gold-dim);font-style:normal;}
+/* ── DIAMOND SEPARATOR ── */
+.diamond-sep{
+  text-align:center;padding:32px 0;width:100%;
+  color:var(--gold);letter-spacing:14px;font-size:.75rem;
+  text-shadow:var(--glow-icon);
+  opacity:0;animation:fadeUp .7s ease forwards;
+}
+/* ── CTA CARD ── */
+.cta-card{
+  width:100%;
+  background:linear-gradient(135deg,rgba(201,169,110,.06) 0%,rgba(155,100,112,.06) 100%);
+  border:1px solid rgba(201,169,110,.3);border-radius:2px;
+  padding:48px 32px;text-align:center;
+  opacity:0;animation:fadeUp .8s ease forwards;
+}
+.cta-eyebrow{
+  font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-dim);margin-bottom:20px;
+}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;
+  background:linear-gradient(135deg,var(--cream),var(--gold-lt),var(--cream));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:16px;
+}
+.cta-title em{font-style:italic;}
+.cta-desc{font-size:.88rem;font-weight:300;color:var(--cream-dim);max-width:400px;margin:0 auto 36px;line-height:1.75;}
+.cta-stats{display:flex;justify-content:center;gap:36px;margin-bottom:40px;flex-wrap:wrap;}
+.stat .n{
+  font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;
+  background:linear-gradient(135deg,var(--gold-lt),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.stat .l{font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:5px;line-height:1.5;}
+.btn-primary{
+  display:inline-block;
+  padding:18px 48px;
+  background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-lt));
+  border:none;border-radius:2px;
+  font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#0b0910;cursor:pointer;text-decoration:none;
+  box-shadow:0 4px 24px rgba(201,169,110,.25);
+  transition:opacity .2s,transform .1s;
+}
+.btn-primary:active{opacity:.85;transform:scale(.99);}
+.cta-fine{font-size:.7rem;color:rgba(245,237,227,.18);margin-top:14px;line-height:1.6;}
+/* ── PERSONAL CARD ── */
+.personal-card{
+  width:100%;margin-top:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,rgba(201,169,110,.03) 100%);
+  border:1px solid var(--line);border-radius:2px;
+  padding:36px 28px;
+  opacity:0;animation:fadeUp .8s ease forwards;
+}
+.p-eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;}
+.p-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,1.9rem);font-weight:400;
+  color:var(--cream);margin-bottom:4px;line-height:1.2;
+}
+.p-sub{font-size:.78rem;font-weight:300;color:var(--cream-dim);font-style:italic;margin-bottom:22px;letter-spacing:.04em;}
+.p-desc{font-size:.88rem;font-weight:300;color:var(--cream-dim);line-height:1.75;margin-bottom:28px;}
+.p-desc strong{font-weight:500;color:var(--cream);}
+.steps{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
+.step{display:flex;align-items:flex-start;gap:18px;padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.step:last-child{border-bottom:none;}
+.step-n{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;
+  color:var(--gold-dim);flex-shrink:0;width:20px;text-align:center;line-height:1.2;
+}
+.step-t strong{display:block;font-size:.88rem;font-weight:500;color:var(--cream);margin-bottom:2px;}
+.step-t span{font-size:.8rem;font-weight:300;color:var(--cream-dim);}
+.btn-outline{
+  display:block;text-align:center;
+  border:1px solid rgba(201,169,110,.28);border-radius:2px;
+  color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:.72rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  padding:15px 24px;text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.btn-outline:hover{background:rgba(201,169,110,.06);border-color:rgba(201,169,110,.5);}
+/* ── SOCIALS ── */
+.socials-wrap{width:100%;margin-top:12px;opacity:0;animation:fadeUp .8s ease forwards;}
+.socials-head{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;font-style:italic;
+  color:var(--cream-dim);margin-bottom:16px;text-align:center;
+}
+.social-list{display:flex;flex-direction:column;gap:6px;}
+.soc-item{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.025),rgba(201,169,110,.02));
+  border:1px solid var(--line);border-radius:2px;
+  padding:14px 20px;text-decoration:none;
+  transition:border-color .15s;
+}
+.soc-item:hover{border-color:rgba(201,169,110,.35);}
+.soc-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0;}
+.soc-name{flex:1;font-size:.88rem;font-weight:300;color:var(--cream);}
+.soc-handle{font-size:.75rem;color:var(--gold);font-weight:300;}
+.soc-arr{color:var(--gold-dim);font-size:.9rem;}
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  padding:28px 24px;text-align:center;
+  border-top:1px solid var(--line-soft);
+  font-size:.7rem;font-weight:300;letter-spacing:.06em;
+  color:rgba(245,237,227,.18);
+}
+/* ── ANIMATION DELAYS ── */
+.d1{animation-delay:.3s!important;}
+.d2{animation-delay:.45s!important;}
+.d3{animation-delay:.6s!important;}
+.d4{animation-delay:.7s!important;}
+.d5{animation-delay:.8s!important;}
+.d6{animation-delay:.9s!important;}
+.d7{animation-delay:1s!important;}
+.d8{animation-delay:1.1s!important;}
+.d9{animation-delay:1.2s!important;}
+.d10{animation-delay:1.3s!important;}
+/* ── FORM STYLES ── */
+.field{margin-bottom:28px;text-align:left;}
+.f-label{display:block;font-size:.85rem;font-weight:300;color:var(--cream-mid);margin-bottom:10px;letter-spacing:.02em;}
+.f-input{
+  display:block;width:100%;background:transparent;border:none;
+  border-bottom:1px solid rgba(201,169,110,.2);
+  padding:8px 0 10px;
+  font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;
+  color:rgba(245,237,227,.35);outline:none;-webkit-appearance:none;border-radius:0;
+  transition:border-color .2s,color .2s;
+}
+.f-input::placeholder{color:rgba(245,237,227,.2);}
+.f-input:focus{border-bottom-color:var(--gold);color:var(--cream);}
+.radio-lbl{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;display:block;}
+.radio-group{display:flex;flex-direction:column;gap:8px;}
+.r-box{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:13px 16px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(201,169,110,.14);
+  border-radius:2px;cursor:pointer;
+  transition:border-color .15s,background .15s;
+  -webkit-user-select:none;user-select:none;
+}
+.r-box input[type="radio"]{display:none;}
+.r-box.selected{border-color:rgba(201,169,110,.45);background:rgba(201,169,110,.06);}
+.r-diamond{color:var(--gold-dim);font-size:9px;flex-shrink:0;margin-top:5px;transition:color .15s,text-shadow .15s;}
+.r-box.selected .r-diamond{color:var(--gold);text-shadow:var(--glow-icon);}
+.r-text{font-size:.85rem;font-weight:300;color:var(--cream-dim);line-height:1.55;transition:color .15s;}
+.r-box.selected .r-text{color:var(--cream);}
+.other-wrap{display:none;margin-top:8px;}
+.other-wrap.show{display:block;}
+.other-input{
+  display:block;width:100%;background:transparent;border:none;
+  border-bottom:1px solid rgba(201,169,110,.2);
+  padding:8px 0 10px;
+  font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;
+  color:rgba(245,237,227,.35);outline:none;-webkit-appearance:none;border-radius:0;
+  transition:border-color .2s,color .2s;
+}
+.other-input::placeholder{color:rgba(245,237,227,.2);}
+.other-input:focus{border-bottom-color:var(--gold);color:var(--cream);}
+.note{font-size:.7rem;color:rgba(245,237,227,.18);text-align:center;margin-top:14px;line-height:1.6;}
+.success{display:none;text-align:center;padding:32px 0;}
+.success-diamonds{color:var(--gold);font-size:.8rem;letter-spacing:12px;margin-bottom:20px;text-shadow:var(--glow-icon);}
+.success-title{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;
+  background:linear-gradient(135deg,var(--cream),var(--gold-lt),var(--cream));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.2;margin-bottom:12px;
+}
+.success-title em{font-style:italic;font-weight:300;}
+.success-sub{font-size:.85rem;color:var(--cream-dim);line-height:1.7;font-weight:300;}
+@media(max-width:560px){
+  .page{padding:64px 20px 100px;}
+  .cta-card{padding:36px 24px;}
+  .personal-card{padding:28px 22px;}
+  .cta-stats{gap:24px;}
+}
+/* ── MODAL ── */
+#modal{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(11,9,16,.85);
+  backdrop-filter:blur(8px);
+  overflow-y:auto;
+  padding:24px 16px 40px;
+  animation:fadeIn .2s ease;
+}
+#modal.open{display:block;}
+.modal-box{
+  position:relative;
+  max-width:480px;margin:0 auto;
+  background:var(--bg2);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:40px 32px 44px;
+  animation:fadeUp .3s ease;
+}
+.modal-close{
+  position:absolute;top:16px;right:18px;
+  background:none;border:none;cursor:pointer;
+  color:var(--cream-dim);font-size:1rem;
+  font-family:'Jost',sans-serif;font-weight:300;
+  transition:color .15s;padding:4px;
+}
+.modal-close:hover{color:var(--gold);}
+@media(max-width:520px){.modal-box{padding:32px 20px 36px;}}
+/* ── VIDEO ── */
+.video-wrap{width:100%;margin-bottom:16px;}
+.video-thumb{
+  position:relative;width:100%;aspect-ratio:16/9;
+  background:#0d0a14;border:1px solid var(--line);
+  cursor:pointer;overflow:hidden;
+}
+.video-thumb img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.75;transition:opacity .3s;
+  display:block;
+}
+.video-thumb:hover img{opacity:.9;}
+.play-ring{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;
+  border:1px solid rgba(201,169,110,.5);
+  background:rgba(201,169,110,.12);
+  backdrop-filter:blur(4px);
+  display:grid;place-items:center;
+  transition:all .25s;z-index:2;
+}
+.video-thumb:hover .play-ring{background:rgba(201,169,110,.25);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.06);}
+.play-tri{width:0;height:0;border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent var(--gold);margin-left:4px;}
+.video-label{text-align:center;font-size:.75rem;color:var(--gold-dim);margin-top:10px;font-style:italic;font-family:'Cormorant Garamond',serif;}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="page">
+<div class="inner">
+  <!-- SEASON -->
+  <span class="season-label">Ксения Микаелян</span>
+  <!-- TITLE -->
+  <h1 class="program-name">Ваш родовой<br><em>сценарий</em> в отношениях</h1>
+  <!-- DIVIDER -->
+  <div class="divider">
+    <span class="divider-line"></span>
+    <span class="divider-diamond"></span>
+    <span class="divider-line"></span>
+  </div>
+  <!-- TAGLINE -->
+  <p class="tagline">Персональная расшифровка теста —<br><strong>что стоит за каждым вашим ответом</strong></p>
+  <!-- VIDEO -->
+  <a class="video-wrap d1" href="https://youtu.be/XrWySXC3gJk?si=9POwj7mZPcNia_kP" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
+    <div class="video-thumb">
+      <img src="https://img.youtube.com/vi/XrWySXC3gJk/maxresdefault.jpg" alt="Ксения Микаелян о родовых программах" loading="lazy" onerror="this.style.display='none'">
+      <div class="play-ring"><div class="play-tri"></div></div>
+    </div>
+    <p class="video-label">Ксения Микаелян — о том, как работают родовые программы в отношениях ↗</p>
+  </a>
+  <!-- CALLOUT 1 -->
+  <div class="info-card d1">
+    <div class="s-label"><div class="ll"></div><span class="lt">О расшифровке</span><div class="ll"></div></div>
+    <p>В этом файле я собрала <strong>полную расшифровку каждого вопроса.</strong> После изучения вы увидите, какие именно программы работают в вашей жизни, откуда они пришли — и как они проявляются каждый день.</p>
+  </div>
+  <!-- CALLOUT 2 -->
+  <div class="info-card d2">
+    <div class="s-label"><div class="ll"></div><span class="lt">Что внутри</span><div class="ll"></div></div>
+    <ul>
+      <li><span class="d">◆</span><span><strong>Блок 1 — Отношения мамы.</strong> Как её выбор мужчин, роль в семье и реакции стали вашей «нормой» на уровне нейронных привычек.</span></li>
+      <li><span class="d">◆</span><span><strong>Блок 2 — Отношения бабушки.</strong> Межпоколенческие сценарии: три поколения по женской линии и как они работают в вас прямо сейчас.</span></li>
+      <li><span class="d">◆</span><span><strong>Блок 3 — Ваши паттерны.</strong> Почему вы выбираете именно таких мужчин — и почему сценарий повторяется, даже когда вы этого не хотите.</span></li>
+      <li><span class="d">◆</span><span><strong>Блок 4 — Глубинные убеждения.</strong> Программы «я недостойна», «любовь надо заслужить», «слабость — опасность».</span></li>
+      <li><span class="d">◆</span><span><strong>Блок 5 — Энергия и состояние.</strong> Тревожность, страх слабости, контроль — и что они говорят о вас прямо сейчас.</span></li>
+    </ul>
+  </div>
+  <!-- SECTION LABEL -->
+  <div class="blocks-head d3">
+    <div class="s-label"><div class="ll"></div><span class="lt">Расшифровка по блокам</span><div class="ll"></div></div>
+  </div>
+  <!-- ── БЛОК 1 ── -->
+  <div class="acc d4" onclick="toggleAcc(this)">
+    <div class="acc-header">
+      <div class="acc-num">1</div>
+      <div class="acc-meta">
+        <div class="acc-title">Отношения вашей мамы</div>
+        <div class="acc-desc">Мама — первый «бог» в мире ребёнка. 60% фундамента мировоззрения закладывается в детстве через её пример.</div>
+      </div>
+      <div class="acc-chevron">›</div>
+    </div>
+    <div class="acc-body">
+      <div class="q">
+        <div class="q-num">Вопрос 1</div>
+        <div class="q-text">Какую роль мама занимала в отношениях с отцом?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Тянула всё на себе»</div>
+          <div class="ans-body">У вас работает программа <em>«Я справлюсь сама»</em> — одна из самых мощных родовых программ. Вы берёте ответственность за всё, физически не умеете попросить о помощи. Пока вы действуете из этой программы — <strong>мужчине рядом с вами нет места.</strong> Он становится слабым, потому что вы уже всё решили за него.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Подчинялась, терпела ради семьи»</div>
+          <div class="ans-body">Программа <em>«Женщина должна терпеть»</em>. Вы можете говорить «никогда не буду как мама» — но подсознание уже выбирает мужчину, рядом с которым придётся терпеть. Каждая зажатая эмоция — замороженная энергия, которая превращается в хроническую усталость.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Боролась за лидерство»</div>
+          <div class="ans-body">Программа конкуренции с мужчиной. Когда женщина доминирует — она в роли мужчины. Результат: либо постоянная борьба за власть, либо партнёр сдаётся. В обоих случаях — нет близости, нет покоя.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Партнёрские, уважительные отношения»</div>
+          <div class="ans-body">Это ваш ресурс. Мама дала вам «чувство дозволенности» — позволять о себе заботиться, принимать любовь. Это фундамент, на который можно опереться.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопросы 2–3</div>
+        <div class="q-text">Что мама транслировала про мужчин? Была ли счастлива?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «На мужчин нельзя положиться» / «Все мужики одинаковые»</div>
+          <div class="ans-body">Это навязанная призма восприятия. Это был взгляд матери, не ваш. <em>У вас — свой путь.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Женщина должна терпеть»</div>
+          <div class="ans-body">Форма поведения, которая передаётся из поколения в поколение. Всё, что не было завершено — повторяется. <em>На вас эта карма может закончиться.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Терпела и страдала, но оставалась»</div>
+          <div class="ans-body">Вы выросли с ощущением: отношения = боль. Пока вы несёте в себе обиду за маму — <strong>вы воспроизводите её сценарий.</strong></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Была одна — растила детей сама»</div>
+          <div class="ans-body">Прабабушка одна, бабушка одна, мама одна. Это не невезение — это родовой сценарий, который повторяется, пока кто-то не прервёт его осознанно.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Внешне всё хорошо, но внутри неудовлетворённость»</div>
+          <div class="ans-body">Самый коварный сценарий. Вы выросли с глубинной тревожностью: если всё тихо — <em>где-то подвох.</em> Постоянное ожидание, что хорошее закончится.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопрос 5</div>
+        <div class="q-text">Как мама реагировала на трудности в отношениях?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Замыкалась, справлялась сама»</div>
+          <div class="ans-body">Подавление эмоций. Напряжение говорит: «Ты пытаешься всё контролировать». Усталость говорит: «Ты не проживаешь свои чувства». <em>Каждый симптом тела — это послание.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Пыталась спасти, переделать мужчину»</div>
+          <div class="ans-body">Программа спасательства. Всегда идём спасать мужика. Спасаем весь мир. Забываем о себе. Не можем спасти себя.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Открыто обсуждала и находила решения»</div>
+          <div class="ans-body">Здоровая модель коммуникации. Если вы видели, как мама спокойно решает конфликты — этот навык уже заложен в вас.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── БЛОК 2 ── -->
+  <div class="acc d5" onclick="toggleAcc(this)">
+    <div class="acc-header">
+      <div class="acc-num">2</div>
+      <div class="acc-meta">
+        <div class="acc-title">Отношения бабушки</div>
+        <div class="acc-desc">Всё, что не было завершено — повторяется. Пока кто-то не осознал и не захотел жить по-другому.</div>
+      </div>
+      <div class="acc-chevron">›</div>
+    </div>
+    <div class="acc-body">
+      <div class="q">
+        <div class="q-num">Вопрос 6</div>
+        <div class="q-text">Какую роль бабушка занимала в своей семье?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Тянула семью одна»</div>
+          <div class="ans-body">Три поколения с одной программой: «я сама». Когда нет связи с родом — вы действуете из своих сил. Когда есть поддержка рода — вы держитесь на поддержке целой эпохи. <em>Разница колоссальная.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Не знаю точно»</div>
+          <div class="ans-body">Отсутствие информации о бабушке — само по себе симптом. Обрыв связи с родом. Восстановление этой информации — первый шаг к восстановлению родового канала.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Гармоничные отношения с дедушкой»</div>
+          <div class="ans-body">Это родовой ресурс. В каждом роду были люди, которые наслаждались жизнью. Задача — <strong>подключиться именно к этой линии</strong> и взять оттуда силу.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопрос 7</div>
+        <div class="q-text">Какое убеждение бабушка транслировала про женскую долю?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Женщина должна терпеть и нести свой крест»</div>
+          <div class="ans-body">Классическая советская установка. Передаётся как ДНК. Карма — это не приговор. Это просто форма восприятия и поведения. <em>На вас она может закончиться.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Будь сильной, ни на кого не рассчитывай»</div>
+          <div class="ans-body">На первый взгляд — сила. На деле — невозможность принимать любовь, заботу, помощь. Женщина не позволяет себе просто получать.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Ты достойна любви и счастья»</div>
+          <div class="ans-body">У вас открыт канал принятия от рода. Это мощный ресурс.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопрос 8</div>
+        <div class="q-text">Видите ли вы сходство в судьбах мамы и бабушки?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Практически идентичны»</div>
+          <div class="ans-body">Межпоколенческий сценарий в полную силу. Бабушка не завершила, мама повторила. Но вы можете стать <strong>целительницей родовой системы</strong> — той, на ком этот сценарий заканчивается.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Есть параллели — похожий тип мужчин или ролей»</div>
+          <div class="ans-body">Сценарий работает, но не в полную силу. Часть программ активны, часть уже трансформированы. Важно определить, какие именно.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── БЛОК 3 ── -->
+  <div class="acc d6" onclick="toggleAcc(this)">
+    <div class="acc-header">
+      <div class="acc-num">3</div>
+      <div class="acc-meta">
+        <div class="acc-title">Ваши личные паттерны</div>
+        <div class="acc-desc">98% женщин выбирают мужчин через родовые программы — автоматически, без осознания.</div>
+      </div>
+      <div class="acc-chevron">›</div>
+    </div>
+    <div class="acc-body">
+      <div class="q">
+        <div class="q-num">Вопрос 9</div>
+        <div class="q-text">Какого типа мужчин вы чаще всего выбираете?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Слабых, которым нужна мама-кормилица»</div>
+          <div class="ans-body">Вы подсознательно берёте на себя мужскую роль и даёте ему право быть слабым. А когда мужчина стал слабым — вернуть его очень сложно. Результат: <em>вы тянете всё сами → выгорание → невидимость.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Эмоционально недоступных — приходится завоёвывать»</div>
+          <div class="ans-body">Закрытое сердце притягивает закрытое сердце. Уставшая женщина: нет мечт, забыла как мечтать. <em>Низкая планка = низкое качество мужчин.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Доминирующих, контролирующих»</div>
+          <div class="ans-body">Повторение программы бабушки или мамы. В детстве вы приняли эту форму бессознательно — и теперь воспроизводите сценарий.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопросы 10–12</div>
+        <div class="q-text">Повторяется ли один и тот же сценарий? Что чувствуете, когда мужчина проявляет серьёзный интерес?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Каждый раз одна и та же история»</div>
+          <div class="ans-body">Родовой сценарий в действии. Пока не видите программу — <strong>она управляет вами.</strong> Когда увидите — сможете изменить.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Становится неинтересно, хочется оттолкнуть»</div>
+          <div class="ans-body">Страх покоя. «Если всё хорошо — где-то подвох». Принимать = быть обязанной (программа из рода).</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Тревогу — вдруг я не заслуживаю»</div>
+          <div class="ans-body">Программа «любовь надо заслужить». Раненый внутренний ребёнок, который не получил безусловной любви. Заслуживание места через достижения — потеря себя.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── БЛОК 4 ── -->
+  <div class="acc d7" onclick="toggleAcc(this)">
+    <div class="acc-header">
+      <div class="acc-num">4</div>
+      <div class="acc-meta">
+        <div class="acc-title">Глубинные убеждения</div>
+        <div class="acc-desc">Нами руководит эго, которое идёт с семьи и рода. Но на нас оно может закончиться.</div>
+      </div>
+      <div class="acc-chevron">›</div>
+    </div>
+    <div class="acc-body">
+      <div class="q">
+        <div class="q-num">Вопросы 14–15</div>
+        <div class="q-text">«Попросить о помощи — значит проявить слабость» / Как вы относитесь к мысли опереться на мужчину?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Попросить о помощи — значит проявить слабость»</div>
+          <div class="ans-body">Самый глубокий сценарий. С детства внушили: быть слабой стыдно. Но на самом деле: <em>«Если я стану слабой, ничего не произойдёт. Я женщина, имею на это право.»</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Хочу опереться, но не умею»</div>
+          <div class="ans-body">Канал закрыт, но желание есть — <strong>это хороший знак.</strong> Начните с маленьких шагов: попросите принести чай, помочь решить ситуацию. Мелочь перерастает в большее.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Пробовала — каждый раз разочарование»</div>
+          <div class="ans-body">Вы пробовали, но выбирали мужчин из программы. Нездоровый мужчина не может быть опорой. Дело не в том, что «мужчины ненадёжны» — дело в том, что <em>программа подбирала именно таких.</em></div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопросы 16–17</div>
+        <div class="q-text">Что чувствуете при успехе в бизнесе? Верите ли, что счастливые отношения реальны для вас?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Пустоту — деньги есть, а счастья нет»</div>
+          <div class="ans-body">Деньги без любви = пустота. Потому что <em>изобилие приходит через состояние, а не через изнурительный труд.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Хочу верить, но опыт говорит обратное»</div>
+          <div class="ans-body">Повторяющиеся сценарии создают иллюзию «всегда так будет». Но это не судьба — это внутренние детские контракты, которые можно переписать.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── БЛОК 5 ── -->
+  <div class="acc d8" onclick="toggleAcc(this)">
+    <div class="acc-header">
+      <div class="acc-num">5</div>
+      <div class="acc-meta">
+        <div class="acc-title">Энергия и состояние</div>
+        <div class="acc-desc">Когда женщина возвращается в тело — энергия начинает течь. Она входит в состояние магнетизма.</div>
+      </div>
+      <div class="acc-chevron">›</div>
+    </div>
+    <div class="acc-body">
+      <div class="q">
+        <div class="q-num">Вопросы 19–20</div>
+        <div class="q-text">Как часто чувствуете себя «как мужик»? Уровень тревожности в отношениях?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Практически всегда»</div>
+          <div class="ans-body">Хроническая мужская энергия. Живёте из выживания. Мужчина рядом видит не женщину, а конкурента. Он либо воюет, либо сдаётся, либо уходит.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Часто — особенно на работе, не могу выключить дома»</div>
+          <div class="ans-body">На работе — мужская энергия (контроль, решения, лидерство). Дома — нужна женская. Но вы <em>приходите домой и забываете переодеться</em> — сидите в деловом костюме за ужином.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Очень высокий — постоянное напряжение»</div>
+          <div class="ans-body">Мозг в режиме «борись или беги» 24/7. Тревожность на 50% убирается через принятие силы рода и восстановление родовых каналов.</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">Вопросы 22–23</div>
+        <div class="q-text">Страх «показаться слабой» — насколько он силён? Что для вас означает «женская сила»?</div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Максимально — скорее умру, чем покажу слабость»</div>
+          <div class="ans-body">10/10. Это иллюзия эго, переданного родом. Когда женщина перестаёт тащить, даёт место мужчине, становится мягче — <em>мужчина автоматически усиливается.</em></div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Быть независимой, справляться самой»</div>
+          <div class="ans-body">Определение ДО трансформации. Это мужская энергия, замаскированная под женскую силу. Независимость от мужчины на 1000% — это не сила, это страх.</div>
+        </div>
+        <div class="answer">
+          <div class="ans-label"><span class="dm">◆</span> «Быть сильной в бизнесе И мягкой в отношениях»</div>
+          <div class="ans-body">Определение ПОСЛЕ трансформации. <em>Работать для себя, быть реализованной в бизнесе + в семье быть женщиной.</em> Не стать слабой. Научиться переключаться.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- PULL QUOTE -->
+  <div class="pull-quote d9">
+    <p>«Когда ты в состоянии изобильной женщины — ты чётко понимаешь, кто перед тобой. Мне не нужно было время, чтобы «присмотреться». Я видела сразу. Потому что я знала, кто я. И кто мне нужен.»</p>
+    <cite>— Ксения Микаелян, автор программы</cite>
+  </div>
+  <!-- DIAMOND SEP -->
+  <div class="diamond-sep d9">◆ &nbsp; ◆ &nbsp; ◆</div>
+  <!-- CTA -->
+  <div class="cta-card d9" id="program">
+    <div class="cta-eyebrow">Следующий шаг</div>
+    <h2 class="cta-title">Если хотите<br><em>проработать</em> эти программы</h2>
+    <p class="cta-desc">Расшифровка показала вам программы. «Алгоритмы женской силы» помогают их трансформировать — за 8 недель, с первыми изменениями через 4–7 дней.</p>
+    <div class="cta-stats">
+      <div class="stat"><div class="n">95%</div><div class="l">получают результат<br>в первый месяц</div></div>
+      <div class="stat"><div class="n">100+</div><div class="l">женщин прошли<br>трансформацию</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">недель до<br>трансформации</div></div>
+    </div>
+    <button class="btn-primary" onclick="openModal()" style="margin-top:36px;width:100%;">Записаться на диагностику</button>
+    <p class="cta-fine">Это НЕ продажи — это диагностика.<br>Если программа не подходит — Ксения честно скажет.</p>
+  </div>
+  <!-- MODAL -->
+  <div id="modal" onclick="closeModalOutside(event)">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <div id="mFormWrap">
+        <div class="season-label" style="margin-bottom:20px;opacity:1;animation:none;">Анкета для записи</div>
+        <h2 class="program-name" style="font-size:1.8rem;margin-bottom:6px;opacity:1;animation:none;">Заполни форму</h2>
+        <div class="divider" style="margin:14px 0 24px;opacity:1;animation:none;">
+          <span class="divider-line"></span><span class="divider-diamond"></span><span class="divider-line"></span>
+        </div>
+        <form id="diagForm" action="https://formspree.io/f/mnjggrwa" method="POST">
+          <div class="field">
+            <label class="f-label">Как к тебе обращаться?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Знаем, что с любовью — а по имени?</span></label>
+            <input class="f-input" type="text" name="name" placeholder="Имя и фамилия" required>
+          </div>
+          <div class="field">
+            <label class="f-label">Номер телефона<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы пригласить тебя на диагностический звонок</span></label>
+            <input class="f-input" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label class="f-label">Твой основной email<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы отправить доступ к программе</span></label>
+            <input class="f-input" type="email" name="email" placeholder="example@gmail.com" required>
+          </div>
+          <div class="field">
+            <label class="f-label">Твой Telegram<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы написать тебе лично с ответом</span></label>
+            <input class="f-input" type="text" name="telegram" placeholder="@username" required>
+          </div>
+          <div class="field">
+            <label class="f-label">Расскажи, что сейчас болит больше всего<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Здесь нет правильных ответов — просто честно</span></label>
+            <textarea class="f-input" name="pain" placeholder="Опиши свою ситуацию..." rows="3" style="resize:none;padding-top:10px;" required></textarea>
+          </div>
+          <div class="field">
+            <label class="f-label">Как давно ты с этим живёшь?</label>
+            <div class="radio-group">
+              <label class="r-box"><input type="radio" name="duration" value="Меньше года" required><span class="r-diamond">&#9670;</span><span class="r-text">Меньше года</span></label>
+              <label class="r-box"><input type="radio" name="duration" value="1-3 года"><span class="r-diamond">&#9670;</span><span class="r-text">1–3 года</span></label>
+              <label class="r-box"><input type="radio" name="duration" value="3-5 лет"><span class="r-diamond">&#9670;</span><span class="r-text">3–5 лет</span></label>
+              <label class="r-box"><input type="radio" name="duration" value="Больше 5 лет"><span class="r-diamond">&#9670;</span><span class="r-text">Больше 5 лет</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="f-label">Насколько ты готова меняться прямо сейчас?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Честный ответ помогает Ксении точнее направить</span></label>
+            <div class="radio-group">
+              <label class="r-box"><input type="radio" name="readiness" value="Полностью готова" required><span class="r-diamond">&#9670;</span><span class="r-text">Полностью готова — хоть завтра</span></label>
+              <label class="r-box"><input type="radio" name="readiness" value="Скорее готова, но страшно"><span class="r-diamond">&#9670;</span><span class="r-text">Скорее готова, но немного страшно</span></label>
+              <label class="r-box"><input type="radio" name="readiness" value="Пока присматриваюсь"><span class="r-diamond">&#9670;</span><span class="r-text">Пока присматриваюсь</span></label>
+              <label class="r-box"><input type="radio" name="readiness" value="Нужен толчок"><span class="r-diamond">&#9670;</span><span class="r-text">Нужен толчок — сама не решусь</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="f-label">Сколько ты зарабатываешь в месяц?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы подобрать подходящий тариф</span></label>
+            <div class="radio-group">
+              <label class="r-box"><input type="radio" name="income" value="до $500" required><span class="r-diamond">&#9670;</span><span class="r-text">до $500</span></label>
+              <label class="r-box"><input type="radio" name="income" value="$500-$1000"><span class="r-diamond">&#9670;</span><span class="r-text">$500 – $1,000</span></label>
+              <label class="r-box"><input type="radio" name="income" value="$1000-$2000"><span class="r-diamond">&#9670;</span><span class="r-text">$1,000 – $2,000</span></label>
+              <label class="r-box"><input type="radio" name="income" value="$2000-$5000"><span class="r-diamond">&#9670;</span><span class="r-text">$2,000 – $5,000</span></label>
+              <label class="r-box"><input type="radio" name="income" value="$5000+"><span class="r-diamond">&#9670;</span><span class="r-text">$5,000+</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="f-label">На какой тариф смотришь?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы сразу говорить по делу на звонке</span></label>
+            <div class="radio-group">
+              <label class="r-box"><input type="radio" name="tariff" value="Базовый — $888" required><span class="r-diamond">&#9670;</span><span class="r-text">Базовый — $888</span></label>
+              <label class="r-box"><input type="radio" name="tariff" value="Стандарт — $1200"><span class="r-diamond">&#9670;</span><span class="r-text">Стандарт — $1,200</span></label>
+              <label class="r-box"><input type="radio" name="tariff" value="VIP — $2200"><span class="r-diamond">&#9670;</span><span class="r-text">VIP — $2,200</span></label>
+              <label class="r-box"><input type="radio" name="tariff" value="Ещё не решила"><span class="r-diamond">&#9670;</span><span class="r-text">Ещё не решила</span></label>
+            </div>
+          </div>
+          <input type="hidden" name="_source" value="Расшифровка теста — диагностика">
+          <button class="btn-primary" type="submit" style="width:100%;display:block;margin-top:32px;">Подтверждаю — записаться на диагностику</button>
+          <p class="note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+        </form>
+      </div>
+      <div class="success" id="mOk" style="display:none;">
+        <div class="success-diamonds">&#9670; &#9670; &#9670;</div>
+        <div class="success-title">Готово,<br><em>ждите ответа</em></div>
+        <p class="success-sub">Ксения свяжется с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+  <!-- PERSONAL CARD -->
+  <div class="personal-card d10">
+    <div class="p-eyebrow">Личная работа с Ксенией</div>
+    <h3 class="p-title">Алгоритмы женской силы</h3>
+    <div class="p-sub">8-недельная программа трансформации · Весна 2026</div>
+    <p class="p-desc">Это не обучающий курс — вы не учите теорию. Вы получаете <strong>готовые решения</strong> под вашу ситуацию. Наши наработки и инструменты — ваш результат.</p>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t"><strong>Глубокая диагностика на входе</strong><span>Карта ваших родовых программ и персональный план</span></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t"><strong>8 живых встреч с разборами</strong><span>90 минут каждую неделю — практики и обратная связь от Ксении</span></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t"><strong>Закрытый чат поддержки 24/7</strong><span>Ответ от Ксении в течение 4 часов, помощь в острых ситуациях</span></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-t"><strong>Библиотека 50+ практик навсегда</strong><span>Телесные практики, медитации, дыхательные техники — аудио</span></div></div>
+      <div class="step"><div class="step-n">5</div><div class="step-t"><strong>Гарантия результата или возврат + $3,600 бонусов</strong><span>Менее 2% возвратов за 2 года работы</span></div></div>
+    </div>
+    <a href="https://kseniiamikaelyan.com/#format" target="_blank" class="btn-outline">Посмотреть форматы и тарифы →</a>
+  </div>
+  <!-- SOCIALS -->
+  <div class="socials-wrap d10" style="margin-top:32px;">
+    <p class="socials-head">Чтобы быть на связи и получать ещё больше контента</p>
+    <div class="social-list">
+      <a href="https://www.instagram.com/kseniia.quantumlead?igsh=MXJocHZycWFiMTlkdA%3D%3D" class="soc-item">
+        <span class="soc-icon">📸</span>
+        <span class="soc-name">Instagram</span>
+        <span class="soc-handle">@kseniia.quantumlead</span>
+        <span class="soc-arr">›</span>
+      </a>
+      <a href="https://t.me/alhimiawoman" class="soc-item">
+        <span class="soc-icon">✈️</span>
+        <span class="soc-name">Telegram канал</span>
+        <span class="soc-handle">@alhimiawoman</span>
+        <span class="soc-arr">›</span>
+      </a>
+      <a href="https://youtube.com/@kseniiamikaelian?si=OPJh9C_dod-6qM2k" class="soc-item">
+        <span class="soc-icon">▶️</span>
+        <span class="soc-name">YouTube</span>
+        <span class="soc-handle">@kseniiamikaelian</span>
+        <span class="soc-arr">›</span>
+      </a>
+      <a href="https://t.me/Mikaelas_up" class="soc-item">
+        <span class="soc-icon">💬</span>
+        <span class="soc-name">Telegram личный</span>
+        <span class="soc-handle">@Mikaelas_up</span>
+        <span class="soc-arr">›</span>
+      </a>
+    </div>
+  </div>
+</div><!-- /inner -->
+</div><!-- /page -->
+<footer>© 2026 Ксения Микаелян · Алгоритмы женской силы</footer>
+<script>
+/* ── STARS ── */
+(function(){
+  var c=document.getElementById('stars');if(!c)return;
+  var ctx=c.getContext('2d'),W,H,P=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function make(){P=[];var n=Math.floor(W*H/13000);for(var i=0;i<n;i++){P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,a:Math.random(),sp:Math.random()*.003+.001,ph:Math.random()*Math.PI*2,g:Math.random()>.65});}}
+  function draw(){ctx.clearRect(0,0,W,H);var t=Date.now()*.001;P.forEach(function(p){var al=p.a*(.45+.55*Math.sin(t*p.sp*300+p.ph));ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?'rgba(201,169,110,'+al+')':'rgba(240,232,220,'+(al*.55)+')';ctx.fill();});requestAnimationFrame(draw);}
+  resize();make();draw();
+  window.addEventListener('resize',function(){resize();make();});
+})();
+/* ── ACCORDION ── */
+function toggleAcc(el){
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.acc.open').forEach(function(a){a.classList.remove('open');});
+  if(!isOpen) el.classList.add('open');
+}
+/* ── MODAL ── */
+function openModal(){
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){
+  if(e.target.id==='modal') closeModal();
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeModal();});
+/* ── RADIO BOXES ── */
+document.querySelectorAll('.r-box input[type="radio"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var group=this.closest('.radio-group');
+    group.querySelectorAll('.r-box').forEach(function(b){b.classList.remove('selected');});
+    this.closest('.r-box').classList.add('selected');
+  });
+});
+/* ── FORM SUBMIT ── */
+document.getElementById('diagForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var btn=this.querySelector('.btn-primary');
+  btn.textContent='Отправляем...';btn.style.opacity='.6';
+  try{
+    var res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      document.getElementById('mFormWrap').style.display='none';
+      document.getElementById('mOk').style.display='block';
+    }else{btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
+  }catch(err){btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
+});
+</script>
+</body>
+</html>
