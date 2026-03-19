@@ -647,9 +647,11 @@ function submitQuiz() {
 
   fetch('https://formspree.io/f/mnjglyka', {
     method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-  }).catch(() => {});
-
-  window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
+  }).then(() => {
+    window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
+  }).catch(() => {
+    window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
+  });
 }
 
 </script>
