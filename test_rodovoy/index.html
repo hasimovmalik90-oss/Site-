@@ -125,15 +125,14 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .cta-note{font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:12px;opacity:.6;}
 
 /* ── GLOWING DIAMONDS ── */
-@keyframes diamondPulse{0%,100%{opacity:.5;text-shadow:0 0 6px rgba(201,169,110,.4),0 0 18px rgba(201,169,110,.2);}50%{opacity:1;text-shadow:0 0 12px rgba(201,169,110,.9),0 0 32px rgba(201,169,110,.5),0 0 48px rgba(201,169,110,.2);}}
-@keyframes diamondFloat{0%,100%{transform:translateY(0) rotate(45deg);}50%{transform:translateY(-6px) rotate(45deg);}}
-.glow-diamonds{display:flex;justify-content:center;gap:18px;margin:28px 0;width:100%;}
-.glow-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 10px rgba(201,169,110,.7),0 0 24px rgba(201,169,110,.3);animation:diamondPulse 2.5s ease-in-out infinite,diamondFloat 3.5s ease-in-out infinite;}
-.glow-diamond:nth-child(2){animation-delay:.5s;width:10px;height:10px;}
-.glow-diamond:nth-child(3){animation-delay:1s;}
-.glow-diamond:nth-child(4){animation-delay:1.5s;width:10px;height:10px;}
-.glow-diamond:nth-child(5){animation-delay:2s;}
-.section-diamond{display:inline-block;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);margin-right:10px;box-shadow:0 0 8px rgba(201,169,110,.6),0 0 20px rgba(201,169,110,.25);animation:diamondPulse 3s ease-in-out infinite;vertical-align:middle;}
+@keyframes diamondGlow{0%,100%{box-shadow:0 0 6px rgba(201,169,110,.4),0 0 14px rgba(201,169,110,.15);}50%{box-shadow:0 0 10px rgba(201,169,110,.7),0 0 22px rgba(201,169,110,.3);}}
+.glow-diamonds{display:flex;align-items:center;justify-content:center;gap:0;margin:32px 0;width:100%;}
+.glow-diamonds .gd-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.3));}
+.glow-diamonds .gd-line:last-child{background:linear-gradient(90deg,rgba(201,169,110,.3),transparent);}
+.glow-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;margin:0 10px;animation:diamondGlow 3s ease-in-out infinite;}
+.glow-diamond:nth-child(4){animation-delay:.6s;}
+.glow-diamond:nth-child(6){animation-delay:1.2s;}
+.section-diamond{display:inline-block;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);margin-right:10px;box-shadow:0 0 8px rgba(201,169,110,.5);animation:diamondGlow 3s ease-in-out infinite;vertical-align:middle;}
 
 /* ── UNANSWERED WARNING ── */
 .q-card.unanswered{border-color:rgba(200,80,80,.5);box-shadow:0 0 16px rgba(200,80,80,.15);}
@@ -192,7 +191,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
   <h1 class="program-name">Ваш родовой<br>сценарий в <em>отношениях</em></h1>
   <div class="divider"><span class="divider-line"></span><span class="divider-diamond"></span><span class="divider-line"></span></div>
   <p class="tagline">Глубинная диагностика скрытых программ,<br>унаследованных от мамы и бабушки</p>
-  <div class="glow-diamonds" style="margin-bottom:16px;"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds" style="margin-bottom:16px;"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
   <div class="meta-row">
     <div class="meta-item"><div class="meta-dot"></div>15–20 минут</div>
     <div class="meta-item"><div class="meta-dot"></div>25 вопросов</div>
@@ -283,7 +282,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     <textarea class="wp-textarea" placeholder="Например: «Я поняла, что женщина должна рассчитывать только на себя…»"></textarea>
   </div>
 
-  <div class="glow-diamonds"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
   <!-- БЛОК 2 -->
   <div class="section-head d4">
@@ -325,7 +324,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     </div>
   </div>
 
-  <div class="glow-diamonds"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
   <!-- БЛОК 3 -->
   <div class="section-head d5">
@@ -389,7 +388,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     </div>
   </div>
 
-  <div class="glow-diamonds"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
   <!-- БЛОК 4 -->
   <div class="section-head d6">
@@ -459,7 +458,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     <textarea class="wp-textarea" placeholder="Напишите первое, что приходит в голову — не фильтруйте…"></textarea>
   </div>
 
-  <div class="glow-diamonds"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
   <!-- БЛОК 5 -->
   <div class="section-head d7">
@@ -551,7 +550,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     <textarea class="wp-textarea" placeholder="Запишите своё главное осознание — оно будет вашим якорем в дальнейшей работе…"></textarea>
   </div>
 
-  <div class="glow-diamonds" style="margin-top:40px;"><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div><div class="glow-diamond"></div></div>
+  <div class="glow-diamonds" style="margin-top:40px;"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
   <!-- MISSING BANNER -->
   <div class="missing-banner" id="missingBanner">
@@ -578,6 +577,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
 const DIAGNOSTIC_LINK = 'https://kseniiamikaelyan.com';
 
 const answers = {};
+const answerTexts = {};
 const totalQuestions = 25;
 
 /* ── STARS ── */
@@ -600,6 +600,7 @@ function selectOption(el) {
   card.classList.add('answered');
   card.classList.remove('unanswered','shake');
   answers[qNum] = parseInt(el.dataset.v);
+  answerTexts[qNum] = el.querySelector('.q-option-text').textContent;
   updateProgress();
   // Hide banner if all answered
   if (Object.keys(answers).length === totalQuestions) {
@@ -618,12 +619,6 @@ function updateProgress() {
 }
 
 /* ── SUBMIT QUIZ ── */
-function calcCat(nums) {
-  let s = 0, c = 0;
-  nums.forEach(n => { if (answers[n] !== undefined) { s += answers[n]; c++; } });
-  return c ? Math.round((s / (c * 4)) * 100) : 0;
-}
-
 function submitQuiz() {
   // Clear previous highlights
   document.querySelectorAll('.q-card.unanswered').forEach(c => c.classList.remove('unanswered','shake'));
@@ -670,16 +665,13 @@ function submitQuiz() {
   fd.append('score', score100);
   fd.append('profile', profile);
   fd.append('_source', 'Тест — родовой сценарий');
-  fd.append('cat_mama', calcCat([1,2,3,4,5]) + '%');
-  fd.append('cat_pokoleniya', calcCat([6,7,8]) + '%');
-  fd.append('cat_patterny', calcCat([9,10,11,12,13]) + '%');
-  fd.append('cat_ubezhdeniya', calcCat([14,15,16,17,18]) + '%');
-  fd.append('cat_energiya', calcCat([19,20,21,22,23,24]) + '%');
   for (let q = 1; q <= 25; q++) {
-    fd.append('vopros_' + (q < 10 ? '0' + q : q), answers[q] !== undefined ? answers[q] : '—');
+    const key = 'vopros_' + (q < 10 ? '0' + q : q);
+    fd.append(key, answerTexts[q] || '—');
   }
   document.querySelectorAll('.wp-textarea').forEach((t, i) => {
-    if (t.value.trim()) fd.append('refleksiya_' + (i+1), t.value.trim());
+    const labels = ['Урок из семьи мамы', 'Самый большой страх', 'После теста я поняла'];
+    fd.append(labels[i] || 'refleksiya_' + (i+1), t.value.trim() || '—');
   });
 
   fetch('https://formspree.io/f/mnjglyka', {
