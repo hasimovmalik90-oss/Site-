@@ -729,13 +729,13 @@ function submitQuiz() {
   fetch('https://formspree.io/f/mnjglyka', {
     method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
   }).then(r => {
-    if (!r.ok) throw new Error('Status ' + r.status);
+    if (!r.ok) return r.text().then(body => { throw new Error('HTTP ' + r.status + ': ' + body); });
     window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
   }).catch(err => {
     console.error('Form error:', err);
     btn.disabled = false;
     btn.textContent = 'Узнать мой результат';
-    alert('Не удалось отправить результаты. Проверьте подключение к интернету и попробуйте ещё раз.');
+    alert('Ошибка: ' + err.message + '\n\nСкиньте этот текст разработчику.');
   });
 }
 
