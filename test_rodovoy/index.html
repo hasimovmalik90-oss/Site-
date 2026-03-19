@@ -705,27 +705,35 @@ function submitQuiz() {
   else profile = 'Осознанный выбор';
 
   const fd = new FormData();
-  fd.append('Имя', cName.value.trim());
-  fd.append('Telegram', cTg.value.trim());
-  fd.append('Email', cEmail.value.trim());
+  fd.append('name', cName.value.trim());
+  fd.append('telegram', cTg.value.trim());
+  fd.append('email', cEmail.value.trim());
+  fd.append('_replyto', cEmail.value.trim());
   fd.append('score', score100);
   fd.append('profile', profile);
-  fd.append('_source', 'Тест — родовой сценарий');
+  fd.append('_source', 'Test — rodovoy stsenariy');
   for (let q = 1; q <= 25; q++) {
-    const key = 'vopros_' + (q < 10 ? '0' + q : q);
+    const key = 'q' + (q < 10 ? '0' + q : q);
     fd.append(key, answerTexts[q] || '—');
   }
   document.querySelectorAll('.wp-textarea').forEach((t, i) => {
-    const labels = ['Урок из семьи мамы', 'Самый большой страх', 'После теста я поняла'];
-    fd.append(labels[i] || 'refleksiya_' + (i+1), t.value.trim() || '—');
+    fd.append('reflection_' + (i+1), t.value.trim() || '—');
   });
+
+  const btn = document.querySelector('.btn-submit-main');
+  btn.disabled = true;
+  btn.textContent = 'Отправка…';
 
   fetch('https://formspree.io/f/mnjglyka', {
     method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-  }).then(() => {
+  }).then(r => {
+    if (!r.ok) throw new Error('Status ' + r.status);
     window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
-  }).catch(() => {
-    window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
+  }).catch(err => {
+    console.error('Form error:', err);
+    btn.disabled = false;
+    btn.textContent = 'Узнать мой результат';
+    alert('Не удалось отправить результаты. Проверьте подключение к интернету и попробуйте ещё раз.');
   });
 }
 
