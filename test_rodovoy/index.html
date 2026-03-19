@@ -704,20 +704,19 @@ function submitQuiz() {
   else if (score100 >= 40) profile = 'Частичный родовой сценарий';
   else profile = 'Осознанный выбор';
 
-  const fd = new FormData();
-  fd.append('name', cName.value.trim());
-  fd.append('telegram', cTg.value.trim());
-  fd.append('email', cEmail.value.trim());
-  fd.append('_replyto', cEmail.value.trim());
-  fd.append('score', score100);
-  fd.append('profile', profile);
-  fd.append('_source', 'Test — rodovoy stsenariy');
-  for (let q = 1; q <= 25; q++) {
-    const key = 'q' + (q < 10 ? '0' + q : q);
-    fd.append(key, answerTexts[q] || '—');
-  }
+  // Build message with all answers
+  let msg = '';
+  msg += 'Профиль: ' + profile + ' (' + score100 + '%)\n\n';
+  const qCards = document.querySelectorAll('.q-card[data-q]');
+  qCards.forEach(card => {
+    const n = card.dataset.q;
+    const qText = card.querySelector('.q-text').textContent;
+    msg += 'Вопрос ' + n + ': ' + qText + '\n';
+    msg += 'Ответ: ' + (answerTexts[n] || '—') + '\n\n';
+  });
+  const refLabels = ['Рефлексия — урок из семьи мамы', 'Рефлексия — самый большой страх', 'Рефлексия — после теста я поняла'];
   document.querySelectorAll('.wp-textarea').forEach((t, i) => {
-    fd.append('reflection_' + (i+1), t.value.trim() || '—');
+    msg += refLabels[i] + ':\n' + (t.value.trim() || '—') + '\n\n';
   });
 
   const btn = document.querySelector('.btn-submit-main');
@@ -725,7 +724,16 @@ function submitQuiz() {
   btn.textContent = 'Отправка…';
 
   fetch('https://formspree.io/f/mnjglyka', {
-    method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: cName.value.trim(),
+      telegram: cTg.value.trim(),
+      email: cEmail.value.trim(),
+      _replyto: cEmail.value.trim(),
+      _subject: 'Тест: ' + profile + ' — ' + cName.value.trim(),
+      message: msg
+    })
   }).then(r => {
     if (!r.ok) throw new Error('Status ' + r.status);
     window.location.href = 'https://kseniiamikaelyan.com/rasshifrovka/';
