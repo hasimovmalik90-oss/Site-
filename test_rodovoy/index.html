@@ -64,7 +64,7 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold);}
 
 /* ── TAGLINE ── */
-.tagline{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);text-align:center;line-height:1.6;max-width:400px;margin-bottom:52px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
+.tagline{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);text-align:center;line-height:1.6;max-width:400px;margin-bottom:28px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
 .tagline strong{font-style:normal;font-weight:500;color:var(--gold-lt);}
 
 /* ── META ROW ── */
@@ -134,6 +134,18 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .glow-diamond:nth-child(6){animation-delay:1.2s;}
 .section-diamond{display:inline-block;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);margin-right:10px;box-shadow:0 0 8px rgba(201,169,110,.5);animation:diamondGlow 3s ease-in-out infinite;vertical-align:middle;}
 
+/* ── CONTACT CARD ── */
+.contact-card{width:100%;background:linear-gradient(135deg,rgba(201,169,110,.06) 0%,rgba(155,100,112,.05) 100%);border:1px solid rgba(201,169,110,.25);border-radius:2px;padding:32px 28px;margin-bottom:10px;opacity:0;animation:fadeUp .8s ease forwards;}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:6px;text-align:center;}
+.contact-desc{font-size:.83rem;font-weight:300;color:var(--cream-dim);line-height:1.65;text-align:center;margin-bottom:22px;}
+.contact-fields{display:flex;flex-direction:column;gap:10px;}
+.contact-field{display:flex;flex-direction:column;gap:5px;}
+.contact-field label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);font-weight:400;}
+.contact-field input{width:100%;background:rgba(255,255,255,.025);border:1px solid rgba(201,169,110,.15);border-radius:2px;padding:12px 16px;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;color:var(--cream);transition:border-color .2s;line-height:1.4;}
+.contact-field input::placeholder{color:var(--cream-dim);opacity:.5;}
+.contact-field input:focus{outline:none;border-color:rgba(201,169,110,.4);}
+.contact-field input.field-error{border-color:rgba(200,80,80,.5);}
+
 /* ── UNANSWERED WARNING ── */
 .q-card.unanswered{border-color:rgba(200,80,80,.5);box-shadow:0 0 16px rgba(200,80,80,.15);}
 @keyframes shakeCard{0%,100%{transform:translateX(0);}20%{transform:translateX(-4px);}40%{transform:translateX(4px);}60%{transform:translateX(-3px);}80%{transform:translateX(3px);}}
@@ -191,7 +203,6 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
   <h1 class="program-name">Ваш родовой<br>сценарий в <em>отношениях</em></h1>
   <div class="divider"><span class="divider-line"></span><span class="divider-diamond"></span><span class="divider-line"></span></div>
   <p class="tagline">Глубинная диагностика скрытых программ,<br>унаследованных от мамы и бабушки</p>
-  <div class="glow-diamonds" style="margin-bottom:16px;"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
   <div class="meta-row">
     <div class="meta-item"><div class="meta-dot"></div>15–20 минут</div>
     <div class="meta-item"><div class="meta-dot"></div>25 вопросов</div>
@@ -552,6 +563,26 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
 
   <div class="glow-diamonds" style="margin-top:40px;"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
 
+  <!-- CONTACT -->
+  <div class="contact-card d9" id="contactCard">
+    <div class="contact-title">Моя золотая, ты почти у цели</div>
+    <div class="contact-desc">Оставь свои данные, чтобы получить персональную расшифровку, дополнительные материалы по проработке родовых программ и первой узнавать о самом ценном.</div>
+    <div class="contact-fields">
+      <div class="contact-field">
+        <label>Ваше имя</label>
+        <input type="text" id="contactName" placeholder="Как к вам обращаться">
+      </div>
+      <div class="contact-field">
+        <label>Ник в Telegram</label>
+        <input type="text" id="contactTelegram" placeholder="@ваш_ник">
+      </div>
+      <div class="contact-field">
+        <label>E-mail</label>
+        <input type="email" id="contactEmail" placeholder="ваша@почта.com">
+      </div>
+    </div>
+  </div>
+
   <!-- MISSING BANNER -->
   <div class="missing-banner" id="missingBanner">
     <div class="missing-banner-text"><strong>Вы пропустили <span id="missingCount">0</span> вопрос(ов).</strong><br>Для точного результата необходимо ответить на все 25 вопросов.</div>
@@ -627,24 +658,36 @@ function submitQuiz() {
   const count = Object.keys(answers).length;
   const missing = 25 - count;
 
-  if (missing > 0) {
-    // Highlight all unanswered cards
-    let firstUnanswered = null;
-    document.querySelectorAll('.q-card[data-q]').forEach(card => {
-      const qNum = card.dataset.q;
-      if (answers[qNum] === undefined) {
-        card.classList.add('unanswered','shake');
-        if (!firstUnanswered) firstUnanswered = card;
-      }
-    });
-    // Show banner
-    document.getElementById('missingCount').textContent = missing;
-    document.getElementById('missingBanner').classList.add('visible');
-    // Scroll to first unanswered
-    if (firstUnanswered) {
-      firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Validate contact fields
+  const cName = document.getElementById('contactName');
+  const cTg = document.getElementById('contactTelegram');
+  const cEmail = document.getElementById('contactEmail');
+  [cName, cTg, cEmail].forEach(f => f.classList.remove('field-error'));
+  let contactMissing = false;
+  if (!cName.value.trim()) { cName.classList.add('field-error'); contactMissing = true; }
+  if (!cTg.value.trim()) { cTg.classList.add('field-error'); contactMissing = true; }
+  if (!cEmail.value.trim()) { cEmail.classList.add('field-error'); contactMissing = true; }
+
+  if (missing > 0 || contactMissing) {
+    // Highlight unanswered question cards
+    let firstProblem = null;
+    if (missing > 0) {
+      document.querySelectorAll('.q-card[data-q]').forEach(card => {
+        const qNum = card.dataset.q;
+        if (answers[qNum] === undefined) {
+          card.classList.add('unanswered','shake');
+          if (!firstProblem) firstProblem = card;
+        }
+      });
+      document.getElementById('missingCount').textContent = missing;
+      document.getElementById('missingBanner').classList.add('visible');
     }
-    // Remove shake after animation
+    if (contactMissing && !firstProblem) {
+      firstProblem = document.getElementById('contactCard');
+    }
+    if (firstProblem) {
+      firstProblem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     setTimeout(() => {
       document.querySelectorAll('.q-card.shake').forEach(c => c.classList.remove('shake'));
     }, 500);
@@ -662,6 +705,9 @@ function submitQuiz() {
   else profile = 'Осознанный выбор';
 
   const fd = new FormData();
+  fd.append('Имя', cName.value.trim());
+  fd.append('Telegram', cTg.value.trim());
+  fd.append('Email', cEmail.value.trim());
   fd.append('score', score100);
   fd.append('profile', profile);
   fd.append('_source', 'Тест — родовой сценарий');
