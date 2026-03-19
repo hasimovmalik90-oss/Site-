@@ -704,32 +704,27 @@ function submitQuiz() {
   else if (score100 >= 40) profile = 'Частичный родовой сценарий';
   else profile = 'Осознанный выбор';
 
-  // Build message with all answers
-  let msg = '';
-  msg += 'Профиль: ' + profile + ' (' + score100 + '%)\n\n';
-  const qCards = document.querySelectorAll('.q-card[data-q]');
-  qCards.forEach(card => {
-    const n = card.dataset.q;
-    const qText = card.querySelector('.q-text').textContent;
-    msg += 'Вопрос ' + n + ': ' + qText + '\n';
-    msg += 'Ответ: ' + (answerTexts[n] || '—') + '\n\n';
-  });
-  const refLabels = ['Рефлексия — урок из семьи мамы', 'Рефлексия — самый большой страх', 'Рефлексия — после теста я поняла'];
-  document.querySelectorAll('.wp-textarea').forEach((t, i) => {
-    msg += refLabels[i] + ':\n' + (t.value.trim() || '—') + '\n\n';
-  });
-
   const btn = document.querySelector('.btn-submit-main');
   btn.disabled = true;
   btn.textContent = 'Отправка…';
 
   const fd = new FormData();
+  fd.append('_subject', 'Тест: ' + profile + ' — ' + cName.value.trim());
+  fd.append('_replyto', cEmail.value.trim());
+  fd.append('score', score100 + '% — ' + profile);
+  // Each question as separate field with answer text
+  for (let q = 1; q <= 25; q++) {
+    fd.append('vopros_' + (q < 10 ? '0' + q : q), answerTexts[q] || '—');
+  }
+  // Reflections
+  document.querySelectorAll('.wp-textarea').forEach((t, i) => {
+    const keys = ['refleksiya_1', 'refleksiya_2', 'refleksiya_3'];
+    fd.append(keys[i], t.value.trim() || '—');
+  });
+  // Contact info
   fd.append('name', cName.value.trim());
   fd.append('telegram', cTg.value.trim());
   fd.append('email', cEmail.value.trim());
-  fd.append('_replyto', cEmail.value.trim());
-  fd.append('_subject', 'Тест: ' + profile + ' — ' + cName.value.trim());
-  fd.append('message', msg);
 
   fetch('https://formspree.io/f/mnjglyka', {
     method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
