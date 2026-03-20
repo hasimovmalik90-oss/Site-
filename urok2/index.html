@@ -240,31 +240,43 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
 .d7{animation-delay:1s!important;} .d8{animation-delay:1.1s!important;} .d9{animation-delay:1.2s!important;}
 .d10{animation-delay:1.3s!important;}
 
-/* MODAL */
-.field{margin-bottom:28px;text-align:left;}
-.f-label{display:block;font-size:.85rem;font-weight:300;color:var(--cream-mid);margin-bottom:10px;letter-spacing:.02em;}
-.f-input{display:block;width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,.2);padding:8px 0 10px;font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;color:rgba(245,237,227,.35);outline:none;-webkit-appearance:none;border-radius:0;transition:border-color .2s,color .2s;}
-.f-input::placeholder{color:rgba(245,237,227,.2);}
-.f-input:focus{border-bottom-color:var(--gold);color:var(--cream);}
-.radio-group{display:flex;flex-direction:column;gap:8px;}
-.r-box{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;background:rgba(255,255,255,.025);border:1px solid rgba(201,169,110,.14);border-radius:2px;cursor:pointer;transition:border-color .15s,background .15s;-webkit-user-select:none;user-select:none;}
-.r-box input[type="radio"]{display:none;}
-.r-box.selected{border-color:rgba(201,169,110,.45);background:rgba(201,169,110,.06);}
-.r-diamond{color:var(--gold-dim);font-size:9px;flex-shrink:0;margin-top:5px;transition:color .15s,text-shadow .15s;}
-.r-box.selected .r-diamond{color:var(--gold);text-shadow:var(--glow-icon);}
-.r-text{font-size:.85rem;font-weight:300;color:var(--cream-dim);line-height:1.55;transition:color .15s;}
-.r-box.selected .r-text{color:var(--cream);}
-.note{font-size:.7rem;color:rgba(245,237,227,.18);text-align:center;margin-top:14px;line-height:1.6;}
-.success{display:none;text-align:center;padding:32px 0;}
-.success-diamonds{color:var(--gold);font-size:.8rem;letter-spacing:12px;margin-bottom:20px;text-shadow:var(--glow-icon);}
-.success-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;background:linear-gradient(135deg,var(--cream),var(--gold-lt),var(--cream));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:12px;}
-.success-title em{font-style:italic;font-weight:300;}
-.success-sub{font-size:.85rem;color:var(--cream-dim);line-height:1.7;font-weight:300;}
-#modal{display:none;position:fixed;inset:0;z-index:999;background:rgba(11,9,16,.85);backdrop-filter:blur(8px);overflow-y:auto;padding:24px 16px 40px;animation:fadeIn .2s ease;}
-#modal.open{display:block;}
-.modal-box{position:relative;max-width:480px;margin:0 auto;background:var(--bg2);border:1px solid var(--line);border-radius:2px;padding:40px 32px 44px;animation:fadeUp .3s ease;}
-.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;cursor:pointer;color:var(--cream-dim);font-size:1rem;font-family:'Jost',sans-serif;font-weight:300;transition:color .15s;padding:4px;}
-.modal-close:hover{color:var(--gold);}
+/* ANKETA MODAL */
+.anketa-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(14,12,20,.95);align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.anketa-overlay.open{display:flex;}
+.anketa-box{background:var(--bg);border:1px solid rgba(212,181,120,.28);max-width:520px;width:100%;margin:auto;padding:56px 40px 44px;position:relative;overflow:hidden;}
+.anketa-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,var(--gold) 50%,transparent 95%);box-shadow:0 0 24px rgba(212,181,120,.55),0 0 70px rgba(212,181,120,.25);}
+.anketa-box::after{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,181,120,.08) 0%,transparent 70%);pointer-events:none;}
+.anketa-orb{position:absolute;bottom:-60px;left:-60px;width:250px;height:250px;background:radial-gradient(circle,rgba(176,112,128,.1) 0%,transparent 70%);pointer-events:none;}
+.anketa-close{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--gold-dim);font-size:1.4rem;cursor:pointer;line-height:1;transition:color .3s,text-shadow .3s;z-index:2;}
+.anketa-close:hover{color:var(--gold);text-shadow:0 0 14px rgba(212,181,120,.65);}
+.anketa-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--cream);text-align:center;margin-bottom:6px;letter-spacing:.05em;text-shadow:0 0 22px rgba(212,181,120,.35),0 0 55px rgba(212,181,120,.12);}
+.anketa-subtitle{text-align:center;font-family:'Jost',sans-serif;font-size:.68rem;color:var(--gold-dim);letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;}
+.anketa-head-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px;}
+.anketa-head-divider span{flex:0 1 80px;height:1px;background:linear-gradient(90deg,transparent,var(--line));}
+.anketa-head-divider span:last-child{background:linear-gradient(90deg,var(--line),transparent);}
+.anketa-head-divider i{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);display:block;flex-shrink:0;box-shadow:var(--glow-icon);}
+.anketa-field{margin-bottom:24px;position:relative;}
+.anketa-label{display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:5px;line-height:1.35;text-shadow:0 0 10px rgba(212,181,120,.14);}
+.anketa-hint{display:block;font-family:'Jost',sans-serif;font-size:.72rem;color:var(--gold-dim);font-style:italic;margin-bottom:10px;letter-spacing:.02em;}
+.anketa-hint s{color:var(--gold);text-decoration-color:rgba(212,181,120,.5);}
+.anketa-field input,.anketa-field textarea,.anketa-field select{width:100%;background:rgba(10,8,16,.7);border:1px solid rgba(212,181,120,.2);border-radius:0;color:var(--cream);font-family:'Jost',sans-serif;font-size:.85rem;padding:14px 16px;outline:none;transition:border-color .4s,box-shadow .4s;box-sizing:border-box;letter-spacing:.02em;}
+.anketa-field input::placeholder,.anketa-field textarea::placeholder{color:rgba(200,184,168,.4);font-style:italic;}
+.anketa-field input:focus,.anketa-field textarea:focus,.anketa-field select:focus{border-color:var(--gold);box-shadow:0 0 18px rgba(212,181,120,.18),0 0 45px rgba(212,181,120,.07),inset 0 0 18px rgba(212,181,120,.05);}
+.anketa-field textarea{resize:vertical;min-height:80px;}
+.anketa-field select{appearance:none;-webkit-appearance:none;cursor:pointer;background-color:rgba(10,8,16,.7);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='%23d4b578'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;}
+.anketa-field select option{background:var(--bg);color:var(--cream);}
+.anketa-divider{display:flex;align-items:center;gap:14px;margin:30px 0 34px;}
+.anketa-divider span{flex:1;height:1px;background:var(--line);}
+.anketa-divider i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block;flex-shrink:0;box-shadow:var(--glow-icon);}
+.anketa-submit{display:block;width:100%;padding:18px;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:var(--bg);font-family:'Jost',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;border:none;margin-top:16px;transition:all .4s;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(212,181,120,.25);}
+.anketa-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.3) 50%,transparent 65%);transform:translateX(-100%);transition:transform .6s;}
+.anketa-submit:hover{box-shadow:0 6px 34px rgba(212,181,120,.45),0 0 70px rgba(212,181,120,.18);transform:translateY(-2px);}
+.anketa-submit:hover::before{transform:translateX(100%);}
+.anketa-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.anketa-success{display:none;text-align:center;padding:60px 24px;}
+.anketa-success svg{display:block;margin:0 auto;}
+.anketa-success h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.5rem;color:var(--cream);margin-bottom:16px;text-shadow:0 0 22px rgba(212,181,120,.35);line-height:1.45;}
+.anketa-success p{color:var(--gold-dim);font-size:.85rem;line-height:1.6;}
 
 @media(max-width:560px){
   .page{padding:64px 20px 100px;}
@@ -272,7 +284,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
   .personal-card{padding:28px 22px;}
   .cta-stats{gap:24px;}
   .compare{grid-template-columns:1fr;}
-  .modal-box{padding:32px 20px 36px;}
+  .anketa-box{padding:40px 22px 32px;}
 }
 </style>
 </head>
@@ -601,74 +613,97 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     <p class="cta-fine">Это НЕ продажи — это диагностика.<br>Если программа не подходит — Ксения честно скажет.</p>
   </div>
 
-  <!-- MODAL -->
-  <div id="modal" onclick="closeModalOutside(event)">
-    <div class="modal-box" id="modalBox">
-      <button class="modal-close" onclick="closeModal()">&#10005;</button>
-      <div id="mFormWrap">
-        <div class="season-label" style="margin-bottom:20px;opacity:1;animation:none;">Анкета для записи</div>
-        <h2 class="program-name" style="font-size:1.8rem;margin-bottom:6px;opacity:1;animation:none;">Заполни форму</h2>
-        <div class="divider" style="margin:14px 0 24px;opacity:1;animation:none;">
-          <span class="divider-line"></span><span class="divider-diamond"></span><span class="divider-line"></span>
+  <!-- ANKETA MODAL -->
+  <div class="anketa-overlay" id="anketa-modal">
+    <div class="anketa-box">
+      <div class="anketa-orb"></div>
+      <button type="button" class="anketa-close" onclick="closeModal()">&times;</button>
+      <div class="anketa-title">Анкета для записи</div>
+      <div class="anketa-subtitle">Заполни — и мы свяжемся с тобой</div>
+      <div class="anketa-head-divider"><span></span><i></i><span></span></div>
+
+      <form id="anketa-form" action="https://formspree.io/f/mnjggrwa" method="POST">
+
+        <div class="anketa-field">
+          <label class="anketa-label">Как к тебе обращаться?</label>
+          <span class="anketa-hint">Знаем, что с любовью и уважением — а по имени?</span>
+          <input type="text" name="name" required placeholder="Твоё имя">
         </div>
-        <form id="diagForm" action="https://formspree.io/f/mnjggrwa" method="POST">
-          <div class="field">
-            <label class="f-label">Как к тебе обращаться?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Знаем, что с любовью — а по имени?</span></label>
-            <input class="f-input" type="text" name="name" placeholder="Имя и фамилия" required>
-          </div>
-          <div class="field">
-            <label class="f-label">Номер телефона<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Чтобы пригласить на диагностический звонок</span></label>
-            <input class="f-input" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-          </div>
-          <div class="field">
-            <label class="f-label">Твой основной email</label>
-            <input class="f-input" type="email" name="email" placeholder="example@gmail.com" required>
-          </div>
-          <div class="field">
-            <label class="f-label">Твой Telegram</label>
-            <input class="f-input" type="text" name="telegram" placeholder="@username" required>
-          </div>
-          <div class="field">
-            <label class="f-label">Что сейчас болит больше всего?<br><span style="font-size:.72rem;color:var(--gold-dim);font-style:italic;">Здесь нет правильных ответов — просто честно</span></label>
-            <textarea class="f-input" name="pain" placeholder="Опиши свою ситуацию..." rows="3" style="resize:none;padding-top:10px;" required></textarea>
-          </div>
-          <div class="field">
-            <label class="f-label">Насколько готова меняться прямо сейчас?</label>
-            <div class="radio-group">
-              <label class="r-box"><input type="radio" name="readiness" value="Полностью готова" required><span class="r-diamond">◆</span><span class="r-text">Полностью готова — хоть завтра</span></label>
-              <label class="r-box"><input type="radio" name="readiness" value="Скорее готова, но страшно"><span class="r-diamond">◆</span><span class="r-text">Скорее готова, но немного страшно</span></label>
-              <label class="r-box"><input type="radio" name="readiness" value="Пока присматриваюсь"><span class="r-diamond">◆</span><span class="r-text">Пока присматриваюсь</span></label>
-              <label class="r-box"><input type="radio" name="readiness" value="Нужен толчок"><span class="r-diamond">◆</span><span class="r-text">Нужен толчок — сама не решусь</span></label>
-            </div>
-          </div>
-          <div class="field">
-            <label class="f-label">Сколько зарабатываешь в месяц?</label>
-            <div class="radio-group">
-              <label class="r-box"><input type="radio" name="income" value="до $500" required><span class="r-diamond">◆</span><span class="r-text">до $500</span></label>
-              <label class="r-box"><input type="radio" name="income" value="$500-$1000"><span class="r-diamond">◆</span><span class="r-text">$500 – $1,000</span></label>
-              <label class="r-box"><input type="radio" name="income" value="$1000-$2000"><span class="r-diamond">◆</span><span class="r-text">$1,000 – $2,000</span></label>
-              <label class="r-box"><input type="radio" name="income" value="$2000-$5000"><span class="r-diamond">◆</span><span class="r-text">$2,000 – $5,000</span></label>
-              <label class="r-box"><input type="radio" name="income" value="$5000+"><span class="r-diamond">◆</span><span class="r-text">$5,000+</span></label>
-            </div>
-          </div>
-          <div class="field">
-            <label class="f-label">На какой тариф смотришь?</label>
-            <div class="radio-group">
-              <label class="r-box"><input type="radio" name="tariff" value="Базовый — $888" required><span class="r-diamond">◆</span><span class="r-text">Базовый — $888</span></label>
-              <label class="r-box"><input type="radio" name="tariff" value="Стандарт — $1200"><span class="r-diamond">◆</span><span class="r-text">Стандарт — $1,200</span></label>
-              <label class="r-box"><input type="radio" name="tariff" value="VIP — $2200"><span class="r-diamond">◆</span><span class="r-text">VIP — $2,200</span></label>
-              <label class="r-box"><input type="radio" name="tariff" value="Ещё не решила"><span class="r-diamond">◆</span><span class="r-text">Ещё не решила</span></label>
-            </div>
-          </div>
-          <input type="hidden" name="_source" value="Урок 2 — Слабые мужчины">
-          <button class="btn-primary" type="submit" style="width:100%;display:block;margin-top:32px;">Подтверждаю — записаться на диагностику</button>
-          <p class="note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
-        </form>
-      </div>
-      <div class="success" id="mOk">
-        <div class="success-diamonds">◆ ◆ ◆</div>
-        <div class="success-title">Готово,<br><em>ждите ответа</em></div>
-        <p class="success-sub">Ксения свяжется с вами в ближайшее время.</p>
+
+        <div class="anketa-field">
+          <label class="anketa-label">Серьёзные люди хотят знать твой номер.</label>
+          <span class="anketa-hint">Чтобы <s>названивать</s> пригласить тебя на диагностический звонок с Ксенией</span>
+          <input type="tel" name="phone" required placeholder="Номер телефона с кодом страны">
+        </div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">А почта у тебя есть?</label>
+          <span class="anketa-hint">Чтобы отправлять туда <s>спам</s> полезные материалы и доступ к программе</span>
+          <input type="email" name="email" required placeholder="email@example.com">
+        </div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">И последнее — твой Telegram.</label>
+          <span class="anketa-hint">Чтобы <s>преследовать</s> написать тебе лично с ответом на анкету</span>
+          <input type="text" name="telegram" required placeholder="@username">
+        </div>
+
+        <div class="anketa-divider"><span></span><i></i><span></span></div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">Расскажи, что сейчас болит больше всего.</label>
+          <span class="anketa-hint">Здесь нет правильных ответов — просто честно</span>
+          <textarea name="pain" required placeholder="Опиши свою ситуацию..."></textarea>
+        </div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">Насколько ты готова меняться прямо сейчас?</label>
+          <span class="anketa-hint">Честный ответ помогает Ксении <s>давить</s> мягко направить тебя</span>
+          <select name="readiness" required>
+            <option value="" disabled selected>Выбери вариант</option>
+            <option value="Полностью готова">Полностью готова — хоть завтра</option>
+            <option value="Скорее готова">Скорее готова, но немного страшно</option>
+            <option value="Пока присматриваюсь">Пока присматриваюсь</option>
+            <option value="Нужен толчок">Нужен толчок — сама не решусь</option>
+          </select>
+        </div>
+
+        <div class="anketa-divider"><span></span><i></i><span></span></div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">Сколько ты зарабатываешь в месяц?</label>
+          <span class="anketa-hint">Чтобы <s>оценивать</s> подобрать подходящий тариф</span>
+          <select name="income" required>
+            <option value="" disabled selected>Выбери вариант</option>
+            <option value="до $500">до $500</option>
+            <option value="$500 – $1 000">$500 – $1 000</option>
+            <option value="$1 000 – $2 000">$1 000 – $2 000</option>
+            <option value="$2 000 – $5 000">$2 000 – $5 000</option>
+            <option value="$5 000+">$5 000+</option>
+          </select>
+        </div>
+
+        <div class="anketa-field">
+          <label class="anketa-label">На какой тариф смотришь?</label>
+          <span class="anketa-hint">Чтобы <s>продавать</s> сразу говорить по делу на звонке</span>
+          <select name="tariff" required>
+            <option value="" disabled selected>Выбери вариант</option>
+            <option value="Базовый">Базовый</option>
+            <option value="Стандарт">Стандарт</option>
+            <option value="VIP">VIP</option>
+            <option value="Ещё не решила">Ещё не решила</option>
+          </select>
+        </div>
+
+        <input type="hidden" name="_source" value="Урок 2 — Слабые мужчины">
+        <button type="submit" class="anketa-submit" id="anketa-submit-btn">Подтверждаю — отправить анкету</button>
+
+      </form>
+
+      <div class="anketa-success" id="anketa-success" style="display:none;">
+        <svg width="28" height="28" viewBox="0 0 28 28" style="margin-bottom:16px;filter:drop-shadow(0 0 12px rgba(212,181,120,.8)) drop-shadow(0 0 28px rgba(212,181,120,.4));"><rect x="14" y="2" width="17" height="17" rx="2" transform="rotate(45 14 2)" fill="var(--gold)"/></svg>
+        <h3>Поздравляю, ты&nbsp;сделала первый&nbsp;шаг к&nbsp;своим изобильным&nbsp;отношениям</h3>
+        <p>Ксения свяжется с&nbsp;тобой в&nbsp;ближайшее&nbsp;время. Жди сообщение в&nbsp;Telegram.</p>
       </div>
     </div>
   </div>
@@ -732,39 +767,41 @@ function toggleAcc(el){
 
 /* ── MODAL ── */
 function openModal(){
-  document.getElementById('modal').classList.add('open');
+  document.getElementById('anketa-modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeModal(){
-  document.getElementById('modal').classList.remove('open');
+  document.getElementById('anketa-modal').classList.remove('open');
   document.body.style.overflow='';
 }
-function closeModalOutside(e){
-  if(e.target.id==='modal') closeModal();
-}
+document.getElementById('anketa-modal').addEventListener('click',function(e){
+  if(e.target===this) closeModal();
+});
 document.addEventListener('keydown',function(e){if(e.key==='Escape') closeModal();});
 
-/* ── RADIO ── */
-document.querySelectorAll('.r-box input[type="radio"]').forEach(function(r){
-  r.addEventListener('change',function(){
-    var group=this.closest('.radio-group');
-    group.querySelectorAll('.r-box').forEach(function(b){b.classList.remove('selected');});
-    this.closest('.r-box').classList.add('selected');
-  });
-});
-
-/* ── FORM SUBMIT ── */
-document.getElementById('diagForm').addEventListener('submit',async function(e){
+document.getElementById('anketa-form').addEventListener('submit',function(e){
   e.preventDefault();
-  var btn=this.querySelector('.btn-primary');
-  btn.textContent='Отправляем...';btn.style.opacity='.6';
-  try{
-    var res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
-    if(res.ok){
-      document.getElementById('mFormWrap').style.display='none';
-      document.getElementById('mOk').style.display='block';
-    }else{btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
-  }catch(err){btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
+  var btn=document.getElementById('anketa-submit-btn');
+  btn.disabled=true;
+  btn.textContent='Отправляем...';
+  fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}})
+  .then(function(r){
+    if(r.ok){
+      document.getElementById('anketa-form').style.display='none';
+      document.querySelector('.anketa-title').style.display='none';
+      document.querySelector('.anketa-subtitle').style.display='none';
+      document.querySelector('.anketa-head-divider').style.display='none';
+      document.getElementById('anketa-success').style.display='block';
+    }else{
+      btn.disabled=false;
+      btn.textContent='Подтверждаю — отправить анкету';
+      alert('Ошибка при отправке. Попробуйте ещё раз.');
+    }
+  }).catch(function(){
+    btn.disabled=false;
+    btn.textContent='Подтверждаю — отправить анкету';
+    alert('Ошибка сети. Проверьте подключение.');
+  });
 });
 </script>
 </body>
