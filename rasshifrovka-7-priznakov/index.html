@@ -897,4 +897,9 @@ document.getElementById('diagForm').addEventListener('submit',async function(e){
     if(res.ok){
       document.getElementById('mFormWrap').style.display='none';
       document.getElementById('mOk').style.display='block';
-    }else{btn.textContent='Ошибка — попробуй снова';
+    }else{btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
+  }catch(err){btn.textContent='Ошибка сети — попробуй снова';btn.style.opacity='1';}
+});
+</script>
+</body>
+</html>
