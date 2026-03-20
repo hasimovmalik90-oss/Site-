@@ -93,10 +93,6 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .ans-body em{font-style:italic;color:var(--gold-lt);}
 .ans-body strong{font-weight:500;color:var(--cream);}
 
-/* CONTEXT BOX inside accordion */
-.context-box{background:rgba(201,169,110,.04);border-left:2px solid var(--gold);padding:14px 18px;margin-bottom:18px;}
-.context-box p{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.6;}
-
 /* PULL QUOTE */
 .pull-quote{width:100%;margin:40px 0;border-left:1px solid var(--gold);padding:20px 24px;background:rgba(201,169,110,.04);opacity:0;animation:fadeUp .8s ease forwards;}
 .pull-quote p{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,3vw,1.25rem);font-style:italic;font-weight:300;color:var(--cream);line-height:1.55;margin-bottom:10px;}
@@ -239,11 +235,6 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
       <div class="acc-chevron">›</div>
     </div>
     <div class="acc-body">
-
-      <div class="context-box">
-        <p>Когда вы контролируете — вы живёте в голове, а не в теле. Мозг разговаривает 24/7. Невозможность уснуть. Энергия уходит на контроль, а не на проявленность.</p>
-      </div>
-
       <div class="q">
         <div class="q-num">Вопрос 1</div>
         <div class="q-text">Когда партнёр делает что-то по-своему — какая ваша первая реакция?</div>
@@ -378,11 +369,6 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
       <div class="acc-chevron">›</div>
     </div>
     <div class="acc-body">
-
-      <div class="context-box">
-        <p>«Для меня страх слабости — это унизительно. Слабая — значит непригодна миру. Но: если я стану слабой, ничего не произойдёт. Я женщина, имею на это право.» — Ксения</p>
-      </div>
-
       <div class="q">
         <div class="q-num">Вопрос 6</div>
         <div class="q-text">Насколько вам страшно показаться слабой?</div>
@@ -864,7 +850,10 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
 function toggleAcc(el){
   var isOpen=el.classList.contains('open');
   document.querySelectorAll('.acc.open').forEach(function(a){a.classList.remove('open');});
-  if(!isOpen) el.classList.add('open');
+  if(!isOpen){
+    el.classList.add('open');
+    setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'});},50);
+  }
 }
 
 function openModal(){
