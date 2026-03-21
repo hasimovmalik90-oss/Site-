@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Тест: 7 признаков мужской энергии — Ксения Микаелян</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0b0910; --bg2:#110d18;
+  --gold:#c9a96e; --gold-lt:#e8cea0; --gold-dim:#8a6e44;
+  --rose:#9b6470; --rose-lt:#c9909e;
+  --cream:#f5ede3; --cream-mid:#d4c8bc; --cream-dim:#b8a898;
+  --line:rgba(201,169,110,.18); --line-soft:rgba(255,255,255,.06);
+  --glow-icon:0 0 10px rgba(201,169,110,.8),0 0 24px rgba(201,169,110,.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;animation:drift 20s ease-in-out infinite;}
+.orb-1{width:640px;height:640px;background:radial-gradient(circle,rgba(155,100,112,.2),transparent 70%);top:-140px;left:-100px;}
+.orb-2{width:520px;height:520px;background:radial-gradient(circle,rgba(201,169,110,.13),transparent 70%);top:35%;right:-80px;animation-delay:-7s;}
+.orb-3{width:420px;height:420px;background:radial-gradient(circle,rgba(80,50,110,.28),transparent 70%);bottom:8%;left:22%;animation-delay:-13s;}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-18px) scale(1.04);}66%{transform:translate(-18px,26px) scale(.97);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── PROGRESS ── */
+.progress-bar{position:sticky;top:0;z-index:100;background:rgba(11,9,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 24px;display:none;}
+.progress-bar.visible{display:block;}
+.progress-inner{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:14px;}
+.progress-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;}
+.progress-track{flex:1;height:2px;background:rgba(201,169,110,.12);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-lt));border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%;}
+.progress-count{font-size:.65rem;color:var(--gold-dim);white-space:nowrap;}
+
+/* ── LAYOUT ── */
+.page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:80px 24px 120px;}
+.inner{max-width:560px;width:100%;display:flex;flex-direction:column;align-items:center;}
+
+/* ── SEASON LABEL ── */
+.season-label{display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;font-weight:300;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;opacity:0;animation:fadeUp .8s .2s ease forwards;}
+.season-label::before,.season-label::after{content:'';display:block;width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.season-label::after{background:linear-gradient(90deg,var(--gold),transparent);}
+
+.program-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,7vw,3.4rem);line-height:1.08;text-align:center;letter-spacing:.02em;background:linear-gradient(135deg,var(--cream) 0%,var(--gold-lt) 50%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;width:100%;opacity:0;animation:fadeUp .9s .4s ease forwards;}
+.program-name em{font-style:italic;}
+
+.divider{display:flex;align-items:center;gap:16px;margin:22px 0 26px;width:100%;max-width:420px;opacity:0;animation:fadeUp .7s .55s ease forwards;}
+.divider-line{flex:1;height:1px;background:var(--line);}
+.divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold);}
+
+.tagline{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);text-align:center;line-height:1.6;max-width:420px;margin-bottom:20px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
+
+.meta-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fadeUp .7s .7s ease forwards;}
+.meta-item{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:300;color:var(--cream-dim);}
+.meta-dot{width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;opacity:.6;}
+
+/* ── S-LABEL ── */
+.s-label{display:flex;align-items:center;gap:10px;margin-bottom:20px;width:100%;}
+.ll{flex:1;height:1px;max-width:60px;background:var(--line);}
+.lt{font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;}
+
+/* ── INTRO CARD ── */
+.intro-card{width:100%;background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,rgba(201,169,110,.04) 100%);border:1px solid var(--line);border-radius:2px;padding:28px 24px;margin-bottom:12px;opacity:0;animation:fadeUp .8s .8s ease forwards;}
+.intro-card p{font-size:.9rem;font-weight:300;color:var(--cream-dim);line-height:1.8;margin-bottom:12px;}
+.intro-card p:last-child{margin-bottom:0;}
+.intro-quote{border-left:2px solid var(--gold);padding:14px 18px;margin:16px 0;background:rgba(201,169,110,.04);}
+.intro-quote p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.6;margin:0;}
+
+/* ── SECTION HEAD ── */
+.section-head{width:100%;margin:40px 0 16px;}
+.section-num-row{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
+.section-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-dim);line-height:1;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--cream);line-height:1.2;}
+.section-desc{font-size:.83rem;font-weight:300;color:var(--cream-dim);line-height:1.65;padding-left:48px;}
+
+/* ── QUESTION CARD ── */
+.q-card{width:100%;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,rgba(201,169,110,.03) 100%);border:1px solid var(--line);border-radius:2px;padding:26px 22px;margin-bottom:8px;transition:border-color .2s;}
+.q-card.answered{border-color:rgba(201,169,110,.3);}
+.q-num-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:16px;}
+.q-options{display:flex;flex-direction:column;gap:7px;}
+.q-option{display:flex;align-items:flex-start;gap:13px;padding:11px 15px;border:1px solid rgba(201,169,110,.12);border-radius:2px;cursor:pointer;transition:all .2s;background:rgba(255,255,255,.015);-webkit-user-select:none;user-select:none;}
+.q-option:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.04);}
+.q-option.selected{border-color:rgba(201,169,110,.5);background:rgba(201,169,110,.08);}
+.q-radio{flex-shrink:0;width:18px;height:18px;border:1px solid rgba(201,169,110,.3);border-radius:50%;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.q-option.selected .q-radio{border-color:var(--gold);}
+.q-radio-inner{width:8px;height:8px;background:var(--gold);border-radius:50%;transform:scale(0);transition:transform .2s;box-shadow:var(--glow-icon);}
+.q-option.selected .q-radio-inner{transform:scale(1);}
+.q-option-text{font-size:.84rem;font-weight:300;color:var(--cream-dim);line-height:1.55;transition:color .2s;}
+.q-option.selected .q-option-text{color:var(--cream);}
+
+/* ── WRITING CARD ── */
+.writing-card{width:100%;background:linear-gradient(135deg,rgba(201,169,110,.04) 0%,rgba(155,100,112,.04) 100%);border:1px solid rgba(201,169,110,.2);border-radius:2px;padding:26px 22px;margin-bottom:8px;}
+.wp-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.wp-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:14px;}
+.wp-textarea{width:100%;min-height:88px;background:rgba(255,255,255,.025);border:1px solid rgba(201,169,110,.15);border-radius:2px;padding:13px 15px;font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--cream);resize:vertical;transition:border-color .2s;line-height:1.65;}
+.wp-textarea::placeholder{color:var(--cream-dim);opacity:.4;}
+.wp-textarea:focus{outline:none;border-color:rgba(201,169,110,.4);}
+
+/* ── CTA WRAP ── */
+.cta-wrap{text-align:center;margin:48px 0;width:100%;}
+.btn-submit-main{display:inline-block;padding:18px 56px;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-lt));border:none;border-radius:2px;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#0b0910;cursor:pointer;box-shadow:0 4px 24px rgba(201,169,110,.25);transition:opacity .2s,transform .1s;}
+.btn-submit-main:hover{opacity:.88;transform:translateY(-1px);}
+.btn-submit-main:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+.cta-note{font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:12px;opacity:.6;}
+
+/* ── MODAL ── */
+#contactModal{display:none;position:fixed;inset:0;z-index:999;background:rgba(11,9,16,.88);backdrop-filter:blur(10px);overflow-y:auto;padding:24px 16px 40px;animation:fadeIn .25s ease;}
+#contactModal.visible{display:block;}
+.modal-box{position:relative;max-width:480px;margin:0 auto;background:var(--bg2);border:1px solid var(--line);border-radius:2px;padding:44px 36px;animation:fadeUp .3s ease;}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;cursor:pointer;color:var(--cream-dim);font-size:1rem;font-family:'Jost',sans-serif;font-weight:300;transition:color .15s;padding:4px;}
+.modal-close:hover{color:var(--gold);}
+.modal-diamonds{text-align:center;color:var(--gold);font-size:.75rem;letter-spacing:12px;margin-bottom:20px;text-shadow:var(--glow-icon);}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;background:linear-gradient(135deg,var(--cream),var(--gold-lt),var(--cream));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;line-height:1.15;margin-bottom:8px;}
+.modal-title em{font-style:italic;}
+.modal-desc{font-size:.82rem;font-weight:300;color:var(--cream-dim);text-align:center;line-height:1.65;margin-bottom:28px;}
+.form-group{margin-bottom:22px;}
+.form-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;}
+.form-input{display:block;width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,169,110,.2);padding:8px 0 10px;font-family:'Jost',sans-serif;font-size:.95rem;font-weight:300;color:rgba(245,237,227,.35);outline:none;-webkit-appearance:none;border-radius:0;transition:border-color .2s,color .2s;}
+.form-input::placeholder{color:rgba(245,237,227,.2);}
+.form-input:focus{border-bottom-color:var(--gold);color:var(--cream);}
+.form-input.error{border-bottom-color:rgba(200,80,80,.6);}
+.form-error{font-size:.72rem;color:rgba(220,100,100,.8);margin-top:5px;display:none;}
+.form-error.visible{display:block;}
+.btn-submit-modal{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#0b0910;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-lt));border:none;border-radius:2px;padding:17px;cursor:pointer;margin-top:28px;box-shadow:0 4px 24px rgba(201,169,110,.25);transition:opacity .2s,transform .1s;}
+.btn-submit-modal:hover{opacity:.88;transform:translateY(-1px);}
+.btn-submit-modal:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+.spinner{display:none;width:16px;height:16px;border:2px solid rgba(11,9,16,.3);border-top-color:#0b0910;border-radius:50%;animation:spin .7s linear infinite;}
+.btn-submit-modal.loading .spinner{display:block;}
+.btn-submit-modal.loading .btn-text{display:none;}
+.form-note{text-align:center;font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:16px;line-height:1.6;opacity:.5;}
+@media(max-width:520px){.modal-box{padding:36px 22px 40px;}}
+
+/* ── FINAL CTA ── */
+.final-cta{width:100%;background:linear-gradient(135deg,rgba(201,169,110,.06) 0%,rgba(155,100,112,.06) 100%);border:1px solid rgba(201,169,110,.3);border-radius:2px;padding:44px 32px;text-align:center;}
+.final-cta-eyebrow{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;}
+.final-cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,5vw,2.6rem);font-weight:300;background:linear-gradient(135deg,var(--cream),var(--gold-lt),var(--cream));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:14px;}
+.final-cta h2 em{font-style:italic;}
+.final-cta p{font-size:.85rem;font-weight:300;color:var(--cream-dim);max-width:400px;margin:0 auto 32px;line-height:1.75;}
+.final-cta-note{font-size:.7rem;color:var(--cream-dim);margin-top:14px;opacity:.5;}
+.btn-primary{display:inline-block;padding:18px 48px;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-lt));border:none;border-radius:2px;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#0b0910;cursor:pointer;text-decoration:none;box-shadow:0 4px 24px rgba(201,169,110,.25);transition:opacity .2s,transform .1s;}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px);}
+
+/* ── SOCIALS ── */
+.socials-wrap{width:100%;margin-top:4px;}
+.socials-head{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;font-style:italic;color:var(--cream-dim);margin-bottom:16px;text-align:center;}
+.social-list{display:flex;flex-direction:column;gap:6px;}
+.soc-item{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(255,255,255,.025),rgba(201,169,110,.02));border:1px solid var(--line);border-radius:2px;padding:14px 20px;text-decoration:none;transition:border-color .15s;}
+.soc-item:hover{border-color:rgba(201,169,110,.35);}
+.soc-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0;}
+.soc-name{flex:1;font-size:.88rem;font-weight:300;color:var(--cream);}
+.soc-handle{font-size:.75rem;color:var(--gold);font-weight:300;}
+.soc-arr{color:var(--gold-dim);}
+
+footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-top:1px solid var(--line-soft);font-size:.7rem;font-weight:300;letter-spacing:.06em;color:rgba(245,237,227,.18);}
+
+@media(max-width:560px){
+  .page{padding:60px 20px 100px;}
+  .loss-grid{grid-template-columns:1fr;}
+  .final-cta{padding:36px 22px;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- PROGRESS -->
+<div class="progress-bar" id="progressBar">
+  <div class="progress-inner">
+    <span class="progress-label">Прогресс</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-count" id="progressCount">0 / 21</span>
+  </div>
+</div>
+
+<div class="page">
+<div class="inner">
+
+  <!-- HERO -->
+  <span class="season-label">Ксения Микаелян</span>
+  <h1 class="program-name">7 признаков<br><em>мужской энергии</em></h1>
+  <div class="divider"><span class="divider-line"></span><span class="divider-diamond"></span><span class="divider-line"></span></div>
+  <p class="tagline">Которая отталкивает мужчин и крадёт вашу энергию</p>
+  <div class="meta-row">
+    <div class="meta-item"><div class="meta-dot"></div>7–10 минут</div>
+    <div class="meta-item"><div class="meta-dot"></div>21 вопрос</div>
+    <div class="meta-item"><div class="meta-dot"></div>7 шкал + план действий</div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <div class="s-label"><div class="ll"></div><span class="lt">Парадокс успешной женщины</span><div class="ll"></div></div>
+    <p>Чем успешнее вы в карьере и бизнесе — тем сложнее вам в отношениях. Это не случайность. Это побочный эффект мужской энергии, которую вы используете 24/7.</p>
+    <div class="intro-quote">
+      <p>«У 95% успешных женщин страх показаться слабой — 10 из 10. Они приходят домой и забывают «переодеться» из делового костюма. Партнёр видит рядом не женщину, а конкурента.»</p>
+    </div>
+    <p>Этот тест за 7 минут покажет, какие из 7 признаков активны у вас — и сколько энергии, денег и счастья вы теряете каждый месяц.</p>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quizForm" style="width:100%;">
+
+  <!-- ПРИЗНАК 1 -->
+  <div class="section-head">
+    <div class="section-num-row"><div class="section-num">1</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">Гиперконтроль</div>
+    <p class="section-desc">В бизнесе контроль = результат. Но дома контроль = смерть близости.</p>
+  </div>
+
+  <div class="q-card" data-q="1">
+    <div class="q-num-label">Вопрос 01</div>
+    <div class="q-text">Когда партнёр делает что-то по-своему — какая ваша первая реакция?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Раздражаюсь и переделываю сама — быстрее и правильнее</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Указываю на ошибки и объясняю, как надо было</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Молча злюсь, но стараюсь не вмешиваться</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Принимаю спокойно — его способ тоже имеет право быть</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="2">
+    <div class="q-num-label">Вопрос 02</div>
+    <div class="q-text">Сколько решений в семье/отношениях вы принимаете единолично?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Практически все — деньги, планы, быт, дети</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Большинство — партнёру оставляю мелочи</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Примерно поровну, но финансы на мне</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Решаем вместе, каждый отвечает за свою зону</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="3">
+    <div class="q-num-label">Вопрос 03</div>
+    <div class="q-text">Можете ли вы уехать на выходные, не оставляя инструкций?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нет, без меня всё развалится — и я это знаю</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Оставлю список и буду проверять по телефону</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Могу, но буду волноваться всё время</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Конечно — он справится, я доверяю</div></div>
+    </div>
+  </div>
+
+  <!-- ПРИЗНАК 2 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">2</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">«Я справлюсь сама»</div>
+    <p class="section-desc">Просьба о помощи ощущается как слабость. Вы годами тренировали независимость.</p>
+  </div>
+
+  <div class="q-card" data-q="4">
+    <div class="q-num-label">Вопрос 04</div>
+    <div class="q-text">Когда вам тяжело — что вы делаете?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Стискиваю зубы и тяну сама. Никто не должен видеть</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Могу пожаловаться подруге, но партнёра не нагружаю</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Иногда прошу помощь, но чувствую себя неловко</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Открыто говорю, что мне нужна поддержка</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="5">
+    <div class="q-num-label">Вопрос 05</div>
+    <div class="q-text">Как вы относитесь к фразе «опереться на мужчину»?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Внутреннее сопротивление — это опасно, подведёт</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Хочу, но не умею — не знаю как</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Пробовала — каждый раз разочаровывалась</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Умею принимать поддержку — это нормально</div></div>
+    </div>
+  </div>
+
+  <!-- ПРИЗНАК 3 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">3</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">Страх показаться слабой</div>
+    <p class="section-desc">Вы всю жизнь доказывали, что вы сильная. Теперь показать уязвимость = предать себя.</p>
+  </div>
+
+  <div class="q-card" data-q="6">
+    <div class="q-num-label">Вопрос 06</div>
+    <div class="q-text">Насколько вам страшно показаться слабой?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Максимально — скорее умру, чем покажу слабость (10/10)</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Очень сильный страх — тяжело быть уязвимой (7–9/10)</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Средний — могу с очень близкими (4–6/10)</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Небольшой — уязвимость это сила (0–3/10)</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="7">
+    <div class="q-num-label">Вопрос 07</div>
+    <div class="q-text">Когда вы плачете — что чувствуете?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Стыд — никогда не плачу при людях, даже при партнёре</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Злость на себя — «разнюнилась, соберись»</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нормально, но стараюсь быстро взять себя в руки</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Облегчение — слёзы это нормальная эмоция</div></div>
+    </div>
+  </div>
+
+  <!-- ПРИЗНАК 4 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">4</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">Борьба за лидерство</div>
+    <p class="section-desc">«Либо как он сказал, либо как я. Компромиссов нет.»</p>
+  </div>
+
+  <div class="q-card" data-q="8">
+    <div class="q-num-label">Вопрос 08</div>
+    <div class="q-text">В ваших отношениях — кто «главный»?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Постоянная борьба за лидерство — каждый тянет одеяло</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Я — потому что иначе всё встанет</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">По-разному, но часто спорим кто прав</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">У нас партнёрство — каждый лидер в своей сфере</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="9">
+    <div class="q-num-label">Вопрос 09</div>
+    <div class="q-text">Как вы реагируете, когда партнёр принимает решение без вас?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Бешусь — как он мог, не спросив меня?!</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Обижаюсь, чувствую себя неуважаемой</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Зависит от масштаба — мелочи ОК, серьёзное обсудим</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нормально — доверяю его выбору</div></div>
+    </div>
+  </div>
+
+  <div class="writing-card">
+    <div class="wp-label">◆ Рефлексия</div>
+    <div class="wp-text">Вспомните последний конфликт с партнёром. Из-за чего он был? Кто из вас «победил»?</div>
+    <textarea class="wp-textarea" placeholder="Опишите ситуацию — что случилось и как вы себя чувствовали…"></textarea>
+  </div>
+
+  <!-- ПРИЗНАК 5 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">5</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">Режим «борись или беги» 24/7</div>
+    <p class="section-desc">Постоянное напряжение, тревожность, невозможность расслабиться.</p>
+  </div>
+
+  <div class="q-card" data-q="10">
+    <div class="q-num-label">Вопрос 10</div>
+    <div class="q-text">Ваш уровень тревожности в обычный день:</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Высокий — постоянное напряжение, не могу выключить голову (8–10/10)</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Выше среднего — часто в стрессе, сложно расслабиться (5–7/10)</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Средний — волнуюсь в определённых ситуациях (3–4/10)</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Низкий — чувствую себя спокойно (0–2/10)</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="11">
+    <div class="q-num-label">Вопрос 11</div>
+    <div class="q-text">Есть ли у вас физические проявления стресса?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Да, серьёзные — щитовидка, бессонница, мигрени</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Да — постоянное напряжение, зажимы в шее и спине</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Иногда — усталость, трудно уснуть</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нет, чувствую себя хорошо физически</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="12">
+    <div class="q-num-label">Вопрос 12</div>
+    <div class="q-text">Можете ли вы «ничего не делать» целый день без чувства вины?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нет, это физически невозможно — я постоянно в движении</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Могу, но чувствую вину — «теряю время»</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Иногда получается, но редко</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Да, умею отдыхать без чувства вины</div></div>
+    </div>
+  </div>
+
+  <!-- ПРИЗНАК 6 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">6</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">«Я чувствую себя как мужик»</div>
+    <p class="section-desc">Невозможность переключиться из «режима директора» дома.</p>
+  </div>
+
+  <div class="q-card" data-q="13">
+    <div class="q-num-label">Вопрос 13</div>
+    <div class="q-text">Как часто вы чувствуете себя «как мужик» рядом с партнёром?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Практически всегда — это мой обычный режим</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Часто — особенно когда принимаю решения или плачу за всех</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Иногда — в стрессовых ситуациях</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Редко или никогда — чувствую себя женщиной</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="14">
+    <div class="q-num-label">Вопрос 14</div>
+    <div class="q-text">Когда приходите домой после работы — вы:</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Продолжаю командовать — дома та же энергия что и на работе</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Знаю что надо переключиться, но не получается</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Переключаюсь, но нужно время (час-два)</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Легко переключаюсь — у меня ритуал перехода</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="15">
+    <div class="q-num-label">Вопрос 15</div>
+    <div class="q-text">Что для вас означает «женская сила»?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Быть независимой, справляться со всем самой, не нуждаться в мужчине</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Быть лидером, управлять, добиваться целей</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Не знаю точно — запуталась в определениях</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Быть сильной в бизнесе И мягкой в отношениях — баланс двух энергий</div></div>
+    </div>
+  </div>
+
+  <!-- ПРИЗНАК 7 -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num">7</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">«Меня ценят только за пользу»</div>
+    <p class="section-desc">Партнёр говорит «спасибо» за помощь — но не говорит «спасибо что ты просто есть».</p>
+  </div>
+
+  <div class="q-card" data-q="16">
+    <div class="q-num-label">Вопрос 16</div>
+    <div class="q-text">За что вас ценит партнёр?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">За деньги, решения, помощь — за функцию, а не за меня</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">В основном за то, что я делаю — редко «просто так»</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">И за помощь, и за меня — но хотелось бы больше «просто так»</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">За то, что я есть — чувствую безусловную любовь</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="17">
+    <div class="q-num-label">Вопрос 17</div>
+    <div class="q-text">Верите ли вы, что вас можно любить «просто так», без подвигов?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Нет — глубоко внутри чувствую, что надо заслужить</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Хочу верить, но опыт говорит обратное</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Иногда верю, иногда сомневаюсь</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Да — я достойна любви просто потому что я есть</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="18">
+    <div class="q-num-label">Вопрос 18</div>
+    <div class="q-text">Когда вы достигаете успеха в карьере — что чувствуете?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Пустоту — деньги есть, а счастья нет</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Гордость, но тут же тревогу — «вдруг отпугнёт мужчин?»</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Радость, но не полную — чего-то не хватает</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Радость и гармонию — успех в одной сфере не мешает другой</div></div>
+    </div>
+  </div>
+
+  <div class="writing-card">
+    <div class="wp-label">◆ Рефлексия</div>
+    <div class="wp-text">Закончите фразу: «Если бы я позволила себе быть мягкой и уязвимой, я бы…»</div>
+    <textarea class="wp-textarea" placeholder="Напишите первое, что приходит — не фильтруйте…"></textarea>
+  </div>
+
+  <!-- ИТОГ -->
+  <div class="section-head" style="margin-top:40px;">
+    <div class="section-num-row"><div class="section-num" style="color:var(--gold);">⚡</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-title">Цена проблемы</div>
+    <p class="section-desc">Последние вопросы — сколько вы реально теряете на мужской энергии.</p>
+  </div>
+
+  <div class="q-card" data-q="19">
+    <div class="q-num-label">Вопрос 19</div>
+    <div class="q-text">Сколько часов в неделю вы тратите на напряжение, контроль и конфликты?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">15–20+ часов — практически всё свободное время</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">8–15 часов — значительная часть</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">3–7 часов — заметно, но терпимо</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">0–2 часа — минимально</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="20">
+    <div class="q-num-label">Вопрос 20</div>
+    <div class="q-text">Как давно вы в этом состоянии?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Годами — и становится только хуже</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Больше года — пробовала разное, не помогает</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Несколько месяцев — начинаю осознавать</div></div>
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Недавно задумалась</div></div>
+    </div>
+  </div>
+
+  <div class="q-card" data-q="21">
+    <div class="q-num-label">Вопрос 21</div>
+    <div class="q-text">Что вы готовы сделать, чтобы научиться переключаться?</div>
+    <div class="q-options">
+      <div class="q-option" data-v="1" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Пока не уверена — хочу просто разобраться</div></div>
+      <div class="q-option" data-v="2" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Готова работать самостоятельно</div></div>
+      <div class="q-option" data-v="3" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Готова к работе с экспертом</div></div>
+      <div class="q-option" data-v="4" onclick="sel(this)"><div class="q-radio"><div class="q-radio-inner"></div></div><div class="q-option-text">Готова на радикальные перемены — хочу результат</div></div>
+    </div>
+  </div>
+
+  <div class="writing-card">
+    <div class="wp-label">◆ Финальная рефлексия</div>
+    <div class="wp-text">Закончите фразу: «Больше всего в отношениях я хочу чувствовать…»</div>
+    <textarea class="wp-textarea" placeholder="Безопасность? Лёгкость? Любовь без условий? Напишите своё…"></textarea>
+  </div>
+
+  <div class="cta-wrap">
+    <button class="btn-submit-main" id="submitBtn" onclick="showResults()">Узнать мой результат</button>
+    <p class="cta-note">Ответьте на все 21 вопрос для точного результата</p>
+  </div>
+
+  </div><!-- end quizForm -->
+
+  <!-- MODAL -->
+  <div id="contactModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <div class="modal-diamonds">◆ ◆ ◆</div>
+      <h2 class="modal-title">Ваш результат<br><em>готов</em></h2>
+      <p class="modal-desc">Введите данные — покажем разбор по 7 признакам и план переключения из мужской энергии</p>
+      <div class="form-group"><label class="form-label">Ваше имя</label><input type="text" class="form-input" id="userName" placeholder="Как вас зовут?" autocomplete="given-name"><div class="form-error" id="nameError">Пожалуйста, введите ваше имя</div></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="userEmail" placeholder="your@email.com" autocomplete="email"><div class="form-error" id="emailError">Введите корректный email</div></div>
+      <div class="form-group"><label class="form-label">Телефон / Telegram</label><input type="tel" class="form-input" id="userPhone" placeholder="+7 (___) ___-__-__ или @username" autocomplete="tel"><div class="form-error" id="phoneError">Укажите телефон или Telegram</div></div>
+      <button class="btn-submit-modal" id="submitContactBtn" onclick="submitContact()">
+        <span class="btn-text">Показать мой результат</span>
+        <div class="spinner"></div>
+      </button>
+      <p class="form-note">Ваши данные в безопасности. Без спама.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+<footer>© 2026 Ксения Микаелян · Алгоритмы женской силы</footer>
+
+<script>
+/* ── STARS ── */
+(function(){var c=document.getElementById('stars');if(!c)return;var ctx=c.getContext('2d'),W,H,P=[];function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}function make(){P=[];var n=Math.floor(W*H/13000);for(var i=0;i<n;i++){P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,a:Math.random(),sp:Math.random()*.003+.001,ph:Math.random()*Math.PI*2,g:Math.random()>.65});}}function draw(){ctx.clearRect(0,0,W,H);var t=Date.now()*.001;P.forEach(function(p){var al=p.a*(.45+.55*Math.sin(t*p.sp*300+p.ph));ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?'rgba(201,169,110,'+al+')':'rgba(240,232,220,'+(al*.55)+')';ctx.fill();});requestAnimationFrame(draw);}resize();make();draw();window.addEventListener('resize',function(){resize();make();});})();
+
+const answers = {};
+const totalQ = 21;
+const FORMSPREE_URL = 'https://formspree.io/f/xnjgwryo';
+
+const signMap = {
+  control:[1,2,3], selfreliance:[4,5], weakness:[6,7],
+  leadership:[8,9], anxiety:[10,11,12], masculine:[13,14,15], recognition:[16,17,18]
+};
+const signNames = {
+  control:'Гиперконтроль', selfreliance:'«Я справлюсь сама»', weakness:'Страх показаться слабой',
+  leadership:'Борьба за лидерство', anxiety:'Режим «борись или беги»', masculine:'«Я как мужик»', recognition:'«Меня ценят за пользу»'
+};
+
+function sel(el){
+  const card=el.closest('.q-card');
+  card.querySelectorAll('.q-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  card.classList.add('answered');
+  answers[card.dataset.q]=parseInt(el.dataset.v);
+  updateProgress();
+}
+
+function updateProgress(){
+  const c=Object.keys(answers).length;
+  document.getElementById('progressBar').classList.add('visible');
+  document.getElementById('progressFill').style.width=(c/totalQ*100)+'%';
+  document.getElementById('progressCount').textContent=c+' / '+totalQ;
+}
+
+function showResults(){
+  if(Object.keys(answers).length<17){alert('Пожалуйста, ответьте хотя бы на 17 вопросов из 21.');return;}
+  document.getElementById('contactModal').classList.add('visible');
+  document.body.style.overflow='hidden';
+  document.getElementById('userName').focus();
+}
+
+function closeModal(){
+  document.getElementById('contactModal').classList.remove('visible');
+  document.body.style.overflow='';
+}
+
+document.getElementById('contactModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+function submitContact(){
+  const name=document.getElementById('userName').value.trim();
+  const email=document.getElementById('userEmail').value.trim();
+  const phone=document.getElementById('userPhone').value.trim();
+  ['userName','userEmail','userPhone'].forEach(id=>document.getElementById(id).classList.remove('error'));
+  ['nameError','emailError','phoneError'].forEach(id=>document.getElementById(id).classList.remove('visible'));
+  let err=false;
+  if(!name){document.getElementById('userName').classList.add('error');document.getElementById('nameError').classList.add('visible');err=true;}
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById('userEmail').classList.add('error');document.getElementById('emailError').classList.add('visible');err=true;}
+  if(!phone){document.getElementById('userPhone').classList.add('error');document.getElementById('phoneError').classList.add('visible');err=true;}
+  if(err)return;
+
+  const signScores={};let activeCount=0;
+  Object.entries(signMap).forEach(([key,qs])=>{
+    let sum=0,cnt=0;qs.forEach(q=>{if(answers[q]!==undefined){sum+=answers[q];cnt++;}});
+    const pct=cnt?Math.round((sum/(cnt*4))*100):0;signScores[key]=pct;if(pct>=50)activeCount++;
+  });
+  let totalScore=0;Object.values(answers).forEach(v=>totalScore+=v);
+  const score100=Math.round((totalScore/(totalQ*4))*100);
+  let profile=activeCount>=6?'Хроническая мужская энергия':activeCount>=4?'Выраженный дисбаланс энергий':activeCount>=2?'Частичный дисбаланс':'Здоровый баланс энергий';
+
+  const refs=[];document.querySelectorAll('.wp-textarea').forEach(t=>{if(t.value.trim())refs.push(t.value.trim());});
+
+  const btn=document.getElementById('submitContactBtn');btn.classList.add('loading');btn.disabled=true;
+
+  // Formspree
+  const fd=new FormData();
+  fd.append('name',name);fd.append('email',email);fd.append('phone',phone);
+  fd.append('score',score100);fd.append('active_signs',activeCount);fd.append('profile',profile);
+  fd.append('_source','Тест — 7 признаков мужской энергии');
+  Object.entries(signScores).forEach(([k,v])=>fd.append('sign_'+k,v+'%'));
+  for(let q=1;q<=21;q++)fd.append('vopros_'+(q<10?'0'+q:q),answers[q]!==undefined?answers[q]:'—');
+  refs.forEach((r,i)=>fd.append('refleksiya_'+(i+1),r));
+  fetch(FORMSPREE_URL,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});
+
+  setTimeout(()=>{
+    window.location.href='https://kseniiamikaelyan.com/rasshifrovka-7-priznakov/';
+  },1200);
+}
+
+
+</script>
+</body>
+</html>
