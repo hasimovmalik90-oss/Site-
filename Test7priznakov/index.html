@@ -49,14 +49,14 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .season-label::before,.season-label::after{content:'';display:block;width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
 .season-label::after{background:linear-gradient(90deg,var(--gold),transparent);}
 
-.program-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,7vw,3.4rem);line-height:1.08;text-align:center;letter-spacing:.02em;background:linear-gradient(135deg,var(--cream) 0%,var(--gold-lt) 50%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;width:100%;opacity:0;animation:fadeUp .9s .4s ease forwards;}
+.program-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,8vw,3.6rem);line-height:1.08;text-align:center;letter-spacing:.02em;background:linear-gradient(135deg,var(--cream) 0%,var(--gold-lt) 50%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;width:100%;opacity:0;animation:fadeUp .9s .4s ease forwards;}
 .program-name em{font-style:italic;}
 
 .divider{display:flex;align-items:center;gap:16px;margin:22px 0 26px;width:100%;max-width:420px;opacity:0;animation:fadeUp .7s .55s ease forwards;}
 .divider-line{flex:1;height:1px;background:var(--line);}
 .divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold);}
 
-.tagline{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);text-align:center;line-height:1.6;max-width:420px;margin-bottom:20px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
+.tagline{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1rem,3vw,1.2rem);color:var(--rose-lt);text-align:center;line-height:1.6;max-width:420px;margin-bottom:28px;opacity:0;animation:fadeUp .8s .65s ease forwards;}
 
 .meta-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fadeUp .7s .7s ease forwards;}
 .meta-item{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:300;color:var(--cream-dim);}
@@ -226,7 +226,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
   <div class="meta-row">
     <div class="meta-item"><div class="meta-dot"></div>7–10 минут</div>
     <div class="meta-item"><div class="meta-dot"></div>21 вопрос</div>
-    <div class="meta-item"><div class="meta-dot"></div>7 шкал + план действий</div>
+    <div class="meta-item"><div class="meta-dot"></div>Персональный результат</div>
   </div>
 
   <!-- INTRO -->
@@ -503,7 +503,7 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
 
   <!-- ИТОГ -->
   <div class="section-head" style="margin-top:40px;">
-    <div class="section-num-row"><div class="section-num" style="color:var(--gold);">⚡</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
+    <div class="section-num-row"><div class="section-num">8</div><div style="flex:1;height:1px;background:var(--line);"></div></div>
     <div class="section-title">Цена проблемы</div>
     <p class="section-desc">Последние вопросы — сколько вы реально теряете на мужской энергии.</p>
   </div>
