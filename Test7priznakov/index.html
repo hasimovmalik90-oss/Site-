@@ -162,13 +162,35 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 
 footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-top:1px solid var(--line-soft);font-size:.7rem;font-weight:300;letter-spacing:.06em;color:rgba(245,237,227,.18);}
 
+/* ── GLOWING DIAMONDS ── */
+@keyframes diamondGlow{0%,100%{box-shadow:0 0 6px rgba(201,169,110,.4),0 0 14px rgba(201,169,110,.15);}50%{box-shadow:0 0 10px rgba(201,169,110,.7),0 0 22px rgba(201,169,110,.3);}}
+.glow-diamonds{display:flex;align-items:center;justify-content:center;gap:0;margin:32px 0;width:100%;}
+.glow-diamonds .gd-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.3));}
+.glow-diamonds .gd-line:last-child{background:linear-gradient(90deg,rgba(201,169,110,.3),transparent);}
+.glow-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;margin:0 10px;animation:diamondGlow 3s ease-in-out infinite;}
+.glow-diamond:nth-child(4){animation-delay:.6s;}
+.glow-diamond:nth-child(6){animation-delay:1.2s;}
+
+/* ── CONTACT CARD ── */
+.contact-card{width:100%;background:linear-gradient(135deg,rgba(201,169,110,.06) 0%,rgba(155,100,112,.05) 100%);border:1px solid rgba(201,169,110,.25);border-radius:2px;padding:32px 28px;margin-bottom:10px;}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:6px;text-align:center;}
+.contact-desc{font-size:.83rem;font-weight:300;color:var(--cream-dim);line-height:1.65;text-align:center;margin-bottom:22px;}
+.contact-fields{display:flex;flex-direction:column;gap:10px;}
+.contact-field{display:flex;flex-direction:column;gap:5px;}
+.contact-field label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);font-weight:400;}
+.contact-field input{width:100%;background:rgba(255,255,255,.025);border:1px solid rgba(201,169,110,.15);border-radius:2px;padding:12px 16px;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;color:var(--cream);transition:border-color .2s;line-height:1.4;}
+.contact-field input::placeholder{color:var(--cream-dim);opacity:.5;}
+.contact-field input:focus{outline:none;border-color:rgba(201,169,110,.4);}
+.contact-field input.field-error{border-color:rgba(200,80,80,.5);}
+
 /* ── UNANSWERED + MISSING BANNER ── */
-.q-card.unanswered{border-color:rgba(200,80,80,.5);}
-@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
-.q-card.shake{animation:shake .3s ease;}
-.missing-banner{display:none;width:100%;background:rgba(200,80,80,.12);border:1px solid rgba(200,80,80,.3);border-radius:2px;padding:16px 20px;margin-bottom:12px;text-align:center;}
+.q-card.unanswered{border-color:rgba(200,80,80,.5);box-shadow:0 0 16px rgba(200,80,80,.15);}
+@keyframes shakeCard{0%,100%{transform:translateX(0);}20%{transform:translateX(-4px);}40%{transform:translateX(4px);}60%{transform:translateX(-3px);}80%{transform:translateX(3px);}}
+.q-card.shake{animation:shakeCard .4s ease;}
+.missing-banner{display:none;width:100%;background:linear-gradient(135deg,rgba(200,80,80,.08),rgba(200,80,80,.04));border:1px solid rgba(200,80,80,.3);border-radius:2px;padding:18px 22px;margin-bottom:24px;text-align:center;}
 .missing-banner.visible{display:block;}
-.missing-banner-text{font-size:.82rem;font-weight:300;color:var(--cream);line-height:1.6;}
+.missing-banner-text{font-size:.88rem;font-weight:300;color:rgba(220,130,130,.9);line-height:1.6;}
+.missing-banner-text strong{font-weight:500;color:rgba(240,150,150,1);}
 
 @media(max-width:560px){
   .page{padding:60px 20px 100px;}
@@ -525,40 +547,42 @@ footer{position:relative;z-index:1;padding:28px 24px;text-align:center;border-to
     <textarea class="wp-textarea" placeholder="Безопасность? Лёгкость? Любовь без условий? Напишите своё…"></textarea>
   </div>
 
+  <div class="glow-diamonds" style="margin-top:40px;"><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span><div class="glow-diamond"></div><span class="gd-line"></span></div>
+
+  <!-- CONTACT -->
+  <div class="contact-card" id="contactCard">
+    <div class="contact-title">Моя золотая, ты почти у цели</div>
+    <div class="contact-desc">Оставь свои данные, чтобы получить персональную расшифровку по 7 признакам и план переключения из мужской энергии.</div>
+    <div class="contact-fields">
+      <div class="contact-field">
+        <label>Ваше имя</label>
+        <input type="text" id="contactName" placeholder="Как к вам обращаться">
+      </div>
+      <div class="contact-field">
+        <label>Ник в Telegram</label>
+        <input type="text" id="contactTelegram" placeholder="@ваш_ник">
+      </div>
+      <div class="contact-field">
+        <label>E-mail</label>
+        <input type="email" id="contactEmail" placeholder="ваша@почта.com">
+      </div>
+    </div>
+  </div>
+
   <!-- MISSING BANNER -->
   <div class="missing-banner" id="missingBanner">
     <div class="missing-banner-text"><strong>Вы пропустили <span id="missingCount">0</span> вопрос(ов).</strong><br>Для точного результата необходимо ответить на все 21 вопрос.</div>
   </div>
 
   <div class="cta-wrap">
-    <button class="btn-submit-main" id="submitBtn" onclick="showResults()">Узнать мой результат</button>
+    <button class="btn-submit-main" id="submitBtn" onclick="submitQuiz()">Узнать мой результат</button>
     <p class="cta-note">Ответьте на все 21 вопрос для точного результата</p>
   </div>
 
   </div><!-- end quizForm -->
 
-  <!-- MODAL -->
-  <div id="contactModal">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()">&#10005;</button>
-      <div class="modal-diamonds">◆ ◆ ◆</div>
-      <h2 class="modal-title">Ваш результат<br><em>готов</em></h2>
-      <p class="modal-desc">Введите данные — покажем разбор по 7 признакам и план переключения из мужской энергии</p>
-      <div class="form-group"><label class="form-label">Ваше имя</label><input type="text" class="form-input" id="userName" placeholder="Как вас зовут?" autocomplete="given-name"><div class="form-error" id="nameError">Пожалуйста, введите ваше имя</div></div>
-      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="userEmail" placeholder="your@email.com" autocomplete="email"><div class="form-error" id="emailError">Введите корректный email</div></div>
-      <div class="form-group"><label class="form-label">Телефон / Telegram</label><input type="tel" class="form-input" id="userPhone" placeholder="+7 (___) ___-__-__ или @username" autocomplete="tel"><div class="form-error" id="phoneError">Укажите телефон или Telegram</div></div>
-      <button class="btn-submit-modal" id="submitContactBtn" onclick="submitContact()">
-        <span class="btn-text">Показать мой результат</span>
-        <div class="spinner"></div>
-      </button>
-      <p class="form-note">Ваши данные в безопасности. Без спама.</p>
-    </div>
-  </div>
-</div>
-</div>
-
-</div>
-</div>
+</div><!-- inner -->
+</div><!-- page -->
 <footer>© 2026 Ксения Микаелян · Алгоритмы женской силы</footer>
 
 <script>
@@ -600,51 +624,42 @@ function updateProgress(){
   document.getElementById('progressCount').textContent=c+' / '+totalQ;
 }
 
-function showResults(){
+function submitQuiz(){
   document.querySelectorAll('.q-card.unanswered').forEach(c=>c.classList.remove('unanswered','shake'));
   document.getElementById('missingBanner').classList.remove('visible');
 
   const count=Object.keys(answers).length;
   const missing=totalQ-count;
 
-  if(missing>0){
-    let firstMissing=null;
-    document.querySelectorAll('.q-card[data-q]').forEach(card=>{
-      if(answers[card.dataset.q]===undefined){
-        card.classList.add('unanswered','shake');
-        if(!firstMissing)firstMissing=card;
-      }
-    });
-    document.getElementById('missingCount').textContent=missing;
-    document.getElementById('missingBanner').classList.add('visible');
-    if(firstMissing)firstMissing.scrollIntoView({behavior:'smooth',block:'center'});
+  // Validate contact fields
+  const cName=document.getElementById('contactName');
+  const cTg=document.getElementById('contactTelegram');
+  const cEmail=document.getElementById('contactEmail');
+  [cName,cTg,cEmail].forEach(f=>f.classList.remove('field-error'));
+  let contactMissing=false;
+  if(!cName.value.trim()){cName.classList.add('field-error');contactMissing=true;}
+  if(!cTg.value.trim()){cTg.classList.add('field-error');contactMissing=true;}
+  if(!cEmail.value.trim()){cEmail.classList.add('field-error');contactMissing=true;}
+
+  if(missing>0||contactMissing){
+    let firstProblem=null;
+    if(missing>0){
+      document.querySelectorAll('.q-card[data-q]').forEach(card=>{
+        if(answers[card.dataset.q]===undefined){
+          card.classList.add('unanswered','shake');
+          if(!firstProblem)firstProblem=card;
+        }
+      });
+      document.getElementById('missingCount').textContent=missing;
+      document.getElementById('missingBanner').classList.add('visible');
+    }
+    if(contactMissing&&!firstProblem){
+      firstProblem=document.getElementById('contactCard');
+    }
+    if(firstProblem)firstProblem.scrollIntoView({behavior:'smooth',block:'center'});
     setTimeout(()=>{document.querySelectorAll('.q-card.shake').forEach(c=>c.classList.remove('shake'));},500);
     return;
   }
-  document.getElementById('contactModal').classList.add('visible');
-  document.body.style.overflow='hidden';
-  document.getElementById('userName').focus();
-}
-
-function closeModal(){
-  document.getElementById('contactModal').classList.remove('visible');
-  document.body.style.overflow='';
-}
-
-document.getElementById('contactModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-
-function submitContact(){
-  const name=document.getElementById('userName').value.trim();
-  const email=document.getElementById('userEmail').value.trim();
-  const phone=document.getElementById('userPhone').value.trim();
-  ['userName','userEmail','userPhone'].forEach(id=>document.getElementById(id).classList.remove('error'));
-  ['nameError','emailError','phoneError'].forEach(id=>document.getElementById(id).classList.remove('visible'));
-  let err=false;
-  if(!name){document.getElementById('userName').classList.add('error');document.getElementById('nameError').classList.add('visible');err=true;}
-  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById('userEmail').classList.add('error');document.getElementById('emailError').classList.add('visible');err=true;}
-  if(!phone){document.getElementById('userPhone').classList.add('error');document.getElementById('phoneError').classList.add('visible');err=true;}
-  if(err)return;
 
   const signScores={};let activeCount=0;
   Object.entries(signMap).forEach(([key,qs])=>{
@@ -655,23 +670,31 @@ function submitContact(){
   const score100=Math.round((totalScore/(totalQ*4))*100);
   let profile=activeCount>=6?'Хроническая мужская энергия':activeCount>=4?'Выраженный дисбаланс энергий':activeCount>=2?'Частичный дисбаланс':'Здоровый баланс энергий';
 
-  const refs=[];document.querySelectorAll('.wp-textarea').forEach(t=>{if(t.value.trim())refs.push(t.value.trim());});
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Отправка…';
 
-  const btn=document.getElementById('submitContactBtn');btn.classList.add('loading');btn.disabled=true;
-
-  // Formspree
   const fd=new FormData();
-  fd.append('name',name);fd.append('email',email);fd.append('phone',phone);
-  fd.append('score',score100);fd.append('active_signs',activeCount);fd.append('profile',profile);
-  fd.append('_source','Тест — 7 признаков мужской энергии');
+  fd.append('_subject','Тест 7 признаков: '+profile+' — '+cName.value.trim());
+  fd.append('_replyto',cEmail.value.trim());
+  fd.append('score',score100+'% — '+profile);
+  fd.append('active_signs',activeCount+' из 7');
   Object.entries(signScores).forEach(([k,v])=>fd.append('sign_'+k,v+'%'));
   for(let q=1;q<=21;q++)fd.append('vopros_'+(q<10?'0'+q:q),answerTexts[q]||'—');
-  refs.forEach((r,i)=>fd.append('refleksiya_'+(i+1),r));
-  fetch(FORMSPREE_URL,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});
+  document.querySelectorAll('.wp-textarea').forEach((t,i)=>{
+    fd.append('refleksiya_'+(i+1),t.value.trim()||'—');
+  });
+  fd.append('name',cName.value.trim());
+  fd.append('telegram',cTg.value.trim());
+  fd.append('email',cEmail.value.trim());
 
-  setTimeout(()=>{
+  fetch(FORMSPREE_URL,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(r=>{
+    if(!r.ok)return r.text().then(body=>{throw new Error('HTTP '+r.status+': '+body);});
     window.location.href='https://kseniiamikaelyan.com/rasshifrovka-7-priznakov/';
-  },1200);
+  }).catch(err=>{
+    console.error('Form error:',err);
+    btn.disabled=false;btn.textContent='Узнать мой результат';
+    alert('Ошибка: '+err.message);
+  });
 }
 
 
