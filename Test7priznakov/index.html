@@ -79,7 +79,7 @@ canvas#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.48;}
 .section-num-row{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
 .section-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-dim);line-height:1;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--cream);line-height:1.2;}
-.section-desc{font-size:.83rem;font-weight:300;color:var(--cream-dim);line-height:1.65;padding-left:48px;}
+.section-desc{font-size:.83rem;font-weight:300;color:var(--cream-dim);line-height:1.65;}
 
 /* ── QUESTION CARD ── */
 .q-card{width:100%;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,rgba(201,169,110,.03) 100%);border:1px solid var(--line);border-radius:2px;padding:26px 22px;margin-bottom:8px;transition:border-color .2s;}
@@ -639,7 +639,7 @@ function submitQuiz(){
   let contactMissing=false;
   if(!cName.value.trim()){cName.classList.add('field-error');contactMissing=true;}
   if(!cTg.value.trim()){cTg.classList.add('field-error');contactMissing=true;}
-  if(!cEmail.value.trim()){cEmail.classList.add('field-error');contactMissing=true;}
+  if(!cEmail.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cEmail.value.trim())){cEmail.classList.add('field-error');contactMissing=true;}
 
   if(missing>0||contactMissing){
     let firstProblem=null;
