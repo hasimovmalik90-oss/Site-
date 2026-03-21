@@ -639,7 +639,7 @@ function submitQuiz(){
   let contactMissing=false;
   if(!cName.value.trim()){cName.classList.add('field-error');contactMissing=true;}
   if(!cTg.value.trim()){cTg.classList.add('field-error');contactMissing=true;}
-  if(!cEmail.value.trim()){cEmail.classList.add('field-error');contactMissing=true;}
+  if(!cEmail.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cEmail.value.trim())){cEmail.classList.add('field-error');contactMissing=true;}
 
   if(missing>0||contactMissing){
     let firstProblem=null;
