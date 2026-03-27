@@ -291,12 +291,7 @@ document.getElementById('f').addEventListener('submit',async function(e){
   try{
     var res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
     if(res.ok){
-      document.getElementById('formWrap').style.display='none';
-      document.querySelector('.program-name').style.display='none';
-      document.querySelector('.divider').style.display='none';
-      document.querySelector('.tagline').style.display='none';
-      document.getElementById('ok').style.display='block';
-      window.scrollTo(0,0);
+      window.location.href='https://youtu.be/QzIH4kxqWsg?si=-ioi4coSqFdQmzOf';
     }else{btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
   }catch(err){btn.textContent='Ошибка — попробуй снова';btn.style.opacity='1';}
 });
