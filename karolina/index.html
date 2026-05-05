@@ -1,0 +1,3703 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каролина Читанава × Малик Хошимов — кейс</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+```
+--ink-bright: #faf9f6;
+--ink: #ebe9e2;
+--text: #b5b3aa;
+--muted: #6a6862;
+--dim: #3a3833;
+--faded: #252420;
+
+--gold-bright: #ffd17a;
+--gold: #ffb84d;
+--gold-deep: #c8893a;
+--gold-glow-strong: rgba(255, 184, 77, 0.65);
+--gold-glow: rgba(255, 184, 77, 0.4);
+--gold-glow-soft: rgba(255, 184, 77, 0.18);
+--gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+--line: rgba(255, 255, 255, 0.06);
+--line-bright: rgba(255, 255, 255, 0.14);
+--line-glow: rgba(255, 184, 77, 0.3);
+
+/* TYPOGRAPHY */
+--display: 'Fraunces', 'Times New Roman', serif;
+--serif: 'Instrument Serif', 'Times New Roman', serif;
+--sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+--mono: 'Geist Mono', ui-monospace, monospace;
+
+--container: 760px;
+--container-wide: 1080px;
+
+--ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+--mx: 50%;
+--my: 50%;
+```
+
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+body {
+font-family: var(–sans);
+font-size: 16px;
+line-height: 1.65;
+color: var(–text);
+background: var(–bg);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-rendering: optimizeLegibility;
+overflow-x: hidden;
+cursor: default;
+}
+
+/* Lock scroll while splash is visible */
+body.splash-active { overflow: hidden; height: 100vh; }
+
+/* ============================================================ */
+/* SPLASH SCREEN                                                */
+/* ============================================================ */
+
+.splash {
+position: fixed;
+inset: 0;
+z-index: 9999;
+background: var(–bg);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: opacity 0.8s var(–ease-out), visibility 0.8s var(–ease-out);
+}
+
+.splash.hide {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+
+.splash::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 60% 40% at center, var(–gold-glow-soft), transparent 70%),
+radial-gradient(ellipse 50% 30% at top, var(–gold-glow-faint), transparent 60%);
+pointer-events: none;
+}
+
+.splash-monogram {
+position: relative;
+z-index: 2;
+margin-bottom: 56px;
+opacity: 0;
+animation: splashFadeIn 0.7s var(–ease-out) 0.1s forwards;
+}
+
+.splash-monogram svg {
+width: 80px;
+height: 80px;
+filter: drop-shadow(0 0 24px var(–gold-glow));
+}
+
+.splash-monogram .ring {
+stroke-dasharray: 220;
+stroke-dashoffset: 220;
+animation: drawRing 1.4s var(–ease-out) 0.3s forwards;
+}
+
+@keyframes drawRing {
+to { stroke-dashoffset: 0; }
+}
+
+.splash-label {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 32px;
+position: relative;
+z-index: 2;
+opacity: 0;
+animation: splashFadeIn 0.7s var(–ease-out) 0.5s forwards;
+}
+
+.splash-number {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 300, “SOFT” 100;
+font-size: clamp(64px, 12vw, 144px);
+line-height: 1;
+color: var(–ink-bright);
+font-variant-numeric: tabular-nums;
+letter-spacing: -0.04em;
+margin-bottom: 32px;
+position: relative;
+z-index: 2;
+opacity: 0;
+animation: splashFadeIn 0.7s var(–ease-out) 0.7s forwards;
+text-shadow: 0 0 40px rgba(255, 184, 77, 0.2);
+background: linear-gradient(180deg, var(–ink-bright) 0%, var(–gold-bright) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.splash-name {
+font-family: var(–serif);
+font-style: italic;
+font-size: 20px;
+color: var(–gold);
+letter-spacing: 0;
+margin-bottom: 48px;
+position: relative;
+z-index: 2;
+opacity: 0;
+animation: splashFadeIn 0.7s var(–ease-out) 0.9s forwards;
+text-shadow: 0 0 16px var(–gold-glow);
+}
+
+.splash-loader {
+width: 200px;
+height: 1px;
+background: var(–line);
+position: relative;
+z-index: 2;
+overflow: hidden;
+opacity: 0;
+animation: splashFadeIn 0.4s var(–ease-out) 0.4s forwards;
+}
+
+.splash-loader::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 12px var(–gold-glow);
+animation: loaderSweep 2s var(–ease) 0.5s forwards;
+transform: translateX(-100%);
+}
+
+@keyframes loaderSweep {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+
+@keyframes splashFadeIn {
+from { opacity: 0; transform: translateY(12px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.splash-skip {
+position: absolute;
+bottom: 32px;
+right: 32px;
+z-index: 2;
+background: none;
+border: 1px solid var(–line-bright);
+color: var(–muted);
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+padding: 10px 18px;
+border-radius: 100px;
+cursor: pointer;
+transition: all 0.3s var(–ease);
+opacity: 0;
+animation: splashFadeIn 0.4s var(–ease-out) 1.2s forwards;
+}
+
+.splash-skip:hover {
+color: var(–gold);
+border-color: var(–gold);
+box-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+/* ============================================================ */
+/* ATMOSPHERIC LAYERS                                           */
+/* ============================================================ */
+
+.ambient {
+position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+
+.ambient::before, .ambient::after {
+content: ‘’;
+position: absolute;
+border-radius: 50%;
+filter: blur(120px);
+opacity: 0.5;
+}
+
+.ambient::before {
+width: 600px; height: 600px;
+background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 70%);
+top: -200px; left: -100px;
+animation: drift1 22s ease-in-out infinite;
+}
+
+.ambient::after {
+width: 500px; height: 500px;
+background: radial-gradient(circle, rgba(255, 184, 77, 0.12), transparent 70%);
+bottom: -150px; right: -100px;
+animation: drift2 28s ease-in-out infinite;
+}
+
+@keyframes drift1 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+33% { transform: translate(80px, 60px) scale(1.1); }
+66% { transform: translate(-40px, 100px) scale(0.95); }
+}
+
+@keyframes drift2 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+50% { transform: translate(-100px, -60px) scale(1.15); }
+}
+
+.spotlight {
+position: fixed; inset: 0; pointer-events: none; z-index: 1;
+background: radial-gradient(circle 600px at var(–mx) var(–my), rgba(255, 184, 77, 0.05), transparent 50%);
+transition: background 0.1s linear;
+}
+
+body::after {
+content: ‘’;
+position: fixed; inset: 0; pointer-events: none;
+background-image: url(“data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>”);
+opacity: 0.7;
+z-index: 1000;
+mix-blend-mode: overlay;
+}
+
+main, header, section, footer { position: relative; z-index: 2; }
+
+/* ============================================================ */
+/* PROGRESS BAR                                                 */
+/* ============================================================ */
+.progress-bar {
+position: fixed; top: 0; left: 0;
+width: var(–scroll, 0%);
+height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), var(–gold-bright));
+box-shadow: 0 0 20px var(–gold-glow), 0 0 40px var(–gold-glow-soft);
+z-index: 998;
+transition: width 0.05s linear;
+}
+
+/* ============================================================ */
+/* STICKY DOT NAVIGATION                                        */
+/* ============================================================ */
+
+.nav-dots {
+position: fixed;
+right: 32px;
+top: 50%;
+transform: translateY(-50%);
+z-index: 100;
+display: flex;
+flex-direction: column;
+gap: 18px;
+padding: 18px 14px;
+background: var(–bg-card);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid var(–line);
+border-radius: 100px;
+opacity: 0;
+transition: opacity 0.6s var(–ease) 0.4s, transform 0.6s var(–ease) 0.4s;
+transform: translateY(-50%) translateX(20px);
+}
+
+.nav-dots.visible {
+opacity: 1;
+transform: translateY(-50%) translateX(0);
+}
+
+.nav-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: transparent;
+border: 1px solid var(–muted);
+cursor: pointer;
+transition: all 0.3s var(–ease);
+position: relative;
+padding: 0;
+}
+
+.nav-dot::after {
+content: attr(data-label);
+position: absolute;
+right: calc(100% + 16px);
+top: 50%;
+transform: translateY(-50%) translateX(8px);
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–ink);
+background: var(–bg-card);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid var(–line-bright);
+padding: 8px 14px;
+border-radius: 100px;
+white-space: nowrap;
+opacity: 0;
+pointer-events: none;
+transition: all 0.3s var(–ease);
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.nav-dot:hover {
+border-color: var(–gold);
+background: var(–gold-glow-soft);
+box-shadow: 0 0 12px var(–gold-glow);
+}
+
+.nav-dot:hover::after {
+opacity: 1;
+transform: translateY(-50%) translateX(0);
+}
+
+.nav-dot.active {
+background: var(–gold);
+border-color: var(–gold);
+box-shadow: 0 0 12px var(–gold), 0 0 24px var(–gold-glow);
+}
+
+@media (max-width: 1100px) {
+.nav-dots { display: none; }
+}
+
+/* ============================================================ */
+/* TYPOGRAPHY                                                   */
+/* ============================================================ */
+
+h1, h2, h3, h4 {
+color: var(–ink-bright);
+line-height: 1.05;
+letter-spacing: -0.025em;
+}
+
+/* Display headings - Fraunces */
+h2 {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 300, “SOFT” 50;
+font-size: clamp(48px, 7vw, 80px);
+font-weight: 300;
+letter-spacing: -0.04em;
+margin-bottom: 32px;
+line-height: 0.95;
+}
+
+h2 em {
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 300, “SOFT” 100;
+color: var(–gold-bright);
+text-shadow: 0 0 30px var(–gold-glow);
+font-weight: 300;
+}
+
+h3 {
+font-family: var(–sans);
+font-size: 26px;
+font-weight: 300;
+letter-spacing: -0.02em;
+margin-bottom: 16px;
+color: var(–ink-bright);
+}
+
+h4 {
+font-family: var(–sans);
+font-size: 16px;
+font-weight: 500;
+margin-bottom: 10px;
+}
+
+p { margin-bottom: 18px; color: var(–text); }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 500; color: var(–ink); }
+
+a {
+color: var(–gold-bright);
+text-decoration: none;
+transition: all 0.3s var(–ease);
+}
+a:hover { color: var(–gold); text-shadow: 0 0 20px var(–gold-glow); }
+
+.container {
+max-width: var(–container);
+margin: 0 auto;
+padding: 0 32px;
+}
+
+.container-wide {
+max-width: var(–container-wide);
+margin: 0 auto;
+padding: 0 32px;
+}
+
+/* ============================================================ */
+/* COMMON                                                       */
+/* ============================================================ */
+
+.eyebrow {
+font-family: var(–mono);
+font-size: 10.5px;
+font-weight: 400;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 28px;
+display: inline-flex;
+align-items: center;
+gap: 14px;
+}
+
+.eyebrow::before, .eyebrow::after {
+content: ‘’;
+display: inline-block;
+width: 28px;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 8px var(–gold-glow);
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 96px;
+}
+
+.reveal {
+opacity: 0;
+transform: translateY(28px);
+transition: opacity 1s var(–ease-out), transform 1s var(–ease-out);
+}
+
+.reveal.in-view {
+opacity: 1;
+transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+.reveal-delay-4 { transition-delay: 0.5s; }
+.reveal-delay-5 { transition-delay: 0.7s; }
+
+/* ============================================================ */
+/* HERO — DRAMATIC                                              */
+/* ============================================================ */
+
+.hero {
+min-height: 100vh;
+padding: 96px 0 80px;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+overflow: hidden;
+}
+
+.hero::before {
+content: ‘’;
+position: absolute;
+bottom: -1px; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–gold-glow), transparent);
+}
+
+/* Decorative side rails with year */
+.hero-rail {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(–muted);
+writing-mode: vertical-rl;
+z-index: 3;
+display: flex;
+align-items: center;
+gap: 24px;
+}
+
+.hero-rail.left { left: 32px; }
+.hero-rail.right { right: 32px; transform: translateY(-50%) rotate(180deg); }
+
+.hero-rail::before, .hero-rail::after {
+content: ‘’;
+width: 1px;
+height: 80px;
+background: linear-gradient(to bottom, transparent, var(–gold-deep), transparent);
+}
+
+@media (max-width: 1100px) {
+.hero-rail { display: none; }
+}
+
+.hero-tape {
+position: absolute;
+top: 32px;
+left: 0; right: 0;
+z-index: 3;
+}
+
+.hero-meta {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–muted);
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 20px;
+flex-wrap: wrap;
+padding: 0 16px;
+}
+
+.hero-meta-item {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.hero-meta .accent { color: var(–gold); }
+
+.hero-meta .pulse {
+width: 6px;
+height: 6px;
+background: var(–gold);
+border-radius: 50%;
+box-shadow: 0 0 8px var(–gold), 0 0 16px var(–gold-glow);
+animation: pulse 2.4s ease-in-out infinite;
+}
+
+.hero-meta .sep {
+width: 24px;
+height: 1px;
+background: var(–line-bright);
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; box-shadow: 0 0 8px var(–gold), 0 0 16px var(–gold-glow); }
+50% { opacity: 0.5; box-shadow: 0 0 4px var(–gold), 0 0 8px var(–gold-glow-soft); }
+}
+
+.hero-content {
+text-align: center;
+position: relative;
+z-index: 2;
+}
+
+/* Big italic name overlay */
+.hero-name {
+font-family: var(–serif);
+font-style: italic;
+font-weight: 400;
+font-size: clamp(56px, 9vw, 120px);
+color: var(–gold);
+letter-spacing: -0.02em;
+line-height: 0.9;
+margin-bottom: 40px;
+text-shadow: 0 0 40px var(–gold-glow), 0 0 80px var(–gold-glow-soft);
+background: linear-gradient(180deg, var(–gold-bright) 0%, var(–gold-deep) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+/* The hero number — Fraunces variable, characterful */
+.hero-number-wrap {
+position: relative;
+margin-bottom: 32px;
+}
+
+.hero-number {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 250, “SOFT” 80;
+font-size: clamp(120px, 22vw, 280px);
+line-height: 0.85;
+letter-spacing: -0.06em;
+color: var(–ink-bright);
+background: linear-gradient(180deg,
+var(–ink-bright) 0%,
+var(–ink) 50%,
+var(–gold) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+filter: drop-shadow(0 0 80px rgba(255, 184, 77, 0.18));
+position: relative;
+font-variant-numeric: tabular-nums;
+}
+
+.hero-number-wrap::after {
+content: ‘’;
+position: absolute;
+bottom: -16px;
+left: 50%;
+transform: translateX(-50%);
+width: 60%;
+max-width: 400px;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 20px var(–gold-glow), 0 0 40px var(–gold-glow-soft);
+}
+
+.hero-subtitle {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 56px;
+display: inline-flex;
+align-items: center;
+gap: 16px;
+}
+
+.hero-subtitle .arrow {
+color: var(–gold);
+font-size: 14px;
+}
+
+.hero-tagline {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: normal;
+font-size: clamp(22px, 2.6vw, 30px);
+line-height: 1.45;
+color: var(–text);
+max-width: 660px;
+margin: 0 auto 80px;
+letter-spacing: -0.01em;
+}
+
+.hero-tagline em {
+font-style: italic;
+color: var(–gold-bright);
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+text-shadow: 0 0 24px var(–gold-glow-soft);
+}
+
+.hero-tagline strong {
+color: var(–ink-bright);
+font-weight: 400;
+}
+
+/* KPI strip */
+.hero-kpi {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+max-width: 720px;
+margin: 0 auto;
+background: var(–line);
+border: 1px solid var(–line);
+border-radius: 2px;
+overflow: hidden;
+}
+
+.hero-kpi-cell {
+background: var(–bg);
+padding: 36px 20px;
+text-align: center;
+position: relative;
+transition: all 0.4s var(–ease);
+}
+
+.hero-kpi-cell::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at center, var(–gold-glow-faint), transparent 70%);
+opacity: 0;
+transition: opacity 0.4s var(–ease);
+}
+
+.hero-kpi-cell:hover { background: var(–bg-1); }
+.hero-kpi-cell:hover::before { opacity: 1; }
+
+.hero-kpi-value {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 250, “SOFT” 80;
+font-size: clamp(40px, 5.5vw, 56px);
+line-height: 1;
+color: var(–ink-bright);
+font-variant-numeric: tabular-nums;
+letter-spacing: -0.025em;
+margin-bottom: 14px;
+}
+
+.hero-kpi-value sup {
+font-size: 0.4em;
+color: var(–gold);
+font-variation-settings: “opsz” 9, “wght” 400, “SOFT” 0;
+margin-left: 4px;
+vertical-align: super;
+text-shadow: 0 0 12px var(–gold-glow);
+}
+
+.hero-kpi-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–muted);
+position: relative;
+}
+
+.hero-handles {
+margin-top: 56px;
+text-align: center;
+font-family: var(–mono);
+font-size: 12px;
+color: var(–muted);
+letter-spacing: 0.05em;
+}
+
+.hero-handles a {
+margin: 0 12px;
+border-bottom: 1px dotted var(–gold-glow);
+padding-bottom: 2px;
+}
+
+.scroll-hint {
+position: absolute;
+bottom: 32px;
+left: 50%;
+transform: translateX(-50%);
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–muted);
+text-align: center;
+opacity: 0.7;
+z-index: 3;
+}
+
+.scroll-hint::after {
+content: ‘’;
+display: block;
+width: 1px;
+height: 32px;
+background: linear-gradient(to bottom, var(–gold), transparent);
+margin: 12px auto 0;
+animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+0% { transform: translateY(-8px) scaleY(0.5); opacity: 0; }
+50% { transform: translateY(0) scaleY(1); opacity: 1; }
+100% { transform: translateY(8px) scaleY(0.5); opacity: 0; }
+}
+
+/* ============================================================ */
+/* MARQUEE                                                      */
+/* ============================================================ */
+
+.marquee {
+padding: 24px 0;
+background: var(–bg-deep);
+border-top: 1px solid var(–line);
+border-bottom: 1px solid var(–line);
+overflow: hidden;
+position: relative;
+}
+
+.marquee::before, .marquee::after {
+content: ‘’;
+position: absolute;
+top: 0; bottom: 0;
+width: 120px;
+z-index: 2;
+pointer-events: none;
+}
+.marquee::before { left: 0; background: linear-gradient(to right, var(–bg-deep), transparent); }
+.marquee::after { right: 0; background: linear-gradient(to left, var(–bg-deep), transparent); }
+
+.marquee-track {
+display: flex;
+gap: 80px;
+animation: marquee 40s linear infinite;
+white-space: nowrap;
+width: max-content;
+}
+
+@keyframes marquee {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+display: inline-flex;
+align-items: baseline;
+gap: 14px;
+font-family: var(–mono);
+font-size: 12px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.marquee-item .num {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-size: 24px;
+color: var(–gold-bright);
+text-transform: none;
+letter-spacing: -0.01em;
+text-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+.marquee-item .star {
+color: var(–gold);
+font-size: 16px;
+margin: 0 8px;
+}
+
+/* ============================================================ */
+/* INTRO                                                        */
+/* ============================================================ */
+
+.intro {
+padding: 140px 0;
+text-align: center;
+background: var(–bg-deep);
+position: relative;
+}
+
+.intro::before {
+content: ‘’;
+position: absolute;
+top: 60px; left: 50%;
+transform: translateX(-50%);
+width: 120px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 16px var(–gold-glow);
+}
+
+.intro p {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: italic;
+font-size: clamp(22px, 2.5vw, 28px);
+line-height: 1.5;
+color: var(–text);
+max-width: 660px;
+margin: 0 auto 28px;
+}
+
+.intro p:last-of-type { margin-bottom: 0; }
+.intro p strong, .intro p em {
+color: var(–gold-bright);
+font-style: normal;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 80;
+text-shadow: 0 0 20px var(–gold-glow-soft);
+}
+
+/* ============================================================ */
+/* SECTION                                                      */
+/* ============================================================ */
+
+section { padding: 140px 0; position: relative; }
+.section-bg-deep { background: var(–bg-deep); }
+
+/* ============================================================ */
+/* AB TABLE                                                     */
+/* ============================================================ */
+
+.ab-wrap {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1px;
+background: var(–line);
+border: 1px solid var(–line);
+margin: 56px 0;
+}
+
+.ab-cell {
+background: var(–bg);
+padding: 56px 40px;
+position: relative;
+}
+
+.ab-cell.before { background: var(–bg-deep); }
+.ab-cell.after {
+background:
+radial-gradient(ellipse at top right, var(–gold-glow-faint), transparent 70%),
+var(–bg);
+}
+
+.ab-label {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+margin-bottom: 32px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.ab-cell.before .ab-label { color: var(–muted); }
+.ab-cell.after .ab-label { color: var(–gold); }
+
+.ab-cell.before .ab-label::before {
+content: ‘’;
+width: 8px; height: 8px;
+border: 1px solid var(–muted);
+border-radius: 50%;
+}
+
+.ab-cell.after .ab-label::before {
+content: ‘’;
+width: 8px; height: 8px;
+background: var(–gold);
+border-radius: 50%;
+box-shadow: 0 0 12px var(–gold), 0 0 24px var(–gold-glow);
+}
+
+.ab-row {
+padding: 16px 0;
+border-bottom: 1px solid var(–line);
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+.ab-row:last-child { border-bottom: none; }
+
+.ab-row-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.ab-row-value {
+font-family: var(–sans);
+font-size: 18px;
+font-weight: 400;
+color: var(–ink);
+font-variant-numeric: tabular-nums;
+letter-spacing: -0.005em;
+}
+
+.ab-cell.before .ab-row-value { color: var(–text); font-weight: 300; }
+.ab-cell.after .ab-row-value {
+color: var(–ink-bright);
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 50;
+font-size: 22px;
+}
+
+.ab-row-value .multiplier {
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+font-size: 16px;
+color: var(–gold);
+margin-left: 8px;
+text-shadow: 0 0 8px var(–gold-glow-soft);
+}
+
+/* ============================================================ */
+/* CLIENT BLOCK                                                 */
+/* ============================================================ */
+
+.client-block {
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 64px;
+align-items: start;
+}
+
+.client-block .label {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 16px;
+}
+
+.client-name {
+font-family: var(–serif);
+font-style: italic;
+font-size: clamp(56px, 8vw, 96px);
+font-weight: 400;
+line-height: 0.95;
+color: var(–ink-bright);
+letter-spacing: -0.025em;
+}
+
+.client-bullets {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.client-bullets li {
+padding: 16px 0;
+padding-left: 32px;
+position: relative;
+border-bottom: 1px solid var(–line);
+color: var(–text);
+font-size: 16px;
+}
+
+.client-bullets li:last-child { border-bottom: none; }
+
+.client-bullets li::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 24px;
+width: 16px; height: 1px;
+background: var(–gold);
+box-shadow: 0 0 6px var(–gold-glow);
+}
+
+.client-bullets strong { color: var(–ink-bright); font-weight: 500; }
+
+.client-meta {
+margin-top: 40px;
+padding-top: 32px;
+border-top: 1px solid var(–line);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 32px;
+}
+
+.client-meta-item .ab-row-label { margin-bottom: 12px; }
+.client-meta-item p {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 80;
+font-style: italic;
+font-size: 19px;
+color: var(–ink);
+margin: 0;
+}
+
+/* ============================================================ */
+/* GROWTH CHART (NEW SECTION)                                   */
+/* ============================================================ */
+
+.chart-section {
+padding: 140px 0;
+background: var(–bg-deep);
+position: relative;
+}
+
+.chart-wrap {
+margin: 64px auto 0;
+max-width: 920px;
+padding: 48px 32px 32px;
+background:
+radial-gradient(ellipse at top, var(–gold-glow-faint), transparent 70%),
+var(–bg-card);
+border: 1px solid var(–line);
+border-radius: 4px;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+position: relative;
+}
+
+.chart-wrap::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 50%;
+transform: translateX(-50%);
+width: 80px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 14px var(–gold-glow);
+}
+
+.chart-svg {
+width: 100%;
+height: auto;
+display: block;
+}
+
+/* Y-axis labels */
+.chart-y-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.18em;
+fill: var(–muted);
+text-transform: uppercase;
+}
+
+/* X-axis labels */
+.chart-x-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.18em;
+fill: var(–muted);
+text-transform: uppercase;
+}
+
+/* Grid lines */
+.chart-grid {
+stroke: var(–line);
+stroke-width: 1;
+stroke-dasharray: 2 4;
+}
+
+/* Path that draws */
+.chart-path {
+fill: none;
+stroke: url(#goldGradient);
+stroke-width: 2.5;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-dasharray: 1500;
+stroke-dashoffset: 1500;
+filter: drop-shadow(0 0 6px var(–gold-glow));
+}
+
+.chart-section.in-view .chart-path {
+animation: drawPath 3s var(–ease-out) 0.3s forwards;
+}
+
+@keyframes drawPath {
+to { stroke-dashoffset: 0; }
+}
+
+/* Area fill under line */
+.chart-area {
+fill: url(#areaGradient);
+opacity: 0;
+}
+
+.chart-section.in-view .chart-area {
+animation: fadeArea 1.5s var(–ease-out) 1.8s forwards;
+}
+
+@keyframes fadeArea {
+to { opacity: 0.6; }
+}
+
+/* Data points */
+.chart-dot {
+fill: var(–bg);
+stroke: var(–gold);
+stroke-width: 2;
+opacity: 0;
+}
+
+.chart-section.in-view .chart-dot {
+animation: popDot 0.5s var(–ease-out) forwards;
+}
+
+.chart-dot.delay-1 { animation-delay: 1.2s; }
+.chart-dot.delay-2 { animation-delay: 1.5s; }
+.chart-dot.delay-3 { animation-delay: 1.8s; }
+.chart-dot.delay-4 { animation-delay: 2.1s; }
+.chart-dot.delay-5 { animation-delay: 2.4s; }
+.chart-dot.delay-6 { animation-delay: 2.7s; }
+
+@keyframes popDot {
+from { opacity: 0; transform: scale(0); transform-origin: center; }
+to { opacity: 1; transform: scale(1); }
+}
+
+/* Peak marker - big glowing dot */
+.chart-peak-ring {
+fill: var(–gold);
+opacity: 0;
+transform-origin: center;
+}
+
+.chart-section.in-view .chart-peak-ring {
+animation: peakPulse 2s ease-in-out 2.7s infinite;
+}
+
+@keyframes peakPulse {
+0% { opacity: 0.6; transform: scale(1); }
+50% { opacity: 0; transform: scale(2.5); }
+100% { opacity: 0; transform: scale(2.5); }
+}
+
+.chart-peak-dot {
+fill: var(–gold);
+filter: drop-shadow(0 0 10px var(–gold)) drop-shadow(0 0 20px var(–gold-glow));
+opacity: 0;
+}
+
+.chart-section.in-view .chart-peak-dot {
+animation: popDot 0.6s var(–ease-out) 1.8s forwards;
+}
+
+/* Annotation labels above peaks */
+.chart-annotation {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+fill: var(–gold);
+opacity: 0;
+}
+
+.chart-section.in-view .chart-annotation {
+animation: fadeIn 0.6s var(–ease-out) 2.7s forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* Chart legend */
+.chart-legend {
+display: flex;
+justify-content: center;
+gap: 32px;
+margin-top: 24px;
+padding-top: 24px;
+border-top: 1px solid var(–line);
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.chart-legend-item {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.chart-legend-item .marker {
+width: 12px; height: 1.5px;
+background: var(–gold);
+box-shadow: 0 0 6px var(–gold-glow);
+}
+
+.chart-legend-item .marker.peak {
+width: 8px; height: 8px;
+border-radius: 50%;
+background: var(–gold);
+box-shadow: 0 0 8px var(–gold), 0 0 16px var(–gold-glow);
+}
+
+/* ============================================================ */
+/* METHODOLOGY                                                  */
+/* ============================================================ */
+
+.method-intro {
+text-align: center;
+max-width: 580px;
+margin: 0 auto 96px;
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 80;
+font-style: italic;
+font-size: 22px;
+color: var(–muted);
+line-height: 1.5;
+}
+
+.method-intro em {
+color: var(–gold-bright);
+font-style: normal;
+font-family: var(–sans);
+font-weight: 400;
+font-size: 0.85em;
+letter-spacing: 0.02em;
+text-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+.block {
+margin-bottom: 88px;
+position: relative;
+padding-left: 96px;
+}
+
+.block-num {
+position: absolute;
+left: 0; top: -8px;
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+font-size: 72px;
+line-height: 1;
+color: var(–gold);
+text-shadow: 0 0 24px var(–gold-glow), 0 0 48px var(–gold-glow-soft);
+}
+
+.block-num::after {
+content: ‘’;
+display: block;
+width: 40px; height: 1px;
+background: linear-gradient(to right, var(–gold), transparent);
+margin-top: 16px;
+box-shadow: 0 0 8px var(–gold-glow-soft);
+}
+
+.block h3 {
+margin-bottom: 16px;
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 50;
+font-size: 32px;
+letter-spacing: -0.025em;
+color: var(–ink-bright);
+}
+
+.block .why {
+margin-top: 24px;
+padding: 20px 28px;
+background: var(–bg-card);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 1px solid var(–line);
+border-left: 2px solid var(–gold);
+border-radius: 0 4px 4px 0;
+color: var(–text);
+font-size: 15px;
+box-shadow: -8px 0 32px rgba(255, 184, 77, 0.04);
+position: relative;
+}
+
+.block .why strong {
+color: var(–gold);
+font-weight: 500;
+text-shadow: 0 0 10px var(–gold-glow-soft);
+}
+
+/* ============================================================ */
+/* LIST                                                         */
+/* ============================================================ */
+
+ul.refined { list-style: none; padding: 0; margin: 16px 0; }
+
+ul.refined li {
+padding: 16px 0;
+padding-left: 32px;
+position: relative;
+border-bottom: 1px solid var(–line);
+color: var(–text);
+}
+
+ul.refined li:last-child { border-bottom: none; }
+
+ul.refined li::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 24px;
+width: 16px; height: 1px;
+background: var(–gold);
+box-shadow: 0 0 6px var(–gold-glow);
+}
+
+ul.refined strong { color: var(–ink-bright); font-weight: 500; }
+
+/* ============================================================ */
+/* FORMULA                                                      */
+/* ============================================================ */
+
+.formula {
+background:
+radial-gradient(ellipse at top, var(–gold-glow-faint), transparent 60%),
+var(–bg-card);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+padding: 64px 48px;
+margin: 32px 0;
+text-align: center;
+border: 1px solid var(–line);
+border-radius: 2px;
+position: relative;
+overflow: hidden;
+}
+
+.formula::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 50%;
+transform: translateX(-50%);
+width: 100px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 16px var(–gold-glow);
+}
+
+.formula::after {
+content: ‘’;
+position: absolute;
+bottom: 0; left: 50%;
+transform: translateX(-50%);
+width: 40px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold-glow), transparent);
+}
+
+.formula .label {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 24px;
+}
+
+.formula .quote {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: italic;
+font-size: clamp(24px, 2.8vw, 32px);
+line-height: 1.5;
+color: var(–ink-bright);
+max-width: 680px;
+margin: 0 auto;
+}
+
+.formula .quote em {
+font-style: normal;
+color: var(–gold-bright);
+text-shadow: 0 0 16px var(–gold-glow);
+}
+
+/* ============================================================ */
+/* DATA TABLE                                                   */
+/* ============================================================ */
+
+.data-table {
+width: 100%;
+border-collapse: collapse;
+margin: 32px 0;
+font-family: var(–sans);
+}
+
+.data-table thead tr { border-bottom: 1px solid var(–line-bright); }
+.data-table tbody tr { border-bottom: 1px solid var(–line); transition: all 0.3s var(–ease); }
+.data-table tbody tr:hover {
+background: linear-gradient(to right, transparent 5%, var(–gold-glow-faint), transparent 95%);
+}
+
+.data-table th {
+text-align: left;
+padding: 16px 10px;
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+font-weight: 400;
+color: var(–gold);
+}
+
+.data-table td {
+padding: 18px 10px;
+font-size: 14px;
+font-variant-numeric: tabular-nums;
+color: var(–text);
+}
+
+.data-table td.viral {
+color: var(–gold-bright);
+font-weight: 500;
+text-shadow: 0 0 10px var(–gold-glow-soft);
+}
+
+.data-table td.num {
+text-align: right;
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 30;
+font-weight: 400;
+color: var(–ink);
+font-size: 16px;
+}
+
+.data-table tfoot tr {
+border-top: 1px solid var(–line-bright);
+background: var(–bg-card);
+}
+
+.data-table tfoot td {
+font-weight: 500;
+color: var(–ink-bright);
+padding-top: 22px; padding-bottom: 22px;
+}
+
+/* ============================================================ */
+/* TIMELINE                                                     */
+/* ============================================================ */
+
+.timeline {
+margin: 64px 0;
+position: relative;
+padding-left: 56px;
+}
+
+.timeline::before {
+content: ‘’;
+position: absolute;
+left: 5px; top: 12px; bottom: 12px;
+width: 1px;
+background: linear-gradient(to bottom,
+var(–gold-glow-soft) 0%,
+var(–line) 20%,
+var(–line) 80%,
+var(–gold-glow-soft) 100%);
+}
+
+.timeline-item {
+margin-bottom: 72px;
+position: relative;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item::before {
+content: ‘’;
+position: absolute;
+left: -56px; top: 12px;
+width: 11px; height: 11px;
+background: var(–bg);
+border: 1px solid var(–gold);
+border-radius: 50%;
+box-shadow:
+0 0 0 4px var(–bg),
+0 0 12px var(–gold-glow),
+0 0 24px var(–gold-glow-soft);
+}
+
+.timeline-item::after {
+content: ‘’;
+position: absolute;
+left: -52px; top: 16px;
+width: 3px; height: 3px;
+background: var(–gold-bright);
+border-radius: 50%;
+box-shadow: 0 0 8px var(–gold), 0 0 16px var(–gold-glow);
+}
+
+.timeline-item.peak::before {
+width: 13px; height: 13px;
+left: -57px; top: 11px;
+background: var(–gold);
+box-shadow:
+0 0 0 4px var(–bg),
+0 0 16px var(–gold),
+0 0 32px var(–gold-glow),
+0 0 64px var(–gold-glow-soft);
+}
+
+.timeline-item.peak::after {
+background: var(–bg);
+width: 4px; height: 4px;
+left: -52px; top: 16px;
+box-shadow: none;
+}
+
+.timeline-date {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 14px;
+text-shadow: 0 0 10px var(–gold-glow-soft);
+}
+
+.timeline-title {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 250, “SOFT” 50;
+font-size: clamp(36px, 4.5vw, 52px);
+color: var(–ink-bright);
+margin-bottom: 24px;
+letter-spacing: -0.035em;
+line-height: 1;
+}
+
+.timeline-title .multiplier {
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+font-size: 0.4em;
+color: var(–gold);
+margin-left: 12px;
+letter-spacing: 0;
+text-shadow: 0 0 12px var(–gold-glow);
+vertical-align: middle;
+}
+
+.timeline-stats { list-style: none; padding: 0; }
+
+.timeline-stats li {
+padding: 8px 0 8px 24px;
+color: var(–text);
+font-size: 15px;
+position: relative;
+}
+
+.timeline-stats li::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 16px;
+width: 12px; height: 1px;
+background: var(–gold-deep);
+}
+
+.timeline-stats li.highlight { color: var(–ink); }
+.timeline-stats strong {
+color: var(–gold-bright);
+font-weight: 400;
+text-shadow: 0 0 10px var(–gold-glow-soft);
+}
+
+/* ============================================================ */
+/* VIRAL CARDS WITH 3D TILT                                     */
+/* ============================================================ */
+
+.viral-grid {
+display: grid;
+gap: 32px;
+margin-top: 56px;
+perspective: 1500px;
+}
+
+.viral-card {
+padding: 48px;
+background:
+radial-gradient(circle at top right, var(–gold-glow-faint), transparent 60%),
+var(–bg-card);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid var(–line);
+border-radius: 4px;
+position: relative;
+transition: transform 0.15s ease-out, border-color 0.5s var(–ease), box-shadow 0.5s var(–ease);
+overflow: hidden;
+transform-style: preserve-3d;
+will-change: transform;
+}
+
+.viral-card::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+border-radius: 4px;
+padding: 1px;
+background: linear-gradient(135deg, transparent 30%, var(–gold), transparent 70%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+opacity: 0;
+transition: opacity 0.5s var(–ease);
+pointer-events: none;
+}
+
+.viral-card:hover {
+border-color: transparent;
+box-shadow:
+0 32px 80px rgba(0, 0, 0, 0.6),
+0 0 80px var(–gold-glow-faint);
+}
+
+.viral-card:hover::before { opacity: 1; }
+
+.viral-card-inner {
+position: relative;
+transform: translateZ(40px);
+}
+
+.viral-card-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 32px;
+}
+
+.viral-card-rank {
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+font-size: 96px;
+line-height: 0.85;
+color: var(–gold);
+text-shadow: 0 0 24px var(–gold-glow), 0 0 48px var(–gold-glow-soft);
+}
+
+.viral-card-tag {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–muted);
+padding: 6px 12px;
+border: 1px solid var(–line-bright);
+border-radius: 100px;
+}
+
+.viral-card-tag.peak {
+color: var(–gold);
+border-color: var(–gold);
+background: var(–gold-glow-faint);
+box-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+.viral-card-title {
+font-family: var(–serif);
+font-style: italic;
+font-weight: 400;
+font-size: clamp(26px, 3vw, 34px);
+color: var(–ink-bright);
+margin-bottom: 32px;
+line-height: 1.2;
+letter-spacing: -0.005em;
+}
+
+.viral-card-stats {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+padding-top: 24px;
+border-top: 1px solid var(–line);
+}
+
+.viral-stat-block .value {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 250, “SOFT” 50;
+font-size: clamp(32px, 4vw, 44px);
+color: var(–gold-bright);
+font-variant-numeric: tabular-nums;
+letter-spacing: -0.03em;
+line-height: 1;
+margin-bottom: 8px;
+text-shadow: 0 0 20px var(–gold-glow-soft);
+}
+
+.viral-stat-block .label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.viral-card-note {
+margin-top: 28px;
+padding-top: 24px;
+border-top: 1px solid var(–line);
+font-family: var(–serif);
+font-style: italic;
+font-size: 16px;
+color: var(–muted);
+}
+
+/* ============================================================ */
+/* BUSINESS                                                     */
+/* ============================================================ */
+
+.business-grid { display: grid; gap: 80px; margin-top: 56px; }
+
+.business-list { list-style: none; padding: 0; margin-top: 20px; }
+
+.business-list li {
+padding: 18px 0;
+border-bottom: 1px solid var(–line);
+font-size: 15px;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+gap: 20px;
+}
+
+.business-list li:last-child { border-bottom: none; }
+
+.business-list li .label {
+color: var(–muted);
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+}
+
+.business-list li .value {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 30;
+color: var(–ink-bright);
+font-variant-numeric: tabular-nums;
+font-size: 18px;
+}
+
+.business-list li .value.glow {
+color: var(–gold-bright);
+text-shadow: 0 0 12px var(–gold-glow-soft);
+font-size: 22px;
+}
+
+/* ============================================================ */
+/* INFLUENCER                                                   */
+/* ============================================================ */
+
+.influencer-quote {
+background:
+radial-gradient(ellipse at top, var(–gold-glow-faint), transparent 60%),
+var(–bg-card);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+padding: 56px 48px;
+border: 1px solid var(–line);
+border-radius: 4px;
+margin: 40px 0;
+text-align: center;
+position: relative;
+}
+
+.influencer-quote::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 50%;
+transform: translateX(-50%);
+width: 80px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 14px var(–gold-glow);
+}
+
+.influencer-author {
+font-family: var(–serif);
+font-style: italic;
+font-size: 24px;
+color: var(–ink-bright);
+margin-bottom: 6px;
+}
+
+.influencer-meta {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 36px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.influencer-meta .dot {
+width: 3px; height: 3px;
+background: var(–gold);
+border-radius: 50%;
+}
+
+.influencer-text {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 80;
+font-style: italic;
+font-size: clamp(20px, 2.4vw, 26px);
+line-height: 1.5;
+color: var(–text);
+max-width: 600px;
+margin: 0 auto;
+}
+
+.influencer-text::before, .influencer-text::after {
+color: var(–gold);
+font-style: normal;
+font-family: var(–display);
+}
+.influencer-text::before { content: ‘”’; margin-right: 4px; }
+.influencer-text::after { content: ‘”’; margin-left: 4px; }
+
+/* ============================================================ */
+
+/* ============================================================ */
+/* TESTIMONIAL HERO — MASSIVE                                   */
+/* ============================================================ */
+
+.testimonial-hero {
+padding: 220px 0;
+text-align: center;
+position: relative;
+background: var(–bg-deep);
+border-top: 1px solid var(–line);
+border-bottom: 1px solid var(–line);
+overflow: hidden;
+}
+
+.testimonial-hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 80% 60% at center, var(–gold-glow-soft), transparent 70%),
+radial-gradient(ellipse 60% 40% at top, var(–gold-glow-faint), transparent 60%),
+radial-gradient(ellipse 60% 40% at bottom, var(–gold-glow-faint), transparent 60%);
+pointer-events: none;
+}
+
+/* Decorative ornaments */
+.testimonial-ornament {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 1;
+pointer-events: none;
+color: var(–gold);
+opacity: 0.6;
+filter: drop-shadow(0 0 16px var(–gold-glow));
+}
+
+.testimonial-ornament.left { left: 8%; }
+.testimonial-ornament.right { right: 8%; transform: translateY(-50%) scaleX(-1); }
+
+@media (max-width: 900px) {
+.testimonial-ornament { display: none; }
+}
+
+.testimonial-mark {
+position: absolute;
+top: 80px; left: 50%;
+transform: translateX(-50%);
+font-family: var(–display);
+font-style: italic;
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 100;
+font-size: 320px;
+color: var(–gold);
+opacity: 0.18;
+line-height: 0.8;
+text-shadow: 0 0 100px var(–gold-glow);
+z-index: 1;
+}
+
+.testimonial-content {
+position: relative;
+z-index: 2;
+}
+
+.testimonial-eyebrow {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 56px;
+text-shadow: 0 0 12px var(–gold-glow-soft);
+display: inline-flex;
+align-items: center;
+gap: 14px;
+}
+
+.testimonial-eyebrow::before, .testimonial-eyebrow::after {
+content: ‘’;
+display: inline-block;
+width: 28px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+}
+
+.testimonial-text {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: italic;
+font-size: clamp(44px, 7vw, 88px);
+line-height: 1.1;
+color: var(–ink-bright);
+max-width: 920px;
+margin: 0 auto 56px;
+letter-spacing: -0.025em;
+text-shadow: 0 0 60px rgba(255, 184, 77, 0.15);
+}
+
+/* Mega 80% */
+.testimonial-mega {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 200, “SOFT” 80;
+font-style: italic;
+font-size: 1.5em;
+color: var(–gold-bright);
+text-shadow:
+0 0 32px var(–gold),
+0 0 64px var(–gold-glow),
+0 0 120px var(–gold-glow-soft);
+background: linear-gradient(180deg, var(–gold-bright) 0%, var(–gold-deep) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+display: inline-block;
+transform: translateY(0.05em);
+}
+
+.testimonial-author {
+font-family: var(–mono);
+font-size: 13px;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 8px;
+text-shadow: 0 0 12px var(–gold-glow-soft);
+}
+
+.testimonial-date {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+/* ============================================================ */
+/* FOOTER                                                       */
+/* ============================================================ */
+
+.footer {
+padding: 160px 0 80px;
+text-align: center;
+background: var(–bg-deep);
+border-top: 1px solid var(–line);
+position: relative;
+}
+
+.footer::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 50%;
+transform: translateX(-50%);
+width: 300px; height: 1px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+box-shadow: 0 0 20px var(–gold-glow);
+}
+
+.footer h2 { color: var(–ink-bright); margin-bottom: 16px; }
+
+.footer-tagline {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: italic;
+font-size: 24px;
+color: var(–muted);
+margin-bottom: 80px;
+}
+
+.contacts {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
+max-width: 700px;
+margin: 0 auto 96px;
+perspective: 1000px;
+}
+
+.contact-link {
+display: flex;
+align-items: center;
+gap: 18px;
+padding: 24px 28px;
+background: var(–bg-card);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid var(–line);
+border-radius: 4px;
+transition: transform 0.15s ease-out, border-color 0.5s var(–ease), box-shadow 0.5s var(–ease);
+color: var(–text);
+text-align: left;
+position: relative;
+overflow: hidden;
+transform-style: preserve-3d;
+will-change: transform;
+}
+
+.contact-link::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+border-radius: 4px;
+padding: 1px;
+background: linear-gradient(135deg, transparent 30%, var(–gold), transparent 70%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+opacity: 0;
+transition: opacity 0.5s var(–ease);
+pointer-events: none;
+}
+
+.contact-link::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+border-radius: 4px;
+background: radial-gradient(ellipse at center, var(–gold-glow-faint), transparent 70%);
+opacity: 0;
+transition: opacity 0.5s var(–ease);
+pointer-events: none;
+}
+
+.contact-link:hover {
+border-color: transparent;
+box-shadow:
+0 12px 40px rgba(255, 184, 77, 0.12),
+0 0 0 1px var(–gold-glow);
+}
+.contact-link:hover::before { opacity: 1; }
+.contact-link:hover::after { opacity: 1; }
+.contact-link:hover .contact-icon {
+color: var(–gold);
+filter: drop-shadow(0 0 12px var(–gold-glow));
+}
+.contact-link:hover .contact-handle { color: var(–gold-bright); }
+
+.contact-link-inner {
+display: flex;
+align-items: center;
+gap: 18px;
+width: 100%;
+transform: translateZ(20px);
+}
+
+.contact-icon {
+flex-shrink: 0;
+width: 24px; height: 24px;
+color: var(–muted);
+transition: all 0.4s var(–ease);
+}
+
+.contact-info {
+display: flex;
+flex-direction: column;
+gap: 4px;
+min-width: 0;
+}
+
+.contact-label {
+font-family: var(–mono);
+font-size: 10px;
+letter-spacing: 0.26em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.contact-handle {
+font-family: var(–sans);
+font-size: 16px;
+font-weight: 400;
+color: var(–ink);
+transition: all 0.3s var(–ease);
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+letter-spacing: -0.005em;
+}
+
+.footer-meta {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–dim);
+margin-top: 80px;
+padding-top: 40px;
+border-top: 1px solid var(–line);
+line-height: 2;
+}
+
+/* ============================================================ */
+/* REACTION QUOTES (text only)                                  */
+/* ============================================================ */
+
+.reaction-quotes {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+margin-top: 24px;
+}
+
+@media (max-width: 720px) {
+.reaction-quotes { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.reaction-quote {
+background:
+radial-gradient(ellipse at top, var(–gold-glow-faint), transparent 70%),
+var(–bg-deep);
+border: 1px solid var(–line);
+border-radius: 4px;
+padding: 36px 28px;
+text-align: center;
+position: relative;
+transition: all 0.5s var(–ease);
+}
+
+.reaction-quote::before {
+content: ‘”’;
+position: absolute;
+top: 8px;
+left: 50%;
+transform: translateX(-50%);
+font-family: var(–display);
+font-style: italic;
+font-size: 64px;
+color: var(–gold);
+opacity: 0.25;
+line-height: 1;
+text-shadow: 0 0 20px var(–gold-glow);
+}
+
+.reaction-quote:hover {
+border-color: var(–gold-glow);
+box-shadow: 0 0 24px var(–gold-glow-soft);
+transform: translateY(-2px);
+}
+
+.reaction-quote .quote-text {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 350, “SOFT” 100;
+font-style: italic;
+font-size: 18px;
+line-height: 1.4;
+color: var(–ink-bright);
+margin-bottom: 16px;
+margin-top: 24px;
+text-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+.reaction-quote .quote-text-soft {
+font-size: 14px;
+color: var(–text);
+text-shadow: none;
+font-weight: 300;
+}
+
+.reaction-quote .quote-meta {
+font-family: var(–mono);
+font-size: 9.5px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–muted);
+padding-top: 16px;
+border-top: 1px solid var(–line);
+}
+
+/* ============================================================ */
+/* ECONOMICS BLOCK (revenue breakdown)                          */
+/* ============================================================ */
+
+.economics-block {
+margin: 32px 0 0;
+background:
+radial-gradient(ellipse at top right, var(–gold-glow-faint), transparent 70%),
+var(–bg-deep);
+border: 1px solid var(–line);
+border-radius: 4px;
+overflow: hidden;
+position: relative;
+}
+
+.economics-block::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 2px;
+height: 100%;
+background: linear-gradient(to bottom, var(–gold), transparent);
+box-shadow: 0 0 12px var(–gold-glow);
+}
+
+.econ-row {
+display: grid;
+grid-template-columns: 1.2fr 1fr 1.3fr;
+align-items: baseline;
+gap: 24px;
+padding: 22px 32px;
+border-bottom: 1px solid var(–line);
+transition: background 0.3s var(–ease);
+}
+
+.econ-row:last-child { border-bottom: none; }
+
+.econ-row:hover {
+background: var(–gold-glow-faint);
+}
+
+.econ-row.total {
+background: linear-gradient(to right, var(–gold-glow-faint), transparent);
+border-top: 1px solid var(–gold-glow);
+}
+
+.econ-row.total::before {
+content: ‘’;
+position: absolute;
+left: 32px; right: 32px;
+height: 1px;
+background: linear-gradient(to right, var(–gold-glow), transparent);
+margin-top: -22px;
+}
+
+.econ-label {
+font-family: var(–mono);
+font-size: 11px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+.econ-row.total .econ-label {
+color: var(–gold);
+text-shadow: 0 0 10px var(–gold-glow-soft);
+}
+
+.econ-value {
+font-family: var(–display);
+font-variation-settings: “opsz” 144, “wght” 300, “SOFT” 50;
+font-size: 22px;
+color: var(–text);
+font-variant-numeric: tabular-nums;
+letter-spacing: -0.01em;
+}
+
+.econ-value .hl {
+color: var(–gold-bright);
+font-variation-settings: “opsz” 144, “wght” 400, “SOFT” 60;
+text-shadow: 0 0 16px var(–gold-glow-soft);
+}
+
+.econ-row.total .econ-value {
+font-size: 28px;
+}
+
+.econ-row.total .econ-value .hl {
+text-shadow: 0 0 20px var(–gold-glow), 0 0 40px var(–gold-glow-soft);
+}
+
+.econ-meta {
+font-family: var(–mono);
+font-size: 10.5px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–muted);
+text-align: right;
+}
+
+.econ-row.total .econ-meta {
+color: var(–gold);
+}
+
+@media (max-width: 720px) {
+.econ-row {
+grid-template-columns: 1fr;
+gap: 8px;
+padding: 20px 24px;
+}
+
+```
+.econ-meta { text-align: left; }
+
+.econ-value { font-size: 24px; }
+.econ-row.total .econ-value { font-size: 28px; }
+```
+
+}
+
+/* ============================================================ */
+/* RESPONSIVE                                                   */
+/* ============================================================ */
+
+@media (max-width: 720px) {
+body { font-size: 15px; }
+
+```
+section { padding: 96px 0; }
+.hero { padding: 96px 0 64px; min-height: auto; }
+.intro { padding: 96px 0; }
+.testimonial-hero { padding: 120px 0; }
+.footer { padding: 96px 0 64px; }
+
+.container { padding: 0 24px; }
+
+.hero-meta { flex-direction: column; gap: 8px; }
+.hero-meta .sep { display: none; }
+.hero-kpi { grid-template-columns: 1fr; gap: 1px; }
+
+.ab-wrap { grid-template-columns: 1fr; }
+
+.client-block { grid-template-columns: 1fr; gap: 32px; }
+.client-meta { grid-template-columns: 1fr; }
+
+.block { padding-left: 0; }
+.block-num { position: relative; display: inline-block; margin-bottom: 16px; font-size: 56px; }
+
+.timeline { padding-left: 32px; }
+.timeline::before { left: 5px; }
+.timeline-item::before { left: -32px; }
+.timeline-item::after { left: -28px; }
+.timeline-item.peak::before { left: -33px; }
+.timeline-item.peak::after { left: -28px; }
+
+.ab-cell { padding: 32px 24px; }
+
+.data-table th, .data-table td { padding: 12px 4px; font-size: 12px; }
+
+.viral-card { padding: 32px 24px; }
+.viral-card-rank { font-size: 64px; }
+.viral-card-stats { grid-template-columns: 1fr; gap: 16px; }
+
+.formula { padding: 40px 24px; }
+.testimonial-mark { font-size: 200px; top: 40px; }
+.influencer-quote { padding: 36px 24px; }
+
+.business-list li { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+.contacts { grid-template-columns: 1fr; gap: 12px; }
+
+.chart-wrap { padding: 32px 16px; }
+```
+
+}
+</style>
+
+</head>
+<body class="splash-active">
+
+<!-- ============================================================ -->
+
+<!-- SPLASH SCREEN                                                -->
+
+<!-- ============================================================ -->
+
+<div class="splash" id="splash">
+  <div class="splash-monogram">
+    <svg viewBox="0 0 80 80" fill="none">
+      <circle class="ring" cx="40" cy="40" r="35" stroke="var(--gold)" stroke-width="1"/>
+      <text x="40" y="50" font-family="Fraunces, serif" font-size="32" font-style="italic" font-weight="300" fill="var(--gold)" text-anchor="middle" letter-spacing="-2">MH</text>
+    </svg>
+  </div>
+
+  <div class="splash-label">Кейс · Каролина Читанава</div>
+
+  <div class="splash-number" id="splashCounter">0</div>
+
+  <div class="splash-name">— Каролина Читанава</div>
+
+  <div class="splash-loader"></div>
+
+<button class="splash-skip" onclick="skipSplash()">Пропустить</button>
+
+</div>
+
+<!-- Atmospheric layers -->
+
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
+
+<!-- ============================================================ -->
+
+<!-- STICKY DOT NAVIGATION                                        -->
+
+<!-- ============================================================ -->
+
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-target="hero" data-label="Hero"></button>
+  <button class="nav-dot" data-target="result" data-label="Результат"></button>
+  <button class="nav-dot" data-target="client" data-label="Клиент"></button>
+  <button class="nav-dot" data-target="growth" data-label="График"></button>
+  <button class="nav-dot" data-target="method" data-label="Метод"></button>
+  <button class="nav-dot" data-target="timeline" data-label="Хронология"></button>
+  <button class="nav-dot" data-target="viral" data-label="Топ-3"></button>
+  <button class="nav-dot" data-target="long-tail" data-label="Хвост"></button>
+  <button class="nav-dot" data-target="fresh" data-label="Свежее"></button>
+  <button class="nav-dot" data-target="business" data-label="Бизнес"></button>
+  <button class="nav-dot" data-target="testimonial" data-label="Отзыв"></button>
+  <button class="nav-dot" data-target="contacts" data-label="Контакты"></button>
+</nav>
+
+<!-- ============================================================ -->
+
+<!-- HERO                                                         -->
+
+<!-- ============================================================ -->
+
+<header class="hero" id="hero">
+
+  <div class="hero-rail left">Apr 2025</div>
+  <div class="hero-rail right">Apr 2026</div>
+
+  <div class="hero-tape">
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="pulse"></span>
+        <span>Кейс</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="sep"></span>
+        <span class="accent">12 месяцев</span>
+        <span class="sep"></span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Малик Хошимов</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-name reveal">Каролина</div>
+
+```
+<div class="hero-number-wrap reveal reveal-delay-1">
+  <div class="hero-number" data-counter="83800">83&#8239;800</div>
+</div>
+
+<div class="hero-subtitle reveal reveal-delay-2">
+  <span>с 600</span>
+  <span class="arrow">→</span>
+  <span class="accent">83&#8239;800</span>
+  <span class="arrow">↗</span>
+  <span>×134</span>
+</div>
+
+<p class="hero-tagline reveal reveal-delay-3">
+  <em>90+ миллионов</em> органических охватов.<br>
+  Виральный ролик на <strong>12 миллионов</strong>.<br>
+  Sold out каждой коллекции бренда.
+</p>
+
+<div class="hero-kpi reveal reveal-delay-4">
+  <div class="hero-kpi-cell">
+    <div class="hero-kpi-value">×134<sup>↑</sup></div>
+    <div class="hero-kpi-label">Рост базы</div>
+  </div>
+  <div class="hero-kpi-cell">
+    <div class="hero-kpi-value">90<sup>M+</sup></div>
+    <div class="hero-kpi-label">Охватов</div>
+  </div>
+  <div class="hero-kpi-cell">
+    <div class="hero-kpi-value">+15<sup>K</sup></div>
+    <div class="hero-kpi-label">С 1 ролика</div>
+  </div>
+</div>
+
+<div class="hero-handles reveal reveal-delay-5">
+  <a href="https://www.instagram.com/karolina_chitanava" target="_blank">@karolina_chitanava</a>
+  <a href="https://www.instagram.com/jamaliofficial.ru" target="_blank">@jamaliofficial.ru</a>
+</div>
+```
+
+  </div>
+
+  <div class="scroll-hint reveal reveal-delay-5">Прокрутить</div>
+</header>
+
+<!-- ============================================================ -->
+
+<!-- MARQUEE                                                      -->
+
+<!-- ============================================================ -->
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="num">83 800</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+15 000</span> с 1 ролика</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">90M+</span> охватов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×134</span> рост базы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">5</span> месяцев работы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">20+</span> вирусных роликов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">sold out</span> коллекций</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">83 800</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+15 000</span> с 1 ролика</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">90M+</span> охватов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×134</span> рост базы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">5</span> месяцев работы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">20+</span> вирусных роликов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">sold out</span> коллекций</span>
+    <span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- INTRO                                                        -->
+
+<!-- ============================================================ -->
+
+<section class="intro">
+  <div class="container">
+    <p class="reveal">
+      Я <strong>Малик Хошимов</strong>. Занимаюсь контентом 3+ года.
+    </p>
+    <p class="reveal reveal-delay-1">
+      Реализовал больше <em>100 проектов</em>. Работал с медийными личностями, блогерами-миллионниками и лидерами рынка.
+    </p>
+    <p class="reveal reveal-delay-2">
+      В этом кейсе разбираю по шагам, как мы с Каролиной выросли с&nbsp;600 до 83&#8239;800 подписчиков — и почему её блог продолжает расти даже после того, как мы закончили активную работу.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- POINT A → POINT B                                            -->
+
+<!-- ============================================================ -->
+
+<section id="result">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Точка А → Точка Б</span>
+      <h2>Результат <em>в одной таблице</em></h2>
+    </div>
+
+```
+<div class="ab-wrap reveal reveal-delay-1">
+  <div class="ab-cell before">
+    <div class="ab-label">21 апреля 2025</div>
+    <div class="ab-row"><div class="ab-row-label">Подписчиков</div><div class="ab-row-value">600 — 700</div></div>
+    <div class="ab-row"><div class="ab-row-label">Охватов суммарно</div><div class="ab-row-value">0</div></div>
+    <div class="ab-row"><div class="ab-row-label">Виральных роликов</div><div class="ab-row-value">0</div></div>
+    <div class="ab-row"><div class="ab-row-label">Топ-ролик</div><div class="ab-row-value">—</div></div>
+    <div class="ab-row"><div class="ab-row-label">Прирост с 1 ролика</div><div class="ab-row-value">—</div></div>
+    <div class="ab-row"><div class="ab-row-label">Бренд JAMALI</div><div class="ab-row-value">локальные продажи</div></div>
+    <div class="ab-row"><div class="ab-row-label">Профиль</div><div class="ab-row-value">личный аккаунт</div></div>
+  </div>
+
+  <div class="ab-cell after">
+    <div class="ab-label">Apr 2026</div>
+    <div class="ab-row"><div class="ab-row-label">Подписчиков</div><div class="ab-row-value">83&#8239;800 <span class="multiplier">×134</span></div></div>
+    <div class="ab-row"><div class="ab-row-label">Охватов суммарно</div><div class="ab-row-value">90+ млн</div></div>
+    <div class="ab-row"><div class="ab-row-label">Виральных роликов</div><div class="ab-row-value">20+</div></div>
+    <div class="ab-row"><div class="ab-row-label">Топ-ролик</div><div class="ab-row-value">12&#8239;000&#8239;000</div></div>
+    <div class="ab-row"><div class="ab-row-label">Прирост с 1 ролика</div><div class="ab-row-value">+15&#8239;000</div></div>
+    <div class="ab-row"><div class="ab-row-label">Бренд JAMALI</div><div class="ab-row-value">sold out коллекций</div></div>
+    <div class="ab-row"><div class="ab-row-label">Профиль</div><div class="ab-row-value">рекл. инвентарь от 50К ₽</div></div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- CLIENT                                                       -->
+
+<!-- ============================================================ -->
+
+<section class="section-bg-deep" id="client">
+  <div class="container-wide">
+    <div class="client-block">
+      <div class="reveal">
+        <span class="eyebrow">Клиент</span>
+        <div class="client-name">Каролина</div>
+      </div>
+
+```
+  <div class="reveal reveal-delay-1">
+    <ul class="client-bullets">
+      <li>Владелица <strong>JAMALI</strong> — первого российского бренда на кружеве</li>
+      <li>Мама двух девочек-близняшек</li>
+      <li>Успешная предпринимательница</li>
+    </ul>
+
+    <div class="client-meta">
+      <div class="client-meta-item">
+        <div class="ab-row-label">Точка А · 21 апреля 2025</div>
+        <p>600&ndash;700 подписчиков. Личность есть. Бренд есть. <em style="color: var(--gold-bright);">Системы продвижения нет.</em></p>
+      </div>
+      <div class="client-meta-item">
+        <div class="ab-row-label">Запрос</div>
+        <p>Качественный контент, органический рост, развитие личного бренда.</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- ANIMATED GROWTH CHART                                        -->
+
+<!-- ============================================================ -->
+
+<section class="chart-section" id="growth">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Кривая роста</span>
+      <h2>От 600 <em>до 83 800</em></h2>
+    </div>
+
+```
+<div class="chart-wrap reveal reveal-delay-1">
+  <svg class="chart-svg" viewBox="0 0 920 380" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#c8893a"/>
+        <stop offset="50%" stop-color="#ffb84d"/>
+        <stop offset="100%" stop-color="#ffd17a"/>
+      </linearGradient>
+      <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#ffb84d" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#ffb84d" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Grid lines (horizontal) -->
+    <line class="chart-grid" x1="80" y1="40" x2="880" y2="40"/>
+    <line class="chart-grid" x1="80" y1="100" x2="880" y2="100"/>
+    <line class="chart-grid" x1="80" y1="160" x2="880" y2="160"/>
+    <line class="chart-grid" x1="80" y1="220" x2="880" y2="220"/>
+    <line class="chart-grid" x1="80" y1="280" x2="880" y2="280"/>
+    <line class="chart-grid" x1="80" y1="320" x2="880" y2="320"/>
+
+    <!-- Y-axis labels -->
+    <text class="chart-y-label" x="68" y="44" text-anchor="end">100K</text>
+    <text class="chart-y-label" x="68" y="104" text-anchor="end">80K</text>
+    <text class="chart-y-label" x="68" y="164" text-anchor="end">60K</text>
+    <text class="chart-y-label" x="68" y="224" text-anchor="end">40K</text>
+    <text class="chart-y-label" x="68" y="284" text-anchor="end">20K</text>
+    <text class="chart-y-label" x="68" y="324" text-anchor="end">0</text>
+
+    <!-- X-axis labels (months) -->
+    <text class="chart-x-label" x="80" y="355" text-anchor="middle">Apr 25</text>
+    <text class="chart-x-label" x="194" y="355" text-anchor="middle">May</text>
+    <text class="chart-x-label" x="308" y="355" text-anchor="middle">Jun</text>
+    <text class="chart-x-label" x="422" y="355" text-anchor="middle">Jul</text>
+    <text class="chart-x-label" x="536" y="355" text-anchor="middle">Aug</text>
+    <text class="chart-x-label" x="765" y="355" text-anchor="middle">Apr 26</text>
+
+    <!--
+      Data points (subscribers):
+      Apr 25 (start): 600         → x=80,  y=320 (almost bottom)
+      May 25:        10 300       → x=194, y=290
+      Jun 25:        22 300       → x=308, y=254
+      Jul 25:        33 000       → x=422, y=222
+      Aug 25:        52 500       → x=536, y=164
+      Apr 26:        83 800       → x=765, y=80
+    -->
+
+    <!-- Area fill -->
+    <path class="chart-area" d="M 80 320 L 194 290 L 308 254 L 422 222 L 536 164 L 765 80 L 765 320 L 80 320 Z"/>
+
+    <!-- Main line -->
+    <path class="chart-path" d="M 80 320 L 194 290 L 308 254 L 422 222 L 536 164 L 765 80"/>
+
+    <!-- Data points -->
+    <circle class="chart-dot delay-1" cx="80" cy="320" r="5"/>
+    <circle class="chart-dot delay-2" cx="194" cy="290" r="5"/>
+    <circle class="chart-dot delay-3" cx="308" cy="254" r="5"/>
+    <circle class="chart-dot delay-4" cx="422" cy="222" r="5"/>
+    <circle class="chart-dot delay-5" cx="536" cy="164" r="5"/>
+
+    <!-- Final peak point (current state) -->
+    <circle class="chart-peak-ring" cx="765" cy="80" r="8"/>
+    <circle class="chart-peak-dot" cx="765" cy="80" r="7"/>
+
+    <!-- Annotations -->
+    <text class="chart-annotation" x="308" y="240" text-anchor="middle">VIRAL</text>
+    <line class="chart-annotation" x1="308" y1="246" x2="308" y2="254" stroke="var(--gold)" stroke-width="1" style="opacity: 0.6;"/>
+
+    <text class="chart-annotation" x="765" y="62" text-anchor="middle">83 800</text>
+  </svg>
+
+  <div class="chart-legend">
+    <div class="chart-legend-item">
+      <span class="marker"></span>
+      <span>Рост подписчиков</span>
+    </div>
+    <div class="chart-legend-item">
+      <span class="marker peak"></span>
+      <span>Текущее значение</span>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- METHODOLOGY                                                  -->
+
+<!-- ============================================================ -->
+
+<section id="method">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Метод · 8 блоков</span>
+      <h2>Что мы <em>сделали</em></h2>
+    </div>
+
+```
+<p class="method-intro reveal reveal-delay-1">
+  Это не сборник лайфхаков. Это <em>система</em>, которую мы выстраивали 5 месяцев. Каждый блок — слой, без которого следующий не работает.
+</p>
+
+<div class="block reveal">
+  <span class="block-num">01</span>
+  <h3>Распаковали личность</h3>
+  <p>17-блочный опросник распаковки. 6+ вариантов самопрезентаций под разный тон — личный, дерзкий, вдохновляющий. Разбор: как Каролина говорит, как выглядит, что в ней цепляет.</p>
+  <div class="why">
+    <strong>Зачем:</strong> без распаковки контент получается «как у всех». С распаковкой — у блогера появляется свой узнаваемый голос, который нельзя скопировать.
+  </div>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">02</span>
+  <h3>Сегментировали аудиторию</h3>
+  <p>Опросник на сегментацию ЦА в формате сторис: 5 стадий — город, кто вы, доход, задача, барьер. На выходе — карта болей и желаний по сегментам.</p>
+  <div class="why">
+    <strong>Зачем:</strong> когда понимаешь свою аудиторию, попадаешь в её темы и эмоции с первого ролика. Без этого — стрельба наугад.
+  </div>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">03</span>
+  <h3>Сформировали образ</h3>
+  <div class="formula">
+    <div class="label">Рабочий код</div>
+    <div class="quote">«Успешная мама и предпринимательница, которая не боится быть собой, делится своей жизнью здесь и сейчас и вдохновляет других женщин на реализацию».</div>
+  </div>
+  <p>Это не маркетинговая формулировка. Это <strong>рабочий код</strong>, по которому мы оценивали каждый ролик: попадает или нет.</p>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">04</span>
+  <h3>Определили ключевые темы</h3>
+  <p>Карта смыслов — темы, которые резонируют на бытовом уровне:</p>
+  <ul class="refined">
+    <li><strong>Материнство</strong> — близнецы, проходки с детьми, семейные сцены</li>
+    <li><strong>Женская реализация</strong> — бренд, бизнес, дисциплина и труд</li>
+    <li><strong>Красота и проявленность</strong> — стиль, локации, эстетика</li>
+    <li><strong>Уверенность в себе</strong> — личные позиции, мотивационные форматы</li>
+  </ul>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">05</span>
+  <h3>Выбрали работающие форматы</h3>
+  <ul class="refined">
+    <li><strong>Разговорные</strong> (говорящая голова) — «иногда лучше быть жёсткой», «я за дисциплину и труд»</li>
+    <li><strong>Проходки</strong> — «в stories больше лайфа», семейные сцены с детьми</li>
+    <li><strong>Сторителлинг</strong> с голосовой озвучкой — «как вы и дети пережили расставание?»</li>
+  </ul>
+  <p style="margin-top: 24px;">Эти форматы побуждают <strong>комментировать, репостить и сохранять</strong> — а это и есть необратимый процесс органического роста.</p>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">06</span>
+  <h3>Выстроили ритм</h3>
+  <ul class="refined">
+    <li><strong>Постинг:</strong> 1 Reels в день или через день</li>
+    <li><strong>Съёмка:</strong> 1 раз в 1—2 недели</li>
+    <li><strong>Режим:</strong> без выгорания и срочных «надо вчера»</li>
+  </ul>
+  <p style="margin-top: 24px;">За один съёмочный день — материала на 7—10 роликов. Дальше монтаж, согласование, постинг по графику. <strong>Клиент не живёт в кадре, но контент выходит каждый день.</strong></p>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">07</span>
+  <h3>Применили хейт-маркетинг</h3>
+  <p>Самый виральный ролик собрал хейт в комментариях. Алгоритм увидел вовлечение и начал раздавать ролик в холодную аудиторию.</p>
+
+  <div class="formula" style="margin: 32px 0;">
+    <div class="label">Итог одного ролика</div>
+    <div class="quote" style="font-family: var(--display); font-style: normal; font-variation-settings: 'opsz' 144, 'wght' 250, 'SOFT' 80; font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.03em; line-height: 1.1;">
+      <em>12 000 000</em> просмотров.<br>
+      <em>+15 000</em> подписчиков.
+    </div>
+  </div>
+
+  <div class="why">
+    <strong>Принцип:</strong> хейт = бесплатный охват. Не каждая аудитория на это согласна — но если согласна, это сильнейший ускоритель.
+  </div>
+</div>
+
+<div class="block reveal">
+  <span class="block-num">08</span>
+  <h3>Серии, а не разовые попадания</h3>
+  <p>Если ролик зашёл — мы повторяли формат в новой обёртке, пока алгоритм давал раздачу.</p>
+
+  <p style="margin-top: 24px;"><strong>Самая мощная серия — «stories больше лайфа» (5 итераций):</strong></p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 14%;">№</th>
+        <th>Дата</th>
+        <th style="text-align:right;">Просмотры</th>
+        <th style="text-align:right;">Подписки</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>12 мая 2025</td><td class="num">137 К</td><td class="num">183</td></tr>
+      <tr><td>2</td><td>31 мая 2025</td><td class="num">354 К</td><td class="num">963</td></tr>
+      <tr><td><span style="color: var(--gold);">3 ✦ вирус</span></td><td>15 июня 2025</td><td class="num viral">9,3 млн</td><td class="num viral">14&#8239;779</td></tr>
+      <tr><td>4</td><td>5 июля 2025</td><td class="num">1&#8239;039 К</td><td class="num">329</td></tr>
+      <tr><td>5</td><td>20 августа 2025</td><td class="num">428 К</td><td class="num">330</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="2">Итого по серии</td><td class="num">~11,9 млн</td><td class="num">16&#8239;584</td></tr>
+    </tfoot>
+  </table>
+
+  <p>Это <strong>72,7% всех подписчиков</strong>, привлечённых через Reels за весь период. Серия не появилась случайно — мы видели, что формат работает уже на 1-й итерации, и намеренно повторяли его, пока он не попал в массовую раздачу.</p>
+
+  <div class="why">
+    <strong>Это и есть отличие системы от удачи.</strong>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- TIMELINE                                                     -->
+
+<!-- ============================================================ -->
+
+<section class="section-bg-deep" id="timeline">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Хронология</span>
+      <h2>Цифры роста <em>по месяцам</em></h2>
+    </div>
+
+```
+<div class="timeline">
+
+  <div class="timeline-item reveal">
+    <div class="timeline-date">Апрель 2025 · старт</div>
+    <div class="timeline-title">600 — 700<span class="multiplier">подписчиков</span></div>
+    <ul class="timeline-stats">
+      <li>Стратегия, распаковка, первая съёмка</li>
+    </ul>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-date">Май 2025 · первые вирусы</div>
+    <div class="timeline-title">10&#8239;300<span class="multiplier">×15 к старту</span></div>
+    <ul class="timeline-stats">
+      <li class="highlight">+10 150 за месяц</li>
+      <li>2,2 млн просмотров</li>
+      <li>53 081 взаимодействий</li>
+      <li>+369% к началу работы</li>
+      <li>Первый ролик «в stories больше лайфа» — 137 К просмотров. Сигнал: формат работает.</li>
+    </ul>
+  </div>
+
+  <div class="timeline-item peak reveal">
+    <div class="timeline-date">Июнь 2025 · пик · вирус</div>
+    <div class="timeline-title">22&#8239;300<span class="multiplier">подписчиков</span></div>
+    <ul class="timeline-stats">
+      <li>9—12 млн просмотров за месяц</li>
+      <li class="highlight">15 июня — вирус: <strong>9,3 млн просмотров, +14 779 подписчиков</strong> с одного видео</li>
+      <li>За сутки после паблика: 2,2 млн охватов</li>
+      <li>Почти 60 000 взаимодействий</li>
+    </ul>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-date">Июль 2025 · стабильность и масштаб</div>
+    <div class="timeline-title">33&#8239;000<span class="multiplier">подписчиков</span></div>
+    <ul class="timeline-stats">
+      <li>13,5 млн просмотров</li>
+      <li>369 400 взаимодействий</li>
+      <li>23 000 действий в профиле</li>
+      <li>При 27 К подписчиков охваты сторис стабильно <strong>30—35%</strong> — аудитория активная, не «мёртвые души»</li>
+    </ul>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-date">Август 2025 · финиш активной работы</div>
+    <div class="timeline-title">52&#8239;500<span class="multiplier">×85 к старту</span></div>
+    <ul class="timeline-stats">
+      <li>База вирусных роликов: 9,2 млн / 266 К / 263 К / 162 К</li>
+      <li>14 768 переходов в профиль с роликов</li>
+      <li>Соцдоказательство: входящее от блогера-миллионника</li>
+    </ul>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-date">Сен 2025 — Апр 2026 · органический хвост</div>
+    <div class="timeline-title">83&#8239;800<span class="multiplier">подписчиков</span></div>
+    <ul class="timeline-stats">
+      <li class="highlight">За 8 месяцев без активной работы — <strong>+28 100 подписчиков (+53%)</strong></li>
+      <li>Средний органический темп: ~3 500 подписчиков/мес <em>без меня</em></li>
+      <li>Отдельные ролики продолжают набирать: 646 К, 348 К, 347 К, 326 К — через 8+ месяцев после публикации</li>
+    </ul>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- VIRAL TOP-3                                                  -->
+
+<!-- ============================================================ -->
+
+<section id="viral">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Хиты</span>
+      <h2>Топ-3 <em>виральных ролика</em></h2>
+    </div>
+
+```
+<div class="viral-grid">
+
+  <div class="viral-card tilt reveal">
+    <div class="viral-card-inner">
+      <div class="viral-card-header">
+        <div class="viral-card-rank">01</div>
+        <div class="viral-card-tag peak">★ Вирус года</div>
+      </div>
+      <div class="viral-card-title">«Не не доча вон туда»</div>
+      <div class="viral-card-stats">
+        <div class="viral-stat-block">
+          <div class="value">12 000 000</div>
+          <div class="label">просмотров</div>
+        </div>
+        <div class="viral-stat-block">
+          <div class="value">+15 000</div>
+          <div class="label">подписчиков с 1 ролика</div>
+        </div>
+      </div>
+      <div class="viral-card-note">Самый большой хейт = самые большие охваты</div>
+    </div>
+  </div>
+
+  <div class="viral-card tilt reveal reveal-delay-1">
+    <div class="viral-card-inner">
+      <div class="viral-card-header">
+        <div class="viral-card-rank">02</div>
+        <div class="viral-card-tag">7 цифр</div>
+      </div>
+      <div class="viral-card-title">«Да только с мамой будем за ручки идти»</div>
+      <div class="viral-card-stats">
+        <div class="viral-stat-block">
+          <div class="value">1 400 000</div>
+          <div class="label">просмотров</div>
+        </div>
+        <div class="viral-stat-block">
+          <div class="value">+2 000</div>
+          <div class="label">подписчиков</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="viral-card tilt reveal reveal-delay-2">
+    <div class="viral-card-inner">
+      <div class="viral-card-header">
+        <div class="viral-card-rank">03</div>
+        <div class="viral-card-tag">Топ конверсии</div>
+      </div>
+      <div class="viral-card-title">«Красота окружает всех, кто готов»</div>
+      <div class="viral-card-stats">
+        <div class="viral-stat-block">
+          <div class="value">959 000</div>
+          <div class="label">просмотров</div>
+        </div>
+        <div class="viral-stat-block">
+          <div class="value">+2 500</div>
+          <div class="label">подписчиков</div>
+        </div>
+      </div>
+      <div class="viral-card-note">Самая высокая конверсия в подписку среди всех роликов выборки</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- LONG TAIL                                                    -->
+
+<!-- ============================================================ -->
+
+<section class="section-bg-deep" id="long-tail">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Долгий хвост</span>
+      <h2>Отдельные ролики <em>всё ещё работают</em></h2>
+    </div>
+
+```
+<p class="method-intro reveal reveal-delay-1">
+  Через 8 месяцев после окончания активной работы блог продолжает работать. Только из 11 не-топовых роликов на апрель 2026:
+</p>
+
+<table class="data-table reveal">
+  <thead>
+    <tr>
+      <th style="text-align:right; width: 30%;">Просмотры</th>
+      <th>Тема ролика</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">646 К</td><td>проходка с детьми у двери</td></tr>
+    <tr><td class="num">348 К</td><td>«скажи Лариса пока»</td></tr>
+    <tr><td class="num">347 К</td><td>«приезжай давай забирай Багиру Багратовну»</td></tr>
+    <tr><td class="num">326 К</td><td>белый коридор с девочками</td></tr>
+    <tr><td class="num">277 К</td><td>«как баба яга забрала мальчика»</td></tr>
+    <tr><td class="num">246 К</td><td>«я вообще люблю толстых людей»</td></tr>
+    <tr><td class="num">197 К</td><td>с чёрным микроавтобусом</td></tr>
+    <tr><td class="num">185 К</td><td>проходка с девочками у машины</td></tr>
+    <tr><td class="num">152 К</td><td>супермаркет, дочка в шубе</td></tr>
+    <tr><td class="num">124 К</td><td>Valmont, дочка с кремом</td></tr>
+    <tr><td class="num">108 К</td><td>у двери в шубе</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td class="num">2,96 млн</td><td>только эти 11 роликов</td></tr>
+  </tfoot>
+</table>
+
+<p style="text-align: center; margin: 48px 0; font-size: 17px;" class="reveal">
+  <strong>Плюс топ-3</strong> (12 млн + 1,4 млн + 959 К) = <strong style="color: var(--gold-bright); text-shadow: 0 0 16px var(--gold-glow);">14,4 млн на трёх рекордах.</strong>
+</p>
+
+<div class="formula reveal">
+  <div class="label">Итог по корпусу к апрелю 2026</div>
+  <div class="quote">
+    <em>90+ миллионов</em> органических охватов — и цифра продолжает расти <em style="font-style: italic; color: var(--gold-bright);">без меня в кадре</em>.
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- FRESH SLICE                                                  -->
+
+<!-- ============================================================ -->
+
+<section id="fresh">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Свежий срез</span>
+      <h2>Апрель <em>2026</em></h2>
+    </div>
+
+```
+<p class="method-intro reveal reveal-delay-1">
+  Блог продолжает выдавать результат. Срез по последней пачке публикаций — 6 роликов за 4 дня (27 — 30 апреля 2026):
+</p>
+
+<ul class="business-list reveal">
+  <li><span class="label">Просмотров суммарно</span><span class="value glow">830 242</span></li>
+  <li><span class="label">Охваченных аккаунтов</span><span class="value glow">568 742</span></li>
+  <li><span class="label">Новых подписчиков</span><span class="value glow">+1 137</span></li>
+  <li><span class="label">Посещений профиля</span><span class="value">11 530</span></li>
+  <li><span class="label">Взаимодействий</span><span class="value">25 518</span></li>
+</ul>
+
+<h3 style="margin-top: 80px; margin-bottom: 16px;" class="reveal">Разбивка по роликам пачки</h3>
+<table class="data-table reveal">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Дата</th>
+      <th>Длит.</th>
+      <th style="text-align:right;">Просмотры</th>
+      <th style="text-align:right;">Подписки</th>
+      <th style="text-align:right;">ER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>27 апр</td><td>0:25</td><td class="num viral">472 896</td><td class="num viral">+566</td><td class="num">2,42%</td></tr>
+    <tr><td>2</td><td>27 апр</td><td>0:33</td><td class="num">109 070</td><td class="num">+222</td><td class="num">2,84%</td></tr>
+    <tr><td>3</td><td>28 апр</td><td>0:22</td><td class="num">39 477</td><td class="num">+50</td><td class="num">2,98%</td></tr>
+    <tr><td>4</td><td>29 апр</td><td>0:31</td><td class="num">68 891</td><td class="num">+120</td><td class="num viral">7,06%</td></tr>
+    <tr><td>5</td><td>29 апр</td><td>0:26</td><td class="num">109 885</td><td class="num">+160</td><td class="num">3,26%</td></tr>
+    <tr><td>6</td><td>30 апр</td><td>0:15</td><td class="num">30 023</td><td class="num">+19</td><td class="num">4,43%</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top: 40px;" class="reveal"><strong>Топ-ролик пачки</strong> — «мама с близнецами в леопарде» — это фирменный визуальный код, заложенный ещё в виральный ролик на 12 миллионов: <strong>мама + дети в одинаковых нарядах</strong>. Тот же приём — те же принципы — те же охваты.</p>
+
+<p class="reveal"><strong>Рекордный ER пачки 7,06%</strong> на одном ролике (доля поделившихся 1,5%) — в 5—10 раз выше среднего по аккаунту. Аудитория массово отправляет ролик в DM и сторис.</p>
+
+<div class="formula reveal">
+  <div class="label">Это и есть система</div>
+  <div class="quote">
+    Образ, темы, форматы, визуальный код — продолжают приносить результат, потому что они <em>правильно настроены изначально</em>.
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- BUSINESS                                                     -->
+
+<!-- ============================================================ -->
+
+<section class="section-bg-deep" id="business">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Бизнес</span>
+      <h2>Бизнес-результат</h2>
+    </div>
+
+```
+<div class="business-grid">
+
+  <div class="reveal">
+    <h3>Sold out каждой коллекции JAMALI</h3>
+    <p>Контент не просто привлекает подписчиков — он <strong>продаёт физический товар</strong>.</p>
+  </div>
+
+  <div class="reveal reveal-delay-1">
+    <h3>Профиль превратился в рекламный инвентарь</h3>
+    <p>В био Каролины (актуальный срез):</p>
+    <ul class="business-list">
+      <li><span class="label">Подписчиков</span><span class="value glow">83,8 К</span></li>
+      <li><span class="label">Подписок</span><span class="value">134</span></li>
+      <li><span class="label">Cooperation</span><span class="value" style="font-family: var(--mono); font-size: 13px;">@pr_karolinachitanava</span></li>
+      <li><span class="label">Stories highlights</span><span class="value">5 рубрик</span></li>
+    </ul>
+    <p style="margin-top: 32px;">Помимо продажи коллекций JAMALI блог стал <strong>самостоятельным источником дохода</strong> через рекламные интеграции:</p>
+
+    <div class="economics-block">
+      <div class="econ-row">
+        <div class="econ-label">1 интеграция</div>
+        <div class="econ-value">от <span class="hl">50 000 ₽</span></div>
+        <div class="econ-meta">сторис + Reel</div>
+      </div>
+      <div class="econ-row">
+        <div class="econ-label">4–5 интеграций / месяц</div>
+        <div class="econ-value"><span class="hl">200–250 000 ₽</span></div>
+        <div class="econ-meta">по входящим заявкам</div>
+      </div>
+      <div class="econ-row total">
+        <div class="econ-label">За год</div>
+        <div class="econ-value"><span class="hl">2,4–3 млн ₽</span></div>
+        <div class="econ-meta">≈ 100% окупаемости работы</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px; font-style: italic; color: var(--muted); font-family: var(--display); font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80;">И это <em style="font-style: normal; color: var(--gold-bright);">пассивный канал</em> — без активных продаж, прогревов и запусков. Просто за счёт того, что аудитория есть, и она целевая.</p>
+  </div>
+
+  <div class="reveal reveal-delay-2">
+    <h3>Социальное доказательство в индустрии</h3>
+    <p>К Каролине пришли с уважением блогеры её же масштаба:</p>
+
+    <div class="influencer-quote">
+      <div class="influencer-author">Оля Мальцева</div>
+      <div class="influencer-meta">
+        <span>Блогер</span>
+        <span class="dot"></span>
+        <span>77 К подписчиков</span>
+        <span class="dot"></span>
+        <span>Верифицирована</span>
+      </div>
+      <div class="influencer-text">Каролина, хочу сказать, что вы очень классная! Посмотрела с удовольствием ваши рилсы, продолжайте, вас должен увидеть весь мир! И ваш бренд</div>
+    </div>
+
+    <p>Это не пользователь из ленты. Это коллега-блогер, которая зашла, <strong>посмотрела рилсы во множественном числе</strong> (то есть пролистала профиль), и написала лично.</p>
+
+    
+  </div>
+
+  <div class="reveal reveal-delay-3">
+    <h3>Аудитория живая, а не накрученная</h3>
+    <p>Когда у Каролины было 27 К подписчиков, охваты сторис стабильно держались на <strong style="color: var(--gold-bright); text-shadow: 0 0 12px var(--gold-glow-soft);">30—35%</strong> — это <strong>8—10 тысяч просмотров на каждый сторис</strong> от живой, вовлечённой базы.</p>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- TESTIMONIAL HERO                                             -->
+
+<!-- ============================================================ -->
+
+<section class="testimonial-hero" id="testimonial">
+
+  <!-- Decorative ornaments left -->
+
+  <svg class="testimonial-ornament left" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <!-- Decorative ornaments right -->
+
+  <svg class="testimonial-ornament right" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <div class="testimonial-mark">"</div>
+  <div class="container testimonial-content">
+    <div class="testimonial-eyebrow reveal">Отзыв клиента</div>
+    <div class="testimonial-text reveal reveal-delay-1">
+      То что мы&nbsp;сейчас имеем —<br>это <span class="testimonial-mega">80%</span> ваша заслуга
+    </div>
+    <div class="testimonial-author reveal reveal-delay-2">— Каролина Читанава</div>
+    <div class="testimonial-date reveal reveal-delay-3">30 сентября 2025</div>
+  </div>
+</section>
+
+<!-- Client reactions block -->
+
+<section style="padding: 96px 0 0;">
+  <div class="container-wide">
+    <div class="reactions-block reveal">
+      <div class="reactions-eyebrow">Реакции в моменте</div>
+      <h3 class="reactions-title">Эмоции после каждого ролика</h3>
+      <p class="reactions-subtitle">«80% ваша заслуга» — это не итоговый отзыв, а сумма десятков таких сообщений</p>
+
+```
+  <div class="reaction-quotes">
+
+    <div class="reaction-quote">
+      <div class="quote-text">Это просто разрыв 💔</div>
+      <div class="quote-meta">— реакция на свежий ролик</div>
+    </div>
+
+    <div class="reaction-quote">
+      <div class="quote-text">Просто бомба 😍 Вы лучший</div>
+      <div class="quote-meta">— после публикации</div>
+    </div>
+
+    <div class="reaction-quote">
+      <div class="quote-text">Не могу пересматриваю без конца 💔<br><span class="quote-text-soft">Я редко когда себе нравлюсь так круто</span></div>
+      <div class="quote-meta">— о собственном ролике</div>
+    </div>
+
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+
+<!-- FOOTER                                                       -->
+
+<!-- ============================================================ -->
+
+<footer class="footer" id="contacts">
+  <div class="container">
+    <span class="eyebrow reveal">Контакты</span>
+    <h2 class="reveal reveal-delay-1">Связаться</h2>
+    <p class="footer-tagline reveal reveal-delay-2">По вопросам сотрудничества</p>
+
+```
+<div class="contacts reveal reveal-delay-3">
+
+  <a href="https://t.me/mhashimov_23" target="_blank" class="contact-link tilt">
+    <span class="contact-link-inner">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.643.135-.953l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+      <span class="contact-info">
+        <span class="contact-label">Telegram</span>
+        <span class="contact-handle">@mhashimov_23</span>
+      </span>
+    </span>
+  </a>
+
+  <a href="https://www.instagram.com/mhashimov_" target="_blank" class="contact-link tilt">
+    <span class="contact-link-inner">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      <span class="contact-info">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-handle">@mhashimov_</span>
+      </span>
+    </span>
+  </a>
+
+  <a href="https://youtube.com/@mhashimov_23" target="_blank" class="contact-link tilt">
+    <span class="contact-link-inner">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a2.998 2.998 0 0 0-2.108-2.117C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.39.523A2.998 2.998 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a2.998 2.998 0 0 0 2.108 2.117C4.495 20.454 12 20.454 12 20.454s7.505 0 9.39-.523a2.998 2.998 0 0 0 2.108-2.117C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+      <span class="contact-info">
+        <span class="contact-label">YouTube</span>
+        <span class="contact-handle">Малик Хошимов</span>
+      </span>
+    </span>
+  </a>
+
+  <a href="https://t.me/mhashimov_69" target="_blank" class="contact-link tilt">
+    <span class="contact-link-inner">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+      <span class="contact-info">
+        <span class="contact-label">Telegram-канал</span>
+        <span class="contact-handle">@mhashimov_69</span>
+      </span>
+    </span>
+  </a>
+
+</div>
+
+<div class="footer-meta reveal reveal-delay-4">
+  Кейс: Каролина Читанава × Малик Хошимов<br>
+  Период работы: 21.04.2025 — настоящее время<br>
+  Актуальные данные: апрель 2026
+</div>
+```
+
+  </div>
+</footer>
+
+<script>
+  // ===========================================================
+  // SPLASH SCREEN
+  // ===========================================================
+  const splash = document.getElementById('splash');
+  const splashCounter = document.getElementById('splashCounter');
+
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.floor(target * eased);
+      el.textContent = current.toLocaleString('ru-RU').replace(/\s/g, '\u202F');
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = target.toLocaleString('ru-RU').replace(/\s/g, '\u202F');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.remove('splash-active');
+    setTimeout(() => {
+      splash.style.display = 'none';
+      // Trigger hero reveals
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in-view'), 100 + i * 100);
+      });
+    }, 800);
+  }
+
+  function skipSplash() {
+    hideSplash();
+  }
+
+  // Start splash counter at 700ms (after fade-in delay)
+  setTimeout(() => animateCounter(splashCounter, 83800, 1800), 700);
+
+  // Hide splash after 3.2s
+  setTimeout(hideSplash, 3200);
+
+  // ===========================================================
+  // CURSOR SPOTLIGHT
+  // ===========================================================
+  document.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+
+  // ===========================================================
+  // SCROLL PROGRESS BAR
+  // ===========================================================
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = (scrolled / total) * 100;
+    document.documentElement.style.setProperty('--scroll', percent + '%');
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // ===========================================================
+  // SCROLL REVEAL
+  // ===========================================================
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // ===========================================================
+  // CHART REVEAL
+  // ===========================================================
+  const chartSection = document.querySelector('.chart-section');
+  if (chartSection) {
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartSection);
+  }
+
+  // ===========================================================
+  // HERO COUNTER
+  // ===========================================================
+  const heroNumber = document.querySelector('.hero-number[data-counter]');
+  if (heroNumber) {
+    const target = parseInt(heroNumber.getAttribute('data-counter'));
+    // Trigger after splash hides
+    setTimeout(() => animateCounter(heroNumber, target, 2400), 3500);
+  }
+
+  // ===========================================================
+  // STICKY DOT NAVIGATION
+  // ===========================================================
+  const navDots = document.getElementById('navDots');
+  const dots = document.querySelectorAll('.nav-dot');
+
+  // Show nav after splash
+  setTimeout(() => navDots.classList.add('visible'), 3400);
+
+  // Click handler
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.getAttribute('data-target'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Update active dot on scroll
+  const sections = ['hero', 'result', 'client', 'growth', 'method', 'timeline', 'viral', 'long-tail', 'fresh', 'business', 'testimonial', 'contacts'];
+
+  function updateActiveDot() {
+    const scrollPos = window.scrollY + window.innerHeight / 3;
+    let activeId = sections[0];
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos) {
+        activeId = id;
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.classList.toggle('active', dot.getAttribute('data-target') === activeId);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveDot, { passive: true });
+  updateActiveDot();
+
+  // ===========================================================
+  // 3D TILT EFFECT
+  // ===========================================================
+  const tiltElements = document.querySelectorAll('.tilt');
+
+  tiltElements.forEach(el => {
+    let rect = null;
+
+    el.addEventListener('mouseenter', () => {
+      rect = el.getBoundingClientRect();
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      if (!rect) rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+
+      const rotateY = ((x - cx) / cx) * 8; // max 8deg
+      const rotateX = -((y - cy) / cy) * 8;
+
+      el.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) translateY(0)';
+      rect = null;
+    });
+  });
+
+  // Recompute rect on window resize
+  window.addEventListener('resize', () => {
+    tiltElements.forEach(el => {
+      el.style.transform = '';
+    });
+  });
+</script>
+
+</body>
+</html>
