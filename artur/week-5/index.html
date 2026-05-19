@@ -288,8 +288,8 @@
   }
   .hero-meta {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 32px 64px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 48px;
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid var(--line);
@@ -316,8 +316,8 @@
   /* ============ KPI ============ */
   .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
     margin-top: 60px;
   }
   .kpi-card {
@@ -687,20 +687,63 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* ============ TABLET ============ */
+  @media (max-width: 980px) {
+    .container, .container-narrow, .container-wide { padding: 0 24px; }
+    .chart-grid-2 { grid-template-columns: 1fr; gap: 18px; }
+  }
+
   /* ============ MOBILE ============ */
   @media (max-width: 720px) {
-    .container, .container-narrow { padding: 0 20px; }
-    section { padding: 70px 0; }
-    .hero-meta { grid-template-columns: 1fr 1fr; gap: 28px 32px; }
-    .kpi-card { padding: 24px 22px; }
-    .kpi-card .value { font-size: 36px; }
-    .chart-card { padding: 24px 18px; }
-    .chart-wrap { height: 280px; }
-    .chart-wrap.tall { height: 380px; }
-    .reels-strip { padding: 8px 20px 30px; margin: 40px -20px 0; }
-    .reel-card { flex: 0 0 280px; }
-    .data-table th, .data-table td { padding: 12px 14px; font-size: 13px; }
-    .conclusion-block { padding: 24px 22px; }
+    .container, .container-narrow, .container-wide { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .hero { padding: 100px 0 60px; min-height: auto; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 24px 18px; padding-top: 30px; }
+    .hero-meta .item .value { font-size: clamp(20px, 6vw, 28px); }
+    .hero-meta .item .label { font-size: 9px; letter-spacing: 0.18em; white-space: normal; }
+
+    h1.hero-title { font-size: clamp(34px, 11vw, 80px); margin-bottom: 28px; }
+    .lead { font-size: 16px !important; line-height: 1.5; }
+    h2.section-title { font-size: clamp(26px, 7vw, 36px); margin-bottom: 22px; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
+
+    .kpi-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+    .kpi-card { padding: 22px 20px; }
+    .kpi-card .value { font-size: 32px; }
+    .kpi-card .label { font-size: 9px; letter-spacing: 0.16em; }
+
+    .chart-card { padding: 22px 16px; margin-top: 18px; }
+    .chart-card-title { font-size: 18px; }
+    .chart-card-sub { font-size: 11px; margin-bottom: 18px; }
+    .chart-wrap { height: 240px; }
+    .chart-wrap.tall { height: 460px; }
+
+    .reels-strip { padding: 8px 18px 26px; margin: 30px -18px 0; gap: 14px; }
+    .reel-card { flex: 0 0 260px; padding: 20px; }
+    .reel-card .reel-views { font-size: 30px; }
+    .reel-card .reel-title { font-size: 15px; min-height: 50px; }
+
+    .data-table { overflow-x: auto; }
+    .data-table table { min-width: 720px; }
+    .data-table th, .data-table td { padding: 10px 12px; font-size: 12px; }
+
+    .conclusion-block { padding: 22px 18px; }
+    .conclusion-block h3 { font-size: 20px; margin-bottom: 12px; }
+    .conclusion-block p, .conclusion-block li { font-size: 15px; line-height: 1.55; }
+
+    .splash-logo { font-size: 36px; }
+
+    /* отключаем 3D-качание на мобиле для производительности */
+    .kpi-card:hover, .kpi-card:active,
+    .reel-card:hover, .reel-card:active {
+      animation: none;
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-meta { grid-template-columns: 1fr; gap: 18px; }
+    .container, .container-narrow, .container-wide { padding: 0 16px; }
   }
 </style>
 </head>
