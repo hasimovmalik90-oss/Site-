@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · @arturradj</title>
+<meta property="og:title" content="Артур Раджабов · @arturradj · отчёты">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --display: 'Fraunces', serif;
+    --serif: 'Instrument Serif', serif;
+    --sans: 'Geist', -apple-system, sans-serif;
+    --mono: 'Geist Mono', monospace;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px; line-height: 1.65;
+    color: var(--text); background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+  main { flex: 1; padding: 100px 0 80px; position: relative; }
+  main::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, var(--gold-glow-faint), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.32em;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(56px, 9vw, 110px);
+    font-weight: 300; color: var(--ink-bright);
+    letter-spacing: -0.035em; line-height: 0.98;
+    margin-bottom: 32px;
+  }
+  h1 .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 24px);
+    line-height: 1.55; color: var(--text);
+    max-width: 640px; margin-bottom: 60px;
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400; color: var(--ink-bright);
+    letter-spacing: -0.02em; margin: 80px 0 28px;
+  }
+
+  .reports { display: grid; gap: 16px; margin-bottom: 60px; }
+  .report-card {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 32px;
+    background: linear-gradient(160deg, rgba(255,184,77,0.04) 0%, rgba(255,255,255,0.012) 100%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .report-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(255,184,77,0.08);
+  }
+  .report-card::after {
+    content: '→'; color: var(--gold);
+    font-size: 22px; margin-left: 24px;
+    transition: transform 0.3s var(--ease);
+  }
+  .report-card:hover::after { transform: translateX(6px); }
+
+  .report-card .label {
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.28em;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .report-card .title {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 400; color: var(--ink-bright);
+    letter-spacing: -0.01em; line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .report-card .meta {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--muted); letter-spacing: 0.05em;
+  }
+  .report-card .meta .v { color: var(--text); }
+
+  .empty-card {
+    padding: 28px 32px;
+    border: 1px dashed var(--line-bright);
+    border-radius: 16px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 28px 48px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 60px;
+  }
+  .meta-grid .item .label {
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.25em;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .meta-grid .item .value {
+    font-family: var(--display); font-size: 28px;
+    color: var(--ink-bright); line-height: 1; font-weight: 400;
+  }
+
+  footer {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .brand {
+    font-family: var(--display); font-size: 22px;
+    color: var(--ink); margin-bottom: 10px;
+    letter-spacing: -0.015em; font-weight: 300;
+  }
+  footer .brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .meta {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    main { padding: 70px 0 60px; }
+    .report-card { padding: 22px 24px; }
+    .meta-grid { gap: 24px 32px; padding: 30px 0; }
+    .meta-grid .item .value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="container">
+    <div class="eyebrow">SMM · Ведение Instagram Reels</div>
+    <h1>Артур<br>Раджабов<br><span class="accent">@arturradj</span></h1>
+
+    <p class="lead">
+      Личный бренд. Спорт, борьба, мужская реализация. Веду блог по методу нарезок и ситуативного контента с апреля 2026.
+    </p>
+
+    <div class="meta-grid">
+      <div class="item">
+        <div class="label">Старт работы</div>
+        <div class="value">12 апр 2026</div>
+      </div>
+      <div class="item">
+        <div class="label">Просмотры за месяц</div>
+        <div class="value">688,6 тыс</div>
+      </div>
+      <div class="item">
+        <div class="label">Подписчиков</div>
+        <div class="value">631</div>
+      </div>
+      <div class="item">
+        <div class="label">Виральных Reels</div>
+        <div class="value">6</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Еженедельные отчёты</h2>
+
+    <div class="reports">
+      <a href="week-5/" class="report-card">
+        <div>
+          <div class="label">Неделя 5 · Свежий</div>
+          <div class="title">11 — 18 мая 2026</div>
+          <div class="meta"><span class="v">17 Reels</span> · базовый уровень держится · топ-ролик «Тебя задевают на улице»</div>
+        </div>
+      </a>
+
+      <div class="empty-card">
+        Месячный отчёт за апрель–май, недели 1–4 — текстовые версии хранятся в рабочей папке. HTML-версии будут добавлены позже.
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="meta">SMM · Reels · Instagram · 2026</div>
+</footer>
+
+</body>
+</html>

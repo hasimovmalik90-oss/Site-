@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · Статистика · Неделя 5 (11–18 мая)</title>
+<meta property="og:title" content="Артур Раджабов · Статистика Reels · Неделя 5">
+<meta property="og:description" content="11–18 мая 2026 · @arturradj · 17 Reels · 688К просмотров за месяц">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1200px;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  /* ============ SPLASH ============ */
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-logo {
+    font-family: var(--display);
+    font-size: clamp(38px, 8vw, 80px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s var(--ease-out) 0.2s forwards;
+  }
+  .splash-logo .accent { color: var(--gold); font-style: italic; font-weight: 400; }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--muted);
+    margin-top: 32px;
+    opacity: 0;
+    animation: splashIn 1s var(--ease-out) 0.8s forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ LAYOUT ============ */
+  .container { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(48px, 9vw, 120px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 40px;
+  }
+  h1.hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  h2.section-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+  }
+
+  h3.sub-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  p { margin-bottom: 16px; }
+  p strong { color: var(--ink); font-weight: 500; }
+  em { font-family: var(--serif); color: var(--gold); font-style: italic; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, var(--gold-glow-faint), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px 64px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta .item .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .hero-meta .item .value {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--ink-bright);
+    line-height: 1;
+    font-weight: 400;
+  }
+  .hero-meta .item .value .small { font-size: 14px; color: var(--text); margin-left: 4px; }
+
+  /* ============ KPI ============ */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 60px;
+  }
+  .kpi-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px 28px;
+    transition: all 0.4s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+  }
+  .kpi-card:hover { border-color: var(--line-bright); transform: translateY(-2px); }
+  .kpi-card:hover::before { width: 80px; opacity: 1; }
+  .kpi-card .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .kpi-card .value {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--ink-bright);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .kpi-card .delta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .kpi-card .note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* ============ CHART CONTAINER ============ */
+  .chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 36px;
+    margin-top: 40px;
+  }
+  .chart-card-title {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .chart-card-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+  .chart-wrap { position: relative; height: 380px; }
+  .chart-wrap.tall { height: 520px; }
+
+  .chart-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 880px) {
+    .chart-grid-2 { grid-template-columns: 1fr; }
+  }
+
+  /* ============ REELS CAROUSEL ============ */
+  .reels-strip {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 8px 32px 40px;
+    margin: 40px -32px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-deep) transparent;
+  }
+  .reels-strip::-webkit-scrollbar { height: 6px; }
+  .reels-strip::-webkit-scrollbar-track { background: var(--line); border-radius: 3px; }
+  .reels-strip::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+  .reel-card {
+    flex: 0 0 320px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    scroll-snap-align: start;
+    transition: all 0.3s var(--ease);
+    position: relative;
+  }
+  .reel-card.viral { border-color: var(--line-glow); background: linear-gradient(160deg, rgba(255,184,77,0.08) 0%, rgba(255,255,255,0.008) 100%); }
+  .reel-card:hover { border-color: var(--line-bright); transform: translateY(-3px); }
+  .reel-card .reel-rank {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .reel-card .reel-title {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    min-height: 60px;
+    letter-spacing: -0.005em;
+  }
+  .reel-card .reel-views {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .reel-card .reel-views-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .reel-card .reel-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .reel-card .metric .m-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .reel-card .metric .m-value {
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+    font-family: var(--sans);
+  }
+
+  /* ============ TABLE ============ */
+  .data-table {
+    margin-top: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .data-table table { width: 100%; border-collapse: collapse; }
+  .data-table th, .data-table td {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: var(--sans);
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .data-table th {
+    background: rgba(255,255,255,0.012);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,184,77,0.025); }
+  .data-table td:first-child { color: var(--ink); font-weight: 500; }
+  .data-table td.num { text-align: right; font-family: var(--mono); color: var(--gold); }
+  .data-table td.num-base { text-align: right; font-family: var(--mono); color: var(--text); }
+
+  /* ============ CONCLUSIONS ============ */
+  .conclusion-block {
+    margin-top: 40px;
+    padding: 36px 40px;
+    border-left: 2px solid var(--gold);
+    background: linear-gradient(90deg, rgba(255,184,77,0.04) 0%, transparent 80%);
+    border-radius: 0 18px 18px 0;
+  }
+  .conclusion-block h3 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  .conclusion-block p {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .conclusion-block ul {
+    margin: 16px 0 0;
+    padding-left: 24px;
+  }
+  .conclusion-block li {
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .conclusion-block li::marker { color: var(--gold); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 80px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  footer .footer-brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ============ REVEAL ANIMATIONS ============ */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 720px) {
+    .container, .container-narrow { padding: 0 20px; }
+    section { padding: 70px 0; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+    .kpi-card { padding: 24px 22px; }
+    .kpi-card .value { font-size: 36px; }
+    .chart-card { padding: 24px 18px; }
+    .chart-wrap { height: 280px; }
+    .chart-wrap.tall { height: 380px; }
+    .reels-strip { padding: 8px 20px 30px; margin: 40px -20px 0; }
+    .reel-card { flex: 0 0 280px; }
+    .data-table th, .data-table td { padding: 12px 14px; font-size: 13px; }
+    .conclusion-block { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<div class="splash" id="splash">
+  <div class="splash-logo">@arturradj <br><span class="accent">неделя 5</span></div>
+  <div class="splash-sub">11 — 18 мая · статистика</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-period reveal">11 — 18 мая · отчётный период</div>
+    <h1 class="hero-title reveal">@arturradj<br>неделя <span class="accent">5</span>.</h1>
+    <p class="lead reveal" style="max-width: 720px;">
+      Пятая неделя — первая неделя нового месяца. По съёмкам — пауза, по производству нового контента — почти ноль. И всё равно блог удержал базовый уровень, продолжил приносить подписчиков и собрал свой топовый ролик месяца по динамике.
+    </p>
+
+    <div class="hero-meta reveal">
+      <div class="item">
+        <div class="label">Месяц · просмотры</div>
+        <div class="value">688,6<span class="small">тыс</span></div>
+      </div>
+      <div class="item">
+        <div class="label">Месяц · охват</div>
+        <div class="value">426,2<span class="small">тыс</span></div>
+      </div>
+      <div class="item">
+        <div class="label">Месяц · прирост</div>
+        <div class="value">+155</div>
+      </div>
+      <div class="item">
+        <div class="label">Неделя · Reels</div>
+        <div class="value">17</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KPI ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">01 · Ключевые показатели за месяц</div>
+    <h2 class="section-title reveal">Сводка за <span class="accent">30 дней</span><br>(19 апр — 17 мая)</h2>
+    <p class="lead reveal" style="max-width: 680px; margin-bottom: 0;">
+      Instagram отдаёт только агрегированный 30-дневный срез, поэтому KPI ниже — это сумма работы за весь первый месяц блога, включая виральный ролик «Реакция Армана» из недели 4.
+    </p>
+
+    <div class="kpi-grid reveal">
+      <div class="kpi-card">
+        <div class="label">Просмотры</div>
+        <div class="value">688 584</div>
+        <div class="delta">↗ за месяц</div>
+        <div class="note">Reels — 668 тыс · Истории — 18 тыс · Публикации — 2,2 тыс</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Охваченные аккаунты</div>
+        <div class="value">426 227</div>
+        <div class="delta">3,8% подписчики</div>
+        <div class="note">96,2% — холодная аудитория, новые зрители</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Чистый прирост</div>
+        <div class="value">+155</div>
+        <div class="delta">за месяц</div>
+        <div class="note">+15 подписчиков за последние 2 дня — на хвосте старых роликов</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Взаимодействия</div>
+        <div class="value">24 885</div>
+        <div class="delta">за месяц</div>
+        <div class="note">Лайки + комм + сохранения + пересылки + репосты</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Посещения профиля</div>
+        <div class="value">2 748</div>
+        <div class="delta">за месяц</div>
+        <div class="note">Ссылка в био не нажималась — нечего пока продавать</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Топ-ролик месяца</div>
+        <div class="value" style="font-size: 28px;">«Тебя задевают на улице»</div>
+        <div class="delta">+453% к среднему</div>
+        <div class="note">Бокс. Instagram отметил как наиболее вирусный из последних 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNNEL ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">02 · Месячная воронка</div>
+    <h2 class="section-title reveal">Рост по <span class="accent">неделям</span></h2>
+    <p class="lead reveal" style="max-width: 680px;">
+      Видно как блог раскатился с 13 тысяч просмотров в первой неделе до 372 тысяч в четвёртой за счёт виральных роликов. Пятая неделя — пауза по съёмкам, поэтому возврат к рабочему среднему диапазону.
+    </p>
+
+    <div class="chart-grid-2 reveal">
+      <div class="chart-card">
+        <div class="chart-card-title">Просмотры Reels по неделям</div>
+        <div class="chart-card-sub">11 апр — 18 мая · накопительно</div>
+        <div class="chart-wrap"><canvas id="chartWeeklyViews"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Подписчиков на конец недели</div>
+        <div class="chart-card-sub">от 353 до ~631</div>
+        <div class="chart-wrap"><canvas id="chartSubs"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOP REELS BAR ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">03 · Топ недели 5</div>
+    <h2 class="section-title reveal">Рейтинг <span class="accent">Reels</span><br>11 — 18 мая</h2>
+
+    <div class="chart-card reveal">
+      <div class="chart-card-title">Просмотры по роликам</div>
+      <div class="chart-card-sub">17 детально разобранных роликов · по убыванию</div>
+      <div class="chart-wrap tall"><canvas id="chartTopReels"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">04 · Откуда приходят зрители</div>
+    <h2 class="section-title reveal">Источники <span class="accent">просмотров</span></h2>
+    <p class="lead reveal" style="max-width: 680px;">
+      Средняя картина по 17 роликам недели. Большая часть охвата — органика из ленты Reels: блог попадает в холодные рекомендации, не зависит от прогрева подписчиков.
+    </p>
+
+    <div class="chart-grid-2 reveal">
+      <div class="chart-card">
+        <div class="chart-card-title">Источники просмотров</div>
+        <div class="chart-card-sub">усреднённо по 17 роликам</div>
+        <div class="chart-wrap"><canvas id="chartSources"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Распределение по типу контента</div>
+        <div class="chart-card-sub">за месяц</div>
+        <div class="chart-wrap"><canvas id="chartContent"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REELS CAROUSEL ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">05 · Каждый ролик</div>
+    <h2 class="section-title reveal">Карточки <span class="accent">Reels</span></h2>
+    <p class="lead reveal" style="max-width: 680px;">
+      17 Reels, выложенных или активных в неделю 5. Прокрутите вправо — карточки можно листать.
+    </p>
+  </div>
+
+  <div class="container-wide">
+    <div class="reels-strip reveal" id="reelsStrip"></div>
+  </div>
+</section>
+
+<!-- ============ DATA TABLE ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">06 · Полные данные</div>
+    <h2 class="section-title reveal">Сводная <span class="accent">таблица</span></h2>
+
+    <div class="data-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Ролик</th>
+            <th style="text-align:right">Просмотры</th>
+            <th style="text-align:right">Охват</th>
+            <th style="text-align:right">Лайки</th>
+            <th style="text-align:right">Комм.</th>
+            <th style="text-align:right">Поделились</th>
+            <th style="text-align:right">Сохр.</th>
+            <th style="text-align:right">Ср.&nbsp;время</th>
+            <th style="text-align:right">% пропусков</th>
+          </tr>
+        </thead>
+        <tbody id="dataTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSIONS ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="eyebrow reveal">07 · Выводы и план</div>
+    <h2 class="section-title reveal">Что <span class="accent">было</span> и что <span class="accent">дальше</span></h2>
+
+    <div class="conclusion-block reveal">
+      <h3>Общая оценка</h3>
+      <p>Первая неделя нового месяца. Вы немного приболели — с точки зрения съёмок и производства нового контента по факту ничего не делали.</p>
+      <p>Тем не менее результаты в целом выше среднего: делали нарезки — не все зашли, но рабочий поток держится. Плюс старые ролики, которые мы выкладывали раньше, продолжают давать хорошие результаты.</p>
+    </div>
+
+    <div class="conclusion-block reveal">
+      <h3>Что важно</h3>
+      <p><strong>Системная стабильность держится.</strong> Ролики продолжают набирать от 1 000 до 3 000 просмотров — это сейчас наш базовый уровень, и он закрепляется. Это самое важное.</p>
+      <p><strong>Подписчики приходят даже без нового контента.</strong> За буквально два дня — почти +15 подписчиков на хвосте старых роликов. Блог работает без ежедневного давления выкладкой.</p>
+    </div>
+
+    <div class="conclusion-block reveal">
+      <h3>План на следующую неделю</h3>
+      <p>Вы восстановились — есть возможность снимать намного больше <em>живого ситуативного контента</em>. Этот материал пойдёт сразу в двух направлениях:</p>
+      <ul>
+        <li><strong>Нарезки</strong> — то, что уже работает и даёт стабильный поток просмотров.</li>
+        <li><strong>Чистый ситуативный контент</strong> — короткие живые сцены, реакции, бытовые моменты.</li>
+      </ul>
+      <p>Следующая неделя будет намного активнее по производству — и за счёт этого вырастет и количество выкладок, и охваты.</p>
+    </div>
+
+    <div class="conclusion-block reveal">
+      <h3>Итог</h3>
+      <p>Несмотря на просадку по съёмкам — неделя не провальная. Блог работает на накопленной инерции, средний уровень не упал. На следующей неделе возвращаемся в активный режим.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="footer-meta">Неделя 5 · 11 — 18 мая · 2026</div>
+</footer>
+
+<!-- ============ DATA + CHARTS ============ -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  // === REELS DATA ===
+  const reels = [
+    { t: 'Дети сейчас хотят 17 Pro Max', v: 5795, r: 4203, l: 61, c: 4, s: 77, sv: 4, sr: 0, avg: '5 с', skip: 43.0, viral: true },
+    { t: 'Тебя задевают на улице (бокс)', v: 3169, r: 1972, l: 20, c: 2, s: 47, sv: 1, sr: 0, avg: '7 с', skip: 25.5, viral: true, tag: '+453% к среднему' },
+    { t: 'В зале, как и в любой игре есть...', v: 1935, r: 1253, l: 23, c: 0, s: 6, sv: 3, sr: 0, avg: '7 с', skip: 31.8 },
+    { t: 'Решил помыть машину, что может случиться', v: 1509, r: 1102, l: 24, c: 2, s: 9, sv: 2, sr: 0, avg: '6 с', skip: 34.3 },
+    { t: 'Как меня видят, когда говорю что пью простяки', v: 1382, r: 1155, l: 13, c: 0, s: 3, sv: 5, sr: 0, avg: '7 с', skip: 30.4 },
+    { t: '«все скидки только в наших соц.сетях @idealveny_»', v: 1349, r: 878, l: 23, c: 0, s: 1, sv: 3, sr: 0, avg: '9 с', skip: 52.4, date: '11 мая' },
+    { t: 'Время 6:59 / Гонки каждый день', v: 1252, r: null, l: 13, c: 2, s: 0, sv: 1, sr: 0, avg: '8 с', skip: 38.8, date: '17 мая' },
+    { t: 'Собрались после тренировки, кальян', v: 728, r: 529, l: 12, c: 0, s: 0, sv: 0, sr: 0, avg: '7 с', skip: 36.4 },
+    { t: '@arturradj @iakubovakarina (торт)', v: 698, r: 500, l: 23, c: 2, s: 0, sv: 0, sr: 0, avg: '—', skip: null, date: '18 мая' },
+    { t: 'Когда сосед шумел всю ночь', v: 449, r: 357, l: 6, c: 0, s: 0, sv: 0, sr: 0, avg: '9 с', skip: 35.2 },
+    { t: 'Артур у белой BMW X5', v: 418, r: 283, l: 5, c: 0, s: 0, sv: 0, sr: 0, avg: '14 с', skip: 42.2 },
+    { t: 'Позвонил жене, купим айфон 17', v: 348, r: 259, l: 4, c: 2, s: 4, sv: 0, sr: 0, avg: '6 с', skip: 39.2 },
+    { t: 'Тренер / мышь в мышеловке', v: 345, r: 218, l: 4, c: 0, s: 0, sv: 0, sr: 1, avg: '5 с', skip: 42.9 },
+    { t: 'Артур, что чувствуешь когда опаздывают', v: 325, r: 239, l: 3, c: 0, s: 0, sv: 1, sr: 0, avg: '6 с', skip: 38.3 },
+    { t: 'Но я не умею играть в падел', v: 257, r: 218, l: 4, c: 0, s: 0, sv: 0, sr: 0, avg: '5 с', skip: 42.5 },
+    { t: 'Брейкер (танец)', v: 225, r: 177, l: 3, c: 0, s: 0, sv: 0, sr: 0, avg: '7 с', skip: 49.4 },
+    { t: 'Друг про протеин и шею', v: 225, r: 175, l: 1, c: 0, s: 1, sv: 0, sr: 0, avg: '4 с', skip: 68.2 },
+  ];
+
+  // ============ Render reel cards ============
+  const strip = document.getElementById('reelsStrip');
+  reels.forEach((r, i) => {
+    const card = document.createElement('div');
+    card.className = 'reel-card' + (r.viral ? ' viral' : '');
+    card.innerHTML = `
+      <div class="reel-rank">${(i+1).toString().padStart(2,'0')} ${r.date ? '· ' + r.date : ''} ${r.tag ? '· ' + r.tag : ''}</div>
+      <div class="reel-title">${r.t}</div>
+      <div class="reel-views">${r.v.toLocaleString('ru-RU')}</div>
+      <div class="reel-views-label">Просмотров</div>
+      <div class="reel-metrics">
+        <div class="metric"><div class="m-label">Охват</div><div class="m-value">${r.r ? r.r.toLocaleString('ru-RU') : '—'}</div></div>
+        <div class="metric"><div class="m-label">Лайки</div><div class="m-value">${r.l}</div></div>
+        <div class="metric"><div class="m-label">Поделились</div><div class="m-value">${r.s}</div></div>
+        <div class="metric"><div class="m-label">Сохранения</div><div class="m-value">${r.sv}</div></div>
+        <div class="metric"><div class="m-label">Ср. время</div><div class="m-value">${r.avg}</div></div>
+        <div class="metric"><div class="m-label">% пропусков</div><div class="m-value">${r.skip !== null ? r.skip + '%' : '—'}</div></div>
+      </div>
+    `;
+    strip.appendChild(card);
+  });
+
+  // ============ Render data table ============
+  const tbody = document.getElementById('dataTableBody');
+  reels.forEach((r) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.t}</td>
+      <td class="num">${r.v.toLocaleString('ru-RU')}</td>
+      <td class="num-base">${r.r ? r.r.toLocaleString('ru-RU') : '—'}</td>
+      <td class="num-base">${r.l}</td>
+      <td class="num-base">${r.c}</td>
+      <td class="num-base">${r.s}</td>
+      <td class="num-base">${r.sv}</td>
+      <td class="num-base">${r.avg}</td>
+      <td class="num-base">${r.skip !== null ? r.skip + '%' : '—'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // ============ Chart defaults ============
+  Chart.defaults.color = '#6a6862';
+  Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+  Chart.defaults.font.family = "'Geist', sans-serif";
+  Chart.defaults.font.size = 12;
+
+  const gold = '#ffb84d';
+  const goldSoft = 'rgba(255,184,77,0.22)';
+  const goldLine = 'rgba(255,184,77,0.6)';
+  const inkColor = '#ebe9e2';
+
+  // ============ 1. Weekly views ============
+  new Chart(document.getElementById('chartWeeklyViews'), {
+    type: 'line',
+    data: {
+      labels: ['Н1', 'Н2', 'Н3', 'Н4', 'Н5'],
+      datasets: [{
+        label: 'Просмотры Reels',
+        data: [13285, 64398, 62760, 372485, 20409],
+        borderColor: gold,
+        backgroundColor: goldSoft,
+        borderWidth: 2.5,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: gold,
+        pointBorderColor: '#060606',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { callback: (v) => (v/1000) + 'К' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ============ 2. Subs growth ============
+  new Chart(document.getElementById('chartSubs'), {
+    type: 'line',
+    data: {
+      labels: ['Старт', 'Н1', 'Н2', 'Н3', 'Н4', 'Н5'],
+      datasets: [{
+        label: 'Подписчиков',
+        data: [352, 353, 374, 385, 476, 631],
+        borderColor: gold,
+        backgroundColor: goldSoft,
+        borderWidth: 2.5,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: gold,
+        pointBorderColor: '#060606',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.04)' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ============ 3. Top Reels (horizontal bar) ============
+  const sortedByViews = [...reels].sort((a,b) => b.v - a.v);
+  new Chart(document.getElementById('chartTopReels'), {
+    type: 'bar',
+    data: {
+      labels: sortedByViews.map(r => {
+        const t = r.t.length > 38 ? r.t.slice(0, 36) + '…' : r.t;
+        return t;
+      }),
+      datasets: [{
+        label: 'Просмотры',
+        data: sortedByViews.map(r => r.v),
+        backgroundColor: sortedByViews.map(r => r.viral ? gold : 'rgba(255,184,77,0.35)'),
+        borderColor: sortedByViews.map(r => r.viral ? gold : goldLine),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          beginAtZero: true,
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { callback: (v) => v.toLocaleString('ru-RU') }
+        },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+
+  // ============ 4. Sources donut ============
+  // Усреднено по 17 роликам — реальные средние из данных
+  new Chart(document.getElementById('chartSources'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Вкладка Reels', 'Лента', 'Интересное', 'Профиль', 'Истории'],
+      datasets: [{
+        data: [56, 27, 12, 4, 1],
+        backgroundColor: ['#ffb84d', '#c8893a', '#8a5e29', '#5a3f1c', '#3a2812'],
+        borderColor: '#060606',
+        borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { padding: 18, usePointStyle: true, pointStyle: 'circle' }
+        }
+      }
+    }
+  });
+
+  // ============ 5. Content type ============
+  new Chart(document.getElementById('chartContent'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Видео Reels', 'Истории', 'Публикации'],
+      datasets: [{
+        data: [668000, 18000, 2200],
+        backgroundColor: ['#ffb84d', '#8a5e29', '#3a2812'],
+        borderColor: '#060606',
+        borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { padding: 18, usePointStyle: true, pointStyle: 'circle' }
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => ctx.label + ': ' + ctx.parsed.toLocaleString('ru-RU')
+          }
+        }
+      }
+    }
+  });
+
+  // ============ SPLASH ============
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+      document.body.classList.remove('splash-active');
+    }, 1800);
+  });
+
+  // ============ REVEAL on scroll ============
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
