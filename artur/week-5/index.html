@@ -535,7 +535,7 @@
     color: var(--ink-bright);
     line-height: 1.25;
     margin-bottom: 18px;
-    min-height: 60px;
+    min-height: 56px;
     letter-spacing: -0.005em;
   }
   .reel-card .reel-views {
@@ -686,8 +686,8 @@
     section { padding: 60px 0; }
     .hero { padding: 100px 0 60px; min-height: auto; }
     .hero-meta { grid-template-columns: 1fr 1fr; gap: 24px 18px; padding-top: 30px; }
-    .hero-meta .item .value { font-size: clamp(20px, 6vw, 28px); }
-    .hero-meta .item .label { font-size: 9px; letter-spacing: 0.18em; white-space: normal; }
+    .hero-meta .item .value { font-size: clamp(22px, 7vw, 30px); }
+    .hero-meta .item .label { font-size: 10px; letter-spacing: 0.2em; white-space: normal; line-height: 1.3; }
 
     h1.hero-title { font-size: clamp(34px, 11vw, 80px); margin-bottom: 28px; }
     .lead { font-size: 16px !important; line-height: 1.5; }
@@ -695,9 +695,10 @@
     .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
 
     .kpi-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
-    .kpi-card { padding: 22px 20px; }
-    .kpi-card .value { font-size: 32px; }
-    .kpi-card .label { font-size: 9px; letter-spacing: 0.16em; }
+    .kpi-card { padding: 24px 22px; }
+    .kpi-card .value { font-size: 34px; }
+    .kpi-card .label { font-size: 10px; letter-spacing: 0.18em; }
+    .kpi-card .note { font-size: 12px; }
 
     .chart-card { padding: 22px 16px; margin-top: 18px; }
     .chart-card-title { font-size: 18px; }
@@ -720,11 +721,14 @@
 
     .splash-logo { font-size: 36px; }
 
-    /* отключаем 3D-качание на мобиле для производительности */
+    footer { padding: 60px 0 40px; }
+    footer .footer-brand { font-size: 22px; }
+    footer .footer-meta { font-size: 10px; letter-spacing: 0.18em; }
+
+    /* на мобиле — лёгкий hover, без 3D */
     .kpi-card:hover, .kpi-card:active,
     .reel-card:hover, .reel-card:active {
-      animation: none;
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
   }
 
@@ -754,15 +758,15 @@
 
     <div class="hero-meta reveal">
       <div class="item">
-        <div class="label">Неделя · просмотры новых Reels</div>
+        <div class="label">Просмотры новых Reels</div>
         <div class="value">20 409</div>
       </div>
       <div class="item">
-        <div class="label">Неделя · Reels опубликовано</div>
+        <div class="label">Reels опубликовано</div>
         <div class="value">17</div>
       </div>
       <div class="item">
-        <div class="label">Неделя · прирост подписчиков</div>
+        <div class="label">Прирост подписчиков</div>
         <div class="value">+38</div>
       </div>
       <div class="item">
@@ -849,7 +853,7 @@
         <div class="label">Прирост подписчиков</div>
         <div class="value">+162</div>
         <div class="delta">за месяц · итого 514</div>
-        <div class="note">Подписки 187 / отписки 25 · из них в неделю 5 пришло +38</div>
+        <div class="note">С 352 до 514 за период старта. Из них в неделю 5 пришло +38 на хвосте старых роликов</div>
       </div>
       <div class="kpi-card">
         <div class="label">Взаимодействия</div>
@@ -955,7 +959,7 @@
     <div class="eyebrow reveal">06 · Каждый ролик</div>
     <h2 class="section-title reveal">Карточки <span class="accent">Reels</span></h2>
     <p class="lead reveal" style="max-width: 680px;">
-      17 Reels, выложенных или активных в неделю 5. Прокрутите вправо — карточки можно листать.
+      17 Reels недели 5 с детальной разбивкой. Прокрутите вправо — карточки можно листать.
     </p>
   </div>
 
