@@ -304,11 +304,13 @@
   }
   .hero-meta .item .value {
     font-family: var(--display);
-    font-size: 32px;
+    font-size: clamp(24px, 3vw, 32px);
     color: var(--ink-bright);
     line-height: 1;
     font-weight: 400;
+    white-space: nowrap;
   }
+  .hero-meta .item .label { white-space: nowrap; }
   .hero-meta .item .value .small { font-size: 14px; color: var(--text); margin-left: 4px; }
 
   /* ============ KPI ============ */
@@ -323,10 +325,13 @@
     border: 1px solid var(--line);
     border-radius: 18px;
     padding: 32px 28px;
-    transition: all 0.4s var(--ease);
+    transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.5s var(--ease-out);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(6px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0) translateZ(0);
+    will-change: transform;
   }
   .kpi-card::before {
     content: '';
@@ -350,23 +355,31 @@
     transition: opacity 0.5s var(--ease);
     pointer-events: none;
   }
-  .kpi-card:hover {
+  .kpi-card:hover, .kpi-card:active {
     border-color: var(--line-glow);
-    transform: translateY(-3px);
+    animation: kpiBob 2.6s ease-in-out infinite;
     box-shadow:
-      0 20px 50px rgba(0,0,0,0.4),
-      0 0 40px rgba(255,184,77,0.06),
-      inset 0 1px 0 rgba(255,255,255,0.04);
+      0 28px 60px rgba(0,0,0,0.5),
+      0 0 50px rgba(255,184,77,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.05);
   }
-  .kpi-card:hover::before { width: 100px; opacity: 1; box-shadow: 0 0 16px var(--gold-glow-strong); }
-  .kpi-card:hover::after { opacity: 1; }
+  .kpi-card:hover::before, .kpi-card:active::before { width: 100px; opacity: 1; box-shadow: 0 0 16px var(--gold-glow-strong); }
+  .kpi-card:hover::after, .kpi-card:active::after { opacity: 1; }
+  @keyframes kpiBob {
+    0%   { transform: perspective(1000px) rotateX(-4deg) translateY(-6px) translateZ(8px); }
+    50%  { transform: perspective(1000px) rotateX(-2deg) translateY(-12px) translateZ(14px); }
+    100% { transform: perspective(1000px) rotateX(-4deg) translateY(-6px) translateZ(8px); }
+  }
   .kpi-card .label {
     font-family: var(--mono);
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
     color: var(--muted);
     margin-bottom: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .kpi-card .value {
     font-family: var(--display);
@@ -480,8 +493,11 @@
     border-radius: 16px;
     padding: 24px;
     scroll-snap-align: start;
-    transition: all 0.3s var(--ease);
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.5s var(--ease-out);
     position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(0) translateZ(0);
+    will-change: transform;
   }
   .reel-card.viral {
     border-color: var(--line-glow);
@@ -505,12 +521,17 @@
     0%   { opacity: 0.5; transform: scale(0.9); }
     100% { opacity: 1;   transform: scale(1.15); }
   }
-  .reel-card:hover {
+  .reel-card:hover, .reel-card:active {
     border-color: var(--line-glow);
-    transform: translateY(-3px);
+    animation: reelBob 2.4s ease-in-out infinite;
     box-shadow:
-      0 20px 40px rgba(0,0,0,0.45),
-      0 0 30px rgba(255,184,77,0.08);
+      0 24px 50px rgba(0,0,0,0.5),
+      0 0 38px rgba(255,184,77,0.12);
+  }
+  @keyframes reelBob {
+    0%   { transform: perspective(900px) rotateX(-5deg) translateY(-8px) translateZ(10px); }
+    50%  { transform: perspective(900px) rotateX(-2deg) translateY(-14px) translateZ(16px); }
+    100% { transform: perspective(900px) rotateX(-5deg) translateY(-8px) translateZ(10px); }
   }
   .reel-card .reel-rank {
     font-family: var(--mono);
@@ -696,7 +717,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-period reveal">11 — 18 мая · отчётный период</div>
-    <h1 class="hero-title reveal">@arturradj<br>неделя <span class="accent">5</span>.</h1>
+    <h1 class="hero-title reveal">@arturradj · неделя <span class="accent">5</span></h1>
     <p class="lead reveal" style="max-width: 720px;">
       Пятая неделя — первая неделя нового месяца. По съёмкам — пауза, по производству нового контента — почти ноль. И всё равно блог удержал базовый уровень, продолжил приносить подписчиков и собрал свой топовый ролик месяца по динамике.
     </p>
@@ -726,7 +747,7 @@
 <section>
   <div class="container">
     <div class="eyebrow reveal">01 · Ключевые показатели недели</div>
-    <h2 class="section-title reveal">Сводка за <span class="accent">неделю 5</span><br>(11 — 18 мая)</h2>
+    <h2 class="section-title reveal">Сводка за <span class="accent">неделю 5</span> · 11 — 18 мая</h2>
     <p class="lead reveal" style="max-width: 720px; margin-bottom: 0;">
       Цифры по тем 17 Reels, которые мы выложили или которые работали в эту неделю. Без учёта виральных роликов из предыдущих недель — их вклад в общую копилку показан отдельным блоком ниже.
     </p>
@@ -772,10 +793,73 @@
   </div>
 </section>
 
+<!-- ============ MONTHLY ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">02 · Месячная статистика аккаунта</div>
+    <h2 class="section-title reveal">Контекст за <span class="accent">30 дней</span> · 19 апр — 17 мая</h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Вся работа аккаунта за месяц. Сюда входят и новые ролики недели 5, и виральные с предыдущих недель, которые продолжают набирать просмотры. Это и есть полная картина того, как сейчас живёт блог @arturradj.
+    </p>
+
+    <div class="kpi-grid reveal">
+      <div class="kpi-card">
+        <div class="label">Просмотры за месяц</div>
+        <div class="value">688 584</div>
+        <div class="delta">все форматы · 30 дней</div>
+        <div class="note">Reels 668 тыс · Истории 18 тыс · Публикации 2,2 тыс</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Охват аккаунтов</div>
+        <div class="value">426 227</div>
+        <div class="delta">уникальных за 30 дней</div>
+        <div class="note">96,2% — холодная аудитория, новые зрители</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Прирост подписчиков</div>
+        <div class="value">+162</div>
+        <div class="delta">за месяц · итого 514</div>
+        <div class="note">Подписки 187 / отписки 25 · из них в неделю 5 пришло +38</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Взаимодействия</div>
+        <div class="value">24 885</div>
+        <div class="delta">за 30 дней</div>
+        <div class="note">Лайки + комм + сохранения + пересылки + репосты по всему аккаунту</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Посещения профиля</div>
+        <div class="value">2 748</div>
+        <div class="delta">за 30 дней</div>
+        <div class="note">Профиль смотрят регулярно. Ссылка в био пока не нажималась — продавать нечего</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Виральных Reels</div>
+        <div class="value">6</div>
+        <div class="delta">10 000+ просмотров</div>
+        <div class="note">«Реакция Армана» 302К · «Тренер: соперники слабые» 60К · «Когда тёща сказала зятю» · и другие</div>
+      </div>
+    </div>
+
+    <div class="chart-grid-2 reveal" style="margin-top: 24px;">
+      <div class="chart-card">
+        <div class="chart-card-title">Просмотры по типу контента</div>
+        <div class="chart-card-sub">за месяц · все 30 дней</div>
+        <div class="chart-wrap"><canvas id="chartContentMonth"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Структура аудитории</div>
+        <div class="chart-card-sub">кто смотрит ваши ролики</div>
+        <div class="chart-wrap"><canvas id="chartAudienceMonth"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FUNNEL ============ -->
 <section>
   <div class="container">
-    <div class="eyebrow reveal">02 · Месячная воронка</div>
+    <div class="eyebrow reveal">03 · Месячная воронка</div>
     <h2 class="section-title reveal">Рост по <span class="accent">неделям</span></h2>
     <p class="lead reveal" style="max-width: 720px;">
       На графике слева — просмотры <em>только новых</em> Reels, опубликованных в каждой неделе. В пятой неделе мы выложили меньше из-за паузы по съёмкам — поэтому столбец ниже. Но это не падение блога — за тот же месяц аккаунт суммарно собрал <strong>688,6 тыс просмотров</strong>, потому что виральные ролики из предыдущих недель продолжают догонять.
@@ -807,8 +891,8 @@
 <!-- ============ TOP REELS BAR ============ -->
 <section>
   <div class="container">
-    <div class="eyebrow reveal">03 · Топ недели 5</div>
-    <h2 class="section-title reveal">Рейтинг <span class="accent">Reels</span><br>11 — 18 мая</h2>
+    <div class="eyebrow reveal">04 · Топ недели 5</div>
+    <h2 class="section-title reveal">Рейтинг <span class="accent">Reels</span> · 11 — 18 мая</h2>
 
     <div class="chart-card reveal">
       <div class="chart-card-title">Просмотры по роликам</div>
@@ -821,23 +905,16 @@
 <!-- ============ SOURCES ============ -->
 <section>
   <div class="container">
-    <div class="eyebrow reveal">04 · Откуда приходят зрители</div>
-    <h2 class="section-title reveal">Источники <span class="accent">просмотров</span></h2>
-    <p class="lead reveal" style="max-width: 680px;">
+    <div class="eyebrow reveal">05 · Откуда приходят зрители</div>
+    <h2 class="section-title reveal">Источники <span class="accent">просмотров</span> недели 5</h2>
+    <p class="lead reveal" style="max-width: 720px;">
       Средняя картина по 17 роликам недели. Большая часть охвата — органика из ленты Reels: блог попадает в холодные рекомендации, не зависит от прогрева подписчиков.
     </p>
 
-    <div class="chart-grid-2 reveal">
-      <div class="chart-card">
-        <div class="chart-card-title">Источники просмотров</div>
-        <div class="chart-card-sub">усреднённо по 17 роликам</div>
-        <div class="chart-wrap"><canvas id="chartSources"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-card-title">Распределение по типу контента</div>
-        <div class="chart-card-sub">за месяц</div>
-        <div class="chart-wrap"><canvas id="chartContent"></canvas></div>
-      </div>
+    <div class="chart-card reveal">
+      <div class="chart-card-title">Источники просмотров</div>
+      <div class="chart-card-sub">усреднённо по 17 роликам недели 5</div>
+      <div class="chart-wrap"><canvas id="chartSources"></canvas></div>
     </div>
   </div>
 </section>
@@ -845,7 +922,7 @@
 <!-- ============ REELS CAROUSEL ============ -->
 <section>
   <div class="container">
-    <div class="eyebrow reveal">05 · Каждый ролик</div>
+    <div class="eyebrow reveal">06 · Каждый ролик</div>
     <h2 class="section-title reveal">Карточки <span class="accent">Reels</span></h2>
     <p class="lead reveal" style="max-width: 680px;">
       17 Reels, выложенных или активных в неделю 5. Прокрутите вправо — карточки можно листать.
@@ -860,7 +937,7 @@
 <!-- ============ DATA TABLE ============ -->
 <section>
   <div class="container">
-    <div class="eyebrow reveal">06 · Полные данные</div>
+    <div class="eyebrow reveal">07 · Полные данные</div>
     <h2 class="section-title reveal">Сводная <span class="accent">таблица</span></h2>
 
     <div class="data-table reveal">
@@ -887,7 +964,7 @@
 <!-- ============ CONCLUSIONS ============ -->
 <section>
   <div class="container-narrow">
-    <div class="eyebrow reveal">07 · Выводы и план</div>
+    <div class="eyebrow reveal">08 · Выводы и план</div>
     <h2 class="section-title reveal">Что <span class="accent">было</span> и что <span class="accent">дальше</span></h2>
 
     <div class="conclusion-block reveal">
@@ -1126,8 +1203,8 @@
     }
   });
 
-  // ============ 5. Content type ============
-  new Chart(document.getElementById('chartContent'), {
+  // ============ 5. Content type (month) ============
+  new Chart(document.getElementById('chartContentMonth'), {
     type: 'doughnut',
     data: {
       labels: ['Видео Reels', 'Истории', 'Публикации'],
@@ -1151,6 +1228,34 @@
           callbacks: {
             label: (ctx) => ctx.label + ': ' + ctx.parsed.toLocaleString('ru-RU')
           }
+        }
+      }
+    }
+  });
+
+  // ============ 6. Audience structure (month) ============
+  new Chart(document.getElementById('chartAudienceMonth'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Неподписчики (холодные)', 'Подписчики'],
+      datasets: [{
+        data: [96.2, 3.8],
+        backgroundColor: ['#ffb84d', '#5a3f1c'],
+        borderColor: '#060606',
+        borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { padding: 18, usePointStyle: true, pointStyle: 'circle' }
+        },
+        tooltip: {
+          callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed + '%' }
         }
       }
     }
