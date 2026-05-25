@@ -835,12 +835,15 @@
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 48px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 100%;
+    padding: 0 12px;
   }
+  .hero-subtitle > span { display: inline-block; }
   .hero-subtitle .accent { color: var(--gold-bright); text-shadow: 0 0 12px var(--gold-glow); }
   .hero-subtitle .arrow { color: var(--gold); font-size: 14px; }
 
@@ -1923,12 +1926,11 @@
     </div>
 
     <div class="hero-subtitle reveal reveal-delay-1">
-      <span>сегодня</span>
-      <span class="accent">26&nbsp;640</span>
+      <span>сегодня&nbsp;<span class="accent">26&nbsp;640</span></span>
       <span class="arrow">→</span>
-      <span>горизонт ≥ года</span>
+      <span>горизонт&nbsp;<span class="accent">≥ года</span></span>
       <span class="arrow">↗</span>
-      <span class="accent">кратный&nbsp;рост</span>
+      <span class="accent">кратный рост</span>
     </div>
 
     <p class="hero-tagline reveal reveal-delay-2">
