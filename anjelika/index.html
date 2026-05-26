@@ -451,11 +451,13 @@
 
   .container {
     max-width: var(--container);
+    width: 100%;
     margin: 0 auto;
     padding: 0 32px;
   }
   .container-wide {
     max-width: var(--container-wide);
+    width: 100%;
     margin: 0 auto;
     padding: 0 32px;
   }
@@ -666,6 +668,9 @@
     top: 32px;
     left: 0; right: 0;
     z-index: 3;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
   }
   .hero-meta {
     font-family: var(--mono);
@@ -679,8 +684,16 @@
     gap: 20px;
     flex-wrap: wrap;
     padding: 0 16px;
+    max-width: 100%;
   }
-  .hero-meta-item { display: flex; align-items: center; gap: 10px; }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: normal;
+  }
   .hero-meta .accent { color: var(--gold); }
   .hero-meta .pulse {
     width: 6px; height: 6px;
@@ -698,6 +711,9 @@
   .hero-content {
     text-align: center;
     padding-top: 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .hero-eyebrow {
@@ -798,12 +814,14 @@
   .hero-name-wrap {
     position: relative;
     margin-bottom: 56px;
+    width: 100%;
+    max-width: 100%;
   }
   .hero-name {
     font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(72px, 13vw, 168px);
+    font-size: clamp(56px, 13vw, 168px);
     color: var(--gold-bright);
     letter-spacing: -0.025em;
     line-height: 0.9;
@@ -813,6 +831,8 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
+    display: inline-block;
+    max-width: 100%;
   }
   .hero-name-wrap::after {
     content: '';
@@ -852,6 +872,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
+    width: 100%;
     max-width: 720px;
     margin: 56px auto 0;
     background: var(--line);
@@ -1910,11 +1931,11 @@
 
   <div class="hero-tape">
     <div class="hero-meta">
-      <div class="hero-meta-item"><span class="pulse"></span><span>Май&nbsp;2026</span></div>
+      <div class="hero-meta-item"><span class="pulse"></span><span>Май 2026</span></div>
       <span class="sep"></span>
-      <div class="hero-meta-item">Коммерческое&nbsp;предложение</div>
+      <div class="hero-meta-item">Коммерческое предложение</div>
       <span class="sep"></span>
-      <div class="hero-meta-item accent">Удалённый&nbsp;формат</div>
+      <div class="hero-meta-item accent">Удалённый формат</div>
     </div>
   </div>
 
