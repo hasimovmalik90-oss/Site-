@@ -883,13 +883,13 @@
   .hero-subtitle .accent { color: var(--gold-bright); text-shadow: 0 0 12px var(--gold-glow); }
   .hero-subtitle .arrow { color: var(--gold); font-size: 14px; }
 
-  /* HERO KPI — сетка 3 ячейки */
+  /* HERO KPI — сетка 2 ячейки (цена ТОЛЬКО внизу в price-card) */
   .hero-kpi {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     width: 100%;
-    max-width: 720px;
+    max-width: 520px;
     margin: 56px auto 0;
     background: var(--line);
     border: 1px solid var(--line);
@@ -1971,12 +1971,8 @@
         <div class="hero-kpi-label">Подписчиков</div>
       </div>
       <div class="hero-kpi-cell">
-        <div class="hero-kpi-value">100<sup>К&nbsp;₽/мес</sup></div>
-        <div class="hero-kpi-label">Стоимость</div>
-      </div>
-      <div class="hero-kpi-cell">
         <div class="hero-kpi-value">8<sup>этапов</sup></div>
-        <div class="hero-kpi-label">Метод</div>
+        <div class="hero-kpi-label">Метод&nbsp;работы</div>
       </div>
     </div>
 
