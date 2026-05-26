@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · Проблемы и решения · Неделя 6</title>
+<meta property="og:title" content="Артур Раджабов · Проблемы и решения · Неделя 6">
+<meta property="og:description" content="Что происходило, что мешает, куда возвращаемся, на каких условиях работаем">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 720px;
+    --container-wide: 1080px;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    text-wrap: pretty;
+  }
+
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  .dust-layer { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .dust {
+    position: absolute;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(0.4px);
+    box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow);
+    animation: floatDust linear infinite;
+  }
+  @keyframes floatDust {
+    0%   { transform: translate3d(0, 100vh, 0) scale(0.4); opacity: 0; }
+    10%  { opacity: var(--max-opacity, 0.6); }
+    50%  { transform: translate3d(calc(var(--drift, 30px)), 50vh, 0) scale(1); opacity: var(--max-opacity, 0.6); }
+    90%  { opacity: var(--max-opacity, 0.6); }
+    100% { transform: translate3d(calc(var(--drift, 30px) * 2), -10vh, 0) scale(0.5); opacity: 0; }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.72  0 0 0 0 0.3  0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-logo {
+    font-family: var(--display);
+    font-size: clamp(34px, 6.5vw, 64px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s var(--ease-out) 0.2s forwards;
+    max-width: 90vw;
+  }
+  .splash-logo .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--muted);
+    margin-top: 32px;
+    opacity: 0;
+    animation: splashIn 1s var(--ease-out) 0.8s forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
+
+  .container { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.3s var(--ease);
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 14px; letter-spacing: 0; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(48px, 8.5vw, 110px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 24px rgba(255, 184, 77, 0.08);
+    text-wrap: balance;
+  }
+  h1.hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+    text-shadow: 0 0 18px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 36px;
+    text-wrap: balance;
+  }
+  h2.section-title .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+
+  h3.sub-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 400;
+    color: var(--ink-bright);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    text-wrap: balance;
+  }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  p { margin-bottom: 18px; font-size: 17px; line-height: 1.75; }
+  p strong { color: var(--ink); font-weight: 500; }
+  em { font-family: var(--serif); color: var(--gold); font-style: italic; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 70% at 15% 30%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 80%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 50% 80% at 50% 50%, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 9s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse { 0% { opacity: 0.65; } 100% { opacity: 1; } }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 1200px; height: 1200px;
+    border-radius: 50%;
+    top: -400px; right: -500px;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: floatGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-80px, 60px) scale(1.1); } }
+  .hero-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  /* ============ DIAGNOSIS BLOCK ============ */
+  .diag-block {
+    margin-top: 40px;
+    padding: 36px 40px;
+    border-left: 2px solid var(--gold);
+    background: linear-gradient(90deg, rgba(255,184,77,0.04) 0%, transparent 80%);
+    border-radius: 0 18px 18px 0;
+  }
+  .diag-block + .diag-block { margin-top: 24px; }
+
+  /* ============ PROBLEM LIST ============ */
+  .problem-list { margin-top: 40px; counter-reset: prob; }
+  .problem-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 28px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .problem-item:last-child { border-bottom: none; }
+  .problem-item::before {
+    counter-increment: prob;
+    content: counter(prob, decimal-leading-zero);
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px var(--gold-glow-soft));
+    letter-spacing: -0.02em;
+  }
+  .problem-item .p-content h4 {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink-bright);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .problem-item .p-content p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ============ FORMAT CARDS ============ */
+  .format-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .format-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.05) 0%, rgba(255,255,255,0.018) 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 40px 44px;
+    transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.5s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+  .format-card.primary {
+    background: linear-gradient(160deg, rgba(255,184,77,0.10) 0%, rgba(255,255,255,0.018) 100%);
+    border-color: var(--line-glow);
+    box-shadow: 0 0 30px rgba(255,184,77,0.10), inset 0 1px 0 rgba(255,184,77,0.08);
+  }
+  .format-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .format-card.primary::before { width: 100px; opacity: 1; }
+  .format-card::after {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 70%);
+    filter: blur(24px);
+    opacity: 0.4;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .format-card:hover, .format-card:active {
+    border-color: var(--line-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 50px rgba(255,184,77,0.1);
+  }
+  .format-card:hover::before, .format-card:active::before { width: 140px; opacity: 1; }
+  .format-card:hover::after, .format-card:active::after { opacity: 0.8; }
+  .format-card .f-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .format-card .f-letter {
+    font-family: var(--display);
+    font-size: 14px;
+    color: var(--gold);
+    font-style: italic;
+    margin-right: 8px;
+  }
+  .format-card h3 {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 400;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .format-card .priority-badge {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 4px 12px;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    vertical-align: middle;
+    background: var(--gold-glow-faint);
+  }
+  .format-card p {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .format-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 16px;
+  }
+  .format-card ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .format-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ============ TERMS BLOCK (HARD LINE) ============ */
+  .terms-section {
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg) 100%);
+    position: relative;
+  }
+  .terms-block {
+    margin-top: 40px;
+    padding: 48px 52px;
+    border: 1px solid var(--line-bright);
+    border-left: 4px solid var(--gold);
+    background:
+      linear-gradient(135deg, rgba(255,184,77,0.06) 0%, rgba(0,0,0,0.3) 100%),
+      var(--bg-deep);
+    border-radius: 4px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,184,77,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .terms-block::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .terms-block p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .terms-block p:last-child { margin-bottom: 0; }
+  .terms-block .no-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .terms-block .no-list li {
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .terms-block .no-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .terms-block .stamp {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 30px);
+    color: var(--ink-bright);
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    line-height: 1.4;
+    text-wrap: balance;
+    position: relative;
+    z-index: 1;
+  }
+  .terms-block .stamp .accent {
+    color: var(--gold);
+    font-family: var(--serif);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 80px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  footer .footer-brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  footer .footer-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 100px;
+    transition: all 0.3s var(--ease);
+  }
+  footer .footer-link:hover {
+    background: var(--gold-glow-faint);
+    border-color: var(--gold);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .container, .container-narrow { padding: 0 24px; }
+  }
+
+  @media (max-width: 720px) {
+    .container, .container-narrow { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .hero { padding: 80px 0 60px; min-height: auto; }
+    h1.hero-title { font-size: clamp(34px, 11vw, 70px); margin-bottom: 28px; }
+    .lead { font-size: 16px !important; line-height: 1.55; }
+    h2.section-title { font-size: clamp(26px, 7vw, 36px); margin-bottom: 24px; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
+
+    .diag-block { padding: 22px 22px; margin-top: 28px; }
+    .diag-block p { font-size: 15px; line-height: 1.65; }
+
+    .problem-item { grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 0; }
+    .problem-item::before { font-size: 36px; }
+    .problem-item .p-content h4 { font-size: 18px; margin-bottom: 8px; }
+    .problem-item .p-content p { font-size: 15px; line-height: 1.65; }
+
+    .format-card { padding: 28px 24px; }
+    .format-card h3 { font-size: 24px; margin-bottom: 14px; }
+    .format-card p { font-size: 15px; }
+    .format-card ul li { font-size: 14px; padding-left: 18px; }
+    .format-card .priority-badge { display: inline-block; margin-left: 0; margin-top: 10px; }
+
+    .terms-block { padding: 28px 22px; }
+    .terms-block p { font-size: 16px; line-height: 1.65; }
+    .terms-block .no-list li { font-size: 15px; padding-left: 28px; }
+    .terms-block .stamp { font-size: 20px; margin-top: 24px; padding-top: 20px; }
+
+    .splash-logo { font-size: 30px; }
+    footer { padding: 60px 0 40px; }
+    footer .footer-brand { font-size: 22px; }
+    footer .footer-meta { font-size: 10px; letter-spacing: 0.18em; }
+  }
+
+  @media (max-width: 420px) {
+    .container, .container-narrow { padding: 0 16px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<div class="dust-layer" id="dustLayer" aria-hidden="true"></div>
+
+<div class="splash" id="splash">
+  <div class="splash-logo">проблемы<br><span class="accent">и решения</span></div>
+  <div class="splash-sub">@arturradj · неделя 6</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <a href="../" class="back-link reveal">К статистике недели 6</a>
+    <div class="hero-period reveal">проблемы и решения · итог недели 6</div>
+    <h1 class="hero-title reveal">Проблемы <span class="accent">и решения</span></h1>
+    <p class="lead reveal" style="max-width: 760px;">
+      Что происходило в первые две недели нового месяца, что мешает сейчас, к чему возвращаемся и на каких условиях продолжаем работать.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 01 · WHAT HAPPENED ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="eyebrow reveal">01 · Что происходило</div>
+    <h2 class="section-title reveal">Первые две недели <span class="accent">нового месяца</span></h2>
+
+    <div class="diag-block reveal">
+      <p>Вы заболели, яркость жизни уменьшилась, появилась определённая пассивность с точки зрения ведения контента, лайфстайла и подобных вещей.</p>
+      <p>Плюс мы ограничены в съёмке дома, так как не снимаем квартиру и подобные объекты из-за ваших ограничений.</p>
+      <p>Поэтому мы ввели формат, который заходил. Были успешные и неуспешные ролики, но в целом мы <strong>росли органически</strong>.</p>
+    </div>
+
+    <div class="diag-block reveal">
+      <p>Во вторую неделю вы выздоровели. Если мягко говорить — не прямолинейно.</p>
+      <p>Далее начинаются истории из серии «давайте снимать приколы, которые не снимаются». Много идей и хорошего — но <em>ничего не реализуется из-за идеальности</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · WHAT BLOCKS ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="eyebrow reveal">02 · Что мешает сейчас</div>
+    <h2 class="section-title reveal">Четыре <span class="accent">блока</span></h2>
+
+    <div class="problem-list reveal">
+      <div class="problem-item">
+        <div class="p-content">
+          <h4>Болезнь и спад яркости</h4>
+          <p>После болезни упала энергия — это сказалось и на лайфстайле, и на контенте. Восстановление идёт, но не прямолинейно.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="p-content">
+          <h4>Ограничения по локациям</h4>
+          <p>Не снимаем квартиру и подобные объекты — из-за ваших личных ограничений. Это сужает базу контента и заставляет искать форматы внутри того, что есть.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="p-content">
+          <h4>Перфекционизм</h4>
+          <p>«Давайте снимать приколы, которые не снимаются». Много идей и хорошего материала — но ничего не реализуется из-за стремления к идеальности.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="p-content">
+          <h4>Пассивность в планировании</h4>
+          <p>Когда я спрашиваю про планы на день, вы отвечаете: «работа», либо «буду там, буду там», либо «был на пляже, просил подождать что-то, но ничего не подождали».</p>
+          <p>Не думайте, что я могу придумывать вам идеи, расписывать, где вы будете, что вы будете делать и давать непонятные, несусветные указания.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · WHERE WE RETURN ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">03 · Куда возвращаемся</div>
+    <h2 class="section-title reveal">У нас есть <span class="accent">3,5–7 форматов</span></h2>
+    <p class="lead reveal" style="max-width: 760px;">
+      Один за другим — снимать, выкладывать, пробовать, тестировать. Возвращаемся к тому, с чего начинали.
+    </p>
+
+    <div class="format-grid reveal">
+
+      <div class="format-card primary">
+        <span class="f-tag">формат А · приоритет №1</span>
+        <h3><span class="f-letter">А.</span>Социальный контент<span class="priority-badge">главное</span></h3>
+        <p>
+          Больше взаимодействия с сотрудниками, друзьями, обычными людьми и так далее. Если вы не научитесь снимать социальный контент — <strong>мы никогда не вырастем</strong>.
+        </p>
+        <p>
+          Мне не интересно, кто хочет сниматься, а кто нет. Что-то получилось, что-то не получилось — начинаем с обыденных вещей, с базовых.
+        </p>
+        <ul>
+          <li>Это типа из серии: у вас есть очки Ray-Ban — и так далее</li>
+          <li>Максимально выводить людей на неожиданные реакции</li>
+          <li>Сотрудники, друзья, обычные прохожие — рабочая база</li>
+        </ul>
+      </div>
+
+      <div class="format-card">
+        <span class="f-tag">формат Б · мотивация и польза</span>
+        <h3><span class="f-letter">Б.</span>Мотивация и полезные рекомендации</h3>
+        <p>
+          Заранее выписываем блок мотивации, полезных рекомендаций и подобных вещей. Когда вы едете в машине — у вас есть готовый блок из <strong>15 тем</strong>, которые вы разгоняете, чтобы через день мы это выкладывали.
+        </p>
+        <ul>
+          <li>Готовим заранее: 15 тем в листе перед поездкой</li>
+          <li>Снимаем в машине — естественный контекст</li>
+          <li>Выкладываем через день — регулярный поток</li>
+          <li>Реализация: нанимаем отдельного рилсмейкера <em>либо</em> подключаем вашу SMM-щицу</li>
+        </ul>
+      </div>
+
+      <div class="format-card">
+        <span class="f-tag">формат В · база</span>
+        <h3><span class="f-letter">В.</span>Нарезки из жизни</h3>
+        <p>
+          Исходя из жизни, из того, что у нас есть и подобных вещей. Это первое, к чему нужно вернуться и что нужно внедрить.
+        </p>
+        <ul>
+          <li>Из повседневного материала, который и так снимается</li>
+          <li>Из того, что уже есть в архиве</li>
+          <li>База, на которой держится поток</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · TERMS ============ -->
+<section class="terms-section">
+  <div class="container-narrow">
+    <div class="eyebrow reveal">04 · Условия работы</div>
+    <h2 class="section-title reveal">На каких <span class="accent">условиях</span> продолжаем</h2>
+
+    <div class="terms-block reveal">
+      <p>
+        Если дальше всё будет продолжаться, как сейчас — <strong>пойдёт спад в охватах</strong> и подобных вещах. Либо мы скатимся, либо я не буду делать вид, что мне что-то надо сделать, так как вы не предоставили информацию. Это тоже плохая история.
+      </p>
+      <p>
+        Без самодеятельности, просмотра 3000 лайфхаков и подобных вещей. <strong>Мы работаем так, чтобы был результат, рост и чтобы это нравилось.</strong>
+      </p>
+
+      <p style="margin-top: 28px; color: var(--muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.18em; font-family: var(--mono);">Мы НЕ работаем так:</p>
+      <ul class="no-list">
+        <li>где я соглашаюсь с вами на всё</li>
+        <li>либо делаем то, что вы хотите</li>
+        <li>либо бракуем материал по вашему желанию</li>
+        <li>в ожидании, что я предложу что-то сверхъестественное</li>
+      </ul>
+
+      <p class="stamp">
+        Наша работа — это <span class="accent">обоюдное взаимодействие</span> и равноценная ответственность. Одно без другого, к сожалению, не работает.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="footer-meta">Неделя 6 · проблемы и решения · 2026</div>
+  <a href="../" class="footer-link">← К статистике недели 6</a>
+</footer>
+
+<script>
+  // ============ Gold dust particles ============
+  (function makeDust() {
+    const layer = document.getElementById('dustLayer');
+    if (!layer) return;
+    const count = window.matchMedia('(max-width: 720px)').matches ? 28 : 60;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('span');
+      d.className = 'dust';
+      const size = 1 + Math.random() * 3.4;
+      const dur = 14 + Math.random() * 22;
+      const delay = -Math.random() * dur;
+      const left = Math.random() * 100;
+      const drift = (Math.random() - 0.5) * 220;
+      const maxOpacity = 0.25 + Math.random() * 0.55;
+      d.style.width = d.style.height = size + 'px';
+      d.style.left = left + 'vw';
+      d.style.animationDuration = dur + 's';
+      d.style.animationDelay = delay + 's';
+      d.style.setProperty('--drift', drift + 'px');
+      d.style.setProperty('--max-opacity', maxOpacity);
+      layer.appendChild(d);
+    }
+  })();
+
+  // ============ Splash ============
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+      document.body.classList.remove('splash-active');
+    }, 1100);
+  });
+
+  // ============ Reveal on scroll ============
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
