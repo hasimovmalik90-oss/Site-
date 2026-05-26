@@ -207,6 +207,12 @@
   /* Гарантия что НИЧЕГО не вылазит за пределы экрана */
   img, video, iframe, svg { max-width: 100%; height: auto; display: block; }
 
+  header, section, main, footer, .marquee, .intro, .proof, .contact {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   p, li, .what, .gives, .price-note, .sit-point-text {
     text-wrap: pretty;
   }
@@ -714,6 +720,16 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .hero-topline {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+    text-align: center;
   }
 
   .hero-eyebrow {
@@ -1929,17 +1945,8 @@
   <div class="hero-rail left">Май&nbsp;2026 · Старт</div>
   <div class="hero-rail right">Анжелика × Малик</div>
 
-  <div class="hero-tape">
-    <div class="hero-meta">
-      <div class="hero-meta-item"><span class="pulse"></span><span>Май 2026</span></div>
-      <span class="sep"></span>
-      <div class="hero-meta-item">Коммерческое предложение</div>
-      <span class="sep"></span>
-      <div class="hero-meta-item accent">Удалённый формат</div>
-    </div>
-  </div>
-
   <div class="container hero-content">
+    <div class="hero-topline">Май 2026 · Коммерческое предложение · Удалённо</div>
     <span class="hero-eyebrow">Продюсирование&nbsp;личного&nbsp;бренда</span>
 
     <div class="hero-name-wrap reveal">
