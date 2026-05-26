@@ -841,14 +841,10 @@
     color: var(--gold-bright);
     letter-spacing: -0.025em;
     line-height: 0.9;
-    text-shadow: 0 0 60px var(--gold-glow), 0 0 120px var(--gold-glow-soft);
-    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     margin: 0;
     display: inline-block;
     max-width: 100%;
+    filter: drop-shadow(0 0 24px var(--gold-glow-soft));
   }
   .hero-name-wrap::after {
     content: '';
@@ -1957,8 +1953,6 @@
       <span>сегодня&nbsp;<span class="accent">26&nbsp;640</span></span>
       <span class="arrow">→</span>
       <span>горизонт&nbsp;<span class="accent">≥ года</span></span>
-      <span class="arrow">↗</span>
-      <span class="accent">кратный рост</span>
     </div>
 
     <p class="hero-tagline reveal reveal-delay-2">
