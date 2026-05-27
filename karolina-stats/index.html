@@ -242,8 +242,9 @@
   h2 {
     font-family: var(--display);
     font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
-    font-size: clamp(48px, 7vw, 80px); font-weight: 300;
+    font-size: clamp(34px, 7vw, 80px); font-weight: 300;
     letter-spacing: -0.04em; margin-bottom: 32px; line-height: 0.95;
+    text-wrap: balance; -webkit-hyphens: none; hyphens: none;
   }
   h2 em {
     font-family: var(--display); font-style: italic;
@@ -335,7 +336,7 @@
   .hero-content { text-align: center; position: relative; z-index: 2; }
   .hero-name {
     font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: clamp(56px, 9vw, 120px); color: var(--gold);
+    font-size: clamp(44px, 11vw, 120px); color: var(--gold);
     letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 40px;
     text-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow-soft);
     background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
@@ -346,7 +347,7 @@
   .hero-number {
     font-family: var(--display);
     font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
-    font-size: clamp(120px, 22vw, 280px); line-height: 0.85;
+    font-size: clamp(72px, 19vw, 280px); line-height: 0.85;
     letter-spacing: -0.06em; color: var(--ink-bright);
     background: linear-gradient(180deg, var(--ink-bright) 0%, var(--ink) 50%, var(--gold) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -365,7 +366,9 @@
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.4em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 56px;
-    display: inline-flex; align-items: center; gap: 16px;
+    display: inline-flex; align-items: center;
+    gap: 8px 16px; flex-wrap: wrap; justify-content: center;
+    max-width: 100%; padding: 0 8px;
   }
   .hero-tagline {
     font-family: var(--display);
@@ -1301,18 +1304,104 @@
   }
   .dash-group-label:first-of-type { margin-top: 0; }
 
-  /* RESPONSIVE */
+  /* RESPONSIVE — TABLET (max-width: 980px) */
+  @media (max-width: 980px) {
+    section { padding: 100px 0; }
+    .month-meta { grid-template-columns: 1fr 1fr; }
+    .hero-kpi { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* RESPONSIVE — MOBILE (max-width: 720px) */
   @media (max-width: 720px) {
     body { font-size: 15px; }
-    section { padding: 88px 0; }
-    .hero { padding: 96px 0 64px; min-height: auto; }
-    .footer { padding: 96px 0 64px; }
-    .container { padding: 0 24px; }
-    .hero-meta { flex-direction: column; gap: 8px; }
+    section { padding: 80px 0; }
+    .hero { padding: 88px 0 56px; min-height: auto; }
+    .footer { padding: 88px 0 56px; }
+    .container, .container-wide { padding: 0 20px; }
+
+    .hero-meta { flex-direction: column; gap: 8px; padding: 0 16px; }
     .hero-meta .sep { display: none; }
+    .hero-tape { top: 24px; }
+    .hero-name { margin-bottom: 28px; }
+    .hero-number-wrap { margin-bottom: 24px; }
+    .hero-subtitle { font-size: 10px; letter-spacing: 0.3em; margin-bottom: 40px; }
+    .hero-tagline { font-size: 18px; margin-bottom: 56px; padding: 0 4px; }
+    .hero-handles { font-size: 11px; margin-top: 40px; }
+    .hero-handles a { display: inline-block; margin: 6px 8px; }
+    .scroll-hint { margin-top: 40px; }
+
+    .section-header { margin-bottom: 56px; }
+
+    .month-meta-value { font-size: clamp(22px, 6vw, 32px); }
+    .month-meta-cell { padding: 22px 12px; min-height: 0; }
+    .month-meta-label { font-size: 9px; letter-spacing: 0.18em; }
+
+    .dash-cell { padding: 22px 16px; min-height: 116px; }
+    .dash-cell .val { font-size: clamp(22px, 6vw, 28px); }
+    .dash-cell .lbl { font-size: 9px; letter-spacing: 0.18em; margin-bottom: 10px; }
+    .dash-cell .sub { font-size: 9px; letter-spacing: 0.14em; }
+    .dash-group-label { font-size: 10px; letter-spacing: 0.24em; gap: 10px; margin: 40px 0 14px; }
+    .dash-group-label::before, .dash-group-label::after { width: 18px; }
+
+    .hero-kpi-cell { padding: 22px 12px; }
+    .hero-kpi-value { font-size: clamp(28px, 8vw, 40px); margin-bottom: 10px; }
+    .hero-kpi-label { font-size: 9px; letter-spacing: 0.18em; }
+
+    .snapshot-grid { gap: 28px; }
+    .snapshot-shot { padding: 12px; }
+    .snapshot-shot img { max-height: 360px; }
+    .snapshot-caption { font-size: 10px; letter-spacing: 0.12em; }
+    .profile-card-list li { gap: 14px; padding: 14px 0; }
+    .profile-card-list .lbl { font-size: 9px; letter-spacing: 0.18em; }
+    .profile-card-list .val { font-size: 16px; }
+    .profile-card-list .val.glow { font-size: 18px; }
+    .profile-card-list .val.tag { font-size: 12px; }
+
+    .marquee { padding: 18px 0; }
+    .marquee-track { gap: 48px; }
+    .marquee-item { font-size: 10px; letter-spacing: 0.14em; }
+    .marquee-item .num { font-size: 18px; }
+    .marquee::before, .marquee::after { width: 60px; }
+
+    .viral-card { padding: 24px 18px; }
+    .viral-card-rank { font-size: 48px; }
+    .viral-card-tag { font-size: 9px; letter-spacing: 0.22em; padding: 5px 10px; }
+    .viral-card-title { font-size: 18px; margin-bottom: 18px; }
+    .viral-card-stats { gap: 12px; }
+    .viral-stat-block .value { font-size: 22px; }
+    .viral-stat-block .label { font-size: 9px; letter-spacing: 0.16em; }
+
+    .stories-list li { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+    .stories-list .num-cell { display: none; }
+    .stories-list .theme { font-size: 14px; }
+    .stories-list .views { font-size: 15px; }
+    .stories-total { padding: 14px 18px; }
+    .stories-total .label { font-size: 9.5px; letter-spacing: 0.16em; }
+    .stories-total .value { font-size: 20px; }
+
     .data-table th, .data-table td { padding: 12px 4px; font-size: 12px; }
-    .chart-wrap { padding: 32px 16px; }
+    .data-table td.num { font-size: 13px; }
+
+    .contacts { gap: 12px; max-width: 100%; }
+    .contact-link { padding: 18px 20px; }
+    .contact-handle { font-size: 14px; }
+    .contact-label { font-size: 9px; letter-spacing: 0.2em; }
+    .contact-role { font-size: 8px; }
+    .footer-tagline { font-size: 18px; margin-bottom: 40px; padding: 0 12px; }
+    .footer-meta { font-size: 9.5px; letter-spacing: 0.16em; margin-top: 48px; }
   }
+
+  /* RESPONSIVE — SMALL MOBILE (max-width: 420px) */
+  @media (max-width: 420px) {
+    .hero-number { font-size: clamp(56px, 17vw, 80px); }
+    .hero-name { font-size: clamp(40px, 12vw, 64px); }
+    .month-meta-value { font-size: clamp(20px, 5.4vw, 26px); }
+    .hero-kpi-value { font-size: clamp(26px, 7.4vw, 32px); }
+    .dash-cell .val { font-size: clamp(20px, 5.4vw, 24px); }
+  }
+
+  /* Prevent any horizontal overflow */
+  section, header, footer { overflow-x: clip; }
 </style>
 </head>
 <body class="splash-active">
@@ -1474,7 +1563,7 @@
           <li><span class="lbl">Ниша</span><span class="val">Beauty · Fashion · Lifestyle</span></li>
           <li><span class="lbl">Платформа</span><span class="val">Instagram</span></li>
           <li><span class="lbl">Подписчиков</span><span class="val glow">134&nbsp;000</span></li>
-          <li><span class="lbl">Бренд</span><span class="val">JAMALI · первый российский на&nbsp;кружеве</span></li>
+          <li><span class="lbl">Бренд</span><span class="val">JAMALI</span></li>
           <li><span class="lbl">Аудитория</span><span class="val">женская, премиум-сегмент</span></li>
           <li><span class="lbl">Cooperation</span><span class="val tag">@pr_karolinachitanava</span></li>
         </ul>
