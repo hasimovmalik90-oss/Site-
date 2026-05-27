@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каролина Читанава · Медиа-кит для рекламодателей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1080px;
+
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --mx: 50%;
+    --my: 50%;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  /* SPLASH */
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-monogram {
+    position: relative; z-index: 2; margin-bottom: 56px;
+    opacity: 0; animation: splashFadeIn 0.7s var(--ease-out) 0.1s forwards;
+  }
+  .splash-monogram svg {
+    width: 80px; height: 80px;
+    filter: drop-shadow(0 0 24px var(--gold-glow));
+  }
+  .splash-monogram .ring {
+    stroke-dasharray: 220; stroke-dashoffset: 220;
+    animation: drawRing 1.4s var(--ease-out) 0.3s forwards;
+  }
+  @keyframes drawRing { to { stroke-dashoffset: 0; } }
+  .splash-label {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 32px;
+    position: relative; z-index: 2; opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.5s forwards;
+  }
+  .splash-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    font-size: clamp(64px, 12vw, 144px);
+    line-height: 1; color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em; margin-bottom: 32px;
+    position: relative; z-index: 2; opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.7s forwards;
+    text-shadow: 0 0 40px rgba(255, 184, 77, 0.2);
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .splash-name {
+    font-family: var(--serif); font-style: italic;
+    font-size: 20px; color: var(--gold);
+    margin-bottom: 48px; position: relative; z-index: 2; opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.9s forwards;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+  .splash-loader {
+    width: 200px; height: 1px; background: var(--line);
+    position: relative; z-index: 2; overflow: hidden; opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 0.4s forwards;
+  }
+  .splash-loader::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+    animation: loaderSweep 2s var(--ease) 0.5s forwards;
+    transform: translateX(-100%);
+  }
+  @keyframes loaderSweep { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+  @keyframes splashFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .splash-skip {
+    position: absolute; bottom: 32px; right: 32px; z-index: 2;
+    background: none; border: 1px solid var(--line-bright);
+    color: var(--muted); font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    padding: 10px 18px; border-radius: 100px; cursor: pointer;
+    transition: all 0.3s var(--ease); opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 1.2s forwards;
+  }
+  .splash-skip:hover { color: var(--gold); border-color: var(--gold); box-shadow: 0 0 16px var(--gold-glow-soft); }
+
+  /* AMBIENT */
+  .ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .ambient::before, .ambient::after {
+    content: ''; position: absolute; border-radius: 50%;
+    filter: blur(120px); opacity: 0.5;
+  }
+  .ambient::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 70%);
+    top: -200px; left: -100px;
+    animation: drift1 22s ease-in-out infinite;
+  }
+  .ambient::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.12), transparent 70%);
+    bottom: -150px; right: -100px;
+    animation: drift2 28s ease-in-out infinite;
+  }
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, 60px) scale(1.1); }
+    66% { transform: translate(-40px, 100px) scale(0.95); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-100px, -60px) scale(1.15); }
+  }
+  .spotlight {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(circle 600px at var(--mx) var(--my), rgba(255, 184, 77, 0.05), transparent 50%);
+    transition: background 0.1s linear;
+  }
+  body::after {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.7; z-index: 1000; mix-blend-mode: overlay;
+  }
+  main, header, section, footer { position: relative; z-index: 2; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: var(--scroll, 0%); height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), var(--gold-bright));
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    z-index: 998; transition: width 0.05s linear;
+  }
+
+  /* NAV DOTS */
+  .nav-dots {
+    position: fixed; right: 32px; top: 50%;
+    transform: translateY(-50%); z-index: 100;
+    display: flex; flex-direction: column; gap: 18px;
+    padding: 18px 14px; background: var(--bg-card);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line); border-radius: 100px;
+    opacity: 0; transition: opacity 0.6s var(--ease) 0.4s, transform 0.6s var(--ease) 0.4s;
+    transform: translateY(-50%) translateX(20px);
+  }
+  .nav-dots.visible { opacity: 1; transform: translateY(-50%) translateX(0); }
+  .nav-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--muted);
+    cursor: pointer; transition: all 0.3s var(--ease);
+    position: relative; padding: 0;
+  }
+  .nav-dot::after {
+    content: attr(data-label); position: absolute;
+    right: calc(100% + 16px); top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); background: var(--bg-card);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px; border-radius: 100px;
+    white-space: nowrap; opacity: 0; pointer-events: none;
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  .nav-dot:hover { border-color: var(--gold); background: var(--gold-glow-soft); box-shadow: 0 0 12px var(--gold-glow); }
+  .nav-dot:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
+  .nav-dot.active {
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+  @media (max-width: 1100px) { .nav-dots { display: none; } }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 { color: var(--ink-bright); line-height: 1.05; letter-spacing: -0.025em; }
+  h2 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(48px, 7vw, 80px); font-weight: 300;
+    letter-spacing: -0.04em; margin-bottom: 32px; line-height: 0.95;
+  }
+  h2 em {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright); text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+  h3 {
+    font-family: var(--sans); font-size: 26px;
+    font-weight: 300; letter-spacing: -0.02em;
+    margin-bottom: 16px; color: var(--ink-bright);
+  }
+  p { margin-bottom: 18px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+  a {
+    color: var(--gold-bright); text-decoration: none;
+    transition: all 0.3s var(--ease);
+  }
+  a:hover { color: var(--gold); text-shadow: 0 0 20px var(--gold-glow); }
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+  .container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+
+  /* COMMON */
+  .eyebrow {
+    font-family: var(--mono); font-size: 10.5px;
+    font-weight: 400; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; display: inline-flex;
+    align-items: center; gap: 14px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .section-header { text-align: center; margin-bottom: 80px; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+  .reveal-delay-5 { transition-delay: 0.7s; }
+
+  /* HERO */
+  .hero { min-height: 100vh; padding: 96px 0 80px; position: relative; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+  .hero-rail {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); writing-mode: vertical-rl; z-index: 3;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .hero-rail.left { left: 32px; }
+  .hero-rail.right { right: 32px; transform: translateY(-50%) rotate(180deg); }
+  .hero-rail::before, .hero-rail::after {
+    content: ''; width: 1px; height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold-deep), transparent);
+  }
+  @media (max-width: 1100px) { .hero-rail { display: none; } }
+
+  .hero-tape { position: absolute; top: 32px; left: 0; right: 0; z-index: 3; }
+  .hero-meta {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--muted); display: flex;
+    justify-content: center; align-items: center;
+    gap: 20px; flex-wrap: wrap; padding: 0 16px;
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 10px; }
+  .hero-meta .accent { color: var(--gold); }
+  .hero-meta .pulse {
+    width: 6px; height: 6px; background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .hero-meta .sep { width: 24px; height: 1px; background: var(--line-bright); }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow-soft); }
+  }
+  .hero-content { text-align: center; position: relative; z-index: 2; }
+  .hero-name {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(56px, 9vw, 120px); color: var(--gold);
+    letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 40px;
+    text-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-number-wrap { position: relative; margin-bottom: 32px; }
+  .hero-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(120px, 22vw, 280px); line-height: 0.85;
+    letter-spacing: -0.06em; color: var(--ink-bright);
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--ink) 50%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 80px rgba(255, 184, 77, 0.18));
+    position: relative; font-variant-numeric: tabular-nums;
+  }
+  .hero-number-wrap::after {
+    content: ''; position: absolute; bottom: -16px; left: 50%;
+    transform: translateX(-50%); width: 60%; max-width: 400px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+  .hero-subtitle {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 56px;
+    display: inline-flex; align-items: center; gap: 16px;
+  }
+  .hero-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: clamp(22px, 2.6vw, 30px); line-height: 1.45;
+    color: var(--text); max-width: 660px; margin: 0 auto 80px;
+    letter-spacing: -0.01em; text-wrap: balance; -webkit-hyphens: none; hyphens: none;
+  }
+  .hero-tagline em {
+    font-style: italic; color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+  .hero-tagline strong { color: var(--ink-bright); font-weight: 400; }
+
+  /* HERO KPI — 4 cells (card-based, with hover) */
+  .hero-kpi {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 14px; max-width: 920px; margin: 0 auto;
+    perspective: 1200px;
+  }
+  .hero-kpi-cell {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 32px 18px; text-align: center;
+    border: 1px solid var(--line); border-radius: 6px;
+    position: relative; overflow: hidden;
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease),
+                border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    will-change: transform;
+  }
+  .hero-kpi-cell::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 6px; padding: 1px;
+    background: linear-gradient(135deg, transparent 25%, var(--gold), transparent 75%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .hero-kpi-cell::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0; transition: opacity 0.4s var(--ease); pointer-events: none;
+  }
+  .hero-kpi-cell:hover {
+    transform: translateY(-6px);
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-soft), transparent 55%),
+      var(--bg-1);
+    border-color: transparent;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px var(--gold-glow-faint);
+    z-index: 3;
+  }
+  .hero-kpi-cell:hover::before { opacity: 1; }
+  .hero-kpi-cell:hover::after { opacity: 1; }
+  .hero-kpi-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 220, "SOFT" 100;
+    font-size: clamp(34px, 4.2vw, 48px); line-height: 1;
+    color: var(--ink); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em; margin-bottom: 14px;
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease),
+                font-variation-settings 0.4s var(--ease);
+  }
+  .hero-kpi-value sup {
+    font-size: 0.4em; color: var(--gold);
+    font-variation-settings: "opsz" 9, "wght" 400, "SOFT" 0;
+    margin-left: 4px; vertical-align: super;
+    text-shadow: 0 0 12px var(--gold-glow);
+  }
+  .hero-kpi-label {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--muted); position: relative;
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease);
+  }
+  .hero-kpi-cell:hover .hero-kpi-value {
+    color: var(--gold-bright);
+    text-shadow: 0 0 28px var(--gold-glow), 0 0 56px var(--gold-glow-soft);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 100;
+  }
+  .hero-kpi-cell:hover .hero-kpi-label {
+    color: var(--gold); text-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+  @media (max-width: 720px) {
+    .hero-kpi { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-kpi-cell { padding: 24px 14px; }
+  }
+
+  .hero-handles {
+    margin-top: 56px; text-align: center;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--muted); letter-spacing: 0.05em;
+  }
+  .hero-handles a {
+    margin: 0 12px; border-bottom: 1px dotted var(--gold-glow);
+    padding-bottom: 2px;
+  }
+  .scroll-hint {
+    margin-top: 56px; font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center; opacity: 0.7; z-index: 3;
+  }
+  .scroll-hint::after {
+    content: ''; display: block; width: 1px; height: 32px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 12px auto 0; animation: scrollDown 2s ease-in-out infinite;
+  }
+  @keyframes scrollDown {
+    0% { transform: translateY(-8px) scaleY(0.5); opacity: 0; }
+    50% { transform: translateY(0) scaleY(1); opacity: 1; }
+    100% { transform: translateY(8px) scaleY(0.5); opacity: 0; }
+  }
+
+  /* MARQUEE */
+  .marquee {
+    padding: 24px 0; background: var(--bg-deep);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    overflow: hidden; position: relative;
+  }
+  .marquee::before, .marquee::after {
+    content: ''; position: absolute; top: 0; bottom: 0;
+    width: 120px; z-index: 2; pointer-events: none;
+  }
+  .marquee::before { left: 0; background: linear-gradient(to right, var(--bg-deep), transparent); }
+  .marquee::after { right: 0; background: linear-gradient(to left, var(--bg-deep), transparent); }
+  .marquee-track {
+    display: flex; gap: 80px;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap; width: max-content;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .marquee-item .num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: 24px; color: var(--gold-bright);
+    text-transform: none; letter-spacing: -0.01em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .marquee-item .star { color: var(--gold); font-size: 16px; margin: 0 8px; }
+
+  /* SECTION */
+  section { padding: 120px 0; position: relative; }
+  .section-bg-deep { background: var(--bg-deep); }
+
+  /* SNAPSHOT / Profile card */
+  .snapshot-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 56px; align-items: center;
+  }
+  @media (max-width: 900px) {
+    .snapshot-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .snapshot-shot {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(255, 255, 255, 0.018);
+    border: 1px solid rgba(255, 184, 77, 0.12);
+    border-radius: 18px; padding: 18px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .snapshot-shot:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 77, 0.32);
+    box-shadow: 0 24px 60px -20px rgba(255, 184, 77, 0.18);
+  }
+  .snapshot-shot img {
+    display: block; width: auto; height: auto;
+    max-width: 100%; max-height: 460px;
+    border-radius: 10px; background: #0d0d0f;
+  }
+  .snapshot-caption {
+    margin-top: 14px; font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center;
+  }
+  .snapshot-caption strong { color: var(--gold-bright); }
+
+  .profile-card-list { list-style: none; padding: 0; margin: 0; }
+  .profile-card-list li {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 24px; padding: 16px 0;
+    border-bottom: 1px solid var(--line); align-items: baseline;
+  }
+  .profile-card-list li:last-child { border-bottom: none; }
+  .profile-card-list .lbl {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .profile-card-list .val {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 19px; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .profile-card-list .val.glow {
+    color: var(--gold-bright);
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+    font-size: 22px;
+  }
+  .profile-card-list .val.tag {
+    font-family: var(--mono); font-size: 13px;
+    letter-spacing: 0.04em; color: var(--ink);
+  }
+
+  /* MONTH BLOCK — card-based with hover */
+  .month-meta {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 14px; margin: 16px 0 32px;
+    perspective: 1200px;
+  }
+  .month-meta-cell {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 32px 18px; text-align: center;
+    border: 1px solid var(--line); border-radius: 6px;
+    position: relative; overflow: hidden;
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease),
+                border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    will-change: transform;
+  }
+  .month-meta-cell::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 6px; padding: 1px;
+    background: linear-gradient(135deg, transparent 25%, var(--gold), transparent 75%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .month-meta-cell:hover {
+    transform: translateY(-5px);
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-soft), transparent 55%),
+      var(--bg-1);
+    border-color: transparent;
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55), 0 0 36px var(--gold-glow-faint);
+    z-index: 3;
+  }
+  .month-meta-cell:hover::before { opacity: 1; }
+  .month-meta-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 230, "SOFT" 100;
+    font-size: clamp(28px, 3.6vw, 40px); line-height: 1;
+    color: var(--gold-bright); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em; margin-bottom: 14px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+    transition: text-shadow 0.4s var(--ease), font-variation-settings 0.4s var(--ease);
+  }
+  .month-meta-label {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted);
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease);
+  }
+  .month-meta-cell:hover .month-meta-value {
+    text-shadow: 0 0 32px var(--gold-glow), 0 0 64px var(--gold-glow-soft);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 100;
+  }
+  .month-meta-cell:hover .month-meta-label {
+    color: var(--gold); text-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+  @media (max-width: 720px) {
+    .month-meta { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .month-meta-cell { padding: 24px 14px; }
+  }
+
+  /* PROOF SHOTS */
+  .proof-shots {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    align-items: flex-start; gap: 24px;
+  }
+  .proof-shot {
+    position: relative; display: inline-flex; flex-direction: column;
+    flex: 0 1 auto; background: rgba(255, 255, 255, 0.018);
+    border: 1px solid rgba(255, 184, 77, 0.12);
+    border-radius: 18px; padding: 14px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .proof-shot:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 77, 0.32);
+    box-shadow: 0 24px 60px -20px rgba(255, 184, 77, 0.18);
+  }
+  .proof-shot img {
+    display: block; width: auto; height: auto;
+    max-width: 340px; max-height: 460px;
+    border-radius: 10px; background: #0d0d0f;
+  }
+  .proof-shot.tall img { max-width: 240px; max-height: 480px; }
+  .proof-shot.thin img { max-width: 420px; max-height: 140px; }
+  .proof-shot-caption {
+    margin-top: 12px; font-family: var(--mono);
+    font-size: 11px; line-height: 1.5; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center; align-self: center; white-space: nowrap;
+  }
+  .proof-shot-caption strong {
+    color: var(--gold-bright); font-weight: 500; letter-spacing: 0.08em;
+  }
+  .proof-shot-single { display: flex; justify-content: center; }
+  @media (max-width: 720px) {
+    .proof-shots { gap: 16px; }
+    .proof-shot { padding: 10px; }
+    .proof-shot img { max-width: calc(50vw - 28px); max-height: 360px; }
+    .proof-shot.tall img { max-width: 180px; max-height: 360px; }
+    .proof-shot.thin img { max-width: calc(100vw - 56px); max-height: 110px; }
+    .proof-shot-caption { font-size: 10px; margin-top: 10px; }
+  }
+
+  /* GROWTH CHART */
+  .chart-wrap {
+    margin: 24px auto 0; max-width: 920px;
+    padding: 48px 32px 32px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line); border-radius: 4px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    position: relative;
+  }
+  .chart-wrap::before {
+    content: ''; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%); width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+  .chart-svg { width: 100%; height: auto; display: block; }
+  .chart-y-label, .chart-x-label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.18em; fill: var(--muted);
+    text-transform: uppercase;
+  }
+  .chart-grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+  .chart-path {
+    fill: none; stroke: url(#goldGradient);
+    stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1800; stroke-dashoffset: 1800;
+    filter: drop-shadow(0 0 6px var(--gold-glow));
+  }
+  .chart-section .chart-path { animation: drawPath 3.4s var(--ease-out) 0.3s forwards; }
+  @keyframes drawPath { to { stroke-dashoffset: 0; } }
+  .chart-area { fill: url(#areaGradient); opacity: 0; }
+  .chart-section .chart-area { animation: fadeArea 1.5s var(--ease-out) 2s forwards; }
+  @keyframes fadeArea { to { opacity: 0.6; } }
+  .chart-dot { fill: var(--bg); stroke: var(--gold); stroke-width: 2; opacity: 0; }
+  .chart-section .chart-dot { animation: popDot 0.5s var(--ease-out) forwards; }
+  .chart-dot.delay-1 { animation-delay: 1.0s; }
+  .chart-dot.delay-2 { animation-delay: 1.3s; }
+  .chart-dot.delay-3 { animation-delay: 1.6s; }
+  .chart-dot.delay-4 { animation-delay: 1.9s; }
+  .chart-dot.delay-5 { animation-delay: 2.2s; }
+  .chart-dot.delay-6 { animation-delay: 2.5s; }
+  @keyframes popDot {
+    from { opacity: 0; transform: scale(0); transform-origin: center; }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .chart-peak-ring { fill: var(--gold); opacity: 0; transform-origin: center; }
+  .chart-section .chart-peak-ring { animation: peakPulse 2s ease-in-out 3.1s infinite; }
+  @keyframes peakPulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0; transform: scale(2.5); }
+    100% { opacity: 0; transform: scale(2.5); }
+  }
+  .chart-peak-dot {
+    fill: var(--gold);
+    filter: drop-shadow(0 0 10px var(--gold)) drop-shadow(0 0 20px var(--gold-glow));
+    opacity: 0;
+  }
+  .chart-section .chart-peak-dot { animation: popDot 0.6s var(--ease-out) 2.4s forwards; }
+  .chart-annotation {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    fill: var(--gold); opacity: 0;
+  }
+  .chart-section .chart-annotation { animation: fadeIn 0.6s var(--ease-out) 3.1s forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .chart-pause-label {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.18em; fill: var(--muted);
+    text-transform: uppercase; opacity: 0;
+  }
+  .chart-section .chart-pause-label { animation: fadeIn 0.6s var(--ease-out) 2.6s forwards; }
+  .chart-legend {
+    display: flex; justify-content: center; gap: 32px;
+    margin-top: 24px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); flex-wrap: wrap;
+  }
+  .chart-legend-item { display: flex; align-items: center; gap: 10px; }
+  .chart-legend-item .marker {
+    width: 12px; height: 1.5px; background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+  .chart-legend-item .marker.peak {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+  }
+  .chart-legend-item .marker.dashed {
+    width: 16px; height: 1.5px;
+    background: repeating-linear-gradient(to right, var(--muted) 0 4px, transparent 4px 8px);
+    box-shadow: none;
+  }
+
+  /* GROWTH TABLE — было→стало */
+  .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-family: var(--sans); }
+  .data-table thead tr { border-bottom: 1px solid var(--line-bright); }
+  .data-table tbody tr { border-bottom: 1px solid var(--line); transition: all 0.3s var(--ease); }
+  .data-table tbody tr:hover {
+    background: linear-gradient(to right, transparent 5%, var(--gold-glow-faint), transparent 95%);
+  }
+  .data-table th {
+    text-align: left; padding: 16px 10px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 400; color: var(--gold);
+  }
+  .data-table td {
+    padding: 18px 10px; font-size: 14px;
+    font-variant-numeric: tabular-nums; color: var(--text);
+  }
+  .data-table td.viral {
+    color: var(--gold-bright); font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+  .data-table td.num {
+    text-align: right; font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-weight: 400; color: var(--ink); font-size: 16px;
+  }
+  .data-table tfoot tr { border-top: 1px solid var(--line-bright); background: var(--bg-card); }
+  .data-table tfoot td {
+    font-weight: 500; color: var(--ink-bright);
+    padding-top: 22px; padding-bottom: 22px;
+  }
+
+  /* VIRAL CARDS */
+  .viral-grid { display: grid; gap: 28px; margin-top: 32px; perspective: 1500px; }
+  @media (min-width: 920px) {
+    .viral-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .viral-card {
+    padding: 36px 32px;
+    background:
+      radial-gradient(circle at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--line); border-radius: 4px;
+    position: relative;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    overflow: hidden; transform-style: preserve-3d; will-change: transform;
+  }
+  .viral-card::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 4px; padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .viral-card:hover {
+    border-color: transparent;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 80px var(--gold-glow-faint);
+  }
+  .viral-card:hover::before { opacity: 1; }
+  .viral-card-inner { position: relative; transform: translateZ(40px); }
+  .viral-card-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 24px;
+  }
+  .viral-card-rank {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 72px; line-height: 0.85; color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+  .viral-card-tag {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--muted); padding: 6px 12px;
+    border: 1px solid var(--line-bright); border-radius: 100px;
+  }
+  .viral-card-tag.peak {
+    color: var(--gold); border-color: var(--gold);
+    background: var(--gold-glow-faint);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .viral-card-title {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 24px); color: var(--ink-bright);
+    margin-bottom: 24px; line-height: 1.2; letter-spacing: -0.005em;
+  }
+  .viral-card-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  .viral-stat-block .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 50;
+    font-size: clamp(26px, 3vw, 34px); color: var(--gold-bright);
+    font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+    line-height: 1; margin-bottom: 8px;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+  .viral-stat-block .label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+  }
+  @media (max-width: 720px) {
+    .viral-card { padding: 28px 22px; }
+    .viral-card-rank { font-size: 56px; }
+    .viral-card-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  }
+
+  /* STORIES */
+  .stories-list { list-style: none; padding: 0; margin: 24px 0 0; }
+  .stories-list li {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 20px; align-items: baseline;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .stories-list li:last-child { border-bottom: none; }
+  .stories-list .num-cell {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.2em; color: var(--gold); width: 24px;
+  }
+  .stories-list .theme {
+    font-family: var(--serif); font-style: italic;
+    color: var(--ink); font-size: 16px;
+  }
+  .stories-list .views {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 17px; color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+  .stories-total {
+    background: linear-gradient(to right, var(--gold-glow-faint), transparent);
+    padding: 18px 24px; border-top: 1px solid var(--gold-glow);
+    margin-top: 8px; display: grid;
+    grid-template-columns: 1fr auto; gap: 20px; align-items: baseline;
+  }
+  .stories-total .label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+  }
+  .stories-total .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: 26px; color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+  @media (max-width: 720px) {
+    .stories-list li { grid-template-columns: 1fr; gap: 4px; }
+    .stories-list .num-cell { display: none; }
+  }
+
+  /* REACTIONS */
+  .reaction-quotes {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; margin-top: 32px;
+    max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  @media (max-width: 720px) { .reaction-quotes { grid-template-columns: 1fr; gap: 16px; } }
+  .reaction-quote {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 36px 28px; text-align: center; position: relative;
+    transition: all 0.5s var(--ease);
+  }
+  .reaction-quote::before {
+    content: '"'; position: absolute; top: 8px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display); font-style: italic;
+    font-size: 64px; color: var(--gold); opacity: 0.25;
+    line-height: 1; text-shadow: 0 0 20px var(--gold-glow);
+  }
+  .reaction-quote:hover {
+    border-color: var(--gold-glow);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+    transform: translateY(-2px);
+  }
+  .reaction-quote .quote-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic; font-size: 18px; line-height: 1.4;
+    color: var(--ink-bright); margin-bottom: 16px; margin-top: 24px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .reaction-quote .quote-meta {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); padding-top: 16px; border-top: 1px solid var(--line);
+  }
+
+  /* CTA — contacts for cooperation */
+  .footer {
+    padding: 140px 0 80px; text-align: center;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line); position: relative;
+  }
+  .footer::before {
+    content: ''; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%); width: 300px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow);
+  }
+  .footer h2 { color: var(--ink-bright); margin-bottom: 16px; }
+  .footer-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic; font-size: 22px;
+    color: var(--muted); margin-bottom: 64px; text-wrap: balance;
+  }
+  .contacts {
+    display: grid; grid-template-columns: 1fr;
+    gap: 16px; max-width: 560px; margin: 0 auto 64px;
+    perspective: 1000px;
+  }
+  @media (min-width: 720px) {
+    .contacts { grid-template-columns: 1fr 1fr; }
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 18px;
+    padding: 24px 28px; background: var(--bg-card);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line); border-radius: 4px;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    color: var(--text); text-align: left; position: relative;
+    overflow: hidden; transform-style: preserve-3d; will-change: transform;
+  }
+  .contact-link::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 4px; padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .contact-link::after {
+    content: ''; position: absolute; inset: 0; border-radius: 4px;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .contact-link:hover {
+    border-color: transparent;
+    box-shadow: 0 12px 40px rgba(255, 184, 77, 0.12), 0 0 0 1px var(--gold-glow);
+  }
+  .contact-link:hover::before { opacity: 1; }
+  .contact-link:hover::after { opacity: 1; }
+  .contact-link:hover .contact-icon { color: var(--gold); filter: drop-shadow(0 0 12px var(--gold-glow)); }
+  .contact-link:hover .contact-handle { color: var(--gold-bright); }
+  .contact-link-inner {
+    display: flex; align-items: center; gap: 18px;
+    width: 100%; transform: translateZ(20px);
+  }
+  .contact-icon {
+    flex-shrink: 0; width: 24px; height: 24px;
+    color: var(--muted); transition: all 0.4s var(--ease);
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .contact-label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted);
+  }
+  .contact-handle {
+    font-family: var(--sans); font-size: 16px; font-weight: 400;
+    color: var(--ink); transition: all 0.3s var(--ease);
+    overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; letter-spacing: -0.005em;
+  }
+  .contact-role {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-top: 2px;
+  }
+  .footer-meta {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--dim); margin-top: 64px;
+    padding-top: 40px; border-top: 1px solid var(--line);
+    line-height: 2;
+  }
+  .footer-case-link {
+    margin-top: 32px; font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+  }
+  .footer-case-link a {
+    border-bottom: 1px dotted var(--gold-glow); padding-bottom: 2px;
+  }
+
+  /* ============================================================ */
+  /* BAR CHART — Top-3 virals                                     */
+  /* ============================================================ */
+  .barchart-wrap {
+    margin: 24px auto 56px;
+    max-width: 880px;
+    padding: 56px 48px 36px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+  }
+  .barchart-wrap::before {
+    content: ''; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%); width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+  .barchart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: end;
+    height: 320px;
+    padding: 0 8px;
+    position: relative;
+  }
+  .barchart-grid {
+    position: absolute;
+    inset: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  .barchart-gridline {
+    width: 100%; height: 1px;
+    background: var(--line);
+  }
+  .barchart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .barchart-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 80;
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--gold-bright);
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .barchart-bar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 0 24px var(--gold-glow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    position: relative;
+    height: 0;
+    transition: height 1.8s var(--ease-out);
+    will-change: height;
+  }
+  .barchart-wrap.in-view .barchart-bar { height: var(--bar-h, 50%); }
+  .barchart-bar::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: var(--gold-bright);
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+  .barchart-labels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 18px;
+    padding: 18px 8px 0;
+    border-top: 1px solid var(--line);
+  }
+  .barchart-label {
+    text-align: center;
+  }
+  .barchart-label .name {
+    font-family: var(--serif); font-style: italic;
+    font-size: 15px; color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .barchart-label .meta {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .barchart-label .meta .accent { color: var(--gold); }
+  .barchart-y {
+    position: absolute;
+    left: -36px; top: 0; bottom: 18px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+  @media (max-width: 720px) {
+    .barchart-wrap { padding: 36px 18px 24px; }
+    .barchart { gap: 14px; height: 260px; }
+    .barchart-labels { gap: 14px; }
+    .barchart-y { display: none; }
+    .barchart-value { font-size: 22px; margin-bottom: 10px; }
+    .barchart-label .name { font-size: 13px; }
+  }
+
+  /* ============================================================ */
+  /* DASHBOARD — full numbers grid (card-based, with hover)       */
+  /* ============================================================ */
+  .dash-grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 48px;
+    perspective: 1200px;
+  }
+  @media (max-width: 980px) { .dash-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px) { .dash-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+  .dash-cell {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 28px 22px; text-align: left;
+    border: 1px solid var(--line); border-radius: 6px;
+    position: relative; overflow: hidden;
+    min-height: 134px; display: flex; flex-direction: column;
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease),
+                border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    will-change: transform;
+  }
+  .dash-cell::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 6px; padding: 1px;
+    background: linear-gradient(135deg, transparent 25%, var(--gold), transparent 75%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+  }
+  .dash-cell::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 28px; height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow-soft);
+    opacity: 0.55; transition: all 0.4s var(--ease);
+  }
+  .dash-cell:hover {
+    transform: translateY(-5px);
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-soft), transparent 55%),
+      var(--bg-1);
+    border-color: transparent;
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55), 0 0 36px var(--gold-glow-faint);
+    z-index: 3;
+  }
+  .dash-cell:hover::before { opacity: 1; }
+  .dash-cell:hover::after { width: 60px; opacity: 1; box-shadow: 0 0 12px var(--gold-glow); }
+  .dash-cell .lbl {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px;
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease);
+  }
+  .dash-cell .val {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: clamp(24px, 2.7vw, 32px); line-height: 1;
+    color: var(--ink); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em; margin-bottom: 10px;
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease),
+                font-variation-settings 0.4s var(--ease);
+  }
+  .dash-cell .val.gold {
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .dash-cell .sub {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-top: auto;
+    transition: color 0.4s var(--ease);
+  }
+  .dash-cell .sub.muted { color: var(--muted); }
+  .dash-cell:hover .lbl {
+    color: var(--gold); text-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+  .dash-cell:hover .val {
+    color: var(--gold-bright);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+  }
+  .dash-cell:hover .val.gold {
+    text-shadow: 0 0 32px var(--gold-glow), 0 0 64px var(--gold-glow-soft);
+  }
+  .dash-cell:hover .sub.muted { color: var(--text); }
+  .dash-group-label {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); margin: 56px 0 18px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .dash-group-label::before, .dash-group-label::after {
+    content: ''; display: inline-block; width: 28px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .dash-group-label:first-of-type { margin-top: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    body { font-size: 15px; }
+    section { padding: 88px 0; }
+    .hero { padding: 96px 0 64px; min-height: auto; }
+    .footer { padding: 96px 0 64px; }
+    .container { padding: 0 24px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+    .hero-meta .sep { display: none; }
+    .data-table th, .data-table td { padding: 12px 4px; font-size: 12px; }
+    .chart-wrap { padding: 32px 16px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<!-- SPLASH -->
+<div class="splash" id="splash">
+  <div class="splash-label">Медиа-кит · Каролина Читанава</div>
+  <div class="splash-number" id="splashCounter">0</div>
+  <div class="splash-name">@karolina_chitanava</div>
+  <div class="splash-loader"></div>
+  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
+</div>
+
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-target="hero" data-label="Hero"></button>
+  <button class="nav-dot" data-target="profile" data-label="Профиль"></button>
+  <button class="nav-dot" data-target="month" data-label="Месяц"></button>
+  <button class="nav-dot" data-target="dashboard" data-label="Все цифры"></button>
+  <button class="nav-dot" data-target="viral" data-label="Топ-3"></button>
+  <button class="nav-dot" data-target="long-tail" data-label="Хвост"></button>
+  <button class="nav-dot" data-target="stories" data-label="Сторис"></button>
+  <button class="nav-dot" data-target="contacts" data-label="Контакты"></button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- HERO                                                         -->
+<!-- ============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero-rail left">Media-Kit</div>
+  <div class="hero-rail right">May 2026</div>
+
+  <div class="hero-tape">
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="pulse"></span>
+        <span>Live · актуально на&nbsp;май 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="sep"></span>
+        <span class="accent">Beauty / Fashion / Lifestyle</span>
+        <span class="sep"></span>
+      </div>
+      <div class="hero-meta-item"><span>@karolina_chitanava</span></div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-name reveal">Каролина</div>
+
+    <div class="hero-number-wrap reveal reveal-delay-1">
+      <div class="hero-number" data-counter="134000">134&#8239;000</div>
+    </div>
+
+    <div class="hero-subtitle reveal reveal-delay-2">
+      <span>подписчиков</span>
+      <span style="color: var(--gold); font-size: 14px;">·</span>
+      <span class="accent">Instagram</span>
+      <span style="color: var(--gold); font-size: 14px;">·</span>
+      <span>органический рост</span>
+    </div>
+
+    <p class="hero-tagline reveal reveal-delay-3">
+      <em>100+ миллионов</em> органических охватов.<br>
+      <strong>20,6&nbsp;млн</strong> просмотров и&nbsp;<strong>+42&nbsp;221</strong> подписчик
+      <em>за&nbsp;последние 30&nbsp;дней</em>.
+    </p>
+
+    <div class="hero-kpi reveal reveal-delay-4">
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">134<sup>K</sup></div>
+        <div class="hero-kpi-label">Подписчиков</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">20,6<sup>M</sup></div>
+        <div class="hero-kpi-label">Просмотров / мес</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">5,18<sup>M</sup></div>
+        <div class="hero-kpi-label">Охват / мес</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">+42<sup>K</sup></div>
+        <div class="hero-kpi-label">Прирост / мес</div>
+      </div>
+    </div>
+
+    <div class="hero-handles reveal reveal-delay-5">
+      <a href="https://www.instagram.com/karolina_chitanava" target="_blank">@karolina_chitanava</a>
+      <a href="https://www.instagram.com/jamaliofficial.ru" target="_blank">@jamaliofficial.ru</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint reveal reveal-delay-5">Прокрутить</div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="num">134&nbsp;000</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">20,6M</span> просмотров / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">5,18M</span> охват / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+42&nbsp;221</span> прирост / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">1,2M</span> взаимодействий</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">4,1M</span> второй вирус</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+20&nbsp;833</span> с&nbsp;одного ролика</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">30+</span> вирусных роликов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">134&nbsp;000</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">20,6M</span> просмотров / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">5,18M</span> охват / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+42&nbsp;221</span> прирост / мес</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">1,2M</span> взаимодействий</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">4,1M</span> второй вирус</span>
+    <span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROFILE SNAPSHOT                                             -->
+<!-- ============================================================ -->
+<section id="profile">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Профиль</span>
+      <h2>Каролина <em>Читанава</em></h2>
+    </div>
+
+    <div class="snapshot-grid">
+      <div class="reveal snapshot-shot">
+        <img src="img/profile-134k.jpg" alt="Шапка профиля karolina_chitanava: 134 тыс. подписчиков, 110 публикаций, 136 подписок" loading="lazy">
+        <div class="snapshot-caption">шапка профиля · сегодня <strong>134&nbsp;К</strong> · 110 публ. · 136 подписок</div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <ul class="profile-card-list">
+          <li><span class="lbl">Имя</span><span class="val">Каролина Читанава</span></li>
+          <li><span class="lbl">Аккаунт</span><span class="val tag">@karolina_chitanava</span></li>
+          <li><span class="lbl">Ниша</span><span class="val">Beauty · Fashion · Lifestyle</span></li>
+          <li><span class="lbl">Платформа</span><span class="val">Instagram</span></li>
+          <li><span class="lbl">Подписчиков</span><span class="val glow">134&nbsp;000</span></li>
+          <li><span class="lbl">Бренд</span><span class="val">JAMALI · первый российский на&nbsp;кружеве</span></li>
+          <li><span class="lbl">Аудитория</span><span class="val">женская, премиум-сегмент</span></li>
+          <li><span class="lbl">Cooperation</span><span class="val tag">@pr_karolinachitanava</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MONTH SNAPSHOT — 21 апр → 20 мая 2026                         -->
+<!-- ============================================================ -->
+<section id="month">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Срез за&nbsp;30 дней</span>
+      <h2>21 апреля <em>— 20 мая 2026</em></h2>
+    </div>
+
+    <div class="month-meta reveal">
+      <div class="month-meta-cell">
+        <div class="month-meta-value">20,6&nbsp;млн</div>
+        <div class="month-meta-label">просмотров</div>
+      </div>
+      <div class="month-meta-cell">
+        <div class="month-meta-value">5,18&nbsp;млн</div>
+        <div class="month-meta-label">охват аккаунтов</div>
+      </div>
+      <div class="month-meta-cell">
+        <div class="month-meta-value">1,2&nbsp;млн</div>
+        <div class="month-meta-label">взаимодействий</div>
+      </div>
+      <div class="month-meta-cell">
+        <div class="month-meta-value">+42&nbsp;221</div>
+        <div class="month-meta-label">подписчиков (нетто)</div>
+      </div>
+    </div>
+
+    <div class="proof-shots reveal reveal-delay-1" style="margin-top: 56px;">
+      <div class="proof-shot">
+        <img src="img/growth-month.jpg" alt="Подписчики 125 917, прирост +42 221, подписки 46 795" loading="lazy">
+        <div class="proof-shot-caption">+42&nbsp;221 подписчик · 46&nbsp;795 подписок</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/ring-views.jpg" alt="Просмотры за месяц: 20 576 537" loading="lazy">
+        <div class="proof-shot-caption">просмотры · <strong>20,6&nbsp;млн</strong></div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/ring-eng.jpg" alt="Взаимодействия за месяц: 1 214 361" loading="lazy">
+        <div class="proof-shot-caption">взаимодействия · <strong>1,2&nbsp;млн</strong></div>
+      </div>
+    </div>
+
+    <div class="proof-shot-single reveal reveal-delay-2" style="margin-top: 28px;">
+      <div class="proof-shot thin">
+        <img src="img/profile-actions.jpg" alt="Действия в профиле: 356 814, +699,8%" loading="lazy">
+        <div class="proof-shot-caption">действия в&nbsp;профиле · <strong>356&nbsp;814</strong> · <strong>+699,8%</strong></div>
+      </div>
+    </div>
+
+    <div class="proof-shot-single reveal reveal-delay-3" style="margin-top: 28px;">
+      <div class="proof-shot">
+        <img src="img/panel-month.jpg" alt="Проф. панель Instagram: 20,6 млн просмотров, 1,2 млн взаимодействий, +46,8 К подписчиков" loading="lazy">
+        <div class="proof-shot-caption">проф. панель · <strong>20,6&nbsp;млн</strong> · <strong>1,2&nbsp;млн</strong> · <strong>+46,8&nbsp;К</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DASHBOARD — все ключевые цифры                               -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="dashboard">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Дашборд аккаунта</span>
+      <h2>Все ключевые <em>цифры</em></h2>
+    </div>
+
+    <!-- Группа 1 — Аккаунт суммарно -->
+    <div class="dash-group-label reveal">Аккаунт суммарно</div>
+    <div class="dash-grid reveal reveal-delay-1">
+      <div class="dash-cell">
+        <div class="lbl">Подписчиков</div>
+        <div class="val gold">134&nbsp;000</div>
+        <div class="sub">текущая база</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Охватов суммарно</div>
+        <div class="val gold">100+&nbsp;млн</div>
+        <div class="sub">за&nbsp;всё время</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Виральных роликов</div>
+        <div class="val">30+</div>
+        <div class="sub">от&nbsp;100&nbsp;К&nbsp;просмотров</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Множитель базы</div>
+        <div class="val">×191</div>
+        <div class="sub">700 → 134&nbsp;000</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Период работы</div>
+        <div class="val">13&nbsp;мес.</div>
+        <div class="sub muted">apr 2025 — may 2026</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Публикаций</div>
+        <div class="val">110</div>
+        <div class="sub muted">всего на&nbsp;аккаунте</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Подписок</div>
+        <div class="val">136</div>
+        <div class="sub muted">кого читает Каролина</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Stories highlights</div>
+        <div class="val">5</div>
+        <div class="sub muted">закреплённых рубрик</div>
+      </div>
+    </div>
+
+    <!-- Группа 2 — Месяц 21 апр → 20 мая 2026 -->
+    <div class="dash-group-label reveal">Месяц · 21 апр — 20 мая 2026</div>
+    <div class="dash-grid reveal reveal-delay-1">
+      <div class="dash-cell">
+        <div class="lbl">Просмотров</div>
+        <div class="val gold">20,6&nbsp;млн</div>
+        <div class="sub">+393,9% к&nbsp;пред. месяцу</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Охват аккаунтов</div>
+        <div class="val gold">5,18&nbsp;млн</div>
+        <div class="sub">+513% к&nbsp;пред. месяцу</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Взаимодействий</div>
+        <div class="val gold">1,2&nbsp;млн</div>
+        <div class="sub">лайки + коммен. + сейв</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Прирост подписчиков</div>
+        <div class="val gold">+42&nbsp;221</div>
+        <div class="sub">+50,4% (нетто)</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Подписки (gross)</div>
+        <div class="val">46&nbsp;795</div>
+        <div class="sub muted">новых за&nbsp;месяц</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Действия в&nbsp;профиле</div>
+        <div class="val">356&nbsp;814</div>
+        <div class="sub">+699,8% к&nbsp;месяцу ранее</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Посещений профиля</div>
+        <div class="val">126&nbsp;363</div>
+        <div class="sub muted">за&nbsp;месяц</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Поделились (DM/stories)</div>
+        <div class="val">52&nbsp;289</div>
+        <div class="sub muted">репостов</div>
+      </div>
+    </div>
+
+    <!-- Группа 3 — Виральные хиты -->
+    <div class="dash-group-label reveal">Виральные хиты</div>
+    <div class="dash-grid reveal reveal-delay-1">
+      <div class="dash-cell">
+        <div class="lbl">Топ-ролик (всё время)</div>
+        <div class="val gold">12&nbsp;000&nbsp;000</div>
+        <div class="sub">15 июня 2025</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Подписок с&nbsp;топ-ролика</div>
+        <div class="val gold">+15&nbsp;000</div>
+        <div class="sub">за&nbsp;один Reel</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Второй вирус</div>
+        <div class="val gold">4&nbsp;108&nbsp;055</div>
+        <div class="sub">«ЦУМ» · 6 мая 2026</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Подписок с&nbsp;него</div>
+        <div class="val gold">+20&nbsp;833</div>
+        <div class="sub">★ рекорд по&nbsp;конверсии</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Третий вирус</div>
+        <div class="val">1&nbsp;900&nbsp;911</div>
+        <div class="sub">«часть влога» · 5 мая</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">ER на&nbsp;нём</div>
+        <div class="val">6,15%</div>
+        <div class="sub muted">+4&nbsp;894 подписки</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Удержание Р10</div>
+        <div class="val">29%</div>
+        <div class="sub muted">при&nbsp;длине 2:33</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Поделились Р10</div>
+        <div class="val">16&nbsp;784</div>
+        <div class="sub muted">репостов</div>
+      </div>
+    </div>
+
+    <!-- Группа 4 — Спринт 27 апр — 7 мая (12 роликов) -->
+    <div class="dash-group-label reveal">Спринт · 12 роликов за&nbsp;11 дней (27 апр — 7 мая)</div>
+    <div class="dash-grid reveal reveal-delay-1">
+      <div class="dash-cell">
+        <div class="lbl">Просмотров за&nbsp;пачку</div>
+        <div class="val gold">5,93&nbsp;млн</div>
+        <div class="sub">12 роликов</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Охват пачки</div>
+        <div class="val">4,16&nbsp;млн</div>
+        <div class="sub muted">уникальных аккаунтов</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Подписчиков (gross)</div>
+        <div class="val gold">+18&nbsp;862</div>
+        <div class="sub">за&nbsp;11 дней</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Конверсия Р10</div>
+        <div class="val">0,512%</div>
+        <div class="sub muted">просмотр → подписка</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Просмотры/день Р10</div>
+        <div class="val">716&nbsp;К</div>
+        <div class="sub muted">скорость накопления</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Профиль→подписка</div>
+        <div class="val">76%</div>
+        <div class="sub">«реализованность» · ★ рекорд</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Средний хук</div>
+        <div class="val">24,2%</div>
+        <div class="sub muted">пропусков · Р10 рекорд</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Среднее время</div>
+        <div class="val">44&nbsp;с</div>
+        <div class="sub muted">досматривают Р10</div>
+      </div>
+    </div>
+
+    <!-- Группа 5 — Stories -->
+    <div class="dash-group-label reveal">Сторис · вовлечённость базы</div>
+    <div class="dash-grid reveal reveal-delay-1">
+      <div class="dash-cell">
+        <div class="lbl">Топ-сторис</div>
+        <div class="val gold">52&nbsp;859</div>
+        <div class="sub">≈ 50% базы</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Среднее по&nbsp;серии</div>
+        <div class="val">35&nbsp;400</div>
+        <div class="sub muted">на&nbsp;сторис</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Серия из&nbsp;6 сторис</div>
+        <div class="val gold">212&nbsp;520</div>
+        <div class="sub">суммарный охват</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">Охват сторис от&nbsp;базы</div>
+        <div class="val">30—35%</div>
+        <div class="sub muted">живая аудитория</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VIRAL TOP-3                                                  -->
+<!-- ============================================================ -->
+<section id="viral">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Топ-3 виральных</span>
+      <h2>Хиты <em>блога</em></h2>
+    </div>
+
+    <div class="barchart-wrap reveal reveal-delay-1" id="barchartTop3">
+      <div class="barchart">
+        <div class="barchart-grid">
+          <div class="barchart-gridline"></div>
+          <div class="barchart-gridline"></div>
+          <div class="barchart-gridline"></div>
+          <div class="barchart-gridline"></div>
+          <div class="barchart-gridline"></div>
+        </div>
+        <div class="barchart-y">
+          <span>12 М</span>
+          <span>9 М</span>
+          <span>6 М</span>
+          <span>3 М</span>
+          <span>0</span>
+        </div>
+        <div class="barchart-col">
+          <div class="barchart-value">12,0&nbsp;М</div>
+          <div class="barchart-bar" style="--bar-h: 100%;"></div>
+        </div>
+        <div class="barchart-col">
+          <div class="barchart-value">4,11&nbsp;М</div>
+          <div class="barchart-bar" style="--bar-h: 34%;"></div>
+        </div>
+        <div class="barchart-col">
+          <div class="barchart-value">1,90&nbsp;М</div>
+          <div class="barchart-bar" style="--bar-h: 16%;"></div>
+        </div>
+      </div>
+      <div class="barchart-labels">
+        <div class="barchart-label">
+          <div class="name">«Не&nbsp;не доча вон&nbsp;туда»</div>
+          <div class="meta">15 июня 2025 · <span class="accent">+15&nbsp;000 подписок</span></div>
+        </div>
+        <div class="barchart-label">
+          <div class="name">«Влог с&nbsp;девочками из&nbsp;ЦУМа»</div>
+          <div class="meta">6 мая 2026 · <span class="accent">+20&nbsp;833 подписок</span></div>
+        </div>
+        <div class="barchart-label">
+          <div class="name">«Часть влога»</div>
+          <div class="meta">5 мая 2026 · <span class="accent">+4&nbsp;894 подписки</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-shots reveal reveal-delay-1" style="margin-bottom: 48px;">
+      <div class="proof-shot tall">
+        <img src="img/viral-12m.jpg" alt="Reels с 12 млн просмотров" loading="lazy">
+        <div class="proof-shot-caption">★ рекорд · <strong>12&nbsp;МЛН</strong></div>
+      </div>
+      <div class="proof-shot tall">
+        <img src="img/viral-cover-r10.jpg" alt="Reels Р10: 4,1 млн просмотров" loading="lazy">
+        <div class="proof-shot-caption">Р10 · 6 мая · <strong>4,1&nbsp;МЛН</strong></div>
+      </div>
+      <div class="proof-shot tall">
+        <img src="img/viral-cover-r9.jpg" alt="Reels Р9: 1,9 млн просмотров" loading="lazy">
+        <div class="proof-shot-caption">Р9 · 5 мая · <strong>1,9&nbsp;МЛН</strong></div>
+      </div>
+    </div>
+
+    <div class="viral-grid">
+      <div class="viral-card reveal">
+        <div class="viral-card-inner">
+          <div class="viral-card-header">
+            <div class="viral-card-rank">01</div>
+            <div class="viral-card-tag peak">★ Рекорд</div>
+          </div>
+          <div class="viral-card-title">«Не не&nbsp;доча вон&nbsp;туда»</div>
+          <div class="viral-card-stats">
+            <div class="viral-stat-block"><div class="value">12&nbsp;000&nbsp;000</div><div class="label">просмотров</div></div>
+            <div class="viral-stat-block"><div class="value">+15&nbsp;000</div><div class="label">подписчиков с&nbsp;1 ролика</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="viral-card reveal reveal-delay-1">
+        <div class="viral-card-inner">
+          <div class="viral-card-header">
+            <div class="viral-card-rank">02</div>
+            <div class="viral-card-tag peak">★ Фаза 2</div>
+          </div>
+          <div class="viral-card-title">«Влог с&nbsp;девочками из&nbsp;ЦУМа» · 2:33</div>
+          <div class="viral-card-stats">
+            <div class="viral-stat-block"><div class="value">4&nbsp;108&nbsp;055</div><div class="label">просмотров</div></div>
+            <div class="viral-stat-block"><div class="value">+20&nbsp;833</div><div class="label">подписчиков с&nbsp;1 ролика</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="viral-card reveal reveal-delay-2">
+        <div class="viral-card-inner">
+          <div class="viral-card-header">
+            <div class="viral-card-rank">03</div>
+            <div class="viral-card-tag">7 цифр</div>
+          </div>
+          <div class="viral-card-title">«Часть влога» · 1:12</div>
+          <div class="viral-card-stats">
+            <div class="viral-stat-block"><div class="value">1&nbsp;900&nbsp;911</div><div class="label">просмотров · ER 6,15%</div></div>
+            <div class="viral-stat-block"><div class="value">+4&nbsp;894</div><div class="label">подписчиков с&nbsp;1 ролика</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-shots reveal reveal-delay-3" style="margin-top: 56px;">
+      <div class="proof-shot">
+        <img src="img/viral-r10.jpg" alt="Reels Сводка Р10: 4,1 млн / охват 3,05 млн / +20 833" loading="lazy">
+        <div class="proof-shot-caption">Р10 · <strong>4,1&nbsp;млн</strong> · охват <strong>3,05&nbsp;млн</strong> · <strong>+20&nbsp;833</strong></div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/viral-r9.jpg" alt="Reels Сводка Р9: 1,9 млн / охват 1,39 млн / +4 894" loading="lazy">
+        <div class="proof-shot-caption">Р9 · <strong>1,9&nbsp;млн</strong> · охват <strong>1,39&nbsp;млн</strong> · <strong>+4&nbsp;894</strong></div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/viral-r1.jpg" alt="Reels Сводка Р1: 1,08 млн / охват 707 К / +2 438" loading="lazy">
+        <div class="proof-shot-caption">Р1 · <strong>1,08&nbsp;млн</strong> · охват <strong>707&nbsp;К</strong> · <strong>+2&nbsp;438</strong></div>
+      </div>
+    </div>
+
+    <div class="proof-shot-single reveal reveal-delay-4" style="margin-top: 56px;">
+      <div class="proof-shot">
+        <img src="img/top-content.jpg" alt="Топ контент за месяц: 4,1 / 1,9 / 1,7 / 1,1 млн просмотров" loading="lazy">
+        <div class="proof-shot-caption">топ контент за&nbsp;месяц · <strong>4,1 / 1,9 / 1,7 / 1,1&nbsp;млн</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LONG TAIL                                                    -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="long-tail">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Длинный хвост</span>
+      <h2>Ролики <em>продолжают работать</em></h2>
+    </div>
+
+    <p style="text-align: center; color: var(--muted); margin: -32px auto 32px; max-width: 580px; font-family: var(--display); font-style: italic; font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80; font-size: 19px;" class="reveal reveal-delay-1">
+      Через 8+ месяцев после публикации&nbsp;— только&nbsp;из 11 не-топовых роликов первой фазы:
+    </p>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th style="text-align:right; width: 30%;">Просмотры</th>
+          <th>Тема ролика</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">646&nbsp;К</td><td>проходка с&nbsp;детьми у&nbsp;двери</td></tr>
+        <tr><td class="num">348&nbsp;К</td><td>«скажи Лариса пока»</td></tr>
+        <tr><td class="num">347&nbsp;К</td><td>«забирай Багиру Багратовну»</td></tr>
+        <tr><td class="num">326&nbsp;К</td><td>белый коридор с&nbsp;девочками</td></tr>
+        <tr><td class="num">277&nbsp;К</td><td>«как баба яга забрала мальчика»</td></tr>
+        <tr><td class="num">246&nbsp;К</td><td>«я вообще люблю толстых людей»</td></tr>
+        <tr><td class="num">197&nbsp;К</td><td>с&nbsp;чёрным микроавтобусом</td></tr>
+        <tr><td class="num">185&nbsp;К</td><td>проходка с&nbsp;девочками у&nbsp;машины</td></tr>
+        <tr><td class="num">152&nbsp;К</td><td>супермаркет, дочка в&nbsp;шубе</td></tr>
+        <tr><td class="num">124&nbsp;К</td><td>Valmont, дочка с&nbsp;кремом</td></tr>
+        <tr><td class="num">108&nbsp;К</td><td>у&nbsp;двери в&nbsp;шубе</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td class="num">2,96&nbsp;млн</td><td>только&nbsp;эти 11 роликов</td></tr>
+      </tfoot>
+    </table>
+
+    <div class="proof-shots reveal reveal-delay-2" style="margin-top: 56px;">
+      <div class="proof-shot"><img src="img/longtail-1m.jpg" alt="Ролики: 1 млн / 169 / 140 тыс." loading="lazy"></div>
+      <div class="proof-shot"><img src="img/longtail-806k.jpg" alt="Ролики: 173 / 176 / 806 тыс." loading="lazy"></div>
+      <div class="proof-shot tall"><img src="img/longtail-548k.jpg" alt="Ролик: 548 тыс. просмотров" loading="lazy"></div>
+      <div class="proof-shot tall"><img src="img/longtail-463k.jpg" alt="Ролик: 463 тыс. просмотров" loading="lazy"></div>
+      <div class="proof-shot"><img src="img/longtail-397k.jpg" alt="Ролики: 174 / 201 / 397 тыс." loading="lazy"></div>
+      <div class="proof-shot"><img src="img/longtail-306k.jpg" alt="Ролики: 163 / 157 / 306 тыс." loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STORIES & ER                                                 -->
+<!-- ============================================================ -->
+<section id="stories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Сторис</span>
+      <h2>Аудитория <em>досматривает</em></h2>
+    </div>
+
+    <p style="text-align: center; color: var(--muted); margin: -32px auto 24px; max-width: 580px; font-family: var(--display); font-style: italic; font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80; font-size: 19px;" class="reveal reveal-delay-1">
+      Один сторителлинг&nbsp;— 6 сторис, нарративная линия. <strong style="color: var(--gold-bright);">Топ-сторис: 52&nbsp;859 просмотров</strong> · в&nbsp;среднем 35&nbsp;400 на&nbsp;каждую.
+    </p>
+
+    <ul class="stories-list reveal reveal-delay-2">
+      <li><span class="num-cell">01</span><span class="theme">белое платье + статуя</span><span class="views">52&nbsp;859</span></li>
+      <li><span class="num-cell">02</span><span class="theme">шуба у&nbsp;зеркала · «после развода»</span><span class="views">52&nbsp;742</span></li>
+      <li><span class="num-cell">03</span><span class="theme">коридор с&nbsp;детьми</span><span class="views">27&nbsp;123</span></li>
+      <li><span class="num-cell">04</span><span class="theme">у&nbsp;винного шкафа · «Я Каролина Читанава…»</span><span class="views">26&nbsp;933</span></li>
+      <li><span class="num-cell">05</span><span class="theme">чёрное кружево · «за моим именем стоит моя свобода»</span><span class="views">26&nbsp;491</span></li>
+      <li><span class="num-cell">06</span><span class="theme">с&nbsp;дочкой у&nbsp;белой ёлки</span><span class="views">26&nbsp;372</span></li>
+    </ul>
+
+    <div class="stories-total reveal reveal-delay-3">
+      <span class="label">Суммарный охват сторителлинга</span>
+      <span class="value">212&nbsp;520</span>
+    </div>
+
+    <div class="proof-shot-single reveal reveal-delay-4" style="margin-top: 48px;">
+      <div class="proof-shot tall">
+        <img src="img/top-stories.jpg" alt="Топ stories с просмотрами 52 859" loading="lazy">
+        <div class="proof-shot-caption">скрин Insights · топ-сторис <strong>52&nbsp;859</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACTS                                                     -->
+<!-- ============================================================ -->
+<footer class="footer" id="contacts">
+  <div class="container">
+    <span class="eyebrow reveal">Контакты для&nbsp;сотрудничества</span>
+    <h2 class="reveal reveal-delay-1">Cooperation</h2>
+    <p class="footer-tagline reveal reveal-delay-2">По&nbsp;вопросам интеграций, бартеров и&nbsp;партнёрств&nbsp;— любой из&nbsp;каналов ниже.</p>
+
+    <div class="contacts reveal reveal-delay-3">
+
+      <a href="https://www.instagram.com/pr_karolinachitanava" target="_blank" class="contact-link">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Cooperation · Instagram</span>
+            <span class="contact-handle">@pr_karolinachitanava</span>
+            <span class="contact-role">PR Каролины · входящие заявки</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://t.me/mhashimov_23" target="_blank" class="contact-link">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.643.135-.953l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Producer · Telegram</span>
+            <span class="contact-handle">@mhashimov_23</span>
+            <span class="contact-role">Малик Хошимов · продюсер блога</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/mhashimov_" target="_blank" class="contact-link">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Producer · Instagram</span>
+            <span class="contact-handle">@mhashimov_</span>
+            <span class="contact-role">альтернативный канал связи</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/karolina_chitanava" target="_blank" class="contact-link">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Сам блог · Instagram</span>
+            <span class="contact-handle">@karolina_chitanava</span>
+            <span class="contact-role">проверить актуальные цифры</span>
+          </span>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="footer-meta reveal reveal-delay-5">
+      Медиа-кит · Каролина Читанава<br>
+      Данные актуальны: май 2026<br>
+      Подготовлено: Малик Хошимов · продюсер блога
+    </div>
+  </div>
+</footer>
+
+<script>
+  const splash = document.getElementById('splash');
+  const splashCounter = document.getElementById('splashCounter');
+
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.floor(target * eased);
+      el.textContent = current.toLocaleString('ru-RU').replace(/\s/g, ' ');
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = target.toLocaleString('ru-RU').replace(/\s/g, ' ');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.remove('splash-active');
+    setTimeout(() => {
+      splash.style.display = 'none';
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in-view'), 100 + i * 100);
+      });
+    }, 800);
+  }
+
+  function skipSplash() { hideSplash(); }
+
+  setTimeout(() => animateCounter(splashCounter, 134000, 1800), 700);
+  setTimeout(hideSplash, 3200);
+
+  document.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = (scrolled / total) * 100;
+    document.documentElement.style.setProperty('--scroll', percent + '%');
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  const barchart = document.getElementById('barchartTop3');
+  if (barchart) {
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    barObserver.observe(barchart);
+  }
+
+  const chartSection = document.querySelector('.chart-section');
+  if (chartSection) {
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartSection);
+  }
+
+  const heroNumber = document.querySelector('.hero-number[data-counter]');
+  if (heroNumber) {
+    const target = parseInt(heroNumber.getAttribute('data-counter'));
+    setTimeout(() => animateCounter(heroNumber, target, 2400), 3500);
+  }
+
+  const navDots = document.getElementById('navDots');
+  const dots = document.querySelectorAll('.nav-dot');
+  setTimeout(() => navDots.classList.add('visible'), 3400);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.getAttribute('data-target'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const sections = ['hero', 'profile', 'month', 'dashboard', 'viral', 'long-tail', 'stories', 'contacts'];
+
+  function updateActiveDot() {
+    const scrollPos = window.scrollY + window.innerHeight / 3;
+    let activeId = sections[0];
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos) activeId = id;
+    }
+    dots.forEach(dot => {
+      dot.classList.toggle('active', dot.getAttribute('data-target') === activeId);
+    });
+  }
+  window.addEventListener('scroll', updateActiveDot, { passive: true });
+  updateActiveDot();
+</script>
+
+</body>
+</html>
