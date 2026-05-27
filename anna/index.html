@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<title>Видение развития блога · Анна Васильева</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0C;
+    --bg-soft:#121214;
+    --line:#1F1E1D;
+    --line-soft:#191816;
+    --text:#E8E4DE;
+    --text-mute:#9E988E;
+    --text-dim:#6A645B;
+    --accent:#C9B79B;
+    --accent-soft:#A7997D;
+    --max:1100px;
+    --gap-xl:96px;
+    --gap-l:64px;
+    --gap-m:40px;
+    --gap-s:24px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; -webkit-text-size-adjust:100%;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Mulish", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-weight:300;
+    font-size:17px;
+    line-height:1.65;
+    letter-spacing:0.005em;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    hyphens:none;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,183,155,0.07), transparent 70%),
+      radial-gradient(circle 600px at 0% 30%, rgba(201,183,155,0.04), transparent 70%),
+      radial-gradient(circle 600px at 100% 70%, rgba(201,183,155,0.04), transparent 70%);
+    background-attachment:fixed;
+  }
+  ::selection{background:var(--accent); color:#0B0B0C;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  @media (min-width:780px){ .wrap{padding:0 48px;} }
+  @media (min-width:1080px){ .wrap{padding:0 64px;} }
+
+  h1,h2,h3,h4{
+    font-family:"Cormorant Garamond", "Times New Roman", serif;
+    font-weight:300;
+    line-height:1.12;
+    letter-spacing:0;
+    text-wrap:balance;
+    color:#F2EEE8;
+    margin:0 0 0.4em;
+  }
+  h1{font-size:clamp(38px, 7vw, 64px); font-weight:300;}
+  h2{font-size:clamp(30px, 5vw, 48px);}
+  h3{font-size:clamp(22px, 3.4vw, 30px);}
+  h4{font-size:clamp(19px, 2.6vw, 24px); font-weight:400;}
+  p{margin:0 0 1em; text-wrap:pretty;}
+  p:last-child{margin-bottom:0;}
+  strong{color:#F2EEE8; font-weight:600;}
+  em{color:var(--accent); font-style:normal;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(201,183,155,0.3);}
+  a:hover{border-color:var(--accent);}
+
+  .eyebrow{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+    display:block;
+  }
+  .lead{font-size:clamp(18px, 2.2vw, 22px); line-height:1.55; color:#E8E4DE; font-weight:300; text-wrap:pretty;}
+  .muted{color:var(--text-mute);}
+  .dim{color:var(--text-dim); font-size:14px;}
+
+  section{padding:var(--gap-l) 0;}
+  @media (min-width:780px){ section{padding:var(--gap-xl) 0;} }
+  section + section{border-top:1px solid var(--line);}
+
+  /* Hero */
+  .hero{
+    padding:80px 0 56px;
+    text-align:center;
+  }
+  @media (min-width:780px){ .hero{padding:120px 0 80px;} }
+  .hero .name{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:300;
+    font-size:clamp(46px, 9vw, 88px);
+    letter-spacing:0.04em;
+    line-height:1;
+    color:#F4F0EA;
+    margin:0 0 12px;
+  }
+  .hero .slogan{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(18px, 2.6vw, 24px);
+    color:var(--accent);
+    letter-spacing:0.06em;
+    margin:0 0 28px;
+  }
+  .hero .fio{
+    font-family:"Mulish", sans-serif;
+    font-size:13px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--text-mute);
+    margin:0 0 36px;
+  }
+  .hero-positioning{
+    max-width:560px;
+    margin:0 auto;
+    font-size:17px;
+    line-height:1.7;
+    color:var(--text);
+    text-wrap:balance;
+  }
+  .hero-divider{
+    width:60px;
+    height:1px;
+    background:var(--accent);
+    margin:36px auto 0;
+    opacity:0.6;
+  }
+
+  .section-head{
+    margin-bottom:48px;
+    max-width:780px;
+  }
+  .section-head h2{margin-bottom:16px; max-width:22ch;}
+  .section-head p{color:var(--text-mute); font-size:17px; max-width:62ch; text-wrap:balance;}
+
+  .shot{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+  }
+  .shot img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+  .shot-caption{
+    font-family:"Mulish", sans-serif;
+    font-size:13px;
+    color:var(--text-mute);
+    letter-spacing:0.02em;
+    margin-top:12px;
+    line-height:1.5;
+  }
+  .shot-caption strong{color:var(--text); font-weight:600;}
+
+  .ig-feed{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:#000;
+    border:1px solid var(--line);
+  }
+  .ig-feed img{display:block; width:100%; height:auto;}
+
+  .grid-3{
+    display:grid;
+    gap:32px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:760px){ .grid-3{grid-template-columns:repeat(3, 1fr); gap:28px;} }
+
+  .topic-col{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px 30px;
+  }
+  .topic-col h4{
+    color:var(--accent);
+    font-family:"Cormorant Garamond", serif;
+    font-size:22px;
+    font-weight:400;
+    margin:0 0 18px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .topic-col ul{margin:0; padding:0; list-style:none;}
+  .topic-col li{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--text);
+    padding:6px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topic-col li:last-child{border-bottom:none;}
+
+  .grid-2{
+    display:grid;
+    gap:24px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:680px){ .grid-2{grid-template-columns:repeat(2, 1fr); gap:32px;} }
+
+  .row-shots{
+    display:grid;
+    gap:20px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:680px){ .row-shots.cols-2{grid-template-columns:repeat(2, 1fr);} }
+  @media (min-width:760px){ .row-shots.cols-3{grid-template-columns:repeat(3, 1fr);} }
+  @media (min-width:780px){ .row-shots.cols-4{grid-template-columns:repeat(4, 1fr);} }
+
+  .strength-block{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 30px;
+    margin-bottom:24px;
+  }
+  .strength-block h3{
+    font-family:"Cormorant Garamond", serif;
+    color:#F2EEE8;
+    margin:0 0 18px;
+    font-size:26px;
+    max-width:24ch;
+    text-wrap:balance;
+  }
+  .strength-block .step{
+    display:inline-block;
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .strength-block p{font-size:16px; line-height:1.65; max-width:62ch; text-wrap:pretty;}
+  .strength-block ul{margin:14px 0 0; padding-left:0; list-style:none;}
+  .strength-block ul li{
+    padding:8px 0 8px 22px;
+    position:relative;
+    font-size:15px;
+    line-height:1.55;
+    border-bottom:1px solid var(--line-soft);
+    max-width:62ch;
+    text-wrap:pretty;
+  }
+  .strength-block ul li:last-child{border-bottom:none;}
+  .strength-block ul li:before{
+    content:"";
+    position:absolute; left:0; top:18px;
+    width:10px; height:1px;
+    background:var(--accent);
+  }
+
+  .principle{
+    text-align:center;
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:48px 32px;
+    margin-bottom:48px;
+  }
+  .principle .eyebrow{margin-bottom:14px;}
+  .principle h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(28px, 4vw, 40px);
+    margin:0 0 14px;
+    color:#F4F0EA;
+  }
+  .principle p{
+    max-width:560px; margin:0 auto;
+    color:var(--text); font-size:17px; line-height:1.65;
+    text-wrap:balance;
+  }
+
+  .closing{
+    text-align:center;
+    padding:80px 0 100px;
+    border-top:1px solid var(--line);
+  }
+  .closing h2{margin-bottom:24px; max-width:22ch; margin-left:auto; margin-right:auto; text-wrap:balance;}
+  .closing p{max-width:560px; margin:0 auto 12px; color:var(--text); text-wrap:balance;}
+  .closing .signature{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    color:var(--accent);
+    margin-top:40px;
+    font-size:18px;
+  }
+
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+    max-width:760px;
+    margin:48px auto 0;
+  }
+  @media (min-width:900px){ .kpis{grid-template-columns:repeat(4, 1fr); gap:18px;} }
+  .kpi{
+    background:linear-gradient(180deg, rgba(201,183,155,0.06), rgba(201,183,155,0.01));
+    border:1px solid rgba(201,183,155,0.18);
+    border-radius:14px;
+    padding:22px 16px 20px;
+    text-align:center;
+  }
+  .kpi__num{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:300;
+    font-size:clamp(18px, 2.6vw, 24px);
+    color:#F4F0EA;
+    line-height:1.15;
+    margin-bottom:6px;
+    white-space:nowrap;
+  }
+  .kpi__num em{color:var(--accent); font-style:normal;}
+  .kpi__lbl{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--text-mute);
+  }
+
+  .author-card{
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--accent);
+    border-radius:18px;
+    padding:36px 28px;
+    text-align:center;
+    max-width:620px;
+    margin:40px auto 0;
+    position:relative;
+    box-shadow:0 30px 80px -50px rgba(201,183,155,0.4);
+  }
+  .author-card .label{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+    display:block;
+  }
+  .author-card .name-big{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(30px, 5vw, 42px);
+    font-weight:300;
+    color:#F4F0EA;
+    line-height:1.1;
+    margin:0 0 6px;
+  }
+  .author-card .role{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    color:var(--accent);
+    font-size:18px;
+    margin-bottom:24px;
+  }
+  .author-card .links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+    margin-top:20px;
+  }
+  @media (min-width:540px){ .author-card .links{flex-direction:row; justify-content:center; gap:16px;} }
+  .author-card .links a{
+    display:inline-block;
+    padding:12px 22px;
+    border:1px solid rgba(201,183,155,0.4);
+    border-radius:999px;
+    color:var(--text);
+    font-family:"Mulish", sans-serif;
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .author-card .links a:hover{
+    border-color:var(--accent);
+    background:rgba(201,183,155,0.08);
+    color:#F4F0EA;
+  }
+  .author-card .links a.primary{
+    background:var(--accent);
+    color:#0B0B0C;
+    border-color:var(--accent);
+    font-weight:600;
+  }
+  .author-card .links a.primary:hover{
+    background:#D8C8AD;
+    color:#0B0B0C;
+  }
+
+  .ornament{
+    text-align:center;
+    margin:60px auto;
+    color:var(--accent);
+    opacity:0.5;
+    letter-spacing:1em;
+    font-family:"Cormorant Garamond", serif;
+    font-size:16px;
+  }
+
+  p, li, h1, h2, h3, h4, blockquote, cite{
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="fio">Анна&nbsp;Васильева</p>
+    <h1 class="name">A&nbsp;N&nbsp;N&nbsp;A</h1>
+    <p class="slogan">Модель&nbsp;·&nbsp;Москва</p>
+    <p class="hero-positioning">
+      Финалистка&nbsp;реалити‑шоу <em>Ring&nbsp;Queen</em>. Лицо @ringqueen.ru и Федерации&nbsp;Бокса&nbsp;России. Сотрудничество с&nbsp;IBA и&nbsp;Рольф. Мисс&nbsp;Бикини&nbsp;2025&nbsp;— Топ&nbsp;3. Мисс&nbsp;Туризм&nbsp;2025&nbsp;— Топ&nbsp;10. Краса&nbsp;Башкортостана&nbsp;2024.
+    </p>
+    <div class="hero-divider"></div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="kpi__num"><em>Ring&nbsp;Queen</em></div>
+        <div class="kpi__lbl">Финалистка</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num"><em>Бикини&nbsp;2025</em></div>
+        <div class="kpi__lbl">Мисс&nbsp;·&nbsp;Топ&nbsp;3</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num"><em>Туризм&nbsp;2025</em></div>
+        <div class="kpi__lbl">Мисс&nbsp;·&nbsp;Топ&nbsp;10</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num"><em>Башкортостан</em></div>
+        <div class="kpi__lbl">Краса&nbsp;·&nbsp;2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== INSTAGRAM =================== -->
+<section id="instagram">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01&nbsp;·&nbsp;Что есть сейчас</span>
+      <h2>Instagram&nbsp;— главный медиаактив</h2>
+      <p>Профиль @vasileva.anna1. Display‑имя&nbsp;— «Модель&nbsp;Москва&nbsp;⭐️ Анна». Шапка собирает в одну точку: реалити‑шоу Ring&nbsp;Queen, Федерация&nbsp;Бокса&nbsp;России, три титула красоты, региональная корона.</p>
+    </div>
+
+    <div class="shot" style="max-width:680px; margin:0 auto 24px;">
+      <img src="assets/photo_1_2026-05-27_16-26-23.jpg" alt="Шапка профиля @vasileva.anna1">
+    </div>
+    <p class="shot-caption" style="text-align:center; max-width:680px; margin:0 auto 56px;">
+      <strong>68&nbsp;публикаций&nbsp;·&nbsp;4&nbsp;705&nbsp;подписчиков&nbsp;·&nbsp;727&nbsp;подписок.</strong> Bio формирует образ «модель&nbsp;+&nbsp;спорт&nbsp;+&nbsp;конкурсы красоты&nbsp;+&nbsp;региональная история».
+    </p>
+
+    <div class="shot" style="max-width:780px; margin:0 auto;">
+      <img src="assets/photo_2_2026-05-27_16-26-23.jpg" alt="Хайлайты @vasileva.anna1">
+    </div>
+  </div>
+</section>
+
+<!-- =================== ТЕМЫ =================== -->
+<section id="topics">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02&nbsp;·&nbsp;Что Вы транслируете сейчас</span>
+      <h2>Темы, которые уже&nbsp;живут&nbsp;в&nbsp;ленте</h2>
+      <p>По 18&nbsp;последним публикациям видно три параллельных потока&nbsp;— модельный лайфстайл, спортивно‑боксёрская ось и светская хроника. Всё на премиум‑визуале.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:48px;">
+      <div class="topic-col">
+        <h4>Премиум‑лайфстайл</h4>
+        <ul>
+          <li>Букеты роз и цветы</li>
+          <li>Mercedes&nbsp;G‑Class&nbsp;·&nbsp;Рольф</li>
+          <li>Москва‑Сити, Кремль, набережные</li>
+          <li>Яхты, премиум‑локации</li>
+          <li>Дубай — поездки, пляж, отели</li>
+          <li>Рестораны и атмосфера</li>
+        </ul>
+      </div>
+      <div class="topic-col">
+        <h4>Спорт и бокс</h4>
+        <ul>
+          <li>Тренировки в зале</li>
+          <li>Боксёрские перчатки</li>
+          <li>Мероприятия IBA</li>
+          <li>Федерация Бокса России</li>
+          <li>Партнёрский контент</li>
+          <li>Спортивный стиль</li>
+        </ul>
+      </div>
+      <div class="topic-col">
+        <h4>Светская хроника</h4>
+        <ul>
+          <li>Финал реалити «Ring&nbsp;Queen»</li>
+          <li>Совместные кадры с финалистками</li>
+          <li>Мисс&nbsp;Бикини / Мисс&nbsp;Туризм</li>
+          <li>День&nbsp;рождения&nbsp;·&nbsp;«25»</li>
+          <li>Fashion‑съёмки</li>
+          <li>Религиозно‑духовные кадры</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row-shots cols-2">
+      <div class="shot"><img src="assets/photo_3_2026-05-27_16-26-23.jpg" alt="Лента Instagram — часть 1"></div>
+      <div class="shot"><img src="assets/photo_4_2026-05-27_16-26-23.jpg" alt="Лента Instagram — часть 2"></div>
+    </div>
+    <p class="shot-caption" style="text-align:center; margin-top:14px;">
+      Визуальный код ленты&nbsp;— премиум‑эстетика, тёмная палитра, акцент на атрибутах: машина, букеты, премиум‑локации, корона.
+    </p>
+  </div>
+</section>
+
+<!-- =================== КАК СЧИТЫВАЕТСЯ =================== -->
+<section id="readout">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03&nbsp;·&nbsp;Как блог считывается со&nbsp;стороны</span>
+      <h2>Сильный визуал. Личности пока&nbsp;не&nbsp;хватает.</h2>
+      <p>Объективный взгляд внешнего зрителя — не критика, а точка отсчёта, от которой будем расти.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Наблюдение №1</span>
+      <h3>Картинка дорогая. Эмоция — холодная.</h3>
+      <p>Лента собрана аккуратно, эстетика премиальная, есть «вау‑якоря»: Mercedes&nbsp;G‑Class Рольф, букеты, реалити, корона, IBA. Но если убрать атрибуты — за ними почти не считывается человек. Внешние социальные доказательства есть в избытке, а <em>Вашего голоса, ценностей, внутреннего мира</em> в ленте практически нет.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Наблюдение №2</span>
+      <h3>Виральность есть. Подписки&nbsp;— не&nbsp;идут.</h3>
+      <p>Reels уже собирают миллионы просмотров. При этом конверсия в подписку — слабая: 4&nbsp;705 подписчиков на ленте такого охвата выглядит аномально мало.</p>
+      <p>Это значит: зритель цепляется за <em>картинку</em>, но не цепляется за <em>человека</em>. Кадр досматривает, на профиль заходит, видит набор красивых фото без личной истории — и идёт дальше. Подписаться не за что: непонятно, кто Вы вне атрибутов.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Наблюдение №3</span>
+      <h3>6 пробных Reels за 5 часов&nbsp;— и&nbsp;это сильно.</h3>
+      <p>Серия из шести роликов подряд за пять часов разгоняет алгоритм, но размывает позиционирование. Зритель не успевает связать ролики между собой и с Вами как с автором — каждый ролик воспринимается отдельно, без накопления контекста.</p>
+      <p>Сторителлинговые ролики у Вас есть — про путь, преодоления, истории. Но они тонут в общей массе трендовых нарезок с заголовками. Их нужно <em>вынести в центр блога</em>, а не использовать как редкий формат на фоне обычного контента.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ТОЧКИ РОСТА =================== -->
+<section id="growth">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04&nbsp;·&nbsp;Точки роста&nbsp;·&nbsp;6&nbsp;направлений</span>
+      <h2>Что добавить&nbsp;— чтобы блог начал расти качественно</h2>
+      <p>Это не пересборка. Это шесть направлений, которые добавляются к тому, что уже есть, и закрывают главный пробел — раскрытие Вас как личности.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №1</span>
+      <h3>Раскрытие Вас как женщины</h3>
+      <p>Главный пробел и главный рычаг. Подписчик хочет видеть не только «Модель Москва», а <em>живого человека за этим образом</em>.</p>
+      <ul>
+        <li>Ваше видение на мир, на семью, на отношения.</li>
+        <li>Ценности как женщины — что для Вас значит быть женщиной.</li>
+        <li>Хобби и интересы — то, что выходит за рамки модельного образа.</li>
+        <li>Здоровье, красота, ритуалы ухода — как часть Вашей жизни, а не работа на камеру.</li>
+      </ul>
+      <p style="margin-top:18px;">Базовое раскрытие как женщины. Не выдуманный образ, а тот, который у&nbsp;Вас уже есть — просто пока не вынесен в блог.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №2</span>
+      <h3>Семья как живая сцена&nbsp;блога</h3>
+      <p>Один из самых сильных недоиспользованных активов. Взаимодействие и коммуникация с семьёй — с мамой, с папой — это контент, который <em>разрывает Instagram</em> при таком уровне визуала.</p>
+      <p>Семейные форматы дают глубокий эмоциональный контакт и работают как универсальный мост к любой аудитории. Они закрывают вопрос «кто Вы вне модельной картинки» одним кадром.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №3</span>
+      <h3>Корни, традиции, женские&nbsp;ритуалы</h3>
+      <p>Атрибуты женственности, связанные с Вашим происхождением — традиции, ритуалы, готовка, бытовые сцены, культурный код. То, что делает Вас <em>не одной из моделей</em>, а человеком с собственной историей.</p>
+      <p>При сильной обвязке (Ring&nbsp;Queen, IBA, Рольф, корона Башкортостана) это даёт мощный контраст: с одной стороны — премиум и федеральный уровень, с другой — корни, дом, традиции. Это работает.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №4</span>
+      <h3>Бьюти‑вселенная и стиль</h3>
+      <p>Большой пласт, который у Вас уже есть в жизни — а в блоге почти отсутствует. Здесь Вы можете выстраивать узкую экспертную репутацию.</p>
+      <ul>
+        <li>Косметичка — чем пользуетесь, какие уходы, какие магазины.</li>
+        <li>Подборки любимых вещей — то, чему доверяете.</li>
+        <li>Разбор гардероба, образы — Вы хорошо разбираетесь в стиле, это нужно выносить наружу.</li>
+        <li>Wish‑list, находки, любимые места — личная навигация по миру красоты.</li>
+      </ul>
+      <p style="margin-top:18px;">Этот формат стабильно конвертирует просмотр в подписку — потому что зритель получает <em>пользу</em>, а не просто эстетический кадр.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №5</span>
+      <h3>Склейка с ценностями IBA и Федерации&nbsp;Бокса</h3>
+      <p>Сейчас Вы — лицо IBA, Федерации&nbsp;Бокса и Рольф. Партнёрский контент идёт, но он формальный: фото с мероприятия, перчатка, машина.</p>
+      <p>Если параллельно Вы начинаете говорить про <em>семью, здоровье, женственность, ценности</em> — Вы автоматически склеиваете личные ценности с ценностями партнёров. Спорт = здоровье. Бокс = сила и характер. Премиум‑авто = достижения. Корона = достоинство и культура.</p>
+      <p>Это даёт два эффекта одновременно:</p>
+      <ul>
+        <li>Вы выделяетесь на фоне коллег‑моделей — они показывают атрибуты, Вы показываете <em>смыслы</em>.</li>
+        <li>Партнёрские бренды получают глубокую ассоциацию через Вас — не «фото с лого», а живая ценностная связка. Это ценнее в разы и открывает двери к новым контрактам.</li>
+      </ul>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Направление №6</span>
+      <h3>Премиально‑эстетичный backstage</h3>
+      <p>Красивые проходки, эстетика повседневности, кадры «за кадром». Сборы перед съёмкой, дорога на мероприятие, утренние ритуалы, моменты между кадрами фотосессии.</p>
+      <p>Принципиально важно: <em>откровенно — но сдержанно</em>. Без сильных откровенностей. Если эстетика обнажения нужна — она должна быть супер‑выдержанной: художественная подача, тёплый свет, минимализм. Граница между «премиум» и «дёшево» здесь тонкая, и держать её — отдельная работа.</p>
+      <p>Этот формат закрепляет за Вами визуальный код, который потом будут копировать.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ЭФФЕКТ =================== -->
+<section id="effect">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">05&nbsp;·&nbsp;Что это даст в&nbsp;связке</span>
+      <h2>Эффект соединения</h2>
+      <p>Каждое из шести направлений по отдельности — уже плюс. Но настоящий рост даёт их соединение в одну цельную картину.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Эффект №1</span>
+      <h3>Выделение среди коллег‑моделей</h3>
+      <p>Большинство моделей сейчас в одной точке: премиум‑картинка, атрибуты, fashion‑съёмки, бренд‑партнёрки. Все похожи. Никто не запоминается надолго.</p>
+      <p>У Вас уже есть редкая обвязка — Ring&nbsp;Queen, IBA, Федерация, корона, регион. Когда к этому добавляется <em>живой человек со своими ценностями, семьёй, традициями</em> — Вас невозможно перепутать ни с кем.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Эффект №2</span>
+      <h3>Качественный рост, а не просто просмотры</h3>
+      <p>Сейчас Reels делают миллионы охватов, но люди не подписываются. После раскрытия Вас как личности этот же трафик начнёт конвертироваться: зритель цепляется за <em>человека</em>, идёт в профиль, видит — есть кого читать, и остаётся.</p>
+      <p>Это даёт здоровую базу — подписчиков, которые остаются с Вами надолго, а не размывают статистику.</p>
+    </div>
+
+    <div class="strength-block">
+      <span class="step">Эффект №3</span>
+      <h3>Углубление связки с брендами</h3>
+      <p>Чем глубже считываются Ваши ценности — тем сильнее работает партнёрский контент. Бренды получают не «модель с лого», а полноценного амбассадора со своей историей и аудиторией, которая её разделяет.</p>
+      <p>Это открывает следующий уровень контрактов: длинные кампании, эксклюзивные истории, появление в стратегических активациях, а не разовые посты.</p>
+    </div>
+
+    <div class="principle">
+      <span class="eyebrow">Главный сдвиг</span>
+      <h3>От «модели на премиум‑фоне»&nbsp;— к&nbsp;«женщине, с&nbsp;которой себя сверяют»</h3>
+      <p>Текущая лента отвечает на вопрос «как красиво». Новая лента будет отвечать на вопрос «зачем» и «кто Вы». Это другой уровень блога — и другой уровень аудитории, партнёрств и возможностей.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ФИНАЛ =================== -->
+<section class="closing">
+  <div class="wrap">
+    <span class="eyebrow">Итог</span>
+    <h2>У Вас уже очень сильная&nbsp;точка&nbsp;старта</h2>
+    <p>Реалити Ring&nbsp;Queen, IBA, Федерация&nbsp;Бокса&nbsp;России, Рольф, три титула, корона региона, премиум‑визуал, миллионные охваты Reels.</p>
+    <p>Не хватает не нового — не хватает <em>Вас в блоге как живого человека</em> и точечной работы с форматами, которые раскроют то, что у Вас уже есть.</p>
+    <p>Это та работа, которой я занимаюсь.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <div class="author-card">
+      <span class="label">Автор документа</span>
+      <p class="name-big">Малик&nbsp;Хошимов</p>
+      <p class="role">продюсер&nbsp;женских&nbsp;блогов</p>
+      <p style="color:var(--text-mute); font-size:15px; margin:0 0 8px;">
+        Среди работ — кейс с Каролиной&nbsp;Читанавой (бренд&nbsp;JAMALI): рост блога до 133&nbsp;тыс. подписчиков, охваты более 100&nbsp;млн.
+      </p>
+      <div class="links">
+        <a href="https://hasimovmalik90-oss.github.io/Site-/karolina/" target="_blank" rel="noopener" class="primary">Посмотреть кейс Каролины</a>
+        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Написать&nbsp;в&nbsp;Telegram</a>
+      </div>
+    </div>
+
+    <p class="signature">
+      С уважением, Малик
+      <small style="display:block; font-family:'Mulish',sans-serif; font-style:normal; color:var(--text-mute); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; margin-top:8px;">May&nbsp;·&nbsp;2026</small>
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
