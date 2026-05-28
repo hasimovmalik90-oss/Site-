@@ -303,12 +303,16 @@
     width:100%;
     border-collapse:collapse;
     font-size:14.5px;
+    table-layout:fixed;
   }
   .compare th, .compare td{
     padding:16px 20px;
     text-align:left;
     border-bottom:1px solid var(--line-soft);
     vertical-align:top;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    hyphens:none;
   }
   .compare th{
     font-family:"Mulish", sans-serif;
@@ -323,17 +327,31 @@
   .compare td:first-child{
     color:var(--text);
     font-weight:500;
-    width:42%;
+    width:54%;
     text-wrap:pretty;
   }
   .compare td:nth-child(2), .compare td:nth-child(3){
     color:var(--text-mute);
     text-align:center;
+    width:23%;
   }
   .compare tr:last-child td{border-bottom:none;}
   .compare .yes{color:var(--accent); font-size:18px;}
   .compare .no{color:var(--text-dim); font-size:18px;}
-  .compare .note{color:var(--text-mute); font-size:13px; font-style:italic;}
+  .compare .note{color:var(--text-mute); font-size:13px; font-style:italic; display:inline-block; margin-top:2px;}
+  @media (max-width: 640px){
+    .compare{font-size:13px;}
+    .compare th, .compare td{padding:12px 10px;}
+    .compare th{font-size:10px; letter-spacing:0.10em;}
+    .compare td:first-child{width:56%;}
+    .compare td:nth-child(2), .compare td:nth-child(3){width:22%;}
+    .compare .yes, .compare .no{font-size:16px;}
+    .compare .note{font-size:11px;}
+  }
+  @media (max-width: 420px){
+    .compare{font-size:12.5px;}
+    .compare th, .compare td{padding:10px 8px;}
+  }
 
   /* Стоимость */
   .pricing-grid{
@@ -558,7 +576,7 @@
               <span class="result">Карта сильных мест и&nbsp;точек, где есть пробелы.</span>
             </li>
             <li>
-              <strong>Выгружаю все клиентские чаты, каналы и&nbsp;переписки.</strong>
+              <strong>Выгружаю все клиентские чаты и&nbsp;переписки.</strong>
               <span class="result">Полная база реальных запросов и&nbsp;слов клиентов в&nbsp;работе.</span>
             </li>
             <li>
@@ -688,11 +706,11 @@
               <span class="result">Готовые единицы контента под&nbsp;все площадки.</span>
             </li>
             <li>
-              <strong>Один материал превращаю в&nbsp;несколько форматов: длинный YouTube → короткий Shorts → пост → карусель → публикация в&nbsp;Telegram.</strong>
+              <strong>Один материал превращаю в&nbsp;несколько форматов: длинный YouTube → короткий Shorts → пост → карусель.</strong>
               <span class="result">Максимальная отдача с&nbsp;каждой съёмки.</span>
             </li>
             <li>
-              <strong>Работаем на&nbsp;всех Ваших ключевых площадках: Instagram, YouTube, Telegram-каналы (основной + каналы поддержки продуктов, при&nbsp;необходимости — личный канал).</strong>
+              <strong>Работаем на&nbsp;всех Ваших ключевых площадках: Instagram и&nbsp;YouTube.</strong>
               <span class="result">Единая стратегия контента, согласованная под&nbsp;специфику каждой площадки.</span>
             </li>
           </ul>
@@ -766,7 +784,7 @@
       <span class="pkg-label">Что входит</span>
       <ul>
         <li>
-          <strong>Анализирую Ваши площадки: Instagram, YouTube, Telegram-каналы.</strong>
+          <strong>Анализирую Ваши площадки: Instagram и&nbsp;YouTube.</strong>
           <span class="result">Карта сильного и&nbsp;слабого контента — что снимали, какие форматы заходят, какие темы дают отклик.</span>
         </li>
         <li>
@@ -794,11 +812,11 @@
           <span class="result">Готовые единицы контента под&nbsp;все площадки.</span>
         </li>
         <li>
-          <strong>Один материал превращаю в&nbsp;несколько форматов: длинный YouTube → короткий Shorts → пост → карусель → публикация в&nbsp;Telegram.</strong>
+          <strong>Один материал превращаю в&nbsp;несколько форматов: длинный YouTube → короткий Shorts → пост → карусель.</strong>
           <span class="result">Максимальная отдача с&nbsp;каждой съёмки.</span>
         </li>
         <li>
-          <strong>Работаем на&nbsp;Ваших ключевых площадках: Instagram, YouTube, Telegram-каналы.</strong>
+          <strong>Работаем на&nbsp;Ваших ключевых площадках: Instagram и&nbsp;YouTube.</strong>
           <span class="result">Единая стратегия, согласованная под&nbsp;специфику каждой площадки.</span>
         </li>
         <li>
@@ -849,7 +867,7 @@
         </thead>
         <tbody>
           <tr><td>Аудит инфраструктуры (продукты, боты, сайты, страницы оплат)</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
-          <tr><td>Анализ площадок (Instagram&nbsp;/ YouTube&nbsp;/ Telegram)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Анализ площадок (Instagram&nbsp;/ YouTube)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
           <tr><td>Выгрузка клиентских чатов и&nbsp;разбор запросов аудитории</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
           <tr><td>Распаковка личности (100–150&nbsp;вопросов)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
           <tr><td>Позиционирование</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
