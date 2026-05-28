@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · 15 тем для блога · Неделя 6</title>
+<meta property="og:title" content="Артур Раджабов · 15 тем для блога">
+<meta property="og:description" content="Банк тем для съёмки в машине / на видео — из распаковки личности">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 720px;
+    --container-wide: 1080px;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    text-wrap: pretty;
+  }
+
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  .dust-layer { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .dust {
+    position: absolute;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(0.4px);
+    box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow);
+    animation: floatDust linear infinite;
+  }
+  @keyframes floatDust {
+    0%   { transform: translate3d(0, 100vh, 0) scale(0.4); opacity: 0; }
+    10%  { opacity: var(--max-opacity, 0.6); }
+    50%  { transform: translate3d(calc(var(--drift, 30px)), 50vh, 0) scale(1); opacity: var(--max-opacity, 0.6); }
+    90%  { opacity: var(--max-opacity, 0.6); }
+    100% { transform: translate3d(calc(var(--drift, 30px) * 2), -10vh, 0) scale(0.5); opacity: 0; }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.72  0 0 0 0 0.3  0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-logo {
+    font-family: var(--display);
+    font-size: clamp(34px, 6.5vw, 64px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s var(--ease-out) 0.2s forwards;
+    max-width: 90vw;
+  }
+  .splash-logo .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--muted);
+    margin-top: 32px;
+    opacity: 0;
+    animation: splashIn 1s var(--ease-out) 0.8s forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
+
+  .container { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.3s var(--ease);
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 14px; letter-spacing: 0; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(48px, 9vw, 120px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 24px rgba(255, 184, 77, 0.08);
+    text-wrap: balance;
+  }
+  h1.hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+    text-shadow: 0 0 18px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    text-wrap: balance;
+  }
+  h2.section-title .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  p { margin-bottom: 16px; }
+  p strong { color: var(--ink); font-weight: 500; }
+  em { font-family: var(--serif); color: var(--gold); font-style: italic; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 70% at 15% 30%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 80%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 50% 80% at 50% 50%, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 9s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse { 0% { opacity: 0.65; } 100% { opacity: 1; } }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 1200px; height: 1200px;
+    border-radius: 50%;
+    top: -400px; right: -500px;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: floatGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-80px, 60px) scale(1.1); } }
+  .hero-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 48px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta .item .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .hero-meta .item .value {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.6vw, 30px);
+    color: var(--ink-bright);
+    line-height: 1.15;
+    font-weight: 400;
+  }
+  .hero-meta .item .value .accent {
+    color: var(--gold);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  /* ============ TOPIC CARD ============ */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 50px;
+  }
+  .topic-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.05) 0%, rgba(255,255,255,0.018) 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 44px 48px;
+    transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.5s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 1px;
+    background: var(--gold);
+    opacity: 0.45;
+    transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .topic-card::after {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 70%);
+    filter: blur(28px);
+    opacity: 0.3;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .topic-card:hover, .topic-card:active {
+    border-color: var(--line-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 32px 70px rgba(0,0,0,0.5), 0 0 60px rgba(255,184,77,0.10);
+  }
+  .topic-card:hover::before, .topic-card:active::before { width: 160px; opacity: 1; }
+  .topic-card:hover::after, .topic-card:active::after { opacity: 0.7; }
+
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .topic-number {
+    font-family: var(--display);
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 300;
+    line-height: 0.95;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+    letter-spacing: -0.02em;
+  }
+  .topic-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    padding: 8px 16px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 100px;
+    background: var(--gold-glow-faint);
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .topic-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1.18;
+    margin-bottom: 28px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    position: relative;
+    z-index: 1;
+  }
+
+  .topic-hook {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.45;
+    color: var(--gold-bright);
+    font-style: italic;
+    padding: 22px 0 22px 28px;
+    border-left: 2px solid var(--gold);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    text-wrap: balance;
+  }
+  .topic-hook::before {
+    content: '«';
+    color: var(--gold-deep);
+    font-family: var(--display);
+    font-size: 28px;
+    margin-right: 6px;
+    line-height: 0;
+    vertical-align: -8px;
+  }
+  .topic-hook::after {
+    content: '»';
+    color: var(--gold-deep);
+    font-family: var(--display);
+    font-size: 28px;
+    margin-left: 4px;
+    line-height: 0;
+    vertical-align: -8px;
+  }
+
+  .topic-block {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .topic-block .b-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .topic-block p {
+    font-size: 16.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .topic-block ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 6px;
+  }
+  .topic-block ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .topic-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ============ REFS BLOCK ============ */
+  .topic-refs {
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 1;
+  }
+  .refs-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .refs-label::before { content: '📸'; }
+  .refs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .ref-slot {
+    aspect-ratio: 9 / 16;
+    border-radius: 12px;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(255,184,77,0.03),
+        rgba(255,184,77,0.03) 10px,
+        transparent 10px,
+        transparent 20px
+      ),
+      var(--bg-1);
+    border: 1px dashed var(--dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    padding: 8px;
+    transition: border-color 0.3s var(--ease);
+  }
+  .ref-slot.has-image {
+    border: 1px solid var(--line);
+    background: var(--bg-1);
+    padding: 0;
+    overflow: hidden;
+  }
+  .ref-slot.has-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s var(--ease-out);
+  }
+  .ref-slot.has-image:hover img { transform: scale(1.04); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 80px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  footer .footer-brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  footer .footer-links {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  footer .footer-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-decoration: none;
+    padding: 12px 22px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 100px;
+    transition: all 0.3s var(--ease);
+  }
+  footer .footer-link:hover {
+    background: var(--gold-glow-faint);
+    border-color: var(--gold);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .container, .container-narrow { padding: 0 24px; }
+    .hero-meta { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+
+  @media (max-width: 720px) {
+    .container, .container-narrow { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .hero { padding: 80px 0 60px; min-height: auto; }
+    .hero-meta { grid-template-columns: 1fr; gap: 18px; padding-top: 28px; }
+    .hero-meta .item .value { font-size: clamp(22px, 6vw, 28px); }
+
+    h1.hero-title { font-size: clamp(34px, 11vw, 70px); margin-bottom: 28px; }
+    .lead { font-size: 16px !important; line-height: 1.55; }
+    h2.section-title { font-size: clamp(26px, 7vw, 36px); margin-bottom: 22px; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
+
+    .topic-card { padding: 28px 22px; }
+    .topic-header { margin-bottom: 16px; }
+    .topic-number { font-size: 42px; }
+    .topic-tag { font-size: 9px; letter-spacing: 0.22em; padding: 6px 12px; }
+    .topic-title { font-size: 22px; margin-bottom: 20px; }
+    .topic-hook { font-size: 18px; padding: 16px 0 16px 18px; margin-bottom: 22px; }
+    .topic-block p { font-size: 15px; line-height: 1.65; }
+    .topic-block ul li { font-size: 14px; }
+    .topic-refs { margin-top: 22px; padding-top: 20px; }
+    .refs-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+    .splash-logo { font-size: 28px; }
+    footer { padding: 60px 0 40px; }
+    footer .footer-brand { font-size: 22px; }
+    footer .footer-meta { font-size: 10px; letter-spacing: 0.18em; }
+  }
+
+  @media (max-width: 420px) {
+    .container, .container-narrow { padding: 0 16px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<div class="dust-layer" id="dustLayer" aria-hidden="true"></div>
+
+<div class="splash" id="splash">
+  <div class="splash-logo">15 тем<br><span class="accent">для блога</span></div>
+  <div class="splash-sub">@arturradj · неделя 6</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <a href="../" class="back-link reveal">К статистике недели 6</a>
+    <div class="hero-period reveal">15 тем · банк для съёмки · формат «в машине»</div>
+    <h1 class="hero-title reveal">15 тем <span class="accent">для блога</span></h1>
+    <p class="lead reveal" style="max-width: 760px;">
+      Банк тем из распаковки личности — для разгона в машине, на видео, в моменте. По каждой теме: заголовок, хук для начала ролика, что внутри и опорные факты. Под каждой темой — слот под референсы ракурса съёмки.
+    </p>
+
+    <div class="hero-meta reveal">
+      <div class="item">
+        <div class="label">Тем в банке</div>
+        <div class="value">15</div>
+      </div>
+      <div class="item">
+        <div class="label">Источник</div>
+        <div class="value">Распаковка<br><span class="accent">@arturradj</span></div>
+      </div>
+      <div class="item">
+        <div class="label">Формат</div>
+        <div class="value">Видео в машине<br><span class="accent">~30–60 с</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOPICS ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">список тем</div>
+    <h2 class="section-title reveal">Темы <span class="accent">по порядку</span></h2>
+
+    <div class="topic-grid">
+
+      <!-- 01 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">01</div>
+          <div class="topic-tag">Семья</div>
+        </div>
+        <h3 class="topic-title">Отношения с мамой + одна тёплая история</h3>
+        <p class="topic-hook">Я ни разу маме не сказал, что у меня нет денег. Хотя были месяцы, когда не было</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Мама постарела на 10–15 лет за 2 года комы — фотографий тех лет до сих пор не показывают. Сейчас работает нянечкой в садике в Волгодонске. Когда уезжал на сборы — на вокзал не пускали, провожала с дома, всегда «берегите себя». Когда не было денег — никогда не жаловался: «мама, всё хорошо, не переживай».</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>«Руки мягкие» — её цитата из распаковки</li>
+            <li>Звонил с пустыми карманами и говорил «всё хорошо»</li>
+            <li>На вокзал не пускали — провожала с дома</li>
+            <li>Одна конкретная тёплая история (Артур вспомнит сам в кадре)</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 02 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">02</div>
+          <div class="topic-tag">Семья</div>
+        </div>
+        <h3 class="topic-title">Отношения с папой + одна история через эту призму</h3>
+        <p class="topic-hook">Мой отец видел меня два раза в год — и это сделало меня тем, кто я есть</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Отец 20+ лет работал в Москве — видел его «может, два-три раза в год». Сейчас тоже в Москве, до сих пор электрик. Никогда не поднимал руку и не повышал голос — хватало строго посмотреть. Был и папой, и тренером: снимал каждое соревнование на видеокамеру, дома вместе разбирали ошибки.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>2–3 встречи в год — и при этом главный авторитет</li>
+            <li>Снимал на видеокамеру, разбирали ошибки дома</li>
+            <li>Дисциплина строгим взглядом, без крика</li>
+            <li>Одна конкретная история через эту призму</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 03 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">03</div>
+          <div class="topic-tag">Спорт · перелом</div>
+        </div>
+        <h3 class="topic-title">Как армия отняла у меня чемпионат мира</h3>
+        <p class="topic-hook">Я был в шаге от чемпионата мира. Два листка бумаги — и всё закончилось</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>За 2 месяца до чемпионата мира в Эстонии — приехал в Москву отметиться, вручили повестку. Через 2 дня в армию. Год простоя. После армии: «был номером один в своём весе — пришёл очень злой, восстановление было тяжёлым». Профессиональную карьеру не вернул.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Чемпионат России выиграл, отобрался на Мир</li>
+            <li>2 месяца до Эстонии — повестка</li>
+            <li>Внутренние войска: Калач → Шахты → Лабинск</li>
+            <li>Год вне ковра — и финал профессиональной карьеры</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 04 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">04</div>
+          <div class="topic-tag">Бизнес · точка входа</div>
+        </div>
+        <h3 class="topic-title">Первая работа: 6 утра — 22:00 за 50 тысяч</h3>
+        <p class="topic-hook">Я работал по 16 часов и думал, что я неудачник. Это и был последний день перед тем, как всё изменилось</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Возвращался домой и думал — «я неудачник». Посвятил всю жизнь спорту, а сейчас вкалываешь с 6 до 22:00. Зарплата 50–60. Квартира 30, проезд, еда — «не хватало молодому парню». Родителям ни слова — звонил и говорил «всё хорошо». Не помнит конкретный день когда уволился — «просто накипело».</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Москва, наёмная работа после большого спорта</li>
+            <li>50–60 на руки, 30 на жильё</li>
+            <li>Родителям — «мама, всё хорошо»</li>
+            <li>Внутри накипало — без конкретного дня-триггера</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 05 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">05</div>
+          <div class="topic-tag">Убеждения</div>
+        </div>
+        <h3 class="topic-title">«В деньгах счастье» — не соглашусь с обратным</h3>
+        <p class="topic-hook">Каждый раз, когда мне говорят что не в деньгах счастье — это говорит человек, у которого их нет</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Прямая цитата из распаковки: «Когда есть деньги, ты можешь позволить себе хорошую еду, одежду, путешествовать, иметь квартиру и машину. Когда у тебя есть деньги — это и есть успех и признание. Ведь ты живёшь, а не выживаешь». Для него деньги = свобода. Без обиняков.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Деньги = свобода (прямой ответ из распаковки)</li>
+            <li>Жил в Москве в съёмной двушке с товарищем — «не шикарно, но жили»</li>
+            <li>Жёсткая позиция против привычной риторики «не в деньгах»</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 06 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">06</div>
+          <div class="topic-tag">Характер</div>
+        </div>
+        <h3 class="topic-title">Никогда не прошу о помощи и не показываю слабость</h3>
+        <p class="topic-hook">Меня учили: мужчина не плачет и не просит. Сейчас я понимаю — это работает только пока ты один</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>В распаковке два жёстких ответа: «Ты умеешь просить о помощи? — Никогда не прошу о помощи». «Можешь показать слабость? — Нет». Это про мужскую установку из дагестанской семьи и большого спорта. Можно раскрыть честно — это одновременно и сила, и ограничение.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Прямая цитата — два «нет» подряд</li>
+            <li>Воспитание + спорт = эта установка</li>
+            <li>Открытие: с появлением семьи правило перестаёт работать</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 07 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">07</div>
+          <div class="topic-tag">Семья</div>
+        </div>
+        <h3 class="topic-title">Старший брат — которого всегда хвалили вместо меня</h3>
+        <p class="topic-hook">У меня старший брат — чемпион мира. И я всю жизнь жил в его тени. Это и сделало меня тем, кто я есть</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Брат Арсен — чемпион мира по борьбе. На одних турнирах оба выигрывали в своих весах, но хвалили всегда старшего. «Меня это, конечно, обижало и цепляло». Этот «второй номер в семье» и стал двигателем. Сейчас брат тренирует детей в Волгодонске.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Брат Арсен — чемпион мира по борьбе</li>
+            <li>Хвалили всегда старшего — даже когда оба выигрывали</li>
+            <li>Сейчас тренирует детей в Волгодонске</li>
+            <li>«Второй номер» как двигатель</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 08 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">08</div>
+          <div class="topic-tag">Наставник</div>
+        </div>
+        <h3 class="topic-title">Тренер Физулин — человек, который меня поднял</h3>
+        <p class="topic-hook">Если бы не он — я бы до сих пор не знал, что могу</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Первый тренер — Физулин Андрей Александрович. Поверил, взял под свою ответственность, поставил на ноги — после комы врачи запретили спорт. Когда родители закрыли дома и запретили заниматься — тренер сам приехал, уговорил. Жив, до сих пор тренирует.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Сбегал из дома смотреть, как тренируется брат</li>
+            <li>Тренер взял под свою ответственность после комы</li>
+            <li>Приехал домой уговаривать родителей — получилось</li>
+            <li>До сих пор тренирует — благодарность жива</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 09 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">09</div>
+          <div class="topic-tag">Полезное</div>
+        </div>
+        <h3 class="topic-title">Топ-3 книг, которые меня сформировали</h3>
+        <p class="topic-hook">Три книги, после которых я перестал работать на других</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Три книги из распаковки в формате коротких рекомендаций — что взял из каждой и как применил:</p>
+          <ul>
+            <li><strong>«Богатый папа, бедный папа»</strong> — Роберт Кийосаки</li>
+            <li><strong>«Думай и богатей»</strong> — Наполеон Хилл</li>
+            <li><strong>«45 татуировок продавана»</strong> — Максим Батырев</li>
+          </ul>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Полезный контент по запросу формата</li>
+            <li>Можно одной темой, можно серией по одной книге</li>
+            <li>Прямое применение в своей бизнес-истории</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 10 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">10</div>
+          <div class="topic-tag">Личность</div>
+        </div>
+        <h3 class="topic-title">Что бы я сказал себе в 15 лет</h3>
+        <p class="topic-hook">Если бы я мог позвонить себе в 15 лет — я бы сказал одну вещь</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Прямой ответ из распаковки: «Не бойся пробовать новое и ошибаться — это лучший способ учиться. Не всё сразу получится, но каждый шаг, даже неудачный, делает тебя сильнее. Цени друзей и семью, слушай советы, но всегда оставайся собой. Не сравнивай себя с другими — у каждого свой путь. Главное — не бояться мечтать и действовать».</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Готовый монолог — снимаем как есть</li>
+            <li>Закрытие: «не сравнивай себя с другими»</li>
+            <li>Адресат — молодая аудитория, идентификация</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 11 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">11</div>
+          <div class="topic-tag">Убеждения</div>
+        </div>
+        <h3 class="topic-title">Состоявшийся мужчина — это не про деньги</h3>
+        <p class="topic-hook">Я считаю, что счастье в деньгах. Но это не делает меня мужчиной. Мужчиной меня делает другое</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Прямая цитата: «несёт ответственность за слова и поступки, не ищет виноватых. Уважает себя и других. Развивается. Надёжен — его слово имеет вес. Эмоционально зрел — управляет чувствами, умеет слушать и поддерживать. Живёт с опорой на ценности, а не только ради выгоды».</p>
+          <p>Контраст с темой #05 — две стороны одной медали.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Готовая формулировка из распаковки</li>
+            <li>Антитеза собственной теме «деньги = свобода»</li>
+            <li>5 чётких маркеров зрелого мужчины</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 12 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">12</div>
+          <div class="topic-tag">Характер · парадокс</div>
+        </div>
+        <h3 class="topic-title">Враньё. Я правдоруб — но один раз в жизни я врал</h3>
+        <p class="topic-hook">Я ненавижу враньё. Но один раз в жизни я врал. И сейчас понимаю — правильно сделал</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>У Артура жёсткая позиция против вранья: «всегда говорю прямо, что думаю. Иногда родным и близким это не нравится, но на правду не обижаются». Главная ошибка мужчин по его мнению — «которые не нагулялись, изменяют, а потом врут что любят». При этом сам признаётся в одном виде «лжи» — родителям всегда говорил «мама, всё хорошо», когда не было денег. Парадокс: правдоруб, но врал — и не жалеет.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Прямой → «говорю что думаю»</li>
+            <li>Главная мужская ошибка — врать любимым</li>
+            <li>Сам врал родителям «всё хорошо» ради их спокойствия</li>
+            <li>Защита близких vs обман — разные вещи</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 13 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">13</div>
+          <div class="topic-tag">Характер · исповедь</div>
+        </div>
+        <h3 class="topic-title">Перфекционизм. Скажу честно — это и про меня</h3>
+        <p class="topic-hook">Я скажу тебе честно — я перфекционист. И именно это сейчас мне больше всего мешает</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>Открытая исповедь. Артур признаёт за собой: «давайте снимать приколы, которые не снимаются». Много идей, много задумок — ничего не реализуется из-за стремления к идеальности. Прямо проговаривает: я в этом, я знаю что это убивает рост. Лучше сделать криво, чем не сделать идеально.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>«Снимать приколы, которые не снимаются» — самоирония</li>
+            <li>Признание сильнее любого мотивационного «давайте»</li>
+            <li>Финальный вывод: «лучше криво, чем идеально-никогда»</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 14 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">14</div>
+          <div class="topic-tag">Путешествия</div>
+        </div>
+        <h3 class="topic-title">Что больше всего удивило меня в Таиланде</h3>
+        <p class="topic-hook">Первый раз в Таиланде. То, что я увидел в первый день, я запомнил на всю жизнь</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>В распаковке прямой ответ: «Любишь путешествовать? Какое место удивило больше всего? — Очень люблю. Удивило — первый раз когда был в Таиланде и увидел там ледибоев». Разгон истории: первая реакция, как понял, что это не девушки, культурный шок.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Первая поездка в Таиланд</li>
+            <li>Ледибои — тот самый «культурный шок»</li>
+            <li>Можно повернуть в любую сторону: юмор / культура / личная реакция</li>
+            <li>Лёгкий формат, цепляет аудиторию темой</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 15 -->
+      <div class="topic-card reveal">
+        <div class="topic-header">
+          <div class="topic-number">15</div>
+          <div class="topic-tag">Лайфстайл</div>
+        </div>
+        <h3 class="topic-title">То, чего обо мне не знают — я катаюсь на сноуборде</h3>
+        <p class="topic-hook">Когда я говорю, что катаюсь на сноуборде — никто не верит. Сейчас покажу</p>
+
+        <div class="topic-block">
+          <div class="b-label">О чём</div>
+          <p>В распаковке: «Есть ли у тебя увлечение, о котором мало кто знает? — Да, мало кто знает, что я катаюсь на сноуборде». Контрастирует со спортивным образом борца. Лёгкий лайфстайл-формат, разнообразит ленту. Снимается прямо на склоне — с доской, в движении.</p>
+        </div>
+        <div class="topic-block">
+          <div class="b-label">Опорные факты</div>
+          <ul>
+            <li>Любит активный отдых: сноуборд, велосипед, коньки</li>
+            <li>Сноуборд — то, чего о борце не ожидаешь</li>
+            <li>Снимаем на горе, в движении, со склона</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ КАК СНИМАТЬ ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="eyebrow reveal">как снимать</div>
+    <h2 class="section-title reveal">Ракурс <span class="accent">для всех тем</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Один формат на все 15 тем — снимаем в машине, на ходу. Реализация: подключаем отдельного рилсмейкера или вашу SMM-щицу.
+    </p>
+
+    <div class="shot-grid reveal">
+      <div class="shot-slot has-image"><img src="референсы/ракурс-1.png" alt="Ракурс 1 — за рулём, профиль"></div>
+      <div class="shot-slot has-image"><img src="референсы/ракурс-2.png" alt="Ракурс 2 — за рулём, полу-фас"></div>
+      <div class="shot-slot has-image"><img src="референсы/ракурс-3.png" alt="Ракурс 3 — за рулём, жестикуляция"></div>
+    </div>
+
+    <div class="shot-note reveal">
+      <p>Вы едете и начинаете разгонять каждую тему.</p>
+      <p>Можно подготовиться к темам заранее. Можно — со своих слов, в моменте.</p>
+      <p><strong>Главное — не тупить. Приобретать уверенность в том, о чём вы говорите и какую тему транслируете.</strong> Это супер важно.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 50px;
+  }
+  .shot-slot {
+    aspect-ratio: 9 / 16;
+    border-radius: 16px;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(255,184,77,0.03),
+        rgba(255,184,77,0.03) 12px,
+        transparent 12px,
+        transparent 24px
+      ),
+      var(--bg-1);
+    border: 1px dashed var(--dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    text-align: center;
+    transition: border-color 0.3s var(--ease), transform 0.5s var(--ease-out);
+  }
+  .shot-slot.has-image {
+    border: 1px solid var(--line);
+    background: var(--bg-1);
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  }
+  .shot-slot.has-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s var(--ease-out);
+  }
+  .shot-slot.has-image:hover img { transform: scale(1.04); }
+
+  .shot-note {
+    margin-top: 50px;
+    padding: 36px 40px;
+    border-left: 2px solid var(--gold);
+    background: linear-gradient(90deg, rgba(255,184,77,0.04) 0%, transparent 80%);
+    border-radius: 0 18px 18px 0;
+  }
+  .shot-note p {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .shot-note p:last-child { margin-bottom: 0; }
+  .shot-note p strong { color: var(--ink-bright); font-weight: 500; }
+
+  @media (max-width: 720px) {
+    .shot-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 30px; }
+    .shot-note { padding: 22px 22px; margin-top: 30px; }
+    .shot-note p { font-size: 15px; line-height: 1.65; }
+  }
+</style>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="footer-meta">Неделя 6 · 15 тем для блога · 2026</div>
+  <div class="footer-links">
+    <a href="../" class="footer-link">Статистика недели 6</a>
+    <a href="../проблемы-и-решения/" class="footer-link">Проблемы и решения</a>
+    <a href="../взаимодействие/" class="footer-link">Взаимодействие</a>
+  </div>
+</footer>
+
+<script>
+  (function makeDust() {
+    const layer = document.getElementById('dustLayer');
+    if (!layer) return;
+    const count = window.matchMedia('(max-width: 720px)').matches ? 28 : 60;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('span');
+      d.className = 'dust';
+      const size = 1 + Math.random() * 3.4;
+      const dur = 14 + Math.random() * 22;
+      const delay = -Math.random() * dur;
+      const left = Math.random() * 100;
+      const drift = (Math.random() - 0.5) * 220;
+      const maxOpacity = 0.25 + Math.random() * 0.55;
+      d.style.width = d.style.height = size + 'px';
+      d.style.left = left + 'vw';
+      d.style.animationDuration = dur + 's';
+      d.style.animationDelay = delay + 's';
+      d.style.setProperty('--drift', drift + 'px');
+      d.style.setProperty('--max-opacity', maxOpacity);
+      layer.appendChild(d);
+    }
+  })();
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+      document.body.classList.remove('splash-active');
+    }, 1100);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

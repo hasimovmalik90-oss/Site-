@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · Взаимодействие · Неделя 6</title>
+<meta property="og:title" content="Артур Раджабов · Взаимодействие · формат А">
+<meta property="og:description" content="Социальный контент: 5 сценариев + 7 референсов рилсов на пересъёмку">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+    --container: 720px;
+    --container-wide: 1080px;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    text-wrap: pretty;
+  }
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  .dust-layer { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .dust {
+    position: absolute;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(0.4px);
+    box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow);
+    animation: floatDust linear infinite;
+  }
+  @keyframes floatDust {
+    0%   { transform: translate3d(0, 100vh, 0) scale(0.4); opacity: 0; }
+    10%  { opacity: var(--max-opacity, 0.6); }
+    50%  { transform: translate3d(calc(var(--drift, 30px)), 50vh, 0) scale(1); opacity: var(--max-opacity, 0.6); }
+    90%  { opacity: var(--max-opacity, 0.6); }
+    100% { transform: translate3d(calc(var(--drift, 30px) * 2), -10vh, 0) scale(0.5); opacity: 0; }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.72  0 0 0 0 0.3  0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-logo {
+    font-family: var(--display);
+    font-size: clamp(34px, 6.5vw, 64px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s var(--ease-out) 0.2s forwards;
+    max-width: 90vw;
+  }
+  .splash-logo .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--muted);
+    margin-top: 32px;
+    opacity: 0;
+    animation: splashIn 1s var(--ease-out) 0.8s forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
+
+  .container { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.3s var(--ease);
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 14px; letter-spacing: 0; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(48px, 9vw, 120px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 24px rgba(255, 184, 77, 0.08);
+    text-wrap: balance;
+  }
+  h1.hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+    text-shadow: 0 0 18px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    text-wrap: balance;
+  }
+  h2.section-title .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  p { margin-bottom: 16px; }
+  p strong { color: var(--ink); font-weight: 500; }
+  em { font-family: var(--serif); color: var(--gold); font-style: italic; }
+
+  /* HERO */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 70% at 15% 30%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 80%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 50% 80% at 50% 50%, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 9s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse { 0% { opacity: 0.65; } 100% { opacity: 1; } }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 1200px; height: 1200px;
+    border-radius: 50%;
+    top: -400px; right: -500px;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: floatGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-80px, 60px) scale(1.1); } }
+  .hero-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  /* PRINCIPLE */
+  .principle-block {
+    margin-top: 40px;
+    padding: 44px 48px;
+    border-left: 2px solid var(--gold);
+    background: linear-gradient(90deg, rgba(255,184,77,0.05) 0%, transparent 80%);
+    border-radius: 0 18px 18px 0;
+  }
+  .principle-block p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .principle-block p:last-child { margin-bottom: 0; }
+  .principle-block .punch {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-style: italic;
+    color: var(--gold-bright);
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  /* SCENARIO CARDS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 50px;
+  }
+  .scenario-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.05) 0%, rgba(255,255,255,0.018) 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 44px 48px;
+    transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.5s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+  .scenario-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 1px;
+    background: var(--gold);
+    opacity: 0.45;
+    transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .scenario-card::after {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 70%);
+    filter: blur(28px);
+    opacity: 0.3;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .scenario-card:hover {
+    border-color: var(--line-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 32px 70px rgba(0,0,0,0.5), 0 0 60px rgba(255,184,77,0.10);
+  }
+  .scenario-card:hover::before { width: 160px; opacity: 1; }
+  .scenario-card:hover::after { opacity: 0.7; }
+
+  .scenario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .scenario-number {
+    font-family: var(--display);
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 300;
+    line-height: 0.95;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+    letter-spacing: -0.02em;
+  }
+  .scenario-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    padding: 8px 16px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 100px;
+    background: var(--gold-glow-faint);
+    white-space: nowrap;
+    align-self: center;
+  }
+  .scenario-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1.18;
+    margin-bottom: 24px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    position: relative;
+    z-index: 1;
+  }
+  .scenario-block { margin-bottom: 22px; position: relative; z-index: 1; }
+  .scenario-block .b-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .scenario-block p {
+    font-size: 16.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .scenario-block ul { list-style: none; padding-left: 0; margin-top: 6px; }
+  .scenario-block ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .scenario-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .scenario-block .hook {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-bright);
+    padding: 4px 0 4px 18px;
+    border-left: 2px solid var(--gold);
+    line-height: 1.5;
+  }
+
+  /* TEMPO + CONDITION */
+  .tempo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .tempo-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.06) 0%, rgba(255,255,255,0.018) 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tempo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 1px;
+    background: var(--gold);
+    opacity: 0.45;
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .tempo-card .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .tempo-card h3 {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .tempo-card p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .tempo-card .big {
+    font-family: var(--display);
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: 300;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+    line-height: 1;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  /* REELS REFS */
+  .reels-refs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 50px;
+  }
+  .reel-ref {
+    display: block;
+    text-decoration: none;
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.4s var(--ease);
+    position: relative;
+  }
+  .reel-ref:hover {
+    border-color: var(--line-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 50px rgba(255,184,77,0.12);
+  }
+  .reel-ref .cover {
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-deep);
+  }
+  .reel-ref .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-out);
+  }
+  .reel-ref:hover .cover img { transform: scale(1.05); }
+  .reel-ref .play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease);
+    z-index: 2;
+  }
+  .reel-ref:hover .play-btn {
+    background: var(--gold);
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 30px var(--gold-glow);
+  }
+  .reel-ref .play-btn::before {
+    content: '';
+    width: 0; height: 0;
+    border-left: 14px solid var(--ink-bright);
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    margin-left: 4px;
+  }
+  .reel-ref:hover .play-btn::before { border-left-color: var(--bg); }
+  .reel-ref .meta {
+    padding: 16px 18px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .reel-ref .num {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .reel-ref .open {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 80px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  footer .footer-brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  footer .footer-links {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  footer .footer-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-decoration: none;
+    padding: 12px 22px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 100px;
+    transition: all 0.3s var(--ease);
+  }
+  footer .footer-link:hover {
+    background: var(--gold-glow-faint);
+    border-color: var(--gold);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .container, .container-narrow { padding: 0 24px; }
+    .tempo-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .container, .container-narrow { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .hero { padding: 80px 0 60px; min-height: auto; }
+    h1.hero-title { font-size: clamp(34px, 11vw, 70px); margin-bottom: 28px; }
+    .lead { font-size: 16px !important; line-height: 1.55; }
+    h2.section-title { font-size: clamp(26px, 7vw, 36px); margin-bottom: 22px; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
+
+    .principle-block { padding: 24px 22px; }
+    .principle-block p { font-size: 15px; line-height: 1.65; }
+    .principle-block .punch { font-size: 18px; margin-top: 16px; padding-top: 16px; }
+
+    .scenario-card { padding: 28px 22px; }
+    .scenario-header { margin-bottom: 16px; }
+    .scenario-number { font-size: 42px; }
+    .scenario-tag { font-size: 9px; letter-spacing: 0.22em; padding: 6px 12px; }
+    .scenario-title { font-size: 22px; margin-bottom: 18px; }
+    .scenario-block p { font-size: 15px; line-height: 1.65; }
+    .scenario-block ul li { font-size: 14px; }
+    .scenario-block .hook { font-size: 16px; padding-left: 14px; }
+
+    .tempo-card { padding: 24px 22px; }
+    .tempo-card .big { font-size: 38px; }
+
+    .reels-refs { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 30px; }
+    .reel-ref .meta { padding: 12px 14px 14px; }
+    .reel-ref .num { font-size: 18px; }
+    .reel-ref .play-btn { width: 44px; height: 44px; }
+    .reel-ref .play-btn::before { border-left-width: 11px; border-top-width: 7px; border-bottom-width: 7px; }
+
+    .splash-logo { font-size: 28px; }
+    footer { padding: 60px 0 40px; }
+    footer .footer-brand { font-size: 22px; }
+    footer .footer-meta { font-size: 10px; letter-spacing: 0.18em; }
+  }
+
+  @media (max-width: 420px) {
+    .container, .container-narrow { padding: 0 16px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<div class="dust-layer" id="dustLayer" aria-hidden="true"></div>
+
+<div class="splash" id="splash">
+  <div class="splash-logo">взаимо<br><span class="accent">действие</span></div>
+  <div class="splash-sub">@arturradj · формат А · неделя 6</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <a href="../" class="back-link reveal">К статистике недели 6</a>
+    <div class="hero-period reveal">формат А · социальный контент</div>
+    <h1 class="hero-title reveal">Взаимо<span class="accent">действие</span></h1>
+    <p class="lead reveal" style="max-width: 760px;">
+      Социальный контент с врачами, тренером, коллегами, клиентами и прохожими. 5 сценариев, темп — один ролик в день, плюс 7 рилсов на пересъёмку.
+    </p>
+  </div>
+</section>
+
+<!-- ============ ГЛАВНЫЙ ПРИНЦИП ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="eyebrow reveal">01 · Главный принцип</div>
+    <h2 class="section-title reveal">Максимальное <span class="accent">взаимодействие</span></h2>
+
+    <div class="principle-block reveal">
+      <p>Взаимодействуем со всеми, кто рядом — друзья, коллеги, врачи, тренер, клиенты, официанты, прохожие. С теми, с кем чаще всего пересекаемся в течение дня.</p>
+      <p>Цель — живые, не наигранные реакции. Без скованности. Без подготовки на камеру.</p>
+      <p class="punch">Без социального контента не будет ни роста, ни разнообразия.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 СЦЕНАРИЕВ ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">02 · Сценарии</div>
+    <h2 class="section-title reveal">5 сценариев <span class="accent">взаимодействия</span></h2>
+
+    <div class="scenario-grid">
+
+      <!-- 01 -->
+      <div class="scenario-card reveal">
+        <div class="scenario-header">
+          <div class="scenario-number">01</div>
+          <div class="scenario-tag">Клиника · розыгрыш</div>
+        </div>
+        <h3 class="scenario-title">Серьёзный разговор с врачом / администратором</h3>
+        <div class="scenario-block">
+          <div class="b-label">Заход</div>
+          <p class="hook">«Нам нужно серьёзно поговорить» / «Есть один важный разговор»</p>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Как снимаем</div>
+          <ul>
+            <li>Надел очки, заходишь в любой кабинет</li>
+            <li>«Давай отойдём» — отходите в сторону</li>
+            <li>Реально по-серьёзному начинаешь: «у нас такая ситуация, нам нужно тебя уволить»</li>
+            <li>Грузишь расписанием, графиком клиентов — реально, без шуток</li>
+            <li>Сначала человек не в шоке — потом понимает, что серьёзно. Тут и идёт реакция</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Ядро ролика</div>
+          <p>Шок-реакция в момент, когда человек принимает разговор за чистую монету.</p>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="scenario-card reveal">
+        <div class="scenario-header">
+          <div class="scenario-number">02</div>
+          <div class="scenario-tag">Клиника · скрытый</div>
+        </div>
+        <h3 class="scenario-title">Бытовые разговоры с клиентами на ресепшене</h3>
+        <div class="scenario-block">
+          <div class="b-label">Как снимаем</div>
+          <ul>
+            <li>Телефон ставится снизу, под ресепшеном</li>
+            <li>Разгоняешь бытовые темы с теми, кто пришёл: «как у вас дела?», ЖКХ, коммуналка, налоги, проблемы</li>
+            <li>Человек не знает, что идёт съёмка → отвечает открыто, без скованности</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Почему работает</div>
+          <p>Универсальные темы охватывают гигантское количество людей — каждый узнаёт себя. Получаются живые, не наигранные ответы.</p>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="scenario-card reveal">
+        <div class="scenario-header">
+          <div class="scenario-number">03</div>
+          <div class="scenario-tag">Сфера услуг</div>
+        </div>
+        <h3 class="scenario-title">Короткие портреты официантов и работников сферы услуг</h3>
+        <div class="scenario-block">
+          <div class="b-label">Как снимаем</div>
+          <ul>
+            <li>В кафе / маникюре / автомойке — расспросить кто работает</li>
+            <li>Может, человек просто подрабатывает официантом, пока ничего не знает</li>
+            <li>Или девочка работает официанткой и параллельно мастером по маникюру — пытается реализоваться</li>
+            <li>Записывать <strong>свои мысли</strong> прямо в диалоге — что думаешь, что цепляет</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Идея</div>
+          <p>Показывать обычных людей с их историями. Микро-портрет за 30 секунд.</p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="scenario-card reveal">
+        <div class="scenario-header">
+          <div class="scenario-number">04</div>
+          <div class="scenario-tag">Помощь · реакция</div>
+        </div>
+        <h3 class="scenario-title">Пачка чипсов с 1000₽ для нуждающихся</h3>
+        <div class="scenario-block">
+          <div class="b-label">Как снимаем</div>
+          <ul>
+            <li>Около торговых центров — где сидят те, кому ты часто помогаешь</li>
+            <li>Купить пачку чипсов</li>
+            <li>Слегка при открытии вложить туда 1000 рублей</li>
+            <li>Подойти, дать пачку → он открывает <strong>прямо при тебе</strong></li>
+            <li>Видит деньги — снимаем реакцию</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Ожидание</div>
+          <p>Разрыв реакции — момент, когда человек понимает, что произошло.</p>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="scenario-card reveal">
+        <div class="scenario-header">
+          <div class="scenario-number">05</div>
+          <div class="scenario-tag">Тренер · утро</div>
+        </div>
+        <h3 class="scenario-title">Утренние диалоги с тренером + советы подписчикам</h3>
+        <div class="scenario-block">
+          <div class="b-label">Как снимаем</div>
+          <ul>
+            <li>Каждое утро на тренировке разгоняем диалоги</li>
+            <li>«Здорово, привет, как дела?» — естественный заход</li>
+            <li>Через диалог встраиваем советы подписчикам:</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Что транслируем в советах</div>
+          <ul>
+            <li>Как держать режим</li>
+            <li>Как вставать рано</li>
+            <li>Как никогда не опаздывать</li>
+          </ul>
+        </div>
+        <div class="scenario-block">
+          <div class="b-label">Формат</div>
+          <p>Польза приходит не как монолог, а как живой разговор с тренером.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ТЕМП + УСЛОВИЕ ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">03 · Темп и условие</div>
+    <h2 class="section-title reveal">Один ролик <span class="accent">в день</span></h2>
+
+    <div class="tempo-grid">
+
+      <div class="tempo-card reveal">
+        <div class="label">темп</div>
+        <div class="big">1 / день</div>
+        <h3>Один социальный ролик в день</h3>
+        <p>Опора — расписание дня. Где будешь, во сколько, с кем — оттуда и сюжет.</p>
+      </div>
+
+      <div class="tempo-card reveal">
+        <div class="label">условие</div>
+        <h3>Заранее сообщать расписание</h3>
+        <p>Чтобы я мог точнее помогать с рекомендациями «как / что / когда отснять» — Артуру важно заранее говорить, где будет в течение дня. Плюс-минус.</p>
+        <p>Без расписания заранее обдумать съёмку наперёд невозможно.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ РЕФЕРЕНСЫ РИЛСОВ ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">04 · Референсы на пересъёмку</div>
+    <h2 class="section-title reveal">7 рилсов <span class="accent">переснимаем</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Открыть в Instagram — по тапу на обложку.
+    </p>
+
+    <div class="reels-refs reveal">
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DYm49Mas4_i/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-1.jpg" alt="Референс 1" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">01</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DYR0P2zv9km/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-2.jpg" alt="Референс 2" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">02</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DYr9MuTIxvf/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-3.jpg" alt="Референс 3" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">03</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DYrIl0kolFa/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-4.jpg" alt="Референс 4" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">04</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DSJm5v1iKda/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-5.jpg" alt="Референс 5" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">05</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DV2F8lNjOCn/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-6.jpg" alt="Референс 6" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">06</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+      <a class="reel-ref" href="https://www.instagram.com/reel/DYRhTabMoFi/" target="_blank" rel="noopener">
+        <div class="cover">
+          <img src="референсы/обложка-7.jpg" alt="Референс 7" loading="lazy">
+          <div class="play-btn"></div>
+        </div>
+        <div class="meta">
+          <div class="num">07</div>
+          <div class="open">Открыть →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="footer-meta">Неделя 6 · взаимодействие · формат А · 2026</div>
+  <div class="footer-links">
+    <a href="../" class="footer-link">Статистика недели 6</a>
+    <a href="../проблемы-и-решения/" class="footer-link">Проблемы и решения</a>
+    <a href="../темы-для-блога/" class="footer-link">15 тем для блога</a>
+  </div>
+</footer>
+
+<script>
+  (function makeDust() {
+    const layer = document.getElementById('dustLayer');
+    if (!layer) return;
+    const count = window.matchMedia('(max-width: 720px)').matches ? 28 : 60;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('span');
+      d.className = 'dust';
+      const size = 1 + Math.random() * 3.4;
+      const dur = 14 + Math.random() * 22;
+      const delay = -Math.random() * dur;
+      const left = Math.random() * 100;
+      const drift = (Math.random() - 0.5) * 220;
+      const maxOpacity = 0.25 + Math.random() * 0.55;
+      d.style.width = d.style.height = size + 'px';
+      d.style.left = left + 'vw';
+      d.style.animationDuration = dur + 's';
+      d.style.animationDelay = delay + 's';
+      d.style.setProperty('--drift', drift + 'px');
+      d.style.setProperty('--max-opacity', maxOpacity);
+      layer.appendChild(d);
+    }
+  })();
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+      document.body.classList.remove('splash-active');
+    }, 1100);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
