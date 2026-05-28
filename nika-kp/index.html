@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<title>Коммерческое предложение · Великая женщина · Ника Саломатова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0C;
+    --bg-soft:#121214;
+    --line:#1F1E1D;
+    --line-soft:#191816;
+    --text:#E8E4DE;
+    --text-mute:#9E988E;
+    --text-dim:#6A645B;
+    --accent:#C9B79B;
+    --accent-soft:#A7997D;
+    --max:1100px;
+    --gap-xl:96px;
+    --gap-l:64px;
+    --gap-m:40px;
+    --gap-s:24px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; -webkit-text-size-adjust:100%;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Mulish", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-weight:300;
+    font-size:17px;
+    line-height:1.65;
+    letter-spacing:0.005em;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    hyphens:none;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,183,155,0.07), transparent 70%),
+      radial-gradient(circle 600px at 0% 30%, rgba(201,183,155,0.04), transparent 70%),
+      radial-gradient(circle 600px at 100% 70%, rgba(201,183,155,0.04), transparent 70%);
+    background-attachment:fixed;
+  }
+  ::selection{background:var(--accent); color:#0B0B0C;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  @media (min-width:780px){ .wrap{padding:0 48px;} }
+  @media (min-width:1080px){ .wrap{padding:0 64px;} }
+
+  h1,h2,h3,h4{
+    font-family:"Cormorant Garamond", "Times New Roman", serif;
+    font-weight:300;
+    line-height:1.12;
+    letter-spacing:0;
+    text-wrap:balance;
+    color:#F2EEE8;
+    margin:0 0 0.4em;
+  }
+  h1{font-size:clamp(38px, 7vw, 64px); font-weight:300;}
+  h2{font-size:clamp(30px, 5vw, 48px);}
+  h3{font-size:clamp(22px, 3.4vw, 30px);}
+  h4{font-size:clamp(19px, 2.6vw, 24px); font-weight:400;}
+  p{margin:0 0 1em; text-wrap:pretty;}
+  p:last-child{margin-bottom:0;}
+  strong{color:#F2EEE8; font-weight:600;}
+  em{color:var(--accent); font-style:normal;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(201,183,155,0.3);}
+  a:hover{border-color:var(--accent);}
+
+  .eyebrow{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+    display:block;
+  }
+  .lead{font-size:clamp(18px, 2.2vw, 22px); line-height:1.55; color:#E8E4DE; font-weight:300; text-wrap:pretty;}
+  .muted{color:var(--text-mute);}
+  .dim{color:var(--text-dim); font-size:14px;}
+
+  section{padding:var(--gap-l) 0;}
+  @media (min-width:780px){ section{padding:var(--gap-xl) 0;} }
+  section + section{border-top:1px solid var(--line);}
+
+  /* Hero */
+  .hero{
+    padding:80px 0 56px;
+    text-align:center;
+  }
+  @media (min-width:780px){ .hero{padding:120px 0 80px;} }
+  .hero .label{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 28px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 7vw, 72px);
+    letter-spacing:0.01em;
+    line-height:1.05;
+    color:#F4F0EA;
+    margin:0 0 18px;
+  }
+  .hero .slogan{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(18px, 2.6vw, 24px);
+    color:var(--accent);
+    letter-spacing:0.04em;
+    margin:0 auto 36px;
+    max-width:640px;
+  }
+  .hero-positioning{
+    max-width:640px;
+    margin:0 auto;
+    font-size:17px;
+    line-height:1.7;
+    color:var(--text);
+  }
+  .hero-divider{
+    width:60px;
+    height:1px;
+    background:var(--accent);
+    margin:36px auto 0;
+    opacity:0.6;
+  }
+
+  .section-head{
+    margin-bottom:48px;
+    max-width:780px;
+  }
+  .section-head h2{margin-bottom:16px;}
+  .section-head p{color:var(--text-mute); font-size:17px; max-width:680px;}
+
+  /* Принципиальная карта */
+  .principle{
+    text-align:center;
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:48px 32px;
+    margin-bottom:48px;
+  }
+  .principle .eyebrow{margin-bottom:14px;}
+  .principle h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(28px, 4vw, 40px);
+    margin:0 0 14px;
+    color:#F4F0EA;
+  }
+  .principle p{
+    max-width:620px; margin:0 auto;
+    color:var(--text); font-size:17px; line-height:1.65;
+  }
+
+  /* Карточка пакета (верхнего уровня) */
+  .pkg{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 30px;
+    margin-bottom:40px;
+  }
+  @media (min-width:780px){ .pkg{padding:48px 44px;} }
+  .pkg .pkg-label{
+    display:inline-block;
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .pkg h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(28px, 4vw, 38px);
+    color:#F4F0EA;
+    margin:0 0 14px;
+  }
+  .pkg .pkg-sub{
+    color:var(--text-mute);
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:28px;
+    max-width:720px;
+  }
+
+  /* Внутренний блок (Фундамент / Контент / Сервис) */
+  .block{
+    margin-top:36px;
+    padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .block:first-of-type{margin-top:0; padding-top:0; border-top:none;}
+  .block-name{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .block h4{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(22px, 3vw, 28px);
+    color:#F2EEE8;
+    margin:0 0 24px;
+  }
+
+  /* Подраздел внутри блока */
+  .sub{
+    margin-bottom:28px;
+  }
+  .sub:last-child{margin-bottom:0;}
+  .sub-head{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--accent);
+    margin:0 0 14px;
+    font-weight:400;
+  }
+  .sub ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .sub ul li{
+    padding:12px 0 12px 22px;
+    position:relative;
+    font-size:15.5px;
+    line-height:1.6;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .sub ul li:last-child{border-bottom:none;}
+  .sub ul li:before{
+    content:"";
+    position:absolute; left:0; top:22px;
+    width:10px; height:1px;
+    background:var(--accent);
+  }
+  .sub ul li strong{color:#F2EEE8; font-weight:600; display:block; margin-bottom:4px;}
+  .sub ul li .result{color:var(--text-mute); font-size:14.5px; line-height:1.55;}
+
+  /* Линейный пакет (Только контент) — без блоков */
+  .pkg-linear ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .pkg-linear ul li{
+    padding:14px 0 14px 22px;
+    position:relative;
+    font-size:15.5px;
+    line-height:1.6;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .pkg-linear ul li:last-child{border-bottom:none;}
+  .pkg-linear ul li:before{
+    content:"";
+    position:absolute; left:0; top:24px;
+    width:10px; height:1px;
+    background:var(--accent);
+  }
+  .pkg-linear ul li strong{color:#F2EEE8; font-weight:600; display:block; margin-bottom:4px;}
+  .pkg-linear ul li .result{color:var(--text-mute); font-size:14.5px; line-height:1.55;}
+
+  /* Что не входит */
+  .not-included{
+    margin-top:32px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .not-included .nm{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:14px;
+  }
+  .not-included ul{
+    margin:0; padding:0; list-style:none;
+    color:var(--text-mute);
+  }
+  .not-included ul li{
+    padding:6px 0 6px 22px;
+    position:relative;
+    font-size:14.5px;
+  }
+  .not-included ul li:before{
+    content:"—";
+    position:absolute; left:0; top:6px;
+    color:var(--text-dim);
+  }
+
+  /* Сравнительная таблица */
+  .compare-wrap{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .compare{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  .compare th, .compare td{
+    padding:16px 20px;
+    text-align:left;
+    border-bottom:1px solid var(--line-soft);
+    vertical-align:top;
+  }
+  .compare th{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    background:rgba(201,183,155,0.04);
+    border-bottom:1px solid var(--accent-soft);
+  }
+  .compare td:first-child{
+    color:var(--text);
+    font-weight:500;
+    width:42%;
+  }
+  .compare td:nth-child(2), .compare td:nth-child(3){
+    color:var(--text-mute);
+    text-align:center;
+  }
+  .compare tr:last-child td{border-bottom:none;}
+  .compare .yes{color:var(--accent); font-size:18px;}
+  .compare .no{color:var(--text-dim); font-size:18px;}
+  .compare .note{color:var(--text-mute); font-size:13px; font-style:italic;}
+
+  /* Финал */
+  .closing{
+    text-align:center;
+    padding:80px 0 100px;
+    border-top:1px solid var(--line);
+  }
+  .closing h2{margin-bottom:24px;}
+  .closing p{max-width:620px; margin:0 auto 12px; color:var(--text);}
+  .closing .signature{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    color:var(--accent);
+    margin-top:40px;
+    font-size:18px;
+  }
+  .closing .signature small{
+    display:block;
+    font-family:"Mulish", sans-serif;
+    font-style:normal;
+    color:var(--text-mute);
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    margin-top:8px;
+  }
+
+  /* Декоративный разделитель */
+  .ornament{
+    text-align:center;
+    margin:60px auto;
+    color:var(--accent);
+    opacity:0.5;
+    letter-spacing:1em;
+    font-family:"Cormorant Garamond", serif;
+    font-size:16px;
+  }
+
+  p, li, h1, h2, h3, h4, blockquote, cite{
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="label">Коммерческое&nbsp;предложение</p>
+    <h1>Великая&nbsp;Женщина</h1>
+    <p class="slogan">Два формата сотрудничества — полное продюсирование под ключ или отдельная работа над контентом</p>
+    <p class="hero-positioning">
+      Этот документ описывает зоны ответственности по каждому варианту: что входит, что остаётся на Вашей стороне. На основе этого предложения проводим финальный созвон, где обсуждаем формат, KPI и условия оплаты.
+    </p>
+    <div class="hero-divider"></div>
+  </div>
+</section>
+
+<!-- =================== ПРИНЦИП =================== -->
+<section>
+  <div class="wrap">
+    <div class="principle">
+      <span class="eyebrow">Главное отличие</span>
+      <h3>Зона ответственности</h3>
+      <p>
+        В <em>полном продюсировании</em> я отвечаю за весь рост проекта: контент, продукты, продажи, операционка.
+        В пакете <em>«Только контент»</em> я отвечаю только за то, что выходит в эфир — продукты, продажи и операционка остаются на Вашей стороне.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ПОЛНОЕ ПРОДЮСИРОВАНИЕ =================== -->
+<section id="full">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Вариант&nbsp;1 · Под&nbsp;ключ</span>
+      <h2>Полное продюсирование</h2>
+      <p>Беру на себя весь рост проекта. Вы сосредотачиваетесь на своей экспертной работе и личной практике. Всё остальное собираю, контролирую и масштабирую я.</p>
+    </div>
+
+    <div class="pkg">
+      <span class="pkg-label">Что входит</span>
+
+      <!-- БЛОК I — ФУНДАМЕНТ -->
+      <div class="block">
+        <div class="block-name">Блок I</div>
+        <h4>Фундамент</h4>
+
+        <div class="sub">
+          <h5 class="sub-head">Аудит и сбор информации</h5>
+          <ul>
+            <li>
+              <strong>Анализируем все продукты, лекции, кабинеты, ботов, сайты, страницы оплат.</strong>
+              <span class="result">Полная картина текущего состояния всей инфраструктуры проекта.</span>
+            </li>
+            <li>
+              <strong>Проходимся по внутренней наполненности каждого продукта.</strong>
+              <span class="result">Карта сильных мест и точек провисания по каждому из них.</span>
+            </li>
+            <li>
+              <strong>Экспортируем все клиентские чаты, каналы, переписки.</strong>
+              <span class="result">Текстовый массив реального опыта клиентов в работе.</span>
+            </li>
+            <li>
+              <strong>Выделяем топ-10 болей, топ-10 запросов, топ-10 желаний и часто задаваемые вопросы.</strong>
+              <span class="result">Документ-карта болей и запросов аудитории — основа всего контента и продуктовых решений.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Анализ и план работ</h5>
+          <ul>
+            <li>
+              <strong>Сравниваем то, что транслирует клиент, с тем, что реально запрашивает аудитория.</strong>
+              <span class="result">Диагноз — где «не так доносим», где пробелы, что модернизировать.</span>
+            </li>
+            <li>
+              <strong>Оцениваем объём и сроки работ по каждому направлению.</strong>
+              <span class="result">План работ с приоритетами и таймингом — что делаем, в какой последовательности, сколько занимает.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Распаковка личности — «нейроинтерфейс»</h5>
+          <ul>
+            <li>
+              <strong>Проводим распаковку по блоку из 100–150 ключевых вопросов: методология, видение, миссия, опыт, ценности, взгляды, путь клиента.</strong>
+              <span class="result">Живая аудио/видео-запись на 3+ часов разговора.</span>
+            </li>
+            <li>
+              <strong>Транскрибируем ответы, структурируем по темам и блокам.</strong>
+              <span class="result">Большой документ-«нейроинтерфейс» — оцифрованное мышление клиента в текстовой форме.</span>
+            </li>
+            <li>
+              <strong>Соединяем ответы клиента с данными по болям и запросам аудитории.</strong>
+              <span class="result">«Золотая середина» — пересечение того, что клиент несёт, и того, что нужно его людям. Основа всего контента.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Позиционирование</h5>
+          <ul>
+            <li>
+              <strong>Оцениваем текущее позиционирование — что считывается, что работает.</strong>
+              <span class="result">Решение: оставляем как есть, усиливаем формулировки или дорабатываем под новую цель.</span>
+            </li>
+            <li>
+              <strong>При необходимости формулируем усиления описаний, точек отстройки, словесных опор.</strong>
+              <span class="result">Обновлённые формулировки позиционирования и описаний под платформы.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Работа с продуктовой линейкой</h5>
+          <ul>
+            <li>
+              <strong>Проводим аудит существующих продуктов: наполнение, цена, формат, путь клиента внутри.</strong>
+              <span class="result">Карта продуктовой линейки с пометками — что усиливаем, что переупаковываем, чего не хватает.</span>
+            </li>
+            <li>
+              <strong>Упаковываем действующие продукты: описания, программы, лендинги, объяснение ценности.</strong>
+              <span class="result">Готовые маркетинговые материалы для каждого продукта.</span>
+            </li>
+            <li>
+              <strong>Разрабатываем новые продукты под цели проекта: мастермайнды, клубы, PDF-конспекты лекций, индивидуальные ведения, премиальные форматы.</strong>
+              <span class="result">Проработанные концепции новых продуктов — структура, наполнение, цена, лимиты, формат проведения.</span>
+            </li>
+            <li>
+              <strong>Выстраиваем путь клиента по продуктовой лестнице.</strong>
+              <span class="result">Логика перехода от точки знакомства к самому дорогому продукту.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Целеполагание и математика</h5>
+          <ul>
+            <li>
+              <strong>Фиксируем текущий входящий поток клиентов: этот месяц, прошлый, позапрошлый — по каждому продукту.</strong>
+              <span class="result">Реальная стартовая точка в цифрах.</span>
+            </li>
+            <li>
+              <strong>Ставим достижимую цель в деньгах и заявках на ближайший период.</strong>
+              <span class="result">Конкретная финансовая цель + раскладка по продуктам — сколько каких продаж нужно.</span>
+            </li>
+            <li>
+              <strong>Настраиваем отслеживание оплат и источников через бот, Продамус, аналитику.</strong>
+              <span class="result">Прозрачная воронка — видно откуда пришёл человек, какой контент сработал, где отвалился.</span>
+            </li>
+            <li>
+              <strong>Еженедельно сверяем факт с планом.</strong>
+              <span class="result">Ранний сигнал отклонений и корректировка стратегии под фактические данные.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- БЛОК II — КОНТЕНТ -->
+      <div class="block">
+        <div class="block-name">Блок II</div>
+        <h4>Контент</h4>
+
+        <div class="sub">
+          <h5 class="sub-head">Разработка форматов и производство</h5>
+          <ul>
+            <li>
+              <strong>Разрабатываем 3 сдержанных формата: говорящая голова, закадровая озвучка + видеоряд, проходки в локациях.</strong>
+              <span class="result">Утверждённая визуальная и драматургическая палитра, которая повторяется и масштабируется.</span>
+            </li>
+            <li>
+              <strong>Под каждый продукт выделяем пул тем — из распаковки и аналитики клиенток.</strong>
+              <span class="result">Утверждённый рубрикатор тем, привязанных к продуктам и продажам.</span>
+            </li>
+            <li>
+              <strong>Пишем сценарии под каждый ролик, пост, лекцию.</strong>
+              <span class="result">Готовые сценарии — клиент работает по подготовленному материалу.</span>
+            </li>
+            <li>
+              <strong>Организуем съёмки: локации, оператор, свет, звук, тайминги.</strong>
+              <span class="result">Материал, снятый в нужном объёме и качестве.</span>
+            </li>
+            <li>
+              <strong>Монтируем и упаковываем: обложки, превью, описания, ссылки, субтитры, постобработка.</strong>
+              <span class="result">Готовые единицы контента под все платформы.</span>
+            </li>
+            <li>
+              <strong>Каскадируем один материал в несколько форматов: длинный YouTube → шорт → пост → карусель → Telegram.</strong>
+              <span class="result">Максимальная отдача с каждой съёмки.</span>
+            </li>
+            <li>
+              <strong>Работаем на всех ключевых платформах клиента: Instagram, YouTube, Telegram-каналы (основной + каналы поддержки продуктов, при необходимости — личный канал).</strong>
+              <span class="result">Единая стратегия контента, согласованная под специфику каждой площадки.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- БЛОК III — СЕРВИС -->
+      <div class="block">
+        <div class="block-name">Блок III</div>
+        <h4>Сервис</h4>
+
+        <div class="sub">
+          <h5 class="sub-head">Реализация и контроль</h5>
+          <ul>
+            <li>
+              <strong>Ведём календарь публикаций с привязкой к темам и продуктам.</strong>
+              <span class="result">Прозрачный план — что выходит, где и когда.</span>
+            </li>
+            <li>
+              <strong>Соблюдаем обещанные сроки выхода материалов, особенно в прогревочных циклах.</strong>
+              <span class="result">Клиент не выпадает из коммуникации с аудиторией — обещано к этой дате, к этой дате вышло.</span>
+            </li>
+            <li>
+              <strong>Отслеживаем связку «контент → реакция → продажи» по каждой единице.</strong>
+              <span class="result">Понимание что заходит, что нет, какие темы и форматы дают результат.</span>
+            </li>
+            <li>
+              <strong>Готовим еженедельную и ежемесячную отчётность.</strong>
+              <span class="result">Клиент видит метрики, движение к цели, эффективность вложений.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub">
+          <h5 class="sub-head">Дисциплина решений и сопровождение</h5>
+          <ul>
+            <li>
+              <strong>Фиксируем все стратегические договорённости документально и в рабочем чате.</strong>
+              <span class="result">Нет «у меня было другое в голове» — всё расписано, кто за что отвечает, кто принимает финальное решение.</span>
+            </li>
+            <li>
+              <strong>В процессе работы собираем «набор пунктов идеальности» — критерии, по которым материалы и решения проходят / не проходят.</strong>
+              <span class="result">Единая планка качества для контента и продуктов на всю работу.</span>
+            </li>
+            <li>
+              <strong>При сопротивлениях или сомнениях ставим отдельный созвон и разбираем с разных точек зрения — методология, опыт, кейсы — почему действие нужно.</strong>
+              <span class="result">Проработанное решение, а не остановка проекта на «давайте подумаем три дня».</span>
+            </li>
+            <li>
+              <strong>Мелкие шероховатости дорабатываем, стратегические решения после согласования не пересматриваем.</strong>
+              <span class="result">Проект движется к цели без потери темпа.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== ТОЛЬКО КОНТЕНТ =================== -->
+<section id="content-only">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Вариант&nbsp;2 · Контент</span>
+      <h2>Только работа с контентом</h2>
+      <p>Если у Вас уже выстроены продажи, продукты и операционка, и Вам нужна только сильная и системная контентная сторона — этот пакет закрывает её целиком.</p>
+    </div>
+
+    <div class="pkg pkg-linear">
+      <span class="pkg-label">Что входит</span>
+      <ul>
+        <li>
+          <strong>Анализируем платформы клиента: Instagram, YouTube, Telegram-каналы.</strong>
+          <span class="result">Карта сильного и слабого контента — что снимали, какие форматы заходят, какие темы дают отклик.</span>
+        </li>
+        <li>
+          <strong>Проводим распаковку личности по блоку из 100–150 ключевых вопросов: методология, видение, миссия, опыт, ценности, путь клиента.</strong>
+          <span class="result">Большой документ-«нейроинтерфейс» — клиент перестаёт мучиться «о чём рассказать».</span>
+        </li>
+        <li>
+          <strong>Собираем рубрикатор тем на пересечении нейроинтерфейса и реальных запросов аудитории.</strong>
+          <span class="result">Утверждённый список тем и направлений на ближайший период.</span>
+        </li>
+        <li>
+          <strong>Разрабатываем 3 сдержанных формата: говорящая голова, закадровая озвучка + видеоряд, проходки в локациях.</strong>
+          <span class="result">Утверждённая визуальная и драматургическая палитра, которая повторяется и масштабируется.</span>
+        </li>
+        <li>
+          <strong>Пишем сценарии под каждый ролик, пост, лекцию.</strong>
+          <span class="result">Клиент работает по подготовленному материалу.</span>
+        </li>
+        <li>
+          <strong>Организуем съёмки: локации, оператор, свет, звук, тайминги.</strong>
+          <span class="result">Материал, снятый в нужном объёме и качестве.</span>
+        </li>
+        <li>
+          <strong>Монтируем и упаковываем: обложки, превью, описания, ссылки, субтитры, постобработка.</strong>
+          <span class="result">Готовые единицы контента под все платформы.</span>
+        </li>
+        <li>
+          <strong>Каскадируем один материал в несколько форматов: длинный YouTube → шорт → пост → карусель → Telegram.</strong>
+          <span class="result">Максимальная отдача с каждой съёмки.</span>
+        </li>
+        <li>
+          <strong>Работаем на ключевых платформах клиента: Instagram, YouTube, Telegram-каналы.</strong>
+          <span class="result">Единая стратегия, согласованная под специфику каждой площадки.</span>
+        </li>
+        <li>
+          <strong>Передаём готовые файлы по утверждённому графику.</strong>
+          <span class="result">Обещано к этой дате — к этой дате готово.</span>
+        </li>
+        <li>
+          <strong>Проводим регулярные созвоны по контенту.</strong>
+          <span class="result">Сверка по утверждённой стратегии, тактические корректировки.</span>
+        </li>
+        <li>
+          <strong>Документируем все решения по форматам, темам, сценариям.</strong>
+          <span class="result">Прозрачность — кто что утвердил, что меняем.</span>
+        </li>
+      </ul>
+
+      <div class="not-included">
+        <div class="nm">Что не входит в этот пакет</div>
+        <ul>
+          <li>Работа с продуктовой линейкой (упаковка, новые продукты)</li>
+          <li>Целеполагание по деньгам и математика продаж</li>
+          <li>Воронки, бот, лид-магниты, аналитика оплат</li>
+          <li>Операционное ведение проекта</li>
+          <li>Стратегические созвоны по бизнесу</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== СРАВНЕНИЕ =================== -->
+<section id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Сравнение пакетов</span>
+      <h2>Что входит в каждый вариант</h2>
+      <p>Кратко — по зонам ответственности и составу работы.</p>
+    </div>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Зона</th>
+            <th>Полное<br>под ключ</th>
+            <th>Только<br>контент</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Аудит инфраструктуры (продукты, боты, сайты, страницы оплат)</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Анализ платформ (IG / YT / TG)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Экспорт клиентских чатов + топ-10 болей / запросов / желаний</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Распаковка личности (100–150 вопросов, нейроинтерфейс)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Позиционирование</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Работа с продуктовой линейкой</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Целеполагание и математика продаж</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>3 сдержанных формата контента</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Сценарии, съёмки, монтаж, упаковка</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Каскадирование (YouTube → шорт → пост → ТГ)</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Работа на всех платформах клиента</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Календарь публикаций и соблюдение сроков</td><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
+          <tr><td>Связка «контент → продажи» и отчётность по метрикам</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Дисциплина решений и «набор пунктов идеальности»</td><td><span class="yes">●</span> <span class="note">по всему проекту</span></td><td><span class="yes">●</span> <span class="note">в рамках контента</span></td></tr>
+          <tr><td>Сопровождение при сопротивлениях</td><td><span class="yes">●</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Регулярные созвоны</td><td><span class="yes">●</span> <span class="note">стратегические</span></td><td><span class="yes">●</span> <span class="note">тактические</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ФИНАЛ =================== -->
+<section class="closing">
+  <div class="wrap">
+    <span class="eyebrow">Дальше</span>
+    <h2>Финальный созвон</h2>
+    <p>
+      После Вашего решения — назначаем финальный созвон, на котором обсуждаем формат, объём работ, KPI и условия оплаты применительно к Вашему проекту.
+    </p>
+    <p>
+      Условия оплаты строятся от операционки объёма, а не от продаж. Это даёт прозрачность для обеих сторон и фиксирует обязательства до начала работы.
+    </p>
+    <div class="signature">
+      Малик&nbsp;Хошимов
+      <small>Продюсер</small>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
