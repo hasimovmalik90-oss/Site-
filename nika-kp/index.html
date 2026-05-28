@@ -376,6 +376,65 @@
     font-size:16px;
   }
 
+  /* Гарантия */
+  .guarantee-grid{
+    display:grid;
+    gap:24px;
+    grid-template-columns:1fr;
+    margin-bottom:36px;
+  }
+  @media (min-width:780px){ .guarantee-grid{grid-template-columns:repeat(2, 1fr); gap:28px;} }
+  .guarantee-card{
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--accent);
+    border-radius:18px;
+    padding:36px 32px;
+    text-align:left;
+    box-shadow:0 30px 80px -50px rgba(201,183,155,0.4);
+  }
+  .guarantee-label{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  .guarantee-card h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:clamp(22px, 3vw, 28px);
+    color:#F4F0EA;
+    margin:0 0 16px;
+    font-weight:300;
+    text-wrap:balance;
+  }
+  .guarantee-card p{
+    color:var(--text);
+    font-size:15.5px;
+    line-height:1.6;
+    text-wrap:pretty;
+    margin:0;
+  }
+  .guarantee-card .return{
+    display:inline-block;
+    margin-top:18px;
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--accent);
+  }
+  .guarantee-terms{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 28px;
+    color:var(--text-mute);
+    font-size:14.5px;
+    line-height:1.65;
+    text-wrap:pretty;
+  }
+  .guarantee-terms strong{color:var(--text); font-weight:500;}
+
   p, li, h1, h2, h3, h4{
     word-break:keep-all;
     overflow-wrap:break-word;
@@ -781,6 +840,41 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- =================== ГАРАНТИЯ =================== -->
+<section id="guarantee">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center; margin:0 auto 48px;">
+      <span class="eyebrow">Гарантия</span>
+      <h2>Возврат 50%, если нет осязаемого роста</h2>
+      <p style="margin:0 auto;">Беру финансовую ответственность за&nbsp;результат своей работы — в&nbsp;каждом из&nbsp;двух пакетов отдельно.</p>
+    </div>
+
+    <div class="guarantee-grid">
+      <div class="guarantee-card">
+        <div class="guarantee-label">Полное продюсирование</div>
+        <h3>Если рост блога и&nbsp;продаж не&nbsp;вырос минимум в&nbsp;1–2&nbsp;раза</h3>
+        <p>
+          Если при моих рекомендациях, методах и&nbsp;решениях рост блога и&nbsp;продаж не&nbsp;увеличился минимум в&nbsp;1–2&nbsp;раза от&nbsp;стартовых показателей по&nbsp;согласованному плану работ — возвращаю 50%&nbsp;стоимости.
+        </p>
+        <span class="return">— 50%&nbsp;возврата</span>
+      </div>
+
+      <div class="guarantee-card">
+        <div class="guarantee-label">Только контент</div>
+        <h3>Если охваты и&nbsp;просмотры не&nbsp;выросли минимум в&nbsp;1–2&nbsp;раза</h3>
+        <p>
+          Если охваты, просмотры и&nbsp;общая статистика не&nbsp;выросли минимум в&nbsp;1–2&nbsp;раза от&nbsp;текущих показателей либо рост неосязаемый — возвращаю 50%&nbsp;стоимости.
+        </p>
+        <span class="return">— 50%&nbsp;возврата</span>
+      </div>
+    </div>
+
+    <div class="guarantee-terms">
+      <strong>Условие действия гарантии:</strong> распаковка пройдена в&nbsp;срок, материалы согласованы в&nbsp;течение 24–48&nbsp;часов, съёмки прошли по&nbsp;согласованному графику, стратегические решения после согласования не&nbsp;пересматриваются. Все материалы остаются у&nbsp;Вас навсегда.
+    </div>
   </div>
 </section>
 
