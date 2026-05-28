@@ -373,6 +373,52 @@
     margin-top:8px;
   }
 
+  /* Стоимость */
+  .pricing-grid{
+    display:grid;
+    gap:24px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:680px){ .pricing-grid{grid-template-columns:repeat(2, 1fr); gap:32px;} }
+  .price-card{
+    background:linear-gradient(180deg, var(--bg-soft), var(--bg));
+    border:1px solid var(--accent);
+    border-radius:18px;
+    padding:48px 36px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 30px 80px -50px rgba(201,183,155,0.4);
+  }
+  .price-card .price-label{
+    font-family:"Mulish", sans-serif;
+    font-size:11px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:24px;
+  }
+  .price-card .price-num{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:300;
+    font-size:clamp(48px, 7vw, 68px);
+    line-height:1;
+    color:#F4F0EA;
+    margin:0 0 10px;
+  }
+  .price-card .price-num .cur{color:var(--accent); font-style:normal;}
+  .price-card .price-period{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    color:var(--text-mute);
+    font-size:16px;
+  }
+  .pricing-note{
+    text-align:center;
+    margin-top:32px;
+    color:var(--text-mute);
+    font-size:15px;
+  }
+
   /* Декоративный разделитель */
   .ornament{
     text-align:center;
@@ -414,6 +460,19 @@
       <p>
         В <em>полном продюсировании</em> я отвечаю за весь рост проекта: контент, продукты, продажи, операционка.
         В пакете <em>«Только контент»</em> я отвечаю только за то, что выходит в эфир — продукты, продажи и операционка остаются на Вашей стороне.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ОБЪЁМ РАБОТЫ =================== -->
+<section id="scope">
+  <div class="wrap">
+    <div class="principle">
+      <span class="eyebrow">Объём работы</span>
+      <h3>Столько, сколько нужно для цели</h3>
+      <p>
+        Делаем столько, сколько необходимо для достижения нашей общей цели — в комфортном темпе и порядке. Без жёстких квот по количеству единиц в месяц: фокус на качество, последовательность и движение к результату.
       </p>
     </div>
   </div>
@@ -760,16 +819,40 @@
   </div>
 </section>
 
+<!-- =================== СТОИМОСТЬ =================== -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Стоимость</span>
+      <h2 style="margin-bottom:12px;">Условия по двум форматам</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">Полное продюсирование</div>
+        <div class="price-num">200&nbsp;000&nbsp;<span class="cur">₽</span></div>
+        <div class="price-period">в&nbsp;месяц</div>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Только контент</div>
+        <div class="price-num">120&nbsp;000&nbsp;<span class="cur">₽</span></div>
+        <div class="price-period">в&nbsp;месяц</div>
+      </div>
+    </div>
+
+    <p class="pricing-note">
+      Оплата строится от операционки объёма, не от продаж. Минимальный срок сотрудничества — от 3&nbsp;месяцев.
+    </p>
+  </div>
+</section>
+
 <!-- =================== ФИНАЛ =================== -->
 <section class="closing">
   <div class="wrap">
     <span class="eyebrow">Дальше</span>
     <h2>Финальный созвон</h2>
     <p>
-      После Вашего решения — назначаем финальный созвон, на котором обсуждаем формат, объём работ, KPI и условия оплаты применительно к Вашему проекту.
-    </p>
-    <p>
-      Условия оплаты строятся от операционки объёма, а не от продаж. Это даёт прозрачность для обеих сторон и фиксирует обязательства до начала работы.
+      После Вашего решения — назначаем финальный созвон, на котором фиксируем формат, объём работ, KPI и стартовые сроки применительно к Вашему проекту.
     </p>
     <div class="signature">
       Малик&nbsp;Хошимов
