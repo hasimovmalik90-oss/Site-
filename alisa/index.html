@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Видение развития проекта · Алиса Сеймур</title>
+<meta name="description" content="Разбор площадок и видение развития личного бренда Алисы Сеймур — Instagram, YouTube, Telegram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0809;
+    --bg-2:#120c0e;
+    --card:#17100f;
+    --card-2:#1d1413;
+    --line:#2b1d1d;
+    --text:#efe7e0;
+    --muted:#a99a92;
+    --faint:#7a6b66;
+    --wine:#9e1b24;
+    --wine-2:#c0202a;
+    --wine-glow:rgba(192,32,42,.35);
+    --gold:#c9a86a;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    hyphens:none;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+  img{max-width:100%}
+  ::selection{background:var(--wine);color:#fff}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:820px;margin:0 auto;padding:0 24px}
+
+  h1,h2,h3{line-height:1.08;font-weight:700;text-wrap:balance}
+  p{text-wrap:pretty}
+  .serif{font-family:var(--serif)}
+  .accent{color:var(--wine-2)}
+  .gold{color:var(--gold)}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:108px 0;position:relative;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--wine-2);font-weight:700;margin-bottom:22px;display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--wine)}
+  .sec-title{font-family:var(--serif);font-size:clamp(34px,5.2vw,58px);font-weight:600;letter-spacing:-.01em;margin-bottom:26px}
+  .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:680px;line-height:1.65}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    border-top:none;padding:120px 0 90px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(1100px 620px at 78% 18%,rgba(158,27,36,.22),transparent 60%),
+               radial-gradient(800px 600px at 10% 90%,rgba(158,27,36,.10),transparent 55%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2}
+  .hero-kicker{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
+  .hero h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(54px,11vw,128px);letter-spacing:-.02em;line-height:.94;margin-bottom:8px;
+  }
+  .hero h1 .sub{display:block;font-size:clamp(20px,3.4vw,34px);color:var(--muted);font-weight:400;font-style:italic;letter-spacing:0;margin-top:18px}
+  .hero-desc{margin-top:38px;font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:600px}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:46px;margin-top:60px;margin-bottom:40px}
+  .hstat .num{font-family:var(--serif);font-size:clamp(34px,5vw,52px);font-weight:600;color:var(--text);line-height:1}
+  .hstat .lbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-top:10px}
+  .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);z-index:2}
+  @media(max-width:760px),(max-height:780px){.scroll-hint{display:none}}
+  .scroll-hint::after{content:"";display:block;width:1px;height:34px;background:linear-gradient(var(--wine),transparent);margin:14px auto 0}
+
+  /* ---------- CARDS ---------- */
+  .card{
+    background:linear-gradient(162deg,#211615 0%,#160e0e 60%,#120c0c 100%);
+    border:1px solid var(--line);
+    border-radius:18px;padding:30px;position:relative;overflow:hidden;
+    box-shadow:0 24px 48px -28px rgba(0,0,0,.9),0 4px 12px -6px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.045);
+    transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,border-color .45s;
+  }
+  .card::after{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,rgba(192,32,42,.5),transparent);opacity:0;transition:opacity .45s}
+  .card:hover{transform:translateY(-5px);border-color:#3c2726;box-shadow:0 40px 70px -30px rgba(0,0,0,.95),0 8px 20px -8px rgba(120,16,22,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+  .card:hover::after{opacity:1}
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .pain-num{font-family:var(--serif);font-size:30px;color:var(--wine-2);font-weight:600;line-height:1;margin-bottom:12px}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .card p{font-size:15px;color:var(--muted);line-height:1.62}
+
+  /* quote */
+  .quote{
+    border-left:2px solid var(--wine);padding:6px 0 6px 28px;margin:26px 0;
+    font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,27px);color:var(--text);line-height:1.4;
+  }
+  .quote small{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:16px}
+
+  /* figure / screenshots */
+  figure{margin:0}
+  .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card-2);box-shadow:0 24px 60px -30px rgba(0,0,0,.9)}
+  .shot img{display:block;width:100%;height:auto}
+  figcaption{font-size:12.5px;color:var(--faint);margin-top:12px;letter-spacing:.04em;text-align:center}
+  .reels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+
+  /* metric chips */
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .chip{background:var(--card-2);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--muted)}
+  .chip b{color:var(--text);font-weight:700}
+
+  /* lists */
+  .ulist{list-style:none;display:grid;gap:14px;margin-top:8px}
+  .ulist li{position:relative;padding-left:30px;color:var(--muted);font-size:15.5px;line-height:1.6}
+  .ulist li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--wine-2);box-shadow:0 0 10px var(--wine-glow)}
+  .ulist li b{color:var(--text);font-weight:600}
+
+  /* tables */
+  .tbl{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
+  .tbl th,.tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .tbl th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .tbl td:first-child{font-variant-numeric:tabular-nums;color:var(--wine-2);font-weight:700;white-space:nowrap}
+  .tbl tr:hover td{background:rgba(158,27,36,.05)}
+  .tbl .hot td:first-child{color:var(--gold)}
+
+  /* steps */
+  .step{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .si{font-family:var(--serif);font-size:40px;font-weight:600;color:var(--wine);line-height:1}
+  .step h3{font-size:20px;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:15.5px}
+  .give{margin-top:14px;padding:14px 18px;background:rgba(201,168,106,.06);border:1px solid rgba(201,168,106,.22);border-radius:10px;font-size:14px;color:var(--text)}
+  .give b{color:var(--gold);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:5px}
+
+  /* proof / case */
+  .proof{background:linear-gradient(160deg,#1a1012,#120c0e);border:1px solid var(--line);border-radius:20px;padding:46px;text-align:center}
+  .proof .pstats{display:flex;justify-content:center;flex-wrap:wrap;gap:54px;margin:34px 0 0}
+  .proof .pnum{font-family:var(--serif);font-size:clamp(40px,7vw,68px);font-weight:600;color:var(--gold);line-height:1}
+  .proof .plbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+  .case-link{display:inline-flex;align-items:center;gap:8px;margin-top:34px;padding:14px 30px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);text-decoration:none;font-size:14px;letter-spacing:.06em;transition:all .35s cubic-bezier(.2,.7,.2,1)}
+  .case-link:hover{background:var(--gold);color:#1a1010;box-shadow:0 0 30px rgba(201,168,106,.35);transform:translateY(-2px)}
+
+  /* ---------- PROGRESS BAR ---------- */
+  .progress-bar{position:fixed;top:0;left:0;width:var(--scroll,0%);height:2px;background:linear-gradient(to right,transparent,var(--wine-2),var(--gold));box-shadow:0 0 18px var(--wine-glow);z-index:998;transition:width .05s linear}
+
+  /* ---------- SPLASH ---------- */
+  body.splash-active{overflow:hidden}
+  .splash{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s cubic-bezier(.2,.7,.2,1),visibility .8s}
+  .splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+  .splash::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 500px at 50% 42%,rgba(158,27,36,.28),transparent 62%);pointer-events:none}
+  .splash-label{position:relative;z-index:2;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:26px;opacity:0;animation:spIn .8s cubic-bezier(.2,.7,.2,1) .3s forwards}
+  .splash-name{position:relative;z-index:2;font-family:var(--serif);font-weight:600;font-size:clamp(56px,12vw,120px);line-height:1;color:var(--text);letter-spacing:-.02em;text-shadow:0 0 70px var(--wine-glow);margin-bottom:30px;opacity:0;animation:spIn 1s cubic-bezier(.2,.7,.2,1) .5s forwards}
+  .splash-sub{position:relative;z-index:2;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--wine-2);margin-bottom:44px;opacity:0;animation:spIn .8s cubic-bezier(.2,.7,.2,1) .8s forwards}
+  .splash-loader{position:relative;z-index:2;width:220px;height:1px;background:var(--line);overflow:hidden;opacity:0;animation:spIn .4s ease .4s forwards}
+  .splash-loader::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent,var(--wine-2),transparent);transform:translateX(-100%);animation:loaderSweep 2s ease .5s forwards}
+  .splash-skip{position:absolute;bottom:32px;right:32px;z-index:2;background:none;border:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:11px 20px;border-radius:999px;cursor:pointer;transition:all .3s;opacity:0;animation:spIn .4s ease 1.4s forwards}
+  .splash-skip:hover{color:var(--wine-2);border-color:var(--wine)}
+  @keyframes loaderSweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+  @keyframes spIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{padding:26px 0;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+  .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .marquee::before{left:0;background:linear-gradient(to right,var(--bg-2),transparent)}
+  .marquee::after{right:0;background:linear-gradient(to left,var(--bg-2),transparent)}
+  .marquee-track{display:flex;gap:70px;animation:marquee 42s linear infinite;white-space:nowrap;width:max-content}
+  .marquee-item{display:inline-flex;align-items:baseline;gap:13px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .marquee-item .num{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--wine-2);text-transform:none;letter-spacing:-.01em}
+  .marquee-star{color:var(--gold)}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* shield (защита) */
+  .shield{background:radial-gradient(700px 400px at 50% 0,rgba(158,27,36,.16),transparent 60%),var(--card)}
+
+  /* price */
+  .price-box{background:linear-gradient(160deg,#1c1113,#100b0c);border:1px solid var(--wine);border-radius:22px;padding:52px 40px;text-align:center;box-shadow:0 0 80px -40px var(--wine-glow)}
+  .price-box .ptag{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .price-box .pval{font-family:var(--serif);font-size:clamp(56px,11vw,96px);font-weight:600;line-height:1;color:#fff}
+  .price-box .pnote{color:var(--muted);font-size:16px;margin-top:20px;max-width:520px;margin-inline:auto}
+  .guarantee{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 24px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:14px;letter-spacing:.04em}
+
+  /* nav dots */
+  .nav-dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:50;display:none;flex-direction:column;gap:14px;opacity:0;transition:opacity .4s}
+  .nav-dots.visible{opacity:1}
+  .nav-dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--faint);background:transparent;cursor:pointer;transition:all .3s;padding:0}
+  .nav-dot.active{background:var(--wine-2);border-color:var(--wine-2);box-shadow:0 0 12px var(--wine-glow);transform:scale(1.25)}
+  @media(min-width:1280px){.nav-dots{display:flex}}
+
+  /* footer */
+  footer{padding:70px 0;text-align:center;border-top:1px solid var(--line);color:var(--faint);font-size:13px;letter-spacing:.05em}
+  footer .sig{font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:10px;font-style:italic}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in-view{opacity:1;transform:none}
+
+  @media(max-width:760px){
+    section{padding:74px 0}
+    .g2,.g3{grid-template-columns:1fr}
+    .step{grid-template-columns:44px 1fr;gap:14px}
+    .step .si{font-size:30px}
+    .proof{padding:30px 22px}
+    .proof .pstats{gap:30px}
+    .price-box{padding:38px 22px}
+    .hero{min-height:auto;padding:108px 0 64px}
+    .hero-stats{gap:30px;margin-bottom:0}
+    .tbl th:nth-child(2),.tbl td:nth-child(2){display:none}
+    .proof .pstats{gap:24px}
+    .quote{font-size:20px}
+  }
+  @media(max-width:440px){
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px}
+    .hero h1{font-size:clamp(44px,13vw,72px)}
+    .sec-title{font-size:clamp(28px,8vw,40px)}
+    .proof .pnum{font-size:clamp(34px,11vw,52px)}
+    .price-box .pval{font-size:clamp(48px,16vw,72px)}
+    .card,.proof{padding:24px 20px}
+    .wrap,.narrow{padding:0 18px}
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<!-- SPLASH -->
+<div class="splash" id="splash">
+  <div class="splash-label">Видение развития проекта&nbsp;· 2026</div>
+  <div class="splash-name">Алиса</div>
+  <div class="splash-sub">Малик&nbsp;· продюсер&nbsp;женских&nbsp;блогов</div>
+  <div class="splash-loader"></div>
+  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar"></div>
+
+<!-- NAV DOTS -->
+<div class="nav-dots" id="navDots">
+  <button class="nav-dot" data-section="hero" title="Начало"></button>
+  <button class="nav-dot" data-section="vvodnye" title="Вводные"></button>
+  <button class="nav-dot" data-section="tochka-a" title="Точка А"></button>
+  <button class="nav-dot" data-section="instagram" title="Instagram"></button>
+  <button class="nav-dot" data-section="youtube" title="YouTube"></button>
+  <button class="nav-dot" data-section="telegram" title="Telegram"></button>
+  <button class="nav-dot" data-section="tochka-b" title="Точка Б"></button>
+  <button class="nav-dot" data-section="zashita" title="Защита"></button>
+  <button class="nav-dot" data-section="videnie" title="Видение"></button>
+  <button class="nav-dot" data-section="proof" title="Кейс"></button>
+  <button class="nav-dot" data-section="rabota" title="Как работаем"></button>
+  <button class="nav-dot" data-section="price" title="Стоимость"></button>
+</div>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-kicker reveal">Видение развития проекта&nbsp;· 2026</div>
+    <h1 class="reveal">Алиса Сеймур
+      <span class="sub">блог, который перестаёт быть просто блогом</span>
+    </h1>
+    <p class="hero-desc reveal">Полный разбор Ваших площадок, честная точка отсчёта и&nbsp;система, которая превращает охваты в&nbsp;аудиторию, аудиторию&nbsp;— в&nbsp;продажи, а&nbsp;страх блокировки&nbsp;— в&nbsp;управляемый риск.</p>
+    <div class="hero-stats reveal">
+      <div class="hstat"><div class="num"><span data-count="5932">0</span></div><div class="lbl">Instagram</div></div>
+      <div class="hstat"><div class="num"><span data-count="2578">0</span></div><div class="lbl">Telegram</div></div>
+      <div class="hstat"><div class="num"><span data-count="522">0</span></div><div class="lbl">YouTube</div></div>
+      <div class="hstat"><div class="num">3</div><div class="lbl">площадки</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Листайте</div>
+</header>
+
+<!-- MARQUEE — этапы метода -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="num">01</span> Позиционирование</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">02</span> Аудитория</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">03</span> Базовый продукт</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">04</span> Контент и воронки</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">05</span> Целеполагание</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">01</span> Позиционирование</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">02</span> Аудитория</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">03</span> Базовый продукт</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">04</span> Контент и воронки</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">05</span> Целеполагание</span><span class="marquee-star">✦</span>
+  </div>
+</div>
+
+<!-- ========== ВВОДНЫЕ ========== -->
+<section id="vvodnye">
+  <div class="narrow">
+    <div class="eyebrow reveal">С чего Вы пришли</div>
+    <h2 class="sec-title reveal">Ваш запрос&nbsp;— Вашими словами</h2>
+    <div class="quote reveal">«Любой залёт для меня&nbsp;— это жуткий стресс. Когда вижу, что&nbsp;видео начинает залетать, всё внутри сжимается, потому что&nbsp;за&nbsp;этим всегда идут жалобы. Боюсь, что&nbsp;будет как в&nbsp;прошлый раз&nbsp;— всё просто снесут».
+      <small>Алиса, из голосового сообщения</small>
+    </div>
+    <ul class="ulist reveal">
+      <li>Начинали <b>с&nbsp;продюсером</b>. По&nbsp;деньгам не&nbsp;окупилось, подписчиков почти не&nbsp;принесло. Главное, что&nbsp;дал&nbsp;— помог <b>начать и&nbsp;не&nbsp;бросить</b>.</li>
+      <li>Один аккаунт уже <b>снесли</b>. Пришлось вернуться на&nbsp;старый и&nbsp;частично перенести посты.</li>
+      <li>Сейчас ведёте <b>сами</b>, идеи придумываете сами.</li>
+      <li>Алгоритм <b>не&nbsp;любит Ваши темы</b>. «Ватники и&nbsp;борцы за&nbsp;мораль» массово кидают жалобы&nbsp;— из-за этого периодически <b>сносят видео</b>.</li>
+      <li>Часть удаётся обжаловать и&nbsp;вернуть, но&nbsp;<b>постоянный страх блокировки</b> остаётся.</li>
+    </ul>
+    <p class="lead reveal" style="margin-top:30px">Ключевой парадокс: залёты у&nbsp;Вас <b style="color:var(--text)">есть</b>, но&nbsp;они&nbsp;же Вас и&nbsp;пугают. Рост упирается не&nbsp;в&nbsp;контент&nbsp;— а&nbsp;в&nbsp;выживаемость на&nbsp;площадке. С&nbsp;этого и&nbsp;начнём.</p>
+  </div>
+</section>
+
+<!-- ========== ТОЧКА А ========== -->
+<section id="tochka-a">
+  <div class="wrap">
+    <div class="eyebrow reveal">Точка&nbsp;А · где Вы сейчас</div>
+    <h2 class="sec-title reveal">Сильный контент без&nbsp;системы и&nbsp;без&nbsp;дна воронки</h2>
+    <p class="lead reveal" style="margin-bottom:40px">У&nbsp;Вас уникальный материал и&nbsp;живая аудитория на&nbsp;трёх площадках. Но&nbsp;всё держится на&nbsp;ручном режиме, а&nbsp;трафик никуда не&nbsp;конвертируется.</p>
+    <div class="grid g3">
+      <div class="card reveal"><div class="pain-num">01</div><h3>Нет фокуса аудитории</h3><p>Контент бьёт по&nbsp;всем сразу. Не&nbsp;выбраны 1–2&nbsp;категории, под&nbsp;которые затачивается подача&nbsp;— поэтому многое не&nbsp;заходит.</p></div>
+      <div class="card reveal"><div class="pain-num">02</div><h3>Воронка без&nbsp;дна</h3><p>Трафик идёт в&nbsp;Telegram, но&nbsp;там его не&nbsp;ждёт ни&nbsp;продукт, ни&nbsp;лид-магнит. Лиды не&nbsp;собираются, не&nbsp;конвертируются.</p></div>
+      <div class="card reveal"><div class="pain-num">03</div><h3>Ноль монетизации</h3><p>За&nbsp;~2&nbsp;года&nbsp;— ни&nbsp;одного упакованного продукта с&nbsp;ценой, отзывами и&nbsp;кейсами. Аудитория есть&nbsp;— денег нет.</p></div>
+      <div class="card reveal"><div class="pain-num">04</div><h3>Заперты в&nbsp;узкой нише</h3><p>Все темы&nbsp;— внутрь эскорта. Это интересно тем, кто&nbsp;и&nbsp;так в&nbsp;теме&nbsp;— а&nbsp;таких мало. Отсюда потолок охватов.</p></div>
+      <div class="card reveal"><div class="pain-num">05</div><h3>Ценность&nbsp;= любопытство</h3><p>Контент развлекает («как в&nbsp;зоопарке»), но&nbsp;не&nbsp;решает проблему зрителя. Любопытство плохо растит лояльность.</p></div>
+      <div class="card reveal"><div class="pain-num">06</div><h3>Риск площадки</h3><p>Рост держится на&nbsp;аккаунтах, которые можно потерять по&nbsp;жалобам в&nbsp;любой момент. Резерва и&nbsp;бэкапа нет.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INSTAGRAM ========== -->
+<section id="instagram">
+  <div class="wrap">
+    <div class="eyebrow reveal">Площадка&nbsp;01 · Instagram</div>
+    <h2 class="sec-title reveal">Витрина: сильный визуал, посредственные крючки</h2>
+    <div class="chips reveal" style="margin-bottom:40px">
+      <span class="chip"><b>5&nbsp;932</b> подписчика</span>
+      <span class="chip"><b>338</b> публикаций</span>
+      <span class="chip">охваты Reels <b>761&nbsp;– 55,8&nbsp;тыс</b></span>
+    </div>
+    <div class="grid g2" style="align-items:start;gap:30px">
+      <figure class="reveal"><div class="shot"><img src="assets/ig-profile.jpg" alt="Шапка профиля Instagram"></div><figcaption>Шапка профиля · @seymour_alisa_</figcaption></figure>
+      <div class="reveal">
+        <ul class="ulist">
+          <li><b>Визуал&nbsp;— классный.</b> Premium-фотосессии, узнаваемая эстетика, лицо бренда читается сразу.</li>
+          <li><b>Reels&nbsp;— слабее по&nbsp;болям, триггерам, крючкам.</b> Причина&nbsp;— нет чёткого понимания, для&nbsp;какой именно категории девушек контент.</li>
+          <li><b>Формула вирусности уже найдена</b>, но&nbsp;не&nbsp;систематизирована: цепляющий крючок в&nbsp;первой секунде даёт залёты, но&nbsp;не&nbsp;на&nbsp;всех роликах.</li>
+          <li>Работает как&nbsp;витрина с&nbsp;уводом аудитории в&nbsp;Telegram.</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="reveal" style="margin-top:30px"><div class="shot"><img src="assets/ig-grid.jpg" alt="Лента Instagram"></div><figcaption>Лента&nbsp;— единый premium-визуал</figcaption></figure>
+    <h3 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:50px 0 22px" class="reveal">Reels и&nbsp;их охваты</h3>
+    <div class="reels-grid reveal">
+      <figure><div class="shot"><img src="assets/ig-reels-1.jpg" alt="Reels Алисы"></div></figure>
+      <figure><div class="shot"><img src="assets/ig-reels-2.jpg" alt="Reels Алисы"></div></figure>
+      <figure><div class="shot"><img src="assets/ig-reels-3.jpg" alt="Reels Алисы"></div></figure>
+      <figure><div class="shot"><img src="assets/ig-reels-4.jpg" alt="Reels Алисы"></div></figure>
+    </div>
+    <figcaption style="margin-top:16px">Разброс от&nbsp;761 до&nbsp;55,8&nbsp;тыс. Залетают провокационные крючки в&nbsp;первой секунде.</figcaption>
+  </div>
+</section>
+
+<!-- ========== YOUTUBE ========== -->
+<section id="youtube">
+  <div class="wrap">
+    <div class="eyebrow reveal">Площадка&nbsp;02 · YouTube</div>
+    <h2 class="sec-title reveal">Экспертный актив: сильные ролики, низкие охваты</h2>
+    <div class="chips reveal" style="margin-bottom:40px">
+      <span class="chip"><b>522</b> подписчика</span>
+      <span class="chip"><b>21</b> видео</span>
+      <span class="chip">~<b>21&nbsp;200</b> просмотров суммарно</span>
+      <span class="chip">формат <b>12–24&nbsp;мин</b></span>
+    </div>
+    <figure class="reveal"><div class="shot"><img src="assets/yt-thumbs.jpg" alt="Обложки роликов YouTube"></div><figcaption>21&nbsp;обложка в&nbsp;едином бренд-стиле&nbsp;— упаковка на&nbsp;уровне</figcaption></figure>
+
+    <div class="grid g2" style="margin-top:46px;gap:30px;align-items:start">
+      <div class="card reveal">
+        <h3 class="gold" style="font-family:var(--serif);font-size:22px">Что уже сильно</h3>
+        <ul class="ulist" style="margin-top:16px">
+          <li><b>Начало цепляет</b>&nbsp;— сильная фраза или нарезка в&nbsp;первые секунды.</li>
+          <li><b>Держит до&nbsp;конца</b>&nbsp;— обещание истории в&nbsp;финале.</li>
+          <li><b>Главная сила&nbsp;— Ваш опыт.</b> Реально изнутри индустрии, это не&nbsp;повторить.</li>
+          <li><b>Упаковка</b>&nbsp;— обложки в&nbsp;одном стиле, описания с&nbsp;таймкодами.</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3 class="accent" style="font-family:var(--serif);font-size:22px">Что мешает расти</h3>
+        <ul class="ulist" style="margin-top:16px">
+          <li><b>Все темы&nbsp;— только про&nbsp;эскорт.</b> Рядом огромные темы (отношения, психология, деньги, безопасность), куда нет выхода.</li>
+          <li><b>Ролики ни&nbsp;к&nbsp;чему не&nbsp;ведут</b>&nbsp;— в&nbsp;конце только «лайк и&nbsp;подписка».</li>
+          <li><b>Зритель просто смотрит, как&nbsp;кино</b>&nbsp;— не&nbsp;получает пользы для&nbsp;себя.</li>
+          <li><b>Название «Утиные истории»</b> не&nbsp;говорит, о&nbsp;чём канал.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:50px 0 16px" class="reveal">Все ролики канала</h3>
+    <table class="tbl reveal">
+      <thead><tr><th>Просмотры</th><th>Дата</th><th>Ролик</th></tr></thead>
+      <tbody>
+        <tr class="hot"><td>3 711</td><td>15.08.25</td><td>Как я попала в эскорт: мой первый секс за деньги</td></tr>
+        <tr class="hot"><td>3 155</td><td>15.11.25</td><td>Анора в реальной жизни — почему зовут замуж эскортниц</td></tr>
+        <tr class="hot"><td>2 029</td><td>22.11.25</td><td>Эскорт-туры — мифы и жестокая реальность</td></tr>
+        <tr class="hot"><td>1 850</td><td>25.10.25</td><td>Как становятся эскортницами</td></tr>
+        <tr><td>1 299</td><td>06.09.25</td><td>Бордели в 2025: рабство, наркотики, рэкет</td></tr>
+        <tr><td>1 153</td><td>11.10.25</td><td>Почему клиенты влюбляются в эскортниц</td></tr>
+        <tr><td>819</td><td>08.11.25</td><td>Почему так дорого? Премиум-эскорт</td></tr>
+        <tr><td>789</td><td>27.09.25</td><td>Культ альфа-самцов: откуда взялся пикап</td></tr>
+        <tr><td>781</td><td>23.08.25</td><td>Анальный секс: моя нога зашла в него по колено</td></tr>
+        <tr><td>631</td><td>20.09.25</td><td>Такое тело хотят ВСЕ</td></tr>
+        <tr><td>621</td><td>27.12.25</td><td>Алкоголь и наркотики в эскорт-бизнесе</td></tr>
+        <tr><td>609</td><td>01.11.25</td><td>Мой первый опыт с куколдом</td></tr>
+        <tr><td>588</td><td>18.10.25</td><td>Откуда берутся извращенцы?</td></tr>
+        <tr><td>543</td><td>13.12.25</td><td>Эскорт без секса — это МИФ</td></tr>
+        <tr><td>523</td><td>13.09.25</td><td>П@рно спасёт твой секс</td></tr>
+        <tr><td>514</td><td>30.08.25</td><td>Он изменяет тебе с эскортницей: 9 типов мужчин</td></tr>
+        <tr><td>370</td><td>04.10.25</td><td>Эти вещества спасут твой секс</td></tr>
+        <tr><td>368</td><td>03.01.26</td><td>Развод на невинность: как продают девственность</td></tr>
+        <tr><td>325</td><td>29.11.25</td><td>Эротическая пластичность</td></tr>
+        <tr><td>298</td><td>20.12.25</td><td>Психология БДСМ: почему нравится, когда тебя бьют</td></tr>
+        <tr><td>261</td><td>06.12.25</td><td>Секс без табу: как говорить о желаниях</td></tr>
+      </tbody>
+    </table>
+    <p class="lead reveal" style="margin-top:30px">Главный вывод: контент работает на&nbsp;«интересно посмотреть», но&nbsp;не&nbsp;доходит до&nbsp;«это изменит мою жизнь». Поэтому при&nbsp;сильных роликах&nbsp;— мало просмотров и&nbsp;пока ноль денег.</p>
+  </div>
+</section>
+
+<!-- ========== TELEGRAM ========== -->
+<section id="telegram">
+  <div class="wrap">
+    <div class="eyebrow reveal">Площадка&nbsp;03 · Telegram</div>
+    <h2 class="sec-title reveal">Ядро аудитории и&nbsp;главный незадействованный актив</h2>
+    <div class="chips reveal" style="margin-bottom:40px">
+      <span class="chip"><b>2 578</b> подписчиков</span>
+      <span class="chip"><b>~2 700</b> постов</span>
+      <span class="chip"><b>20 931</b> реакция</span>
+      <span class="chip">~<b>1 год 9 мес</b></span>
+    </div>
+
+    <div class="grid g2" style="gap:30px;align-items:start">
+      <figure class="reveal"><div class="shot"><img src="assets/tg-profile.jpg" alt="Шапка Telegram-канала"></div><figcaption>«УТИНЫЕ ИСТОРИИ» · dont_duck_with_me</figcaption></figure>
+      <div class="reveal">
+        <h3 style="font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:16px">Эволюция канала&nbsp;— 3&nbsp;эпохи</h3>
+        <ul class="ulist">
+          <li><b>Рабочая визитка</b> (08.2024&nbsp;– весна 2025). Англоязычные посты + реклама услуг. Вовлечение 3–15.</li>
+          <li><b>Перелом</b> (середина 2025). Язык 53%&nbsp;англ → 99%&nbsp;русский. Визитка превращается в&nbsp;блог.</li>
+          <li><b>Контентный медиа-актив</b> (с&nbsp;лета 2025). Сериальный сторителлинг, рост вовлечения <b>×6–7</b>.</li>
+        </ul>
+        <p style="margin-top:18px;color:var(--muted);font-size:15px">Средние реакции: 5&nbsp;→&nbsp;21&nbsp;→&nbsp;34. Пик&nbsp;— декабрь 2025: 111&nbsp;постов. Вовлечение «фанатское», тёплое.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:50px 0 22px" class="reveal">Топ-посты&nbsp;— что заходит лучше всего</h3>
+    <div class="grid g3 reveal">
+      <figure><div class="shot"><img src="assets/tg-post-1.jpg" alt="Пост I SAID YES"></div><figcaption>«I SAID YES» · 149&nbsp;реакц · 2&nbsp;035&nbsp;просм</figcaption></figure>
+      <figure><div class="shot"><img src="assets/tg-post-2.jpg" alt="Пост Мне 27"></div><figcaption>«Мне 27» · 108&nbsp;реакц · 18&nbsp;комм</figcaption></figure>
+      <figure><div class="shot"><img src="assets/tg-post-3.jpg" alt="Пост PERFECT MATCH"></div><figcaption>«PERFECT MATCH» · 101&nbsp;реакция</figcaption></figure>
+    </div>
+    <p class="lead reveal" style="margin-top:24px">Закономерность: лучше всего заходят <b style="color:var(--text)">личные вехи и&nbsp;исповедь</b> (помолвка, возраст, брак), затем экспертка про&nbsp;индустрию и&nbsp;манифесты. Хуже всего&nbsp;— англоязычное, голые ссылки и&nbsp;дежурный small-talk.</p>
+
+    <div class="grid g2" style="margin-top:46px;gap:18px">
+      <div class="card reveal"><h3>Продуктовая линейка</h3><p><b style="color:var(--text)">Платных продуктов нет.</b> Главный шаг&nbsp;— анонс первого инфопродукта (январь&nbsp;2026), и&nbsp;тот бесплатный. Зреет тема «как выглядеть дорого».</p></div>
+      <div class="card reveal"><h3>Воронки и&nbsp;призывы</h3><p>Бот вопросов, переливы на&nbsp;YouTube и&nbsp;Instagram. Нет платной воронки, нет закрытого канала, нет точки сбора лида.</p></div>
+      <div class="card reveal"><h3>Что нигде не&nbsp;раскрывалось</h3><p>Нет цен на&nbsp;обучение, нет кейсов и&nbsp;людей «кто проходил», нет структурированного продукта с&nbsp;тарифами.</p></div>
+      <div class="card reveal"><h3>Отзывы</h3><p>Оформленных отзывов о&nbsp;продукте&nbsp;— ноль. Есть «отзыв на&nbsp;консультацию»&nbsp;— значит личная работа уже зарождается, но&nbsp;без упаковки.</p></div>
+    </div>
+
+    <div class="card reveal" style="margin-top:18px;border-color:var(--wine)">
+      <h3 class="gold">Единственная явная цена за&nbsp;всю историю</h3>
+      <p>Платный приват-канал 18+&nbsp;— <b style="color:var(--text)">$100</b> для первых подписчиков (октябрь&nbsp;2024, другая эпоха). Все остальные суммы в&nbsp;канале&nbsp;— про&nbsp;услуги и&nbsp;личные траты. Цен на&nbsp;обучающие продукты&nbsp;— нет.</p>
+    </div>
+
+    <div class="card reveal" style="margin-top:18px">
+      <h3>Бесплатное&nbsp;— вывод</h3>
+      <p>Оформленной механики лид-магнита нет. «Бесплатное»&nbsp;= просто щедрый контент, а&nbsp;не&nbsp;оффер «действие&nbsp;→ материал». Лиды не&nbsp;собираются, на&nbsp;выходе нет платного продукта. <b style="color:var(--text)">Это&nbsp;— главная дыра и&nbsp;одновременно главная точка роста.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ТОЧКА Б ========== -->
+<section id="tochka-b">
+  <div class="narrow">
+    <div class="eyebrow reveal">Точка&nbsp;Б · куда придём</div>
+    <h2 class="sec-title reveal">Через 1–3&nbsp;месяца</h2>
+    <ul class="ulist reveal" style="font-size:17px">
+      <li>Собрано <b>позиционирование и&nbsp;упаковка</b> на&nbsp;всех площадках&nbsp;— понятно, кто&nbsp;Вы и&nbsp;на&nbsp;что подписываться.</li>
+      <li>Через опросы <b>понятна аудитория</b>: кто это, что&nbsp;болит, за&nbsp;что готовы платить. Вести контент стало легко.</li>
+      <li>Запущен <b>базовый продукт</b> (консультации&nbsp;/ сопровождение)&nbsp;— есть <b>первые реальные продажи</b>.</li>
+      <li>Аудитория начала <b>собираться в&nbsp;защищённый канал</b>&nbsp;— риск полной потери закрыт.</li>
+      <li>Есть <b>контент-модель и&nbsp;воронка</b>, а&nbsp;не&nbsp;хаос «снимаем что-нибудь».</li>
+      <li>Понятны <b>рычаги</b>: что двигает охваты, подписчиков и&nbsp;продажи&nbsp;— на&nbsp;этом строим полноценное ведение.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== ЗАЩИТА ОТ БЛОКИРОВОК ========== -->
+<section id="zashita" class="shield">
+  <div class="wrap">
+    <div class="eyebrow reveal">Закрываем главную боль</div>
+    <h2 class="sec-title reveal">Защита от&nbsp;блокировок</h2>
+    <p class="lead reveal" style="margin-bottom:44px">Это то, с&nbsp;чем Вы пришли. Один аккаунт уже снесли, любой залёт&nbsp;= жалобы и&nbsp;страх потерять всё снова. Поэтому защита от&nbsp;потери&nbsp;— не&nbsp;дополнение, а&nbsp;часть фундамента.</p>
+    <div class="grid g2">
+      <div class="card reveal"><div class="pain-num">01</div><h3>Переносим ядро в&nbsp;то, что нельзя отнять</h3><p>Instagram и&nbsp;YouTube&nbsp;— чужая территория. Telegram&nbsp;— Ваш актив, его не&nbsp;блокируют по&nbsp;жалобам. Системно переводим аудиторию в&nbsp;Telegram, чтобы при&nbsp;сносе Вы не&nbsp;теряли людей.</p></div>
+      <div class="card reveal"><div class="pain-num">02</div><h3>Резерв готовим заранее</h3><p>Дублирующий аккаунт, прогретый и&nbsp;наполненный&nbsp;— чтобы при&nbsp;блокировке переключиться за&nbsp;часы, а&nbsp;не&nbsp;собирать заново.</p></div>
+      <div class="card reveal"><div class="pain-num">03</div><h3>Бэкап контента и&nbsp;базы</h3><p>Все ролики, тексты и&nbsp;контакты аудитории хранятся отдельно. Снос площадки не&nbsp;обнуляет работу.</p></div>
+      <div class="card reveal"><div class="pain-num">04</div><h3>Снижаем провокацию жалоб</h3><p>Разбираем, какие подачи чаще собирают жалобы, и&nbsp;переупаковываем острые темы так, чтобы цеплять, но&nbsp;реже попадать под&nbsp;снос.</p></div>
+      <div class="card reveal" style="grid-column:1/-1"><div class="pain-num">05</div><h3>План действий при&nbsp;сносе</h3><p>Чёткий протокол: обжалование, быстрый перезапуск, оповещение аудитории через&nbsp;Telegram. Снос перестаёт быть катастрофой&nbsp;— становится управляемой ситуацией.</p></div>
+    </div>
+    <div class="quote reveal" style="margin-top:40px">Уходит постоянный страх. Залёт снова становится радостью, а&nbsp;не&nbsp;стрессом&nbsp;— потому что потерять всё уже невозможно.</div>
+  </div>
+</section>
+
+<!-- ========== ВИДЕНИЕ ========== -->
+<section id="videnie">
+  <div class="wrap">
+    <div class="eyebrow reveal">Видение развития · 5&nbsp;шагов</div>
+    <h2 class="sec-title reveal">Что делаем, чтобы всё&nbsp;заработало</h2>
+    <div style="margin-top:30px">
+      <div class="step reveal">
+        <div class="si">01</div>
+        <div>
+          <h3>Позиционирование и&nbsp;образ&nbsp;— фундамент</h3>
+          <p>От&nbsp;главного обещания в&nbsp;шапке зависит весь контент. Частая ошибка&nbsp;— красивая шапка и&nbsp;дальше контент вразнобой. Чтобы люди подписывались и&nbsp;досматривали, контент должен соответствовать позиционированию. Определяем 1–2&nbsp;категории аудитории и&nbsp;затачиваем подачу под&nbsp;них.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="si">02</div>
+        <div>
+          <h3>Анализ аудитории и&nbsp;первые касания</h3>
+          <p>Через опросы в&nbsp;сторис и&nbsp;Telegram понимаем, кто&nbsp;следит, что&nbsp;болит, какой продукт купят. Простая вещь, которую все знают, но&nbsp;никто не&nbsp;использует грамотно. После неё вести сторис становится на&nbsp;50%&nbsp;легче&nbsp;— и&nbsp;можно сделать первые 1–2&nbsp;продажи личных касаний.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="si">03</div>
+        <div>
+          <h3>Базовый продукт и&nbsp;его внедрение</h3>
+          <p>Пока аудитория небольшая&nbsp;— играем в&nbsp;высокочастотную модель: консультации, личное ведение, сопровождение. Много девушек в&nbsp;сфере с&nbsp;нехваткой опыта&nbsp;— им нужен сильный советник, прошедший плотный путь. Это откликнется и&nbsp;по&nbsp;взаимодействию, и&nbsp;по&nbsp;ценам. Фиксируем, что&nbsp;внедряем за&nbsp;ближайшие 3&nbsp;месяца.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="si">04</div>
+        <div>
+          <h3>Контент и&nbsp;воронки вокруг продукта</h3>
+          <p>Весь контент строим вокруг продукта: форматы под&nbsp;площадки, сбор контактов аудитории, точки сбора людей на&nbsp;продающие события. Ключевая ошибка экспертов&nbsp;— если площадки не&nbsp;дают обратную связь и&nbsp;контакты, до&nbsp;аудитории не&nbsp;дотянуться в&nbsp;нужный момент.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="si">05</div>
+        <div>
+          <h3>Целеполагание&nbsp;— куда идём</h3>
+          <p>Фиксируем цели блога. Без&nbsp;этого можно расти по&nbsp;подписчикам и&nbsp;охватам, но&nbsp;рано или&nbsp;поздно всё сломается или&nbsp;превратится в&nbsp;кашу. С&nbsp;системой&nbsp;— выстраиваем системные продажи, живые запуски от&nbsp;цикла к&nbsp;циклу, наращиваем базу и&nbsp;взаимодействуем с&nbsp;ней.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ДОКАЗАТЕЛЬСТВО ========== -->
+<section id="proof">
+  <div class="narrow">
+    <div class="eyebrow reveal">Доказательство метода</div>
+    <div class="proof reveal">
+      <h2 style="font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.2">Тот&nbsp;же метод собрал для&nbsp;Каролины Читанавы измеримый результат</h2>
+      <div class="pstats">
+        <div><div class="pnum">126K</div><div class="plbl">подписчиков</div></div>
+        <div><div class="pnum">100+ млн</div><div class="plbl">охватов</div></div>
+        <div><div class="pnum">13 мес</div><div class="plbl">работы</div></div>
+      </div>
+      <p style="color:var(--muted);margin-top:34px;max-width:560px;margin-inline:auto">С&nbsp;нуля. Та&nbsp;же система, что&nbsp;разложена выше по&nbsp;шагам&nbsp;— не&nbsp;теория и&nbsp;не&nbsp;набор лайфхаков.</p>
+      <a class="case-link" href="https://hasimovmalik90-oss.github.io/Site-/karolina/" target="_blank" rel="noopener">Открыть полный кейс&nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== КАК РАБОТАЕМ ========== -->
+<section id="rabota">
+  <div class="wrap">
+    <div class="eyebrow reveal">Формат · продюсирование под&nbsp;ключ</div>
+    <h2 class="sec-title reveal">Как мы работаем</h2>
+    <p class="lead reveal">Это не&nbsp;набор разовых услуг и&nbsp;не&nbsp;«снимем что-нибудь, посмотрим». Я&nbsp;беру на&nbsp;себя стратегию, упаковку, контент-модель и&nbsp;воронку, Вы&nbsp;— съёмку себя и&nbsp;свой голос. Каждый шаг&nbsp;— слой, без&nbsp;которого не&nbsp;работает следующий.</p>
+
+    <div class="grid g2" style="margin-top:44px;gap:18px">
+      <div class="card reveal">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:600">Что входит в&nbsp;первый этап</h3>
+        <ul class="ulist" style="margin-top:16px">
+          <li>Стратсессия на&nbsp;входе&nbsp;— разбираем всё, собираем план</li>
+          <li>Позиционирование и&nbsp;упаковка всех площадок</li>
+          <li>Анализ аудитории через&nbsp;опросы</li>
+          <li>Защита от&nbsp;блокировок: резерв, бэкап, перенос ядра</li>
+          <li>Запуск базового продукта и&nbsp;первой воронки</li>
+          <li>Контент-форматы под&nbsp;площадки</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:600">Как проходит работа</h3>
+        <ul class="ulist" style="margin-top:16px">
+          <li><b>Личный Telegram-чат</b> для постоянной связи</li>
+          <li><b>Регулярные созвоны</b> с&nbsp;разборами: что&nbsp;зашло, что&nbsp;нет, что&nbsp;меняем</li>
+          <li><b>Трекинг каждого этапа</b>&nbsp;— видно, на&nbsp;чём мы&nbsp;сейчас</li>
+          <li>Рабочее пространство для&nbsp;задач и&nbsp;материалов</li>
+          <li>Вы снимаете себя, я&nbsp;закрываю всё остальное</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:18px;background:var(--bg-2)">
+      <h3 style="font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:10px">Этап и&nbsp;горизонт</h3>
+      <p style="color:var(--muted);font-size:15.5px">Результата (продаж, роста) пока нет&nbsp;— поэтому первый этап это <b style="color:var(--text)">выстраивание фундамента и&nbsp;доведение до&nbsp;первых реальных результатов: 1–3&nbsp;месяца</b>. За&nbsp;это время нащупываем рычаги&nbsp;— что&nbsp;двигает продажи, охваты, рост. После этого переходим на&nbsp;<b style="color:var(--text)">полноценное ведение</b>, когда уже понятно, на&nbsp;что нажимать ради результата.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== СТОИМОСТЬ ========== -->
+<section id="price">
+  <div class="narrow">
+    <div class="eyebrow reveal" style="justify-content:center">Стоимость</div>
+    <div class="price-box reveal">
+      <div class="ptag">Первый этап&nbsp;· фундамент + первые результаты&nbsp;· 1–3&nbsp;месяца</div>
+      <div class="pval">$2&nbsp;500</div>
+      <p class="pnote">Далее&nbsp;— переход на&nbsp;полноценное ведение, когда понятны рычаги влияния на&nbsp;продажи, охваты и&nbsp;рост.</p>
+      <div class="guarantee">50% возврат, если по&nbsp;моей вине не&nbsp;выполню обязательства этапа</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="sig">Алиса × Малик</div>
+  <div>Продюсирование личного бренда&nbsp;· 2026&nbsp;· Видение развития проекта</div>
+</footer>
+
+<script>
+  // ===== SPLASH =====
+  const splash=document.getElementById('splash');
+  function hideSplash(){ splash.classList.add('hide'); document.body.classList.remove('splash-active'); }
+  function skipSplash(){ hideSplash(); }
+  setTimeout(hideSplash,2400);
+
+  // ===== PROGRESS BAR =====
+  const progressBar=document.querySelector('.progress-bar');
+  window.addEventListener('scroll',()=>{
+    const docH=document.documentElement.scrollHeight-window.innerHeight;
+    const p=docH>0?(window.scrollY/docH)*100:0;
+    progressBar.style.setProperty('--scroll',p+'%');
+  },{passive:true});
+
+  // ===== REVEAL ON SCROLL =====
+  const ro = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); ro.unobserve(e.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  // ===== COUNTERS =====
+  function animateCounter(el,target,dur=1700){
+    const start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/dur,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString('ru-RU').replace(/,/g,' ');
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const co=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const t=parseInt(e.target.dataset.count,10);
+        if(!isNaN(t)) animateCounter(e.target,t);
+        co.unobserve(e.target);
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+  // ===== NAV DOTS =====
+  const navDots=document.getElementById('navDots');
+  const dots=document.querySelectorAll('.nav-dot');
+  const secs=Array.from(dots).map(d=>document.getElementById(d.dataset.section)).filter(Boolean);
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>window.innerHeight*0.6) navDots.classList.add('visible');
+    else navDots.classList.remove('visible');
+  },{passive:true});
+  const no=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ const id=e.target.id; dots.forEach(d=>d.classList.toggle('active',d.dataset.section===id)); } });
+  },{threshold:0.4,rootMargin:'-30% 0px -30% 0px'});
+  secs.forEach(s=>no.observe(s));
+  dots.forEach(d=>d.addEventListener('click',()=>{ const t=document.getElementById(d.dataset.section); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); }));
+</script>
+</body>
+</html>
