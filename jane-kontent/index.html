@@ -195,6 +195,43 @@
   .contact-link:hover { color: var(--gold-bright); border-color: var(--gold); box-shadow: 0 0 22px var(--gold-glow-soft); }
   .footer-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-top: 44px; }
 
+  /* FIND IN CHANNEL */
+  .find-hint {
+    display: flex; align-items: center; gap: 12px; max-width: 640px; margin: 0 0 40px;
+    border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; background: var(--bg-card);
+    font-size: 14.5px; line-height: 1.5; color: var(--text);
+  }
+  .find-hint svg { flex: 0 0 auto; width: 20px; height: 20px; }
+  .find-hint b { color: var(--ink); font-weight: 600; }
+  .find-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 18px; }
+  .find-card { border: 1px solid var(--line); border-radius: 16px; padding: 26px 26px 14px; background: var(--bg-card); }
+  .find-card h4 {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .find-tbl { width: 100%; border-collapse: collapse; }
+  .find-tbl td { padding: 14px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  .find-tbl tr:last-child td { border-bottom: none; }
+  .ft-theme { font-size: 14.5px; color: var(--ink); font-weight: 600; padding-right: 18px; width: 44%; line-height: 1.35; }
+  .ft-date { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--muted); font-weight: 400; margin-top: 5px; }
+  .ft-q { text-align: right; }
+  .q {
+    display: inline-flex; align-items: center; gap: 8px; text-align: left;
+    font-family: var(--mono); font-size: 12px; line-height: 1.35; color: var(--gold-bright);
+    background: linear-gradient(180deg, rgba(225,29,46,0.05), transparent), var(--bg-deep);
+    border: 1px solid var(--line-bright); border-radius: 9px; padding: 8px 13px; max-width: 100%;
+  }
+  .q::before {
+    content: ''; flex: 0 0 auto; width: 12px; height: 12px; opacity: 0.75;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff4d5d' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7'/%3E%3Cline x1='21' y1='21' x2='15.8' y2='15.8'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+  @media (max-width: 560px) {
+    .find-tbl td { display: block; border-bottom: none; padding: 10px 0 0; }
+    .ft-theme { width: auto; padding-right: 0; }
+    .ft-q { text-align: left; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .find-tbl tr:last-child .ft-q { border-bottom: none; }
+  }
+
   /* REVEAL */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
   .reveal.in { opacity: 1; transform: none; }
@@ -382,6 +419,112 @@
             <li><b>«Тренд не получается»</b> — самоирония<span>Мем-сценка</span></li>
             <li><b>Утро, парк, замедление</b><span>Эстетика</span></li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND IN CHANNEL -->
+  <section style="background: linear-gradient(180deg, var(--bg), var(--bg-1)); border-top: 1px solid var(--line);">
+    <div class="container-wide">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Инструмент</span>
+        <h2>Как найти тему <em>в своём канале</em></h2>
+        <p class="sec-intro">Все темы выше уже есть в Вашем Telegram. Не нужно вспоминать — откройте поиск и вставьте фразу. Дата рядом — ориентир, если совпадений несколько.</p>
+      </div>
+
+      <div class="find-hint reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff4d5d" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg>
+        <div>В канале нажмите <b>лупу</b> вверху → вставьте фразу из правой колонки → откроется нужный пост.</div>
+      </div>
+
+      <div class="find-grid">
+        <div class="find-card reveal">
+          <h4>Спорт · тело · ПП</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Сушка пошагово<span class="ft-date">08.11.2025</span></td><td class="ft-q"><span class="q">насчет сушки очень приятные</span></td></tr>
+            <tr><td class="ft-theme">Шаги и сон<span class="ft-date">30.01.2026</span></td><td class="ft-q"><span class="q">11к шагов</span></td></tr>
+            <tr><td class="ft-theme">Гены мамы, без вмешательств<span class="ft-date">23.01.2026</span></td><td class="ft-q"><span class="q">без операций и вмешательств</span></td></tr>
+            <tr><td class="ft-theme">Йога в зале (юмор)<span class="ft-date">23.02.2026</span></td><td class="ft-q"><span class="q">круг зрителей</span></td></tr>
+            <tr><td class="ft-theme">«Не тренер, но база огромная»<span class="ft-date">17.05.2025</span></td><td class="ft-q"><span class="q">не профессиональный тренер</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Женственность · красота · мода</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Две девушки — одни волосы<span class="ft-date">03.03.2026</span></td><td class="ft-q"><span class="q">совершено разные ощущения</span></td></tr>
+            <tr><td class="ft-theme">Как вернула овал лица<span class="ft-date">12.01.2026</span></td><td class="ft-q"><span class="q">вернула себе красивый овал</span></td></tr>
+            <tr><td class="ft-theme">Танец — женственно и мягко<span class="ft-date">15.03.2026</span></td><td class="ft-q"><span class="q">зацените как танцую</span></td></tr>
+            <tr><td class="ft-theme">Образ в стиле 00х<span class="ft-date">14.11.2025</span></td><td class="ft-q"><span class="q">образ в стиле 00х</span></td></tr>
+            <tr><td class="ft-theme">Красная помада: тогда и сейчас<span class="ft-date">15.02.2026</span></td><td class="ft-q"><span class="q">с красной помадой</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Отношения · мужчины</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">«Такие люди не меняются»<span class="ft-date">21.10.2025</span></td><td class="ft-q"><span class="q">противно от таких мужчин</span></td></tr>
+            <tr><td class="ft-theme">Комплименты: мужчина и бабушка<span class="ft-date">28.03.2026</span></td><td class="ft-q"><span class="q">зачем эти комплименты</span></td></tr>
+            <tr><td class="ft-theme">Женская игривость мамы<span class="ft-date">10.01.2026</span></td><td class="ft-q"><span class="q">эту сумку мне муж купил</span></td></tr>
+            <tr><td class="ft-theme">Токсичные комментарии — норма?<span class="ft-date">26.02.2026</span></td><td class="ft-q"><span class="q">улетел на мужскую аудиторию</span></td></tr>
+            <tr><td class="ft-theme">Личные границы / навязчивость<span class="ft-date">04.10.2025</span></td><td class="ft-q"><span class="q">навязчивые мужики</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Личные истории · уязвимость</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Честно про несовершенства лица<span class="ft-date">10.01.2026</span></td><td class="ft-q"><span class="q">второй подбородок</span></td></tr>
+            <tr><td class="ft-theme">Год назад: искажённая самооценка<span class="ft-date">23.01.2026</span></td><td class="ft-q"><span class="q">беды с головой</span></td></tr>
+            <tr><td class="ft-theme">Тело и состояние: год разницы<span class="ft-date">11.12.2025</span></td><td class="ft-q"><span class="q">шок контент хачапури</span></td></tr>
+            <tr><td class="ft-theme">Мои комплексы<span class="ft-date">05.11.2025</span></td><td class="ft-q"><span class="q">какие комплексы у меня были</span></td></tr>
+            <tr><td class="ft-theme">Как прошла через акне<span class="ft-date">15.09.2025</span></td><td class="ft-q"><span class="q">опять акне</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Психология · режим · состояние</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Тело выглядит по-разному<span class="ft-date">17.12.2025</span></td><td class="ft-q"><span class="q">гормонального цикла</span></td></tr>
+            <tr><td class="ft-theme">Выход из тревоги и апатии<span class="ft-date">20.02.2026</span></td><td class="ft-q"><span class="q">ни бессонницы, ни тревоги</span></td></tr>
+            <tr><td class="ft-theme">Поздние завтраки и энергия<span class="ft-date">25.02.2026</span></td><td class="ft-q"><span class="q">поздние завтраки</span></td></tr>
+            <tr><td class="ft-theme">Зачем набирать, чтобы сушиться<span class="ft-date">13.11.2025</span></td><td class="ft-q"><span class="q">зачем сначала набирать</span></td></tr>
+            <tr><td class="ft-theme">Челлендж «14 дней режима»<span class="ft-date">24.11.2025</span></td><td class="ft-q"><span class="q">14 дней идеального режима</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Семья</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Бабушка и её реакции на сторис<span class="ft-date">19.02.2026</span></td><td class="ft-q"><span class="q">реакции на каждую мою сторис</span></td></tr>
+            <tr><td class="ft-theme">Обед с мамой по КБЖУ<span class="ft-date">23.01.2026</span></td><td class="ft-q"><span class="q">с мамулей пообедали</span></td></tr>
+            <tr><td class="ft-theme">Участь старшей сестры<span class="ft-date">30.09.2025</span></td><td class="ft-q"><span class="q">участь старшей сестры</span></td></tr>
+            <tr><td class="ft-theme">Миф о «семейном метаболизме»<span class="ft-date">19.11.2025</span></td><td class="ft-q"><span class="q">наследственное</span></td></tr>
+            <tr><td class="ft-theme">Тёплые диалоги с мамой<span class="ft-date">12.12.2025</span></td><td class="ft-q"><span class="q">не выпирает ли скотч</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Дело · бренд · цели</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Сильное женское окружение<span class="ft-date">24.06.2023</span></td><td class="ft-q"><span class="q">владелица крупного ювелирного</span></td></tr>
+            <tr><td class="ft-theme">Инвестиция в обучение и страх<span class="ft-date">14.09.2025</span></td><td class="ft-q"><span class="q">130к на обучение</span></td></tr>
+            <tr><td class="ft-theme">Новая цель: права на мотоцикл<span class="ft-date">03.03.2026</span></td><td class="ft-q"><span class="q">мотик себе присмотрела</span></td></tr>
+            <tr><td class="ft-theme">Закулисье создания мерча<span class="ft-date">02.05.2026</span></td><td class="ft-q"><span class="q">до показа держать в секрете</span></td></tr>
+            <tr><td class="ft-theme">Как среда тянет вверх<span class="ft-date">15.10.2025</span></td><td class="ft-q"><span class="q">тренер обсуждал тебя</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="find-card reveal">
+          <h4>Лайфстайл · юмор</h4>
+          <table class="find-tbl"><tbody>
+            <tr><td class="ft-theme">Близость с аудиторией<span class="ft-date">01.10.2025</span></td><td class="ft-q"><span class="q">ставите реакции и комментируете</span></td></tr>
+            <tr><td class="ft-theme">Праздники, традиции<span class="ft-date">16.01.2026</span></td><td class="ft-q"><span class="q">Подарок на Старый Новый год</span></td></tr>
+            <tr><td class="ft-theme">Цепляющее наблюдение<span class="ft-date">25.06.2023</span></td><td class="ft-q"><span class="q">такой вброс</span></td></tr>
+            <tr><td class="ft-theme">«Тренд не получается»<span class="ft-date">04.10.2025</span></td><td class="ft-q"><span class="q">тренд из тик тока</span></td></tr>
+            <tr><td class="ft-theme">Утро, парк, замедление<span class="ft-date">16.05.2026</span></td><td class="ft-q"><span class="q">пошла в парк читать</span></td></tr>
+          </tbody></table>
         </div>
       </div>
     </div>
