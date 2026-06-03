@@ -69,12 +69,11 @@
   .num { white-space: nowrap; }
   .ft-date { white-space: nowrap; }
 
-  /* ATMOSPHERE */
-  .ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-  .ambient::before {
-    content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
-    width: 80vw; height: 60vh; border-radius: 50%; filter: blur(130px);
-    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+  /* ATMOSPHERE — без filter:blur (тормозит Safari iOS); мягкость даёт сам градиент */
+  .ambient {
+    position: absolute; top: 0; left: 0; right: 0; height: 70vh;
+    pointer-events: none; z-index: 0; overflow: hidden;
+    background: radial-gradient(ellipse 90vw 55vh at 50% -8%, var(--gold-glow-faint), transparent 72%);
   }
 
   .wrap { position: relative; z-index: 1; }
