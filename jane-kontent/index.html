@@ -89,6 +89,19 @@
   }
   .tag b { color: var(--gold-bright); font-weight: 500; }
 
+  /* HERO IDENTITY */
+  .hero-id { display: flex; align-items: center; gap: 18px; margin-bottom: 38px; }
+  .hero-ava {
+    width: 88px; height: 88px; flex: 0 0 auto; border-radius: 50%; padding: 3px;
+    background: var(--bg-deep); border: 1px solid var(--line-bright);
+    box-shadow: 0 0 0 1px var(--gold-glow-soft), 0 0 44px var(--gold-glow-soft);
+  }
+  .hero-ava img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+  .hero-id-name { font-family: var(--display); font-weight: 400; font-size: clamp(20px, 3.4vw, 26px); color: var(--ink-bright); line-height: 1.12; letter-spacing: -0.01em; }
+  .hero-id-handle { display: inline-block; margin-top: 5px; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; color: var(--gold); text-decoration: none; transition: color 0.3s var(--ease-out); }
+  .hero-id-handle:hover { color: var(--gold-bright); }
+  .hero-id-bio { display: block; margin-top: 3px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
   /* SECTION HEADER */
   .sec-head { margin-bottom: 48px; }
   .eyebrow {
@@ -252,6 +265,14 @@
   <!-- HERO -->
   <header class="hero">
     <div class="container-wide">
+      <div class="hero-id">
+        <div class="hero-ava"><img src="assets/avatar.png" alt="Jane Stetsiura" width="88" height="88" loading="eager"></div>
+        <div>
+          <div class="hero-id-name">Jane Stetsiura</div>
+          <a class="hero-id-handle" href="https://www.instagram.com/janestetsiura" target="_blank" rel="noopener">@janestetsiura</a>
+          <span class="hero-id-bio">woman · fashion product developer</span>
+        </div>
+      </div>
       <div class="topline">Контент-система · Reels · Июнь 2026</div>
       <h1>Система контента,<br>по которой блог <em>растёт</em></h1>
       <p class="hero-sub">Каркас, который Вы можете внедрять самостоятельно: один флагманский формат на каждый день, понятные форматы Reels и темы по направлениям — собранные из того, что у Вашей аудитории уже находит отклик.</p>
