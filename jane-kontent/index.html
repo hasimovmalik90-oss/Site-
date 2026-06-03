@@ -52,7 +52,8 @@
   img { max-width: 100%; height: auto; display: block; }
   p, li { text-wrap: pretty; }
   h1, h2, h3, h4 { text-wrap: balance; }
-  .eyebrow, .topline, .num, .tag { white-space: nowrap; }
+  .num { white-space: nowrap; }
+  .ft-date { white-space: nowrap; }
 
   /* ATMOSPHERE */
   .ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
@@ -142,7 +143,7 @@
   }
 
   /* RECOMMENDATIONS */
-  .rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
+  .rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 18px; }
   .rec {
     border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; background: var(--bg-card);
     transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
@@ -153,7 +154,7 @@
   .rec p { font-size: 15px; line-height: 1.58; color: var(--text); }
 
   /* FORMATS */
-  .fmt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .fmt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 18px; }
   .fmt {
     border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; background: var(--bg-card);
     position: relative; transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
@@ -166,7 +167,7 @@
   .fmt .for b { color: var(--gold-bright); font-weight: 500; }
 
   /* THEMES BY SPHERE */
-  .sph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .sph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 18px; }
   .sph {
     border: 1px solid var(--line); border-radius: 16px; padding: 28px 26px; background: var(--bg-card);
   }
@@ -216,7 +217,7 @@
   }
   .find-hint svg { flex: 0 0 auto; width: 20px; height: 20px; }
   .find-hint b { color: var(--ink); font-weight: 600; }
-  .find-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 18px; }
+  .find-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 18px; }
   .find-card { border: 1px solid var(--line); border-radius: 16px; padding: 26px 26px 14px; background: var(--bg-card); }
   .find-card h4 {
     font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
@@ -247,7 +248,7 @@
 
   /* PLAYFUL ACCENTS */
   .eyebrow::after { content: " 😻"; font-size: 1.05em; opacity: 0.92; margin-left: 2px; }
-  .topline::after { content: " 😽"; opacity: 0.85; margin-left: 3px; }
+  .topline::after { content: " 🐾"; opacity: 0.8; margin-left: 3px; }
   .core-badge::after { content: " 🐾"; opacity: 0.8; }
   .contact-author::after { content: " 😻"; margin-left: 4px; }
 
@@ -280,7 +281,7 @@
         </div>
       </div>
       <div class="topline">Резюме встречи · 3 июня 2026</div>
-      <h1>Система контента,<br>по которой блог <em>растёт</em></h1>
+      <h1>Система контента, по&nbsp;которой блог <em>растёт</em></h1>
       <p class="hero-sub">Каркас, который Вы можете внедрять самостоятельно: один флагманский формат на каждый день, понятные форматы Reels и темы по направлениям — собранные из того, что у Вашей аудитории уже находит отклик.</p>
       <div class="hero-meta">
         <span class="tag">Канал в Telegram · <b>1 896</b> постов</span>
