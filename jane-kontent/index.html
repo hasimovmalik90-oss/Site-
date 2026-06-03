@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Jane Stetsiura — контент-система для Reels</title>
+<meta name="description" content="Контент-система для роста блога через Reels: форматы, темы по направлениям и принципы съёмки. Подготовил Малик Хошимов, продюсер женских блогов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+
+    --gold-bright: #ff4d5d;
+    --gold: #e11d2e;
+    --gold-deep: #9e1620;
+    --gold-glow: rgba(225, 29, 46, 0.4);
+    --gold-glow-soft: rgba(225, 29, 46, 0.18);
+    --gold-glow-faint: rgba(225, 29, 46, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1120px;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; hyphens: none; -webkit-hyphens: none; word-break: normal; overflow-wrap: normal; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100vw; }
+  body {
+    font-family: var(--sans); font-size: 16px; line-height: 1.65;
+    color: var(--text); background: var(--bg);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    overflow-x: hidden; max-width: 100vw; position: relative; text-wrap: pretty;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  p, li { text-wrap: pretty; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  .eyebrow, .topline, .num, .tag { white-space: nowrap; }
+
+  /* ATMOSPHERE */
+  .ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .ambient::before {
+    content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+    width: 80vw; height: 60vh; border-radius: 50%; filter: blur(130px);
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+  }
+
+  .wrap { position: relative; z-index: 1; }
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 26px; }
+  .container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 26px; }
+  section { padding: 78px 0; position: relative; }
+
+  /* HERO */
+  .hero { min-height: 92vh; min-height: 92svh; display: flex; flex-direction: column; justify-content: center; padding: 90px 0 70px; }
+  .topline {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-family: var(--display); font-weight: 300; font-size: clamp(40px, 8.4vw, 92px);
+    line-height: 1.02; letter-spacing: -0.02em; color: var(--ink-bright); margin-bottom: 28px;
+  }
+  .hero h1 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); font-weight: 400; }
+  .hero-sub {
+    font-size: clamp(16px, 2.4vw, 20px); line-height: 1.55; color: var(--text);
+    max-width: 620px; margin-bottom: 40px;
+  }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text);
+    border: 1px solid var(--line-bright); border-radius: 100px; padding: 8px 16px;
+  }
+  .tag b { color: var(--gold-bright); font-weight: 500; }
+
+  /* SECTION HEADER */
+  .sec-head { margin-bottom: 48px; }
+  .eyebrow {
+    display: inline-block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+  }
+  .sec-head h2 {
+    font-family: var(--display); font-weight: 300; font-size: clamp(30px, 5.6vw, 56px);
+    line-height: 1.06; letter-spacing: -0.018em; color: var(--ink-bright);
+  }
+  .sec-head h2 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); font-weight: 400; }
+  .sec-intro { font-size: 17px; line-height: 1.6; color: var(--text); max-width: 640px; margin-top: 20px; }
+
+  /* CORE PRINCIPLE — WOMAN VIBE */
+  .core { background: linear-gradient(180deg, var(--bg-deep), var(--bg-1)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .core-card {
+    border: 1px solid var(--line-bright); border-radius: 22px; padding: 44px clamp(24px, 4vw, 52px);
+    background: radial-gradient(ellipse 80% 120% at 0% 0%, var(--gold-glow-faint), transparent 60%), var(--bg-card);
+    position: relative; overflow: hidden;
+  }
+  .core-badge {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px;
+  }
+  .core-card h3 {
+    font-family: var(--display); font-weight: 300; font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.05; color: var(--ink-bright); margin-bottom: 8px; letter-spacing: -0.02em;
+  }
+  .core-card h3 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); }
+  .core-lead { font-size: 18px; line-height: 1.6; color: var(--ink); margin: 22px 0 26px; max-width: 720px; }
+  .core-list { list-style: none; display: grid; gap: 14px; max-width: 760px; }
+  .core-list li { padding-left: 26px; position: relative; color: var(--text); line-height: 1.55; }
+  .core-list li::before { content: ''; position: absolute; left: 0; top: 11px; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold-glow); }
+  .core-kick {
+    margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line);
+    font-family: var(--serif); font-style: italic; font-size: clamp(20px, 3vw, 27px);
+    line-height: 1.4; color: var(--gold-bright);
+  }
+
+  /* RECOMMENDATIONS */
+  .rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
+  .rec {
+    border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; background: var(--bg-card);
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+  .rec:hover { border-color: var(--line-bright); transform: translateY(-3px); }
+  .rec .num { font-family: var(--mono); font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
+  .rec h4 { font-family: var(--display); font-weight: 400; font-size: 20px; color: var(--ink-bright); margin: 12px 0 10px; line-height: 1.2; }
+  .rec p { font-size: 15px; line-height: 1.58; color: var(--text); }
+
+  /* FORMATS */
+  .fmt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .fmt {
+    border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; background: var(--bg-card);
+    position: relative; transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+  .fmt:hover { border-color: var(--gold-glow); transform: translateY(-3px); }
+  .fmt-num { font-family: var(--serif); font-style: italic; font-size: 40px; color: var(--gold-deep); line-height: 1; }
+  .fmt h4 { font-family: var(--display); font-weight: 400; font-size: 22px; color: var(--ink-bright); margin: 10px 0 12px; }
+  .fmt .how { font-size: 15px; line-height: 1.58; color: var(--text); margin-bottom: 14px; }
+  .fmt .for { font-family: var(--mono); font-size: 11.5px; line-height: 1.5; letter-spacing: 0.02em; color: var(--muted); border-top: 1px solid var(--line); padding-top: 13px; }
+  .fmt .for b { color: var(--gold-bright); font-weight: 500; }
+
+  /* THEMES BY SPHERE */
+  .sph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .sph {
+    border: 1px solid var(--line); border-radius: 16px; padding: 28px 26px; background: var(--bg-card);
+  }
+  .sph h4 {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .sph ul { list-style: none; display: grid; gap: 13px; }
+  .sph li { font-size: 14.5px; line-height: 1.5; color: var(--text); padding-left: 16px; position: relative; }
+  .sph li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold-deep); }
+  .sph li b { color: var(--ink); font-weight: 600; }
+  .sph li span { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--muted); margin-top: 3px; }
+
+  /* STATUS / VERDICT */
+  .verdict { background: linear-gradient(180deg, var(--bg-1), var(--bg-deep)); border-top: 1px solid var(--line); }
+  .verdict-inner { text-align: center; max-width: 760px; margin: 0 auto; }
+  .verdict h3 {
+    font-family: var(--display); font-weight: 300; font-size: clamp(26px, 4.6vw, 44px);
+    line-height: 1.15; color: var(--ink-bright); letter-spacing: -0.018em;
+  }
+  .verdict h3 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); }
+  .verdict p { font-size: 17px; line-height: 1.6; color: var(--text); margin-top: 22px; }
+
+  /* CONTACT */
+  .contact { text-align: center; border-top: 1px solid var(--line); padding: 90px 0; }
+  .contact .eyebrow { color: var(--muted); }
+  .contact-quote {
+    font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3.6vw, 34px);
+    line-height: 1.35; color: var(--ink); max-width: 720px; margin: 0 auto 42px;
+  }
+  .contact-author { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .contact-role { font-size: 14px; color: var(--muted); margin-bottom: 34px; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-bright); text-decoration: none;
+    border: 1px solid var(--line-bright); border-radius: 100px; padding: 15px 30px;
+    transition: all 0.3s var(--ease-out);
+  }
+  .contact-link:hover { color: var(--gold-bright); border-color: var(--gold); box-shadow: 0 0 22px var(--gold-glow-soft); }
+  .footer-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-top: 44px; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+  @media (max-width: 600px) {
+    section { padding: 60px 0; }
+    .hero { min-height: 88vh; }
+    .core-card { padding: 32px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container-wide">
+      <div class="topline">Контент-система · Reels · Июнь 2026</div>
+      <h1>Система контента,<br>по которой блог <em>растёт</em></h1>
+      <p class="hero-sub">Каркас, который Вы можете внедрять самостоятельно: один флагманский формат на каждый день, понятные форматы Reels и темы по направлениям — собранные из того, что у Вашей аудитории уже находит отклик.</p>
+      <div class="hero-meta">
+        <span class="tag">Канал в Telegram · <b>1 896</b> постов</span>
+        <span class="tag"><b>8</b> форматов Reels</span>
+        <span class="tag"><b>40</b> тем по направлениям</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORE: WOMAN VIBE -->
+  <section class="core">
+    <div class="container-wide">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Главный двигатель</span>
+        <h2>Формат, который нужно снимать <em>каждый день</em></h2>
+        <p class="sec-intro">У Вас лучше всего заходит то, где Вы проявлены — женственны, легки, в кадре сами по себе. Но именно этого Вы снимаете меньше всего. Это и есть точка роста.</p>
+      </div>
+
+      <div class="core-card reveal">
+        <div class="core-badge">Woman Vibe · флагман</div>
+        <h3>Женская <em>проявленность</em> под музыку</h3>
+        <p class="core-lead">Каждый день, как традиция — включаете красивую музыку, в разных образах и луках двигаетесь, танцуете, проявляетесь. Нарезаете в эстетичный ролик, от которого сами кайфуете.</p>
+        <ul class="core-list">
+          <li>Снимать <b>каждый день</b> — это вопрос дисциплины, а не вдохновения. Стабильность даёт результат сильнее, чем идеальность.</li>
+          <li>Горизонтально или вертикально — без ограничений. Горизонталь шире охватывает пространство; при хорошем свете можно ставить телефон на 0.5×.</li>
+          <li>Разные образы, разные луки — максимально женственно и элегантно.</li>
+          <li>Разнообразить локацией: дом, улица, телефон на штатив или к стене — отходите, играет музыка, 15–30 секунд красивого движения.</li>
+          <li>Это не тикток-тренд «для трендов» — это Ваша проявленность и элегантный вайб, который притягивает взрослую женскую аудиторию.</li>
+        </ul>
+        <p class="core-kick">Если масштабировать это в ежедневную привычку — формат начинает давать сильный рост по проявленности, притягательности и охватам.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY RECOMMENDATIONS -->
+  <section>
+    <div class="container-wide">
+      <div class="sec-head reveal">
+        <span class="eyebrow">С нашего созвона</span>
+        <h2>Что важно <em>внедрить</em></h2>
+        <p class="sec-intro">Ключевые вещи, которые усилят блог. Их можно вводить постепенно — но именно они дают системный результат.</p>
+      </div>
+
+      <div class="rec-grid">
+        <div class="rec reveal"><div class="num">01</div><h4>Одно позиционирование</h4><p>Сейчас в блоге много направлений сразу — со стороны читается как «всё обо всём». Нужна одна стержневая линия, через которую раскрываются подтемы. Определяется через распаковку.</p></div>
+        <div class="rec reveal"><div class="num">02</div><h4>Узнаваемая упаковка</h4><p>Шапку профиля не менять минимум 2–3 месяца — она должна стать узнаваемой и дать стратегии доработать цикл. Менять только под крупное событие или после кратного роста.</p></div>
+        <div class="rec reveal"><div class="num">03</div><h4>Сегмент, а не «на всех»</h4><p>Не адаптированный тренд на широкую аудиторию, а конкретный сегмент — через Вашу личную трансформацию. Тогда ролик считывается как прожитый опыт, и вовлечение выше.</p></div>
+        <div class="rec reveal"><div class="num">04</div><h4>Убрать слабые форматы</h4><p>Нарезки с триггерными заголовками, мемы про отношения, чужие тренды — сократить. Оставить то, где Вы сами по себе, плюс сильное из личного архива.</p></div>
+        <div class="rec reveal"><div class="num">05</div><h4>Семья — отдельная линия</h4><p>Звонки маме, папе, бабушке, тёплые диалоги, ностальгия. Это притягивает лояльную, качественную аудиторию и хорошо конвертит в подписку.</p></div>
+        <div class="rec reveal"><div class="num">06</div><h4>Женские темы через призму</h4><p>Косметичка, уход, любимые бренды — но красиво и элегантно, как рекомендация от Вас, а не «привет девочки, рекомендую». Это два разных уровня подачи.</p></div>
+        <div class="rec reveal"><div class="num">07</div><h4>Длинные ролики тоже заходят</h4><p>Мини-влог 1,5–3 минуты (день, косметичка) даёт высокую досматриваемость и пересылки. На Вашем уровне блога это уже работает.</p></div>
+        <div class="rec reveal"><div class="num">08</div><h4>2–3 флагманских формата</h4><p>Найти форматы, которые дают результат независимо от дня и настроения — и усиливать именно их. Когда несколько сильных роликов крутятся одновременно, рост ускоряется кратно.</p></div>
+        <div class="rec reveal"><div class="num">09</div><h4>Понятный повод для Telegram</h4><p>Ссылке в Telegram нужна причина перехода — обещание пользы («как я пришла в форму», секреты режима). Иначе — упор на Instagram, а Telegram растёт нативно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATS -->
+  <section style="background: linear-gradient(180deg, var(--bg), var(--bg-1)); border-top: 1px solid var(--line);">
+    <div class="container-wide">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Каркас</span>
+        <h2>8 форматов Reels, <em>которые можно снимать самой</em></h2>
+        <p class="sec-intro">Каждый формат — это понятный способ снять ролик. Под любую тему ниже подбирается один из них.</p>
+      </div>
+
+      <div class="fmt-grid">
+        <div class="fmt reveal"><div class="fmt-num">1</div><h4>Говорящая голова</h4><p class="how">Смотрите в камеру и говорите сами. Сильный хук в первые 3 секунды, 20–40 секунд, крупный план, мягкий свет.</p><div class="for"><b>Под:</b> мнения, личные истории, ответы на вопросы</div></div>
+        <div class="fmt reveal"><div class="fmt-num">2</div><h4>Закадровая озвучка</h4><p class="how">Сначала записываете текст и голос, потом накладываете на красивый видеоряд (прогулка, зал, сборы). В кадре говорить не нужно.</p><div class="for"><b>Под:</b> рефлексии, истории, размышления</div></div>
+        <div class="fmt reveal"><div class="fmt-num">3</div><h4>Woman Vibe</h4><p class="how">Движение и танец под музыку, разные образы. Ваш флагман — снимать каждый день (см. блок выше).</p><div class="for"><b>Под:</b> проявленность, женственность, эстетика</div></div>
+        <div class="fmt reveal"><div class="fmt-num">4</div><h4>До / После</h4><p class="how">Два кадра или две даты с переходом. Подходит Ваш личный архив — снимать заново не обязательно.</p><div class="for"><b>Под:</b> трансформации тела, года, образа</div></div>
+        <div class="fmt reveal"><div class="fmt-num">5</div><h4>Социальные взаимодействия</h4><p class="how">Звонки родным, живые реакции мамы и бабушки, съёмка со стороны на штатив или прислонённый телефон.</p><div class="for"><b>Под:</b> семью, тёплые и ностальгические темы</div></div>
+        <div class="fmt reveal"><div class="fmt-num">6</div><h4>Мем / сценка под тренд</h4><p class="how">Трендовый звук плюс узнаваемая ситуация. 10–15 секунд, динамично, быстро снимается.</p><div class="for"><b>Под:</b> юмор, отношения, бытовые ситуации</div></div>
+        <div class="fmt reveal"><div class="fmt-num">7</div><h4>Эстетика / без слов</h4><p class="how">Красивый видеоряд под музыку — завтрак, сборы, образ, утро. Высокие сохранения и досматриваемость.</p><div class="for"><b>Под:</b> еду, образы, утро, лайфстайл</div></div>
+        <div class="fmt reveal"><div class="fmt-num">8</div><h4>Мини-влог «день»</h4><p class="how">Связка утро → еда → зал → дела, 1,5–3 минуты. Длинный ролик с высокой вовлечённостью.</p><div class="for"><b>Под:</b> день питания, выходной, режим</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES BY SPHERE -->
+  <section>
+    <div class="container-wide">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Темы для Reels</span>
+        <h2>По направлениям — <em>то, что уже отзывалось</em></h2>
+        <p class="sec-intro">Темы собраны из Вашего Telegram-канала за 3,5 года — это то, на что Ваша аудитория уже реагировала сильнее всего. Рядом — формат, в котором тему удобнее снять.</p>
+      </div>
+
+      <div class="sph-grid">
+        <div class="sph reveal">
+          <h4>Спорт · тело · ПП</h4>
+          <ul>
+            <li><b>Сушка пошагово</b> — что конкретно делали<span>До/После · Говорящая голова</span></li>
+            <li><b>Шаги и сон</b> — почему это важнее зала<span>Закадр + видеоряд</span></li>
+            <li><b>Гены и красота без вмешательств</b><span>Дуэт с мамой</span></li>
+            <li><b>Йога в зале</b> — самоирония<span>Мем под тренд</span></li>
+            <li><b>«Я не тренер, но база огромная»</b><span>Говорящая голова</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Женственность · красота · мода</h4>
+          <ul>
+            <li><b>Две девушки — одни волосы</b>, разные ощущения<span>До/После образа</span></li>
+            <li><b>Как вернула овал лица</b><span>Разбор с этапами</span></li>
+            <li><b>Танец — женственно и мягко</b><span>Woman Vibe</span></li>
+            <li><b>Образ в стиле 00х</b> — Ваша рубрика<span>Эстетика · переодевашка</span></li>
+            <li><b>Красная помада: тогда и сейчас</b><span>До/После</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Отношения · мужчины</h4>
+          <ul>
+            <li><b>«Такие люди не меняются»</b> — личный опыт<span>Говорящая голова · реакция</span></li>
+            <li><b>Комплименты: мужчина и бабушка</b><span>Мем-сценка</span></li>
+            <li><b>Женская игривость мамы</b> как эталон<span>Говорящая голова + кадры</span></li>
+            <li><b>Когда токсичные комментарии стали нормой</b><span>Разговорный рилс</span></li>
+            <li><b>Личные границы и навязчивость</b><span>Сторителлинг</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Личные истории · уязвимость</h4>
+          <ul>
+            <li><b>Честно про несовершенства лица</b><span>Говорящая голова + фото</span></li>
+            <li><b>Год назад: искажённая самооценка</b><span>До/После + закадр</span></li>
+            <li><b>Тело и состояние: год разницы</b><span>Трансформация</span></li>
+            <li><b>Мои комплексы — какие были и остались</b><span>Исповедь под видеоряд</span></li>
+            <li><b>Как прошла через акне</b><span>История-трансформация</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Психология · режим · состояние</h4>
+          <ul>
+            <li><b>Тело выглядит по-разному</b> — цикл, состояние<span>Утро/вечер · 2 кадра</span></li>
+            <li><b>Выход из тревоги и апатии</b><span>Мягкая говорящая голова</span></li>
+            <li><b>Режим питания и энергия</b><span>Закадр + день питания</span></li>
+            <li><b>Зачем набирать, чтобы потом сушиться</b><span>Ответ на возражение</span></li>
+            <li><b>Челлендж «14 дней режима»</b><span>Анонс серии</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Семья</h4>
+          <ul>
+            <li><b>Бабушка и её реакции на сторис</b><span>Соц-взаимодействие</span></li>
+            <li><b>Обед с мамой по КБЖУ</b><span>Мини-влог</span></li>
+            <li><b>Участь старшей сестры</b><span>Сценка · рассуждение</span></li>
+            <li><b>Миф о «семейном метаболизме»</b><span>Разоблачение</span></li>
+            <li><b>Тёплые диалоги с мамой</b><span>Соц-взаимодействие</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Дело · бренд · цели</h4>
+          <ul>
+            <li><b>Сильное женское окружение</b><span>Закадр</span></li>
+            <li><b>Инвестиция в обучение и страх</b><span>Говорящая голова</span></li>
+            <li><b>Новая цель: права на мотоцикл</b><span>Лайфстайл-рилс</span></li>
+            <li><b>Закулисье создания мерча</b><span>Мини-влог · процесс</span></li>
+            <li><b>Как среда тянет вверх</b><span>Ситуативный рилс</span></li>
+          </ul>
+        </div>
+        <div class="sph reveal">
+          <h4>Лайфстайл · юмор</h4>
+          <ul>
+            <li><b>Близость с аудиторией</b> — благодарность<span>Тёплая говорящая голова</span></li>
+            <li><b>Праздники и традиции</b><span>Атмосферный рилс</span></li>
+            <li><b>Цепляющее наблюдение</b> для обсуждения<span>Разговорный рилс</span></li>
+            <li><b>«Тренд не получается»</b> — самоирония<span>Мем-сценка</span></li>
+            <li><b>Утро, парк, замедление</b><span>Эстетика</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERDICT -->
+  <section class="verdict">
+    <div class="container">
+      <div class="verdict-inner reveal">
+        <span class="eyebrow">Главное</span>
+        <h3>Если внедрить хотя&nbsp;бы <em>половину</em> из этого — пойдёт заметный, кратный рост блога</h3>
+        <p>Здесь нет ничего, что нельзя снять самостоятельно. Это система: один флагманский формат каждый день, понятные форматы под темы и направления, которые у Вашей аудитории уже работают.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Финал</span>
+        <p class="contact-quote">«У&nbsp;Вас уже есть главное — вкус, харизма и&nbsp;проявленность. Осталось добавить систему — и&nbsp;она даёт кратный рост.»</p>
+        <div class="contact-author">Подготовил Малик Хошимов</div>
+        <div class="contact-role">Продюсер женских блогов</div>
+        <a class="contact-link" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Написать в Telegram →</a>
+        <div class="footer-note">Jane Stetsiura · контент-система · Июнь 2026</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
