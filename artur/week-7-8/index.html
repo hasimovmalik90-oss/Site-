@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов · Статистика · Недели 7-8 (25 мая – 7 июня)</title>
+<meta property="og:title" content="Артур Раджабов · Статистика Reels · Недели 7-8">
+<meta property="og:description" content="25 мая – 7 июня 2026 · @arturradj · 15 Reels · 17 512 просмотров за 2 недели">
+<meta name="theme-color" content="#060606">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 720px;
+    --container-wide: 1080px;
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  .dust-layer { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .dust {
+    position: absolute;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(0.4px);
+    box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow);
+    animation: floatDust linear infinite;
+  }
+  @keyframes floatDust {
+    0%   { transform: translate3d(0, 100vh, 0) scale(0.4); opacity: 0; }
+    10%  { opacity: var(--max-opacity, 0.6); }
+    50%  { transform: translate3d(calc(var(--drift, 30px)), 50vh, 0) scale(1); opacity: var(--max-opacity, 0.6); }
+    90%  { opacity: var(--max-opacity, 0.6); }
+    100% { transform: translate3d(calc(var(--drift, 30px) * 2), -10vh, 0) scale(0.5); opacity: 0; }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.72  0 0 0 0 0.3  0 0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-logo {
+    font-family: var(--display);
+    font-size: clamp(38px, 8vw, 80px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s var(--ease-out) 0.2s forwards;
+  }
+  .splash-logo .accent { color: var(--gold); font-style: italic; font-weight: 400; }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--muted);
+    margin-top: 32px;
+    opacity: 0;
+    animation: splashIn 1s var(--ease-out) 0.8s forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
+
+  .container { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(48px, 9vw, 120px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 24px rgba(255, 184, 77, 0.08);
+  }
+  h1.hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+    font-family: var(--serif);
+    text-shadow: 0 0 18px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px var(--gold-glow-soft));
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  h2.section-title .accent { color: var(--gold); font-style: italic; font-weight: 400; font-family: var(--serif); }
+
+  p.lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+  p { margin-bottom: 16px; }
+  p strong { color: var(--ink); font-weight: 500; }
+  em { font-family: var(--serif); color: var(--gold); font-style: italic; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 70% at 15% 30%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 80%, var(--gold-glow-soft), transparent 55%),
+      radial-gradient(ellipse 50% 80% at 50% 50%, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 9s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse { 0% { opacity: 0.65; } 100% { opacity: 1; } }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 1200px; height: 1200px;
+    border-radius: 50%;
+    top: -400px; right: -500px;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: floatGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-80px, 60px) scale(1.1); } }
+  .hero-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 48px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta .item .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .hero-meta .item .value {
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--ink-bright);
+    line-height: 1;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 60px;
+  }
+  .kpi-card {
+    background: linear-gradient(160deg, rgba(255,184,77,0.05) 0%, rgba(255,255,255,0.018) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px 28px;
+    transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.5s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0) translateZ(0);
+    will-change: transform;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+  .kpi-card::after {
+    content: '';
+    position: absolute;
+    top: -40%; right: -30%;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 70%);
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .kpi-card:hover, .kpi-card:active {
+    border-color: var(--line-glow);
+    transform: perspective(1000px) rotateX(-3deg) translateY(-8px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 50px rgba(255,184,77,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .kpi-card:hover::before, .kpi-card:active::before { width: 100px; opacity: 1; box-shadow: 0 0 16px var(--gold-glow-strong); }
+  .kpi-card:hover::after, .kpi-card:active::after { opacity: 1; }
+  .kpi-card .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .kpi-card .value {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--ink-bright);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--ink) 50%, var(--text) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+  .kpi-card:hover .value {
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px var(--gold-glow-soft));
+    transition: all 0.4s var(--ease);
+  }
+  .kpi-card .delta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .kpi-card .note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .chart-card {
+    background:
+      linear-gradient(160deg, rgba(255,184,77,0.025) 0%, rgba(255,255,255,0.012) 100%),
+      var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 36px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+  .chart-card::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -120px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow-soft) 0%, transparent 65%);
+    filter: blur(40px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .chart-card-title {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .chart-card-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+  .chart-wrap { position: relative; height: 380px; }
+  .chart-wrap.tall { height: 620px; }
+
+  .chart-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 880px) { .chart-grid-2 { grid-template-columns: 1fr; } }
+
+  .reels-strip {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 8px 32px 40px;
+    margin: 40px -32px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-deep) transparent;
+  }
+  .reels-strip::-webkit-scrollbar { height: 6px; }
+  .reels-strip::-webkit-scrollbar-track { background: var(--line); border-radius: 3px; }
+  .reels-strip::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+  .reel-card {
+    flex: 0 0 320px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    scroll-snap-align: start;
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.5s var(--ease-out);
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(0) translateZ(0);
+    will-change: transform;
+  }
+  .reel-card.week8 {
+    border-color: rgba(150, 150, 150, 0.18);
+  }
+  .reel-card:hover, .reel-card:active {
+    border-color: var(--line-glow);
+    transform: perspective(900px) rotateX(-4deg) translateY(-10px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.5), 0 0 38px rgba(255,184,77,0.12);
+  }
+  .reel-card .reel-rank {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .reel-card .reel-title {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink-bright);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    min-height: 56px;
+    letter-spacing: -0.005em;
+  }
+  .reel-card .reel-views {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 300;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px var(--gold-glow-soft));
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+  }
+  .reel-card .reel-views-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .reel-card .reel-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .reel-card .metric .m-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .reel-card .metric .m-value {
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+    font-family: var(--sans);
+  }
+
+  .data-table {
+    margin-top: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .data-table table { width: 100%; border-collapse: collapse; }
+  .data-table th, .data-table td {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: var(--sans);
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .data-table th {
+    background: rgba(255,255,255,0.012);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,184,77,0.025); }
+  .data-table td:first-child { color: var(--ink); font-weight: 500; }
+  .data-table td.num { text-align: right; font-family: var(--mono); color: var(--gold); }
+  .data-table td.num-base { text-align: right; font-family: var(--mono); color: var(--text); }
+  .data-table .week-mark { color: var(--muted); margin-right: 6px; font-family: var(--mono); font-size: 11px; }
+
+  /* ============ COMPARE TABLE ============ */
+  .compare-table { margin-top: 40px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .compare-table table { width: 100%; border-collapse: collapse; }
+  .compare-table th, .compare-table td {
+    padding: 16px 20px; text-align: left; font-family: var(--sans); font-size: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table th {
+    background: rgba(255,255,255,0.012); font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); font-weight: 500;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { color: var(--ink); font-weight: 500; }
+  .compare-table td.num { text-align: right; font-family: var(--mono); color: var(--text); }
+  .compare-table td.delta-pos { text-align: right; font-family: var(--mono); color: var(--gold); font-weight: 500; }
+  .compare-table td.delta-neg { text-align: right; font-family: var(--mono); color: #b56b6b; font-weight: 500; }
+  .compare-table td.delta-flat { text-align: right; font-family: var(--mono); color: var(--muted); font-weight: 500; }
+
+  footer {
+    padding: 80px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  footer .footer-brand .accent { color: var(--gold); font-style: italic; font-family: var(--serif); }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .container, .container-narrow, .container-wide { padding: 0 24px; }
+    .chart-grid-2 { grid-template-columns: 1fr; gap: 18px; }
+  }
+
+  @media (max-width: 720px) {
+    .container, .container-narrow, .container-wide { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .hero { padding: 100px 0 60px; min-height: auto; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 24px 18px; padding-top: 30px; }
+    .hero-meta .item .value { font-size: clamp(22px, 7vw, 30px); }
+    .hero-meta .item .label { font-size: 10px; letter-spacing: 0.2em; white-space: normal; line-height: 1.3; }
+
+    h1.hero-title { font-size: clamp(34px, 11vw, 80px); margin-bottom: 28px; }
+    .lead { font-size: 16px !important; line-height: 1.5; }
+    h2.section-title { font-size: clamp(26px, 7vw, 36px); margin-bottom: 22px; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 18px; }
+
+    .kpi-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+    .kpi-card { padding: 24px 22px; }
+    .kpi-card .value { font-size: 34px; }
+    .kpi-card .label { font-size: 10px; letter-spacing: 0.18em; }
+    .kpi-card .note { font-size: 12px; }
+
+    .chart-card { padding: 22px 16px; margin-top: 18px; }
+    .chart-card-title { font-size: 18px; }
+    .chart-card-sub { font-size: 11px; margin-bottom: 18px; }
+    .chart-wrap { height: 280px; }
+    .chart-wrap.tall { height: 540px; }
+
+    .reels-strip { padding: 8px 18px 26px; margin: 30px -18px 0; gap: 14px; }
+    .reel-card { flex: 0 0 260px; padding: 20px; }
+    .reel-card .reel-views { font-size: 30px; }
+    .reel-card .reel-title { font-size: 15px; min-height: 50px; }
+
+    .data-table, .compare-table { overflow-x: auto; }
+    .data-table table { min-width: 720px; }
+    .data-table th, .data-table td,
+    .compare-table th, .compare-table td { padding: 10px 12px; font-size: 12px; }
+
+    .splash-logo { font-size: 36px; }
+
+    footer { padding: 60px 0 40px; }
+    footer .footer-brand { font-size: 22px; }
+    footer .footer-meta { font-size: 10px; letter-spacing: 0.18em; }
+
+    .kpi-card:hover, .kpi-card:active,
+    .reel-card:hover, .reel-card:active { transform: translateY(-3px); }
+  }
+
+  @media (max-width: 420px) {
+    .hero-meta { grid-template-columns: 1fr; gap: 18px; }
+    .container, .container-narrow, .container-wide { padding: 0 16px; }
+  }
+</style>
+</head>
+<body class="splash-active">
+
+<div class="dust-layer" id="dustLayer" aria-hidden="true"></div>
+
+<div class="splash" id="splash">
+  <div class="splash-logo">@arturradj <br><span class="accent">недели 7-8</span></div>
+  <div class="splash-sub">25 мая — 7 июня · статистика</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-period reveal">25 мая — 7 июня · отчётный период (14 дней)</div>
+    <h1 class="hero-title reveal">@arturradj · недели <span class="accent">7-8</span></h1>
+    <p class="lead reveal" style="max-width: 720px;">
+      15 опубликованных Reels за 2 недели, 17 512 просмотров суммарно. Из них на неделе 7 — 9 роликов, на неделе 8 — 6 роликов. Пробных рилсов в этом периоде не было.
+    </p>
+
+    <div class="hero-meta reveal">
+      <div class="item">
+        <div class="label">Просмотры новых Reels</div>
+        <div class="value">17 512</div>
+      </div>
+      <div class="item">
+        <div class="label">Reels опубликовано</div>
+        <div class="value">15</div>
+      </div>
+      <div class="item">
+        <div class="label">Прирост подписчиков</div>
+        <div class="value">+19</div>
+      </div>
+      <div class="item">
+        <div class="label">Подписчиков сейчас</div>
+        <div class="value">553</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KPI WEEKS 7-8 ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">01 · Ключевые показатели за 2 недели</div>
+    <h2 class="section-title reveal">Сводка за <span class="accent">недели 7-8</span> · 25 мая — 7 июня</h2>
+    <p class="lead reveal" style="max-width: 720px; margin-bottom: 0;">
+      Цифры по 15 Reels за 14 дней.
+    </p>
+
+    <div class="kpi-grid reveal">
+      <div class="kpi-card">
+        <div class="label">Просмотры новых Reels</div>
+        <div class="value">17 512</div>
+        <div class="delta">по 15 роликам за 14 дней</div>
+        <div class="note">Нед 7: 15 629 · Нед 8: 1 883</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Охват новых Reels</div>
+        <div class="value">12 819</div>
+        <div class="delta">по 15 роликам</div>
+        <div class="note">Сумма охваченных аккаунтов по всем Reels за 2 недели</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Прирост подписчиков</div>
+        <div class="value">+19</div>
+        <div class="delta">за 2 недели · итого 553</div>
+        <div class="note">534 на 24.05 → 553 на 06.06 · ~+10 в неделю</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Взаимодействия (Reels)</div>
+        <div class="value">378</div>
+        <div class="delta">за 2 недели</div>
+        <div class="note">Лайки 272 · комм 3 · поделились 83 · сохранения 17 · репосты 3</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Топ-ролик периода</div>
+        <div class="value" style="font-size: 24px;">«Стабильно повышаем уверенность»</div>
+        <div class="delta">6 200 просмотров · 31.05</div>
+        <div class="note">85 лайков · 32 поделились · 9 сохранений · охват 4 500</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Engagement Rate</div>
+        <div class="value">2,14%</div>
+        <div class="delta">по 15 роликам</div>
+        <div class="note">ER = (лайки + комм + поделились + сохранения) / просмотры</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONTHLY ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">02 · Месячная статистика аккаунта</div>
+    <h2 class="section-title reveal">Контекст за <span class="accent">30 дней</span> · 7 мая — 6 июня</h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Аккаунт за месяц целиком: и новые ролики недель 7-8, и накопленные просмотры по предыдущим неделям.
+    </p>
+
+    <div class="kpi-grid reveal">
+      <div class="kpi-card">
+        <div class="label">Просмотры Reels (30 дн)</div>
+        <div class="value">608 тыс</div>
+        <div class="delta">−130 тыс к срезу 23.05</div>
+        <div class="note">Месячная цифра по аккаунту</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Охват аккаунтов (30 дн)</div>
+        <div class="value">380 тыс</div>
+        <div class="delta">−81 тыс к срезу 23.05</div>
+        <div class="note">Уникальных аккаунтов, посмотревших контент</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Лайки за месяц</div>
+        <div class="value">16 тыс</div>
+        <div class="delta">все форматы · 30 дней</div>
+        <div class="note">Агрегированно по аккаунту</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Поделились (30 дн)</div>
+        <div class="value">5,8 тыс</div>
+        <div class="delta">все форматы · 30 дней</div>
+        <div class="note">Отправок Reels / Stories в личку</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Сохранения (30 дн)</div>
+        <div class="value">1,2 тыс</div>
+        <div class="delta">все форматы · 30 дней</div>
+        <div class="note">Сохранений Reels в «Сохранённое»</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Репосты / комментарии</div>
+        <div class="value">222 / 197</div>
+        <div class="delta">все форматы · 30 дней</div>
+        <div class="note">Репостов в Stories / комментариев под постами</div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-card-title">Просмотры по типу контента</div>
+      <div class="chart-card-sub">за 14 дней · 23 мая – 6 июня</div>
+      <div class="chart-wrap"><canvas id="chartContentMonth"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE TO WEEK 6 ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">03 · Сравнение с неделей 6</div>
+    <h2 class="section-title reveal">Динамика <span class="accent">неделя 6 → 7 → 8</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Все основные метрики по контенту: ×динамика и абсолютная разница по каждой неделе.
+    </p>
+
+    <div class="chart-grid-2 reveal">
+      <div class="chart-card">
+        <div class="chart-card-title">Просмотры новых Reels по неделям</div>
+        <div class="chart-card-sub">сумма по роликам недели публикации · Н1–Н8</div>
+        <div class="chart-wrap"><canvas id="chartWeeklyViews"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Подписчиков на конец недели</div>
+        <div class="chart-card-sub">от 352 до 553 · +201 за 8 недель</div>
+        <div class="chart-wrap"><canvas id="chartSubs"></canvas></div>
+      </div>
+    </div>
+
+    <div class="compare-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Показатель</th>
+            <th style="text-align:right">Неделя 6</th>
+            <th style="text-align:right">Неделя 7</th>
+            <th style="text-align:right">Неделя 8</th>
+            <th style="text-align:right">Δ 7→8</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Роликов опубликовано</td><td class="num">19</td><td class="num">9</td><td class="num">6</td><td class="delta-neg">×0,67</td></tr>
+          <tr><td>Всего просмотров</td><td class="num">54 688</td><td class="num">15 629</td><td class="num">1 883</td><td class="delta-neg">×0,12</td></tr>
+          <tr><td>Охват (сумма)</td><td class="num">40 539</td><td class="num">11 518</td><td class="num">1 301</td><td class="delta-neg">×0,11</td></tr>
+          <tr><td>Лайки</td><td class="num">929</td><td class="num">237</td><td class="num">35</td><td class="delta-neg">×0,15</td></tr>
+          <tr><td>Комментарии</td><td class="num">50</td><td class="num">3</td><td class="num">0</td><td class="delta-neg">×0</td></tr>
+          <tr><td>Репосты</td><td class="num">14</td><td class="num">3</td><td class="num">0</td><td class="delta-neg">×0</td></tr>
+          <tr><td>Поделились (в личку)</td><td class="num">430</td><td class="num">78</td><td class="num">5</td><td class="delta-neg">×0,06</td></tr>
+          <tr><td>Сохранения</td><td class="num">66</td><td class="num">15</td><td class="num">2</td><td class="delta-neg">×0,13</td></tr>
+          <tr><td>Среднее время просмотра</td><td class="num">8,3 с</td><td class="num">7,2 с</td><td class="num">6,4 с</td><td class="delta-neg">−0,8 с</td></tr>
+          <tr><td>Engagement Rate</td><td class="num">2,70%</td><td class="num">2,13%</td><td class="num">2,23%</td><td class="delta-pos">+0,10 п.п.</td></tr>
+          <tr><td>Топ-ролик (просмотры)</td><td class="num">16 000</td><td class="num">6 200</td><td class="num">434</td><td class="delta-neg">×0,07</td></tr>
+          <tr><td>Топ-3 / всего просмотров</td><td class="num">66%</td><td class="num">69%</td><td class="num">60%</td><td class="delta-neg">−9 п.п.</td></tr>
+          <tr><td>Чистый прирост подписчиков</td><td class="num">+20</td><td class="num" colspan="2" style="text-align:center;">+19 за 2 недели</td><td class="delta-flat">~+10 / нед</td></tr>
+          <tr><td>Подписчиков на конец</td><td class="num">534</td><td class="num" colspan="2" style="text-align:center;">553 (на 06.06)</td><td class="delta-pos">+19</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOP REELS BAR ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">04 · Топ за 2 недели</div>
+    <h2 class="section-title reveal">Рейтинг <span class="accent">Reels</span> · 25 мая — 7 июня</h2>
+
+    <div class="chart-card reveal">
+      <div class="chart-card-title">Просмотры по роликам</div>
+      <div class="chart-card-sub">15 роликов · по убыванию · золотом — неделя 7, серым — неделя 8</div>
+      <div class="chart-wrap tall"><canvas id="chartTopReels"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEEK 7 vs WEEK 8 ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">05 · Неделя 7 vs неделя 8</div>
+    <h2 class="section-title reveal">Сравнение <span class="accent">внутри периода</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Из 15 опубликованных роликов: 9 — на неделе 7 (25-31 мая), 6 — на неделе 8 (1-7 июня).
+    </p>
+
+    <div class="compare-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Показатель</th>
+            <th style="text-align:right">Неделя 7 (9)</th>
+            <th style="text-align:right">Неделя 8 (6)</th>
+            <th style="text-align:right">Разница</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Просмотров суммарно</td><td class="num">15 629</td><td class="num">1 883</td><td class="delta-neg">×0,12</td></tr>
+          <tr><td>Просмотров в среднем на ролик</td><td class="num">1 736</td><td class="num">314</td><td class="delta-neg">×0,18</td></tr>
+          <tr><td>Охват суммарно</td><td class="num">11 518</td><td class="num">1 301</td><td class="delta-neg">×0,11</td></tr>
+          <tr><td>Лайков суммарно</td><td class="num">237</td><td class="num">35</td><td class="delta-neg">×0,15</td></tr>
+          <tr><td>Лайков в среднем на ролик</td><td class="num">26,3</td><td class="num">5,8</td><td class="delta-neg">×0,22</td></tr>
+          <tr><td>Комментариев суммарно</td><td class="num">3</td><td class="num">0</td><td class="delta-neg">×0</td></tr>
+          <tr><td>Поделились суммарно</td><td class="num">78</td><td class="num">5</td><td class="delta-neg">×0,06</td></tr>
+          <tr><td>Поделились в среднем</td><td class="num">8,7</td><td class="num">0,8</td><td class="delta-neg">×0,09</td></tr>
+          <tr><td>Сохранений суммарно</td><td class="num">15</td><td class="num">2</td><td class="delta-neg">×0,13</td></tr>
+          <tr><td>Сохранений в среднем</td><td class="num">1,7</td><td class="num">0,3</td><td class="delta-neg">×0,18</td></tr>
+          <tr><td>Среднее время просмотра</td><td class="num">7,19 с</td><td class="num">6,41 с</td><td class="delta-neg">−0,78 с</td></tr>
+          <tr><td>Engagement Rate</td><td class="num">2,13%</td><td class="num">2,23%</td><td class="delta-pos">+0,10 п.п.</td></tr>
+          <tr><td>Топ-ролик (просмотры)</td><td class="num">6 200</td><td class="num">434</td><td class="delta-neg">×0,07</td></tr>
+          <tr><td>Доля от общих просмотров</td><td class="num">89%</td><td class="num">11%</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">06 · Истории</div>
+    <h2 class="section-title reveal">Stories <span class="accent">за 14 дней</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      На скринах видно ~30 сторис за период. Точная привязка к дате есть не у всех (Insights показывает «1 нед.» / «3 д.» и т.п.).
+    </p>
+
+    <div class="kpi-grid reveal">
+      <div class="kpi-card">
+        <div class="label">Всего сторис</div>
+        <div class="value">~30</div>
+        <div class="delta">за 14 дней</div>
+        <div class="note">Видимых на скринах Insights</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Суммарные просмотры</div>
+        <div class="value">~4 520</div>
+        <div class="delta">за 14 дней</div>
+        <div class="note">Сумма по видимым сторис</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Средний просмотр</div>
+        <div class="value">~150</div>
+        <div class="delta">на 1 сторис</div>
+        <div class="note">На неделе 6 было 152 (по 7 сторис)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Максимум / минимум</div>
+        <div class="value">746 / 52</div>
+        <div class="delta">просмотров</div>
+        <div class="note">Максимум: «Ну и поздравили с @antonboxing95»</div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-card-title">Активность Stories: неделя 6 vs недели 7-8</div>
+      <div class="chart-card-sub">количество сторис / суммарные просмотры (в пересчёте на 7 дней)</div>
+      <div class="chart-wrap"><canvas id="chartStoriesCompare"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REELS CAROUSEL ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">07 · Каждый ролик</div>
+    <h2 class="section-title reveal">Карточки <span class="accent">Reels</span></h2>
+    <p class="lead reveal" style="max-width: 680px;">
+      15 Reels за 2 недели с детальной разбивкой. Прокрутите вправо — карточки можно листать. Серая рамка — ролики недели 8.
+    </p>
+  </div>
+
+  <div class="container-wide">
+    <div class="reels-strip reveal" id="reelsStrip"></div>
+  </div>
+</section>
+
+<!-- ============ DATA TABLE ============ -->
+<section>
+  <div class="container">
+    <div class="eyebrow reveal">08 · Полные данные</div>
+    <h2 class="section-title reveal">Сводная <span class="accent">таблица</span></h2>
+    <p class="lead reveal" style="max-width: 720px;">
+      Все 15 Reels недель 7-8 с детальной разбивкой Edits.
+    </p>
+
+    <div class="data-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Ролик</th>
+            <th style="text-align:right">Дата</th>
+            <th style="text-align:right">Просмотры</th>
+            <th style="text-align:right">Охват</th>
+            <th style="text-align:right">Лайки</th>
+            <th style="text-align:right">Комм.</th>
+            <th style="text-align:right">Поделились</th>
+            <th style="text-align:right">Сохр.</th>
+            <th style="text-align:right">Репосты</th>
+            <th style="text-align:right">Ср.&nbsp;время</th>
+          </tr>
+        </thead>
+        <tbody id="dataTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand"><span class="accent">@arturradj</span> × Малик Хошимов</div>
+  <div class="footer-meta">Недели 7-8 · 25 мая — 7 июня · 2026</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  // === REELS DATA WEEKS 7-8 ===
+  // week: 7 или 8
+  const reels = [
+    { t: 'Стабильно повышаем уверенность',       d: '31.05', v: 6200, r: 4500, l: 85, c: 1, s: 32, sv: 9, sr: 2, avg: '8,38 с', week: 7 },
+    { t: 'Лучшее ощущение (после болезни)',      d: '25.05', v: 2600, r: 2100, l: 44, c: 1, s: 3,  sv: 1, sr: 1, avg: '4,98 с', week: 7 },
+    { t: 'Любую сказку расскажу (с братишкой)',  d: '27.05', v: 2000, r: 1500, l: 15, c: 0, s: 15, sv: 3, sr: 0, avg: '5,96 с', week: 7 },
+    { t: 'Не обманул, а переиграл',              d: '30.05', v: 1900, r: 1200, l: 28, c: 0, s: 4,  sv: 0, sr: 0, avg: '7,29 с', week: 7 },
+    { t: 'Муж уходит, чтоб не ссориться',        d: '26.05', v: 1200, r: 901,  l: 22, c: 0, s: 15, sv: 1, sr: 0, avg: '6,61 с', week: 7 },
+    { t: 'Отмечай своего бро',                   d: '29.05', v: 486,  r: 373,  l: 7,  c: 0, s: 4,  sv: 1, sr: 0, avg: '6,40 с', week: 7 },
+    { t: 'Сегодня сделали (детдом, закупка)',    d: '30.05', v: 462,  r: 356,  l: 18, c: 1, s: 0,  sv: 0, sr: 0, avg: '12,62 с', week: 7 },
+    { t: 'Не мороси по братский',                d: '03.06', v: 434,  r: 319,  l: 6,  c: 0, s: 3,  sv: 1, sr: 0, avg: '7,42 с', week: 8 },
+    { t: 'Зачем ты качаешься (заливает в драке)',d: '28.05', v: 406,  r: 316,  l: 6,  c: 0, s: 0,  sv: 0, sr: 0, avg: '6,37 с', week: 7 },
+    { t: 'Отмечай своего друга',                 d: '26.05', v: 375,  r: 272,  l: 12, c: 0, s: 5,  sv: 0, sr: 0, avg: '6,04 с', week: 7 },
+    { t: 'Ты такой домашний (до 22:00)',         d: '02.06', v: 367,  r: 239,  l: 6,  c: 0, s: 0,  sv: 0, sr: 0, avg: '6,18 с', week: 8 },
+    { t: 'Так и поверили (жене машину)',         d: '06.06', v: 337,  r: 217,  l: 4,  c: 0, s: 1,  sv: 1, sr: 0, avg: '6,68 с', week: 8 },
+    { t: 'Все построили семью (тот самый кент)', d: '04.06', v: 324,  r: 198,  l: 10, c: 0, s: 1,  sv: 0, sr: 0, avg: '5,91 с', week: 8 },
+    { t: 'Детский дом «Асылташ»',                d: '05.06', v: 223,  r: 176,  l: 4,  c: 0, s: 0,  sv: 0, sr: 0, avg: '6,52 с', week: 8 },
+    { t: 'Надо хоть к чему-то готовиться',       d: '05.06', v: 198,  r: 152,  l: 5,  c: 0, s: 0,  sv: 0, sr: 0, avg: '4,83 с', week: 8 },
+  ];
+
+  // ============ Render reel cards ============
+  const strip = document.getElementById('reelsStrip');
+  reels.forEach((r, i) => {
+    const card = document.createElement('div');
+    card.className = 'reel-card' + (r.week === 8 ? ' week8' : '');
+    card.innerHTML = `
+      <div class="reel-rank">${(i+1).toString().padStart(2,'0')} · ${r.d} · Н${r.week}</div>
+      <div class="reel-title">${r.t}</div>
+      <div class="reel-views">${r.v.toLocaleString('ru-RU')}</div>
+      <div class="reel-views-label">Просмотров</div>
+      <div class="reel-metrics">
+        <div class="metric"><div class="m-label">Охват</div><div class="m-value">${r.r.toLocaleString('ru-RU')}</div></div>
+        <div class="metric"><div class="m-label">Лайки</div><div class="m-value">${r.l}</div></div>
+        <div class="metric"><div class="m-label">Комм.</div><div class="m-value">${r.c}</div></div>
+        <div class="metric"><div class="m-label">Поделились</div><div class="m-value">${r.s}</div></div>
+        <div class="metric"><div class="m-label">Сохранения</div><div class="m-value">${r.sv}</div></div>
+        <div class="metric"><div class="m-label">Репосты</div><div class="m-value">${r.sr}</div></div>
+        <div class="metric"><div class="m-label">Ср. время</div><div class="m-value">${r.avg}</div></div>
+      </div>
+    `;
+    strip.appendChild(card);
+  });
+
+  // ============ Render data table ============
+  const tbody = document.getElementById('dataTableBody');
+  reels.forEach((r) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><span class="week-mark">Н${r.week}</span>${r.t}</td>
+      <td class="num-base">${r.d}</td>
+      <td class="num">${r.v.toLocaleString('ru-RU')}</td>
+      <td class="num-base">${r.r.toLocaleString('ru-RU')}</td>
+      <td class="num-base">${r.l}</td>
+      <td class="num-base">${r.c}</td>
+      <td class="num-base">${r.s}</td>
+      <td class="num-base">${r.sv}</td>
+      <td class="num-base">${r.sr}</td>
+      <td class="num-base">${r.avg}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // ============ Chart defaults ============
+  Chart.defaults.color = '#6a6862';
+  Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+  Chart.defaults.font.family = "'Geist', sans-serif";
+  Chart.defaults.font.size = 12;
+
+  const gold = '#ffb84d';
+  const goldSoft = 'rgba(255,184,77,0.22)';
+  const goldLine = 'rgba(255,184,77,0.6)';
+  const gray = 'rgba(180,180,180,0.4)';
+  const grayLine = 'rgba(180,180,180,0.65)';
+
+  // ============ Weekly views (Н1–Н8) ============
+  new Chart(document.getElementById('chartWeeklyViews'), {
+    type: 'line',
+    data: {
+      labels: ['Н1', 'Н2', 'Н3', 'Н4', 'Н5', 'Н6', 'Н7', 'Н8'],
+      datasets: [{
+        label: 'Просмотры Reels',
+        data: [13285, 64398, 62760, 372485, 20409, 54688, 15629, 1883],
+        borderColor: gold,
+        backgroundColor: goldSoft,
+        borderWidth: 2.5,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: gold,
+        pointBorderColor: '#060606',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { callback: (v) => (v/1000) + 'К' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ============ Subs growth (Старт + Н1–Н6 + Н7-8 точка) ============
+  new Chart(document.getElementById('chartSubs'), {
+    type: 'line',
+    data: {
+      labels: ['Старт', 'Н1', 'Н2', 'Н3', 'Н4', 'Н5', 'Н6', 'Н7-8'],
+      datasets: [{
+        label: 'Подписчиков',
+        data: [352, 353, 374, 385, 476, 514, 534, 553],
+        borderColor: gold,
+        backgroundColor: goldSoft,
+        borderWidth: 2.5,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: gold,
+        pointBorderColor: '#060606',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.04)' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ============ Top Reels (horizontal bar) ============
+  const sortedByViews = [...reels].sort((a,b) => b.v - a.v);
+  new Chart(document.getElementById('chartTopReels'), {
+    type: 'bar',
+    data: {
+      labels: sortedByViews.map(r => {
+        const t = r.t.length > 38 ? r.t.slice(0, 36) + '…' : r.t;
+        return `Н${r.week} · ${t}`;
+      }),
+      datasets: [{
+        label: 'Просмотры',
+        data: sortedByViews.map(r => r.v),
+        backgroundColor: sortedByViews.map(r => r.week === 7 ? gold : gray),
+        borderColor: sortedByViews.map(r => r.week === 7 ? goldLine : grayLine),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { callback: (v) => v.toLocaleString('ru-RU') } },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+
+  // ============ Content type (14 days) — Reels + Stories ============
+  new Chart(document.getElementById('chartContentMonth'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Reels (видео, по аккаунту 14 дн)', 'Stories (видимые)'],
+      datasets: [{
+        data: [71000, 4520],
+        backgroundColor: ['#ffb84d', '#8a5e29'],
+        borderColor: '#060606',
+        borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 18, usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed.toLocaleString('ru-RU') } }
+      }
+    }
+  });
+
+  // ============ Stories Compare: week 6 vs weeks 7-8 (per week) ============
+  new Chart(document.getElementById('chartStoriesCompare'), {
+    type: 'bar',
+    data: {
+      labels: ['Сторис / нед', 'Просмотры / нед', 'Средний просмотр'],
+      datasets: [
+        {
+          label: 'Неделя 6',
+          data: [7, 1061, 152],
+          backgroundColor: 'rgba(180,180,180,0.55)',
+          borderColor: grayLine,
+          borderWidth: 1,
+          borderRadius: 4,
+        },
+        {
+          label: 'Недели 7-8 (в пересчёте на 1 нед)',
+          data: [15, 2260, 150],
+          backgroundColor: 'rgba(255,184,77,0.6)',
+          borderColor: goldLine,
+          borderWidth: 1,
+          borderRadius: 4,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { padding: 18, usePointStyle: true, pointStyle: 'circle' } } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ============ Gold dust particles ============
+  (function makeDust() {
+    const layer = document.getElementById('dustLayer');
+    if (!layer) return;
+    const count = window.matchMedia('(max-width: 720px)').matches ? 28 : 60;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('span');
+      d.className = 'dust';
+      const size = 1 + Math.random() * 3.4;
+      const dur = 14 + Math.random() * 22;
+      const delay = -Math.random() * dur;
+      const left = Math.random() * 100;
+      const drift = (Math.random() - 0.5) * 220;
+      const maxOpacity = 0.25 + Math.random() * 0.55;
+      d.style.width = d.style.height = size + 'px';
+      d.style.left = left + 'vw';
+      d.style.animationDuration = dur + 's';
+      d.style.animationDelay = delay + 's';
+      d.style.setProperty('--drift', drift + 'px');
+      d.style.setProperty('--max-opacity', maxOpacity);
+      layer.appendChild(d);
+    }
+  })();
+
+  // ============ Splash ============
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+      document.body.classList.remove('splash-active');
+    }, 1100);
+  });
+
+  // ============ Reveal on scroll ============
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
