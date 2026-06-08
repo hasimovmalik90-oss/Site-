@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кейс рекламной интеграции · Diamond Hand × Каролина Читанава</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-deep: #030303;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+    --line: rgba(255, 255, 255, 0.06);
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+    --container: 760px;
+    --container-wide: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 16px; line-height: 1.65;
+    color: var(--text); background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+  .container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
+
+  /* TOP NAV — back to media kit */
+  .top-nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 20px 32px; z-index: 100;
+    background: linear-gradient(180deg, rgba(6,6,6,0.85) 0%, transparent 100%);
+    backdrop-filter: blur(8px);
+  }
+  .top-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  .top-nav a:hover { color: var(--gold-bright); }
+
+  /* HERO */
+  .hero {
+    min-height: 86vh;
+    padding: 140px 0 80px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 50% at center top, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 80%, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+  }
+  .hero-content { text-align: center; }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold-bright); margin-bottom: 32px;
+  }
+  .hero-title {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 144, 'wght' 250, 'SOFT' 100;
+    font-size: clamp(56px, 9vw, 128px);
+    line-height: 0.98;
+    color: var(--ink-bright);
+    margin-bottom: 28px;
+    letter-spacing: -0.04em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 250;
+  }
+  .hero-tagline {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80;
+    font-size: clamp(18px, 2vw, 24px);
+    font-style: italic;
+    color: var(--text); margin-bottom: 56px;
+    letter-spacing: 0.01em;
+  }
+  .hero-meta {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-meta a {
+    color: var(--gold-bright); text-decoration: none;
+    border-bottom: 1px solid var(--gold-glow-soft);
+    padding-bottom: 2px;
+  }
+  .hero-divider {
+    display: inline-block; margin: 0 14px;
+    color: var(--gold-deep);
+  }
+
+  /* SECTIONS */
+  section { padding: 96px 0; }
+  .section-bg-deep { background: var(--bg-deep); }
+
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-header .eyebrow {
+    display: block; font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-bright); margin-bottom: 20px;
+  }
+  .section-header h2 {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 144, 'wght' 300, 'SOFT' 80;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1; color: var(--ink-bright);
+    letter-spacing: -0.025em;
+  }
+  .section-header h2 em {
+    font-style: italic; color: var(--gold-bright); font-weight: 250;
+  }
+
+  /* METRICS GRID */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .metric-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 40px 24px;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .metric-cell:hover {
+    border-color: var(--gold-glow-soft);
+    transform: translateY(-3px);
+  }
+  .metric-cell .value {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 144, 'wght' 280, 'SOFT' 80;
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1;
+    color: var(--ink-bright);
+    margin-bottom: 12px;
+    letter-spacing: -0.03em;
+  }
+  .metric-cell .value.gold {
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .metric-cell .label {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* PROOF SHOTS */
+  .proof-shots {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; align-items: flex-start;
+    gap: 24px;
+  }
+  .proof-shot {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 184, 77, 0.12);
+    border-radius: 18px;
+    padding: 14px;
+    display: inline-flex; flex-direction: column;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .proof-shot:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 77, 0.32);
+    box-shadow: 0 24px 60px -20px rgba(255, 184, 77, 0.18);
+  }
+  .proof-shot img {
+    display: block;
+    width: auto; height: auto;
+    max-width: 340px; max-height: 460px;
+    border-radius: 10px;
+    background: #0d0d0f;
+  }
+  .proof-shot.tall img { max-width: 240px; max-height: 480px; }
+  .proof-shot-caption {
+    margin-top: 14px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); text-align: center;
+    align-self: center; white-space: nowrap;
+  }
+  .proof-shot-caption strong {
+    color: var(--gold-bright); font-weight: 500;
+  }
+
+  /* TESTIMONIAL BLOCK */
+  .testimonial-block {
+    background: var(--bg-card);
+    border: 1px solid var(--gold-glow-soft);
+    border-radius: 24px;
+    padding: 72px 56px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 50% at top, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+  }
+  .testimonial-quote {
+    position: relative;
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 144, 'wght' 320, 'SOFT' 100;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: 1.4;
+    color: var(--ink-bright);
+    font-style: italic;
+    margin-bottom: 32px;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+  .testimonial-quote em {
+    color: var(--gold-bright); font-style: normal;
+    font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 80;
+  }
+  .testimonial-meta {
+    position: relative;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .testimonial-meta strong {
+    color: var(--ink); font-weight: 400;
+  }
+
+  /* INTRO PARAGRAPH */
+  .section-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: -32px auto 56px;
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80;
+    font-size: 19px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .section-intro strong {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* BACK CTA */
+  .back-cta {
+    text-align: center; padding: 96px 0 120px;
+    background: var(--bg-deep);
+  }
+  .back-cta a {
+    display: inline-block;
+    padding: 20px 56px;
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    text-decoration: none;
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  .back-cta a:hover {
+    background: var(--gold);
+    color: var(--bg);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px -15px var(--gold-glow-soft);
+  }
+
+  /* FOOTER */
+  .footer-meta {
+    text-align: center;
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 0 48px;
+    background: var(--bg-deep);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    section { padding: 64px 0; }
+    .hero { padding: 100px 0 60px; min-height: 70vh; }
+    .container, .container-wide { padding: 0 24px; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .metric-cell { padding: 28px 16px; }
+    .testimonial-block { padding: 48px 28px; }
+    .testimonial-quote { font-size: 22px; }
+    .proof-shot { padding: 10px; }
+    .proof-shot img { max-width: calc(50vw - 28px); max-height: 360px; }
+    .proof-shot.tall img { max-width: 180px; max-height: 360px; }
+    .section-header h2 { font-size: 32px; }
+    .back-cta a { padding: 16px 36px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="../">← К&nbsp;медиакиту</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Кейс рекламной интеграции · Июнь 2026</div>
+      <h1 class="hero-title">Diamond <em>Hand</em></h1>
+      <p class="hero-tagline">Лабораторные бриллианты &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Moscow</p>
+      <div class="hero-meta">
+        Интеграция <span class="hero-divider">×</span>
+        <a href="https://www.instagram.com/karolina_chitanava" target="_blank">@karolina_chitanava</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- METRICS -->
+<section class="section-bg-deep">
+  <div class="container-wide">
+    <div class="section-header">
+      <span class="eyebrow">Результат · 4 рекламные сторис</span>
+      <h2>Цифры <em>в одной таблице</em></h2>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-cell">
+        <div class="value gold">100&nbsp;544</div>
+        <div class="label">просмотров</div>
+      </div>
+      <div class="metric-cell">
+        <div class="value gold">88,7&nbsp;К</div>
+        <div class="label">охват</div>
+      </div>
+      <div class="metric-cell">
+        <div class="value gold">3&nbsp;075</div>
+        <div class="label">нажатий<br>на тег бренда</div>
+      </div>
+      <div class="metric-cell">
+        <div class="value gold">+148</div>
+        <div class="label">подписчиков<br>бренду</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Заказчик</span>
+      <h2>Кто <em>купил рекламу</em></h2>
+    </div>
+
+    <p class="section-intro">
+      Lab Diamond Boutique · бутик лабораторных бриллиантов
+      с&nbsp;офисами в&nbsp;<strong>Dubai</strong> и&nbsp;<strong>Moscow</strong>.
+      GIA / IGI сертификаты, золото 750, персональный заказ, доставка по&nbsp;миру.
+    </p>
+
+    <div class="proof-shots">
+      <div class="proof-shot tall">
+        <img src="img/brand-profile.jpg" alt="Профиль Diamond hand: Лабораторные бриллианты, Lab Diamond Boutique, Dubai Moscow, 134 публикации, 2 546 подписчиков" loading="lazy">
+        <div class="proof-shot-caption">@diamond.hand.moscow · <strong>2&nbsp;546</strong> подписчиков</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES BREAKDOWN -->
+<section class="section-bg-deep">
+  <div class="container-wide">
+    <div class="section-header">
+      <span class="eyebrow">Размещение · 4 сторис</span>
+      <h2>Что показали <em>аудитории</em></h2>
+    </div>
+
+    <p class="section-intro">
+      Каждая сторис собрала охват <strong>21–23 тыс.</strong> уникальных аккаунтов
+      и&nbsp;несколько тысяч нажатий на&nbsp;тег бренда. Ниже&nbsp;— разворот по&nbsp;каждой.
+    </p>
+
+    <div class="proof-shots">
+      <div class="proof-shot tall">
+        <img src="img/story1-stats.jpg" alt="Сторис 1: охват 22,7 тыс., просмотры 26 754, взаимодействия 619, действия в профиле 79" loading="lazy">
+        <div class="proof-shot-caption">сторис&nbsp;1 · охват <strong>22,7&nbsp;К</strong> · <strong>26&nbsp;754</strong> просмотров</div>
+      </div>
+      <div class="proof-shot tall">
+        <img src="img/story2-stats.jpg" alt="Сторис 2 детально: 2080 нажатий на стикер @diamond.hand.moscow, навигация 24 925, действия 44" loading="lazy">
+        <div class="proof-shot-caption">сторис&nbsp;2 · стикер <strong>2&nbsp;080</strong> · навиг. <strong>24,9&nbsp;К</strong></div>
+      </div>
+      <div class="proof-shot tall">
+        <img src="img/sticker-2080.jpg" alt="Крупный план: 2 080 нажатий на стикер @diamond.hand.moscow в одной сторис" loading="lazy">
+        <div class="proof-shot-caption"><strong>2&nbsp;080</strong> переходов на&nbsp;@diamond.hand.moscow с одной сторис</div>
+      </div>
+      <div class="proof-shot tall">
+        <img src="img/story4-stats.jpg" alt="Сторис 4: охват 21,7 тыс., просмотры 24 331, 197 действий в профиле" loading="lazy">
+        <div class="proof-shot-caption">сторис&nbsp;4 · действия в&nbsp;профиле <strong>197</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL DM -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Отзыв от заказчика · DM</span>
+      <h2>Анна · менеджер <em>Diamond Hand</em></h2>
+    </div>
+
+    <div class="testimonial-block">
+      <p class="testimonial-quote">
+        «К&nbsp;нам пришло <em>148 подписчиков</em>. Всегда были на&nbsp;связи и&nbsp;быстро отвечали&nbsp;— буду рада поработать с&nbsp;Вами ещё.»
+      </p>
+      <div class="testimonial-meta">
+        — Анна, менеджер Diamond Hand · <strong>6 июня 2026</strong>
+      </div>
+    </div>
+
+    <div class="proof-shots" style="margin-top: 48px;">
+      <div class="proof-shot tall">
+        <img src="img/dm-anna.jpg" alt="DM от Анны (Diamond Hand): к нам пришло 148 подписчиков, буду рада поработать с Вами ещё" loading="lazy">
+        <div class="proof-shot-caption">скрин из&nbsp;Telegram · <strong>5–6 июня 2026</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLIC PROOF -->
+<section class="section-bg-deep">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Публичное доказательство</span>
+      <h2>Отзыв в&nbsp;<em>Otzovik_blogger_</em></h2>
+    </div>
+
+    <p class="section-intro">
+      Закрытая группа менеджеров по&nbsp;закупке рекламы у&nbsp;блогеров &mdash;
+      <strong>87 702 участника</strong>. Отзыв&nbsp;— публичный, а&nbsp;не приватный.
+    </p>
+
+    <div class="testimonial-block">
+      <p class="testimonial-quote">
+        «Были на&nbsp;рекламе у&nbsp;Каролины &middot; @karolina_chitanava. Формат: сторис.
+        <em>Просмотры выше гаранта, аудитория активная. Сотрудничеством довольны.</em>
+        Однозначно рекомендую!»
+      </p>
+      <div class="testimonial-meta">
+        — Менеджер бренда · публикация в&nbsp;<strong>Otzovik_blogger_</strong>
+      </div>
+    </div>
+
+    <div class="proof-shots" style="margin-top: 48px;">
+      <div class="proof-shot tall">
+        <img src="img/otzyv-public.jpg" alt="Публичный отзыв о Каролине в группе Otzovik_blogger_ (87 702 участника): просмотры выше гаранта, рекомендую" loading="lazy">
+        <div class="proof-shot-caption">скрин из&nbsp;группы · <strong>87,7&nbsp;К</strong> участников</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACK CTA -->
+<div class="back-cta">
+  <a href="../">← Вернуться в&nbsp;медиакит</a>
+</div>
+
+<div class="footer-meta">
+  Каролина Читанава × Diamond Hand · Кейс рекламной интеграции · Июнь 2026
+</div>
+
+</body>
+</html>
