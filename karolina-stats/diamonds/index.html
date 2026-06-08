@@ -11,24 +11,37 @@
   :root {
     --bg: #060606;
     --bg-1: #0a0a0a;
-    --bg-deep: #030303;
+    --bg-2: #101010;
     --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
     --ink-bright: #faf9f6;
     --ink: #ebe9e2;
     --text: #b5b3aa;
     --muted: #6a6862;
+    --dim: #3a3833;
+
     --gold-bright: #ffd17a;
     --gold: #ffb84d;
     --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
     --gold-glow-soft: rgba(255, 184, 77, 0.18);
     --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
     --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+
     --display: 'Fraunces', 'Times New Roman', serif;
     --serif: 'Instrument Serif', 'Times New Roman', serif;
     --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: 'Geist Mono', ui-monospace, monospace;
+
     --container: 760px;
     --container-wide: 1080px;
+
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,6 +55,7 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
+  section, header, footer { overflow-x: clip; }
 
   .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
   .container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; }
@@ -49,135 +63,239 @@
   /* TOP NAV — back to media kit */
   .top-nav {
     position: fixed; top: 0; left: 0; right: 0;
-    padding: 20px 32px; z-index: 100;
-    background: linear-gradient(180deg, rgba(6,6,6,0.85) 0%, transparent 100%);
+    padding: 22px 32px; z-index: 100;
+    background: linear-gradient(180deg, rgba(6,6,6,0.88) 0%, transparent 100%);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   .top-nav a {
-    color: var(--muted);
-    text-decoration: none;
-    font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    transition: color 0.3s ease;
+    color: var(--muted); text-decoration: none;
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    transition: color 0.3s var(--ease);
   }
   .top-nav a:hover { color: var(--gold-bright); }
 
+  /* EYEBROW — exact copy from media kit */
+  .eyebrow {
+    font-family: var(--mono); font-size: 10.5px;
+    font-weight: 400; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; display: inline-flex;
+    align-items: center; gap: 14px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: var(--gold-deep);
+    opacity: 0.6;
+  }
+
   /* HERO */
   .hero {
-    min-height: 86vh;
-    padding: 140px 0 80px;
+    min-height: 100vh;
+    padding: 140px 0 100px;
     display: flex; align-items: center; justify-content: center;
     position: relative;
     background:
-      radial-gradient(ellipse 80% 50% at center top, var(--gold-glow-soft), transparent 70%),
-      radial-gradient(ellipse 60% 40% at 50% 80%, var(--gold-glow-faint), transparent 70%),
+      radial-gradient(ellipse 80% 60% at center top, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at 50% 90%, var(--gold-glow-faint), transparent 70%),
       var(--bg-deep);
   }
   .hero-content { text-align: center; }
+
   .hero-eyebrow {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 40px;
+  }
+  .hero-eyebrow .pulse {
+    display: inline-block; width: 7px; height: 7px;
+    border-radius: 50%; background: var(--gold);
+    box-shadow: 0 0 12px var(--gold-glow);
+    margin-right: 12px; vertical-align: middle;
+    animation: pulse 2s var(--ease) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* Brand name — Instrument Serif italic, как .hero-name в медиаките */
+  .hero-name {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(44px, 11vw, 120px); color: var(--gold);
+    letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 40px;
+    text-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 0 0.08em;
+  }
+
+  /* Big number — same style as .hero-number в медиаките */
+  .hero-number-wrap { position: relative; margin-bottom: 32px; }
+  .hero-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(72px, 19vw, 280px); line-height: 0.85;
+    letter-spacing: -0.06em; color: var(--ink-bright);
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--ink) 50%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 80px rgba(255, 184, 77, 0.18));
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-number-sub {
     font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.4em; text-transform: uppercase;
-    color: var(--gold-bright); margin-bottom: 32px;
+    color: var(--gold-bright); margin-top: 24px;
   }
-  .hero-title {
-    font-family: var(--display);
-    font-variation-settings: 'opsz' 144, 'wght' 250, 'SOFT' 100;
-    font-size: clamp(56px, 9vw, 128px);
-    line-height: 0.98;
-    color: var(--ink-bright);
-    margin-bottom: 28px;
-    letter-spacing: -0.04em;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-bright);
-    font-weight: 250;
-  }
+
+  /* Tagline — same as .hero-tagline в медиаките */
   .hero-tagline {
     font-family: var(--display);
-    font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80;
-    font-size: clamp(18px, 2vw, 24px);
-    font-style: italic;
-    color: var(--text); margin-bottom: 56px;
-    letter-spacing: 0.01em;
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: clamp(22px, 2.6vw, 30px); line-height: 1.45;
+    color: var(--text); max-width: 660px; margin: 56px auto 0;
+    letter-spacing: -0.01em; text-wrap: balance;
+    -webkit-hyphens: none; hyphens: none;
   }
-  .hero-meta {
-    font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.25em; text-transform: uppercase;
+  .hero-tagline em {
+    font-style: italic; color: var(--gold-bright);
+  }
+  .hero-tagline strong {
+    color: var(--gold-bright); font-weight: 500; font-style: normal;
+  }
+
+  .hero-handles {
+    margin-top: 56px;
+    font-family: var(--mono); font-size: 11.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--muted);
   }
-  .hero-meta a {
+  .hero-handles a {
     color: var(--gold-bright); text-decoration: none;
     border-bottom: 1px solid var(--gold-glow-soft);
     padding-bottom: 2px;
   }
-  .hero-divider {
-    display: inline-block; margin: 0 14px;
-    color: var(--gold-deep);
-  }
+  .hero-handles .sep { display: inline-block; margin: 0 14px; color: var(--gold-deep); }
 
   /* SECTIONS */
-  section { padding: 96px 0; }
+  section { padding: 120px 0; }
   .section-bg-deep { background: var(--bg-deep); }
 
-  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-header { text-align: center; margin-bottom: 80px; }
   .section-header .eyebrow {
-    display: block; font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold-bright); margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .section-header h2 {
     font-family: var(--display);
-    font-variation-settings: 'opsz' 144, 'wght' 300, 'SOFT' 80;
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
     font-size: clamp(36px, 5vw, 56px);
     line-height: 1.1; color: var(--ink-bright);
     letter-spacing: -0.025em;
+    text-wrap: balance;
   }
   .section-header h2 em {
-    font-style: italic; color: var(--gold-bright); font-weight: 250;
+    font-style: italic; color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
   }
 
-  /* METRICS GRID */
-  .metrics-grid {
+  /* CLICKS BREAKDOWN — central focus */
+  .clicks-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    max-width: 720px;
+    margin: 0 auto;
   }
-  .metric-cell {
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 40px 24px;
-    text-align: center;
-    transition: border-color 0.3s ease, transform 0.3s ease;
+  .clicks-cell {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 36px 24px; text-align: center;
+    border: 1px solid var(--line); border-radius: 6px;
+    transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
   }
-  .metric-cell:hover {
+  .clicks-cell:hover {
     border-color: var(--gold-glow-soft);
     transform: translateY(-3px);
   }
-  .metric-cell .value {
+  .clicks-cell.peak {
+    border-color: var(--gold-glow-soft);
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-soft), transparent 70%),
+      var(--bg-card);
+  }
+  .clicks-cell .num {
     font-family: var(--display);
-    font-variation-settings: 'opsz' 144, 'wght' 280, 'SOFT' 80;
-    font-size: clamp(40px, 4.5vw, 64px);
-    line-height: 1;
-    color: var(--ink-bright);
-    margin-bottom: 12px;
-    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: clamp(40px, 5vw, 64px); line-height: 1;
+    color: var(--gold-bright); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em; margin-bottom: 14px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
   }
-  .metric-cell .value.gold {
-    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .clicks-cell.peak .num {
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 70%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 24px var(--gold-glow));
   }
-  .metric-cell .label {
-    font-family: var(--mono); font-size: 10.5px;
-    letter-spacing: 0.18em; text-transform: uppercase;
+  .clicks-cell .lbl {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--muted);
-    line-height: 1.5;
+  }
+  .clicks-cell .star {
+    display: block; color: var(--gold);
+    font-size: 14px; margin-bottom: 12px;
+    opacity: 0.7;
   }
 
-  /* PROOF SHOTS */
+  /* METRICS GRID — для остальных цифр */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .metric-cell {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 28px 22px; text-align: left;
+    border: 1px solid var(--line); border-radius: 6px;
+    min-height: 134px; display: flex; flex-direction: column;
+    transition: border-color 0.4s var(--ease);
+  }
+  .metric-cell:hover { border-color: var(--gold-glow-soft); }
+  .metric-cell .lbl {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px;
+  }
+  .metric-cell .val {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: clamp(24px, 2.7vw, 32px); line-height: 1;
+    color: var(--ink); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em; margin-bottom: 10px;
+  }
+  .metric-cell .val.gold {
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .metric-cell .sub {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-top: auto;
+  }
+
+  /* PROOF SHOTS — точная копия из медиакита */
   .proof-shots {
     display: flex; flex-wrap: wrap;
     justify-content: center; align-items: flex-start;
@@ -185,12 +303,13 @@
   }
   .proof-shot {
     position: relative;
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.018);
     border: 1px solid rgba(255, 184, 77, 0.12);
     border-radius: 18px;
     padding: 14px;
     display: inline-flex; flex-direction: column;
-    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    flex: 0 1 auto;
+    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
   }
   .proof-shot:hover {
     transform: translateY(-4px);
@@ -206,38 +325,33 @@
   }
   .proof-shot.tall img { max-width: 240px; max-height: 480px; }
   .proof-shot-caption {
-    margin-top: 14px;
+    margin-top: 12px;
     font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); text-align: center;
-    align-self: center; white-space: nowrap;
+    line-height: 1.5; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center; align-self: center; white-space: nowrap;
   }
   .proof-shot-caption strong {
-    color: var(--gold-bright); font-weight: 500;
+    color: var(--gold-bright); font-weight: 500; letter-spacing: 0.08em;
   }
+  .proof-shot-single { display: flex; justify-content: center; }
 
   /* TESTIMONIAL BLOCK */
   .testimonial-block {
-    background: var(--bg-card);
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-soft), transparent 70%),
+      var(--bg-card);
     border: 1px solid var(--gold-glow-soft);
-    border-radius: 24px;
+    border-radius: 6px;
     padding: 72px 56px;
     text-align: center;
     max-width: 760px;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
-  }
-  .testimonial-block::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 50% at top, var(--gold-glow-faint), transparent 70%);
-    pointer-events: none;
   }
   .testimonial-quote {
-    position: relative;
     font-family: var(--display);
-    font-variation-settings: 'opsz' 144, 'wght' 320, 'SOFT' 100;
+    font-variation-settings: "opsz" 144, "wght" 320, "SOFT" 100;
     font-size: clamp(22px, 2.5vw, 30px);
     line-height: 1.4;
     color: var(--ink-bright);
@@ -248,84 +362,92 @@
   }
   .testimonial-quote em {
     color: var(--gold-bright); font-style: normal;
-    font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 80;
+    font-variation-settings: "opsz" 144, "wght" 420, "SOFT" 80;
   }
   .testimonial-meta {
-    position: relative;
-    font-family: var(--mono); font-size: 11px;
+    font-family: var(--mono); font-size: 10.5px;
     letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--muted);
   }
-  .testimonial-meta strong {
-    color: var(--ink); font-weight: 400;
-  }
+  .testimonial-meta strong { color: var(--ink); font-weight: 400; }
 
-  /* INTRO PARAGRAPH */
+  /* SECTION INTRO */
   .section-intro {
     text-align: center;
-    max-width: 600px;
+    max-width: 580px;
     margin: -32px auto 56px;
     font-family: var(--display);
     font-style: italic;
-    font-variation-settings: 'opsz' 144, 'wght' 350, 'SOFT' 80;
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
     font-size: 19px;
     color: var(--text);
     line-height: 1.5;
+    text-wrap: balance;
   }
   .section-intro strong {
-    color: var(--gold-bright);
-    font-style: normal;
-    font-weight: 500;
+    color: var(--gold-bright); font-style: normal; font-weight: 500;
   }
 
   /* BACK CTA */
   .back-cta {
-    text-align: center; padding: 96px 0 120px;
+    text-align: center; padding: 120px 0;
     background: var(--bg-deep);
   }
   .back-cta a {
     display: inline-block;
-    padding: 20px 56px;
+    padding: 22px 64px;
     border: 1px solid var(--gold);
     color: var(--gold-bright);
     text-decoration: none;
-    font-family: var(--mono); font-size: 12px;
-    letter-spacing: 0.25em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
     border-radius: 999px;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--ease);
     background: transparent;
   }
   .back-cta a:hover {
     background: var(--gold);
     color: var(--bg);
     transform: translateY(-2px);
-    box-shadow: 0 20px 50px -15px var(--gold-glow-soft);
+    box-shadow: 0 20px 50px -15px var(--gold-glow);
   }
 
   /* FOOTER */
   .footer-meta {
     text-align: center;
     font-family: var(--mono); font-size: 10.5px;
-    letter-spacing: 0.2em; text-transform: uppercase;
+    letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--muted);
-    padding: 0 0 48px;
+    padding: 0 32px 56px;
     background: var(--bg-deep);
   }
 
   /* RESPONSIVE */
   @media (max-width: 720px) {
-    section { padding: 64px 0; }
-    .hero { padding: 100px 0 60px; min-height: 70vh; }
+    section { padding: 80px 0; }
+    .hero { padding: 110px 0 70px; min-height: 90vh; }
     .container, .container-wide { padding: 0 24px; }
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .metric-cell { padding: 28px 16px; }
-    .testimonial-block { padding: 48px 28px; }
+
+    .hero-name { font-size: clamp(40px, 12vw, 64px); margin-bottom: 32px; }
+    .hero-number { font-size: clamp(80px, 22vw, 130px); }
+    .hero-tagline { font-size: 17px; line-height: 1.55; margin: 40px auto 0; padding: 0 8px; }
+    .hero-handles { font-size: 11px; margin-top: 48px; }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header h2 { font-size: 32px; }
+
+    .clicks-grid { grid-template-columns: 1fr; gap: 14px; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .testimonial-block { padding: 48px 24px; }
     .testimonial-quote { font-size: 22px; }
+
     .proof-shot { padding: 10px; }
     .proof-shot img { max-width: calc(50vw - 28px); max-height: 360px; }
     .proof-shot.tall img { max-width: 180px; max-height: 360px; }
-    .section-header h2 { font-size: 32px; }
-    .back-cta a { padding: 16px 36px; font-size: 11px; }
+
+    .back-cta { padding: 80px 0; }
+    .back-cta a { padding: 18px 40px; font-size: 10.5px; }
   }
 </style>
 </head>
@@ -335,45 +457,101 @@
   <a href="../">← К&nbsp;медиакиту</a>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — Brand · 3 075 кликов · tagline -->
 <header class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-eyebrow">Кейс рекламной интеграции · Июнь 2026</div>
-      <h1 class="hero-title">Diamond <em>Hand</em></h1>
-      <p class="hero-tagline">Лабораторные бриллианты &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Moscow</p>
-      <div class="hero-meta">
-        Интеграция <span class="hero-divider">×</span>
+
+      <div class="hero-eyebrow">
+        <span class="pulse"></span>Кейс рекламной интеграции · Июнь 2026
+      </div>
+
+      <div class="hero-name">Diamond Hand</div>
+
+      <div class="hero-number-wrap">
+        <div class="hero-number">3&nbsp;075</div>
+        <div class="hero-number-sub">переходов на&nbsp;@diamond.hand.moscow за&nbsp;4 сторис</div>
+      </div>
+
+      <p class="hero-tagline">
+        Из&nbsp;них <em>2&nbsp;080</em> кликов&nbsp;— с&nbsp;<em>одной</em> сторис.<br>
+        <strong>+148</strong> подписчиков пришло бренду.
+      </p>
+
+      <div class="hero-handles">
+        Интеграция <span class="sep">×</span>
         <a href="https://www.instagram.com/karolina_chitanava" target="_blank">@karolina_chitanava</a>
       </div>
+
     </div>
   </div>
 </header>
 
-<!-- METRICS -->
+<!-- CLICKS BREAKDOWN — главный акцент -->
+<section>
+  <div class="container-wide">
+    <div class="section-header">
+      <span class="eyebrow">Главный результат · клики</span>
+      <h2>Все&nbsp;3&nbsp;075 кликов <em>ведут на&nbsp;бренд</em></h2>
+    </div>
+
+    <p class="section-intro">
+      Каждая сторис содержала тег <strong>@diamond.hand.moscow</strong>.
+      Это&nbsp;прямые переходы пользователя <em>на&nbsp;профиль бренда</em>&nbsp;— главная цель рекламодателя.
+    </p>
+
+    <div class="clicks-grid">
+      <div class="clicks-cell peak">
+        <div class="star">★ рекорд</div>
+        <div class="num">2&nbsp;080</div>
+        <div class="lbl">сторис&nbsp;2</div>
+      </div>
+      <div class="clicks-cell">
+        <div class="num">681</div>
+        <div class="lbl">сторис&nbsp;3</div>
+      </div>
+      <div class="clicks-cell">
+        <div class="num">314</div>
+        <div class="lbl">сторис&nbsp;4</div>
+      </div>
+    </div>
+
+    <p class="section-intro" style="margin-top: 56px; margin-bottom: 0;">
+      <strong>2 080 переходов с&nbsp;одной сторис</strong>&nbsp;— это&nbsp;~7,8% от&nbsp;её охвата 26,7&nbsp;тыс. Конверсия «увидел&nbsp;→ кликнул» работает.
+    </p>
+
+    <div class="proof-shot-single" style="margin-top: 56px;">
+      <div class="proof-shot tall">
+        <img src="img/sticker-2080.jpg" alt="Крупный план статистики: 2 080 нажатий на стикер @diamond.hand.moscow в одной сторис" loading="lazy">
+        <div class="proof-shot-caption"><strong>2&nbsp;080</strong> нажатий на&nbsp;тег с&nbsp;одной сторис</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS — остальные цифры -->
 <section class="section-bg-deep">
   <div class="container-wide">
     <div class="section-header">
-      <span class="eyebrow">Результат · 4 рекламные сторис</span>
-      <h2>Цифры <em>в одной таблице</em></h2>
+      <span class="eyebrow">Полная статистика интеграции</span>
+      <h2>Цифры за&nbsp;<em>4 сторис</em></h2>
     </div>
 
     <div class="metrics-grid">
       <div class="metric-cell">
-        <div class="value gold">100&nbsp;544</div>
-        <div class="label">просмотров</div>
+        <div class="lbl">Просмотров</div>
+        <div class="val gold">100&nbsp;544</div>
+        <div class="sub">по&nbsp;4 сторис</div>
       </div>
       <div class="metric-cell">
-        <div class="value gold">88,7&nbsp;К</div>
-        <div class="label">охват</div>
+        <div class="lbl">Охват</div>
+        <div class="val gold">88,7&nbsp;К</div>
+        <div class="sub">уникальных аккаунтов</div>
       </div>
       <div class="metric-cell">
-        <div class="value gold">3&nbsp;075</div>
-        <div class="label">нажатий<br>на тег бренда</div>
-      </div>
-      <div class="metric-cell">
-        <div class="value gold">+148</div>
-        <div class="label">подписчиков<br>бренду</div>
+        <div class="lbl">Подписчиков бренду</div>
+        <div class="val gold">+148</div>
+        <div class="sub">подтверждено бренд-менеджером</div>
       </div>
     </div>
   </div>
@@ -388,12 +566,11 @@
     </div>
 
     <p class="section-intro">
-      Lab Diamond Boutique · бутик лабораторных бриллиантов
-      с&nbsp;офисами в&nbsp;<strong>Dubai</strong> и&nbsp;<strong>Moscow</strong>.
+      Lab Diamond Boutique с&nbsp;офисами в&nbsp;<strong>Dubai</strong> и&nbsp;<strong>Moscow</strong>.
       GIA / IGI сертификаты, золото 750, персональный заказ, доставка по&nbsp;миру.
     </p>
 
-    <div class="proof-shots">
+    <div class="proof-shot-single">
       <div class="proof-shot tall">
         <img src="img/brand-profile.jpg" alt="Профиль Diamond hand: Лабораторные бриллианты, Lab Diamond Boutique, Dubai Moscow, 134 публикации, 2 546 подписчиков" loading="lazy">
         <div class="proof-shot-caption">@diamond.hand.moscow · <strong>2&nbsp;546</strong> подписчиков</div>
@@ -411,22 +588,18 @@
     </div>
 
     <p class="section-intro">
-      Каждая сторис собрала охват <strong>21–23 тыс.</strong> уникальных аккаунтов
-      и&nbsp;несколько тысяч нажатий на&nbsp;тег бренда. Ниже&nbsp;— разворот по&nbsp;каждой.
+      Каждая сторис собрала охват <strong>21–23 тыс.</strong> уникальных аккаунтов.
+      Ниже&nbsp;— разворот по&nbsp;каждой.
     </p>
 
     <div class="proof-shots">
       <div class="proof-shot tall">
         <img src="img/story1-stats.jpg" alt="Сторис 1: охват 22,7 тыс., просмотры 26 754, взаимодействия 619, действия в профиле 79" loading="lazy">
-        <div class="proof-shot-caption">сторис&nbsp;1 · охват <strong>22,7&nbsp;К</strong> · <strong>26&nbsp;754</strong> просмотров</div>
+        <div class="proof-shot-caption">сторис&nbsp;1 · охват <strong>22,7&nbsp;К</strong> · <strong>26&nbsp;754</strong></div>
       </div>
       <div class="proof-shot tall">
         <img src="img/story2-stats.jpg" alt="Сторис 2 детально: 2080 нажатий на стикер @diamond.hand.moscow, навигация 24 925, действия 44" loading="lazy">
         <div class="proof-shot-caption">сторис&nbsp;2 · стикер <strong>2&nbsp;080</strong> · навиг. <strong>24,9&nbsp;К</strong></div>
-      </div>
-      <div class="proof-shot tall">
-        <img src="img/sticker-2080.jpg" alt="Крупный план: 2 080 нажатий на стикер @diamond.hand.moscow в одной сторис" loading="lazy">
-        <div class="proof-shot-caption"><strong>2&nbsp;080</strong> переходов на&nbsp;@diamond.hand.moscow с одной сторис</div>
       </div>
       <div class="proof-shot tall">
         <img src="img/story4-stats.jpg" alt="Сторис 4: охват 21,7 тыс., просмотры 24 331, 197 действий в профиле" loading="lazy">
@@ -440,7 +613,7 @@
 <section>
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Отзыв от заказчика · DM</span>
+      <span class="eyebrow">Отзыв от&nbsp;заказчика · DM</span>
       <h2>Анна · менеджер <em>Diamond Hand</em></h2>
     </div>
 
@@ -453,7 +626,7 @@
       </div>
     </div>
 
-    <div class="proof-shots" style="margin-top: 48px;">
+    <div class="proof-shot-single" style="margin-top: 48px;">
       <div class="proof-shot tall">
         <img src="img/dm-anna.jpg" alt="DM от Анны (Diamond Hand): к нам пришло 148 подписчиков, буду рада поработать с Вами ещё" loading="lazy">
         <div class="proof-shot-caption">скрин из&nbsp;Telegram · <strong>5–6 июня 2026</strong></div>
@@ -486,7 +659,7 @@
       </div>
     </div>
 
-    <div class="proof-shots" style="margin-top: 48px;">
+    <div class="proof-shot-single" style="margin-top: 48px;">
       <div class="proof-shot tall">
         <img src="img/otzyv-public.jpg" alt="Публичный отзыв о Каролине в группе Otzovik_blogger_ (87 702 участника): просмотры выше гаранта, рекомендую" loading="lazy">
         <div class="proof-shot-caption">скрин из&nbsp;группы · <strong>87,7&nbsp;К</strong> участников</div>
