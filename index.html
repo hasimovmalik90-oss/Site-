@@ -27,7 +27,7 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Jost', sans-serif;
@@ -46,8 +46,9 @@ canvas#stars {
 }
 
 /* ── GRADIENT ORBS ── */
+.bg-fx { position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none; }
 .orb {
-  position:fixed; border-radius:50%;
+  position:absolute; border-radius:50%;
   filter:blur(120px); pointer-events:none; z-index:0;
   animation:drift 20s ease-in-out infinite;
 }
@@ -2472,9 +2473,11 @@ canvas#stars {
 
 <!-- Global background elements -->
 <canvas id="stars"></canvas>
+<div class="bg-fx">
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
+</div>
 
 <main>
   <!-- ══════ BLOCK 1: HERO ══════ -->
