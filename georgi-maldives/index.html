@@ -10,11 +10,11 @@ html,body{overflow-x:hidden;width:100%;max-width:100%}
 body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
 background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed}
 ::selection{background:var(--accent);color:#0B0B0C}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px} .narrow{max-width:860px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px} .narrow{max-width:880px}
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
 h1{font-size:clamp(44px,9vw,78px);letter-spacing:.05em}
 h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:8px}
-h3{font-size:clamp(20px,3vw,27px)} h4{font-size:18px;font-weight:400}
+h3{font-size:clamp(20px,3vw,26px)} h4{font-size:18px;font-weight:400}
 p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
 em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
 a{color:var(--accent);text-decoration:none}
@@ -30,7 +30,7 @@ section{padding:62px 0;border-top:1px solid var(--line)}
 .hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,26px);color:var(--accent);margin:16px 0 14px}
 .hero .pos{max-width:680px;margin:18px auto 0;color:var(--mute);font-size:15px;text-wrap:pretty}
 .hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
-/* панель настроек */
+/* панель */
 .panel{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:30px 32px;margin-top:8px}
 .panel ul{list-style:none} .panel li{padding:14px 0 14px 26px;position:relative;color:var(--text);font-size:15.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
 .panel li:last-child{border-bottom:none}
@@ -42,21 +42,42 @@ section{padding:62px 0;border-top:1px solid var(--line)}
 .outc{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:26px}
 .outc-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);margin-bottom:12px}
 .outc h3{margin-bottom:10px} .outc p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
-/* этапы */
-.mblock{display:flex;gap:26px;padding:30px 0;border-bottom:1px solid var(--line)}
-.mblock:last-child{border-bottom:none}
-.mnum{font-family:'Cormorant Garamond',serif;font-size:52px;color:rgba(201,183,155,.35);line-height:1;flex:none;min-width:60px}
-.mbody{flex:1;min-width:0} .mbody h3{margin-bottom:10px}
-.mbody p{color:var(--text);max-width:760px;text-wrap:pretty}
-.voice{margin-top:12px;padding:13px 18px;background:rgba(201,183,155,.05);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--mute);font-size:14px;text-wrap:pretty}
-.voice strong{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;font-weight:600}
-/* озвучка-блок */
+/* раскадровки-этапы */
+.step{display:flex;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.step:last-child{border-bottom:none}
+.frame{width:106px;height:188px;flex:none}
+.frame .bd{fill:#0E0E10;stroke:#2A2926;stroke-width:1.5}
+.frame .ln{stroke:#7A746B;stroke-width:1.5;fill:none;stroke-linecap:round}
+.frame .ac{stroke:var(--accent);stroke-width:1.7;fill:none;stroke-linecap:round}
+.frame .fil{fill:#6A645B}
+.frame .filac{fill:var(--accent)}
+.frame .lbl{fill:var(--dim);font-family:Mulish,sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.06em}
+.step-body{flex:1;min-width:0}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(201,183,155,.42);line-height:1;display:block;margin-bottom:2px}
+.step-body h3{margin-bottom:8px}
+.step-body p{color:var(--text);max-width:680px;text-wrap:pretty}
+.plan{color:var(--accent)!important;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
+.ref{display:inline-block;margin-top:12px;font-size:13.5px;border-bottom:1px solid rgba(201,183,155,.4);padding-bottom:1px}
+.ref::after{content:' \2197';color:var(--accent)}
+/* двойная раскадровка POV / со стороны */
+.dual{display:flex;gap:16px;flex-wrap:wrap}
+.dcard{flex:1;min-width:210px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:18px;align-items:center}
+.dcard h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.dcard p{font-size:14px;color:var(--mute);text-wrap:pretty}
+.dframe{width:78px;height:124px;flex:none}
+/* озвучка */
 .vlist{list-style:none;margin-top:8px}
 .vlist li{padding:13px 0 13px 26px;position:relative;color:var(--text);font-size:15.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
 .vlist li:last-child{border-bottom:none}
 .vlist li::before{content:'';position:absolute;left:0;top:21px;width:7px;height:7px;background:var(--accent);border-radius:50%;opacity:.7}
 .callout{max-width:760px;margin:34px auto 0;text-align:center;padding:30px;border:1px solid rgba(201,183,155,.25);border-radius:16px;background:rgba(201,183,155,.03)}
 .callout p{color:var(--text);font-size:17px}
+/* референсы */
+.reflist{list-style:none;margin-top:8px}
+.reflist li{padding:16px 0;border-bottom:1px solid var(--line)}
+.reflist li:last-child{border-bottom:none}
+.reflist a{font-size:16px}
+.reflist .rd{display:block;color:var(--mute);font-size:13.5px;margin-top:3px;text-wrap:pretty}
 /* финал */
 .closing{text-align:center;padding:80px 0 90px}
 .closing p{max-width:680px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
@@ -73,8 +94,9 @@ section{padding:62px 0;border-top:1px solid var(--line)}
   .hero h1{letter-spacing:.04em;text-transform:none}
   .hero{padding:74px 0 48px} .hero .slogan{font-size:16px}
   h2{font-size:clamp(25px,7vw,33px)}
-  .mblock{gap:16px} .mnum{font-size:40px;min-width:48px}
+  .step{gap:14px} .frame{width:78px;height:138px}
   .panel{padding:24px 20px}
+  .dcard{padding:18px;gap:14px}
 }
 body{word-break:normal;overflow-wrap:normal}
 </style></head><body>
@@ -84,7 +106,7 @@ body{word-break:normal;overflow-wrap:normal}
   <p class="fio">Георгий · @georgiy_gs</p>
   <h1>Мальдивы</h1>
   <p class="slogan">Что и как снимать на GoPro</p>
-  <p class="pos">Дорога из дома до виллы — снимаем путь целиком. Ниже настройки, правила и порядок: что отснять на каждом этапе и о чём говорить в кадре.</p>
+  <p class="pos">Дорога из дома до виллы — снимаем путь целиком. Ниже настройки, правила, схемы кадров по каждому этапу и ссылки на живые примеры.</p>
   <div class="hdiv"></div>
 </div></header>
 
@@ -111,22 +133,117 @@ body{word-break:normal;overflow-wrap:normal}
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Порядок съёмки</span><h2>Снимаем путь <em>по этапам</em></h2></div>
-  <div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Дом — выход</h3>
-    <p>Сборы, рука берёт паспорт и ключи, закрытый чемодан, выход из дома, проход к машине.</p></div></div>
-  <div class="mblock"><span class="mnum">02</span><div class="mbody"><h3>Дорога в машине</h3>
-    <p>Руки на руле, вид в окно, дорога через лобовое стекло.</p>
-    <div class="voice"><strong>Голос</strong>Лучший момент для историй — тихо, без ветра. Рассказывай мысли и ассоциации в свободном потоке.</div></div></div>
-  <div class="mblock"><span class="mnum">03</span><div class="mbody"><h3>Аэропорт</h3>
-    <p>Заход в терминал, табло, проход с чемоданом, регистрация. Деталь: посадочный и паспорт. Кофе или еда перед вылетом, прогулка по Duty Free — что-то рассматриваешь, берёшь в руки.</p></div></div>
-  <div class="mblock"><span class="mnum">04</span><div class="mbody"><h3>На борту</h3>
-    <p>Место у окна, пристёгиваешься, крыло и облака в окне, взлёт. Деталь: вода и экран с маршрутом на столике.</p></div></div>
-  <div class="mblock"><span class="mnum">05</span><div class="mbody"><h3>Прилёт и трансфер</h3>
-    <p>Выход в тепло, пальмы. Трансфер на гидросамолёте или катере — самый «открыточный» блок: вид на атоллы, брызги, бирюза, посадка на воду. Деталь: штамп в паспорте, бирка на чемодане.</p></div></div>
-  <div class="mblock"><span class="mnum">06</span><div class="mbody"><h3>Заселение и апартаменты</h3>
-    <p>Открытие двери от первого лица, проходка по вилле, терраса, вид на океан, спуск к воде. Приветственный коктейль, фрукты, детали интерьера.</p></div></div>
-  <div class="mblock"><span class="mnum">07</span><div class="mbody"><h3>Локации и прогулки</h3>
-    <p>Пирс, пляж, бассейн, проходки по территории. Детали, которые подмечаешь: рыбки в воде, песок, закат. Утреннее плавание в океане — обязательно сними. Тайм-лапсы заката и облаков.</p></div></div>
+  <div class="section-head"><span class="eyebrow">Себя — и со стороны</span><h2>Два ракурса <em>на каждый момент</em></h2>
+    <p>По умолчанию снимаешь себя сам — с руки, от первого лица. Но как только рядом есть человек — попутчик, сотрудник, персонал отеля — дай ему GoPro подержать и снимись со стороны. Кадры со стороны дают кино-картинку, и их всегда не хватает. Проси не стесняясь, это секундное дело.</p></div>
+  <div class="dual">
+    <div class="dcard">
+      <svg class="dframe" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+        <path class="ln" d="M16 150 q12 -20 0 -42"/><path class="ln" d="M74 150 q-12 -20 0 -42"/>
+        <rect class="filac" x="34" y="92" width="22" height="14" rx="3"/><circle class="bd" cx="51" cy="99" r="3.2"/>
+        <path class="ac" d="M45 70 l0 -12 m-7 5 l7 -5 7 5"/>
+        <text class="lbl" x="9" y="22">СЕБЯ · POV</text></svg>
+      <div><h4>Сам себя</h4><p>С руки или от первого лица. База: едешь, идёшь, открываешь дверь виллы.</p></div>
+    </div>
+    <div class="dcard">
+      <svg class="dframe" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+        <line class="ln" x1="10" y1="104" x2="80" y2="104"/>
+        <circle class="filac" cx="52" cy="74" r="6"/><path class="filac" d="M45 82 q7 -3 14 0 l3 30 -20 0 z"/>
+        <path class="ac" d="M16 120 l10 -6 m-10 6 l4 9 M16 120 l16 -3"/>
+        <text class="lbl" x="9" y="22">СО СТОРОНЫ</text></svg>
+      <div><h4>Со стороны</h4><p>Дай камеру человеку рядом. Ты в полный рост: на террасе, у воды, в движении.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Порядок · раскадровки</span><h2>Снимаем путь <em>по этапам</em></h2>
+    <p>У каждого этапа — схема кадра и ссылка на живой пример. Объектив везде 1x, формат вертикальный.</p></div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <rect class="ln" x="28" y="34" width="30" height="96" rx="2"/><line class="ln" x1="58" y1="34" x2="58" y2="130"/>
+      <circle class="filac" cx="50" cy="78" r="6"/><path class="filac" d="M43 86 q7 -3 14 0 l2 30 -18 0 z"/>
+      <rect class="fil" x="60" y="104" width="9" height="13" rx="1.5"/><path class="ln" d="M62 104 v-4 h5 v4"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">01</span><h3>Дом — выход</h3>
+      <p>Сборы, рука берёт паспорт и ключи, закрытый чемодан, выход из дома, проход к машине.</p>
+      <p class="plan">Общий + деталь</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=uJUfE241YJk" target="_blank" rel="noopener">12 кадров для тревел-влога</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <line class="ln" x1="10" y1="62" x2="80" y2="62"/><path class="ln" d="M14 60 q4 -14 18 -16"/>
+      <path class="ac" d="M16 150 q30 -34 58 0"/>
+      <circle class="filac" cx="40" cy="92" r="6.5"/><path class="filac" d="M32 100 q8 -3 16 0 l3 26 -22 0 z"/>
+      <path class="ac" d="M66 96 l-12 -3 m12 3 l-9 6 m9 -6 l-2 -8"/>
+      <text class="lbl" x="58" y="22">POV</text><text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">02</span><h3>Дорога в машине</h3>
+      <p>Камера на торпеде или в руке, ты говоришь, за окном дорога. Лучший момент для историй — тихо, без ветра.</p>
+      <p class="plan">Средний · POV за рулём</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=SvXKjXdf5ig" target="_blank" rel="noopener">Как влогить в машине на GoPro</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <rect class="ln" x="16" y="24" width="58" height="18" rx="2"/><line class="ln" x1="22" y1="31" x2="50" y2="31"/><line class="ln" x1="22" y1="36" x2="44" y2="36"/>
+      <circle class="filac" cx="42" cy="78" r="6"/><path class="filac" d="M35 86 q7 -3 14 0 l2 30 -18 0 z"/>
+      <rect class="fil" x="54" y="100" width="10" height="15" rx="1.5"/><path class="ln" d="M56 100 v-5 h6 v5"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">03</span><h3>Аэропорт</h3>
+      <p>Заход в терминал, табло, проход с чемоданом. Деталь: посадочный и паспорт. Кофе перед вылетом, прогулка по Duty Free — что-то рассматриваешь.</p>
+      <p class="plan">Общий + детали</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=uJUfE241YJk" target="_blank" rel="noopener">12 кадров для тревел-влога</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <rect class="ln" x="22" y="40" width="46" height="58" rx="14"/>
+      <path class="ac" d="M30 92 l30 -16 6 14 -30 16 z"/>
+      <circle class="fil" cx="34" cy="58" r="5"/><circle class="fil" cx="42" cy="55" r="6"/><circle class="fil" cx="50" cy="58" r="5"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">04</span><h3>На борту</h3>
+      <p>Место у окна, пристёгиваешься, крыло и облака в окне, взлёт. Деталь: вода и экран с маршрутом на столике.</p>
+      <p class="plan">Деталь окна + общий</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=uJUfE241YJk" target="_blank" rel="noopener">12 кадров для тревел-влога</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <path class="ln" d="M8 112 q12 -6 22 0 t22 0 t22 0"/><path class="ln" d="M8 128 q12 -6 22 0 t22 0 t22 0"/>
+      <circle class="ac" cx="56" cy="92" r="13"/><path class="ac" d="M44 92 q12 -16 24 0"/>
+      <path class="filac" d="M24 70 l16 6 -16 6 4 -6 z"/>
+      <path class="ac" d="M14 58 q18 -8 34 6" stroke-dasharray="3 3"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">05</span><h3>Прилёт и трансфер</h3>
+      <p>Гидросамолёт или катер — самый «открыточный» блок: вид на атоллы, брызги, бирюза, посадка на воду. Деталь: штамп в паспорте, бирка на чемодане.</p>
+      <p class="plan">Общий, простор</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=MBFNLf0eOhU" target="_blank" rel="noopener">Трансфер на гидросамолёте, 4K</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <rect class="ln" x="14" y="30" width="62" height="100" rx="3"/><line class="ln" x1="14" y1="92" x2="76" y2="92"/>
+      <path class="ln" d="M22 92 q22 -10 46 0"/>
+      <rect class="filac" x="22" y="100" width="20" height="9" rx="2"/><line class="ac" x1="50" y1="110" x2="68" y2="110"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">06</span><h3>Заселение и апартаменты</h3>
+      <p>Открытие двери от первого лица, проходка по вилле, терраса, вид на океан, спуск к воде. Приветственный коктейль, фрукты, детали интерьера.</p>
+      <p class="plan">Проходка + детали</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=S9m-xlnBYCo" target="_blank" rel="noopener">Тур по водной вилле</a></div>
+  </div>
+
+  <div class="step">
+    <svg class="frame" viewBox="0 0 90 160"><rect class="bd" x="2" y="2" width="86" height="156" rx="8"/>
+      <line class="ln" x1="10" y1="96" x2="80" y2="96"/><circle class="filac" cx="60" cy="74" r="10"/>
+      <path class="ac" d="M26 96 q-3 -26 4 -40 m-4 40 q3 -22 12 -34 m-12 34 q1 -18 -6 -30"/>
+      <path class="ln" d="M10 120 q12 -5 22 0 t22 0 t22 0"/>
+      <text class="lbl" x="70" y="150">1×</text></svg>
+    <div class="step-body"><span class="step-n">07</span><h3>Локации и прогулки</h3>
+      <p>Пирс, пляж, бассейн, проходки. Детали: рыбки в воде, песок, закат. Утреннее плавание в океане — обязательно. Тайм-лапсы заката и облаков.</p>
+      <p class="plan">Общий + детали</p>
+      <a class="ref" href="https://www.youtube.com/watch?v=lK1yvNbvi54" target="_blank" rel="noopener">Мальдивы на GoPro Hero 13</a></div>
+  </div>
 </div></section>
 
 <section><div class="wrap narrow">
@@ -139,6 +256,19 @@ body{word-break:normal;overflow-wrap:normal}
     <li>Говори много, не бойся лишнего — из десяти минут болтовни всегда находятся золотые фразы под рилс. Лишнее вырежу.</li>
   </ul>
   <div class="callout"><p>Сомневаешься, как снять момент, — <strong>напиши мне</strong>. Лучше спросить, чем потом жалеть, что не отсняли.</p></div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Референсы</span><h2>Живые примеры <em>для насмотренности</em></h2>
+    <p>Не для копирования — для ощущения, как это выглядит вживую. Первые два — обучающие, остальные — готовые тревел-влоги.</p></div>
+  <ul class="reflist">
+    <li><a href="https://www.youtube.com/watch?v=uJUfE241YJk" target="_blank" rel="noopener">12 кадров, которые должен знать каждый тревел-влогер</a><span class="rd">Базовые планы и движения камеры на GoPro — насмотренность по типам кадров.</span></li>
+    <li><a href="https://www.youtube.com/watch?v=SvXKjXdf5ig" target="_blank" rel="noopener">Как снимать влог в машине на GoPro</a><span class="rd">Ракурсы и крепления в салоне — прямо под наш этап «дорога».</span></li>
+    <li><a href="https://www.youtube.com/watch?v=MBFNLf0eOhU" target="_blank" rel="noopener">Трансфер на гидросамолёте, Мальдивы (4K)</a><span class="rd">Как снимают самый «открыточный» момент — вид сверху на атоллы и посадку на воду.</span></li>
+    <li><a href="https://www.youtube.com/watch?v=S9m-xlnBYCo" target="_blank" rel="noopener">Тур по водной вилле, Мальдивы</a><span class="rd">Проходка по апартаментам и террасе — под этап «заселение».</span></li>
+    <li><a href="https://www.youtube.com/watch?v=lK1yvNbvi54" target="_blank" rel="noopener">Мальдивы на GoPro Hero 13 (4K)</a><span class="rd">Готовый тревел-ролик целиком на GoPro — общий тон и картинка.</span></li>
+    <li><a href="https://www.youtube.com/watch?v=jlD7qO7goKE" target="_blank" rel="noopener">Maldives Travel Vlog: гидросамолёт, вилла, сноркелинг</a><span class="rd">Полный сценарий поездки от прилёта до локаций — структура влога.</span></li>
+  </ul>
 </div></section>
 
 <section class="closing"><div class="wrap">
