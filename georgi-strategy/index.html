@@ -1,0 +1,419 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стратегия развития блога · Георгий</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px} .narrow{max-width:840px;margin-left:auto;margin-right:auto}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(44px,9vw,80px);letter-spacing:.05em}
+h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:8px}
+h3{font-size:clamp(20px,3vw,27px)} h4{font-size:18px;font-weight:400}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.dim{color:var(--dim)}.mute{color:var(--mute)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:34px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px;text-wrap:pretty}
+.part-label{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8}
+/* hero */
+.hero{text-align:center;padding:104px 0 70px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
+.hero h1{text-transform:uppercase;letter-spacing:.1em}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,27px);color:var(--accent);margin:18px auto 0;max-width:680px}
+.hero .pos{max-width:660px;margin:18px auto 0;color:var(--mute);font-size:15px;text-wrap:pretty}
+.hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
+/* оглавление */
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.toc a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.16s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+/* lead */
+.lead{font-size:clamp(16px,2vw,19px);color:#E8E4DE;max-width:820px}
+.lead.drop::first-letter{font-family:'Cormorant Garamond',serif;font-size:3.2em;float:left;line-height:.8;padding:6px 14px 0 0;color:var(--accent)}
+/* situations / точка А */
+.sits{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:30px}
+.sit{background:var(--soft);padding:22px;display:flex;gap:14px;align-items:flex-start}
+.sit-n{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);flex:none;line-height:1}
+.sit-t{color:var(--text);font-size:14.5px;text-wrap:pretty}
+/* goal */
+.goal{max-width:780px;margin:0 auto;text-align:center}
+.goal .big{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,68px);color:var(--accent);line-height:1;margin:8px 0}
+.goal-note{text-align:center;color:var(--mute);font-size:12px;letter-spacing:.16em;text-transform:uppercase;max-width:600px;margin:22px auto 0}
+/* позиционирование */
+.posbox{max-width:820px;margin:0 auto;background:linear-gradient(160deg,rgba(201,183,155,.08),rgba(201,183,155,.02));border:1px solid rgba(201,183,155,.28);border-radius:18px;padding:38px 34px;text-align:center}
+.posbox .axis{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.4vw,40px);color:#F4F0EA;line-height:1.15}
+.posbox .exp{color:var(--text);margin-top:18px;font-size:15.5px;text-wrap:pretty}
+.shapka{max-width:560px;margin:26px auto 0;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:left}
+.shapka .nm{font-weight:600;color:#F4F0EA;font-size:15px;margin-bottom:6px}
+.shapka .ln{color:var(--text);font-size:14.5px;padding:7px 0;border-bottom:1px solid var(--line)} .shapka .ln:last-child{border-bottom:none}
+.shapka .wip{color:var(--dim);font-size:13px;font-style:italic}
+/* generic cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card-n{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--accent);margin-bottom:10px}
+.card h3{margin-bottom:9px} .card p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
+/* ролевые модели */
+.rm{display:grid;grid-template-columns:1fr;gap:22px;margin-top:8px}
+.rmcard{background:var(--soft);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.rmcard .shot{width:100%;display:block;border-bottom:1px solid var(--line);background:#000}
+.rmcard .body{padding:22px 24px}
+.rmcard .meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin-bottom:12px}
+.rmcard .h{font-family:'Cormorant Garamond',serif;font-size:25px;color:#F4F0EA}
+.rmcard .aud{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.rmcard .take{margin-top:12px;padding:14px 16px;background:rgba(201,183,155,.05);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.rmcard .take b{color:var(--accent);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+/* форматы */
+.fmt{border-top:1px solid var(--line);padding:34px 0}
+.fmt:first-of-type{border-top:none}
+.fmt-head{display:flex;gap:18px;align-items:baseline;margin-bottom:6px}
+.fmt-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.4);line-height:1;flex:none}
+.fmt-tag{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.3);border-radius:20px;padding:4px 11px;margin-top:8px}
+.fmt p{color:var(--text);max-width:780px;text-wrap:pretty}
+.fmt .sub{color:var(--mute);font-size:14.5px}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 6px;max-width:560px}
+.vids video{width:100%;border-radius:12px;background:#000;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line)}
+.li{list-style:none;margin-top:10px}
+.li li{padding:8px 0 8px 22px;position:relative;color:var(--text);font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.li li:last-child{border-bottom:none}
+.li li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border:1px solid var(--accent);border-radius:50%}
+/* типы / слои */
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
+.type{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px}
+.type .t{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--accent);margin-bottom:8px}
+.type p{color:var(--mute);font-size:14px}
+/* callout */
+.callout{margin-top:22px;padding:22px 24px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;color:var(--text);font-size:15px;text-wrap:pretty}
+.callout b{color:var(--accent)}
+/* phases */
+.phase{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line)}
+.phase:last-child{border-bottom:none}
+.phase .pn{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.35);line-height:1;flex:none;min-width:54px}
+.phase .pb h3{margin-bottom:8px} .phase .pb p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
+/* метрики */
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.tags span{font-size:13px;color:var(--text);background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:9px 15px}
+/* wip block */
+.wipbox{border:1px dashed rgba(201,183,155,.3);border-radius:14px;padding:22px 24px;color:var(--mute);font-size:14.5px;background:rgba(201,183,155,.02)}
+.wipbox b{color:var(--accent)}
+/* closing */
+.closing{text-align:center;padding:74px 0 84px}
+.closing p{max-width:660px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:32px 0;opacity:.6}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text);margin-top:34px}
+.sign small{display:block;font-family:Mulish,sans-serif;font-style:normal;color:var(--mute);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
+/* ===== MOBILE ===== */
+@media(max-width:720px){
+  .wrap{padding:0 18px}
+  body{font-size:16px}
+  section{padding:46px 0}
+  .hero{padding:72px 0 46px} .hero h1{text-transform:none;letter-spacing:.03em}
+  h2{font-size:clamp(26px,8vw,34px)}
+  .sits{grid-template-columns:1fr}
+  .fmt-head{gap:12px} .fmt-num{font-size:32px}
+  .vids{grid-template-columns:1fr 1fr;max-width:none;gap:8px}
+  .vids video{max-height:62vh}
+  .phase{gap:14px} .phase .pn{font-size:30px;min-width:40px}
+  .rmcard .body{padding:18px}
+  .posbox{padding:28px 20px} .shapka{padding:18px}
+  .toc a{padding:8px 13px;font-size:11px}
+}
+@media(max-width:420px){
+  .vids{grid-template-columns:1fr}
+  .vids video{max-height:70vh}
+}
+body{word-break:normal;overflow-wrap:normal}
+</style></head><body>
+
+<header class="hero"><div class="wrap">
+  <div class="top">Июнь 2026 · Стратегия развития блога</div>
+  <p class="fio">Георгий · @georgiy_gs</p>
+  <h1>Стратегия</h1>
+  <p class="slogan">Строитель федерального масштаба, который сделал себя сам</p>
+  <p class="pos">Как мы выстраиваем личный бренд, в каких форматах и циклах работаем и к какому результату идём. Документ дополняется по ходу распаковки.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#fundament">I · Фундамент</a>
+    <a href="#model">II · Контент-модель</a>
+    <a href="#format">Форматы</a>
+    <a href="#prod">III · Производство</a>
+    <a href="#growth">IV · Рост</a>
+  </nav>
+</div></header>
+
+<!-- ===================== ЧАСТЬ I ===================== -->
+<section id="fundament"><div class="wrap narrow">
+  <div class="section-head"><span class="part-label">Часть I</span><h2>Фундамент</h2>
+    <p>С чего начинаем, как себя позиционируем и в каких границах работаем.</p></div>
+
+  <h3 style="margin-bottom:14px">Точка А → Цель</h3>
+  <p class="lead drop">У Вас есть главное — состоявшийся предприниматель, группа компаний, реальный путь и история. Но в медийном поле Вас пока нет: блог стартует с нуля, личного бренда ещё не существует. Задача — собрать всё это в систему и упаковать в образ.</p>
+  <div class="sits">
+    <div class="sit"><div class="sit-n">01</div><div class="sit-t">Блог практически с нуля — системного контента нет</div></div>
+    <div class="sit"><div class="sit-n">02</div><div class="sit-t">Личный бренд не сформирован — в инфополе Вас не знают</div></div>
+    <div class="sit"><div class="sit-n">03</div><div class="sit-t">Есть что показать (опыт, статус, история), но это не упаковано</div></div>
+    <div class="sit"><div class="sit-n">04</div><div class="sit-t">Нет контент-модели и ритма — что, как и когда снимать</div></div>
+  </div>
+  <div class="goal" style="margin-top:40px">
+    <span class="eyebrow">Первая цель</span>
+    <div class="big">10 000</div>
+    <p class="mute">подписчиков за 3 месяца — и крепкий фундамент, на котором блог растёт дальше.</p>
+    <p class="goal-note">Без обещаний «100 000 за месяц». Сначала — система и образ, потом — масштабирование.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Позиционирование · ось блога</span><h2>Кто Вы <em>в кадре</em></h2></div>
+  <div class="posbox">
+    <div class="axis">Строитель федерального масштаба,<br>который сделал себя сам</div>
+    <p class="exp">От ночного колл-центра — до федеральных строек и агрокомплекса будущего. Путь, пройденный самостоятельно, без связей и стартового капитала. Показываем изнанку большого дела и то, как мыслит человек, который построил всё с нуля.</p>
+  </div>
+  <div class="shapka">
+    <div class="nm">Шапка профиля — складывается так:</div>
+    <div class="ln"><strong>Имя:</strong> Георгий (железно — для поиска)</div>
+    <div class="ln"><strong>Строка 1:</strong> Строитель федерального масштаба, который сделал себя сам</div>
+    <div class="ln wip">Строка-доказательство (масштаб/география/проект) и призыв — дорабатываем после распаковки.</div>
+  </div>
+  <p class="mute" style="margin-top:20px;font-size:14.5px"><strong>Аудитория:</strong> мужчины-предприниматели — ядро. Весь тон и темы держим под них; сознательно не уходим в широкий «лайфстайл для всех», чтобы не размывать целевую аудиторию.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Ролевые модели · на кого равняемся</span><h2>Кто уже <em>сделал это</em></h2>
+    <p>Пять мужчин-предпринимателей с сильным личным брендом. У каждого берём конкретное — а соединяем в Вашем уникальном сочетании.</p></div>
+  <div class="rm">
+
+    <div class="rmcard"><img class="shot" src="assets/img/rm-marat.png" alt="Марат Абдурахманов">
+      <div class="body"><div class="meta"><span class="h">Марат Абдурахманов</span><span class="aud">309 тыс · @marat_abdurakhmanov</span></div>
+      <p class="sub">Шапка: «+290k подписчиков своими руками с полного нуля. Бизнес. Путешествия. Автомобили.» Сильнее всего зашли отношения с отцом — огромный отклик у мужской аудитории.</p>
+      <div class="take"><b>Что берём</b>Чистый self-made нарратив в шапке — ровно наша ось. И формат «путь отношений и забота»: добрый контент собирает качественную аудиторию.</div></div>
+    </div>
+
+    <div class="rmcard"><img class="shot" src="assets/img/rm-tokkaev.png" alt="Ибрагим Токкаев">
+      <div class="body"><div class="meta"><span class="h">Ибрагим Токкаев</span><span class="aud">176 тыс · @tokkaev</span></div>
+      <p class="sub">«Бизнесмен» прямо в имени. Парень из Старых Атагов, построил компанию из ничего — без связей и капитала. Это его закреплённая история для новых подписчиков.</p>
+      <div class="take"><b>Что берём</b>Позиционирование в имени профиля и модель закреп-ролика с историей пути «из ничего до масштаба».</div></div>
+    </div>
+
+    <div class="rmcard"><img class="shot" src="assets/img/rm-orlov.png" alt="Александр Орлов">
+      <div class="body"><div class="meta"><span class="h">Александр Орлов</span><span class="aud">1,5 млн · @alexanderorlovbulldozer</span></div>
+      <p class="sub">Ресторатор международного масштаба (Bulldozer, Дубай). Контент — масштаб бизнеса и обходы своих объектов; география в хайлайтах (Dubai, London, Paris).</p>
+      <div class="take"><b>Что берём</b>Прямой аналог нашего формата «обход объектов»: предприниматель показывает свои проекты в процессе. Масштаб как контент.</div></div>
+    </div>
+
+    <div class="rmcard"><img class="shot" src="assets/img/rm-kudryavtsev.png" alt="Антон Кудрявцев">
+      <div class="body"><div class="meta"><span class="h">Антон Кудрявцев</span><span class="aud">61,5 тыс · @kudryavtsevtony</span></div>
+      <p class="sub">«Предприниматель · Развитие и дисциплина». Founder, 345 объектов в реализации, ремонтный бизнес. Контент — прямое обращение к аудитории, дисциплина, трансформационные истории.</p>
+      <div class="take"><b>Что берём</b>Нишевое позиционирование в имени + формат прямого обращения к ЦА и жёсткие истории (наш принцип вовлечения).</div></div>
+    </div>
+
+    <div class="rmcard"><img class="shot" src="assets/img/rm-emin.png" alt="Emin Agalarov">
+      <div class="body"><div class="meta"><span class="h">Emin Agalarov</span><span class="aud">3,1 млн · @eminofficial</span></div>
+      <p class="sub">Артист и предприниматель (Crocus, Sea Breeze). Премиальный lifestyle высокого уровня — статус, путешествия, проекты — поданы спокойно, без надрыва.</p>
+      <div class="take"><b>Что берём</b>Эталон того, как премиально и сдержанно подавать статус и образ жизни.</div></div>
+    </div>
+
+  </div>
+  <div class="callout"><b>Отстройка Георгия.</b> Ни у кого нет Вашего сочетания — <em>стройка федерального масштаба + агрокомплекс будущего + триатлон + self-made путь</em>. То, что у этих пятерых разнесено по отдельным акцентам, Вы соединяете в одном лице. Это Ваше уникальное место.</div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Упаковка профиля</span><h2>Как выглядит <em>профиль</em></h2></div>
+  <div class="cards">
+    <div class="card"><h4 style="color:var(--accent)">Аккаунт</h4><p style="margin-top:8px">Новый профиль <strong>@georgiy_gs</strong> на отдельный телефон. Старый — для клича в сторис «теперь здесь».</p></div>
+    <div class="card"><h4 style="color:var(--accent)">Шапка</h4><p style="margin-top:8px">Позиционирование (ось) + доказательство масштаба + призыв. Финал — после распаковки.</p></div>
+  </div>
+  <h3 style="margin:30px 0 6px">Актуальные — 5 базовых</h3>
+  <p class="mute" style="font-size:14.5px;margin-bottom:14px">Обложки — в едином тёмном визуальном коде блога.</p>
+  <div class="cards">
+    <div class="card"><div class="card-n">01</div><h3>Кто я / Мой путь</h3><p>Самопрезентация и путь от нуля до масштаба. Точка входа, связана с закрепом.</p></div>
+    <div class="card"><div class="card-n">02</div><h3>Триатлон</h3><p>Спорт, дисциплина, тело, старты.</p></div>
+    <div class="card"><div class="card-n">03</div><h3>Путешествия</h3><p>Поездки, Мальдивы, география.</p></div>
+    <div class="card"><div class="card-n">04</div><h3>Авто / гараж</h3><p>Машины как часть образа.</p></div>
+    <div class="card"><div class="card-n">05</div><h3>Места / рестораны</h3><p>Где бываете, вкус к жизни.</p></div>
+  </div>
+  <p class="mute" style="margin-top:14px;font-size:13.5px">Блоки 4–5 («по интересам») гибкие — можно заменить на «Дело» или «Окружение», когда определимся по распаковке.</p>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Границы публичности</span><h2>Что <em>не показываем</em></h2>
+    <p>Публичность для Вас чувствительна, поэтому границы зафиксированы и соблюдаются на каждой съёмке и в каждом сценарии.</p></div>
+  <div class="cards">
+    <div class="card"><h4 style="color:var(--accent)">Не выносим в кадр</h4><ul class="li" style="margin-top:8px">
+      <li>Названия конкретных объектов и привязку «вот тут сделали так»</li>
+      <li>Налоги, оптимизации, налогооблагаемую базу</li>
+      <li>Конкретные цифры долей и сумм «что куда пошло»</li>
+      <li>Фамилии, конкретных заказчиков и людей поимённо</li>
+    </ul></div>
+    <div class="card"><h4 style="color:var(--accent)">Показываем смело</h4><ul class="li" style="margin-top:8px">
+      <li>Процесс без цензуры — реальные проблемы, напряжение, движуху</li>
+      <li>Путь, эмоцию, масштаб — образами</li>
+      <li>Закулисье, людей, команду</li>
+      <li>Истории, уроки, философию — без привязки к конкретике</li>
+    </ul></div>
+  </div>
+  <div class="callout"><b>Формула.</b> Эмоция · процесс · путь · масштаб-как-образ — да. Конкретика объектов · денег · налогов · схем — нет.</div>
+</div></section>
+
+<!-- ===================== ЧАСТЬ II ===================== -->
+<section id="model"><div class="wrap narrow">
+  <div class="section-head"><span class="part-label">Часть II</span><h2>Контент-модель</h2>
+    <p>По какой логике строится контент — кого цепляем, чем и почему это работает.</p></div>
+
+  <h3 style="margin-bottom:14px">Слои аудитории</h3>
+  <div class="types">
+    <div class="type"><div class="t">Холодные</div><p>Рекомендации. Ловим хуком, аспирацией и эмоцией. Цель — досмотр и подписка.</p></div>
+    <div class="type"><div class="t">Тёплые</div><p>Подписчики. Углубляем через путь, истории, ценности — растим доверие.</p></div>
+    <div class="type"><div class="t">Горячие</div><p>Лояльные. Будущая конверсия, когда появится воронка. Сейчас — закладываем фундамент.</p></div>
+  </div>
+
+  <h3 style="margin:34px 0 14px">Типы контента по функции</h3>
+  <div class="types">
+    <div class="type"><div class="t">Аспирация / статус</div><p>Lifestyle, масштаб, артефакты — притягивает, восхищает.</p></div>
+    <div class="type"><div class="t">Смысл / уроки</div><p>Бизнес-принципы, путь — ценность для ЦА предпринимателей.</p></div>
+    <div class="type"><div class="t">Эмоция / добро</div><p>Отношения, забота — цепляет, даёт качественные комментарии.</p></div>
+    <div class="type"><div class="t">Личность / трансформация</div><p>Жёсткие истории, преодоление — глубокое вовлечение.</p></div>
+    <div class="type"><div class="t">Живость / ситуатив</div><p>Звонки, социальный контент — охваты и характер.</p></div>
+  </div>
+
+  <div class="callout" style="margin-top:30px"><b>Принцип вовлечения.</b> Люди сильно подписываются и вовлекаются, когда есть один из двух факторов: <em>непрожитые эмоции и аспирация</em> (статус, образ жизни, артефакты — зритель восхищается) либо <em>жёсткие, трансформационные истории</em> (боль и преодоление — откликается многим). Оба ведут к качественным комментариям. Поэтому курс — добрый, сильный контент; избегаем провокаций и мусорных тем.</div>
+</div></section>
+
+<!-- ===================== ФОРМАТЫ ===================== -->
+<section id="format"><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Контент-модель · ядро</span><h2>Форматы и <em>внедрения</em></h2>
+    <p>Рабочие форматы блога с живыми референсами. Основные — на постоянной основе, дополнительные — по ситуации.</p></div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">01</span><div><h3>Съёмка в машине</h3><span class="fmt-tag">основной · постоянно</span></div></div>
+    <p>Говорящая голова за рулём. Камера сбоку или с торпеды, снимаем днём, город движется в окне. Крупные пословные субтитры по центру. Сдержанный образ.</p>
+    <div class="vids">
+      <video controls preload="none" poster="assets/img/poster-mashina-1.jpg" src="assets/video/mashina-1.mp4"></video>
+      <video controls preload="none" poster="assets/img/poster-mashina-2.jpg" src="assets/video/mashina-2.mp4"></video>
+      <video controls preload="none" poster="assets/img/poster-mashina-3.jpg" src="assets/video/mashina-3.mp4"></video>
+    </div>
+    <p class="sub"><strong>Как работает:</strong> формат-носитель — под него заходит любая тема и история. Едем, я задаю вопросы, Вы рассказываете: событие или момент за неделю/месяц, случай из жизни, урок. Минимум продакшна, максимум живой речи. Рабочая лошадка блога между крупными съёмками.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">02</span><div><h3>Обход строительных объектов</h3><span class="fmt-tag">основной · серийная рубрика</span></div></div>
+    <p>Подъезжаем на машине, идём по объекту, снимаем процесс, площадку и коммуникацию с командой — под динамичную музыку, смонтировано красиво. Серийность («Обход #N») приучает аудиторию ждать продолжение.</p>
+    <div class="vids">
+      <video controls preload="none" poster="assets/img/poster-obhod-1.jpg" src="assets/video/obhod-1.mp4"></video>
+      <video controls preload="none" poster="assets/img/poster-obhod-2.jpg" src="assets/video/obhod-2.mp4"></video>
+      <video controls preload="none" poster="assets/img/poster-obhod-3.jpg" src="assets/video/obhod-3.mp4"></video>
+    </div>
+    <ul class="li">
+      <li><strong>Клип-обход</strong> — динамика объекта и процесса под музыку, без речи. В описании — пара предложений.</li>
+      <li><strong>Обход + прямая речь</strong> — поверх идут Ваши цитаты и объяснения: на каком этапе объект, что происходит сейчас. Живой контент «здесь и сейчас».</li>
+    </ul>
+    <p class="sub" style="margin-top:12px">Сюжетная линия (согласуем лично): либо ведём 1–3 конкретных объекта в развитии серией, либо показываем разные доступные объекты по принципу процесса.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">03</span><div><h3>Путь отношений и забота</h3><span class="fmt-tag">основной · сюжетная линия</span></div></div>
+    <p>Долгая линия про построение отношений и заботу о человеке — близком (родители, друг, коллега) или том, кто нуждается в помощи. Снимаем встречи, подарки, рассказываем историю человека и развиваем её во времени.</p>
+    <div class="vids" style="max-width:380px;grid-template-columns:1fr 1fr">
+      <video controls preload="none" poster="assets/img/poster-otnosheniya-1.jpg" src="assets/video/otnosheniya-1.mp4"></video>
+      <video controls preload="none" poster="assets/img/poster-otnosheniya-2.jpg" src="assets/video/otnosheniya-2.mp4"></video>
+    </div>
+    <p class="sub">Сильный, добрый контент. У мужчин отношения с родителями — мощная, но почти никем не раскрываемая сторона. Даёт хорошие просмотры и приводит качественную аудиторию.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">04</span><div><h3>Закадровая озвучка</h3><span class="fmt-tag">основной · с запасом контента</span></div></div>
+    <p>История, мысль или событие подаётся закадровым голосом поверх красивого кинематографичного видеоряда + субтитры. Тему берём из распаковки, я пишу текст, Вы начитываете голосовой; видеоряд собираем из съёмок и архива.</p>
+    <div class="vids" style="max-width:200px;grid-template-columns:1fr">
+      <video controls preload="none" poster="assets/img/poster-zakadr-1.jpg" src="assets/video/zakadr-1.mp4"></video>
+    </div>
+    <p class="sub">Раскрывается с запасом материала — примерно с 5–10-й съёмки, когда есть банк кадров под монтаж. Делать можно много.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">05</span><div><h3>Мини-влоги</h3><span class="fmt-tag">основной · продакшн потяжелее</span></div></div>
+    <p>Ролик на 2–3 минуты — проживаем кусок дня или события (тренировка, объект, встреча). Сейчас многие делают мини-влоги, но на пустых челленджах. У Вас есть фактура — придумывать ничего не надо, нужно качественно собрать через прожитые моменты и эмоции. Требует больше съёмки, включаем по мере набора ритма.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">06</span><div><h3>Социальный контент</h3><span class="fmt-tag">дополнительный · ситуатив</span></div></div>
+    <p>Взаимодействие с ближайшим окружением — друзья, коллеги, тренер, родители. Заезжаем к кому-то, кто не в курсе съёмки — живая реакция. Ситуативные нарезки, показывают лайфстайл и живое окружение.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">07</span><div><h3>Звонок-«разъёб»</h3><span class="fmt-tag">дополнительный · эмоция</span></div></div>
+    <p>Звоним и провоцируем живую эмоцию — в другую компанию, другу, незнакомцу: пранки, добрые постановки. Цель — вывести на эмоцию или показать, как люди ведут себя в разных ситуациях. Развлекательный формат с высокой вовлечённостью.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">08</span><div><h3>Смысловые нарезки со вставками</h3><span class="fmt-tag">опционально · не в приоритете</span></div></div>
+    <p>Кадр, где Вы что-то делаете, + нарезка из кино/мультфильма, подкрепляющая мысль. Как основной формат не используем: у Вас насыщенная событийность, своего материала много — незачем уходить в чужие нарезки.</p>
+  </div>
+</div></section>
+
+<!-- ===================== ЧАСТЬ III ===================== -->
+<section id="prod"><div class="wrap narrow">
+  <div class="section-head"><span class="part-label">Часть III</span><h2>Производство</h2>
+    <p>Как устроены съёмки, банк контента и ритм публикаций.</p></div>
+
+  <h3 style="margin-bottom:12px">Съёмочный день и банк контента</h3>
+  <p>Вы заняты и часто в разъездах (объекты, командировки, старты). Поэтому не живём в режиме «снял сегодня — выложил сегодня»: один съёмочный день раскладываем в максимум единиц (контент-каскад) и держим <strong>буфер на 2–3 недели вперёд</strong>. Всегда есть что выложить, даже если неделю не снимали.</p>
+
+  <h3 style="margin:30px 0 6px">Этапы сотрудничества</h3>
+  <div class="phase"><span class="pn">0</span><div class="pb"><h3>Мальдивы · сейчас</h3><p>Снимаете сами по нашему ТЗ (GoPro / Insta360). Копим travel-lifestyle и говорящие головы — к приезду уже есть из чего резать первые ролики.</p></div></div>
+  <div class="phase"><span class="pn">1</span><div class="pb"><h3>Приезд в Москву</h3><p>Первый очный съёмочный блок + запуск аккаунта. За один день снимаем банк на 2 недели, ставим первые ролики и закреп.</p></div></div>
+  <div class="phase"><span class="pn">2</span><div class="pb"><h3>Рабочий ритм</h3><p>Съёмка примерно раз в неделю; видеограф подключается через 1–2 месяца. Недельный цикл: съёмка → отбор → монтаж → выкладка → замер → корректировка на разборе.</p></div></div>
+
+  <h3 style="margin:30px 0 12px">Ритм публикаций</h3>
+  <ul class="li">
+    <li><strong>1-я съёмка</strong> — реализуем сразу несколько форматов и выкладываем; объём пока ограничен отснятым.</li>
+    <li><strong>Со 2–3-й съёмки</strong> — накапливается банк → подключаются нарезки и закадровые озвучки → появляется объём.</li>
+    <li><strong>С июля — 2 ролика в день.</strong> Плотно держим со 2-й съёмки, не проваливаясь в контенте.</li>
+    <li><strong>Сторис</strong> — ежедневно, по расписанию.</li>
+  </ul>
+
+  <div class="callout" style="margin-top:26px"><b>Что реализуем первым по приезду:</b> упаковать аккаунт (шапка, закреп-манифест) → первый съёмочный день (объект + дорога + говорящие головы) → поставить первые ролики «решёткой» → запустить ежедневный сторислайн → клич в старом профиле.</div>
+</div></section>
+
+<!-- ===================== ЧАСТЬ IV ===================== -->
+<section id="growth"><div class="wrap narrow">
+  <div class="section-head"><span class="part-label">Часть IV</span><h2>Рост и управление</h2>
+    <p>Как блог растёт системно и за чем следим.</p></div>
+
+  <h3 style="margin-bottom:12px">Операционная система ведения</h3>
+  <ul class="li">
+    <li>Ритм публикаций и расписание выкладки</li>
+    <li>Еженедельный разбор «план-факт»: что вышло, что зашло, гипотезы на неделю</li>
+    <li>Работа с флагманом: что выстрелило — усиливаем и масштабируем</li>
+    <li>Управление банком: держим буфер 2–3 недели</li>
+    <li>Реакция на залёт: ролик пошёл — оперативно добиваем темой и серией</li>
+    <li>Фильтр перед публикацией: качество + границы публичности</li>
+  </ul>
+
+  <h3 style="margin:30px 0 12px">Метрики</h3>
+  <div class="tags">
+    <span>Подписчики → 10К / 3 мес</span><span>Охваты и доля не-подписчиков</span><span>Досмотры / удержание</span>
+    <span>Сохранения</span><span>Пересылки</span><span>Качество комментариев</span><span>Переходы в профиль</span><span>Результат по форматам</span>
+  </div>
+
+  <h3 style="margin:30px 0 12px">Поиск флагмана</h3>
+  <p>Отдельного «поиска» нет — флагман вырастет из одного из рабочих форматов. Рабочая гипотеза — социальный контент и мини-влоги. Но базовый контент обязателен как фундамент: пока нет аудитории, даже сильный ролик не выстреливает — некому досмотреть, переслать и вытолкнуть его в рекомендации. Набираем аудиторию базой → дальше любая качественная единица даёт результат, и форматы подтягивают друг друга.</p>
+
+  <h3 style="margin:30px 0 12px">Дорожная карта на 3 месяца</h3>
+  <div class="wipbox"><b>Формируется.</b> Подробный помесячный план соберём, когда Вы полностью пройдёте распаковку — тогда план ляжет на личностный материал и конкретные темы форматов.</div>
+</div></section>
+
+<section class="closing"><div class="wrap">
+  <span class="eyebrow">Итог</span>
+  <h2>Сильная точка старта</h2>
+  <p>У Вас есть опыт, статус и своя история. Задача — превратить это в личный бренд, который работает на Вас. Система выстроена; дальше — распаковка, съёмки и ритм.</p>
+  <div class="ornament">· · ·</div>
+  <p class="sign">Малик<small>Продюсер · Июнь 2026</small></p>
+</div></section>
+
+</body></html>
