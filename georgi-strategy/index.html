@@ -63,7 +63,10 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 /* ролевые модели */
 .rm{display:grid;grid-template-columns:1fr;gap:22px;margin-top:8px}
 .rmcard{background:var(--soft);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.rmcard .shot{width:100%;display:block;border-bottom:1px solid var(--line);background:#000}
+.rmcard .shot{width:100%;display:block;border-bottom:1px solid var(--line);background:#000;transition:opacity .25s}
+.rmcard .shot-link{display:block;position:relative;line-height:0;text-decoration:none}
+.rmcard .shot-link::after{content:"↗ Instagram";position:absolute;top:14px;right:14px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F4F0EA;background:rgba(11,11,12,.55);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border:1px solid rgba(201,183,155,.45);border-radius:30px;padding:6px 12px;line-height:1.3;pointer-events:none}
+.rmcard .shot-link:hover .shot{opacity:.82}
 .rmcard .body{padding:22px 24px}
 .rmcard .meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin-bottom:12px}
 .rmcard .h{font-family:'Cormorant Garamond',serif;font-size:25px;color:#F4F0EA}
@@ -189,31 +192,31 @@ body{word-break:normal;overflow-wrap:normal}
     <p>Пять мужчин-предпринимателей с сильным личным брендом. У каждого берём конкретное — а соединяем в Вашем уникальном сочетании.</p></div>
   <div class="rm">
 
-    <div class="rmcard"><img class="shot" src="assets/img/rm-marat.png" alt="Марат Абдурахманов">
+    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/marat_abdurakhmanov/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-marat.webp" alt="Марат Абдурахманов" loading="lazy"></a>
       <div class="body"><div class="meta"><span class="h">Марат Абдурахманов</span><span class="aud">309 тыс · @marat_abdurakhmanov</span></div>
       <p class="sub">Шапка: «+290k подписчиков своими руками с полного нуля. Бизнес. Путешествия. Автомобили.» Сильнее всего зашли отношения с отцом — огромный отклик у мужской аудитории.</p>
       <div class="take"><b>Что берём</b>Чистый self-made нарратив в шапке — ровно наша ось. И формат «путь отношений и забота»: добрый контент собирает качественную аудиторию.</div></div>
     </div>
 
-    <div class="rmcard"><img class="shot" src="assets/img/rm-tokkaev.png" alt="Ибрагим Токкаев">
+    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/tokkaev/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-tokkaev.webp" alt="Ибрагим Токкаев" loading="lazy"></a>
       <div class="body"><div class="meta"><span class="h">Ибрагим Токкаев</span><span class="aud">176 тыс · @tokkaev</span></div>
       <p class="sub">«Бизнесмен» прямо в имени. Парень из Старых Атагов, построил компанию из ничего — без связей и капитала. Это его закреплённая история для новых подписчиков.</p>
       <div class="take"><b>Что берём</b>Позиционирование в имени профиля и модель закреп-ролика с историей пути «из ничего до масштаба».</div></div>
     </div>
 
-    <div class="rmcard"><img class="shot" src="assets/img/rm-orlov.png" alt="Александр Орлов">
+    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/alexanderorlovbulldozer/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-orlov.webp" alt="Александр Орлов" loading="lazy"></a>
       <div class="body"><div class="meta"><span class="h">Александр Орлов</span><span class="aud">1,5 млн · @alexanderorlovbulldozer</span></div>
       <p class="sub">Ресторатор международного масштаба (Bulldozer, Дубай). Контент — масштаб бизнеса и обходы своих объектов; география в хайлайтах (Dubai, London, Paris).</p>
       <div class="take"><b>Что берём</b>Прямой аналог нашего формата «обход объектов»: предприниматель показывает свои проекты в процессе. Масштаб как контент.</div></div>
     </div>
 
-    <div class="rmcard"><img class="shot" src="assets/img/rm-kudryavtsev.png" alt="Антон Кудрявцев">
+    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/kudryavtsevtony/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-kudryavtsev.webp" alt="Антон Кудрявцев" loading="lazy"></a>
       <div class="body"><div class="meta"><span class="h">Антон Кудрявцев</span><span class="aud">61,5 тыс · @kudryavtsevtony</span></div>
       <p class="sub">«Предприниматель · Развитие и дисциплина». Founder, 345 объектов в реализации, ремонтный бизнес. Контент — прямое обращение к аудитории, дисциплина, трансформационные истории.</p>
       <div class="take"><b>Что берём</b>Нишевое позиционирование в имени + формат прямого обращения к ЦА и жёсткие истории (наш принцип вовлечения).</div></div>
     </div>
 
-    <div class="rmcard"><img class="shot" src="assets/img/rm-emin.png" alt="Emin Agalarov">
+    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/eminofficial/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-emin.webp" alt="Emin Agalarov" loading="lazy"></a>
       <div class="body"><div class="meta"><span class="h">Emin Agalarov</span><span class="aud">3,1 млн · @eminofficial</span></div>
       <p class="sub">Артист и предприниматель (Crocus, Sea Breeze). Премиальный lifestyle высокого уровня — статус, путешествия, проекты — поданы спокойно, без надрыва.</p>
       <div class="take"><b>Что берём</b>Эталон того, как премиально и сдержанно подавать статус и образ жизни.</div></div>
