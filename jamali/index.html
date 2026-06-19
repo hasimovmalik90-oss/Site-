@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAMALI × Продюсирование</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060606;--bg-1:#0a0a0a;--bg-2:#101010;--bg-deep:#030303;
+    --bg-card:rgba(255,255,255,.022);
+    --ink-bright:#faf9f6;--ink:#ebe9e2;--text:#b5b3aa;--muted:#6a6862;--dim:#3a3833;
+    --gold-bright:#ffd17a;--gold:#ffb84d;--gold-deep:#c8893a;
+    --gold-glow:rgba(255,184,77,.4);--gold-glow-soft:rgba(255,184,77,.18);--gold-glow-faint:rgba(255,184,77,.06);
+    --line:rgba(255,255,255,.06);--line-bright:rgba(255,255,255,.14);
+    --display:'Fraunces','Times New Roman',serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+    --sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'Geist Mono',ui-monospace,monospace;
+    --container:860px;
+    --ease:cubic-bezier(.2,.6,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+    --mx:50%;--my:50%;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--text);
+    background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;overflow-x:hidden;cursor:default;
+    hyphens:none;text-wrap:pretty;
+  }
+  /* AMBIENT / SPOTLIGHT / NOISE */
+  .ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .ambient::before,.ambient::after{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
+  .ambient::before{width:600px;height:600px;background:radial-gradient(circle,rgba(255,184,77,.18),transparent 70%);top:-200px;left:-100px;animation:drift1 22s ease-in-out infinite}
+  .ambient::after{width:500px;height:500px;background:radial-gradient(circle,rgba(255,184,77,.12),transparent 70%);bottom:-150px;right:-100px;animation:drift2 28s ease-in-out infinite}
+  @keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(80px,60px) scale(1.1)}66%{transform:translate(-40px,100px) scale(.95)}}
+  @keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,-60px) scale(1.15)}}
+  .spotlight{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(circle 600px at var(--mx) var(--my),rgba(255,184,77,.05),transparent 50%);transition:background .1s linear}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.6;z-index:1000;mix-blend-mode:overlay}
+  main,header,section,footer{position:relative;z-index:2}
+  .progress-bar{position:fixed;top:0;left:0;width:var(--scroll,0%);height:1px;background:linear-gradient(to right,transparent,var(--gold),var(--gold-bright));box-shadow:0 0 20px var(--gold-glow);z-index:998;transition:width .05s linear}
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+
+  /* TYPO */
+  h2{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 50;font-size:clamp(32px,5.5vw,64px);font-weight:300;letter-spacing:-.04em;line-height:.98;color:var(--ink-bright);text-wrap:balance}
+  h2 em{font-style:italic;color:var(--gold-bright);text-shadow:0 0 30px var(--gold-glow);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 100}
+  .eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;display:inline-flex;align-items:center;gap:14px}
+  .eyebrow::before,.eyebrow::after{content:'';width:28px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);box-shadow:0 0 8px var(--gold-glow)}
+  .section-header{text-align:center;margin-bottom:64px}
+  .section-header .lead{color:var(--muted);max-width:600px;margin:20px auto 0;font-size:17px}
+  section{padding:110px 0;border-top:1px solid var(--line)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+  .reveal.in-view{opacity:1;transform:translateY(0)}
+  .rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.26s}.rd4{transition-delay:.36s}.rd5{transition-delay:.46s}
+
+  /* HERO */
+  .hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:90px 0 70px;border-top:none;overflow:hidden}
+  .hero::before{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-glow),transparent)}
+  .hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+  .hero-eyebrow .accent{color:var(--gold)}
+  .hero-name{font-family:var(--serif);font-style:italic;font-size:clamp(56px,15vw,150px);line-height:.9;letter-spacing:-.02em;margin-bottom:30px;background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold-deep) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 40px var(--gold-glow-soft);padding:0 .08em}
+  .hero h1{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 280,"SOFT" 80;font-size:clamp(30px,5vw,58px);font-weight:300;line-height:1.02;letter-spacing:-.03em;color:var(--ink-bright);text-wrap:balance;margin-bottom:30px}
+  .hero h1 em{font-style:italic;color:var(--gold-bright);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 100;text-shadow:0 0 30px var(--gold-glow)}
+  .hero-sub{font-family:var(--mono);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);max-width:600px;margin:0 auto}
+  .hero-rule{width:60px;height:1px;background:var(--gold);margin:46px auto 0;opacity:.7;box-shadow:0 0 14px var(--gold-glow)}
+
+  /* MARQUEE */
+  .marquee{padding:22px 0;background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+  .marquee::before,.marquee::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .marquee::before{left:0;background:linear-gradient(to right,var(--bg-deep),transparent)}
+  .marquee::after{right:0;background:linear-gradient(to left,var(--bg-deep),transparent)}
+  .marquee-track{display:flex;gap:54px;animation:marquee 38s linear infinite;white-space:nowrap;width:max-content}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee-item{display:inline-flex;align-items:center;gap:54px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .marquee-item .star{color:var(--gold);font-size:13px}
+
+  /* SERVICE CARDS */
+  .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:radial-gradient(ellipse at top right,var(--gold-glow-faint),transparent 60%),var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:6px;padding:34px 32px;position:relative;overflow:hidden;transition:transform .4s var(--ease),background .4s var(--ease),box-shadow .5s var(--ease)}
+  .card::before{content:'';position:absolute;inset:0;border-radius:6px;padding:1px;background:linear-gradient(135deg,transparent 30%,var(--gold),transparent 70%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+  .card:hover{transform:translateY(-6px);background:radial-gradient(ellipse at top right,var(--gold-glow-soft),transparent 55%),var(--bg-1);box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 40px var(--gold-glow-faint)}
+  .card:hover::before{opacity:1}
+  .card h3{font-family:var(--serif);font-style:italic;font-size:25px;color:var(--gold-bright);margin-bottom:18px;letter-spacing:-.005em;line-height:1.1}
+  .card ul{list-style:none}
+  .card li{position:relative;padding-left:20px;color:var(--text);font-size:15px;margin-bottom:9px}
+  .card li:last-child{margin-bottom:0}
+  .card li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold-glow)}
+
+  /* ROWS */
+  .rows{display:grid;gap:12px}
+  .row{display:flex;justify-content:space-between;gap:24px;padding:20px 26px;background:var(--bg-card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:6px;transition:border-color .4s var(--ease),background .4s var(--ease)}
+  .row:hover{border-color:var(--line-bright);background:var(--bg-1)}
+  .row .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);flex-shrink:0;padding-top:3px}
+  .row .r{color:var(--ink);text-align:right;font-size:15.5px;max-width:64%}
+  .note{margin-top:24px;font-size:14.5px;color:var(--muted);border-left:1px solid var(--gold-glow);padding-left:18px;line-height:1.7}
+
+  /* TABLE */
+  .data-table{width:100%;border-collapse:collapse;margin-top:4px}
+  .data-table thead tr{border-bottom:1px solid var(--line-bright)}
+  .data-table tbody tr{border-bottom:1px solid var(--line);transition:all .3s var(--ease)}
+  .data-table tbody tr:hover{background:linear-gradient(to right,transparent 5%,var(--gold-glow-faint),transparent 95%)}
+  .data-table th{text-align:left;padding:16px 10px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--gold)}
+  .data-table th:last-child{text-align:right}
+  .data-table td{padding:18px 10px;font-size:15px;color:var(--text)}
+  .data-table td:last-child{text-align:right;font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350,"SOFT" 30;color:var(--ink);font-variant-numeric:tabular-nums}
+  .data-table td.who{color:var(--gold-bright);font-family:var(--sans);font-size:14px;font-weight:500}
+
+  /* COST */
+  .cost{background:radial-gradient(ellipse at top,var(--gold-glow-faint),transparent 70%),var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:6px;padding:40px 36px;display:flex;flex-wrap:wrap;align-items:center;gap:30px;justify-content:space-between;margin-bottom:18px;position:relative}
+  .cost::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);box-shadow:0 0 14px var(--gold-glow)}
+  .cost .big{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 250,"SOFT" 80;font-size:clamp(48px,8vw,76px);line-height:1;color:var(--ink-bright);background:linear-gradient(180deg,var(--ink-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-variant-numeric:tabular-nums}
+  .cost .big small{font-family:var(--mono);font-size:15px;color:var(--muted);-webkit-text-fill-color:var(--muted);letter-spacing:.1em}
+  .cost .split{display:flex;gap:34px;flex-wrap:wrap}
+  .cost .split .k{font-family:var(--mono);color:var(--muted);font-size:10px;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:8px}
+  .cost .split .v{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350,"SOFT" 30;font-size:19px;color:var(--gold-bright);display:block}
+
+  /* KPI */
+  .kpi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .kpi-box{background:var(--bg-card);border:1px solid var(--line);border-radius:6px;padding:26px 26px}
+  .kpi-box h4{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .kpi-box table{width:100%;border-collapse:collapse}
+  .kpi-box td{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;font-variant-numeric:tabular-nums;color:var(--text)}
+  .kpi-box tr:last-child td{border-bottom:none}
+  .kpi-box td:last-child{text-align:right;font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350,"SOFT" 30;color:var(--gold-bright);text-shadow:0 0 10px var(--gold-glow-soft)}
+
+  /* PRICE / BREAKEVEN */
+  .avg{margin-top:30px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--line-bright)}
+  .avg .k{font-family:var(--mono);color:var(--muted);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .avg .v{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 50;font-size:clamp(38px,6vw,54px);color:var(--gold-bright);line-height:1;text-shadow:0 0 20px var(--gold-glow-soft);font-variant-numeric:tabular-nums}
+  .be-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .be{background:radial-gradient(ellipse at top right,var(--gold-glow-faint),transparent 60%),var(--bg-card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:38px 22px;text-align:center;border:1px solid var(--line);border-radius:6px;position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .5s var(--ease)}
+  .be::before{content:'';position:absolute;inset:0;border-radius:6px;padding:1px;background:linear-gradient(135deg,transparent 25%,var(--gold),transparent 75%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+  .be:hover{transform:translateY(-5px);box-shadow:0 24px 56px rgba(0,0,0,.55),0 0 36px var(--gold-glow-faint)}
+  .be:hover::before{opacity:1}
+  .be.hl{background:radial-gradient(ellipse at top right,var(--gold-glow-soft),transparent 55%),var(--bg-1);border-color:transparent}
+  .be.hl::before{opacity:1}
+  .be .price{font-family:var(--mono);color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+  .be .num{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 250,"SOFT" 100;font-size:84px;line-height:.85;color:var(--gold-bright);text-shadow:0 0 24px var(--gold-glow-soft);font-variant-numeric:tabular-nums}
+  .be .unit{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .be .tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:100px;padding:4px 11px;background:var(--gold-glow-faint)}
+  .be-note{margin-top:30px;text-align:center;font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350,"SOFT" 80;font-size:clamp(20px,3vw,26px);color:var(--text);line-height:1.4}
+  .be-note b{color:var(--gold-bright);font-variation-settings:"opsz" 144,"wght" 400,"SOFT" 100;text-shadow:0 0 18px var(--gold-glow-soft)}
+
+  /* FLOW */
+  .flow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+  .flow .f{background:radial-gradient(circle at top right,var(--gold-glow-faint),transparent 60%),var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:6px;padding:34px 30px;transition:border-color .4s var(--ease),box-shadow .5s var(--ease)}
+  .flow .f:hover{border-color:var(--gold-glow);box-shadow:0 0 30px var(--gold-glow-faint)}
+  .flow .f .ft{font-family:var(--mono);color:var(--gold);font-size:10px;letter-spacing:.26em;text-transform:uppercase}
+  .flow .f h3{font-family:var(--serif);font-style:italic;font-size:27px;color:var(--ink-bright);margin:12px 0 12px}
+  .flow .f p{color:var(--text);font-size:15px}
+  .flow .f .hl{color:var(--gold-bright);font-weight:500}
+  .kicker{margin-top:44px;text-align:center;font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 100;font-size:clamp(24px,4vw,38px);line-height:1.25;color:var(--ink-bright);text-wrap:balance}
+  .kicker b{font-style:italic;color:var(--gold-bright);text-shadow:0 0 26px var(--gold-glow)}
+
+  /* FOOTER */
+  footer{padding:100px 0 80px;text-align:center;background:var(--bg-deep);border-top:1px solid var(--line);position:relative}
+  footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:240px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);box-shadow:0 0 20px var(--gold-glow)}
+  .footer-mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);line-height:2}
+  .footer-mono a{color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--gold-glow);padding-bottom:2px}
+
+  /* HERO GLOW */
+  .hero .container{position:relative;z-index:2}
+  .hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 52% 42% at 50% 47%,var(--gold-glow-soft),transparent 70%);z-index:1}
+  /* HERO RAILS */
+  .hero-rail{position:absolute;top:50%;font-family:var(--mono);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;z-index:3;display:flex;align-items:center;gap:22px}
+  .hero-rail.left{left:30px;transform:translateY(-50%)}
+  .hero-rail.right{right:30px;transform:translateY(-50%) rotate(180deg)}
+  .hero-rail::before,.hero-rail::after{content:'';width:1px;height:70px;background:linear-gradient(to bottom,transparent,var(--gold-deep),transparent)}
+  /* SCROLL HINT */
+  .scroll-hint{margin-top:50px;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:.75}
+  .scroll-hint::after{content:'';display:block;width:1px;height:30px;background:linear-gradient(to bottom,var(--gold),transparent);margin:12px auto 0;animation:scrollDown 2s ease-in-out infinite}
+  @keyframes scrollDown{0%{transform:translateY(-8px) scaleY(.5);opacity:0}50%{transform:translateY(0) scaleY(1);opacity:1}100%{transform:translateY(8px) scaleY(.5);opacity:0}}
+  /* NAV DOTS */
+  .nav-dots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:16px;padding:16px 12px;background:var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:100px}
+  .nav-dot{width:8px;height:8px;border-radius:50%;background:transparent;border:1px solid var(--muted);cursor:pointer;transition:all .3s var(--ease);position:relative;padding:0}
+  .nav-dot::after{content:attr(data-label);position:absolute;right:calc(100% + 16px);top:50%;transform:translateY(-50%) translateX(8px);font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-bright);padding:7px 13px;border-radius:100px;white-space:nowrap;opacity:0;pointer-events:none;transition:all .3s var(--ease)}
+  .nav-dot:hover{border-color:var(--gold);background:var(--gold-glow-soft);box-shadow:0 0 12px var(--gold-glow)}
+  .nav-dot:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+  .nav-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold),0 0 24px var(--gold-glow)}
+  @media(max-width:1100px){.hero-rail,.nav-dots{display:none}}
+
+  /* PROCESS */
+  .sub-label{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:40px 0 16px}
+  .sub-label:first-child{margin-top:0}
+  .found{display:grid;gap:12px}
+  .found .Xfr{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 26px;background:var(--bg-card);border:1px solid var(--line);border-radius:6px;transition:border-color .4s var(--ease),background .4s var(--ease)}
+  .found .Xfr:hover{border-color:var(--gold-glow);background:var(--bg-1)}
+  .found .Xfr .name{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink-bright)}
+  .done-tag{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:100px;padding:5px 13px;background:var(--gold-glow-faint);white-space:nowrap}
+  .expand{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .expand .e{background:radial-gradient(ellipse at top right,var(--gold-glow-faint),transparent 60%),var(--bg-card);border:1px solid var(--line);border-radius:6px;padding:26px 24px;transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .5s var(--ease)}
+  .expand .e:hover{transform:translateY(-4px);border-color:var(--gold-glow);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+  .expand .e h4{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold-bright);margin-bottom:8px}
+  .expand .e p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .cycle{counter-reset:step}
+  .cycle .step{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--line);transition:all .3s var(--ease)}
+  .cycle .step:last-child{border-bottom:none}
+  .cycle .step:hover{background:linear-gradient(to right,var(--gold-glow-faint),transparent 80%)}
+  .cycle .step .n{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 80;font-size:36px;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums;text-shadow:0 0 16px var(--gold-glow-soft);width:42px}
+  .cycle .step .txt{font-size:16px;color:var(--ink);padding-top:8px}
+
+  @media(max-width:760px){
+    .svc,.kpi-wrap,.flow,.expand{grid-template-columns:1fr}
+    .be-grid{grid-template-columns:1fr}
+    .cost{flex-direction:column;align-items:flex-start}
+    .row{flex-direction:column;gap:8px}.row .r{max-width:100%;text-align:left}
+    section{padding:80px 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+<div class="ambient"></div>
+<div class="spotlight"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-rail left">JAMALI · Продюсирование</div>
+  <div class="hero-rail right">Редакция · Июнь 2026</div>
+  <div class="container">
+    <div class="hero-eyebrow">JAMALI <span class="accent">×</span> Продюсирование</div>
+    <div class="hero-name">JAMALI</div>
+    <h1>Полное продюсирование блога <em>под ключ</em></h1>
+    <div class="hero-sub">Состав работы · обязательства · условия · окупаемость</div>
+    <div class="hero-rule"></div>
+    <div class="scroll-hint">Листайте</div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Стратегия<span class="star">✦</span>Производство<span class="star">✦</span>Аналитика<span class="star">✦</span>Реклама<span class="star">✦</span>Веб-активы<span class="star">✦</span>Обучение<span class="star">✦</span></span>
+    <span class="marquee-item">Стратегия<span class="star">✦</span>Производство<span class="star">✦</span>Аналитика<span class="star">✦</span>Реклама<span class="star">✦</span>Веб-активы<span class="star">✦</span>Обучение<span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- 1. СОСТАВ -->
+<section id="s1">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Состав работы</div>
+      <h2>Что входит в <em>продюсирование</em></h2>
+      <p class="lead">Полный цикл ведения блога — от стратегии до производства, аналитики, монетизации и веб-активов.</p>
+    </div>
+    <div class="svc">
+      <div class="card reveal rd1">
+        <h3>Стратегия и аналитика</h3>
+        <ul>
+          <li>Стратегия проекта и ведение мастер-документа</li>
+          <li>Аналитика рилсов: просмотры, подписки, конверсия</li>
+          <li>Разбор каждого ролика и корректировка курса</li>
+          <li>Кастдев аудитории и аватары</li>
+        </ul>
+      </div>
+      <div class="card reveal rd2">
+        <h3>Смыслы и позиционирование</h3>
+        <ul>
+          <li>Распаковка личности, банк смыслов и цитат</li>
+          <li>Позиционирование блога и цельная подача</li>
+          <li>Ключевые нарративы бренда</li>
+        </ul>
+      </div>
+      <div class="card reveal rd1">
+        <h3>Производство контента</h3>
+        <ul>
+          <li>Сценарий под каждый рилс</li>
+          <li>Съёмка на локациях</li>
+          <li>Монтаж, цвет, субтитры, вертикализация</li>
+          <li>Подписи и варианты для переиспользования</li>
+        </ul>
+      </div>
+      <div class="card reveal rd2">
+        <h3>Сторис и Highlights</h3>
+        <ul>
+          <li>Конструктор сторис</li>
+          <li>Сторителлинги</li>
+          <li>Прогревы</li>
+          <li>Оформление Highlights</li>
+        </ul>
+      </div>
+      <div class="card reveal rd1">
+        <h3>Реклама и монетизация</h3>
+        <ul>
+          <li>Фильтр и переговоры по входящим офферам</li>
+          <li>Сценарии и продакшн интеграций под ключ</li>
+          <li>Тарифы, медиа-кит, статистика для рекламодателей</li>
+        </ul>
+      </div>
+      <div class="card reveal rd2">
+        <h3>Веб-активы и обучение</h3>
+        <ul>
+          <li>PR/медиа-кит для рекламодателей</li>
+          <li>Рекламная статистика-страница</li>
+          <li>Передача методологии ведения блога</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ФОРМАТ -->
+<section id="s2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Формат</div>
+      <h2>Как устроена <em>работа</em></h2>
+    </div>
+    <div class="rows reveal rd1">
+      <div class="row"><span class="l">Формат</span><span class="r">Пакет «Под ключ» — ведение блога целиком</span></div>
+      <div class="row"><span class="l">Ритм</span><span class="r">Один съёмочный выезд в неделю — контент на неделю вперёд</span></div>
+      <div class="row"><span class="l">Разбор</span><span class="r">Ежемесячно, с корректировкой плана</span></div>
+      <div class="row"><span class="l">Связь</span><span class="r">Рабочий режим, оперативные вопросы — в течение дня</span></div>
+    </div>
+    <p class="note reveal rd2">Бонус-активы входят в пакет без отдельной оплаты: образовательный блок (рыночно от 100 000 ₽), PR/медиа-кит (50 000 ₽), рекламная статистика-страница с еженедельным обновлением.</p>
+  </div>
+</section>
+
+<!-- ПРОЦЕСС -->
+<section id="sp">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Процесс</div>
+      <h2>Как идёт <em>работа</em></h2>
+      <p class="lead">Фундамент уже заложен — дальше работает система.</p>
+    </div>
+
+    <div class="reveal rd1">
+      <div class="sub-label">Фундамент — готов</div>
+      <div class="found">
+        <div class="Xfr"><span class="name">Распаковка личности</span><span class="done-tag">Готово</span></div>
+        <div class="Xfr"><span class="name">Позиционирование</span><span class="done-tag">Готово</span></div>
+        <div class="Xfr"><span class="name">Упаковка профиля</span><span class="done-tag">Готово</span></div>
+      </div>
+    </div>
+
+    <div class="reveal rd2">
+      <div class="sub-label">Распаковку углубляем</div>
+      <div class="expand">
+        <div class="e"><h4>Банк историй</h4><p>Запас сторителлингов под рилсы наперёд</p></div>
+        <div class="e"><h4>Нарративы JAMALI</h4><p>Истории изделий, коллекций, смысл кружева</p></div>
+        <div class="e"><h4>Живое обновление</h4><p>Новые главы жизни — новые смыслы</p></div>
+      </div>
+    </div>
+
+    <div class="reveal rd1">
+      <div class="sub-label">Операционный цикл — каждую неделю</div>
+      <div class="cycle">
+        <div class="step"><span class="n">1</span><span class="txt">Планирование форматов на неделю</span></div>
+        <div class="step"><span class="n">2</span><span class="txt">Съёмочный день — контент на неделю вперёд</span></div>
+        <div class="step"><span class="n">3</span><span class="txt">Монтаж и тексты</span></div>
+        <div class="step"><span class="n">4</span><span class="txt">Согласование готового — до 24 часов</span></div>
+        <div class="step"><span class="n">5</span><span class="txt">Выкладка</span></div>
+        <div class="step"><span class="n">6</span><span class="txt">Снятие статистики, разбор каждого рилса</span></div>
+        <div class="step"><span class="n">7</span><span class="txt">Ежемесячный стратегический разбор</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ЗОНЫ -->
+<section id="s3">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Обязательства</div>
+      <h2>Зоны <em>ответственности</em></h2>
+      <p class="lead">Принцип: Вы решаете «что» и «зачем», я решаю «как».</p>
+    </div>
+    <div class="reveal rd1">
+    <table class="data-table">
+      <thead><tr><th>Зона</th><th>Решает</th></tr></thead>
+      <tbody>
+        <tr><td>Стратегия, темы, форматы, образ</td><td class="who">Вместе</td></tr>
+        <tr><td>Сценарий, монтаж, музыка, тайминг</td><td class="who">Я · финал за мной</td></tr>
+        <tr><td>Готовый ролик к выпуску</td><td class="who">Вместе</td></tr>
+        <tr><td>Подпись и выкладка</td><td class="who">Вместе</td></tr>
+        <tr><td>Рекламный оффер, цена, согласие</td><td class="who">Вместе · мои рекомендации</td></tr>
+        <tr><td>Сценарий и продакшн интеграции</td><td class="who">Я</td></tr>
+        <tr><td>Тарифы рекламы</td><td class="who">Я · пересмотр квартально</td></tr>
+      </tbody>
+    </table>
+    <p class="note">На стороне Каролины: участие в съёмочном дне по сценарию, голосовые на распаковку, согласование контента в течение 24 часов.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. УСЛОВИЯ -->
+<section id="s4">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Условия</div>
+      <h2>Принципиальные <em>моменты</em></h2>
+    </div>
+    <div class="rows reveal rd1">
+      <div class="row"><span class="l">Оплата</span><span class="r">100% предоплата за месяц до старта работ</span></div>
+      <div class="row"><span class="l">Правки</span><span class="r">Столько, сколько улучшают ролик. На 5-й итерации без улучшения — фиксируем рабочий вариант</span></div>
+      <div class="row"><span class="l">Доверие</span><span class="r">Решения не пересобираются на ходу из-за разовых сомнений</span></div>
+      <div class="row"><span class="l">Рекомендации</span><span class="r">Согласованный контент снимается — без этого система не работает</span></div>
+      <div class="row"><span class="l">Тест формата</span><span class="r">4–6 недель перед пересмотром стратегического решения</span></div>
+      <div class="row"><span class="l">Доп. каналы</span><span class="r">YouTube и развёрнутый Telegram — отдельно, за доплату по объёму</span></div>
+      <div class="row"><span class="l">Пересмотр</span><span class="r">Раз в квартал · выход с уведомлением за 30 дней</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ФИНМОДЕЛЬ -->
+<section id="s5">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Финансовые условия</div>
+      <h2>Стоимость</h2>
+    </div>
+    <div class="reveal rd1">
+      <div class="cost">
+        <div class="big">120 000<small> ₽/мес</small></div>
+        <div class="split">
+          <div><span class="k">Аренда техники</span><span class="v">30 000 ₽ · бренд</span></div>
+          <div><span class="k">Оператор на сложные съёмки</span><span class="v">по согласованию</span></div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="l">Гонорар</span><span class="r">Стратегия, монтаж, аналитика, реклама-менеджмент, веб, обучение, съёмка когда снимаю сам</span></div>
+        <div class="row"><span class="l">Реклама</span><span class="r">70% бренду / 30% мне · минимум 50–100К за интеграцию · только премиум</span></div>
+      </div>
+    </div>
+    <div class="kpi-wrap reveal rd2">
+      <div class="kpi-box">
+        <h4>Бонус за просмотры ролика</h4>
+        <table>
+          <tr><td>100 000</td><td>10 000 ₽</td></tr>
+          <tr><td>500 000</td><td>50 000 ₽</td></tr>
+          <tr><td>1 000 000</td><td>100 000 ₽</td></tr>
+          <tr><td>3 000 000</td><td>300 000 ₽</td></tr>
+          <tr><td>10 000 000</td><td>1 000 000 ₽</td></tr>
+        </table>
+      </div>
+      <div class="kpi-box">
+        <h4>Бонус за прирост подписчиков</h4>
+        <table>
+          <tr><td>200 000</td><td>50 000 ₽</td></tr>
+          <tr><td>300 000</td><td>100 000 ₽</td></tr>
+          <tr><td>500 000</td><td>300 000 ₽</td></tr>
+          <tr><td>1 000 000</td><td>500 000 ₽</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ОКУПАЕМОСТЬ -->
+<section id="s6">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Окупаемость</div>
+      <h2>Сколько продать, чтобы выйти <em>в ноль</em></h2>
+      <p class="lead">Сколько изделий в месяц по выручке закрывают стоимость продюсирования — 150 000 ₽ (гонорар 120К + техника 30К).</p>
+    </div>
+    <div class="reveal rd1">
+      <table class="data-table">
+        <thead><tr><th>Категория</th><th>Цена</th></tr></thead>
+        <tbody>
+          <tr><td>Брюки, юбки</td><td>15 500 – 29 300 ₽</td></tr>
+          <tr><td>Жакеты, кардиганы</td><td>16 660 – 38 000 ₽</td></tr>
+          <tr><td>Костюмы</td><td>20 090 – 32 800 ₽</td></tr>
+          <tr><td>Платья</td><td>23 680 – 37 000 ₽</td></tr>
+          <tr><td>Блуза, водолазка</td><td>23 500 – 38 800 ₽</td></tr>
+        </tbody>
+      </table>
+      <div class="avg"><span class="k">Средний чек</span><span class="v">25 400 ₽</span></div>
+    </div>
+
+    <div class="be-grid reveal rd1">
+      <div class="be"><div class="price">изделие 16 000 ₽</div><div class="num">10</div><span class="unit">в месяц</span></div>
+      <div class="be hl"><div class="tag">средний чек</div><div class="price">изделие 25 400 ₽</div><div class="num">6</div><span class="unit">в месяц</span></div>
+      <div class="be"><div class="price">изделие 38 000 ₽</div><div class="num">4</div><span class="unit">в месяц</span></div>
+    </div>
+    <p class="be-note reveal rd2">По среднему чеку достаточно <b>6 продаж в месяц</b>, чтобы выйти в ноль.</p>
+
+    <div class="flow reveal rd1">
+      <div class="f">
+        <div class="ft">Поток 1</div>
+        <h3>Продажи JAMALI</h3>
+        <p><span class="hl">6 изделий в месяц</span> закрывают продюсирование в ноль. Всё сверх — прибыль бренда.</p>
+      </div>
+      <div class="f">
+        <div class="ft">Поток 2</div>
+        <h3>Реклама</h3>
+        <p>1–2 интеграции в неделю по 50–100К, из них 70% бренду — <span class="hl">отдельный поток дохода</span>.</p>
+      </div>
+    </div>
+    <p class="kicker reveal rd2">Продюсирование себя не окупает —<br><b>оно работает в плюс с двух сторон.</b></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p class="footer-mono">JAMALI × Продюсирование &nbsp;·&nbsp; Редакция июнь 2026</p>
+    <p class="footer-mono" style="margin-top:14px">Цены — действующий каталог <a href="https://jamaliofficial.ru">jamaliofficial.ru</a></p>
+  </div>
+</footer>
+
+<nav class="nav-dots">
+  <a class="nav-dot" data-label="Состав" href="#s1"></a>
+  <a class="nav-dot" data-label="Формат" href="#s2"></a>
+  <a class="nav-dot" data-label="Процесс" href="#sp"></a>
+  <a class="nav-dot" data-label="Зоны" href="#s3"></a>
+  <a class="nav-dot" data-label="Условия" href="#s4"></a>
+  <a class="nav-dot" data-label="Стоимость" href="#s5"></a>
+  <a class="nav-dot" data-label="Окупаемость" href="#s6"></a>
+</nav>
+
+<script>
+  // Progress bar
+  const pb=document.querySelector('.progress-bar');
+  // Spotlight follow
+  const root=document.documentElement;
+  window.addEventListener('mousemove',e=>{
+    root.style.setProperty('--mx',e.clientX+'px');
+    root.style.setProperty('--my',e.clientY+'px');
+  });
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    root.style.setProperty('--scroll',(window.scrollY/h*100)+'%');
+  },{passive:true});
+  // Reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Nav dots — active section
+  const dots=[...document.querySelectorAll('.nav-dot')];
+  const secs=dots.map(d=>document.querySelector(d.getAttribute('href')));
+  const so=new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);dots.forEach(d=>d.classList.remove('active'));if(dots[i])dots[i].classList.add('active');}});
+  },{threshold:.4});
+  secs.forEach(s=>{if(s)so.observe(s);});
+</script>
+
+</body>
+</html>
