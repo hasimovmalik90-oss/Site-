@@ -20,8 +20,8 @@ em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
 a{color:var(--accent);text-decoration:none}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
 .dim{color:var(--dim)}.mute{color:var(--mute)}
-section{padding:56px 0;border-top:1px solid var(--line)}
-.section-head{margin-bottom:26px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px;text-wrap:pretty}
+section{padding:58px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:28px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px;text-wrap:pretty}
 /* hero */
 .hero{text-align:center;padding:104px 0 70px;border:none}
 .hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
@@ -37,12 +37,19 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 .howto li b{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);position:absolute;left:0;top:7px}
 /* темы */
 .tlist{margin-top:8px;border-top:1px solid var(--line)}
-.theme{padding:18px 4px 16px;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:baseline}
-.theme .tn{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);min-width:36px;flex:none;opacity:.8;line-height:1.2}
+.theme{padding:20px 4px 18px;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:baseline}
+.theme .tn{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);min-width:34px;flex:none;opacity:.8;line-height:1.2}
 .theme .tb{flex:1;min-width:0}
-.theme h3{font-size:clamp(18px,2.3vw,22px);margin-bottom:4px;color:#F2EEE8}
-.theme p{color:var(--mute);font-size:13.5px;text-wrap:pretty}
-.snote{margin-top:14px;color:var(--dim);font-size:13px;font-style:italic;text-wrap:pretty}
+.theme h3{font-size:clamp(18px,2.3vw,23px);margin-bottom:5px;color:#F2EEE8}
+.theme p{color:var(--mute);font-size:14px;text-wrap:pretty}
+/* сферы */
+.spheres{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:8px}
+.sphere{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+.sphere h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.sphere ul{list-style:none} .sphere li{padding:8px 0 8px 18px;position:relative;color:var(--text);font-size:15px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.sphere li:last-child{border-bottom:none}
+.sphere li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;border:1px solid var(--accent);border-radius:50%}
+.sphere .note{display:block;margin-top:12px;color:var(--dim);font-size:12.5px;font-style:italic}
 /* финал */
 .closing{text-align:center;padding:74px 0 88px}
 .closing p{max-width:680px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
@@ -59,7 +66,7 @@ section{padding:56px 0;border-top:1px solid var(--line)}
   .hero h1{letter-spacing:.03em;text-transform:none}
   .hero{padding:70px 0 44px} .hero .slogan{font-size:16px}
   h2{font-size:clamp(24px,7vw,32px)}
-  .theme{gap:13px} .theme .tn{min-width:26px;font-size:17px}
+  .theme{gap:13px} .theme .tn{min-width:24px;font-size:17px}
   .howto{padding:22px 20px}
 }
 body{word-break:normal;overflow-wrap:normal}
@@ -69,13 +76,13 @@ body{word-break:normal;overflow-wrap:normal}
   <div class="top">Июнь 2026 · Распаковка · на согласование</div>
   <p class="fio">Георгий · @georgiy_gs</p>
   <h1>Сильные темы</h1>
-  <p class="slogan">Просмотрите и отметьте, что Ваше</p>
-  <p class="pos">Темы, которые мы вытащили из Вашей распаковки, — то, о чём Вам уже есть что сказать на камеру. Собраны по шести сферам, по десять тем в каждой. Пройдитесь и дайте обратную связь — из того, что откликнется, соберём контент-план.</p>
+  <p class="slogan">Просмотрите и отметьте, что Ваше</p>
+  <p class="pos">Это темы, которые мы вытащили из Вашей распаковки — то, о чём Вам уже есть что сказать на камеру. Пройдитесь по списку и дайте обратную связь: что точно Ваше, что под вопросом, а чего касаться не хотите. Из этого соберём контент-план.</p>
   <div class="hdiv"></div>
 </div></header>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Как дать обратную связь</span><h2>Это Ваш материал — <em>Вам и решать</em></h2></div>
+  <div class="section-head"><span class="eyebrow">Как дать обратную связь</span><h2>Это Ваш материал — <em>Вам и решать</em></h2></div>
   <div class="howto"><h4>Пройдитесь по номерам и отметьте</h4>
     <ul>
       <li><b>+</b> точно моё, готов снимать</li>
@@ -84,112 +91,196 @@ body{word-break:normal;overflow-wrap:normal}
       <li><b>+</b> и допишите свои темы, если что-то важное мы упустили</li>
     </ul>
   </div>
-  <p class="mute" style="margin-top:18px;font-size:14.5px">Достаточно ответить номерами прямо в чате — например «1, 4, 7 точно мои, 12 под вопросом, 19 не хочу». Ничего расписывать не нужно.</p>
+  <p class="mute" style="margin-top:18px;font-size:14.5px">Достаточно ответить номерами прямо в чате — например «1, 4, 7 точно мои, 12 под вопросом, 19 не хочу». Ничего расписывать не нужно.</p>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 01 · Бизнес и дело</span><h2>С чего всё <em>начиналось</em></h2></div>
+  <div class="section-head"><span class="eyebrow">Блок 01 · Бизнес и путь</span><h2>С чего всё <em>начиналось</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">1</span><div class="tb"><h3>Из ночного колл-центра — до федерального масштаба</h3><p>Путь с нуля: ночные смены студентом и то, к чему Вы пришли сегодня.</p></div></div>
-    <div class="theme"><span class="tn">2</span><div class="tb"><h3>Как я начал с перепродажи кирпича</h3><p>Первое чутьё: увидели разницу в цене там, где другие не смотрели.</p></div></div>
-    <div class="theme"><span class="tn">3</span><div class="tb"><h3>Мой самый первый бизнес — грузоперевозки</h3><p>Первая техника, первые рейсы — и почему отсюда вырос масштаб.</p></div></div>
-    <div class="theme"><span class="tn">4</span><div class="tb"><h3>Брал людей в долю, когда не мог платить зарплату</h3><p>Как на старте строил команду на доверии и общем результате.</p></div></div>
-    <div class="theme"><span class="tn">5</span><div class="tb"><h3>Как я почти потерял всё — и поднялся заново</h3><p>Кризис, когда бизнес почти рухнул, и что помогло вернуться.</p></div></div>
-    <div class="theme"><span class="tn">6</span><div class="tb"><h3>Строю производство, которого в стране ещё не было</h3><p>Агрокомплекс замкнутого цикла — рыба кормит растения, энергия из земли.</p></div></div>
-    <div class="theme"><span class="tn">7</span><div class="tb"><h3>Я не строитель — я управленец</h3><p>Кто Вы по сути: не про бетон, а про управление и решения.</p></div></div>
-    <div class="theme"><span class="tn">8</span><div class="tb"><h3>Я проверяю всё сам</h3><p>Почему через несколько звеньев задача всегда искажается.</p></div></div>
-    <div class="theme"><span class="tn">9</span><div class="tb"><h3>Почему мои люди работают в час ночи</h3><p>Подход к команде: что Вы делаете, чтобы человеку хотелось выкладываться.</p></div></div>
-    <div class="theme"><span class="tn">10</span><div class="tb"><h3>Самые сложные сделки в моей карьере</h3><p>Как убедить мастодонтов рынка, что Вы готовы к таким объёмам.</p></div></div>
+    <div class="theme"><span class="tn">1</span><div class="tb"><h3>Из ночного колл-центра — до федерального масштаба</h3><p>Путь с нуля: ночные смены студентом, первые заработки и то, к чему Вы пришли сегодня. История человека, сделавшего себя сам.</p></div></div>
+    <div class="theme"><span class="tn">2</span><div class="tb"><h3>Как я начал с перепродажи кирпича</h3><p>Первое предпринимательское чутьё: увидели разницу в цене там, где другие не смотрели, — и превратили в дело.</p></div></div>
+    <div class="theme"><span class="tn">3</span><div class="tb"><h3>Мой самый первый бизнес — грузоперевозки</h3><p>Как всё закрутилось: первая техника, первые рейсы, и почему именно отсюда вырос масштаб.</p></div></div>
+    <div class="theme"><span class="tn">4</span><div class="tb"><h3>Строю производство, которого в стране ещё не было</h3><p>Агрокомплекс замкнутого цикла — рыба кормит растения, энергия из земли. Идея будущего, которую интересно показывать вживую.</p></div></div>
+    <div class="theme"><span class="tn">5</span><div class="tb"><h3>Как я почти потерял всё — и поднялся заново</h3><p>Кризис, когда бизнес почти рухнул, и что помогло собраться и восстановиться. Честно про падение и возврат.</p></div></div>
+    <div class="theme"><span class="tn">6</span><div class="tb"><h3>Брал людей в долю, когда не мог платить зарплату</h3><p>Как на старте Вы строили команду на доверии и общем результате, а не на окладах.</p></div></div>
+    <div class="theme"><span class="tn">7</span><div class="tb"><h3>Почему мои люди работают в час ночи — и не потому что заставляю</h3><p>Ваш подход к команде и забота о людях: что Вы делаете, чтобы человеку хотелось выкладываться.</p></div></div>
+    <div class="theme"><span class="tn">8</span><div class="tb"><h3>Я строю то, чем пользуются тысячи людей</h3><p>Масштаб и польза того, что Вы создаёте, — общими штрихами, без конкретики. Ощущение веса дела.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 02 · Деньги, сделки, принципы</span><h2>Как Вы <em>ведёте дело</em></h2></div>
+  <div class="section-head"><span class="eyebrow">Блок 02 · Личность и характер</span><h2>Кто Вы <em>на самом деле</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">11</span><div class="tb"><h3>Деньги — это просто инструмент</h3><p>Без культа и подвоха. Отношение человека, который умеет их зарабатывать.</p></div></div>
-    <div class="theme"><span class="tn">12</span><div class="tb"><h3>На старте — Camry в кредит, всё остальное в дело</h3><p>Про дисциплину и реинвест, пока другие тратили на себя.</p></div></div>
-    <div class="theme"><span class="tn">13</span><div class="tb"><h3>Договаривайтесь на берегу</h3><p>Принцип, который сэкономил Вам много денег и нервов.</p></div></div>
-    <div class="theme"><span class="tn">14</span><div class="tb"><h3>За что я мгновенно расстаюсь с человеком</h3><p>Высокомерие. Воровство прощу, гонор — никогда.</p></div></div>
-    <div class="theme"><span class="tn">15</span><div class="tb"><h3>Со всеми наравне — от уборщицы до топа</h3><p>Почему Вы не ставите себя выше и не терпите тех, кто это делает.</p></div></div>
-    <div class="theme"><span class="tn">16</span><div class="tb"><h3>Бизнес — это казино</h3><p>Не готов потерять всё — не заходи. Отрезвляет и отстраивает от инфоцыган.</p></div></div>
-    <div class="theme"><span class="tn">17</span><div class="tb"><h3>У бизнесмена два пути</h3><p>Либо ты улетаешь в космос, либо вариант потрагичнее. Жёсткий честный образ.</p></div></div>
-    <div class="theme"><span class="tn">18</span><div class="tb"><h3>Главная ошибка всех начинающих</h3><p>Чего ждут от бизнеса новички — и почему реальность другая.</p></div></div>
-    <div class="theme"><span class="tn">19</span><div class="tb"><h3>Что для меня успех сегодня</h3><p>Возможность играть в больших масштабах — и как это менялось с годами.</p></div></div>
-    <div class="theme"><span class="tn">20</span><div class="tb"><h3>Никогда не выдёргивай первые деньги</h3><p>Почему заработок в моменте всегда выходит боком.</p></div></div>
+    <div class="theme"><span class="tn">9</span><div class="tb"><h3>Мой единственный талант — видеть людей</h3><p>Ваша суперсила: читаете человека за минуты и ставите каждого на своё место. Сквозная тема всего блога.</p></div></div>
+    <div class="theme"><span class="tn">10</span><div class="tb"><h3>Я открыл компанию в 18 — без денег, опыта и страховки</h3><p>Самый рискованный шаг в жизни. Что чувствует человек, который прыгает в неизвестность так рано.</p></div></div>
+    <div class="theme"><span class="tn">11</span><div class="tb"><h3>Два высших с 7% посещаемости</h3><p>Как Вы учились в одном из сложнейших вузов, работая параллельно, — и почему всё равно получилось.</p></div></div>
+    <div class="theme"><span class="tn">12</span><div class="tb"><h3>Мой декан работал у меня прорабом</h3><p>История, которая лучше любых слов показывает, как рано Вы стали тем, к кому идут работать.</p></div></div>
+    <div class="theme"><span class="tn">13</span><div class="tb"><h3>Из района, гаражей и подработок</h3><p>Детство и юность, которые закалили характер: работа с ранних лет, улица, первые деньги своими руками.</p></div></div>
+    <div class="theme"><span class="tn">14</span><div class="tb"><h3>Мы приехали с одним чемоданом</h3><p>Корни и семейный стержень — откуда Вы родом и что несёте из этого по жизни.</p></div></div>
+    <div class="theme"><span class="tn">15</span><div class="tb"><h3>Я иду далеко с кем-то, а не быстро в одиночку</h3><p>Почему ставка на правильных людей рядом для Вас важнее скорости. Про команду и долгую игру.</p></div></div>
+    <div class="theme"><span class="tn">16</span><div class="tb"><h3>Главная моя гордость — не деньги</h3><p>Стабильность и спокойствие для родных и близких. Тёплая, честная тема, которая цепляет.</p></div></div>
+    <div class="theme"><span class="tn">17</span><div class="tb"><h3>Нерешаемых проблем не бывает</h3><p>Ваша философия стойкости: почему Вы не паникуете там, где другие опускают руки.</p></div></div>
+    <div class="theme"><span class="tn">18</span><div class="tb"><h3>Жалею только об одном — что не был смелее</h3><p>Честное признание: где излишняя осторожность стоила Вам возможностей. Сильная, человечная тема.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 03 · Мировоззрение и взгляды</span><h2>Во что Вы <em>верите</em></h2></div>
+  <div class="section-head"><span class="eyebrow">Блок 03 · Деньги и принципы</span><h2>Как Вы <em>ведёте дело</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">21</span><div class="tb"><h3>Человек — творец своей судьбы</h3><p>Кем родился — неважно, важно что делаешь. Ваше прямое, неудобное для многих мнение.</p></div></div>
-    <div class="theme"><span class="tn">22</span><div class="tb"><h3>Не оставляй хлебных крошек позади</h3><p>Про незаконченные дела, которые возвращаются, когда не ждёшь.</p></div></div>
-    <div class="theme"><span class="tn">23</span><div class="tb"><h3>Быть мужчиной — значит брать ответственность</h3><p>И почему сегодня это редкость.</p></div></div>
-    <div class="theme"><span class="tn">24</span><div class="tb"><h3>Настоящая сила — не в зале</h3><p>Сила — довести дело до конца через все проблемы, а не убежать.</p></div></div>
-    <div class="theme"><span class="tn">25</span><div class="tb"><h3>Главный навык в жизни — быстро читать ситуацию</h3><p>Проанализировал, нашёл выход, сделал. Как это вытаскивало Вас отовсюду.</p></div></div>
-    <div class="theme"><span class="tn">26</span><div class="tb"><h3>Делай, не бойся</h3><p>Что Вы сказали бы себе двадцатилетнему. Короткая, сильная мысль.</p></div></div>
-    <div class="theme"><span class="tn">27</span><div class="tb"><h3>Меня бесит, когда юлят</h3><p>Скажи прямо, чего хочешь. Недоговорки раздражают сильнее всего.</p></div></div>
-    <div class="theme"><span class="tn">28</span><div class="tb"><h3>Нерешаемых проблем не бывает</h3><p>Почему Вы не паникуете там, где другие опускают руки.</p></div></div>
-    <div class="theme"><span class="tn">29</span><div class="tb"><h3>Я уважаю все религии</h3><p>Спокойный взгляд: соблюдаешь свою веру — уже хороший человек.</p></div></div>
-    <div class="theme"><span class="tn">30</span><div class="tb"><h3>Что мне дала вера</h3><p>Терпение и понимание, что не всё сразу: труд рано или поздно приводит к результату.</p></div></div>
+    <div class="theme"><span class="tn">19</span><div class="tb"><h3>Я не строитель — я управленец</h3><p>Кто Вы по сути. Сильная отстройка: не про бетон, а про управление и решения.</p></div></div>
+    <div class="theme"><span class="tn">20</span><div class="tb"><h3>Бизнес сначала забирает всё</h3><p>Честно про предпринимательство, без розовых картинок: сначала отдаёшь, и если повезёт — возвращается с лихвой.</p></div></div>
+    <div class="theme"><span class="tn">21</span><div class="tb"><h3>Я голодный, как 15 лет назад — просто ставки больше</h3><p>Почему успех не расслабил, а только поднял планку. Образ человека, который не насытился.</p></div></div>
+    <div class="theme"><span class="tn">22</span><div class="tb"><h3>Деньги — это просто инструмент</h3><p>Без культа и без подвоха. Отношение к деньгам человека, который умеет их зарабатывать.</p></div></div>
+    <div class="theme"><span class="tn">23</span><div class="tb"><h3>За что я мгновенно расстаюсь с человеком</h3><p>Высокомерие. Почему Вы со всеми наравне — от уборщицы до топ-менеджера — и не терпите тех, кто ставит себя выше.</p></div></div>
+    <div class="theme"><span class="tn">24</span><div class="tb"><h3>Договаривайтесь на берегу</h3><p>Принцип, который сэкономил Вам много денег и нервов. Простое правило, которое большинство нарушает.</p></div></div>
+    <div class="theme"><span class="tn">25</span><div class="tb"><h3>На старте — Camry в кредит, всё остальное в дело</h3><p>Про дисциплину и реинвест: пока другие тратили на себя, Вы вкладывали в рост.</p></div></div>
+    <div class="theme"><span class="tn">26</span><div class="tb"><h3>Я проверяю всё сам</h3><p>Почему через несколько звеньев задача всегда искажается — и как тотальный контроль спасает дело.</p></div></div>
+    <div class="theme"><span class="tn">27</span><div class="tb"><h3>Бизнесмен не отдыхает</h3><p>Честно про цену: даже в отпуске телефон не выпускаешь из рук. Без позы — как есть.</p></div></div>
+    <div class="theme"><span class="tn">28</span><div class="tb"><h3>Что для меня успех сегодня</h3><p>Возможность играть в больших масштабах — и как это понимание менялось с годами.</p></div></div>
+    <div class="theme"><span class="tn">29</span><div class="tb"><h3>У бизнесмена два пути</h3><p>Либо ты улетаешь в космос, либо вариант потрагичнее. Жёсткий, честный образ предпринимательского пути.</p></div></div>
+    <div class="theme"><span class="tn">30</span><div class="tb"><h3>Главная ошибка всех начинающих</h3><p>Чего ждут от бизнеса новички — и почему реальность другая. Что Вы сказали бы себе на старте.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 04 · Зоны интересов</span><h2>Спорт, дорога, <em>образ жизни</em></h2>
-    <p>Намётка — этот блок распаковки ещё впереди. Отметьте, что Ваше, и допишите своё.</p></div>
+  <div class="section-head"><span class="eyebrow">Блок 04 · Мировоззрение</span><h2>Во что Вы <em>верите</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">31</span><div class="tb"><h3>Триатлон и выносливость</h3><p>Что даёт спорт, который проверяет на прочность.</p></div></div>
-    <div class="theme"><span class="tn">32</span><div class="tb"><h3>Теннис и падел</h3><p>Игровой спорт, азарт, как держите форму в динамике.</p></div></div>
-    <div class="theme"><span class="tn">33</span><div class="tb"><h3>Плавание и океан</h3><p>Вода, дистанция, состояние головы.</p></div></div>
-    <div class="theme"><span class="tn">34</span><div class="tb"><h3>Путешествия и новые места</h3><p>Куда тянет, что ищете в поездках, как это перезагружает.</p></div></div>
-    <div class="theme"><span class="tn">35</span><div class="tb"><h3>Дисциплина и режим дня</h3><p>Как устроен Ваш день и что держит на ходу.</p></div></div>
-    <div class="theme"><span class="tn">36</span><div class="tb"><h3>Как совмещаю спорт и бизнес</h3><p>Где берёте время и почему одно помогает другому.</p></div></div>
-    <div class="theme"><span class="tn">37</span><div class="tb"><h3>Авто и техника</h3><p>Отношение к машинам и вещам, которые с Вами по жизни.</p></div></div>
-    <div class="theme"><span class="tn">38</span><div class="tb"><h3>Эстетика, стиль, вещи</h3><p>Что для Вас важно в быту и как это считывается в кадре.</p></div></div>
-    <div class="theme"><span class="tn">39</span><div class="tb"><h3>Самые яркие старты и поездки</h3><p>Истории, которые хочется рассказывать.</p></div></div>
-    <div class="theme"><span class="tn">40</span><div class="tb"><h3>Что спорт даёт характеру</h3><p>Дисциплина, боль, предел — и как это переносится в дело.</p></div></div>
+    <div class="theme"><span class="tn">31</span><div class="tb"><h3>Человек — творец своей судьбы</h3><p>Никаких оправданий: кем родился — неважно, важно что делаешь. Ваше прямое, неудобное для многих мнение.</p></div></div>
+    <div class="theme"><span class="tn">32</span><div class="tb"><h3>Не оставляй хлебных крошек позади</h3><p>Про незаконченные дела, которые возвращаются, когда не ждёшь. Принцип, по которому Вы живёте.</p></div></div>
+    <div class="theme"><span class="tn">33</span><div class="tb"><h3>Быть мужчиной — значит брать ответственность</h3><p>И почему сегодня это редкость. Тема, которая откликнется Вашей аудитории.</p></div></div>
+    <div class="theme"><span class="tn">34</span><div class="tb"><h3>Настоящая сила — не в зале</h3><p>Сила — это довести дело до конца через все проблемы, а не убежать при первой сложности.</p></div></div>
+    <div class="theme"><span class="tn">35</span><div class="tb"><h3>Главный навык в жизни — быстро читать ситуацию</h3><p>Проанализировал, нашёл выход, сделал. Как этот навык вытаскивал Вас из любых положений.</p></div></div>
+    <div class="theme"><span class="tn">36</span><div class="tb"><h3>Меня бесит, когда юлят</h3><p>Скажи прямо, чего ты хочешь. Почему недоговорки и скрытый мотив раздражают Вас сильнее всего.</p></div></div>
+    <div class="theme"><span class="tn">37</span><div class="tb"><h3>Чем глупее человек — тем большие суммы он называет</h3><p>Острое наблюдение из ежедневных звонков «инвесторов». С юмором и по делу.</p></div></div>
+    <div class="theme"><span class="tn">38</span><div class="tb"><h3>В любой ситуации выкрутимся</h3><p>Про натренированную способность находить выход где угодно. Уверенность, которая приходит с опытом.</p></div></div>
+    <div class="theme"><span class="tn">39</span><div class="tb"><h3>Делай, не бойся</h3><p>Что Вы сказали бы себе двадцатилетнему. Короткая, сильная мысль на отдельный ролик.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 05 · Люди, семья, корни</span><h2>Что Вас <em>держит</em></h2></div>
+  <div class="section-head"><span class="eyebrow">Блок 05 · Люди, семья, ценности</span><h2>Что Вас <em>держит</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">41</span><div class="tb"><h3>Мой единственный талант — видеть людей</h3><p>Читаете человека за минуты и ставите каждого на своё место.</p></div></div>
-    <div class="theme"><span class="tn">42</span><div class="tb"><h3>Я свечусь как солнце — и хорошие люди тянутся</h3><p>Про окружение и то, как Вы заряжаете людей вокруг.</p></div></div>
-    <div class="theme"><span class="tn">43</span><div class="tb"><h3>Моим деньгам доверял водитель, а не костюм</h3><p>Доверие по характеру, а не по статусу. Антиснобизм.</p></div></div>
-    <div class="theme"><span class="tn">44</span><div class="tb"><h3>Как я вычислил мошенника по одному жесту</h3><p>Человек хамил официанту — и Вы всё поняли.</p></div></div>
-    <div class="theme"><span class="tn">45</span><div class="tb"><h3>Меня никто не предавал — я вижу слабости заранее</h3><p>Про эмоциональную броню: почему Вас сложно разочаровать.</p></div></div>
-    <div class="theme"><span class="tn">46</span><div class="tb"><h3>Дом — это крепость</h3><p>Про тыл, своих людей и место, где можно перевести дух.</p></div></div>
-    <div class="theme"><span class="tn">47</span><div class="tb"><h3>Главная моя гордость — не деньги</h3><p>Стабильность и спокойствие для родных и близких.</p></div></div>
-    <div class="theme"><span class="tn">48</span><div class="tb"><h3>Дед, которого я не застал, но он задал планку рода</h3><p>Про корни и пример предков: недостижимого нет.</p></div></div>
-    <div class="theme"><span class="tn">49</span><div class="tb"><h3>Отец купил дом, а через неделю — только колёса</h3><p>Семейная история про нестабильность и стержень.</p></div></div>
-    <div class="theme"><span class="tn">50</span><div class="tb"><h3>Свои не предают</h3><p>Про дружбу длиною в тридцать лет и верность идеалам.</p></div></div>
+    <div class="theme"><span class="tn">40</span><div class="tb"><h3>Я свечусь как солнце — и хорошие люди тянутся</h3><p>Про окружение и про то, как Вы заряжаете людей вокруг и растёте вместе с ними.</p></div></div>
+    <div class="theme"><span class="tn">41</span><div class="tb"><h3>Моим деньгам доверял водитель, а не костюм</h3><p>Доверие по характеру, а не по статусу. Антиснобизм — сильная, располагающая тема.</p></div></div>
+    <div class="theme"><span class="tn">42</span><div class="tb"><h3>Как я вычислил мошенника по одному жесту</h3><p>Человек хамил официанту — и Вы всё поняли. Живой сюжет про то, как Вы читаете людей в быту.</p></div></div>
+    <div class="theme"><span class="tn">43</span><div class="tb"><h3>Меня никто не предавал — я вижу слабости заранее</h3><p>Про эмоциональную броню: почему Вас сложно разочаровать, если Вы заранее понимаете человека.</p></div></div>
+    <div class="theme"><span class="tn">44</span><div class="tb"><h3>Дом — это крепость</h3><p>Про тыл, своих людей и место, где можно перевести дух. Что для Вас по-настоящему свои.</p></div></div>
+    <div class="theme"><span class="tn">45</span><div class="tb"><h3>Дед, которого я не застал, но он задал планку рода</h3><p>Про корни и про то, как пример предков держит Вас и говорит: недостижимого нет.</p></div></div>
+    <div class="theme"><span class="tn">46</span><div class="tb"><h3>Отец купил дом, а через неделю — только колёса</h3><p>Семейная история про нестабильность, корни и стержень, который помогает в любой ситуации.</p></div></div>
+    <div class="theme"><span class="tn">47</span><div class="tb"><h3>Мир нестабилен — оставайся верен себе</h3><p>Ценность, которую передала семья. Что Вас держит, когда вокруг всё меняется.</p></div></div>
+    <div class="theme"><span class="tn">48</span><div class="tb"><h3>Свои не предают</h3><p>Про дружбу длиной в тридцать лет и про то, что для Вас значит верность идеалам.</p></div></div>
+    <div class="theme"><span class="tn">49</span><div class="tb"><h3>Я уважаю все религии</h3><p>Спокойный, объединяющий взгляд: соблюдаешь свою веру — уже хороший человек.</p></div></div>
+    <div class="theme"><span class="tn">50</span><div class="tb"><h3>Что мне дала вера</h3><p>Терпение и понимание, что не всё сразу: страдания и труд рано или поздно приводят к результату.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Сфера 06 · Ключевые истории и становление</span><h2>Как Вы <em>стали собой</em></h2></div>
+  <div class="section-head" style="text-align:center"><span class="eyebrow">Часть 2 · Темы по сферам</span><h2>Ещё по десять тем <em>в каждой сфере</em></h2>
+    <p>Те же сферы, но конкретными темами из распаковки — это дополнение к списку выше, темы не повторяются. Так же отметьте номера, что Ваше.</p></div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 01 · Бизнес и дело</span><h2>Дело — <em>глубже</em></h2></div>
   <div class="tlist">
-    <div class="theme"><span class="tn">51</span><div class="tb"><h3>Я открыл компанию в 18 — без денег, опыта и страховки</h3><p>Самый рискованный шаг. Что чувствует тот, кто прыгает в неизвестность так рано.</p></div></div>
-    <div class="theme"><span class="tn">52</span><div class="tb"><h3>Мой декан работал у меня прорабом</h3><p>История, которая лучше слов показывает, как рано к Вам пошли работать.</p></div></div>
-    <div class="theme"><span class="tn">53</span><div class="tb"><h3>Два высших с 7% посещаемости</h3><p>Как учились в сложнейшем вузе, работая параллельно, — и почему вышло.</p></div></div>
-    <div class="theme"><span class="tn">54</span><div class="tb"><h3>Из района, гаражей и подработок</h3><p>Детство и юность, которые закалили характер.</p></div></div>
-    <div class="theme"><span class="tn">55</span><div class="tb"><h3>Грузчиком на оптовых базах с седьмого класса</h3><p>Первые деньги своими руками и откуда пошёл стержень.</p></div></div>
-    <div class="theme"><span class="tn">56</span><div class="tb"><h3>Мы приехали с одним чемоданом</h3><p>Корни и то, что Вы несёте из этого по жизни.</p></div></div>
-    <div class="theme"><span class="tn">57</span><div class="tb"><h3>Я иду далеко с кем-то, а не быстро в одиночку</h3><p>Почему ставка на правильных людей важнее скорости.</p></div></div>
-    <div class="theme"><span class="tn">58</span><div class="tb"><h3>Я голодный, как 15 лет назад — просто ставки больше</h3><p>Почему успех не расслабил, а только поднял планку.</p></div></div>
-    <div class="theme"><span class="tn">59</span><div class="tb"><h3>Жалею только об одном — что не был смелее</h3><p>Где излишняя осторожность стоила Вам возможностей.</p></div></div>
-    <div class="theme"><span class="tn">60</span><div class="tb"><h3>В любой ситуации выкрутимся</h3><p>Про натренированную способность находить выход где угодно.</p></div></div>
+    <div class="theme"><span class="tn">51</span><div class="tb"><h3>Как покупал технику и сезонные позиции на старте</h3><p>Ранний торговый навык: брал дёшево не в сезон, продавал дорого в сезон.</p></div></div>
+    <div class="theme"><span class="tn">52</span><div class="tb"><h3>От одного кирпича — до дилера заводов ЦФО</h3><p>Как из разовой просьбы знакомого выросла целая база поставщиков.</p></div></div>
+    <div class="theme"><span class="tn">53</span><div class="tb"><h3>Почему я ушёл из логистики в стройку</h3><p>Момент, когда сменил направление и не прогадал.</p></div></div>
+    <div class="theme"><span class="tn">54</span><div class="tb"><h3>Как я вырос из Калуги и зашёл в Москву</h3><p>Первый московский контракт и переход на большой рынок.</p></div></div>
+    <div class="theme"><span class="tn">55</span><div class="tb"><h3>Как построить компанию, способную брать крупные лоты</h3><p>Почему это годы опыта, а не деньги — путь к большим объёмам.</p></div></div>
+    <div class="theme"><span class="tn">56</span><div class="tb"><h3>Госзаказ — это отдельная игра со своими правилами</h3><p>Как устроена система тендеров изнутри, общими штрихами.</p></div></div>
+    <div class="theme"><span class="tn">57</span><div class="tb"><h3>Строительная лаборатория — бизнес на контроле качества</h3><p>Отдельное направление, проверяющее работы на объектах.</p></div></div>
+    <div class="theme"><span class="tn">58</span><div class="tb"><h3>Как я стал управленцем флагманской компании</h3><p>Вход в проектную организацию и почему именно она сегодня главная.</p></div></div>
+    <div class="theme"><span class="tn">59</span><div class="tb"><h3>Как держать несколько бизнесов одновременно</h3><p>Что в голове у человека, у которого параллельно идёт всё.</p></div></div>
+    <div class="theme"><span class="tn">60</span><div class="tb"><h3>Как я дорос до топа в своём регионе</h3><p>Путь от первых контрактов до лидера рынка.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 02 · Деньги, сделки, принципы</span><h2>Правила, по которым <em>играю</em></h2></div>
+  <div class="tlist">
+    <div class="theme"><span class="tn">61</span><div class="tb"><h3>Как я читаю надёжность партнёра до сделки</h3><p>Анализ человека и компании: с кем будет результат, а с кем суды.</p></div></div>
+    <div class="theme"><span class="tn">62</span><div class="tb"><h3>«Статистика всегда права»</h3><p>Почему я не верю, что на мне сломается механизм, который ломал всех.</p></div></div>
+    <div class="theme"><span class="tn">63</span><div class="tb"><h3>Лошадь сдохла — слезь</h3><p>Почему нельзя реанимировать мёртвый бизнес и сколько это стоило мне.</p></div></div>
+    <div class="theme"><span class="tn">64</span><div class="tb"><h3>Воровство прощу, а вот вранья — нет</h3><p>Про слабости людей и где для меня настоящая граница.</p></div></div>
+    <div class="theme"><span class="tn">65</span><div class="tb"><h3>Никаких советчиков — решение только твоё</h3><p>Почему за чужой совет всё равно отвечаешь ты.</p></div></div>
+    <div class="theme"><span class="tn">66</span><div class="tb"><h3>Риски и непредвиденное я закладываю заранее</h3><p>Почему без этого любое дело рано или поздно уходит в минус.</p></div></div>
+    <div class="theme"><span class="tn">67</span><div class="tb"><h3>Самая дорогая ошибка в моих деньгах</h3><p>И какой урок я из неё вынес.</p></div></div>
+    <div class="theme"><span class="tn">68</span><div class="tb"><h3>Что я сделал с первым крупным заработком</h3><p>Почему не пустил на себя, а вложил в рост.</p></div></div>
+    <div class="theme"><span class="tn">69</span><div class="tb"><h3>Как отличить реальное предложение от пустого трёпа</h3><p>Наблюдения из ежедневных звонков «на миллиарды».</p></div></div>
+    <div class="theme"><span class="tn">70</span><div class="tb"><h3>С кем я не работаю никогда</h3><p>Мой внутренний чек-лист отказа.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 03 · Мировоззрение и взгляды</span><h2>Как я <em>смотрю на мир</em></h2></div>
+  <div class="tlist">
+    <div class="theme"><span class="tn">71</span><div class="tb"><h3>Не верю в «загоны психологии» — всё проще</h3><p>Хочешь измениться — делаешь. Не хочешь — значит, не хочешь.</p></div></div>
+    <div class="theme"><span class="tn">72</span><div class="tb"><h3>Что для меня слабость в человеке</h3><p>Убежать при сложности — вот настоящая слабость.</p></div></div>
+    <div class="theme"><span class="tn">73</span><div class="tb"><h3>На кого я равняюсь из сильных людей</h3><p>Кого считаю по-настоящему сильным и почему.</p></div></div>
+    <div class="theme"><span class="tn">74</span><div class="tb"><h3>Почему я ни от кого не завишу</h3><p>Я сам творец своей жизни — без расчёта на других.</p></div></div>
+    <div class="theme"><span class="tn">75</span><div class="tb"><h3>Как я отношусь к критике и хейту</h3><p>Почему это меня не выбивает, а скорее забавляет.</p></div></div>
+    <div class="theme"><span class="tn">76</span><div class="tb"><h3>Спорное мнение, за которое меня осудят</h3><p>То, во что я верю, даже если большинство против.</p></div></div>
+    <div class="theme"><span class="tn">77</span><div class="tb"><h3>Что значит прожить жизнь не зря</h3><p>Мой честный ответ на главный вопрос.</p></div></div>
+    <div class="theme"><span class="tn">78</span><div class="tb"><h3>Мой главный жизненный принцип</h3><p>То, что держит, когда вокруг всё рушится.</p></div></div>
+    <div class="theme"><span class="tn">79</span><div class="tb"><h3>Почему к потерям я отношусь философски</h3><p>Случилось — значит, так должно быть. Дальше.</p></div></div>
+    <div class="theme"><span class="tn">80</span><div class="tb"><h3>Чему меня научили падения</h3><p>Каждое падение оставляло урок, а не шрам.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 04 · Зоны интересов</span><h2>Спорт, дорога, <em>образ жизни</em></h2></div>
+  <div class="tlist">
+    <div class="theme"><span class="tn">81</span><div class="tb"><h3>Триатлон и выносливость</h3><p>Спорт, который проверяет на прочность.</p></div></div>
+    <div class="theme"><span class="tn">82</span><div class="tb"><h3>Теннис и падел</h3><p>Игровой азарт и форма в динамике.</p></div></div>
+    <div class="theme"><span class="tn">83</span><div class="tb"><h3>Плавание и океан</h3><p>Вода, дистанция, состояние головы.</p></div></div>
+    <div class="theme"><span class="tn">84</span><div class="tb"><h3>Путешествия и новые места</h3><p>Куда тянет и что это даёт.</p></div></div>
+    <div class="theme"><span class="tn">85</span><div class="tb"><h3>Дисциплина и режим дня</h3><p>Как устроен день и что держит на ходу.</p></div></div>
+    <div class="theme"><span class="tn">86</span><div class="tb"><h3>Как я совмещаю спорт и бизнес</h3><p>Где беру время и почему одно помогает другому.</p></div></div>
+    <div class="theme"><span class="tn">87</span><div class="tb"><h3>Авто и техника</h3><p>Отношение к машинам и вещам по жизни.</p></div></div>
+    <div class="theme"><span class="tn">88</span><div class="tb"><h3>Эстетика, стиль, вещи</h3><p>Что важно в быту и как считывается в кадре.</p></div></div>
+    <div class="theme"><span class="tn">89</span><div class="tb"><h3>Самые яркие старты и поездки</h3><p>Истории, которые хочется рассказывать.</p></div></div>
+    <div class="theme"><span class="tn">90</span><div class="tb"><h3>Что спорт даёт характеру</h3><p>Дисциплина, боль, предел — и как это работает в деле.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 05 · Люди, семья, корни</span><h2>Мои <em>люди</em></h2></div>
+  <div class="tlist">
+    <div class="theme"><span class="tn">91</span><div class="tb"><h3>Как я ставлю человека на своё место, а не эксплуатирую</h3><p>Раскрыть сильную сторону, а не выжать — мой принцип с людьми.</p></div></div>
+    <div class="theme"><span class="tn">92</span><div class="tb"><h3>Друзья с первого класса — комьюнити длиною в жизнь</h3><p>Те, с кем сидел за одной партой, рядом до сих пор.</p></div></div>
+    <div class="theme"><span class="tn">93</span><div class="tb"><h3>Я вытащил друзей наверх за собой</h3><p>Как тяну хороших людей и радуюсь их росту.</p></div></div>
+    <div class="theme"><span class="tn">94</span><div class="tb"><h3>Как я выбираю, кого впускать в семью</h3><p>Почему круг входящих нужно подбирать аккуратно.</p></div></div>
+    <div class="theme"><span class="tn">95</span><div class="tb"><h3>Что для меня большая семья</h3><p>Зачем мне, чтобы близкие ни в чём не нуждались.</p></div></div>
+    <div class="theme"><span class="tn">96</span><div class="tb"><h3>Семья как тыл для дела</h3><p>Почему дом должен давать силы, а не забирать их.</p></div></div>
+    <div class="theme"><span class="tn">97</span><div class="tb"><h3>Корни и род — почему я чувствую, что недостижимого нет</h3><p>Пример предков, который задаёт планку.</p></div></div>
+    <div class="theme"><span class="tn">98</span><div class="tb"><h3>Чему меня научили родители в тяжёлые времена</h3><p>Что осталось со мной из самых сложных лет.</p></div></div>
+    <div class="theme"><span class="tn">99</span><div class="tb"><h3>Как поддержка близких помогает в деле</h3><p>Почему без крепкого тыла большие задачи не тянутся.</p></div></div>
+    <div class="theme"><span class="tn">100</span><div class="tb"><h3>Почему доверие для меня важнее контракта</h3><p>Люди, которым я доверял больше, чем бумагам.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap narrow">
+  <div class="section-head"><span class="eyebrow">Сфера 06 · Ключевые истории и становление</span><h2>Как я <em>стал собой</em></h2></div>
+  <div class="tlist">
+    <div class="theme"><span class="tn">101</span><div class="tb"><h3>Грузчиком на оптовых базах с седьмого класса</h3><p>Первые деньги своими руками.</p></div></div>
+    <div class="theme"><span class="tn">102</span><div class="tb"><h3>Первое юрлицо и первый платёж — 26 тысяч за плиты</h3><p>Волнение старта, которое помню до сих пор.</p></div></div>
+    <div class="theme"><span class="tn">103</span><div class="tb"><h3>Момент взросления: заболел отец — пришлось работать</h3><p>Когда понял, что за меня уже никто не решит.</p></div></div>
+    <div class="theme"><span class="tn">104</span><div class="tb"><h3>Колл-центр: как я работал ночами без сна</h3><p>Учёба днём, смена ночью — с этого всё началось.</p></div></div>
+    <div class="theme"><span class="tn">105</span><div class="tb"><h3>История, которую я рассказываю в любой компании</h3><p>Случай, который всегда заходит.</p></div></div>
+    <div class="theme"><span class="tn">106</span><div class="tb"><h3>Переломный момент, после которого я стал другим</h3><p>Что меня изменило по-настоящему.</p></div></div>
+    <div class="theme"><span class="tn">107</span><div class="tb"><h3>Самая большая потеря — и какой урок я вынес</h3><p>Без сумм и имён — про то, что осознал.</p></div></div>
+    <div class="theme"><span class="tn">108</span><div class="tb"><h3>Что бы я делал, если бы деньги не были вопросом</h3><p>Честный ответ о настоящих желаниях.</p></div></div>
+    <div class="theme"><span class="tn">109</span><div class="tb"><h3>Что я понял о себе за 15 лет в деле</h3><p>Как менялся я, пока рос масштаб.</p></div></div>
+    <div class="theme"><span class="tn">110</span><div class="tb"><h3>Кем я мечтал стать в юности — и что вышло</h3><p>Разрыв между мечтой и тем, что получилось.</p></div></div>
   </div>
 </div></section>
 
 <section class="closing"><div class="wrap">
   <span class="eyebrow">Жду Вашу обратную связь</span>
-  <h2>Отметьте, что Ваше</h2>
-  <p>Шестьдесят тем по шести сферам — и это лишь первая половина распаковки. Пройдитесь, отметьте номера и допишите своё. Из того, что откликнется именно Вам, я соберу контент-план и форматы.</p>
+  <h2>Отметьте, что Ваше</h2>
+  <p>Больше ста тем по шести сферам — и это лишь первая половина распаковки. Пройдитесь, отметьте номера и допишите своё. Из того, что откликнется именно Вам, я соберу контент-план и форматы.</p>
   <div class="ornament">· · ·</div>
-  <p class="sign">С уважением, Малик<small>Продюсер · Июнь 2026</small></p>
+  <p class="sign">С уважением, Малик<small>Продюсер · Июнь 2026</small></p>
 </div></section>
 
 </body></html>
