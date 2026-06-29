@@ -63,10 +63,7 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 /* ролевые модели */
 .rm{display:grid;grid-template-columns:1fr;gap:22px;margin-top:8px}
 .rmcard{background:var(--soft);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.rmcard .shot{width:100%;display:block;border-bottom:1px solid var(--line);background:#000;transition:opacity .25s}
-.rmcard .shot-link{display:block;position:relative;line-height:0;text-decoration:none}
-.rmcard .shot-link::after{content:"↗ Instagram";position:absolute;top:14px;right:14px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F4F0EA;background:rgba(11,11,12,.55);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border:1px solid rgba(201,183,155,.45);border-radius:30px;padding:6px 12px;line-height:1.3;pointer-events:none}
-.rmcard .shot-link:hover .shot{opacity:.82}
+.rmcard .shot{width:100%;display:block;border-bottom:1px solid var(--line);background:#000}
 .rmcard .body{padding:22px 24px}
 .rmcard .meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin-bottom:12px}
 .rmcard .h{font-family:'Cormorant Garamond',serif;font-size:25px;color:#F4F0EA}
@@ -139,8 +136,8 @@ body{word-break:normal;overflow-wrap:normal}
   <div class="top">Июнь 2026 · Стратегия развития блога</div>
   <p class="fio">Георгий · @georgiy_gs</p>
   <h1>Стратегия</h1>
-  <p class="slogan">Строитель федерального масштаба, который сделал себя сам</p>
-  <p class="pos">Как мы выстраиваем личный бренд, в каких форматах и циклах работаем и к какому результату идём. Документ дополняется по ходу распаковки.</p>
+  <p class="slogan">Строитель федерального масштаба, который построил себя сам</p>
+  <p class="pos">Как мы выстраиваем личный бренд, в каких форматах и циклах работаем и к какому результату идём. Обновлено по итогам полной распаковки.</p>
   <div class="hdiv"></div>
   <nav class="toc">
     <a href="#fundament">I · Фундамент</a>
@@ -158,6 +155,12 @@ body{word-break:normal;overflow-wrap:normal}
 
   <h3 style="margin-bottom:14px">Точка А → Цель</h3>
   <p class="lead drop">У Вас есть главное — состоявшийся предприниматель, группа компаний, реальный путь и история. Но в медийном поле Вас пока нет: блог стартует с нуля, личного бренда ещё не существует. Задача — собрать всё это в систему и упаковать в образ.</p>
+  <div class="sits">
+    <div class="sit"><div class="sit-n">01</div><div class="sit-t">Блог практически с нуля — системного контента нет</div></div>
+    <div class="sit"><div class="sit-n">02</div><div class="sit-t">Личный бренд не сформирован — в инфополе Вас не знают</div></div>
+    <div class="sit"><div class="sit-n">03</div><div class="sit-t">Есть что показать (опыт, статус, история), но это не упаковано</div></div>
+    <div class="sit"><div class="sit-n">04</div><div class="sit-t">Нет контент-модели и ритма — что, как и когда снимать</div></div>
+  </div>
   <div class="goal" style="margin-top:40px">
     <span class="eyebrow">Первая цель</span>
     <div class="big">10 000</div>
@@ -169,14 +172,15 @@ body{word-break:normal;overflow-wrap:normal}
 <section><div class="wrap narrow">
   <div class="section-head"><span class="eyebrow">Позиционирование · ось блога</span><h2>Кто Вы <em>в кадре</em></h2></div>
   <div class="posbox">
-    <div class="axis">Строитель федерального масштаба,<br>который сделал себя сам</div>
-    <p class="exp">От ночного колл-центра — до федеральных строек и агрокомплекса будущего. Путь, пройденный самостоятельно, без связей и стартового капитала. Показываем изнанку большого дела и то, как мыслит человек, который построил всё с нуля.</p>
+    <div class="axis">Предприниматель федерального масштаба,<br>который построил себя сам</div>
+    <p class="exp">Из района, где у многих не было шансов, и ночного колл-центра — до федерального масштаба: проектирование крупнейших логистических комплексов страны и агрокомплекс будущего. Путь, пройденный самостоятельно, без связей и стартового капитала. Это история не про профессию строителя, а про человека, который читает людей и из хаоса строит системы. Показываем изнанку большого дела и то, как он мыслит.</p>
   </div>
   <div class="shapka">
     <div class="nm">Шапка профиля — складывается так:</div>
     <div class="ln"><strong>Имя:</strong> Георгий (железно — для поиска)</div>
-    <div class="ln"><strong>Строка 1:</strong> Строитель федерального масштаба, который сделал себя сам</div>
-    <div class="ln wip">Строка-доказательство (масштаб/география/проект) и призыв — дорабатываем после распаковки.</div>
+    <div class="ln"><strong>Строка 1:</strong> Предприниматель федерального масштаба, который построил себя сам</div>
+    <div class="ln"><strong>Строка 2 (доказательство):</strong> Проектирование крупнейших логистических комплексов страны · агрокомплекс будущего</div>
+    <div class="ln"><strong>Призыв:</strong> подписаться — путь и образ мышления изнутри</div>
   </div>
   <p class="mute" style="margin-top:20px;font-size:14.5px"><strong>Аудитория:</strong> мужчины-предприниматели — ядро. Весь тон и темы держим под них; сознательно не уходим в широкий «лайфстайл для всех», чтобы не размывать целевую аудиторию.</p>
 </div></section>
@@ -186,55 +190,56 @@ body{word-break:normal;overflow-wrap:normal}
     <p>Пять мужчин-предпринимателей с сильным личным брендом. У каждого берём конкретное — а соединяем в Вашем уникальном сочетании.</p></div>
   <div class="rm">
 
-    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/marat_abdurakhmanov/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-marat.webp" alt="Марат Абдурахманов" loading="lazy"></a>
+    <div class="rmcard"><img class="shot" src="assets/img/rm-marat.png" alt="Марат Абдурахманов">
       <div class="body"><div class="meta"><span class="h">Марат Абдурахманов</span><span class="aud">309 тыс · @marat_abdurakhmanov</span></div>
       <p class="sub">Шапка: «+290k подписчиков своими руками с полного нуля. Бизнес. Путешествия. Автомобили.» Сильнее всего зашли отношения с отцом — огромный отклик у мужской аудитории.</p>
       <div class="take"><b>Что берём</b>Чистый self-made нарратив в шапке — ровно наша ось. И формат «путь отношений и забота»: добрый контент собирает качественную аудиторию.</div></div>
     </div>
 
-    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/tokkaev/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-tokkaev.webp" alt="Ибрагим Токкаев" loading="lazy"></a>
+    <div class="rmcard"><img class="shot" src="assets/img/rm-tokkaev.png" alt="Ибрагим Токкаев">
       <div class="body"><div class="meta"><span class="h">Ибрагим Токкаев</span><span class="aud">176 тыс · @tokkaev</span></div>
       <p class="sub">«Бизнесмен» прямо в имени. Парень из Старых Атагов, построил компанию из ничего — без связей и капитала. Это его закреплённая история для новых подписчиков.</p>
       <div class="take"><b>Что берём</b>Позиционирование в имени профиля и модель закреп-ролика с историей пути «из ничего до масштаба».</div></div>
     </div>
 
-    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/alexanderorlovbulldozer/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-orlov.webp" alt="Александр Орлов" loading="lazy"></a>
+    <div class="rmcard"><img class="shot" src="assets/img/rm-orlov.png" alt="Александр Орлов">
       <div class="body"><div class="meta"><span class="h">Александр Орлов</span><span class="aud">1,5 млн · @alexanderorlovbulldozer</span></div>
       <p class="sub">Ресторатор международного масштаба (Bulldozer, Дубай). Контент — масштаб бизнеса и обходы своих объектов; география в хайлайтах (Dubai, London, Paris).</p>
       <div class="take"><b>Что берём</b>Прямой аналог нашего формата «обход объектов»: предприниматель показывает свои проекты в процессе. Масштаб как контент.</div></div>
     </div>
 
-    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/kudryavtsevtony/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-kudryavtsev.webp" alt="Антон Кудрявцев" loading="lazy"></a>
+    <div class="rmcard"><img class="shot" src="assets/img/rm-kudryavtsev.png" alt="Антон Кудрявцев">
       <div class="body"><div class="meta"><span class="h">Антон Кудрявцев</span><span class="aud">61,5 тыс · @kudryavtsevtony</span></div>
       <p class="sub">«Предприниматель · Развитие и дисциплина». Founder, 345 объектов в реализации, ремонтный бизнес. Контент — прямое обращение к аудитории, дисциплина, трансформационные истории.</p>
       <div class="take"><b>Что берём</b>Нишевое позиционирование в имени + формат прямого обращения к ЦА и жёсткие истории (наш принцип вовлечения).</div></div>
     </div>
 
-    <div class="rmcard"><a class="shot-link" href="https://www.instagram.com/eminofficial/" target="_blank" rel="noopener noreferrer"><img class="shot" src="assets/img/rm-emin.webp" alt="Emin Agalarov" loading="lazy"></a>
+    <div class="rmcard"><img class="shot" src="assets/img/rm-emin.png" alt="Emin Agalarov">
       <div class="body"><div class="meta"><span class="h">Emin Agalarov</span><span class="aud">3,1 млн · @eminofficial</span></div>
       <p class="sub">Артист и предприниматель (Crocus, Sea Breeze). Премиальный lifestyle высокого уровня — статус, путешествия, проекты — поданы спокойно, без надрыва.</p>
       <div class="take"><b>Что берём</b>Эталон того, как премиально и сдержанно подавать статус и образ жизни.</div></div>
     </div>
 
   </div>
+  <div class="callout"><b>Отстройка Георгия.</b> Ни у кого нет Вашего сочетания — <em>стройка федерального масштаба + агрокомплекс будущего + триатлон + self-made путь</em>. То, что у этих пятерых разнесено по отдельным акцентам, Вы соединяете в одном лице. Это Ваше уникальное место.</div>
 </div></section>
 
 <section><div class="wrap narrow">
   <div class="section-head"><span class="eyebrow">Упаковка профиля</span><h2>Как выглядит <em>профиль</em></h2></div>
   <div class="cards">
     <div class="card"><h4 style="color:var(--accent)">Аккаунт</h4><p style="margin-top:8px">Новый профиль <strong>@georgiy_gs</strong> на отдельный телефон. Старый — для клича в сторис «теперь здесь».</p></div>
-    <div class="card"><h4 style="color:var(--accent)">Шапка</h4><p style="margin-top:8px">Позиционирование (ось) + доказательство масштаба + призыв. Финал — после распаковки.</p></div>
+    <div class="card"><h4 style="color:var(--accent)">Шапка</h4><p style="margin-top:8px">Позиционирование (ось) + доказательство масштаба (проектная компания, агрокомплекс) + призыв. Собрана ниже.</p></div>
   </div>
   <h3 style="margin:30px 0 6px">Актуальные — 5 базовых</h3>
   <p class="mute" style="font-size:14.5px;margin-bottom:14px">Обложки — в едином тёмном визуальном коде блога.</p>
   <div class="cards">
     <div class="card"><div class="card-n">01</div><h3>Кто я / Мой путь</h3><p>Самопрезентация и путь от нуля до масштаба. Точка входа, связана с закрепом.</p></div>
-    <div class="card"><div class="card-n">02</div><h3>Триатлон</h3><p>Спорт, дисциплина, тело, старты.</p></div>
+    <div class="card"><div class="card-n">02</div><h3>Спорт</h3><p>Триатлон, дисциплина, тело, Эльбрус, старты.</p></div>
     <div class="card"><div class="card-n">03</div><h3>Путешествия</h3><p>Поездки, Мальдивы, география.</p></div>
     <div class="card"><div class="card-n">04</div><h3>Авто / гараж</h3><p>Машины как часть образа.</p></div>
     <div class="card"><div class="card-n">05</div><h3>Места / рестораны</h3><p>Где бываете, вкус к жизни.</p></div>
   </div>
-  <p class="mute" style="margin-top:14px;font-size:13.5px">Блоки 4–5 («по интересам») гибкие — можно заменить на «Дело» или «Окружение», когда определимся по распаковке.</p>
+  <p class="mute" style="margin-top:14px;font-size:13.5px">Набор закреплён по распаковке: спорт, путешествия, авто-гараж (личное «отвлечение», подтвердил сам Георгий), места и вкус к жизни. Семью не светим.</p>
 </div></section>
 
 <section><div class="wrap narrow">
@@ -246,6 +251,10 @@ body{word-break:normal;overflow-wrap:normal}
       <li>Налоги, оптимизации, налогооблагаемую базу</li>
       <li>Конкретные цифры долей и сумм «что куда пошло»</li>
       <li>Фамилии, конкретных заказчиков и людей поимённо</li>
+      <li>Связи во власти и родственников-чиновников</li>
+      <li>Силовые структуры, обыски, уголовные дела (любые детали)</li>
+      <li>Закрытую бизнес-модель: юрпомощь, инкубатор, скупку компаний</li>
+      <li>Крипту, военные объекты, эмиграцию; семью не показываем</li>
     </ul></div>
     <div class="card"><h4 style="color:var(--accent)">Показываем смело</h4><ul class="li" style="margin-top:8px">
       <li>Процесс без цензуры — реальные проблемы, напряжение, движуху</li>
@@ -274,11 +283,12 @@ body{word-break:normal;overflow-wrap:normal}
     <div class="type"><div class="t">Аспирация / статус</div><p>Lifestyle, масштаб, артефакты — притягивает, восхищает.</p></div>
     <div class="type"><div class="t">Смысл / уроки</div><p>Бизнес-принципы, путь — ценность для ЦА предпринимателей.</p></div>
     <div class="type"><div class="t">Эмоция / добро</div><p>Отношения, забота — цепляет, даёт качественные комментарии.</p></div>
-    <div class="type"><div class="t">Личность / трансформация</div><p>Жёсткие истории, преодоление — глубокое вовлечение.</p></div>
+    <div class="type"><div class="t">Личность · борьба с собой</div><p>Преодоление и спорт как характер: триатлон, Эльбрус, борьба с весом — глубокое вовлечение.</p></div>
     <div class="type"><div class="t">Живость / ситуатив</div><p>Звонки, социальный контент — охваты и характер.</p></div>
+    <div class="type"><div class="t">Глубина / мировоззрение</div><p>Большие вопросы и устройство мира, «за мир — мы один вид», мечта об экспедициях — ломает образ «только про бетон».</p></div>
   </div>
 
-  <div class="callout" style="margin-top:30px"><b>Принцип вовлечения.</b> Люди сильно подписываются и вовлекаются, когда есть один из двух факторов: <em>непрожитые эмоции и аспирация</em> (статус, образ жизни, артефакты — зритель восхищается) либо <em>жёсткие, трансформационные истории</em> (боль и преодоление — откликается многим). Оба ведут к качественным комментариям. Поэтому курс — добрый, сильный контент; избегаем провокаций и мусорных тем.</div>
+  <div class="callout" style="margin-top:30px"><b>Принцип вовлечения.</b> Люди сильно подписываются и вовлекаются, когда есть один из двух факторов: <em>непрожитые эмоции и аспирация</em> (статус, образ жизни, артефакты — зритель восхищается) либо <em>жёсткие, трансформационные истории</em> (боль и преодоление — откликается многим). Оба ведут к качественным комментариям. Поэтому курс — добрый, сильный контент; избегаем провокаций и мусорных тем.<br><br><b>Эмоциональное ядро.</b> Под всем одно: дать стабильность близким и не подвести своих — это цепляет сильнее статуса.<br><br><b>Стержень пользы.</b> Безопасная польза для ЦА: расти, не теряя тыл, «как вырасти и не рухнуть». Настоящую закрытую экспертизу публично не проговариваем — она читается через образ и доверие.</div>
 </div></section>
 
 <!-- ===================== ФОРМАТЫ ===================== -->
@@ -293,7 +303,6 @@ body{word-break:normal;overflow-wrap:normal}
       <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-mashina-1.jpg" src="assets/video/mashina-1.mp4"></video>
       <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-mashina-2.jpg" src="assets/video/mashina-2.mp4"></video>
       <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-mashina-3.jpg" src="assets/video/mashina-3.mp4"></video>
-      <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-mashina-4.jpg" src="assets/video/mashina-4.mp4"></video>
     </div>
     <p class="sub"><strong>Как работает:</strong> формат-носитель — под него заходит любая тема и история. Едем, я задаю вопросы, Вы рассказываете: событие или момент за неделю/месяц, случай из жизни, урок. Минимум продакшна, максимум живой речи. Рабочая лошадка блога между крупными съёмками.</p>
   </div>
@@ -338,48 +347,17 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 
   <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">06</span><div><h3>Честное мнение по острой теме</h3><span class="fmt-tag">основной · по искреннему отклику</span></div></div>
-    <p>Честный комментарий на острую тему из инфополя — резонансная ситуация с человеком, экология, отношения государства и граждан, громкая новость. Говорите прямо, своим взглядом. <strong>Важно:</strong> снимаем только то, что Вам действительно небезразлично — эмоциональный тон здесь решает, постановочно это не сыграть, да и не нужно.</p>
-    <div class="vids" style="max-width:200px;grid-template-columns:1fr">
-      <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-mnenie-1.jpg" src="assets/video/mnenie-1.mp4"></video>
-    </div>
-    <p class="sub"><strong>Как работает:</strong> искренняя позиция по тому, что волнует многих, выносит ролик в широкую аудиторию и даёт живое обсуждение. Ключевое — не гнаться за инфоповодом ради охвата, а говорить там, где у Вас есть настоящий отклик.</p>
+    <div class="fmt-head"><span class="fmt-num">06</span><div><h3>Социальный контент</h3><span class="fmt-tag">дополнительный · ситуатив</span></div></div>
+    <p>Взаимодействие с ближайшим окружением — друзья, коллеги, тренер, родители. Заезжаем к кому-то, кто не в курсе съёмки — живая реакция. Ситуативные нарезки, показывают лайфстайл и живое окружение.</p>
   </div>
 
   <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">07</span><div><h3>Интерактив: тренды и прогнозы</h3><span class="fmt-tag">основной · вовлечение</span></div></div>
-    <p>Даёте экспертный взгляд на тренды и развилки будущего — что заменит искусственный интеллект, какие профессии под угрозой, мегатренды до 2030 года, что важно и что лишнее в стройке и бизнесе. Не спор ради спора, а ясные ориентиры: куда всё движется и на что опираться.</p>
-    <div class="vids" style="max-width:200px;grid-template-columns:1fr">
-      <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-trendy-1.jpg" src="assets/video/trendy-1.mp4"></video>
-    </div>
-    <p class="sub"><strong>Как работает:</strong> сильный формат на вовлечение — задевает интересы и взгляды самых разных людей, каждый хочет высказаться, согласиться или поспорить. Комментарии копятся сами, алгоритм поднимает охват, а Вы закрепляетесь как человек, который видит картину наперёд.</p>
-  </div>
-
-  <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">08</span><div><h3>Социальный контент</h3><span class="fmt-tag">дополнительный · ситуатив</span></div></div>
-    <p>Заезжаем к человеку, который не в курсе съёмки, — живая, непостановочная реакция. Это и ближайшее окружение (друзья, коллеги, тренер, родители), и совсем случайные люди: нуждающийся на улице или у церкви, уборщик в торговом центре, доставщик. По ситуации делаем доброе дело — дарим кофе и продукты, помогаем деньгами, зовём провести время вместе.</p>
-    <div class="vids" style="max-width:200px;grid-template-columns:1fr">
-      <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-social-1.jpg" src="assets/video/social-1.mp4"></video>
-    </div>
-    <p class="sub"><strong>Как работает:</strong> сильно цепляет, потому что зритель проживает эмоцию, которую хочет прожить сам, — бескорыстную доброту. Снимаем без сценария: увидели момент — заехали, сделали, поймали живую реакцию. Такой контент собирает тёплую, качественную аудиторию (наш принцип непрожитого контента).</p>
-  </div>
-
-  <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">09</span><div><h3>Звонок-«разъёб»</h3><span class="fmt-tag">дополнительный · эмоция</span></div></div>
+    <div class="fmt-head"><span class="fmt-num">07</span><div><h3>Звонок-«разъёб»</h3><span class="fmt-tag">дополнительный · эмоция</span></div></div>
     <p>Звоним и провоцируем живую эмоцию — в другую компанию, другу, незнакомцу: пранки, добрые постановки. Цель — вывести на эмоцию или показать, как люди ведут себя в разных ситуациях. Развлекательный формат с высокой вовлечённостью.</p>
   </div>
 
   <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">10</span><div><h3>Сценки</h3><span class="fmt-tag">перспективный · с 3-го месяца</span></div></div>
-    <p>Постановочные мини-сценки с отыгрышем роли — короткая ситуация, характер, юмор или драма, сыгранные на камеру. <strong>Тяжёлый формат:</strong> нужен уверенный блогерский опыт, харизма и умение органично вживаться в роль, инстинктивно держать эмоциональный тон. Без этого формат не вытягивается.</p>
-    <div class="vids" style="max-width:200px;grid-template-columns:1fr">
-      <video controls playsinline webkit-playsinline preload="metadata" poster="assets/img/poster-scenki-1.jpg" src="assets/video/scenki-1.mp4"></video>
-    </div>
-    <p class="sub"><strong>Как работает:</strong> подключаем после 3-го месяца — когда наберётся съёмочный опыт и появится понимание, как, что и зачем играть. Тогда сценки заходят и расширяют охват.</p>
-  </div>
-
-  <div class="fmt">
-    <div class="fmt-head"><span class="fmt-num">11</span><div><h3>Смысловые нарезки со вставками</h3><span class="fmt-tag">опционально · не в приоритете</span></div></div>
+    <div class="fmt-head"><span class="fmt-num">08</span><div><h3>Смысловые нарезки со вставками</h3><span class="fmt-tag">опционально · не в приоритете</span></div></div>
     <p>Кадр, где Вы что-то делаете, + нарезка из кино/мультфильма, подкрепляющая мысль. Как основной формат не используем: у Вас насыщенная событийность, своего материала много — незачем уходить в чужие нарезки.</p>
   </div>
 </div></section>
@@ -405,6 +383,7 @@ body{word-break:normal;overflow-wrap:normal}
     <li><strong>Сторис</strong> — ежедневно, по расписанию.</li>
   </ul>
 
+  <div class="callout" style="margin-top:26px"><b>Фильтр публикации (обязательно).</b> Каждая единица контента перед выходом проходит цепочку: монтаж → проверка по красным линиям → <b>юридическая вычитка адвокатами Георгия</b> → публикация. Это его прямое требование и наша вторая страховка.</div>
   <div class="callout" style="margin-top:26px"><b>Что реализуем первым по приезду:</b> упаковать аккаунт (шапка, закреп-манифест) → первый съёмочный день (объект + дорога + говорящие головы) → поставить первые ролики «решёткой» → запустить ежедневный сторислайн → клич в старом профиле.</div>
 </div></section>
 
@@ -420,8 +399,10 @@ body{word-break:normal;overflow-wrap:normal}
     <li>Работа с флагманом: что выстрелило — усиливаем и масштабируем</li>
     <li>Управление банком: держим буфер 2–3 недели</li>
     <li>Реакция на залёт: ролик пошёл — оперативно добиваем темой и серией</li>
-    <li>Фильтр перед публикацией: качество + границы публичности</li>
+    <li>Фильтр перед публикацией: качество + границы + обязательная юридическая вычитка адвокатами Георгия</li>
   </ul>
+
+  <div class="callout"><b>Формат работы.</b> Полный карт-бланш продюсеру по контенту, образу и форматам («командуй парадом, отдаю руль»); Георгий вкладывает время и бюджет, не экономит на качестве и сам признаёт, что занятость может двигать сроки. Конечная ценность для него — не цифра подписчиков, а влияние и авторитет; 10К за 3 месяца держим рабочей метрикой роста.</div>
 
   <h3 style="margin:30px 0 12px">Метрики</h3>
   <div class="tags">
@@ -433,13 +414,15 @@ body{word-break:normal;overflow-wrap:normal}
   <p>Отдельного «поиска» нет — флагман вырастет из одного из рабочих форматов. Рабочая гипотеза — социальный контент и мини-влоги. Но базовый контент обязателен как фундамент: пока нет аудитории, даже сильный ролик не выстреливает — некому досмотреть, переслать и вытолкнуть его в рекомендации. Набираем аудиторию базой → дальше любая качественная единица даёт результат, и форматы подтягивают друг друга.</p>
 
   <h3 style="margin:30px 0 12px">Дорожная карта на 3 месяца</h3>
-  <div class="wipbox"><b>Формируется.</b> Подробный помесячный план соберём, когда Вы полностью пройдёте распаковку — тогда план ляжет на личностный материал и конкретные темы форматов.</div>
+  <div class="phase"><span class="pn">М1</span><div class="pb"><h3>Месяц 1 — фундамент и старт</h3><p>Упаковка профиля (шапка, актуальные, закреп-манифест), первый съёмочный день, первые ролики «решёткой», ежедневные сторис, клич в старом профиле.</p></div></div>
+  <div class="phase"><span class="pn">М2</span><div class="pb"><h3>Месяц 2 — ритм и банк</h3><p>Стабильная съёмка и буфер на 2–3 недели, подключаем нарезки и закадровые озвучки, со 2-й съёмки выходим на 2 ролика в день, еженедельные разборы план-факт.</p></div></div>
+  <div class="phase"><span class="pn">М3</span><div class="pb"><h3>Месяц 3 — флагман и масштаб</h3><p>Усиливаем форматы, которые выстрелили, добиваем залетевшие темы серией, выходим к первому заметному результату (~10К). Конкретные темы по форматам — отдельным контент-планом из распаковки.</p></div></div>
 </div></section>
 
 <section class="closing"><div class="wrap">
   <span class="eyebrow">Итог</span>
   <h2>Сильная точка старта</h2>
-  <p>У Вас есть опыт, статус и своя история. Задача — превратить это в личный бренд, который работает на Вас. Система выстроена; дальше — распаковка, съёмки и ритм.</p>
+  <p>У Вас есть опыт, статус и своя история. Задача — превратить это в личный бренд, который работает на Вас. Система выстроена; дальше — съёмки, ритм и контент-план.</p>
   <div class="ornament">· · ·</div>
   <p class="sign">Малик<small>Продюсер · Июнь 2026</small></p>
 </div></section>
