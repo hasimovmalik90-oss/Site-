@@ -207,6 +207,80 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
 .finale-sign{margin-top:32px;font-size:.82rem;color:var(--pink-dim);letter-spacing:.06em;}
 .finale-sign span{color:var(--cream-mid);}
 
+/* profile card */
+.profile-card{display:flex;gap:22px;align-items:center;background:var(--bg-light-2);border:1px solid var(--line-light);padding:22px 26px;margin-bottom:28px;}
+.pf-ava{width:92px;height:92px;border-radius:50%;object-fit:cover;border:2px solid var(--pink);box-shadow:0 0 22px rgba(190,109,200,.4);flex-shrink:0;}
+.pf-body{flex:1;min-width:0;}
+.pf-handle{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:4px;}
+.pf-handle span{color:var(--pink-lt);}
+.pf-bio{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
+
+/* reels grid */
+.reels-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:6px 0;}
+.reel{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line-light);}
+.reel img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.reel:hover img{transform:scale(1.05);}
+.reel-views{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;background:linear-gradient(to top,rgba(8,5,10,.94),transparent);font-size:.76rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:5px;}
+.reel-views::before{content:'\25B6';font-size:.6rem;color:var(--pink-lt);}
+.grid-note{font-size:.78rem;color:var(--text-dim);font-style:italic;text-align:center;margin-top:16px;}
+
+/* donut */
+.donut-wrap{display:flex;gap:32px;align-items:center;justify-content:center;flex-wrap:wrap;margin:6px 0;background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:28px;}
+.donut{width:168px;height:168px;border-radius:50%;flex-shrink:0;background:conic-gradient(var(--pink-lt) 0 7%,#3a2c3a 7% 100%);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 30px rgba(190,109,200,.2);}
+.donut::after{content:'';position:absolute;width:106px;height:106px;border-radius:50%;background:var(--bg-light-2);}
+.donut-center{position:relative;z-index:1;text-align:center;}
+.donut-center b{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--pink-lt);display:block;line-height:1;}
+.donut-center small{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);}
+.donut-legend{display:flex;flex-direction:column;gap:14px;}
+.dl-row{display:flex;align-items:flex-start;gap:11px;font-size:.86rem;color:var(--text-mid);max-width:300px;}
+.dl-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;margin-top:4px;}
+.dl-row b{color:var(--cream);}
+
+/* market cards */
+.mcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:6px 0 26px;}
+.mcard{background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:20px 16px;text-align:center;transition:border-color .3s,transform .3s;}
+.mcard:hover{border-color:var(--pink);transform:translateY(-3px);}
+.mcard.me{border-color:var(--pink);box-shadow:0 0 0 1px rgba(190,109,200,.25);background:#19121f;}
+.mc-ava{width:62px;height:62px;border-radius:50%;object-fit:cover;border:1px solid var(--line-light);margin:0 auto 11px;display:block;}
+.mc-name{font-family:'Cormorant Garamond',serif;font-size:1.02rem;color:var(--cream);margin-bottom:2px;line-height:1.15;}
+.mc-handle{font-size:.66rem;color:var(--text-dim);margin-bottom:12px;word-break:break-all;}
+.mc-foll{font-size:.76rem;color:var(--text-mid);margin-bottom:13px;}
+.mc-foll b{color:var(--cream);font-size:.92rem;}
+.mc-bar{height:7px;background:#2a2030;border-radius:4px;overflow:hidden;margin-bottom:6px;}
+.mc-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--pink-lt));border-radius:4px;}
+.mc-bar.bad i{background:linear-gradient(90deg,#8a3a52,#b0476b);}
+.mc-tgt{font-size:.7rem;color:var(--text-mid);}
+.mc-tgt b{color:var(--pink-lt);}
+.mc-tgt.bad b{color:var(--red);}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:7px;max-width:540px;margin:10px auto 4px;}
+.fn-step{background:var(--bg-light-2);border:1px solid var(--line-light);padding:15px 22px;text-align:center;}
+.fn-step b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.02rem;color:var(--cream);display:block;}
+.fn-step span{font-size:.76rem;color:var(--text-mid);}
+.fn-arrow{text-align:center;color:var(--pink);font-size:.8rem;line-height:.7;}
+.fn-2{width:90%;margin:0 auto;}.fn-3{width:80%;margin:0 auto;}.fn-4{width:70%;margin:0 auto;}.fn-5{width:60%;margin:0 auto;background:var(--pink-soft);border-color:var(--pink);}
+
+/* money cards */
+.money{display:flex;flex-direction:column;gap:14px;margin-bottom:8px;}
+.mn{background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:22px 24px;}
+.mn-head{display:flex;align-items:center;gap:12px;margin-bottom:15px;}
+.mn-ava{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--line-light);flex-shrink:0;}
+.mn-name{font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:var(--cream);line-height:1.1;}
+.mn-name small{display:block;font-family:'Mulish';font-size:.68rem;color:var(--text-dim);letter-spacing:.03em;margin-top:3px;}
+.mn-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-soft-light);border:1px solid var(--line-soft-light);}
+.mn-cell{background:var(--bg-light-3);padding:12px 14px;}
+.mn-k{font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-bright);margin-bottom:5px;}
+.mn-v{font-size:.8rem;color:var(--text-mid);line-height:1.45;}
+.mn-v b{color:var(--cream);}
+
+/* tg shots */
+.tg-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:6px 0;}
+.tg-shot{border:1px solid var(--line-light);overflow:hidden;background:var(--bg-light-2);}
+.tg-shot img{width:100%;display:block;}
+.tg-cap{padding:12px 16px;font-size:.78rem;color:var(--text-mid);}
+.tg-cap b{color:var(--cream);}
+
 /* ===== MOBILE ===== */
 @media(max-width:860px){
   .phases{grid-template-columns:1fr;}
@@ -235,6 +309,11 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
   .ev-row{flex-direction:column;gap:2px;}
   .ev-row .who{min-width:0;}
   .barchart{height:100px;}
+  .profile-card{flex-direction:column;text-align:center;gap:14px;padding:24px 20px;}
+  .mcards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+  .mn-rows{grid-template-columns:1fr;}
+  .tg-shots{grid-template-columns:1fr;}
+  .mn-head{flex-wrap:wrap;}
 }
 </style>
 </head>
@@ -266,6 +345,13 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
     <div class="section-label"><span class="label-line"></span><span class="label-text">С чего начинаем</span><span class="label-line"></span></div>
     <h2 class="section-heading">Блог сегодня: сильная база</h2>
     <p class="section-sub">Прежде чем говорить о росте&nbsp;— честная фиксация точки старта. У Вас уже есть то, чего у большинства в нише нет.</p>
+    <div class="profile-card fade-in">
+      <img class="pf-ava" src="img/av_natalya.jpg" alt="LiBiFIT">
+      <div class="pf-body">
+        <div class="pf-handle">@<span>libifit.odessa</span></div>
+        <div class="pf-bio">Лібідо · Інтимна гімнастика · жіноче здоров'я · Одеса. 33&nbsp;062 подписчика, 133 публикации, 122&nbsp;Reels за год.</div>
+      </div>
+    </div>
     <div class="snapshot fade-in">
       <div class="snap-title">Что работает прямо сейчас</div>
       <div class="snap-sub">Данные собраны по Instagram&nbsp;@libifit.odessa и трём Telegram-каналам.</div>
@@ -275,6 +361,15 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
         <div class="snap-item"><div class="snap-num">717 знаков</div><div class="snap-lbl">средний пост в блоге&nbsp;— Вы уже пишете сильные прогревочные тексты</div></div>
       </div>
     </div>
+    <div class="reels-grid fade-in" style="margin-top:24px">
+      <div class="reel"><img src="img/cover_DLL3SuLCFgf.jpg" alt=""><div class="reel-views">7,7&nbsp;млн</div></div>
+      <div class="reel"><img src="img/cover_DLJ-ceBM7A3.jpg" alt=""><div class="reel-views">4,5&nbsp;млн</div></div>
+      <div class="reel"><img src="img/cover_DLNm7fcsZHF.jpg" alt=""><div class="reel-views">1,7&nbsp;млн</div></div>
+      <div class="reel"><img src="img/cover_DLDRGs0sheq.jpg" alt=""><div class="reel-views">991&nbsp;K</div></div>
+      <div class="reel"><img src="img/cover_DLpdYEDiHCk.jpg" alt=""><div class="reel-views">745&nbsp;K</div></div>
+      <div class="reel"><img src="img/cover_DLLRDBoOR2p.jpg" alt=""><div class="reel-views">656&nbsp;K</div></div>
+    </div>
+    <div class="grid-note">Реальные топ-Reels блога. Контент Вы создаёте сильный&nbsp;— вопрос в том, кому он показывается.</div>
     <p class="lead" style="margin-top:30px">Это значит главное: <strong>проблема не в том, что Вас не видят.</strong> Видят&nbsp;— и много. Вопрос в том, <strong>кто</strong> Вас видит и <strong>во что</strong> это превращается. Дальше&nbsp;— честный разбор по данным.</p>
   </div>
 </section>
@@ -298,6 +393,13 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
           <div class="ev-row"><span class="who">мужчина, англ.</span><span class="what">«This is porn» — нецелевой</span></div>
           <div class="ev-row"><span class="who">женщина, рус. (ЦА)</span><span class="what">«Зафиксировала в программу тренировок»</span></div>
           <div class="ev-row"><span class="who">женщина, рус. (ЦА)</span><span class="what">«Как раз вчера работала»</span></div>
+        </div>
+        <div class="donut-wrap fade-in" style="margin-top:18px">
+          <div class="donut"><div class="donut-center"><b>7%</b><small>целевых</small></div></div>
+          <div class="donut-legend">
+            <div class="dl-row"><span class="dl-dot" style="background:var(--pink-lt)"></span><div><b>7% — целевые</b> русско/украиноязычные женщины, которым Вы продаёте</div></div>
+            <div class="dl-row"><span class="dl-dot" style="background:#3a2c3a"></span><div><b>92% — мимо</b>: иностранцы и мужчины (фарси, арабский, хинди, англ.), которые не купят</div></div>
+          </div>
         </div>
       </div>
 
@@ -341,28 +443,116 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
     <div class="section-label"><span class="label-line"></span><span class="label-text">Рынок ниши</span><span class="label-line"></span></div>
     <h2 class="section-heading">Где Вы среди лидеров интимного фитнеса</h2>
     <p class="section-sub">Мы разобрали пять ведущих аккаунтов ниши&nbsp;— по размеру, контенту и составу аудитории. Сравнение объясняет Вашу ситуацию лучше всего.</p>
-    <div class="table-wrap fade-in">
-      <table class="market">
-        <thead><tr><th>Аккаунт</th><th>Подписчики</th><th>Медиана просмотров</th><th>Целевая аудитория</th><th>Модель</th></tr></thead>
-        <tbody>
-          <tr><td>Лидер&nbsp;A (мировой)</td><td>6,6&nbsp;млн</td><td>234&nbsp;K</td><td>19%</td><td>англоязычный бренд</td></tr>
-          <tr><td>Лидер&nbsp;B (контент)</td><td>723&nbsp;K</td><td>1,9&nbsp;млн</td><td class="bad">2%</td><td>виралка на иностранцев</td></tr>
-          <tr><td>Эталон&nbsp;C</td><td>377&nbsp;K</td><td>145&nbsp;K</td><td class="good">53%</td><td class="star">рус., продающий</td></tr>
-          <tr><td>Эксперт&nbsp;D</td><td>156&nbsp;K</td><td>44&nbsp;K</td><td>21%</td><td>образовательный</td></tr>
-          <tr><td>Ниша&nbsp;E</td><td>45&nbsp;K</td><td>31&nbsp;K</td><td class="good">53%</td><td>узкая тема</td></tr>
-          <tr class="me"><td>Вы&nbsp;— LiBiFIT</td><td>33&nbsp;K</td><td>58&nbsp;K</td><td class="bad">7%</td><td>между моделями</td></tr>
-        </tbody>
-      </table>
+    <p class="section-sub" style="margin-top:-26px">Полоса под аватаром&nbsp;— доля <b style="color:var(--pink-lt)">целевой</b> (русскоязычной) аудитории. Именно она, а не число подписчиков, определяет продажи.</p>
+    <div class="mcards fade-in">
+      <div class="mcard">
+        <img class="mc-ava" src="img/av_libdo_usa.jpg" alt="">
+        <div class="mc-name">Libdo USA</div><div class="mc-handle">@libdo.usa</div>
+        <div class="mc-foll"><b>6,6&nbsp;млн</b> подписчиков</div>
+        <div class="mc-bar"><i style="width:19%"></i></div><div class="mc-tgt">целевых <b>19%</b> · мировой бренд</div>
+      </div>
+      <div class="mcard">
+        <img class="mc-ava" src="img/av_lagerrrdaa.jpg" alt="">
+        <div class="mc-name">Gerda Krieke</div><div class="mc-handle">@lagerrrdaa</div>
+        <div class="mc-foll"><b>723&nbsp;K</b> подписчиков</div>
+        <div class="mc-bar bad"><i style="width:4%"></i></div><div class="mc-tgt bad">целевых <b>2%</b> · виралка на чужих</div>
+      </div>
+      <div class="mcard">
+        <img class="mc-ava" src="img/av_sense_flex.jpg" alt="">
+        <div class="mc-name">Светлана Радина</div><div class="mc-handle">@sense_flex</div>
+        <div class="mc-foll"><b>377&nbsp;K</b> подписчиков</div>
+        <div class="mc-bar"><i style="width:53%"></i></div><div class="mc-tgt">целевых <b>53%</b> · эталон ниши</div>
+      </div>
+      <div class="mcard">
+        <img class="mc-ava" src="img/av_irina.jpg" alt="">
+        <div class="mc-name">Ирина Итковичи</div><div class="mc-handle">@irinaintimfitnes</div>
+        <div class="mc-foll"><b>156&nbsp;K</b> подписчиков</div>
+        <div class="mc-bar"><i style="width:21%"></i></div><div class="mc-tgt">целевых <b>21%</b> · образовательный</div>
+      </div>
+      <div class="mcard">
+        <img class="mc-ava" src="img/av_ann.jpg" alt="">
+        <div class="mc-name">Анна Савчук</div><div class="mc-handle">@ann.libio1</div>
+        <div class="mc-foll"><b>45&nbsp;K</b> подписчиков</div>
+        <div class="mc-bar"><i style="width:53%"></i></div><div class="mc-tgt">целевых <b>53%</b> · узкая тема</div>
+      </div>
+      <div class="mcard me">
+        <img class="mc-ava" src="img/av_natalya.jpg" alt="">
+        <div class="mc-name">Вы&nbsp;— LiBiFIT</div><div class="mc-handle">@libifit.odessa</div>
+        <div class="mc-foll"><b>33&nbsp;K</b> подписчиков</div>
+        <div class="mc-bar bad"><i style="width:7%"></i></div><div class="mc-tgt bad">целевых <b>7%</b> · между моделями</div>
+      </div>
     </div>
     <div class="highlight fade-in">
       <div class="hl-title">Главный вывод&nbsp;— и он в Вашу пользу</div>
-      <div class="hl-text">По охватам Вы <em>обгоняете</em> аккаунты с бóльшим числом подписчиков. Ваша проблема&nbsp;— только в составе аудитории. И она <em>решаема</em>: <strong>Эталон&nbsp;C</strong> в той же нише держит <strong>53% целевых женщин</strong> при 377&nbsp;K&nbsp;— потому что делает русскоязычный продающий контент, а не виралку на случайных. Сейчас по структуре аудитории Вы повторяете <strong>Лидера&nbsp;B</strong> (2% целевых)&nbsp;— но ему это выгодно, он продаёт всему миру. Вы&nbsp;— нет.</div>
+      <div class="hl-text">По охватам Вы <em>обгоняете</em> аккаунты с бóльшим числом подписчиков (Ваша медиана&nbsp;— 58&nbsp;K против 44&nbsp;K у Ирины и 31&nbsp;K у Анны). Проблема&nbsp;— только в составе аудитории, и она <em>решаема</em>: <strong>@sense_flex</strong> в той же нише держит <strong>53% целевых женщин</strong> при 377&nbsp;K&nbsp;— потому что делает русскоязычный продающий контент, а не виралку на случайных. Сейчас по структуре аудитории Вы ближе к <strong>@lagerrrdaa</strong> (2% целевых)&nbsp;— но ей это выгодно, она продаёт всему миру. Вам&nbsp;— нет.</div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ЗАРАБАТЫВАЮТ КОНКУРЕНТЫ -->
+<section class="section alt">
+  <div class="inner">
+    <div class="section-label"><span class="label-line"></span><span class="label-text">Деньги ниши</span><span class="label-line"></span></div>
+    <h2 class="section-heading">Как зарабатывают конкуренты</h2>
+    <p class="section-sub">Мы разобрали их сайты, Telegram-каналы и продукты. У всей ниши&nbsp;— одна рабочая схема продаж. У Вас этой схемы пока нет.</p>
+
+    <div class="funnel fade-in">
+      <div class="fn-step fn-1"><b>Вирусный контент</b><span>охваты в Reels&nbsp;— это у Вас уже есть</span></div>
+      <div class="fn-arrow">▼</div>
+      <div class="fn-step fn-2"><b>Лид-магнит</b><span>бесплатный эфир / практикум / медитация</span></div>
+      <div class="fn-arrow">▼</div>
+      <div class="fn-step fn-3"><b>Telegram-бот</b><span>сбор базы и контактов</span></div>
+      <div class="fn-arrow">▼</div>
+      <div class="fn-step fn-4"><b>Прогрев</b><span>сторителлинг, ограничение мест</span></div>
+      <div class="fn-arrow">▼</div>
+      <div class="fn-step fn-5"><b>Продажа курса + апселл тренажёра kGoal</b><span>цена&nbsp;— в личке</span></div>
+    </div>
+    <div class="grid-note" style="margin-bottom:36px">Сквозная воронка ниши. У Вас сильный контент на входе&nbsp;— но дальше путь обрывается.</div>
+
+    <div class="money fade-in">
+      <div class="mn">
+        <div class="mn-head"><img class="mn-ava" src="img/av_sense_flex.jpg" alt=""><div class="mn-name">Светлана Радина&nbsp;<small>@sense_flex · эталон ниши</small></div></div>
+        <div class="mn-rows">
+          <div class="mn-cell"><div class="mn-k">Продукты</div><div class="mn-v">Офлайн-группы Москва, онлайн-курс «Для себя», тренажёр kGoal</div></div>
+          <div class="mn-cell"><div class="mn-k">Цены</div><div class="mn-v">Офлайн <b>2 500 ₽</b>/занятие · kGoal <b>22 861 → 16 668 ₽</b> (−30%)</div></div>
+          <div class="mn-cell"><div class="mn-k">Лид-магнит</div><div class="mn-v">Инфо-посты, отзывы «−13 кг» → CTA «курс» в личку</div></div>
+        </div>
+      </div>
+      <div class="mn">
+        <div class="mn-head"><img class="mn-ava" src="img/av_ann.jpg" alt=""><div class="mn-name">Анна Савчук&nbsp;<small>@ann.libio1</small></div></div>
+        <div class="mn-rows">
+          <div class="mn-cell"><div class="mn-k">Продукты</div><div class="mn-v">Курс «Мистецтво Насолоди» (5 блоков, 70+ техник, 1,5 мес) + тренажёр</div></div>
+          <div class="mn-cell"><div class="mn-k">Цены</div><div class="mn-v">Курс&nbsp;— <b>в Direct</b> · kGoal <b>8 500 грн</b> (−5% через ТГ)</div></div>
+          <div class="mn-cell"><div class="mn-k">Лид-магнит</div><div class="mn-v">Бесплатный эфир-практикум + медитация + Telegram-бот регистрации</div></div>
+        </div>
+      </div>
+      <div class="mn">
+        <div class="mn-head"><img class="mn-ava" src="img/av_libdo_usa.jpg" alt=""><div class="mn-name">Libdo USA&nbsp;<small>@libdo.usa · наставница, мировой бренд</small></div></div>
+        <div class="mn-rows">
+          <div class="mn-cell"><div class="mn-k">Продукты</div><div class="mn-v">Онлайн-курс + <b>сертификация тренеров</b> + масла, костюмы, kGoal</div></div>
+          <div class="mn-cell"><div class="mn-k">Цены</div><div class="mn-v">По запросу&nbsp;— заявка в WhatsApp / личку</div></div>
+          <div class="mn-cell"><div class="mn-k">Модель</div><div class="mn-v">Франшиза&nbsp;— сеть обученных тренеров по миру (Вы&nbsp;— её звено)</div></div>
+        </div>
+      </div>
+      <div class="mn">
+        <div class="mn-head"><div class="mn-name">Клуб «Erotraverse»&nbsp;<small>Татьяна Бисэри · модель подписки</small></div></div>
+        <div class="mn-rows">
+          <div class="mn-cell"><div class="mn-k">Продукт</div><div class="mn-v">Закрытый клуб: видео-тренировки, эксперты, чат 24/7, челленджи</div></div>
+          <div class="mn-cell"><div class="mn-k">Цены</div><div class="mn-v"><b>2 500 ₽/мес</b> · <b>14 000 ₽</b>/6 мес (с костюмом 27 100&nbsp;₽)</div></div>
+          <div class="mn-cell"><div class="mn-k">Модель</div><div class="mn-v">Рекуррент&nbsp;— стабильный доход с подписки, а не разовые продажи</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight fade-in">
+      <div class="hl-title">Что это значит для Вас</div>
+      <div class="hl-text">Вся ниша зарабатывает по одной схеме: <em>контент → бесплатный лид-магнит → бот → прогрев → продажа курса + апселл тренажёра</em>. У Вас есть только <strong>первый шаг</strong> (контент) и <strong>сильные тексты</strong> для прогрева&nbsp;— но нет лид-магнита, бота и системы продаж под онлайн-курс. Мы достраиваем недостающие звенья на тех же механиках, что уже доказанно работают у лидеров.</div>
     </div>
   </div>
 </section>
 
 <!-- ЧТО ПОДКРУТИТЬ -->
-<section class="section alt">
+<section class="section light">
   <div class="inner">
     <div class="section-label"><span class="label-line"></span><span class="label-text">Что подкрутить</span><span class="label-line"></span></div>
     <h2 class="section-heading">Конкретные точки роста&nbsp;— на Ваших же примерах</h2>
