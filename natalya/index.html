@@ -362,6 +362,42 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
   .process{grid-template-columns:1fr;}
   .outcomes{grid-template-columns:1fr;}
 }
+
+/* ===== ГЛУБИНА И ЦВЕТОВАЯ НАСЫЩЕННОСТЬ ===== */
+/* мягкие цветные подсветки за секциями — глубина фона */
+.section.light::before,.section.alt::before{content:'';position:absolute;width:640px;height:640px;border-radius:50%;pointer-events:none;z-index:0;top:-240px;right:-180px;background:radial-gradient(circle,rgba(190,109,200,.09),transparent 68%);}
+.section.alt::before{left:-200px;right:auto;top:auto;bottom:-240px;background:radial-gradient(circle,rgba(140,60,140,.1),transparent 68%);}
+.section.darkband::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 0%,rgba(190,109,200,.12),transparent 55%);}
+
+/* объёмные карточки: градиент + тень + верхняя подсветка */
+.snapshot,.profile-card,.problem,.evidence,.donut-wrap,.mcard,.mn,.sgroup,.zone,.outcome,.pitem,.fix,.strat-item,.phase,.tl-card{
+  background-image:linear-gradient(162deg,rgba(190,109,200,.09),rgba(190,109,200,0) 42%),linear-gradient(162deg,#1b1324,#0e0a13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 16px 38px -22px rgba(0,0,0,.8);
+}
+.problem:hover,.mcard:hover,.outcome:hover,.pitem:hover,.fix:hover,.strat-item:hover,.mn:hover,.zone:hover,.sgroup:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 22px 46px -18px rgba(0,0,0,.85),0 0 36px -8px rgba(190,109,200,.42);
+  border-color:rgba(219,119,212,.5);
+}
+
+/* акцентные боксы — насыщенный фиолет + свечение */
+.mcard.me,.phase.primary{
+  background-image:linear-gradient(160deg,rgba(190,109,200,.24),rgba(190,109,200,.04) 55%),linear-gradient(160deg,#241634,#120c1c);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 0 1px rgba(219,119,212,.35),0 20px 44px -18px rgba(120,40,110,.55);
+}
+.highlight{
+  background-image:linear-gradient(135deg,rgba(190,109,200,.22),rgba(120,40,110,.06));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 16px 40px -22px rgba(120,40,110,.55),0 0 44px -14px rgba(190,109,200,.28);
+}
+.donut-wrap{background-image:radial-gradient(circle at 22% 50%,rgba(190,109,200,.2),transparent 46%),linear-gradient(162deg,#1b1324,#0e0a13);}
+.cond{
+  background-image:radial-gradient(ellipse at 50% 0%,rgba(190,109,200,.22),transparent 56%),linear-gradient(180deg,#1c1426,#100b17);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 0 64px -22px rgba(190,109,200,.4);
+}
+.cond-price{filter:drop-shadow(0 0 26px rgba(219,119,212,.55));}
+.guarantee{background-image:linear-gradient(135deg,rgba(190,109,200,.16),rgba(190,109,200,.03));box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+.mn-head{padding-bottom:13px;border-bottom:1px solid rgba(190,109,200,.2);}
+.fn-5{box-shadow:0 0 32px -10px rgba(190,109,200,.55),inset 0 1px 0 rgba(255,255,255,.07);}
+.reel{box-shadow:0 10px 26px -14px rgba(0,0,0,.8);}
 </style>
 </head>
 <body>
