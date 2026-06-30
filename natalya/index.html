@@ -285,6 +285,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
 
 /* outcomes (что получаете) */
 .outcomes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line-soft-light);border:1px solid var(--line-soft-light);}
+.outcomes.cols3{grid-template-columns:repeat(3,minmax(0,1fr));}
 .outcome{background:var(--bg-light-2);padding:28px 26px;position:relative;transition:background .3s;}
 .outcome:hover{background:var(--bg-light-3);}
 .oc-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--pink-bright);line-height:1;margin-bottom:12px;text-shadow:0 0 14px rgba(158,62,171,.3);}
@@ -360,7 +361,10 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
   .scope{grid-template-columns:1fr;}
   .zones{grid-template-columns:1fr;}
   .process{grid-template-columns:1fr;}
-  .outcomes{grid-template-columns:1fr;}
+  .outcomes,.outcomes.cols3{grid-template-columns:1fr;}
+}
+@media(max-width:860px) and (min-width:641px){
+  .outcomes.cols3{grid-template-columns:repeat(3,minmax(0,1fr));}
 }
 
 /* ===== ГЛУБИНА И ЦВЕТОВАЯ НАСЫЩЕННОСТЬ ===== */
@@ -683,7 +687,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
     <div class="section-label"><span class="label-line"></span><span class="label-text">Цель</span><span class="label-line"></span></div>
     <h2 class="section-heading">Куда ведём работу</h2>
     <p class="section-sub">Три ориентира, к которым ведёт вся работа с первого месяца.</p>
-    <div class="outcomes fade-in">
+    <div class="outcomes cols3 fade-in">
       <div class="outcome"><div class="oc-num">01</div><div class="oc-title">Ядро целевых женщин</div><div class="oc-desc">Русскоязычные женщины в Украине и Европе&nbsp;— вместо случайных просмотров со всего мира.</div></div>
       <div class="outcome"><div class="oc-num">02</div><div class="oc-title">Запуск онлайн-курса</div><div class="oc-desc">Продукт, которого ждут: за всё время уже было больше 20 прямых запросов на онлайн-обучение.</div></div>
       <div class="outcome"><div class="oc-num">03</div><div class="oc-title">Стабильный доход</div><div class="oc-desc">Разовые тренировки&nbsp;→ абонементы и потоки, которые удерживают. Меньше зависимости от личного времени.</div></div>
