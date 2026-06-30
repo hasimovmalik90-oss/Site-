@@ -36,28 +36,28 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
 .orb-3{width:420px;height:420px;background:radial-gradient(circle,rgba(78,8,38,.32),transparent 70%);bottom:6%;left:20%;animation-delay:-14s;}
 @keyframes drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.05);}66%{transform:translate(-20px,28px) scale(.96);}}
 .hero-inner{position:relative;z-index:1;max-width:880px;width:100%;text-align:center;color:var(--cream);}
-.hero-mark{width:96px;height:96px;margin:0 auto 30px;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;position:relative;opacity:0;animation:fadeUp .9s .05s ease forwards;}
+.hero-mark{width:96px;height:96px;margin:0 auto 30px;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;position:relative;animation:fadeUp .9s .05s ease forwards;}
 .hero-mark span{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;letter-spacing:.04em;background:linear-gradient(135deg,var(--cream),var(--pink-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 30px rgba(190,109,200,.4);}
 .hero-mark::before,.hero-mark::after{content:'';position:absolute;width:18px;height:18px;border-color:var(--pink);border-style:solid;}
 .hero-mark::before{top:-1px;left:-1px;border-width:1px 0 0 1px;}
 .hero-mark::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0;}
-.hero-badge{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;animation:fadeUp .9s .15s ease forwards;}
+.hero-badge{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:12px;animation:fadeUp .9s .15s ease forwards;}
 .hero-badge::before,.hero-badge::after{content:'';width:34px;height:1px;}
 .hero-badge::before{background:linear-gradient(90deg,transparent,var(--pink));}
 .hero-badge::after{background:linear-gradient(90deg,var(--pink),transparent);}
-.hero-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.04;margin-bottom:14px;background:linear-gradient(135deg,var(--cream) 0%,var(--pink-lt) 50%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeUp .9s .25s ease forwards;}
-.hero-role{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink-dim);margin-bottom:26px;opacity:0;animation:fadeUp .9s .35s ease forwards;}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.55rem);color:var(--cream-mid);line-height:1.5;max-width:620px;margin:0 auto 38px;opacity:0;animation:fadeUp .9s .45s ease forwards;}
-.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);max-width:680px;margin:0 auto 38px;opacity:0;animation:fadeUp .9s .55s ease forwards;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.04;margin-bottom:14px;background:linear-gradient(135deg,var(--cream) 0%,var(--pink-lt) 50%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .9s .25s ease forwards;}
+.hero-role{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink-dim);margin-bottom:26px;animation:fadeUp .9s .35s ease forwards;}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.55rem);color:var(--cream-mid);line-height:1.5;max-width:620px;margin:0 auto 38px;animation:fadeUp .9s .45s ease forwards;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);max-width:680px;margin:0 auto 38px;animation:fadeUp .9s .55s ease forwards;}
 .hs-cell{background:var(--bg-dark);padding:20px 10px;text-align:center;min-width:0;}
 .hs-num{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:300;color:var(--pink-lt);text-shadow:0 0 16px rgba(190,109,200,.4);line-height:1;margin-bottom:6px;}
 .hs-lbl{font-size:.6rem;color:var(--cream-dim);letter-spacing:.05em;line-height:1.35;text-transform:uppercase;}
-.hero-cta{display:inline-block;padding:17px 46px;background:linear-gradient(135deg,var(--pink-lt),var(--pink));color:var(--bg-dark);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .3s;box-shadow:0 4px 22px rgba(190,109,200,.32);opacity:0;animation:fadeUp .9s .65s ease forwards;}
+.hero-cta{display:inline-block;padding:17px 46px;background:linear-gradient(135deg,var(--pink-lt),var(--pink));color:var(--bg-dark);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .3s;box-shadow:0 4px 22px rgba(190,109,200,.32);animation:fadeUp .9s .65s ease forwards;}
 .hero-cta:hover{box-shadow:0 8px 38px rgba(190,109,200,.5),0 0 60px rgba(190,109,200,.25);transform:translateY(-2px);}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-.fade-in{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{transform:translateY(22px);}to{transform:translateY(0);}}
+.fade-in{transform:translateY(26px);transition:transform .7s ease;}
+.fade-in.visible{transform:translateY(0);}
 .fade-in-d1{transition-delay:.1s;}.fade-in-d2{transition-delay:.2s;}.fade-in-d3{transition-delay:.3s;}
 
 /* ===== SECTIONS ===== */
@@ -432,7 +432,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
       <img class="pf-ava" src="img/av_natalya.jpg" alt="LiBiFIT">
       <div class="pf-body">
         <div class="pf-handle">@<span>libifit.odessa</span></div>
-        <div class="pf-bio">Лібідо · Інтимна гімнастика · жіноче здоров'я · Одеса. 33&nbsp;062 подписчика, 133 публикации, 122&nbsp;Reels за год.</div>
+        <div class="pf-bio">Либидо · Интимная гимнастика · женское здоровье · Одесса. 33&nbsp;062 подписчика, 133 публикации, 122&nbsp;Reels за год.</div>
       </div>
     </div>
     <div class="snapshot fade-in">
