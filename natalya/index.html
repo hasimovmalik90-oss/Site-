@@ -281,9 +281,50 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
 .tg-cap{padding:12px 16px;font-size:.78rem;color:var(--text-mid);}
 .tg-cap b{color:var(--cream);}
 
+/* outcomes (что получаете) */
+.outcomes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line-soft-light);border:1px solid var(--line-soft-light);}
+.outcome{background:var(--bg-light-2);padding:28px 26px;position:relative;transition:background .3s;}
+.outcome:hover{background:var(--bg-light-3);}
+.oc-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--pink-bright);line-height:1;margin-bottom:12px;text-shadow:0 0 14px rgba(158,62,171,.3);}
+.oc-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;color:var(--cream);margin-bottom:8px;line-height:1.2;}
+.oc-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;}
+
+/* scope (что входит) */
+.scope{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.sgroup{background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:24px 24px;}
+.sgroup h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.12rem;color:var(--cream);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sgroup h4::before{content:'';width:7px;height:7px;background:var(--pink-bright);transform:rotate(45deg);box-shadow:0 0 8px rgba(158,62,171,.5);flex-shrink:0;}
+.sgroup ul{list-style:none;}
+.sgroup li{font-size:.84rem;color:var(--text-mid);padding:6px 0 6px 18px;position:relative;line-height:1.5;}
+.sgroup li::before{content:'';position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--pink-bright);}
+
+/* zones (мне/вам) */
+.zones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.zone{background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:26px 26px;}
+.zone.mine{border-color:var(--line-light);}
+.zone-head{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;}
+.zone.you .zone-head{color:var(--text-dim);}
+.zone.mine .zone-head{color:var(--pink-bright);}
+.zone-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.3rem;color:var(--cream);margin-bottom:16px;}
+.zone ul{list-style:none;}
+.zone li{font-size:.86rem;color:var(--text-mid);padding:8px 0 8px 22px;position:relative;line-height:1.5;border-bottom:1px solid var(--line-soft-light);}
+.zone li:last-child{border-bottom:none;}
+.zone li::before{position:absolute;left:0;top:7px;font-size:.8rem;}
+.zone.you li::before{content:'\2022';color:var(--text-dim);}
+.zone.mine li::before{content:'\2713';color:var(--pink-bright);font-size:.72rem;top:9px;}
+
+/* process (как проходит) */
+.process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.pitem{background:var(--bg-light-2);border:1px solid var(--line-soft-light);padding:22px 22px;transition:border-color .3s;}
+.pitem:hover{border-color:var(--line-light);}
+.pi-ico{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--pink-bright);line-height:1;margin-bottom:10px;}
+.pi-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.02rem;color:var(--cream);margin-bottom:7px;line-height:1.2;}
+.pi-desc{font-size:.82rem;color:var(--text-mid);line-height:1.55;}
+
 /* ===== MOBILE ===== */
 @media(max-width:860px){
   .phases{grid-template-columns:1fr;}
+  .process{grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @media(max-width:640px){
   .section{padding:62px 18px;}
@@ -314,6 +355,10 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
   .mn-rows{grid-template-columns:1fr;}
   .tg-shots{grid-template-columns:1fr;}
   .mn-head{flex-wrap:wrap;}
+  .scope{grid-template-columns:1fr;}
+  .zones{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr;}
+  .outcomes{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -644,8 +689,100 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
   </div>
 </section>
 
-<!-- ПЛАН ПЕРВОГО МЕСЯЦА -->
+<!-- ЧТО ВХОДИТ -->
 <section class="section light">
+  <div class="inner">
+    <div class="section-label"><span class="label-line"></span><span class="label-text">Что входит</span><span class="label-line"></span></div>
+    <h2 class="section-heading">Что входит в работу над фундаментом</h2>
+    <p class="section-sub">Полный состав работ первого этапа. Всё, что нужно, чтобы блог из набора роликов стал системой, которая продаёт.</p>
+    <div class="scope fade-in">
+      <div class="sgroup">
+        <h4>Стратегия и&nbsp;аналитика</h4>
+        <ul>
+          <li>Глубокий разбор блога, аудитории и&nbsp;конкурентов (этот документ&nbsp;— уже часть работы)</li>
+          <li>Стратегия проекта и&nbsp;контент-план</li>
+          <li>Еженедельные разборы результатов и&nbsp;корректировка курса</li>
+        </ul>
+      </div>
+      <div class="sgroup">
+        <h4>Аудитория и&nbsp;позиционирование</h4>
+        <ul>
+          <li>Распаковка экспертности и&nbsp;личности (опросник + голосовые)</li>
+          <li>Новое позиционирование и&nbsp;упаковка профиля</li>
+          <li>Решение по&nbsp;языку и&nbsp;заголовки/смыслы под женскую аудиторию</li>
+        </ul>
+      </div>
+      <div class="sgroup">
+        <h4>Воронка и&nbsp;продукт</h4>
+        <ul>
+          <li>Лид-магнит и&nbsp;Telegram-бот для сбора базы</li>
+          <li>Продуктовая линейка и&nbsp;бизнес-математика</li>
+          <li>Кастдев&nbsp;— разговоры с&nbsp;подписчицами под продукт</li>
+        </ul>
+      </div>
+      <div class="sgroup">
+        <h4>Система и&nbsp;сопровождение</h4>
+        <ul>
+          <li>Сведение трёх каналов в&nbsp;единую воронку</li>
+          <li>Контент-система, сайт-визитка, база клиентов</li>
+          <li>Персональный Telegram-чат и&nbsp;рабочее пространство&nbsp;— всё фиксируется</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗОНЫ ОТВЕТСТВЕННОСТИ -->
+<section class="section alt">
+  <div class="inner">
+    <div class="section-label"><span class="label-line"></span><span class="label-text">Зоны ответственности</span><span class="label-line"></span></div>
+    <h2 class="section-heading">Что на мне, что на&nbsp;Вас</h2>
+    <p class="section-sub">Чтобы Вы перестали «тянуть всё сама». Вся система&nbsp;— на&nbsp;мне. За&nbsp;Вами&nbsp;— только то, что можете сделать лишь Вы.</p>
+    <div class="zones fade-in">
+      <div class="zone you">
+        <div class="zone-head">На Вас</div>
+        <div class="zone-title">Только то, что не&nbsp;делегировать</div>
+        <ul>
+          <li>Голосовые на&nbsp;распаковку&nbsp;— рассказать о&nbsp;себе и&nbsp;деле</li>
+          <li>Съёмка Reels по&nbsp;готовым сценариям</li>
+          <li>Проведение тренировок и&nbsp;кастдев-созвонов с&nbsp;подписчицами</li>
+          <li>Согласование контента перед публикацией</li>
+        </ul>
+      </div>
+      <div class="zone mine">
+        <div class="zone-head">На мне</div>
+        <div class="zone-title">Всё остальное</div>
+        <ul>
+          <li>Стратегия, аналитика, позиционирование, упаковка</li>
+          <li>Заголовки, смыслы и&nbsp;сценарии под каждый ролик</li>
+          <li>Воронка, лид-магнит, бот, продуктовая линейка</li>
+          <li>Контент-система, сайт-визитка, база клиентов, координация</li>
+          <li>Разборы и&nbsp;корректировки. Одна точка ответственности.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ПРОХОДИТ РАБОТА -->
+<section class="section light">
+  <div class="inner">
+    <div class="section-label"><span class="label-line"></span><span class="label-text">Личная работа</span><span class="label-line"></span></div>
+    <h2 class="section-heading">Как будет проходить наша работа</h2>
+    <p class="section-sub">Прозрачный формат&nbsp;— Вы всегда понимаете, что сделано, что дальше и&nbsp;зачем.</p>
+    <div class="process fade-in">
+      <div class="pitem"><div class="pi-ico">01</div><div class="pi-title">Большой стратегический созвон на&nbsp;входе</div><div class="pi-desc">У&nbsp;нас будет понятная дорожная карта развития блога и&nbsp;проекта.</div></div>
+      <div class="pitem"><div class="pi-ico">02</div><div class="pi-title">Регулярные встречи с&nbsp;разборами</div><div class="pi-desc">Вы всегда в&nbsp;фокусе на&nbsp;ключевом, без откатов назад и&nbsp;лишних действий.</div></div>
+      <div class="pitem"><div class="pi-ico">03</div><div class="pi-title">Отслеживание каждого этапа</div><div class="pi-desc">Вы точно знаете, что делать после каждого разбора.</div></div>
+      <div class="pitem"><div class="pi-ico">04</div><div class="pi-title">Персональный Telegram-чат и&nbsp;рабочее пространство</div><div class="pi-desc">Вы не&nbsp;потеряете информацию и&nbsp;вернётесь к&nbsp;наработкам даже через год.</div></div>
+      <div class="pitem"><div class="pi-ico">05</div><div class="pi-title">База знаний и&nbsp;инструментов</div><div class="pi-desc">Готовые шаблоны роликов, описаний и&nbsp;материалы. Доступ к&nbsp;базе по&nbsp;Reels и&nbsp;набору аудитории.</div></div>
+      <div class="pitem"><div class="pi-ico">06</div><div class="pi-title">Всё остаётся у&nbsp;Вас навсегда</div><div class="pi-desc">Стратегия, наработки, система&nbsp;— Ваши, даже если мы завершим сотрудничество.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПЛАН ПЕРВОГО МЕСЯЦА -->
+<section class="section alt">
   <div class="inner">
     <div class="section-label"><span class="label-line"></span><span class="label-text">План первого месяца</span><span class="label-line"></span></div>
     <h2 class="section-heading">Что сделаем сразу&nbsp;— и что это даст</h2>
@@ -695,6 +832,21 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
           <div class="tl-result">Блог работает как система&nbsp;— без ежедневного «тяну всё сама»</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ВЫ ПОЛУЧАЕТЕ -->
+<section class="section light">
+  <div class="inner">
+    <div class="section-label"><span class="label-line"></span><span class="label-text">Результат</span><span class="label-line"></span></div>
+    <h2 class="section-heading">Что Вы получаете на&nbsp;выходе</h2>
+    <p class="section-sub">К&nbsp;концу фундамента у&nbsp;Вас на&nbsp;руках&nbsp;— не&nbsp;набор советов, а&nbsp;работающая система.</p>
+    <div class="outcomes fade-in">
+      <div class="outcome"><div class="oc-num">01</div><div class="oc-title">Сильный фундамент</div><div class="oc-desc">Чёткое «для кого и&nbsp;о&nbsp;чём» блог, позиционирование и&nbsp;аудитория из&nbsp;целевых женщин, а&nbsp;не&nbsp;случайных просмотров.</div></div>
+      <div class="outcome"><div class="oc-num">02</div><div class="oc-title">Воронка под онлайн-курс</div><div class="oc-desc">Лид-магнит → Telegram-бот → прогрев → продажа. Путь от&nbsp;подписчика к&nbsp;покупателю, которого сейчас нет.</div></div>
+      <div class="outcome"><div class="oc-num">03</div><div class="oc-title">Система вместо хаоса</div><div class="oc-desc">Контент-план, единая структура каналов, база клиентов&nbsp;— без ежедневного «тяну всё сама» и&nbsp;выгорания.</div></div>
+      <div class="outcome"><div class="oc-num">04</div><div class="oc-title">Готовность к&nbsp;росту</div><div class="oc-desc">Продуктовая линейка, сайт-визитка и&nbsp;понятная экономика&nbsp;— фундамент, на&nbsp;котором строится ведение и&nbsp;продажи.</div></div>
     </div>
   </div>
 </section>
