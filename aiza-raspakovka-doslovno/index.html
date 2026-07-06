@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex,nosnippet">
+<title>Распаковка · Азиза — дословно</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="version" content="raspakovka-v1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1080px;
+
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --mx: 50%;
+    --my: 50%;
+  }
+
+  /* SPLASH SCREEN */
+  body.splash-active { overflow: hidden; height: 100vh; height: 100svh; }
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+  .splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .splash-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.2s forwards;
+  }
+  .splash-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(72px, 14vw, 168px);
+    line-height: 0.95;
+    color: var(--gold-bright);
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.9s var(--ease-out) 0.5s forwards;
+    text-shadow: 0 0 60px var(--gold-glow), 0 0 120px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+  }
+  .splash-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.8s forwards;
+  }
+  .splash-loader {
+    width: 220px;
+    height: 1px;
+    background: var(--line);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 0.4s forwards;
+  }
+  .splash-loader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+    animation: loaderSweep 2s var(--ease) 0.5s forwards;
+    transform: translateX(-100%);
+  }
+  @keyframes loaderSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  @keyframes splashFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .splash-skip {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    z-index: 2;
+    background: none;
+    border: 1px solid var(--line-bright);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 1.4s forwards;
+  }
+  .splash-skip:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    text-wrap: pretty;
+  }
+
+  /* Гарантия что НИЧЕГО не вылазит за пределы экрана */
+  img, video, iframe, svg { max-width: 100%; height: auto; display: block; }
+
+  header, section, main, footer, .marquee, .intro, .proof, .contact {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  p, li, .what, .gives, .price-note, .sit-point-text {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4,
+  .hero-tagline, .method-intro,
+  .contact-quote, .contact-quote-big,
+  .outcome h3, .work-item h3, .remote-card h3,
+  .guarantee h3 {
+    text-wrap: balance;
+  }
+  .eyebrow, .price-eyebrow, .price-period,
+  .price-term-label, .price-term-value,
+  .hero-meta-item, .block-num, .block-num::after,
+  .ribbon-item, .nav-dots, .hero-byline .byline-role,
+  .outcome-num, .obl-group h4, .sit-point-num,
+  .hero-stat-label, .contact-author {
+    white-space: nowrap;
+  }
+
+  /* ATMOSPHERIC LAYERS */
+  .ambient {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .ambient::before, .ambient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+  }
+  .ambient::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 70%);
+    top: -200px; left: -100px;
+    animation: drift1 22s ease-in-out infinite;
+  }
+  .ambient::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.12), transparent 70%);
+    bottom: -150px; right: -100px;
+    animation: drift2 28s ease-in-out infinite;
+  }
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, 60px) scale(1.1); }
+    66% { transform: translate(-40px, 100px) scale(0.95); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-100px, -60px) scale(1.15); }
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    z-index: 1000;
+    mix-blend-mode: overlay;
+  }
+
+  /* CURSOR SPOTLIGHT — следует за мышью, тёплое золотое свечение */
+  .spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle 600px at var(--mx) var(--my), rgba(255, 184, 77, 0.06), transparent 50%);
+    transition: background 0.08s linear;
+    mix-blend-mode: screen;
+  }
+  @media (hover: none) {
+    .spotlight { display: none; }
+  }
+
+  main, header, section, footer { position: relative; z-index: 2; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: var(--scroll, 0%);
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), var(--gold-bright));
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    z-index: 998;
+    transition: width 0.05s linear;
+  }
+
+  /* STICKY DOT NAVIGATION */
+  .nav-dots {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%) translateX(20px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px 14px;
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease) 0.4s, transform 0.6s var(--ease) 0.4s;
+  }
+  .nav-dots.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--muted);
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    padding: 0;
+  }
+  .nav-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    right: calc(100% + 16px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  .nav-dot:hover {
+    border-color: var(--gold);
+    background: var(--gold-glow-soft);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+  .nav-dot:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  .nav-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+  @media (max-width: 1200px) {
+    .nav-dots { display: none; }
+  }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 {
+    color: var(--ink-bright);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(56px, 9vw, 120px);
+    font-weight: 250;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+    margin-bottom: 28px;
+  }
+  h1 em {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    margin-bottom: 32px;
+    line-height: 0.98;
+  }
+  h2 em {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.018em;
+    margin-bottom: 14px;
+    color: var(--ink-bright);
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  p { margin-bottom: 18px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+  em.gold {
+    color: var(--gold-bright);
+    font-style: italic;
+    font-family: var(--serif);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  a {
+    color: var(--gold-bright);
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+  }
+  a:hover { color: var(--gold); text-shadow: 0 0 20px var(--gold-glow); }
+
+  .container {
+    max-width: var(--container);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .container-wide {
+    max-width: var(--container-wide);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  /* ORNAMENT DIVIDER */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px 0;
+    opacity: 0.8;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(to right, transparent, var(--gold-deep), transparent);
+  }
+  .ornament-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    box-shadow: 0 0 12px var(--gold-glow), 0 0 24px var(--gold-glow-soft);
+  }
+  .ornament-line-v {
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  /* DROP CAP */
+  .drop-cap::first-letter {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 100;
+    font-size: 72px;
+    float: left;
+    line-height: 0.8;
+    padding-right: 14px;
+    padding-top: 8px;
+    color: var(--gold-bright);
+    text-shadow: 0 0 24px var(--gold-glow);
+    font-style: italic;
+  }
+
+  /* MARQUEE — каролинский стиль со звёздами и цифрами */
+  .marquee {
+    padding: 28px 0;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee::before, .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee::before { left: 0; background: linear-gradient(to right, var(--bg-deep), transparent); }
+  .marquee::after { right: 0; background: linear-gradient(to left, var(--bg-deep), transparent); }
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    animation: marquee 50s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .marquee-item .num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: 24px;
+    color: var(--gold-bright);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .marquee-star {
+    color: var(--gold);
+    font-size: 16px;
+    margin: 0 8px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* INTRO — большой italic-параграф */
+  .intro {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--bg-deep);
+    position: relative;
+  }
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 60px; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+  .intro p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 780px;
+    margin: 0 auto 22px;
+    text-wrap: balance;
+  }
+  .intro p:last-of-type { margin-bottom: 0; }
+  .intro p strong, .intro p em {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 80px 0 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+
+  .hero-tape {
+    position: absolute;
+    top: 32px;
+    left: 0; right: 0;
+    z-index: 3;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+    max-width: 100%;
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: normal;
+  }
+  .hero-meta .accent { color: var(--gold); }
+  .hero-meta .pulse {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .hero-meta .sep { width: 24px; height: 1px; background: var(--line-bright); }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+  }
+
+  .hero-content {
+    text-align: center;
+    padding-top: 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-topline {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.6vw, 28px);
+    color: var(--ink);
+    margin-bottom: 56px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  .hero-footer {
+    margin-top: 72px;
+    display: flex;
+    justify-content: center;
+    gap: 72px;
+    flex-wrap: wrap;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 80;
+    font-size: 48px;
+    color: var(--gold-bright);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+  .hero-stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* HERO RAIL — вертикальный текст по сторонам */
+  .hero-rail {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .hero-rail.left { left: 32px; }
+  .hero-rail.right { right: 32px; transform: translateY(-50%) rotate(180deg); }
+  .hero-rail::before, .hero-rail::after {
+    content: '';
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold-deep), transparent);
+  }
+  @media (max-width: 1100px) {
+    .hero-rail { display: none; }
+  }
+
+  /* HERO NAME — большой italic с золотым градиентом */
+  .hero-name-wrap {
+    position: relative;
+    margin-bottom: 56px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(56px, 13vw, 168px);
+    color: var(--gold-bright);
+    letter-spacing: -0.025em;
+    line-height: 0.9;
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+    filter: drop-shadow(0 0 24px var(--gold-glow-soft));
+  }
+  .hero-name-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    max-width: 320px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+
+  /* HERO SUBTITLE — путь со стрелкой */
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    padding: 0 12px;
+  }
+  .hero-subtitle > span { display: inline-block; }
+  .hero-subtitle .accent { color: var(--gold-bright); text-shadow: 0 0 12px var(--gold-glow); }
+  .hero-subtitle .arrow { color: var(--gold); font-size: 14px; }
+
+  /* HERO KPI — сетка 2 ячейки (цена ТОЛЬКО внизу в price-card) */
+  .hero-kpi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    width: 100%;
+    max-width: 520px;
+    margin: 56px auto 0;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hero-kpi-cell {
+    background: var(--bg);
+    padding: 36px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s var(--ease);
+  }
+  .hero-kpi-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+  }
+  .hero-kpi-cell:hover { background: var(--bg-1); }
+  .hero-kpi-cell:hover::before { opacity: 1; }
+  .hero-kpi-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(34px, 4.5vw, 48px);
+    line-height: 1;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+  .hero-kpi-value sup {
+    font-size: 0.4em;
+    color: var(--gold);
+    margin-left: 4px;
+    vertical-align: super;
+    text-shadow: 0 0 12px var(--gold-glow);
+  }
+  .hero-kpi-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .hero-kpi { grid-template-columns: 1fr; }
+  }
+
+  /* HERO HANDLES */
+  .hero-handles {
+    margin-top: 56px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .hero-handles a {
+    margin: 0 12px;
+    border-bottom: 1px dotted var(--gold-glow);
+    padding-bottom: 2px;
+  }
+
+  /* SCROLL HINT */
+  .scroll-hint {
+    margin-top: 64px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    opacity: 0.7;
+    z-index: 3;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 12px auto 0;
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+  @keyframes scrollDown {
+    0% { transform: translateY(-8px) scaleY(0.5); opacity: 0; }
+    50% { transform: translateY(0) scaleY(1); opacity: 1; }
+    100% { transform: translateY(8px) scaleY(0.5); opacity: 0; }
+  }
+
+  /* SECTION SPACING */
+  section.spacer {
+    padding: 100px 0;
+  }
+
+  /* PROOF BLOCK */
+  .proof {
+    background: linear-gradient(180deg, transparent, var(--bg-1), transparent);
+    padding: 80px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .proof-content {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin: 40px 0;
+  }
+  .proof-stat {
+    text-align: center;
+  }
+  .proof-stat-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--gold-bright);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 0 24px var(--gold-glow);
+  }
+  .proof-stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @media (max-width: 600px) {
+    .proof-stats { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .proof-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1px solid var(--gold-glow);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-top: 24px;
+    transition: all 0.3s var(--ease);
+  }
+  .proof-link:hover {
+    background: var(--gold-glow-soft);
+    border-color: var(--gold);
+    box-shadow: 0 0 24px var(--gold-glow);
+  }
+
+  /* SITUATION BLOCK */
+  .situation-points {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .sit-point {
+    padding: 32px 36px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: all 0.5s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .sit-point::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at center, var(--gold-glow-soft), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .sit-point:hover {
+    background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+  .sit-point:hover::before { opacity: 1; }
+  .sit-point:hover .sit-point-num {
+    color: var(--gold-bright);
+    text-shadow: 0 0 24px var(--gold-glow);
+    transform: scale(1.1);
+  }
+  .sit-point:hover .sit-point-text { color: var(--ink-bright); }
+  .sit-point .sit-point-num, .sit-point .sit-point-text {
+    transition: all 0.5s var(--ease);
+    position: relative;
+    z-index: 1;
+  }
+  .sit-point-num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 280, "SOFT" 100;
+    font-size: 28px;
+    color: var(--gold-bright);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    min-width: 44px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+  .sit-point-text {
+    flex: 1;
+    color: var(--ink);
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  @media (max-width: 600px) {
+    .situation-points { grid-template-columns: 1fr; }
+  }
+
+  /* METHOD BLOCKS */
+  .method-intro {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.45;
+    color: var(--ink);
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 80px;
+    text-wrap: balance;
+  }
+  .method-intro em {
+    color: var(--gold-bright);
+    font-style: italic;
+  }
+
+  .block {
+    padding: 72px 32px;
+    margin: 0 -32px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 40px;
+    align-items: start;
+    transition: all 0.6s var(--ease);
+  }
+  .block:last-of-type { border-bottom: 1px solid var(--line); }
+  .block::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+    opacity: 0;
+    transition: opacity 0.6s var(--ease);
+  }
+  .block::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 60% at left center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s var(--ease);
+    pointer-events: none;
+  }
+  .block:hover::before { opacity: 1; }
+  .block:hover::after { opacity: 1; }
+  .block:hover .block-num {
+    opacity: 1;
+    transform: scale(1.05);
+    text-shadow: 0 0 40px var(--gold-glow-strong);
+  }
+  .block:hover h3 { color: var(--gold-bright); }
+  .block .block-num { transition: all 0.5s var(--ease); }
+  .block h3 { transition: color 0.5s var(--ease); }
+  .block-num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: 84px;
+    color: var(--gold);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    opacity: 0.85;
+    text-shadow: 0 0 30px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold-deep));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: sticky;
+    top: 80px;
+  }
+  .block-num::after {
+    content: attr(data-tag);
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    margin-top: 12px;
+    -webkit-text-fill-color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .block-body { min-width: 0; }
+  .block h3 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: clamp(28px, 3.8vw, 42px);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+    color: var(--ink-bright);
+    line-height: 1.05;
+  }
+  .block .what {
+    color: var(--ink);
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+  .block .gives {
+    background: linear-gradient(135deg, rgba(255, 184, 77, 0.04), transparent);
+    border-left: 2px solid var(--gold);
+    padding: 22px 28px;
+    margin-top: 28px;
+    color: var(--ink);
+    border-radius: 0 4px 4px 0;
+  }
+  .block .gives strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .block ul {
+    list-style: none;
+    margin: 18px 0;
+  }
+  .block ul li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--ink);
+  }
+  .block ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  @media (max-width: 700px) {
+    .block {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 56px 0;
+    }
+    .block-num {
+      font-size: 64px;
+      position: static;
+      margin-bottom: 16px;
+    }
+    .block-num::after { margin-top: 6px; }
+  }
+
+  /* OBLIGATIONS — что входит */
+  .obligations {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .obl-group {
+    padding: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: all 0.5s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .obl-group::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at top left, var(--gold-glow-soft), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .obl-group::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    border-radius: 6px;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--gold-glow), transparent 40%, transparent 60%, var(--gold-glow-soft));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .obl-group:hover {
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 60px rgba(255, 184, 77, 0.08), 0 0 40px var(--gold-glow-faint);
+  }
+  .obl-group:hover::before { opacity: 1; }
+  .obl-group:hover::after { opacity: 1; }
+  .obl-group:hover h4 {
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+  .obl-group h4 { transition: all 0.5s var(--ease); }
+  .obl-group h4 {
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .obl-group ul {
+    list-style: none;
+  }
+  .obl-group ul li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .obl-group ul li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--gold);
+    font-size: 22px;
+    line-height: 18px;
+  }
+
+  /* WORK FORMAT */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    counter-reset: work;
+  }
+  .work-item {
+    padding: 32px 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    counter-increment: work;
+    position: relative;
+    transition: all 0.5s var(--ease);
+    overflow: hidden;
+  }
+  .work-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at right top, var(--gold-glow-soft), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .work-item:hover {
+    border-color: var(--gold-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 60px rgba(255, 184, 77, 0.1), 0 0 40px var(--gold-glow-faint);
+  }
+  .work-item:hover::before { opacity: 1; }
+  .work-item:hover::before { animation: shimmer 0.8s var(--ease); }
+  .work-item:hover::after {
+    text-shadow: 0 0 32px var(--gold-glow-strong);
+    transform: scale(1.08);
+  }
+  .work-item::after {
+    transition: all 0.5s var(--ease);
+  }
+  @keyframes shimmer {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+  }
+  .work-item::before {
+    content: counter(work);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: 56px;
+    color: var(--gold-bright);
+    text-shadow: 0 0 20px var(--gold-glow);
+    position: absolute;
+    top: 16px;
+    right: 28px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .work-item h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink-bright);
+    margin-bottom: 10px;
+    padding-right: 60px;
+  }
+  .work-item p {
+    color: var(--text);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* OUTCOMES */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+  @media (max-width: 700px) {
+    .outcomes-grid { grid-template-columns: 1fr; }
+  }
+  .outcome {
+    padding: 40px;
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.5s var(--ease);
+    overflow: hidden;
+  }
+  .outcome::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 70% at center top, var(--gold-glow-soft), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .outcome::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+  }
+  .outcome:hover {
+    border-color: var(--gold-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(255, 184, 77, 0.12), 0 0 50px var(--gold-glow-faint);
+  }
+  .outcome:hover::before { opacity: 1; }
+  .outcome:hover::after { opacity: 1; box-shadow: 0 0 12px var(--gold-glow); }
+  .outcome:hover .outcome-num { color: var(--gold-bright); text-shadow: 0 0 16px var(--gold-glow); }
+  .outcome:hover h3 { color: var(--gold-bright); }
+  .outcome .outcome-num, .outcome h3 { transition: all 0.5s var(--ease); }
+  .outcome-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .outcome h3 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ink-bright);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .outcome p {
+    color: var(--text);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* PRICE */
+  .price-card {
+    background: linear-gradient(180deg, var(--bg-1), var(--bg-deep));
+    border: 1px solid var(--gold-glow);
+    border-radius: 6px;
+    padding: 72px 40px 56px;
+    text-align: center;
+    box-shadow: 0 0 60px var(--gold-glow-faint);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold);
+  }
+  .price-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at center top, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 60% 40% at center bottom, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+  }
+  .price-card > * { position: relative; z-index: 1; }
+  .price-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .price-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 100;
+    font-size: clamp(72px, 10vw, 120px);
+    color: var(--ink-bright);
+    line-height: 1;
+    margin-bottom: 16px;
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.04em;
+  }
+  .price-currency {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.6em;
+  }
+  .price-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+  .price-terms {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .price-term {
+    background: var(--bg-deep);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .price-term-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .price-term-value {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-size: 18px;
+  }
+  .price-note {
+    color: var(--text);
+    font-size: 14px;
+    max-width: 460px;
+    margin: 32px auto 0;
+    font-family: var(--serif);
+    font-style: italic;
+  }
+  @media (max-width: 500px) {
+    .price-terms { grid-template-columns: 1fr; }
+  }
+
+  /* TARIFFS — три тарифа */
+  .tariffs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    text-align: left;
+  }
+  @media (max-width: 900px) {
+    .tariffs { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+  }
+  .tariff {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .tariff.featured {
+    border-color: var(--gold);
+    background: linear-gradient(180deg, var(--gold-glow-faint), transparent 80%);
+  }
+  .tariff-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .tariff-name {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-weight: 300;
+    font-size: 26px;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+    line-height: 1.12;
+  }
+  .tariff-price {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 280;
+    font-size: 46px;
+    color: var(--ink-bright);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .tariff-price span {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.5em;
+    margin-left: 4px;
+  }
+  .tariff-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 12px 0 26px;
+  }
+  .tariff ul {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+    flex: 1;
+  }
+  .tariff li {
+    padding: 11px 0 11px 22px;
+    position: relative;
+    color: var(--ink);
+    font-size: 14.5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tariff li:last-child { border-bottom: none; }
+  .tariff li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+  }
+  .tariff-note {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* GUARANTEE */
+  .guarantee {
+    background: var(--bg-1);
+    border-left: 3px solid var(--gold);
+    padding: 40px 48px;
+    margin: 60px 0;
+    position: relative;
+  }
+  .guarantee-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .guarantee h3 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .guarantee p {
+    color: var(--ink);
+    font-size: 16px;
+  }
+  .guarantee p strong {
+    color: var(--gold-bright);
+  }
+
+  /* REMOTE WORK */
+  .remote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  @media (max-width: 700px) {
+    .remote-grid { grid-template-columns: 1fr; }
+  }
+  .remote-card {
+    padding: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: all 0.5s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .remote-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at left top, var(--gold-glow-soft), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .remote-card:hover {
+    border-color: var(--gold-glow);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(255, 184, 77, 0.04), transparent);
+    box-shadow: 0 16px 50px rgba(255, 184, 77, 0.08);
+  }
+  .remote-card:hover::before { opacity: 1; }
+  .remote-card:hover h3 { color: var(--gold-bright); }
+  .remote-card:hover h4 { text-shadow: 0 0 12px var(--gold-glow); }
+  .remote-card h3, .remote-card h4 { transition: all 0.5s var(--ease); }
+  .remote-card h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .remote-card h3 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ink-bright);
+    margin-bottom: 14px;
+  }
+  .remote-card p {
+    color: var(--text);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* CONTACT / CTA */
+  .contact {
+    padding: 100px 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .contact h2 {
+    margin-bottom: 24px;
+  }
+  .contact-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--ink);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.4;
+  }
+  .contact-quote-big {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-style: italic;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--ink-bright);
+    max-width: 880px;
+    margin: 32px auto 48px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    text-shadow: 0 0 40px var(--gold-glow-soft);
+  }
+  .contact-author {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 60px;
+  }
+  .contact-author .accent {
+    color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 0;
+  }
+
+  /* =================================================== */
+  /* RESPONSIVE — мобильная адаптация                      */
+  /* =================================================== */
+
+  /* TABLET и меньше */
+  @media (max-width: 900px) {
+    .container, .container-wide { padding: 0 24px; }
+    section.spacer { padding: 80px 0; }
+    .section-header { margin-bottom: 60px; }
+    .hero-name { font-size: clamp(56px, 14vw, 96px) !important; }
+    .splash-name { font-size: clamp(56px, 14vw, 96px); }
+    .intro { padding: 90px 0; }
+    .intro::before { top: 40px; }
+    .ornament::before, .ornament::after { width: 60px; }
+  }
+
+  /* MOBILE — до 700px */
+  @media (max-width: 700px) {
+    body { font-size: 15px; }
+
+    .container, .container-wide { padding: 0 20px; }
+
+    /* SPACER секции */
+    section.spacer { padding: 64px 0; }
+    .section-header { margin-bottom: 48px; }
+
+    /* HERO */
+    .hero { min-height: auto; padding: 100px 0 60px; }
+    .hero-tape { top: 20px; }
+    .hero-meta { font-size: 9.5px; letter-spacing: 0.2em; gap: 10px; }
+    .hero-meta .sep { display: none; }
+    .hero-content { padding-top: 30px; }
+    .hero-name { font-size: clamp(48px, 14vw, 72px) !important; }
+    .hero-name-wrap { margin-bottom: 40px; }
+    .hero-name-wrap::after { bottom: -20px; }
+    .hero-subtitle { font-size: 10px; letter-spacing: 0.22em; gap: 10px; margin-bottom: 32px; }
+    .hero-tagline { font-size: 18px !important; margin-bottom: 48px; padding: 0 8px; }
+    .hero-kpi { grid-template-columns: 1fr; max-width: 320px; }
+    .hero-kpi-cell { padding: 24px 16px; }
+    .hero-kpi-value { font-size: 36px !important; }
+    .hero-handles { margin-top: 36px; font-size: 11px; }
+    .scroll-hint { margin-top: 40px; }
+
+    /* SPLASH */
+    .splash-name { font-size: clamp(48px, 16vw, 80px); }
+    .splash-sub { font-size: 9.5px; letter-spacing: 0.22em; padding: 0 24px; text-align: center; }
+    .splash-loader { width: 160px; }
+
+    /* PROOF */
+    .proof { padding: 60px 0; }
+    .proof-stats { grid-template-columns: 1fr; gap: 28px; }
+    .proof-stat-value { font-size: 40px; }
+
+    /* SITUATION */
+    .situation-points { grid-template-columns: 1fr; margin-top: 40px; }
+    .sit-point { padding: 24px 20px; gap: 14px; }
+    .sit-point-num { font-size: 22px; min-width: 36px; }
+    .sit-point-text { font-size: 14.5px; }
+
+    /* METHOD BLOCKS — главное исправление: убрать отрицательный margin */
+    .method-intro { font-size: 18px !important; margin-bottom: 48px; }
+    .block {
+      padding: 48px 0;
+      margin: 0;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .block::before { left: -8px; }
+    .block::after { display: none; }
+    .block-num {
+      font-size: 56px !important;
+      position: static !important;
+      margin-bottom: 12px;
+    }
+    .block-num::after { margin-top: 4px; font-size: 9px; letter-spacing: 0.24em; }
+    .block h3 { font-size: 22px !important; }
+    .block .what { font-size: 15px; }
+    .block .gives { padding: 18px 20px; margin-top: 20px; }
+    .block .gives strong { font-size: 10px; letter-spacing: 0.22em; }
+
+    /* OBLIGATIONS */
+    .obligations { gap: 24px; margin-top: 32px; }
+    .obl-group { padding: 24px 22px; }
+    .obl-group ul li { font-size: 14.5px; }
+
+    /* WORK / OUTCOME / REMOTE */
+    .work-grid { gap: 20px; }
+    .work-item { padding: 24px 22px; }
+    .work-item h3 { font-size: 16px; padding-right: 50px; }
+    .work-item::before { font-size: 44px; right: 20px; top: 12px; }
+
+    .outcomes-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
+    .outcome { padding: 28px 24px; }
+    .outcome h3 { font-size: 20px; }
+
+    .remote-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
+    .remote-card { padding: 26px 22px; }
+    .remote-card h3 { font-size: 20px; }
+
+    /* PRICE */
+    .price-card { padding: 48px 22px 36px; }
+    .price-value { font-size: clamp(56px, 16vw, 80px); }
+    .price-period { margin-bottom: 28px; font-size: 11px; letter-spacing: 0.22em; }
+    .price-terms { grid-template-columns: 1fr; max-width: 320px; }
+    .price-term { padding: 16px 20px; }
+    .price-term-value { font-size: 15px; }
+    .price-note { font-size: 13.5px; padding: 0 8px; margin-top: 24px; }
+
+    /* GUARANTEE */
+    .guarantee { padding: 28px 24px; margin: 40px 0; }
+    .guarantee h3 { font-size: 22px; }
+    .guarantee p { font-size: 15px; }
+
+    /* CONTACT */
+    .contact { padding: 60px 0; }
+    .contact-quote-big { font-size: clamp(22px, 5.5vw, 32px) !important; margin: 24px auto 36px; padding: 0 4px; }
+    .contact-author { font-size: 10px; letter-spacing: 0.2em; margin-top: 32px; }
+
+    /* INTRO */
+    .intro { padding: 64px 0; }
+    .intro::before { top: 28px; width: 80px; }
+    .intro p { font-size: 17px !important; padding: 0 4px; }
+
+    /* MARQUEE */
+    .marquee { padding: 20px 0; }
+    .marquee::before, .marquee::after { width: 60px; }
+    .marquee-track { gap: 56px; }
+    .marquee-item { font-size: 10.5px; letter-spacing: 0.14em; gap: 10px; }
+    .marquee-item .num { font-size: 18px; }
+    .marquee-star { font-size: 13px; margin: 0 4px; }
+
+    /* ORNAMENT */
+    .ornament { padding: 28px 0; gap: 14px; }
+    .ornament::before, .ornament::after { width: 40px; }
+
+    /* EYEBROW */
+    .eyebrow { font-size: 9.5px; letter-spacing: 0.24em; gap: 10px; }
+    .eyebrow::before, .eyebrow::after { width: 20px; }
+
+    /* h2 общий */
+    h2 { font-size: clamp(30px, 8vw, 40px) !important; margin-bottom: 24px; }
+
+    /* DROP CAP убираем — мешает */
+    .drop-cap::first-letter {
+      font-size: 56px;
+      padding-right: 10px;
+      padding-top: 4px;
+    }
+  }
+
+  /* SMALL MOBILE — до 420px */
+  @media (max-width: 420px) {
+    .container, .container-wide { padding: 0 16px; }
+    .hero-content { padding-top: 16px; }
+    .hero-meta { font-size: 9px; letter-spacing: 0.16em; }
+    .hero-meta .pulse { width: 5px; height: 5px; }
+    .hero-name { font-size: 56px !important; }
+    .hero-tagline { font-size: 16px !important; }
+    .price-value { font-size: 56px; }
+    .block-num { font-size: 48px !important; }
+    .splash-skip { bottom: 20px; right: 20px; padding: 8px 14px; font-size: 9px; }
+  }
+
+  /* PROFILE SNAPSHOT */
+  .psnap { margin-top: 8px; }
+  .psnap-lead { font-family: var(--serif); font-style: italic; font-size: clamp(17px,2vw,21px); color: var(--ink); max-width: 720px; margin-bottom: 40px; }
+  .ps-headcard { display: flex; gap: 28px; align-items: center; background: var(--bg-card); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 16px; }
+  @media (max-width: 600px){ .ps-headcard{ flex-direction: column; text-align: center; gap: 18px; padding: 26px 20px; } }
+  .ps-avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: none; border: 1px solid var(--gold); }
+  .ps-hi h3 { font-family: var(--display); font-weight: 300; font-size: 30px; color: var(--ink-bright); line-height: 1.1; }
+  .ps-hi .ps-handle { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gold); margin: 6px 0 12px; }
+  .ps-hi .ps-bio { color: var(--ink); font-size: 14px; line-height: 1.5; max-width: 420px; margin-bottom: 16px; }
+  .ps-nums { display: flex; gap: 28px; }
+  @media (max-width: 600px){ .ps-nums{ justify-content: center; } }
+  .ps-num b { font-family: var(--display); font-size: 26px; color: var(--ink-bright); display: block; line-height: 1; }
+  .ps-num span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .ps-note { color: var(--muted); font-size: 13px; font-style: italic; font-family: var(--serif); margin-bottom: 36px; }
+  .ps-sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin: 40px 0 18px; }
+  .ps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 760px){ .ps-grid{ grid-template-columns: repeat(2, 1fr); } }
+  .ps-card { display: block; text-decoration: none; color: inherit; }
+  .ps-thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .ps-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .3s; }
+  .ps-card:hover .ps-thumb img { transform: scale(1.05); }
+  .ps-metric { position: absolute; left: 8px; bottom: 8px; background: rgba(0,0,0,.7); backdrop-filter: blur(4px); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .ps-tag { position: absolute; top: 8px; right: 8px; background: rgba(201,183,155,.85); color: #0b0b0c; font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; }
+  .ps-stats { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .ps-cap { font-size: 11.5px; color: var(--dim); margin-top: 4px; line-height: 1.35; min-height: 16px; }
+  .ps-tg { background: var(--bg-card); border: 1px solid var(--line); border-radius: 12px; padding: 28px 30px; margin-top: 16px; }
+  .ps-tg-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; flex-wrap: wrap; gap: 8px; }
+  .ps-tg-head h4 { font-family: var(--display); font-weight: 300; font-size: 22px; color: var(--ink-bright); }
+  .ps-tg-head .ps-tg-meta { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--muted); }
+  .ps-tg-row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .ps-tg-row:last-child { border-bottom: none; }
+  .ps-tg-t { color: var(--ink); }
+  .ps-tg-v { color: var(--gold); font-variant-numeric: tabular-nums; flex: none; }
+  .ps-tg-v::before { content: '▶ '; color: var(--muted); }
+
+</style>
+<style>
+#method{counter-reset:q}
+.q{list-style:none;margin:6px 0 0}
+.q li{counter-increment:q;padding:12px 0 12px 42px;position:relative;color:var(--ink);font-size:16px;line-height:1.5;border-top:1px solid var(--line)}
+.q li:first-child{border-top:none}
+.q li::before{content:counter(q)".";font-family:var(--mono);font-weight:500;font-size:14px;color:var(--gold);position:absolute;left:0;top:13px;min-width:30px;text-align:right;letter-spacing:.02em}
+.q li em{font-style:italic;color:var(--gold-bright)}
+.qintro{color:var(--ink);font-family:var(--serif);font-style:italic;font-size:18px;margin-bottom:8px;line-height:1.4}
+.howto-wrap{padding:20px 0 10px}
+.howto{background:linear-gradient(135deg,var(--gold-glow-soft),transparent 75%);border:1px solid var(--line-bright);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:32px 36px}
+.howto h3{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350;font-weight:350;font-size:26px;color:var(--ink-bright);margin-bottom:18px}
+.howto ul{list-style:none}
+.howto li{padding:8px 0 8px 28px;position:relative;color:var(--ink);font-size:16px;line-height:1.5}
+.howto li::before{content:'\2192';position:absolute;left:0;color:var(--gold)}
+.howto b{color:var(--gold-bright);font-weight:500}
+.note-bar{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:16px;border-left:2px solid var(--gold-deep);padding:6px 0 6px 18px;margin-top:20px}
+/* ===== ДОСЛОВНО ===== */
+.block .what{color:var(--ink);margin-bottom:16px;font-size:16.5px;line-height:1.72}
+.block .what.lead::first-letter{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 280,"SOFT" 100;font-size:62px;float:left;line-height:.78;padding:6px 13px 0 0;color:var(--gold-bright);text-shadow:0 0 24px var(--gold-glow)}
+.plead{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2vw,21px);line-height:1.5;color:var(--ink);margin-bottom:14px}
+</style></head>
+<body>
+
+<div class="splash" id="splash">
+  <div class="splash-label">Дословная распаковка · 2026</div>
+  <div class="splash-name">Распаковка</div>
+  <div class="splash-sub">Азиза · Ваши&nbsp;слова,&nbsp;дословно</div>
+  <div class="splash-loader"></div>
+  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
+</div>
+
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
+
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot" data-section="hero" data-label="Начало"></button>
+  <button class="nav-dot" data-section="b01" data-label="Личность"></button>
+  <button class="nav-dot" data-section="b02" data-label="Ценности"></button>
+  <button class="nav-dot" data-section="b03" data-label="Ваш путь"></button>
+  <button class="nav-dot" data-section="b04" data-label="Миссия"></button>
+  <button class="nav-dot" data-section="b05" data-label="Фонд"></button>
+  <button class="nav-dot" data-section="b06" data-label="Психология"></button>
+  <button class="nav-dot" data-section="b07" data-label="Животные"></button>
+  <button class="nav-dot" data-section="b08" data-label="Драйв"></button>
+  <button class="nav-dot" data-section="b09" data-label="Стиль"></button>
+  <button class="nav-dot" data-section="b10" data-label="Путешествия"></button>
+  <button class="nav-dot" data-section="b11" data-label="Дом"></button>
+  <button class="nav-dot" data-section="b12" data-label="Интересы"></button>
+  <button class="nav-dot" data-section="b13" data-label="Блог"></button>
+  <button class="nav-dot" data-section="contact" data-label="Финал"></button>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-rail left">Дословная&nbsp;версия</div>
+  <div class="hero-rail right">Азиза × Малик</div>
+  <div class="container hero-content">
+    <div class="hero-topline">Распаковка личности · Дословная версия</div>
+    <span class="hero-eyebrow">Ваши&nbsp;слова&nbsp;— дословно</span>
+    <div class="hero-name-wrap reveal">
+      <div class="hero-name">Распаковка</div>
+    </div>
+    <div class="hero-subtitle reveal reveal-delay-1">
+      <span>Ваши&nbsp;<span class="accent">слова</span></span>
+      <span class="arrow">→</span>
+      <span>дословно,&nbsp;<span class="accent">без правок смысла</span></span>
+    </div>
+    <p class="hero-tagline reveal reveal-delay-2">
+      Это Ваша распаковка <em class="gold">слово в слово</em>. Я только убрал ошибки расшифровки и расставил знаки — смысл, порядок и формулировки остались Вашими.
+    </p>
+    <div class="hero-kpi reveal reveal-delay-3">
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">13<sup>блоков</sup></div>
+        <div class="hero-kpi-label">Вашего&nbsp;рассказа</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">100<sup>%</sup></div>
+        <div class="hero-kpi-label">Ваши&nbsp;слова</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint reveal reveal-delay-5">Прокрутить</div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="num">01</span> Личность и характер</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">02</span> Ценности и принципы</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">03</span> Ваш путь и точка сейчас</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">04</span> Миссия, видение, цели</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">05</span> Благотворительность и фонд</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">06</span> Психология и взгляд на жизнь</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">07</span> Животные</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">08</span> Драйв и экстрим</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">09</span> Стиль, эстетика, образ</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">10</span> Путешествия и две страны</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">11</span> Дом, быт, лайфстайл</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">12</span> Интересы и развитие</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">13</span> Блог: аудитория, тон</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">01</span> Личность и характер</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">02</span> Ценности и принципы</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">03</span> Ваш путь и точка сейчас</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">04</span> Миссия, видение, цели</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">05</span> Благотворительность и фонд</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">06</span> Психология и взгляд на жизнь</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">07</span> Животные</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">08</span> Драйв и экстрим</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">09</span> Стиль, эстетика, образ</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">10</span> Путешествия и две страны</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">11</span> Дом, быт, лайфстайл</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">12</span> Интересы и развитие</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">13</span> Блог: аудитория, тон</span><span class="marquee-star">✦</span>
+  </div>
+</div>
+
+<section class="intro" style="padding:90px 0">
+  <div class="container">
+    <p class="reveal" style="margin-bottom:0">Это&nbsp;<strong>Ваши слова</strong>, слово в слово. Я только&nbsp;<em>привёл их в порядок</em>&nbsp;— смысл и интонация Ваши.</p>
+  </div>
+</section>
+
+<section class="spacer" style="padding-top:0">
+  <div class="container howto-wrap reveal">
+    <div class="howto">
+      <h3>Как читать эту версию</h3>
+      <ul>
+        <li>Здесь Ваш рассказ <b>слово в слово</b>&nbsp;— я ничего не пересобирал и не переписывал</li>
+        <li>Убраны только <b>ошибки расшифровки</b> и расставлены знаки препинания и абзацы</li>
+        <li><b>Смысл, порядок и формулировки — Ваши.</b> Это Вы, как Вы говорите</li>
+        <li>Рядом есть <b>вторая версия</b>&nbsp;— тот же материал, собранный в цельный смысловой портрет</li>
+        <li>Это <b>черновик</b>: все 13 блоков собраны из Ваших ответов — прочитайте и скажите, где поправить</li>
+        <li>Прочитайте и скажите, где я <b>неверно расслышал</b>&nbsp;— поправим</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="spacer" id="method" style="padding-top:20px">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Ваш рассказ · дословно</span>
+      <h2>Ваши слова, <em>как Вы их сказали</em></h2>
+    </div>
+
+    <div class="block reveal" id="b01">
+      <span class="block-num" data-tag="База">01</span>
+      <div class="block-body">
+        <h3>Личность и характер</h3>
+        <p class="what lead">Мне двадцать шесть лет. Я родилась в Душанбе. Папа у меня араб, мама наполовину турчанка, наполовину афганка. Закончила девять классов в Душанбе, переехала в пятнадцать-шестнадцать лет в Красноярск одна, без каких-либо родственников и документов, и отучилась там четыре года на бухгалтера. В двадцать лет переехала в Санкт-Петербург, поступила на факультет экономики и менеджмента.</p>
+        <p class="what">Обожаю ездить за рулём — правда, очень долго училась водить. Люблю рисовать, люблю танцевать, люблю путешествовать, обожаю животных и детей, люблю садоводство. Я очень добрая, открытая, понимающая. По работе у меня рекламное агентство, плюс я занимаюсь благотворительностью. Ещё я люблю спорт и всё время чему-то учусь, куда-то двигаюсь. Обожаю психологию, обожаю историю.</p>
+        <p class="what">По характеру я очень сильная, очень упрямая и очень гордая. Я никогда не спрашиваю у других советов, я всегда знаю, чего хочу и куда двигаюсь. Могу послушать и сделать выводы, но в конце концов сделаю так, как хочу сама. Я целеустремлённая, весёлая, добрая, открытая, жизнерадостная. Грустить мне не свойственно, держать обиду на кого-то я не умею. Если кто-то меня обижает, я сразу прощаюсь с этим человеком — не люблю долго обижаться. Жизнь короткая, надо радоваться каждому дню и наслаждаться.</p>
+        <p class="what">За что меня любят близкие — за то, что я их никогда не осуждаю и не обсуждаю. Всё, что они делают, я принимаю. Всех своих близких я принимаю такими, какие они есть, не люблю кого-то менять, учить, поправлять. И сколько бы ошибок они ни сделали, я — как дочка, как сестра, как тётя — буду рядышком и поддержу. Ни в коем случае не скажу: «нельзя было так делать». Только стопроцентная поддержка с моей стороны. Думаю, за это меня и уважают, и ценят — и за то, что я всегда нахожу выход, и мне это легко даётся. Я всегда своя.</p>
+        <p class="what">Что во мне есть такого, чего нет у большинства? Я бы сказала — целеустремлённость плюс эмпатия: я очень хорошо чувствую людей. А три слова, которые я хотела бы, чтобы возникали у людей в голове, когда они думают обо мне, — успешная, умная и жизнерадостная. Или красивая. Что-то между этим.</p>
+        <p class="what">Вывести меня из себя может враньё — не люблю, когда люди лукавят и врут. А мгновенно поднимает настроение погода, когда солнечно, поездка за рулём, музыка, танцы.</p>
+        <p class="what">В себе я ценю то, что могу сама себя наполнить — и любовью, и добротой, и поддержкой. Я очень хорошо с собой дружу. Ценю себя, своё время, свои мечты. Ценю за то, что я никогда не сдаюсь: что бы ни происходило, я всегда иду до конца. А усилить я бы хотела терпение — мне его не всегда хватает.</p>
+        <p class="what">Из маленьких странностей: я всё время пою и всё время танцую. Не люблю, когда дома визуальный шум, поэтому всё время убираю — у меня вся посуда по полочкам, вещи по цветам. Когда выхожу из машины, всегда всё забираю, не оставляю ничего, кроме документов и ключей, — не люблю, когда в машине мусор. И к технике я очень хорошо отношусь.</p>
+        <p class="what">Что обо мне почти никто не знает? Я очень открытая, но многие не знают про мои трудности — я очень редко о них говорю. Не знают, что мне трудно быть родителем для своей мамы, для своих родителей. И что я никогда не испытывала чувства, что кто-то может стать для меня опорой, — я всегда была сама за себя. Потому что я средний ребёнок, а когда ты средний ребёнок, ты сама отвечаешь и за свою жизнь, и за своё образование. Тебе, может, и помогают, но всё равно ты как будто больше подруга.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b02">
+      <span class="block-num" data-tag="Опора">02</span>
+      <div class="block-body">
+        <h3>Ценности и принципы</h3>
+        <p class="what lead">Если говорить о ценностях, я бы назвала в первую очередь личные ценности, потом семейные, духовные и материальные — в конце.</p>
+        <p class="what">По каким принципам я принимаю важные решения? Честность. И ещё у меня очень хорошая интуиция — я очень хорошо чувствую и вижу людей насквозь. При этом я всегда знаю, чего хочу, поэтому мне очень легко принимать важные решения, мне не надо долго думать. Я могу послушать советы, но в конце концов делаю так, как сама ощущаю.</p>
+        <p class="what">Что для меня абсолютно недопустимо? В людях — предательство. И когда врут, терпеть не могу. В работе — когда не уважают чужой труд и когда безответственно относятся к делу.</p>
+        <p class="what">Что я считаю настоящим успехом? Успех — это когда у тебя дома тепло, уютно, спокойно, и на работе тоже: у тебя любимая работа, всё хорошо, всё идёт своим чередом. Думаю, это самый настоящий успех. И ещё хороший успех — это когда у тебя ферритин хотя бы 80, хотя бы 90. А пустышкой я считаю бренды, драгоценности, одежду, сумочки — думаю, это пустышка. И машины тоже. А всё остальное — это успех: и драгоценности, и недвижимость, и хорошее здоровье, любимая работа, любимая семья, где тебя не осуждают, а принимают.</p>
+        <p class="what">Какие убеждения я вынесла из своего опыта и готова отстаивать? Жизнь короткая. Нет ничего невозможного. Ошибаться — это нормально, все твои ошибки рано или поздно приведут тебя к успеху.</p>
+        <p class="what">По-настоящему меня задевает невежество — вот это я не люблю. И то, что иногда люди безалаберно относятся к себе, к своей жизни, к своему здоровью. В остальном меня мало что задевает.</p>
+        <p class="what">Есть фраза, по которой я сверяю свою жизнь: нет ничего невозможного в этом мире. Если ты чего-то хочешь, ты к этому придёшь — это вопрос времени. Ты придёшь к этому сегодня, или через месяц, или через год, но всё равно придёшь. Я человек, который переписал свою судьбу, поэтому уверенно могу сказать: нет ничего невозможного. Кроме здоровья — победить смерть не получится. А всё остальное получится.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b03">
+      <span class="block-num" data-tag="Путь">03</span>
+      <div class="block-body">
+        <h3>Ваш путь и точка сейчас</h3>
+        <p class="what lead">Я закончила девять классов в Душанбе, выросла в восточной семье, где традиции и всё такое. А я видела себя совсем по-другому: я хотела увидеть мир, хотела распоряжаться своим временем и своей жизнью самостоятельно. Мне не нравились эти традиции и обычаи. И когда я в пятнадцать уехала в Красноярск — одна, не к родственникам, а к своему парню, — меня все осуждали. Но мама понимала: если я решила, я к этому приду, я всё равно это сделаю. Поэтому она разрешила, и я уехала.</p>
+        <p class="what">В Красноярске у меня были очень ужасные отношения с молодым человеком. Тогда я и начала заниматься психологией — это помогло мне уйти из этих отношений. Я работала: раздавала листовки в минус сорок пять, работала баристой, официантом, консультантом. Меня несколько раз кидали, потому что у меня не было гражданства. Где-то на четвёртом курсе я нашла хорошую работу. Подала документы после получения диплома в федеральный университет, думала остаться в Красноярске — у меня там уже всё в жизни сложилось. Но в итоге у меня умерла бабушка, и мне пришлось переехать в Санкт-Петербург, где жила мама.</p>
+        <p class="what">У нас в семье трое детей: старший, младший и я — средняя. Старшая сестра вышла замуж, когда я уезжала в Красноярск, и они с мужем переехали в Санкт-Петербург. Мама тоже переехала сюда из-за внука. В итоге я вернулась в Санкт-Петербург практически ни с чем — без документов, без денег. Но сразу же поступила в университет. Мне надо было покинуть Россию, так как у меня не было документов, и я на три месяца уехала в Душанбе — надо было пробыть там девяносто дней. Там я тоже работала, училась работать в 1С, заработала деньги и вернулась обратно в Санкт-Петербург.</p>
+        <p class="what">Сделала себе патент. Условия ужасные, если честно. Как только я один раз сделала патент, я поняла, что на следующий год надо что-то придумать, двигаться дальше, потому что невозможно каждый год делать патенты и стоять в очереди на холоде. Тогда я выяснила, что через русский диплом можно подать на РВП, потом на ВНЖ, а потом получить гражданство. Так я и сделала. Занималась этими бумажками где-то с девятнадцатого года, а в двадцать втором получила паспорт. Сначала ходила год с патентом, потом с РВП, потом с ВНЖ — и гражданство.</p>
+        <p class="what">В Питере я работала оператором по двенадцать часов, разговаривала по телефону. Ещё когда я была в Красноярске, у меня тётя умерла от рака, а бабушка — от горя. А в тот момент, когда я приехала в Санкт-Петербург, я сразу стала работать волонтёром в фонде. Тогда же познакомилась со своим будущим мужем; мы год встречались, а потом, в двадцать втором году, поженились. После оператора я стала копирайтером, потом переехала в офис, в главный корпус, и потихонечку поднималась по ступенькам: сначала оператор, потом копирайтер, до менеджера.</p>
+        <p class="what">Когда вышла замуж, я на время бросила работу, немного занималась волонтёрством. В это время начала водить машину. Год до замужества мы жили в квартире, потом построили дом, завели собачку и кошечку и поженились. И я расслабилась — так продолжалось где-то до двадцать четвёртого года. А потом я осталась на улице, ни с чем. Это дало мне толчок снова вспомнить, кто я и что я умею.</p>
+        <p class="what">В итоге с двадцать четвёртого года у меня появилось рекламное агентство, я переписала машину на себя, взяла ипотеку и за девять месяцев её закрыла. Ещё получила второе гражданство и стала резидентом в Испании, и вот уже год учу испанский язык. Параллельно я очень много путешествовала — смотрела, как живут другие люди, как у них всё происходит в плане жизни. Это очень интересно: когда видишь, как живут другие, понимаешь, к чему тебе стоит стремиться. У меня никогда не было кумиров, я ни по кому не фанатела. Я всё время мечтала видеть себя в двадцать пять лет такой, какой являюсь сейчас.</p>
+        <p class="what">После того как я осталась на улице, я поняла, что нельзя никому доверять, нельзя расслабляться и нельзя надеяться на других и ждать чего-то от них. Я закрыла свою базу и сейчас очень стойко стою на ногах. Самым трудным было предательство со стороны семьи и со стороны мужа. Сколько бы добра я ни делала, всё это не оценили. И я горжусь тем, что нашла в себе силы: эту ситуацию я отпустила, простила и двигаюсь дальше. Не предала свою мечту. Этот момент, двадцать четвёртый год, был для меня самым переломным, самым больным периодом жизни.</p>
+        <p class="what">Я всю жизнь работаю со взрослыми людьми, всё время сравниваю свою жизнь с жизнью взрослых. И всегда мечтала, что, после того как закрою все свои базовые потребности, буду вести блог. Зачем мне блог? Чтобы ощутить глоток свободы. У меня все дела делятся на «хочу» и «надо», и я всё время делаю «надо»: надо учить языки, надо гражданство, дом, квартира, работа. А блог для меня — из категории «хочу», прямо душа просится. Потому что я понимаю, что там будут и доходы, и новые хорошие знакомые, и реклама.</p>
+        <p class="what">Что щёлкнуло внутри? Я поняла, что могу себе это позволить. До этого я тоже вела блог, и мне было очень трудно: я каждый день выкладывала посты, сторис, и настолько устала, что даже перестала вести. А сейчас понимаю, что у меня работа идёт: в Санкт-Петербурге рекламное агентство, благотворительный фонд, а в эту поездку в Испанию мы открыли ещё одну организацию — и там тоже всё хорошо. Я поняла, что готова заявить миру о себе. Я достаточно обучалась и изучала, и мне есть что показать и рассказать по опыту. Мне двадцать шесть, и где-то девятнадцать лет я обучаюсь, изучаю, путешествую и работаю. Поэтому мне и нужен продюсер — тот, кто будет помогать мне всё это делать.</p>
+        <p class="what">Что осталось за кадром? За кадром остались слёзы, трудности, предательство, боль. Обычно люди видят, что у меня всё хорошо, я очень редко об этом рассказываю. А за кадром всегда остаётся вот эта боль, переживания, слёзы, трудности, буллинг, я бы сказала — национализм. Женщине вообще очень трудно заявить о себе в мире мужчин. Это всегда остаётся за кадром.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b04">
+      <span class="block-num" data-tag="Цель">04</span>
+      <div class="block-body">
+        <h3>Миссия, видение, цели</h3>
+        <p class="what lead">В ближайшие три-пять лет я бы хотела дом, квартиру в Испании, машину, гражданство. Хочу свободно и грамотно говорить на английском и на испанском. И хочу зарабатывать намного больше, чем сейчас, чтобы работа и блог шли хорошо. Я бы хотела три-пять миллионов, надеюсь.</p>
+        <p class="what">Зачем мне блог? Для меня блог — это глоток свободы, место, где я могу быть собой. Моя основная работа монотонная, замкнутая, там всё время внутренняя работа, и мне хотелось бы немного от неё отвлечься. Плюс блог — это реклама, сотрудничества, новые люди, закрытые мероприятия, новые друзья. Такой хороший движ, который мне нравится, по душе. И дополнительный доход.</p>
+        <p class="what">Что я могу дать людям? Хорошие эмоции, развлечение, эстетическое удовольствие, вдохновение, мотивацию. Объединение единомышленников в комьюнити. Ещё жизненный опыт, обзоры, жизнерадостность, кулинарию. Советы по поводу сада, машин, техники, путешествий.</p>
+        <p class="what">Я бы хотела вдохновлять свободных, успешных женщин. Можно добавить студентов, мамочек — людей, которые любят животных, природу, красиво одеваться и красиво жить.</p>
+        <p class="what">Если бы блог сработал по максимуму, у меня были бы новые друзья, я бы много путешествовала, немного отошла бы от своей основной работы, ходила бы на разные мероприятия, брала бы рекламу и просто наслаждалась своей жизнью. Я бы больше путешествовала по Европе, ходила на мероприятия, красиво одевалась. Сейчас у меня такая жизнь, что я всё время за городом, работаю дистанционно. Если есть какие-то мероприятия по фонду, я выезжаю. И мне хотелось бы всегда хорошо выглядеть, а то иногда совсем нет времени собраться. Поэтому мне и хочется вести блог — чтобы немного отдаляться от работы, потому что там взрослые люди и замкнутая внутренняя работа.</p>
+        <p class="what">О чём я мечтаю, но пока не говорю вслух? Я мечтаю стать миллиардершей. Построить огромнейший особняк, ферму, конюшню. Хочу много животных, много машин, ретро-машины. Хочу кататься верхом. Главное достижение для меня — жить в особняке где-нибудь в Европе, в тёплой стране, может быть, в Испании, пока ещё не на сто процентов уверена. Своя коллекция ретро-машин, мотоциклов, техники, конюшня, ферма, огромнейший сад. И много детей.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b05">
+      <span class="block-num" data-tag="Фонд">05</span>
+      <div class="block-body">
+        <h3>Благотворительность и фонд</h3>
+        <p class="what lead">Благотворительный фонд помогает тяжелобольным детям. У всех разные диагнозы, но больше всего у нас онкобольные дети. Открывается сбор на определённого ребёнка — неважно, сколько детей, — и их отправляют в разные страны на лечение. По России очень редко, в основном это ДЦП и другие моменты, связанные с детьми, а в большей степени — онкология.</p>
+        <p class="what">Чем я занимаюсь в фонде? Я разговариваю с родителями, которые оставляют заявку на сайте. Заявка принимается, мне отправляют их контакты, я с ними разговариваю, изучаю их историю. Потом всё это надо согласовать с сотрудниками, выкладываются фотографии, собираются документы. Это внутренняя работа. Миссия фонда — помогать детям, потому что сейчас очень тяжело, тем более Россия под санкциями, и вывозить детей в другие страны непросто.</p>
+        <p class="what">Я пришла в благотворительность в две тысячи девятнадцатом. Тогда у меня умерли тётя и дядя от рака. У дедушки тоже рак — он, слава богу, жив. А бабушка умерла от горя, когда я была ещё в Красноярске. И когда я в такой момент переехала в Санкт-Петербург, я сразу же устроилась волонтёром и начала помогать. Для меня это важно ещё и потому, что у меня рекламное агентство в Питере, и я очень много работаю с некоммерческими организациями. Я часто встречаю людей, которые готовы помогать, — за счёт этого у них уменьшаются налоги. Поэтому я отправляю своих клиентов в фонды, и они спокойно поддерживают определённого ребёнка. У них появляются любимчики, которых они поддерживают каждый месяц. Своих детей у меня нет, но я всегда помогаю, чем могу. Когда есть возможность — почему бы и не сделать? Тем более мой муж этим занимается, я всё это вижу, и мы часто об этом разговариваем.</p>
+        <p class="what">Какая история из работы фонда зацепила меня сильнее всего? В девятнадцатом году, когда я только-только начала заниматься, был такой мальчик Андрей — фамилию уже забыла. Я тогда ездила, снимала этих детей, снимала истории родителей, как они рассказывают, и очень сильно привязалась к этому ребёнку, полюбила его. К сожалению, он умер — не успел вовремя получить лечение, потому что не собрали сбор, там была огромнейшая сумма. Это мне очень сильно запомнилось. Очень красивый, очень милый ребёнок, ему было года три.</p>
+        <p class="what">Есть ещё одна ужасная история — слава богу, не с тем фондом, где я работала, а с другим. Мне рассказали её директора. Собрали деньги на определённого ребёнка, отправили родителям, а те, вместо того чтобы вылечить ребёнка, полетели отдыхать на море. Это описали в новостях, и с того момента все фонды стали работать по-другому: заключают договоры с больницами и оплачивают счета, которые больница выставляет.</p>
+        <p class="what">Что благотворительность дала мне? Взгляды на людей поменялись — и в хорошую сторону, и в плохую, но здесь всё зависит от родителей: есть адекватные, есть неадекватные. Когда ты помогаешь детям, а потом родители звонят и благодарят, что сделали операцию и всё хорошо, — ты начинаешь искренне радоваться за каждого ребёнка, следить, что у них происходит, в каком состоянии ребёнок. Ещё мы помогаем больницам с расходниками: кровати, кресла, катетеры, лекарства. Проводим детям мастер-классы в больнице, поздравляем с праздниками, устраиваем концерты, ходим на экскурсии, в музей, в зоопарк, развлекаем детей.</p>
+        <p class="what">Что из этого я готова показывать в блоге? Изначально я бы не хотела трогать благотворительность. Сначала я бы набрала хотя бы сто тысяч, ну или хотя бы шестьдесят-семьдесят, — тогда уже можно говорить о фонде. Пятьдесят-шестьдесят — вообще норма, можно даже с сорока начинать говорить. А на данный момент, в начале, я бы не хотела это трогать. Единственное — я бы не хотела вести на своей страничке какие-то сборы, вот этого не хочу. Может, что-нибудь выложила бы в сторис, а чтобы полноценным постом — пока не уверена. Как просить и говорить о помощи — пока не знаю, я ещё не вижу фонд в своём блоге, так что к этому вопросу вернёмся, когда наберём сорок.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b06">
+      <span class="block-num" data-tag="Глубина">06</span>
+      <div class="block-body">
+        <h3>Психология и взгляд на жизнь</h3>
+        <p class="what lead">За десять лет психологии что я могу сказать... Я выросла в восточной семье, где со стороны мамы меня многие не любили. Мой отец — со стороны мамы его ненавидели, а я была первым ребёнком моего отца. Мама была дважды замужем, и меня всё время обделяли, издевались. Мама тоже говорила мне много таких, ужасных слов, потому что они с моим отцом были в ужасных отношениях. Так я прожила лет пятнадцать. Восточная семья, холодная мама, к тому же тревожная, с гиперопекой; со стороны традиций — запреты, «нельзя», «Бог накажет». Плюс в шестнадцать у меня ещё были отношения с ужасным человеком. И когда я пришла к психологии, я начала понимать, как от этого абстрагироваться, как избавиться, как с этим работать. Потому что детские травмы не убрать совсем.</p>
+        <p class="what">Мне кажется, каждому дано столько детских травм, чтобы во взрослой жизни он смог пережить определённые ситуации — чтобы его психика их выдержала. Поэтому в определённом возрасте даются определённые травмы, чтобы в будущем психика человека выдержала. Мне нравится в психологии то, что я могу изучать себя, работать со своими травмами. Полностью их не убрать, но можно найти определённые точки, слабые места, и работать с ними так, чтобы они были тебе в пользу, а не во вред. Ещё я сейчас читаю книгу про нарциссов — называется «Хрупкие люди. Тайная дверь в мир нарциссов», написала Юлия Пирумова, если не ошибаюсь. Очень хорошая книга.</p>
+        <p class="what">Какие выводы о людях я сделала за эти годы? Могу точно сказать, что многие люди очень сильно травмированы и проживают с этими травмами всю жизнь, до конца дней, не пытаясь как-то это изучить и поработать. Если взять старшее поколение, там всё построено на внушении чувства вины, на манипуляциях. Когда смотришь на это со стороны, понимаешь, что очень редко в странах СНГ, в России бывает, чтобы человек искренне любил. И когда взрослые люди в браке или родители по отношению к своему ребёнку ведут себя ужасно — там нет любви, там куча манипуляций, давления, чувства вины, внушения.</p>
+        <p class="what">Я поняла: если человек поступает с тобой плохо, это не потому, что ты где-то позволила или дала повод, а потому, что этот человек по-другому не может, он другой жизни себе и не представляет. Каждый даёт то, чем он наполнен. И когда ты сталкиваешься с предательством, ты понимаешь, что дело не в том, что человек плохо с тобой поступил, а в том, что там, глубже, очень много боли, обид, несправедливости. За счёт этого ты уже не реагируешь на такие вещи: понимаешь, что это не твоя мера ответственности, а его, и не хочется его воспитывать, что-то говорить, куда-то направлять. Ты меняешь фокус на себя и идёшь дальше.</p>
+        <p class="what">Так же и когда едешь за рулём: кто-то тебя подрезает, сигналит, начинает агрессивничать. Я понимаю, в каком состоянии человек. Если это мужчина, который не состоялся в работе, у него подавленная агрессия, и он начинает всё это выплёскивать на тебя, самоутверждаться за твой счёт. Если женщина — тоже уставшая, с детьми, неудовлетворённая семейной жизнью. Когда ты изучаешь психологию, ты не обижаешься и не вступаешь: думаешь — нет, я не буду с тобой спорить, не буду мериться, у кого что больше. Психология даёт видеть в каждом человеке маленького обиженного ребёнка. И иногда хочется просто обнять человека, сказать: всё хорошо, я в тебя очень верю, у тебя всё получится.</p>
+        <p class="what">Что я думаю об отношениях мужчин и женщин? На данный момент мужчины намного слабее эмоционально, и они почему-то отказываются от психологии. Я вижу очень много успешных, умных, самодостаточных женщин, которые несут ответственность не только за свою жизнь, но и за жизнь своих детей, каждый день куда-то двигаются, что-то делают, — берут на себя ту самую отцовскую заботу. Но таких мужчин, как отцы, я очень редко встречала в России, в странах СНГ. А вот в Европе, когда смотрю, какие там отношения: муж, жена, дети — родители участвуют в воспитании вдвоём, у них всё пятьдесят на пятьдесят, они в прекрасных отношениях, общаются с детьми, играют. И если родителям шестьдесят-семьдесят лет, а ребёнку тридцать, то ребёнок просто рядом, и у него нет мысли, как вылечить маме зубы, как купить родителям жильё, как улучшить им жизнь. Потому что родитель играет роль родителя, а ребёнок — роль ребёнка, неважно, сколько кому лет. Родитель сам себя обеспечивает: за свою жизнь он сделал так, что у него есть и имущество, и страховки, и деньги. И он до сих пор помогает своему ребёнку, наоборот учит его, как проживать жизнь и куда двигаться дальше. Я сейчас не про гиперопеку. Просто муж и жена вдвоём строят семью, вдвоём воспитывают, вдвоём зарабатывают — и это намного лучше, чем в России и странах СНГ, где жена тащит всё на себе или муж, который уже устал и не может ничего соображать. И в таких отношениях кто-то жертва, а кто-то, наоборот, управляет этой жертвой. Ещё в таких отношениях всегда есть третий человек — неважно, мама, папа, любовник или любовница. Люди годами крутятся в этом треугольнике и забывают, чего они на самом деле хотят, из-за страхов и сомнений откладывают свою жизнь на потом.</p>
+        <p class="what">Какие женские болевые точки я понимаю лучше других? Сначала — многие так проходили, у меня очень много знакомых — женщина хочет любви, встречается с парнем, который либо не может дать любовь, либо по чувствам всё даёт, но по финансам, целям и семейным ценностям они расходятся, и в итоге расстаются. Потом наступает второй этап: женщина говорит «к чёрту любовь, хочу мужчину, который будет меня обеспечивать». Но когда мужчина много зарабатывает, а женщина нет, он начинает над ней властвовать, контролировать, диктовать свои правила, и в таких отношениях женщина быстро угасает. Хотя если это правильный мужчина, который всё делает по красоте и не претендует на её свободу, не контролирует, а просто обеспечивает, а она занимается бытом и детьми, и его это устраивает, — тогда всё нормально. А бывает наоборот: мужчина чувствует власть и с каждым днём подавляет в женщине женственность. И есть третья стадия, самая идеальная: женщина нормально зарабатывает, мужчина нормально зарабатывает, они живут спокойно на одном уровне, никто никого не контролирует, и каждый несёт ответственность одинаково.</p>
+        <p class="what">Что бы я сказала женщине, которая стоит там, где я стояла несколько лет назад? Не надо искать любви в родителях, не надо искать любви в мужчинах и в других людях. Надо искать любовь внутри себя. Надо настолько давать себе любви, поддержки, заботы, чтобы твоей любви хватало и на родителей, и на партнёра, и на себя, и на свою семью. И то, что иногда с тобой обращаются плохо, где-то предают, изменяют, — не потому, что ты это заслужила или дала повод, а потому, что люди сами такие, они по-другому любить не умеют.</p>
+        <p class="what">Какие психологические идеи я считаю важными, но недооценёнными? Психология сейчас повсюду, в мире, в котором мы живём: она держится и на рекламе, и на отношениях, и на отношении к детям, к собакам, к животным — во всём сейчас рулит психология. И ещё: все богатые люди идут с определёнными травмами. Если ты мечтаешь встретить богатого человека, будь готова сталкиваться с его психологическими травмами: у него почти всегда комбо — либо нарциссическое расстройство, либо шизоидное, либо истероидное, либо тревожное. И тебе выбирать, с каким человеком тебе было бы хорошо и на что ты могла бы закрывать глаза. Многие почему-то считают, что богатые люди — обязательно адекватные и хорошие. Нет. По сути, здоровому человеку, который вырос в полноценной семье, многого и не надо. Поэтому в Европе многие не стремятся к роскоши — пятиэтажным домам, огромным машинам. Те, кто к этому стремится, идут с определёнными расстройствами. А многие европейцы средне зарабатывают на жизнь, им этого достаточно, и они спокойно живут.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b07">
+      <span class="block-num" data-tag="Тепло">07</span>
+      <div class="block-body">
+        <h3>Животные</h3>
+        <p class="what lead">Животные — моя любимая тема. У меня три собаки, две кошки, два кота и черепаха. Когда я начала встречаться со своим мужем, у него уже был мопс Иосиф — ему тогда было восемь лет — и кошка Петровна, ей было десять. В период наших отношений мы завели кошку Сару — это моя первая кошка — и французского бульдога Балу, это моя первая собака. Потом, когда мы уже поженились и построили дом, муж подарил мне после свадьбы золотистого ретривера. Я всегда мечтала о такой собаке: мечтала, чтобы у меня были ребёнок и золотой ретривер и чтобы они вместе выросли. Ретривера зовут Вольт, ему сейчас четыре года.</p>
+        <p class="what">Черепаху завела моя сестра для своего сына Дамира, но ей было тяжело каждую неделю чистить аквариум, и в итоге я забрала черепаху себе. Их было две, но одна убила другую — поэтому я назвала его Люцифером, Люциком.</p>
+        <p class="what">По характеру Вольт, золотой ретривер, и Балу, французский бульдог, совсем не дружат — они друг друга ненавидят. Был такой момент, что Вольт очень сильно укусил Балу, и тот потерял глаз — теперь он у нас ходит как пират. У Балу вообще ужасный характер, он очень ревнивый. А Вольт очень спокойный, очень послушный, и при этом всё время стремится к людям: ему неинтересны ни другие собаки, ни кошки — он всё время тянется ко мне или к мужу. Сара, моя кошечка, очень спокойная. А Петровна уже старенькая, жирная Петровна — очень любит пить молоко.</p>
+        <p class="what">Мейн-кунов мы завели недавно — муж мечтал о мейн-куне. Сначала взяли Элвиса, потом Джастина. Элвис — наш первый мейн-кун, он скорпион, и я тоже скорпион, поэтому обожаю этого кота. Он мой первый кот в жизни: очень ласковый, спокойный. Когда его поднимаешь, он сразу прячет когти, становится спокойным, ложится и с таким видом меня гладит. А Джастин — они с Элвисом как близнецы, и вдвоём напоминают меня и мою сестру: мы с сестрой погодки и всё время были вдвоём. Джастин, граф Джастин, очень флегматичный, закрытый и всего боится. Приходит гладиться, только когда я начинаю ложиться спать, — ему так намного спокойнее и комфортнее. Коты прекрасные, очень послушные и добрые. Если бы я знала, что мейн-куны такие добрые, я бы давным-давно их завела. А взгляд у них грозный, сами чёрные, огромные. Им мы делаем мясо — нам дали рецепт, — они едят мясо и сухой корм, а все остальные животные едят сухой корм, и всё спокойно.</p>
+        <p class="what">Сейчас золотой ретривер с кошками в Карелии, а коты с мопсом и французским бульдогом — тут, в Ленобласти. Первого мейн-куна мы взяли после Восьмого марта, это был подарок, а второго — на мой день рождения, в ноябре.</p>
+        <p class="what">Когда я завела свою первую собаку, французского бульдога, я начала заниматься с кинологом. Я видела собаку мужа, мопса: он всё время писал дома и совсем не слушался. Поэтому с бульдогом — ему тогда было шесть месяцев — мы начали заниматься, и занимались где-то два года. Потом завели золотого ретривера, и с ним я тоже параллельно занималась, примерно год и восемь месяцев. А когда ретривер вырос и они начали ругаться с Балу, я ещё месяцев шесть занималась с ними вдвоём, с Вольтом и Балу, чтобы они хоть как-то подружились. Но нет, это не помогло. Кинолог всё время приходил, и мы втроём-вчетвером занимались собаками.</p>
+        <p class="what">Собаки у меня очень послушные, знают все команды, не избалованные — понимают с полуслова, знают «домой», «гулять», «кушать». Хорошие собаки: ничего не грызут, мебель не портят, дома не писают — всё на улице, всё спокойно.</p>
+        <p class="what">Когда занимаешься с кинологом, там работает ещё и психология — психология собак. Они считывают эмоции человека, и нет смысла орать, бить, наказывать — они этого совсем не понимают. Собаки как дети: если хочешь, чтобы собака слушалась, её нужно с самого начала обучать так, чтобы ей было интересно, — через игры, надо хвалить, уделять ей время. В таком темпе она быстро начинает понимать все команды и слушаться. А когда собаке с тобой неинтересно, а ты начинаешь орать, ругать, наказывать — она не понимает, и, как ребёнок, которого всё время ругаешь, начинает делать ещё хуже. И собака очень хорошо чувствует своего хозяина. Многие собачники, когда видят других собак, боятся, что их собака сейчас начнёт гавкать, и начинают натягивать поводок — они в напряжении, собака это чувствует и уже готовится атаковать. А когда хозяин расслаблен и не натягивает поводок, оставляет слабину, — собака никак не будет реагировать. Поэтому очень важно, чтобы рядом с собакой хозяин всегда был спокойным.</p>
+        <p class="what">С кинологами я многому научилась — и в плане воспитания, и в плане питания, и как понять, какая у тебя собака. У меня большая собака — рабочая: она всё время должна чему-то обучаться, выполнять команды, приносить пакеты, обувь, тапки, всё время быть полезной, они по-другому не могут. А мопс и французский бульдог — декоративные, их нельзя загружать, это собаки-компаньоны, которые всё время рядом и морально тебя поддерживают. А золотой ретривер — это всё время работа: с ними надо долго гулять, чтобы они хорошо себя чувствовали и не разжирели, потому что когда они жиреют или меньше гуляют, у них начинают слабеть задние лапки.</p>
+        <p class="what">Животные для меня — это всё, я их очень сильно люблю. Для меня животные — что-то доброе, уютное, тёплое, они всё время морально меня поддерживают. Без животных дома очень скучно и грустно. Если человек умеет любить просто так, ничего не прося взамен, — таким людям и советуют заводить животных, потому что животное взамен ничего не может тебе дать: ты его всю жизнь кормишь, лечишь, ухаживаешь, гуляешь, а оно ничего тебе не даёт. Зато если ты умеешь любить в одну сторону — это очень хорошо. Любить животных — это, я бы сказала, безопасная любовь, которая взамен не сделает тебе ничего плохого. Они очень искренне умеют любить, и им неважно, сколько у хозяина денег и где они живут, — они просто будут любить. У них очень хорошая энергетика, поэтому я так сильно люблю животных.</p>
+        <p class="what">Из трогательного и смешного: Вольт, золотой ретривер, — собака-улыбака, он всё время улыбается, лезет обниматься, очень добрый и ласковый, хотя огромный. Когда он бежит на тебя, ты просто падаешь — сорок пять килограммов на скорости несутся к тебе с улыбкой, удержать невозможно. А ещё когда ночью выходишь просто попить или поесть, ты видишь, как со всех сторон светятся глазки: коты — кто-то полез на стол, смотрят сверху, собаки смотрят снизу, что ты ешь и не дай бог что-то упадёт на пол. И если падает — моментально всё исчезает, они как падальщики, как пылесосы, вмиг убирают. С ними всегда весело, интересно наблюдать, как они между собой общаются и играют. А французский бульдог у меня очень сильно храпит — иногда даже от страха просыпается от собственного храпа.</p>
+        <p class="what">Про животных я могу многое рассказать. Так как Вольт в Карелии, я сама его мою, стригу когти, чищу уши, зубы — по большей части ухаживаю за ним сама. А французский бульдог — очень сильный аллергик, я всегда подбираю ему хороший корм: бывает, он привыкает к одному корму, и у него начинается аллергия, а из-за аллергии ещё и дерматит, поэтому ему много чего нельзя, со стола давать вообще запрещаю.</p>
+        <p class="what">По поводу прививок: в этом году мы их ставили. Раньше я вообще не беспокоилась, ставила не российскую прививку, а польскую или чешскую, уже не помню. А в этом году очень долго искала, какие прививки поставить, потому что выпустили российские, а от них очень сильная побочка — многим животным в этом году ампутировали и лапки, и хвосты. Когда я ставила своим котам, я попросила ставить в хвост: чтобы, если вдруг будет побочка, лучше ампутировать хвост, чем лапки. Но мы поставили хорошую иностранную прививку, я долго её искала. У нас есть лечащий ветврач, он всегда приезжает с медсестрой — стригут когти, делают уколы, ставят прививки, капельницы.</p>
+        <p class="what">Французский бульдог — вообще проблемная порода от слова совсем. У него была межпозвоночная грыжа. Таким собакам нельзя много прыгать и бегать, а он спускался по лестнице и упал; начал поскуливать, мы поставили капельницу. Во второй раз так же где-то ударился — и мы дня три-четыре ставили капельницу, а там такая капельница, что за час не справишься: определённый объём капается за определённое время, есть специальный аппарат, оставляешь собаку на пять-шесть часов. В итоге мы долго искали хорошую ветклинику и сделали ему операцию. По этому поводу у меня тоже накопилось много информации — как воспитывать французского бульдога, золотого ретривера. Но, по мне, самая лучшая порода — золотой ретривер, потому что с мопсами и французскими бульдогами всё время проблемы: их даже нельзя возить в самолёте, им тяжело дышать.</p>
+        <p class="what">Спать с животными я вообще не люблю — у нас с мужем из-за этого постоянный конфликт: ему, наоборот, нравится спать со всеми животными. Он не тащит собак в кровать, а просто открывает дверь, и они все заходят. А я не люблю: я и так мало сплю и не высыпаюсь, а тут огромные коты, кошки, собаки на полу спят и храпят — очень неудобно. Зато утром я с ними болтаю, глажу, обнимаюсь, и вечером после работы обязательно: мы все вместе лежим на диване, я их обнимаю, тискаю, расчёсываю, кормлю.</p>
+        <p class="what">Сейчас у меня садовник уехал, и всеми обязанностями занимаюсь я, а до этого он убирал участок, гулял с ними, убирал за ними, менял корм и воду по пять раз в день — для животных очень хорошо, когда воду меняешь по пять раз в день, тогда у них меньше камней в почках. Ещё мы с ними купаемся в пруду. Я всё время с животными и не представляю свою жизнь без них. Иногда я еду в город, в свою квартиру, а там очень тихо, грустно, никого нет — для меня это просто кошмар. А когда они всё время рядом, бегают, когда ты спишь — они спят с тобой, когда что-то делаешь — они рядом, всё время к тебе стремятся, ходят за тобой хвостиками; настолько привыкаешь к этой жизни, что без них себя уже не представляешь. Когда приезжаешь с работы, они тебя встречают. А когда я ухожу, мне грустно, что я их оставляю, и я всё время считаю время, чтобы быстрее всё сделать и приехать домой к животным — выйти, полежать на солнышке, а они все рядом играют: кто-то охотится на бабочек, кто-то купается.</p>
+        <p class="what">Самый мой любимчик, прямо самый-самый, — французский бульдог Балу. Это моя первая собака, самая проблемная и самая ревнивая, и на нём всё держится: он всё время пытается строить всех в доме — котов, кошек, собак, — не даёт, чтобы кто-то шумел, что-то ломал или грыз, всё время контролирует. Своими игрушками и едой он не делится, всё охраняет; правда, взамен не бросается и не кусается, а наоборот, начинает всё быстро-быстро съедать, чтобы никому не досталось. А ещё, если мы с мужем разговариваем на повышенных тонах, он сразу начинает меня защищать — бежит, гавкает, бросается, но сильно не кусает, только пугает и предупреждает, что нельзя. И даже когда муж подходит ко мне обняться, Балу не даёт — настолько он ревнивый и всё время меня защищает. Вот он мой самый любимый. А из котов и кошек — Сара и Элвис. Я всех люблю, но по характеру мне больше всего подходит Балу, потому что это моя первая собака, я очень много в него вкладывалась и всё время была рядом. Элвис тоже прекрасный кот. Остальные тоже добрые и хорошие, но не такие любвеобильные: подходят гладиться тогда, когда сами хотят, — а чтобы так сильно быть связанным со мной, как Балу, такого у них нет.</p>
+        <p class="what">Одержимости у меня нет: у нас две маленькие собаки — одна мужа, одна моя — и одна большая, потому что без большой собаки в огромном доме, честно, очень грустно. Детей у нас нет, мы всё время работаем, и большая собака — это огромное счастье. Кошки у нас две — бездомные, беспородные, а мейн-кунов мы очень хотели, это прекрасная порода. Черепаха Люцифер досталась нам из жалости. А больше мы никаких животных заводить не будем. Хотя я мечтаю об огромной ферме — чтобы были и лошади, и коровы. В детстве мне не разрешали заводить животных, и, кстати, вот как работает психология: мужу в детстве тоже хотелось животных и тоже запрещали — в итоге у меня много животных, и у него, и в этом наши взгляды сошлись.</p>
+        <p class="what">Я часто слышу фразу «зоопарк». Да, реально зоопарк. Но дом у нас огромный, живём мы вдвоём, гости бывают очень редко — кроме моей сестры с племянником и общих друзей мы почти не собираемся, — и в таком большом доме даже не видно, что животных много. Мне не тяжело, потому что есть помощники: чистят лотки, убирают на улице, каждый день меняют корм и воду, играют с ними и сообщают, кто как себя чувствовал, пока меня не было. Все остальные обязанности по уходу — мои, как муж говорит, «помогаторы» — делают, поэтому мне намного легче. Когда говоришь людям, сколько у тебя животных, им сначала становится не по себе: «как ты вообще справляешься?». У нас самих была знакомая пара с семью собаками, и мы удивлялись, как они так могут, — а когда завели всех сами, поняли: совсем не чувствуется, комфортно. Дома у меня всё время убирается работница, поэтому ни шерсти, ни какого-то дискомфорта нет. Будь я одна в маленькой квартире — да, было бы некомфортно, согласна. А так всё хорошо. Племянники обожают приезжать ко мне, и подруги всё время просятся в гости — увидеть животных, потискать.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b08">
+      <span class="block-num" data-tag="Драйв">08</span>
+      <div class="block-body">
+        <h3>Драйв и экстрим</h3>
+        <p class="what lead">Любовь к технике, к скорости, вот этот драйв — это мне привил муж. Хотя сама я по натуре всё время люблю куда-то двигаться. Муж мне машину не водит: у него водитель, потому что он много работает и не успевает, да и неудобно за рулём одновременно работать. А по выходным он водит мотоциклы, квадроциклы. Мы живём за городом, часто ездим в Карелию, а от дома в пяти-десяти минутах Ладожское озеро — вот мы и подумали про гидроциклы и купили их.</p>
+        <p class="what">На мотоцикл мы ходили учиться вдвоём — мы вообще всё время делаем что-то вдвоём. У нас бывает гиперфиксация: то на изучении языков, то на музыке, то на мотоциклах. Вот вдвоём и научились, нам дали права. Потом купили квадроциклы. Вокруг очень много красивых пейзажей — и в Карелии, и в Ленобласти. И чтобы по выходным не сидеть всё время дома, мы купили эту технику и просто катаемся, наслаждаемся видом, устраиваем пикники, экологично проводим время вместе. Зимой катаемся на снегоходах, а летом — квадроциклы, гидроциклы. И всё это началось с него.</p>
+        <p class="what">Я обожаю скорость, но не так, чтобы где-то разбиться, рисковать своей жизнью и подвергать опасности других людей. Умеренно, спокойно. Люблю ездить за рулём, потому что чувствую свободу: когда я куда-то двигаюсь, внутри меня наполняется эта свобода, и при этом играет музыка — это прекрасно. На квадроцикле едешь, ветер поднимает волосы, и ты видишь мир по-другому. Всё время меняешь локации, куда-то едешь, изучаешь мир — и от этого у тебя намного больше энергии, чем когда всё время «работа — дом, работа — дом», от такого можно с ума сойти.</p>
+        <p class="what">Помню, где-то в феврале мы купили тур в сторону Мурманска — Териберка и Хибины. Есть такая база отдыха, куда не попасть на машине: летом туда едут на квадроциклах, а зимой на снегоходах. Помню такую картину: вокруг полностью снег, всё белое, лес, огромнейшее поле. Ты на скорости просто летишь на снегоходе, рядом никого нет, у тебя шлем с наушниками и полный подогрев, поэтому не мёрзнешь. И ты чувствуешь этот ветер, свободу вокруг, ни души — летишь по болотам, а вокруг прекраснейший закат. Понимаешь, насколько мир прекрасен. Это было незабываемо. Мы ехали часа четыре на снегоходах, с остановками, устраивали пикники, останавливались в чумах, видели оленей, кормили их. Приехали на базу — самую лучшую, с банькой, с прекраснейшей кухней, как будто ты приехала к бабушке в гости: очень вкусная еда. И там вообще не работает сеть, никакой связи — ты просто отдыхаешь наедине с северной природой. Северное сияние — это просто прекрасно.</p>
+        <p class="what">Я бы хотела заниматься дайвингом, потому что боюсь воды — в детстве я тонула и до сих пор борюсь с этим страхом. Плавать я научилась, но иногда боюсь глубины: когда ноги не касаются дна, у меня начинается паника. Хотелось бы перебороть этот страх. Мы были на Мальдивах, плавали в маске, видели подводный мир — и я влюбилась. Тогда дала себе обещание, что когда-нибудь начну заниматься дайвингом.</p>
+        <p class="what">Как во мне уживаются адреналин и женственность? Я всё это делаю, но с осторожностью — нет такого, чтобы я рисковала жизнью. За рулём я чувствую себя уверенно, неважно, какая техника. Риска я не чувствую — может, поэтому меня и влечёт: я чувствую себя в безопасности, доверяю себе. Если чего-то не понимаю, я просто не буду этого делать. Я очень хорошо чувствую любую технику, и это даёт мне уверенность. Недавно мы собрались большой группой, у нас был определённый маршрут на квадроциклах. Там я была одна, а все остальные — мужчины. И в итоге я лучше всех водила квадроцикл. А по поводу женственности — во мне всегда было наполовину сила, мужская энергия, и наполовину женственность, женская энергия. Я чувствую себя хамелеоном.</p>
+        <p class="what">Где я только не каталась: на гидроциклах по шхерам, на Мальдивах, на севере, на «буханке» по Байкалу. А вот на мотоцикле по городу я ещё ни разу не ездила, потому что не доверяю другим водителям, — только за городом. Самые лучшие маршруты — те, которые составляешь сам. Брать чужую технику и ехать по чужому маршруту очень рискованно: я видела, в каком состоянии эта техника и как её дают в аренду — это ужасно. Самые хорошие эмоции у меня от севера — Хибины, Байкал, Камчатка, Сахалин. А самое ужасное воспоминание связано с квадроциклом в Египте. Это было ужасно: ужасная техника, и пока едешь по пустыне, там лошадей бьют до крови, а если лошадь не погибает, её оставляют в пустыне. И ты едешь как будто по кладбищу. Больше в жизни не поеду в Египет — это был первый и последний раз.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b09">
+      <span class="block-num" data-tag="Эстетика">09</span>
+      <div class="block-body">
+        <h3>Стиль, эстетика, образ</h3>
+        <p class="what lead">Я люблю выглядеть стильно, успешно. Не люблю яркие цвета — мне нравятся какие-то спокойные, классические образы. Мои образы больше всего зависят от настроения и от того, где я нахожусь. Если я за городом — это спортивные вещи. Если выезжаю в город — это спокойные классические образы. А если я в Испании, то это уж точно пляжные образы: открытые, с большим количеством цветов. Мне нравится смотреть в инстаграме, когда девчонки одеваются не как все — у них такой женственный, спокойный образ.</p>
+        <p class="what">Для меня красота и эстетика — это когда человек может преподнести себя с хорошей стороны: знает свои минусы, но выделяет только плюсы. Ещё мне нравится естественность — не люблю, когда человек злоупотребляет ботоксом и косметологией. Естественная, спокойная красота, когда человек знает свой цветотип и использует всё это красиво и аккуратно.</p>
+        <p class="what">Что я люблю из гардероба? Обожаю обувь и сумочки, у меня очень много верхней одежды. Недавно я заказала консультацию и разбор гардероба у стилиста и все вещи раздала сестре. Скоро полечу в Испанию и буду обновлять себе гардероб — примеры образов, которые мы составили, я вам отправлю. Обожаю сумки Louis Vuitton, и обувь у них хорошая. Обожаю Gucci — качество у них на высшем уровне. Ещё у меня очень много верхней одежды от Burberry. Сумочка Chanel — это классика. Обожаю туфли Jimmy Choo, недавно, кстати, купили Louboutin. Бренды, которые чаще всего использую, — это Diesel, Burberry, Louis Vuitton, Gucci, Chanel, Jimmy Choo, Louboutin и многие другие, уже не супербренды — итальянские и испанские.</p>
+        <p class="what">Какой образ должен считываться? Образ успешного, стильного человека. У меня очень хороший стиль. Тем более если мы сейчас поменяем мой гардероб — будет очень красиво. В своей внешности я бы выделила глаза, кудрявые волосы и цвет кожи. Мне нравится, что у меня восточная внешность, и с этим запросом я обращалась к Селису — мы будем это всё раскрывать. Атмосфера — я бы сказала, атмосфера лёгкости: если это Испания, то это пляжи, кокосы, пляжная открытая одежда, кудрявые волосы, лёгкость, жизнерадостность. А если это Питер, то это строгие образы, сдержанность. Цвета я люблю спокойные, но если это Испания, то там сто процентов будут яркие, а если Питер — спокойный, сдержанный стиль. Пример стиля я отправила — прислала аккаунты.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b10">
+      <span class="block-num" data-tag="Дорога">10</span>
+      <div class="block-body">
+        <h3>Путешествия и жизнь на две страны</h3>
+        <p class="what lead">В России у нас построен дом, наши машины, животные — всё в России, в Санкт-Петербурге. Здесь мои родные, мой муж вырос в Санкт-Петербурге. А в Испании у нас пока ничего нет из собственности — мы только-только переезжаем, потихонечку. Всех животных планируем отвезти туда через год, если в стране будет спокойно; если нет — думаю, переедем быстрее. Мы только начинаем: с документами, с работой, с бытом, и в Испании пока ни родных, ни животных, никого нет.</p>
+        <p class="what">В России у меня основная работа, животные, родные. В неделю у меня шесть часов испанского, плюс восемь часов тренировок, работа и животные. А в Испанию если я еду, то точно по работе — мы сняли там квартиру на год. День там проходит с утра до вечера на встречах: по документам, по новой работе. Там у меня совсем другой уровень жизни, не такой, как здесь: нет ни домработницы, ни садовника, никого, кто бы помогал. Всё — встречи, юристы, адвокаты; я ещё и открыла там компанию. В Испании я вся в работе — за эту поездку успела сходить на море всего один раз. Но это временно: через пару месяцев жизнь наладится, и будет больше времени на себя. Так всегда, когда куда-то переезжаешь: много документов, много всего надо сделать.</p>
+        <p class="what">Когда всё наладится, я буду жить там спокойно: ходить на танцы, на пробежку, с утра гулять с собаками. Жизнь ощущается совсем по-другому. У нас квартира рядом с офисом, так что пару часов я поработаю в офисе — и всё, а остальное время это море, занятия, танцы. Испанию я люблю за свободу: я чувствую себя там в безопасности, там больше свободы, чем в России, и там очень мало тревожных людей — они никуда не спешат, не тревожатся, жизнь замедляется, и ты успеваешь наслаждаться каждым моментом. А в России всё по-другому: много работы, много ответственности, много дел, и всё время ты в тревоге. Санкт-Петербург для меня сейчас — это рабочие моменты, семья, дом. А в Испанию я еду уже с другими чувствами: погода замечательная, люди открытые, весёлые, встречают с улыбками и комплиментами, никуда не спеша. Там всё заказываешь спокойно, никто тебя не торопит, никто не сигналит, никто никуда не бежит. И погода играет роль: там солнечно, а в Питере всё время депрессивная погода.</p>
+        <p class="what">Из природы России мне нравятся Камчатка, Сахалин, Красноярск. Я бы посоветовала людям поехать на Байкал, на Сахалин, на Камчатку, обязательно на Курильские острова, в Териберку в сторону Мурманска, на Хибины — это просто идеальные места. На севере ты увидишь северное сияние, особенно красиво зимой: настоящая северная зима, киты, всё белоснежное, морошка, невероятные виды. А Камчатка и Сахалин — это Тихий океан, чувство свободы, силы, спокойствия. Там чувствуется вся мощь природы, туда ещё не дошли руки человека, и в этом огромная сила: даже когда прилетаешь, этот морской воздух — очень классно. Соловецкие острова тоже волшебные. На Алтае я не была, но очень хотела бы. А Байкал ни с чем не сравнить — с Европой такие места не сравнишь, это удивительные, мощные места невероятной силы.</p>
+        <p class="what">А в Испании я посоветовала бы поехать в Толедо, там как будто собраны три религии — христианство, ислам и иудаизм: сначала там были евреи, потом пришли арабы, потом испанцы, и там очень красиво. Север Испании — это Хихон, столица сидра, там тоже очень красиво. И обязательно я бы посоветовала съездить в Монсеррат — это огромный монастырь, построенный наверху, между скалами, тоже очень красиво. Какие места в Испании я обожаю больше всего, пока сказать не могу — я ещё не до конца переехала; как перееду, получу права и начну путешествовать. А по России скажу, что мне ближе всего Карелия, потому что я там часто бываю — каталась и по шхерам, и по валам. Первое место — Карелия, второе — Камчатка или Сахалин, если Сахалин, то Южно-Сахалинск, там очень красиво. На Камчатке я была три раза, на Сахалине — два, и хотела бы ещё: там очень красиво и природа мощная.</p>
+        <p class="what">Как сейчас попасть в Европу? Можно через Таллин, это выйдет в копеечки. Доходишь до автовокзала Санкт-Петербурга, покупаешь билет, на автобусе доезжаешь до Ивангорода, минут пятнадцать пешком проходишь границу — там, кстати, очень спокойно, быстро проходишь, — и на той стороне тебя уже ждёт другой автобус, который довозит до Таллина, а из Таллина можно попасть в любую страну, куда захочешь. Автобус выйдет тысяч десять: пять из Санкт-Петербурга до Эстонии и пять обратно, а из Испании до Таллина билет — евро пятьдесят туда-обратно, если не ошибаюсь. Это самый дешёвый вариант. Второй вариант — через Стамбул: отсюда вылетаешь «Пегасусом», до Стамбула три с половиной часа, а оттуда до Испании ещё около четырёх, может, меньше. Третий вариант, которым мы летели недавно, — через Марокко: Санкт-Петербург — Барселона так намного быстрее и комфортнее, единственный минус, что самолёты у них немножко грязные. От Санкт-Петербурга до Касабланки пять часов, а оттуда до Испании максимум два.</p>
+        <p class="what">Самое сильное впечатление от путешествий — это Африка, я в неё влюбилась. Честно, такой природы я нигде не видела, сравнить не с чем. Мы на мой день рождения купили огромный тур — сафари, шесть дней, — и это было невероятно, так красиво. А под конец мы полетели на Занзибар, и, господи, это место намного лучше Мальдив: бирюзовая прозрачная вода, белый песок — просто замечательно, таких мест я в жизни не видела. На Мальдивах тоже красиво, но не настолько. И там повара готовят все кухни мира идеально, я точно не голодала — вкусная еда, хорошие люди; единственное, что бедные, мне их было жалко, но они уже привыкли, а природа у них великолепная.</p>
+        <p class="what">Путешествуем мы не то чтобы спонтанно — мы почти каждый месяц куда-то летим, в большей степени по работе. А качественно, надолго, отдыхаем три раза в год: в ноябре, когда у меня день рождения, на его день рождения, который мы обычно совмещаем с Новым годом, и на годовщину нашей свадьбы. Обычно мы прилетаем в какую-нибудь страну по работе, делаем дела, а потом начинаем путешествовать — смотреть, что там нового, что старого, что вообще представляет эта страна. Я настолько привыкла к путешествиям, что даже не готовлюсь: косметичка и аптечка у меня всегда готовы, и когда собираюсь, например, на шесть дней, я просто кидаю сразу шесть образов, удобную обувь, косметичку, аптечку — и всё. Часто путешествую с ручной кладью, так намного комфортнее и быстрее: не надо стоять в бешеных очередях и ждать чемодан, онлайн зарегистрировалась — и пошла. А с большим чемоданом всегда проблемы: пока сдашь, пока заберёшь, пока катаешь его, а откроешь — там куча ненужных вещей. Маршрут мы всегда составляем сами; только если это Африка — там без туроператора делать нечего, а Европу и Россию планируем сами.</p>
+        <p class="what">Мой дом на данный момент — там, где я и мои животные, вот там мой дом. Испанский менталитет мне больше всего нравится за то, что они открытые, дружелюбные, никуда не спешат и умеют вкусно проживать свою жизнь. А удивляет то, что они, например, на пляже спокойно загорают без топа, и неважно, дети рядом или нет, все спокойно купаются. Мечтаю поехать в первую очередь в Китай и Японию. Ещё хотела бы посетить Южную Африку и Южную Америку — Бразилию, а также Канаду и Великобританию: у меня целый список.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b11">
+      <span class="block-num" data-tag="Дом">11</span>
+      <div class="block-body">
+        <h3>Дом, быт, лайфстайл</h3>
+        <p class="what lead">Наш первый дом мы построили недалеко от Санкт-Петербурга — минут пятнадцать на машине. Построили в двадцать втором году и тогда же переехали. Дом в финском, скандинавском стиле. Мне нравится, что мы долго работали над ландшафтом, искали хороших садовников. У нас столько туй, которые каждый год умирали — мы их выкидывали и сажали новые. Огромный сад: яблоня, груша, малина, черешня, три вида смородины, а сейчас растут огурчики, помидоры, зелень. С одной стороны сад с фруктами и ягодами, с другой — парник с овощами и зеленью. Терраса застеклённая, и туда я посадила декоративные деревья: каждую весну они цветут розовыми цветами, как у миндаля, очень красиво. Пруд придумал муж, чтобы было ещё красивее: он хотел бассейн, но бассейн — это как у всех, и он придумал пруд, а потом мы засадили его разными растениями и сделали рядом мини-сад.</p>
+        <p class="what">Всё в доме сделано в скандинавском стиле: камин, мрамор, а всё остальное у нас из дерева. В доме очень уютно и атмосферно, хорошая энергетика, много зелени. Есть караоке — мы иногда поём, — и очень много музыкальных инструментов: гитары и на первом, и на втором этаже, я уже сбилась со счёта, сколько их. Мне нравится, что у нас есть огромная магнитная доска с нашими фотографиями и магнитами из всех стран, где мы побывали вдвоём. И где бы мы ни были, мы всегда покупаем не маленькие сувениры, а необычные вещи, которые дополняют дом: заходишь — и всё напоминает об определённом путешествии, о хороших воспоминаниях. Дома мы бываем очень редко: я иногда одна дома, потому что у меня дистанционная работа, а муж приезжает домой ночевать, потому что много работает. В основном отдыхаем мы в Карелии.</p>
+        <p class="what">Дом в Карелии мы купили недавно, у пожилой женщины, которая переехала в Санкт-Петербург к дочке, потому что уже не могла сама ухаживать за домом. Дом построен в тысяча девятьсот тридцать шестом, а может, в двадцатом году — у него есть подвал, где во время войны прятали людей, и старинная печь. Когда мы купили этот дом, мы ничего не стали сносить: ни деревья, ни сам дом не трогали, только поправили, где надо. А после реконструкции начали сзади двора строить основной, главный дом, а старый оставили для гостей. Участок в прекраснейшем месте: снизу идёт речка, и через забор можно ловить рыбу — у нас там плавает форель, — огромные деревья, а за речкой лес. Спокойно, тихо, всё время поют птички. Есть сауна. Пруд мы там делать не стали, потому что за ним очень тяжело ухаживать, — просто поставили бочку с пузырьками и подсветкой, такое джакузи. Ещё там огромный гараж, куда мы отвезли всю технику. Дом тоже в скандинавском стиле — что в Санкт-Петербурге, что здесь, ни одного лишнего цвета, только интерьер немного другой. В Питере мы впервые построили двухэтажный дом — это мега неудобно, — а в Карелии сделали одноэтажный, и получилось очень красиво, уютно и комфортно.</p>
+        <p class="what">В будни я не могу сказать конкретно, как проходит мой день, — по-разному: где-то работаю дома, где-то выхожу. Я не завтракаю; муж завтракает, идёт на работу, а я потом разбираюсь с животными. Нормально мы с мужем видимся только по выходным. В выходные мы обязательно завтракаем вместе, и я всегда накрываю огромный стол: блинчики, сырники, что-то вкусное. В будни я готовлю ему обычный завтрак — яичницу, сосиски, кашу, — а на выходные стараюсь приготовить что-то особенное. Завтракаем, обедаем и ужинаем вместе. После завтрака берём летом квадроциклы, зимой снегоходы и едем кататься — в Карелии прекраснейшие виды. С собой берём термос и делаем маленькие бутерброды с икрой, потому что в Карелии икра недорогая, устраиваем пикник где-нибудь у озера, потом катаемся дальше и возвращаемся домой, а садовник готовит нам обед на огне.</p>
+        <p class="what">И почему-то в голову лезет момент, как муж всё время кормит собаку со стола. Я это вообще запрещаю, но он не слушается и даёт. Собака сидит, пока я накрываю на стол, у неё текут слюни, и она ждёт. А когда я одна, они не подходят, потому что знают, что я против кормить со стола. Муж прям берёт вилку или ложку и кормит, и при этом наш золотой ретривер умеет есть с ложки и с вилки. Потом у нас тихий час: я обычно сплю, обожаю спать, потому что вообще не высыпаюсь, а мужу достаточно поспать пять часов — в это время он играет на гитаре или работает. Когда солнце спадает, мы играем в настольный теннис и ужинаем уже на улице, спокойно сидим с животными, общаемся, планируем, что на следующей неделе, куда поедем, что надо сделать.</p>
+        <p class="what">Если мне надо в спа, на массаж, что-то такое, я делаю это в будни, потому что суббота и воскресенье — его выходные, и в эти два дня мы стараемся делать так, как хочет он. Он не ездит за рулём, поэтому в пятницу вечером я везу его в Карелию, а в воскресенье вечером или рано утром в понедельник привожу обратно. Я стараюсь эти дни посвящать тому, чего хочет он, потому что он пять дней работает, а у меня свободного времени немного больше. Поэтому свои дела, процедуры, встречи с друзьями и семьёй я делаю в будни.</p>
+        <p class="what">В садоводстве я хорошо разбираюсь. Два года назад мы нашли хороших садовников, и я много чего у них беру: как закрывать туи на зимовку, чтобы они за зиму не сгорели, как ухаживать за деревьями, чтобы они на следующий год давали плоды. В парнике намного легче — там я сажаю огурцы, помидоры и зелень. Нравится мне это потому, что у моей бабушки огромный участок, и я всегда ходила по нему, смотрела на деревья, овощи, фрукты, ягоды и мечтала о своём доме: чтобы утром встать, пойти за овощами и зеленью, приготовить вкусный завтрак, накрыть на террасе с прекрасным видом на пруд, спокойно позавтракать, пообщаться с животными, погладить их, побегать, написать какую-нибудь спокойную картину и послушать хорошую музыку.</p>
+        <p class="what">Состояния у меня бывают разные. Иногда я хочу просто закрыться от всех — тогда еду в свою квартиру, включаю PlayStation; у меня там Lego в виде машинок, я их собираю, есть VR-очки; ещё у нас есть хороший проигрыватель с пластинками, слушаю музыку, заказываю кучу еды, сижу и наслаждаюсь своим одиночеством. А бывает состояние, когда меня, наоборот, тянет к людям — тогда я еду в город к знакомым или провожу время с семьёй. А бывает, что хочется просто дома. За этот последний год я поняла, что очень редко бываю дома, и мне так жалко: столько сил вложено в этот дом, а мы тупо приезжаем ночевать, и никто из нас не успевает наслаждаться домом, уютом, спокойствием.</p>
+        <p class="what">Думаю, всё, что я делаю, могло бы вдохновлять других: когда живёшь в доме с таким красивым ландшафтом, людям было бы интересно — хотя бы расположение деревьев, ландшафт, пруд, который просто царь этого дома. В городе у нас красивая квартира с красивым интерьером и PlayStation — это уже другой стиль отдыха. Так что вдохновлять можно и домом, и квартирой, и Карелией. А ещё я очень редко кого-то пускаю к себе домой — прямо оберегаю свой дом от чужих людей, от чужих глаз. Гости у нас бывают очень редко, только самые близкие: моя сестра с ребёнком и мой лучший друг, он гей, приезжал пару раз, муж про него знает; ещё две семьи наших общих друзей. Мама ко мне не приезжает — у неё были определённые конфликты с моим мужем. Я бы не хотела, чтобы кто-то со стороны видел мою жизнь, давал советы, вмешивался в мои отношения или в мой дом. У нас дома прекрасная, спокойная атмосфера, мы очень редко ругаемся и конфликтуем, оба не конфликтные в отношениях. По работе бывает: у меня редко, а у него чаще, он вспыльчивый. А дома у нас спокойно, я бы сказала, как у бабушки: приезжаешь — уютно, спокойно, много любви.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b12">
+      <span class="block-num" data-tag="Рост">12</span>
+      <div class="block-body">
+        <h3>Интересы и развитие</h3>
+        <p class="what lead">Я учу испанский язык, потому что хочу переехать в Испанию и свободно говорить, чтобы комфортно общаться с людьми. Испанский идёт нормально. Единственное, что мне не нравится, — что он начинает вытеснять русский: я иногда говорю русские слова с непонятным акцентом, что-то не могу выговорить. До этого я спокойно разговаривала, и всё было хорошо. У испанцев интонация — ключевое: когда они задают вопросы, у них голосовые связки прямо волнами идут, а русский язык менее эмоциональный, ты говоришь ровно и чётко. И из-за этого мне иногда становится тяжело, язык заплетается. А заговорить надо срочно, потому что мне ещё сдавать на права в Испании.</p>
+        <p class="what">Я обожаю рисовать, причём рисую всё подряд, мне без разницы, — свой стиль пока не нашла. Все мои родные знают: если я начала писать картину, значит, у меня прекраснейшее состояние, и в этот момент лучше меня не трогать. Рисование настолько успокаивает и вдохновляет, что я забываю про всё — про работу, про животных, про проблемы: есть картина, есть я. Больше всего люблю писать маслом.</p>
+        <p class="what">Танцы я тоже обожаю. Я выросла в семье, где дядя был музыкантом, дед сам играет на инструменте, тётя окончила музыкальную школу, и каждый раз, когда мы приезжали к бабушке, кто-то обязательно играл, а мы, маленькие девочки, танцевали посреди зала. Всё детство прошло так, что мы всё время танцевали и веселились, и поэтому я с детства обожаю танцевать — это поднимает настроение и заставляет ощущать жизнь по-другому.</p>
+        <p class="what">Из книг недавно закончила «Мартина Идена» Джека Лондона, а до этого читала классику — русскую литературу, последними были «Белые ночи» Достоевского. Сейчас у меня и книги, и фильмы, и музыка идут на испанском, чтобы я быстрее заговорила. Обожаю книгу «Пять языков любви», а из психологических недавно читала «Хрупкие люди. Тайная дверь в мир нарциссов». Из фильмов обожаю «Великий Гэтсби», «Зелёную книгу», «Бесславных ублюдков», «Унесённые ветром». Фильмы я вообще смотрю редко: если ложусь к телевизору, то только мультики — когда плохое настроение, лежу и смотрю мультфильмы, чтобы себя поднять.</p>
+        <p class="what">Сейчас я учу испанский, а ещё хотела бы развить ораторские качества, поработать над голосом и дикцией — это моя мечта, думаю, где-то в августе уже пойду. И в сентябре хотела бы поступить в университет иностранных языков, начать изучать английский и испанский. Хобби-мечты, до которых пока не дошли руки, у меня целая куча: я бы хотела профессионально ездить верхом, водить самолёты, вертолёты, лодку, яхту, заниматься бальными танцами и свободно говорить на испанском и английском. Ещё купила бы себе машину и сделала гончарную мастерскую, где лепила бы из керамики тарелки, кружки, вазы. А хотя бы раз в жизни я хотела бы подняться на Килиманджаро, это в Танзании.</p>
+      </div>
+    </div>
+
+    <div class="block reveal" id="b13">
+      <span class="block-num" data-tag="Настройка">13</span>
+      <div class="block-body">
+        <h3>Блог: аудитория, тон, границы</h3>
+        <p class="what lead">Я бы хотела видеть у себя женщин, платёжеспособных, от восемнадцати до сорока пяти — пятидесяти, которые любят животных, кто-то любит писать картины, кто-то танцевать, кто-то краситься, кто-то за рулём, кто-то любит садоводство, путешествия, красивую жизнь. Тех, кто стремится жить, — чтобы их как-то мотивировать.</p>
+        <p class="what">По поводу интонации — она зависит от того, где я и что делаю. Если это Испания, то интонация должна быть игривой: игривость, лёгкость, веселье. А если это одежда, стиль, машины, животные, дом, Санкт-Петербург — тогда более убедительный, сдержанный тон.</p>
+        <p class="what">Что точно не мой формат — это «подогревы», в духе «я сегодня развелась»; это не моё. Религия, национальность, политика — не моё. Брак — тоже не моё, не люблю говорить на эти темы. И про работу пока не хочу. А во всём остальном я готова экспериментировать и пробовать, каких-либо запретов у меня нет. Какие блогеры мне нравятся — пока не знаю, но посмотрю и отправлю; по стилю одежды я несколько аккаунтов уже присылала.</p>
+        <p class="what">Показывать я готова всё, кроме одного: на данный момент меня настолько достала моя работа — рекламное агентство, фонд — плюс брак и отношения, что об этом я точно не хотела бы говорить. У меня и так всего полно, и если я ещё и об этом буду рассказывать, я просто взорвусь. А всё остальное можно попробовать, почему нет.</p>
+        <p class="what">Каким словом или фразой я бы хотела, чтобы описывали мой блог? Я хочу, чтобы говорили: «хочу как у неё, хочу жить так, как она живёт». При этом я не хочу выглядеть жалко и давить на чувство вины — вот этого не хочу. Я хочу быть уверенной, успешной, самодостаточной, красивой, жизнерадостной, доброй и лёгкой: которая занимается спортом, пишет картины, проводит время с животными, что-то делает в ландшафте, куда-то ездит, путешествует, встречается с друзьями, проводит время с семьёй, изучает языки, танцует. Чтобы я выглядела жизнерадостной, красивой, молодой, успешной.</p>
+        <p class="what">Свой инстаграм я всегда воспринимала как дневник. Из-за моих травм у меня бывает состояние, что я мало делаю, ничего не добилась, хотя могла бы больше, — я начинаю недооценивать свою жизнь. И в такой момент я захожу в свой инстаграм, вижу, что я сделала, где побывала, какая у меня жизнь со стороны, — и прям радуюсь, это меня успокаивает. Я хочу, чтобы в этом блоге не только я заходила и радовалась, но и другие люди заходили, наслаждались и находили свои темы.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Дальше</span>
+      <p class="contact-quote-big">«Это Ваши слова начисто. Рядом&nbsp;— они же, собранные в цельный портрет.»</p>
+      <p class="contact-quote">Прочитайте и скажите, где я где-то неверно расслышал или что-то упустил&nbsp;— поправим. А из этого материала мы собираем образ, голос и первые ролики.</p>
+      <div class="contact-author">Дословная распаковка · Азиза <span class="accent">×</span> Малик <span class="accent">·</span> Июль 2026</div>
+      <div style="margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Telegram · @mhashimov_23</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><p>Распаковка личности · Азиза · дословная версия · 2026</p></div>
+</footer>
+
+
+<script>
+  // ===== SPLASH SCREEN =====
+  document.body.classList.add('splash-active');
+  const splash = document.getElementById('splash');
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.remove('splash-active');
+  }
+  function skipSplash() { hideSplash(); }
+  setTimeout(hideSplash, 2400);
+
+  // ===== PROGRESS BAR =====
+  const progressBar = document.querySelector('.progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.setProperty('--scroll', progress + '%');
+  }, { passive: true });
+
+  // ===== CURSOR SPOTLIGHT — следует за мышью =====
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let spotX = mouseX, spotY = mouseY;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }, { passive: true });
+  function tickSpotlight() {
+    spotX += (mouseX - spotX) * 0.12;
+    spotY += (mouseY - spotY) * 0.12;
+    document.documentElement.style.setProperty('--mx', spotX + 'px');
+    document.documentElement.style.setProperty('--my', spotY + 'px');
+    requestAnimationFrame(tickSpotlight);
+  }
+  tickSpotlight();
+
+  // ===== REVEAL ON SCROLL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ===== STICKY DOT NAVIGATION =====
+  const navDots = document.getElementById('navDots');
+  const dots = document.querySelectorAll('.nav-dot');
+  const sections = Array.from(dots).map(d => document.getElementById(d.dataset.section)).filter(Boolean);
+
+  // Показать nav после скролла
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) navDots.classList.add('visible');
+    else navDots.classList.remove('visible');
+  }, { passive: true });
+
+  // Подсветка активной точки
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        dots.forEach(d => d.classList.toggle('active', d.dataset.section === id));
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-40% 0px -40% 0px' });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // Клик на точку = плавный скролл
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      const target = document.getElementById(d.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ===== АНИМИРОВАННЫЕ СЧЁТЧИКИ =====
+  function animateCounter(el, target, suffix = '', duration = 1800) {
+    const startTime = performance.now();
+    const startVal = 0;
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(startVal + (target - startVal) * eased);
+      el.textContent = value.toLocaleString('ru-RU').replace(/,/g, ' ') + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        if (!isNaN(target)) animateCounter(el, target, suffix);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
