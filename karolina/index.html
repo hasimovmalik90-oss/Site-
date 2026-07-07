@@ -2827,8 +2827,10 @@
     .proof-shot img,
     .proof-shot.tall img,
     .proof-shot.thin img { max-width: 100%; max-height: 440px; height: auto; }
+    .proof-shot-caption { white-space: normal !important; }   /* иначе длинная подпись в одну строку тянет страницу вширь */
+    .viral-extra-row .stats { white-space: normal; }
     .data-table { table-layout: fixed; }
-    .data-table th, .data-table td { overflow-wrap: anywhere; word-break: break-word; }
+    .data-table th, .data-table td { overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
   }
 
   .proof-shot-caption {
