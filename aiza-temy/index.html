@@ -2040,6 +2040,10 @@
   .tb h3{font-family:var(--display);font-weight:450;font-size:19px;color:var(--ink);margin:0 0 7px;line-height:1.3}
   .tb p{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--text);margin:0;line-height:1.55}
   .tb p::before{content:"« "}.tb p::after{content:" »"}
+  .theme.paused{opacity:.35;filter:saturate(.3)}
+  .pause-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--gold-deep);border-radius:999px;padding:3px 11px;margin-left:12px;vertical-align:2px;white-space:nowrap}
+  .theme.paused .pause-tag{opacity:1}
+  .pause-note{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--text);margin:14px 0 0;opacity:.75}
   .grp{padding:64px 0 30px}
   @media (max-width:700px){
     .theme{grid-template-columns:40px 1fr;gap:12px;padding:17px 0}
@@ -2132,23 +2136,24 @@
 <section class="spacer grp" id="g1">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Сфера 01 · Путь и характер</span>
+      <span class="eyebrow">Сфера 01 · Путь и характер <span class="pause-tag">блок на паузе</span></span>
       <h2>Как я <em>сделала себя</em></h2>
+      <p class="pause-note">По Вашему решению от 06.07 весь блок пока на паузе. Темы остаются в банке — вернёмся к ним, когда блог наберёт тепло и аудитория узнает Вас ближе.</p>
     </div>
     <div class="tlist">
-      <div class="theme reveal"><span class="tn">01</span><div class="tb"><h3>В пятнадцать я уехала из дома одна</h3><p>Меня отговаривали все. А я собрала сумку и уехала — одна, без денег и документов.</p></div></div>
-      <div class="theme reveal"><span class="tn">02</span><div class="tb"><h3>Меня осуждали все. Мама поняла и отпустила</h3><p>Вся родня была против. Мама сказала одно: если она решила — она всё равно сделает.</p></div></div>
-      <div class="theme reveal"><span class="tn">03</span><div class="tb"><h3>Листовки в минус сорок пять</h3><p>Мои первые деньги — листовки на морозе в минус сорок пять. Тогда я поняла, что выдержу всё.</p></div></div>
-      <div class="theme reveal"><span class="tn">04</span><div class="tb"><h3>Меня обманывали — и я шла дальше</h3><p>Без документов тебя легко обмануть. Меня обманывали не раз — а я делала выводы и шла дальше.</p></div></div>
-      <div class="theme reveal"><span class="tn">05</span><div class="tb"><h3>Паспорт, к которому я шла годами</h3><p>Очереди на холоде, патент, бумаги. День, когда мне выдали паспорт, я не забуду никогда.</p></div></div>
-      <div class="theme reveal"><span class="tn">06</span><div class="tb"><h3>Оператор → копирайтер → менеджер</h3><p>Я начинала оператором по двенадцать часов на телефоне. Ступенька за ступенькой — без связей и волшебства.</p></div></div>
-      <div class="theme reveal"><span class="tn">07</span><div class="tb"><h3>2024-й: осталась ни с чем — и перезапустилась</h3><p>В один день я осталась ни с чем. Это был самый больной год — и он вернул мне меня.</p></div></div>
-      <div class="theme reveal"><span class="tn">08</span><div class="tb"><h3>Ипотека, закрытая за девять месяцев</h3><p>Все говорили: это на двадцать лет. Я закрыла её за девять месяцев.</p></div></div>
-      <div class="theme reveal"><span class="tn">09</span><div class="tb"><h3>Никогда не прошу советов</h3><p>Я выслушаю всех. А сделаю так, как решила сама — и ещё ни разу не пожалела.</p></div></div>
-      <div class="theme reveal"><span class="tn">10</span><div class="tb"><h3>Средний ребёнок — сама за себя</h3><p>Средний ребёнок в семье знает: рассчитывать нужно на себя. Я поняла это раньше, чем хотелось бы.</p></div></div>
-      <div class="theme reveal"><span class="tn">11</span><div class="tb"><h3>Опорой всегда была я сама</h3><p>Я никогда не ждала, что кто-то подставит плечо. Моя опора всегда была во мне.</p></div></div>
-      <div class="theme reveal"><span class="tn">12</span><div class="tb"><h3>Про свои трудности я не рассказываю</h3><p>Все видят лёгкость. Чего мне это стоило — не знает почти никто.</p></div></div>
-      <div class="theme reveal"><span class="tn">13</span><div class="tb"><h3>Иду до конца</h3><p>Я могу устать и начинать заново. Не могу одного — бросить на полпути.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">01</span><div class="tb"><h3>В пятнадцать я уехала из дома одна</h3><p>Меня отговаривали все. А я собрала сумку и уехала — одна, без денег и документов.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">02</span><div class="tb"><h3>Меня осуждали все. Мама поняла и отпустила</h3><p>Вся родня была против. Мама сказала одно: если она решила — она всё равно сделает.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">03</span><div class="tb"><h3>Листовки в минус сорок пять</h3><p>Мои первые деньги — листовки на морозе в минус сорок пять. Тогда я поняла, что выдержу всё.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">04</span><div class="tb"><h3>Меня обманывали — и я шла дальше</h3><p>Без документов тебя легко обмануть. Меня обманывали не раз — а я делала выводы и шла дальше.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">05</span><div class="tb"><h3>Паспорт, к которому я шла годами</h3><p>Очереди на холоде, патент, бумаги. День, когда мне выдали паспорт, я не забуду никогда.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">06</span><div class="tb"><h3>Оператор → копирайтер → менеджер</h3><p>Я начинала оператором по двенадцать часов на телефоне. Ступенька за ступенькой — без связей и волшебства.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">07</span><div class="tb"><h3>2024-й: осталась ни с чем — и перезапустилась</h3><p>В один день я осталась ни с чем. Это был самый больной год — и он вернул мне меня.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">08</span><div class="tb"><h3>Ипотека, закрытая за девять месяцев</h3><p>Все говорили: это на двадцать лет. Я закрыла её за девять месяцев.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">09</span><div class="tb"><h3>Никогда не прошу советов</h3><p>Я выслушаю всех. А сделаю так, как решила сама — и ещё ни разу не пожалела.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">10</span><div class="tb"><h3>Средний ребёнок — сама за себя</h3><p>Средний ребёнок в семье знает: рассчитывать нужно на себя. Я поняла это раньше, чем хотелось бы.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">11</span><div class="tb"><h3>Опорой всегда была я сама</h3><p>Я никогда не ждала, что кто-то подставит плечо. Моя опора всегда была во мне.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">12</span><div class="tb"><h3>Про свои трудности я не рассказываю</h3><p>Все видят лёгкость. Чего мне это стоило — не знает почти никто.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">13</span><div class="tb"><h3>Иду до конца</h3><p>Я могу устать и начинать заново. Не могу одного — бросить на полпути.</p></div></div>
     </div>
   </div>
 </section>
@@ -2179,10 +2184,11 @@
     <div class="section-header reveal">
       <span class="eyebrow">Сфера 03 · Психология</span>
       <h2>Десять лет <em>с психологией</em></h2>
+      <p class="pause-note">Блок подключаем не раньше 3–4-й недели — когда аудитория уже будет знать Вас. Две темы поставили на паузу.</p>
     </div>
     <div class="tlist">
-      <div class="theme reveal"><span class="tn">24</span><div class="tb"><h3>С психологии началось моё взросление</h3><p>Психология со мной десять лет. С неё началось моё настоящее взросление.</p></div></div>
-      <div class="theme reveal"><span class="tn">25</span><div class="tb"><h3>Как психология вытащила меня</h3><p>В шестнадцать я попала в отношения, из которых не видела выхода. Выход нашёлся — через психологию.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">24</span><div class="tb"><h3>С психологии началось моё взросление <span class="pause-tag">на паузе</span></h3><p>Психология со мной десять лет. С неё началось моё настоящее взросление.</p></div></div>
+      <div class="theme reveal paused"><span class="tn">25</span><div class="tb"><h3>Как психология вытащила меня <span class="pause-tag">на паузе</span></h3><p>В шестнадцать я попала в отношения, из которых не видела выхода. Выход нашёлся — через психологию.</p></div></div>
       <div class="theme reveal"><span class="tn">26</span><div class="tb"><h3>Каждый даёт то, чем наполнен</h3><p>Человек не может дать тебе то, чего в нём нет. Поймёшь это — перестанешь ждать невозможного.</p></div></div>
       <div class="theme reveal"><span class="tn">27</span><div class="tb"><h3>Это не про тебя</h3><p>Если с тобой поступают плохо — это не потому, что ты дала повод. Он просто по-другому не умеет.</p></div></div>
       <div class="theme reveal"><span class="tn">28</span><div class="tb"><h3>Почему сильных женщин так много</h3><p>Вокруг много сильных женщин, которые тянут всё. И мужчин, которые бегут от психолога. Поговорим честно.</p></div></div>
