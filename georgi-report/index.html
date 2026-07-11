@@ -46,6 +46,18 @@ ul.li li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6
 .closing{text-align:center;padding:60px 0 84px}
 .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--text);margin-top:26px}
 @media(max-width:600px){.wrap{padding:0 18px}body{font-size:16px}.hero{padding:66px 0 40px}.hero h1{text-transform:none;letter-spacing:.03em}.kpis{grid-template-columns:1fr}.box,.plan{padding:20px}}
+
+@media(max-width:700px){
+  .tblwrap{overflow:visible}
+  .tbl{display:block}
+  .tbl tr:first-child{display:none}
+  .tbl tr{display:block;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+  .tbl td{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border:none;padding:6px 0;font-size:14.5px}
+  .tbl td::before{content:attr(data-l);color:var(--mute);font-size:12.5px;letter-spacing:.04em;flex:none}
+  .tbl td.tname{display:block;color:#F2EEE8;font-size:16px;font-weight:600;padding:0 0 10px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+  .tbl td.tname::before{content:none}
+  .tbl td.num{white-space:nowrap}
+}
 p,li,td{text-wrap:pretty;hyphens:none;-webkit-hyphens:none}
 body{word-break:normal;overflow-wrap:normal;hyphens:none}
 </style></head><body>
@@ -72,8 +84,8 @@ body{word-break:normal;overflow-wrap:normal;hyphens:none}
 
   <div class="plan" style="margin-top:22px">
     <ul class="li">
-      <li><strong>Все эти цифры набраны за 4 дня публикаций</strong> — с 7 по 10 июля. Первые три с половиной недели месяца заняли распаковка, стратегия, упаковка профиля и съёмки.</li>
-      <li><strong>На 11 июля в профиле:</strong> 102 подписчика и 5 публикаций — пятый ролик вышел 11 июля.</li>
+      <li><strong>Все эти цифры набраны за 4 дня публикаций</strong> — с 7 по 10 июля. Первые три с половиной недели месяца заняли распаковка, стратегия, упаковка профиля и съёмки.</li>
+      <li><strong>На 11 июля в профиле:</strong> 102 подписчика и 5 публикаций — пятый ролик вышел 11 июля.</li>
       <li>Часть прироста подписчиков дал репост роликов, который Георгий сделал на свою основную страницу.</li>
     </ul>
   </div>
@@ -85,7 +97,7 @@ body{word-break:normal;overflow-wrap:normal;hyphens:none}
     <div class="kpi"><div class="n">10 000</div><div class="l">цель по договору — за 3 месяца</div></div>
     <div class="kpi"><div class="n">1 из 3</div><div class="l">месяцев работы пройден</div></div>
   </div>
-  <p class="mute" style="margin-top:16px;font-size:14.5px">Факт на 11 июля — 102 подписчика. Публикации идут пятый день.</p>
+  <p class="mute" style="margin-top:16px;font-size:14.5px">Факт на 11 июля — 102 подписчика. Публикации идут пятый день.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -93,10 +105,10 @@ body{word-break:normal;overflow-wrap:normal;hyphens:none}
   <div class="tblwrap">
   <table class="tbl">
     <tr><th>Ролик</th><th>Дата</th><th>Просмотры</th><th>Охват</th><th>Досмотр</th><th>Подписок</th></tr>
-    <tr><td>Один день из моей жизни | влог</td><td>8 июля</td><td class="num">4 240</td><td>2 851</td><td>37 с</td><td class="num">67</td></tr>
-    <tr><td>Мой главный талант</td><td>9 июля</td><td class="num">1 775</td><td>1 357</td><td>21 с</td><td class="num">8</td></tr>
-    <tr><td>Все конфликты в бизнесе там, где вовремя не договорились</td><td>7 июля</td><td class="num">875</td><td>518</td><td>16 с</td><td class="num">3</td></tr>
-    <tr><td>Письмо от налоговой</td><td>10 июля</td><td class="num">636</td><td>375</td><td>20 с</td><td class="num">0</td></tr>
+    <tr><td class="tname">Один день из моей жизни | влог</td><td data-l="Дата">8 июля</td><td data-l="Просмотры" class="num">4 240</td><td data-l="Охват">2 851</td><td data-l="Досмотр">37 с</td><td data-l="Подписок" class="num">67</td></tr>
+    <tr><td class="tname">Мой главный талант</td><td data-l="Дата">9 июля</td><td data-l="Просмотры" class="num">1 775</td><td data-l="Охват">1 357</td><td data-l="Досмотр">21 с</td><td data-l="Подписок" class="num">8</td></tr>
+    <tr><td class="tname">Все конфликты в бизнесе там, где вовремя не договорились</td><td data-l="Дата">7 июля</td><td data-l="Просмотры" class="num">875</td><td data-l="Охват">518</td><td data-l="Досмотр">16 с</td><td data-l="Подписок" class="num">3</td></tr>
+    <tr><td class="tname">Письмо от налоговой</td><td data-l="Дата">10 июля</td><td data-l="Просмотры" class="num">636</td><td data-l="Охват">375</td><td data-l="Досмотр">20 с</td><td data-l="Подписок" class="num">0</td></tr>
   </table>
   </div>
   <p class="mute" style="margin-top:16px;font-size:14.5px">Реакции: влог — 106 лайков, 48 пересылок, 5 сохранений. Главный талант — 44 лайка, 4 комментария. Конфликты в бизнесе — 39 лайков, 8 пересылок. Письмо от налоговой — 36 лайков, 6 пересылок.</p>
@@ -107,8 +119,8 @@ body{word-break:normal;overflow-wrap:normal;hyphens:none}
 
   <div class="box"><h3>Распаковка и стратегия</h3>
     <ul class="li">
-      <li>Распаковка личности: 136 вопросов, 11 блоков. Транскрибировано 117 голосовых, собран банк смыслов</li>
-      <li>Банк тем: 111 тем по 11 сферам</li>
+      <li>Распаковка личности: 136 вопросов, 11 блоков. Транскрибировано 117 голосовых, собран банк смыслов</li>
+      <li>Банк тем: 111 тем по 11 сферам</li>
       <li>Контент-стратегия: 11 форматов; скорректирована по итогам полной распаковки</li>
       <li>Правила контента и границы публичности</li>
       <li>Четыре созвона: 10, 11, 18 и 30 июня</li>
