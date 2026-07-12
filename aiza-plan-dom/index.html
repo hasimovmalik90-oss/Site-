@@ -2079,6 +2079,10 @@
   .gal.g4{grid-template-columns:repeat(4,1fr)}
   .gal.g4 img{height:300px}
   @media (max-width: 640px){.gal{grid-template-columns:repeat(2,1fr)}.gal.g4{grid-template-columns:repeat(2,1fr)}.gal img,.gal.g4 img{height:190px}}
+
+  .loc-cover{margin:0 0 14px;border-radius:12px;overflow:hidden;border:1px solid var(--line-bright)}
+  .loc-cover img{width:100%;max-height:420px;object-fit:cover;display:block}
+  .loc-cover figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding:10px 12px}
 </style>
 </head>
 <body>
@@ -2097,10 +2101,10 @@
 
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot" data-section="hero" data-label="Начало"></button>
+  <button class="nav-dot" data-section="locations" data-label="Локации"></button>
   <button class="nav-dot" data-section="timeline" data-label="Блок 01 · Утро"></button>
   <button class="nav-dot" data-section="b2" data-label="Блок 02 · Своя вода"></button>
   <button class="nav-dot" data-section="looks" data-label="Образы"></button>
-  <button class="nav-dot" data-section="gallery" data-label="Ещё ракурсы"></button>
   <button class="nav-dot" data-section="prep" data-label="Подготовка"></button>
   <button class="nav-dot" data-section="bounds" data-label="Границы"></button>
   <button class="nav-dot" data-section="contact" data-label="Финал"></button>
@@ -2153,10 +2157,48 @@
       <h3>Как читать этот план</h3>
       <ul>
         <li>Время — <b>ориентир, не жёсткая сетка</b>: идём по порядку, никуда не спешим</li>
-        <li>Фото у сцены — <b>место из Вашего видео</b>, где будем снимать</li>
+        <li>У каждой сцены — <b>номер локации</b> из сетки ниже</li>
         <li>Все границы учтены: локация, соседи, сувениры, всё личное — <b>вне кадра</b></li>
         <li>Если по какой-то сцене есть сомнение — <b>напишите</b>, заменим заранее</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="spacer grp" id="locations">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Локации</span>
+      <h2>Где <em>снимаем</em></h2>
+    </div>
+    <figure class="loc-cover reveal"><img src="assets/mangal.jpg" alt="Дом и пруд"><figcaption>дом и пруд · общий план</figcaption></figure>
+    <div class="gal reveal">
+      <figure><img src="assets/kuhnya.jpg" alt="Кухня"><figcaption>01 · кухня</figcaption></figure>
+      <figure><img src="assets/vanna.jpg" alt="Ванная"><figcaption>02 · ванная</figcaption></figure>
+      <figure><img src="assets/parnik.jpg" alt="Парник"><figcaption>03 · парник</figcaption></figure>
+      <figure><img src="assets/terrasa.jpg" alt="Терраса"><figcaption>04 · терраса</figcaption></figure>
+      <figure><img src="assets/prud.jpg" alt="Пруд"><figcaption>05 · пруд</figcaption></figure>
+      <figure><img src="assets/nastil.jpg" alt="Настил"><figcaption>06 · настил у пруда</figcaption></figure>
+      <figure><img src="assets/alleya.jpg" alt="Аллея"><figcaption>07 · аллея и сад</figcaption></figure>
+      <figure><img src="assets/veranda.jpg" alt="Веранда"><figcaption>08 · веранда</figcaption></figure>
+      <figure><img src="assets/gostinaya.jpg" alt="Гостиная"><figcaption>09 · гостиная</figcaption></figure>
+      <figure><img src="assets/lustra.jpg" alt="Второй свет"><figcaption>10 · второй свет</figcaption></figure>
+      <figure><img src="assets/spalnya.jpg" alt="Спальня"><figcaption>11 · спальня</figcaption></figure>
+      <figure><img src="assets/pianino.jpg" alt="Пианино"><figcaption>12 · пианино и мольберт</figcaption></figure>
+    </div>
+    <div class="tlist" style="margin-top:26px">
+      <div class="theme reveal"><span class="tn">01</span><div class="tb"><h3>Кухня</h3><p>Утренние детали, готовка завтрака, кормление Балу.</p></div></div>
+      <div class="theme reveal"><span class="tn">02</span><div class="tb"><h3>Ванная</h3><p>Уход и сборы, часть кадров в отражении зеркала.</p></div></div>
+      <div class="theme reveal"><span class="tn">03</span><div class="tb"><h3>Парник</h3><p>Зелень к завтраку.</p></div></div>
+      <div class="theme reveal"><span class="tn">04</span><div class="tb"><h3>Терраса</h3><p>Накрытый стол, главный кадр с видом на пруд, разговорные ролики.</p></div></div>
+      <div class="theme reveal"><span class="tn">05</span><div class="tb"><h3>Пруд</h3><p>Прогулка с Балу, говорящая голова у воды. Без купания.</p></div></div>
+      <div class="theme reveal"><span class="tn">06</span><div class="tb"><h3>Настил у пруда</h3><p>Тихий час на лежаке, добор деталей.</p></div></div>
+      <div class="theme reveal"><span class="tn">07</span><div class="tb"><h3>Аллея и сад</h3><p>Проходка, деревья, грядки.</p></div></div>
+      <div class="theme reveal"><span class="tn">08</span><div class="tb"><h3>Веранда</h3><p>Старт дня. Запас: мольберт и картины.</p></div></div>
+      <div class="theme reveal"><span class="tn">09</span><div class="tb"><h3>Гостиная</h3><p>Запас: панорамные окна, диван.</p></div></div>
+      <div class="theme reveal"><span class="tn">10</span><div class="tb"><h3>Второй свет</h3><p>Запас: люстра-кольца, ракурс сверху на диван.</p></div></div>
+      <div class="theme reveal"><span class="tn">11</span><div class="tb"><h3>Спальня</h3><p>Запас: снимаем со своим светом, от окна.</p></div></div>
+      <div class="theme reveal"><span class="tn">12</span><div class="tb"><h3>Пианино и мольберт</h3><p>Запас: клавиши, гитары, картина.</p></div></div>
     </div>
   </div>
 </section>
@@ -2171,50 +2213,42 @@
 
     <div class="scene reveal">
       <div class="stime">09:00</div>
-      <div class="sbody"><h3>Старт</h3><p>Команда приезжает, проходим точки, ставим свет. Вы спокойно собираетесь — образ №1: домашний, светлый.</p><span class="slook">образ 1 · дом</span></div>
-      <div class="sphoto"><img src="assets/veranda.jpg" alt="Веранда с петуниями"></div>
+      <div class="sbody"><h3>Старт</h3><p>Команда приезжает, проходим точки, ставим свет. Вы спокойно собираетесь — образ №1: домашний, светлый.</p><span class="slook">08 · веранда · образ 1</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">09:15</div>
-      <div class="sbody"><h3>Свет и тишина</h3><p>Кухня: окно, утренний свет. Крупные планы, руки, детали — без постановки.</p><span class="slook">кухня</span></div>
-      <div class="sphoto"><img src="assets/kuhnya.jpg" alt="Кухня"></div>
+      <div class="sbody"><h3>Свет и тишина</h3><p>Кухня: окно, утренний свет. Крупные планы, руки, детали — без постановки.</p><span class="slook">01 · кухня</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">09:35</div>
-      <div class="sbody"><h3>Уход и сборы</h3><p>Ванная наверху: уход, лёгкий макияж. Часть кадров — в отражении зеркала.</p><span class="slook">ванная · 2 этаж</span></div>
-      <div class="sphoto"><img src="assets/vanna.jpg" alt="Ванная"></div>
+      <div class="sbody"><h3>Уход и сборы</h3><p>Ванная наверху: уход, лёгкий макияж. Часть кадров — в отражении зеркала.</p><span class="slook">02 · ванная</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">09:55</div>
-      <div class="sbody"><h3>Зелень с грядки</h3><p>Выход в парник за зеленью к завтраку.</p><span class="slook">парник</span></div>
-      <div class="sphoto"><img src="assets/parnik.jpg" alt="Парник"></div>
+      <div class="sbody"><h3>Зелень с грядки</h3><p>Выход в парник за зеленью к завтраку.</p><span class="slook">03 · парник</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">10:15</div>
-      <div class="sbody"><h3>Завтрак выходного дня</h3><p>Блинчики или сырники, красивая посуда, стол накрывается на террасе. Пока готовите — наговариваем мысли за кадром.</p><span class="slook">кухня → терраса</span></div>
-      <div class="sphoto"><img src="assets/zavtrak.jpg" alt="Терраса, стол"></div>
+      <div class="sbody"><h3>Завтрак выходного дня</h3><p>Блинчики или сырники, красивая посуда, стол накрывается на террасе. Пока готовите — наговариваем мысли за кадром.</p><span class="slook">01 → 04 · кухня, терраса</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">10:50</div>
-      <div class="sbody"><h3>Завтрак Балу</h3><p>Кормление Балу — и кошек, если они дома. Балу снимаем отдельно и крупно.</p><span class="slook">кухня · прихожая</span></div>
-      <div class="sphoto"><img src="assets/miski.jpg" alt="Миски у лестницы"></div>
+      <div class="sbody"><h3>Завтрак Балу</h3><p>Кормление Балу — и кошек, если они дома. Балу снимаем отдельно и крупно.</p><span class="slook">01 · кухня</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">11:20</div>
-      <div class="sbody"><h3>За столом с видом на пруд</h3><p>Вы за накрытым столом, за стеклом — пруд. Главный кадр дня.</p><span class="slook">терраса</span></div>
-      <div class="sphoto"><img src="assets/gazon-prud.jpg" alt="Газон и пруд"></div>
+      <div class="sbody"><h3>За столом с видом на пруд</h3><p>Вы за накрытым столом, за стеклом — пруд. Главный кадр дня.</p><span class="slook">04 · терраса</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">11:40</div>
-      <div class="sbody"><h3>Разговорные ролики на террасе</h3><p>Тема «Успех — когда дома тепло» + одна-две запасные. Тексты пришлю заранее.</p><span class="slook">терраса · мягкий свет</span></div>
-      <div class="sphoto"><img src="assets/terrasa.jpg" alt="Терраса, диваны"></div>
+      <div class="sbody"><h3>Разговорные ролики на террасе</h3><p>Тема «Успех — когда дома тепло» + одна-две запасные. Тексты пришлю заранее.</p><span class="slook">04 · терраса</span></div>
     </div>
 
     <div class="scene reveal">
@@ -2236,26 +2270,22 @@
 
     <div class="scene reveal">
       <div class="stime">12:30</div>
-      <div class="sbody"><h3>Своя вода</h3><p>Выход с террасы к пруду, прогулка вдоль воды, Балу рядом. Купание не снимаем.</p><span class="slook">пруд</span></div>
-      <div class="sphoto"><img src="assets/prud.jpg" alt="Пруд"></div>
+      <div class="sbody"><h3>Своя вода</h3><p>Выход с террасы к пруду, прогулка вдоль воды, Балу рядом. Купание не снимаем.</p><span class="slook">05 · пруд</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">13:00</div>
-      <div class="sbody"><h3>Разговорный ролик у пруда</h3><p>Говорящая голова у воды. Тему выберем из банка.</p><span class="slook">пруд · вода за спиной</span></div>
-      <div class="sphoto"><img src="assets/mangal.jpg" alt="Дом и пруд"></div>
+      <div class="sbody"><h3>Разговорный ролик у пруда</h3><p>Говорящая голова у воды. Тему выберем из банка.</p><span class="slook">05 · пруд</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">13:30</div>
-      <div class="sbody"><h3>Сад и проходка</h3><p>Проходка по аллее, деревья, грядки. Запас под ролик «Мой сад».</p><span class="slook">аллея · сад</span></div>
-      <div class="sphoto"><img src="assets/alleya.jpg" alt="Аллея с туями"></div>
+      <div class="sbody"><h3>Сад и проходка</h3><p>Проходка по аллее, деревья, грядки. Запас под ролик «Мой сад».</p><span class="slook">07 · аллея и сад</span></div>
     </div>
 
     <div class="scene reveal">
       <div class="stime">14:00</div>
-      <div class="sbody"><h3>Тихий час</h3><p>Лежак у воды, Балу рядом. Добор деталей.</p><span class="slook">настил у пруда</span></div>
-      <div class="sphoto"><img src="assets/nastil.jpg" alt="Настил с лежаками"></div>
+      <div class="sbody"><h3>Тихий час</h3><p>Лежак у воды, Балу рядом. Добор деталей.</p><span class="slook">06 · настил</span></div>
     </div>
 
     <div class="outline reveal"><b>На выходе блока 02:</b> мини-влог «Своя вода» (или вторая серия утреннего) + запас кадров пруда, сада и Балу у воды — под ролики «Пруд — царь этого дома», «Мой сад», «Тихий час».</div>
@@ -2276,27 +2306,6 @@
       <figure><img src="assets/obraz4.jpg" alt="Образ 4"><figcaption>чёрный + белый</figcaption></figure>
     </div>
     <p class="pause-note reveal">Если что-то из этого уже есть в гардеробе — пришлите фото, соберём финальные образы до пятницы.</p>
-  </div>
-</section>
-
-<section class="spacer grp" id="gallery">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Ещё ракурсы</span>
-      <h2>Запас <em>мест</em> на съёмке</h2>
-    </div>
-    <p class="what reveal">Добираем кадры здесь, если идём по времени с запасом.</p>
-    <div class="gal reveal">
-      <figure><img src="assets/gostinaya.jpg" alt="Гостиная"><figcaption>гостиная · панорамные окна</figcaption></figure>
-      <figure><img src="assets/lustra.jpg" alt="Второй свет"><figcaption>второй свет · люстра-кольца</figcaption></figure>
-      <figure><img src="assets/spalnya.jpg" alt="Спальня"><figcaption>спальня · свет от окна</figcaption></figure>
-      <figure><img src="assets/veranda.jpg" alt="Веранда"><figcaption>веранда · петунии</figcaption></figure>
-      <figure><img src="assets/gazon-prud.jpg" alt="Газон и пруд"><figcaption>газон · общие планы</figcaption></figure>
-      <figure><img src="assets/kuhnya.jpg" alt="Кухня"><figcaption>кухня · детали</figcaption></figure>
-      <figure><img src="assets/pianino.jpg" alt="Пианино"><figcaption>пианино и гитары</figcaption></figure>
-      <figure><img src="assets/molbert.jpg" alt="Мольберт"><figcaption>мольберт · веранда</figcaption></figure>
-    </div>
-    <p class="pause-note reveal">Комнаты наверху (спальни, кабинет) снимаем со своим светом — привезём с собой, там он нужнее естественного.</p>
   </div>
 </section>
 
