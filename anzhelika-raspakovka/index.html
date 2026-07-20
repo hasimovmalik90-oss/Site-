@@ -2172,6 +2172,47 @@
     .ps-tg-meta { text-align: right; }
     .scroll-hint { margin-top: 8px; }
   }
+
+  /* СПИСОК ВОПРОСОВ В РАМКЕ */
+  .qbox {
+    border: 1px solid var(--line-bright);
+    border-radius: 16px;
+    background: var(--bg-card);
+    padding: 10px 34px;
+    box-shadow: 0 0 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.03);
+  }
+  @media (max-width: 700px) { .qbox { padding: 6px 18px; border-radius: 12px; } }
+  @media (max-width: 420px) { .qbox { padding: 4px 14px; } }
+  .qrow {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .qrow:last-child { border-bottom: none; }
+  @media (max-width: 700px) { .qrow { gap: 13px; padding: 16px 0; } }
+  .qnum {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold-deep);
+    flex: 0 0 32px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    padding-top: 3px;
+  }
+  @media (max-width: 700px) { .qnum { flex: 0 0 24px; font-size: 11px; } }
+  .qtext {
+    font-size: 16.5px;
+    line-height: 1.62;
+    color: var(--ink);
+    flex: 1;
+    min-width: 0;
+  }
+  @media (max-width: 700px) { .qtext { font-size: 15px; line-height: 1.58; } }
+  .qrow:hover .qnum { color: var(--gold-bright); }
+  .qrow:hover .qtext { color: var(--ink-bright); }
+  .qnum, .qtext { transition: color .4s var(--ease); }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -2180,7 +2221,7 @@
 <div class="spotlight"></div>
 <div class="progress-bar"></div>
 
-<header class="hero" id="hero" style="min-height:60vh">
+<header class="hero" id="hero" style="min-height:56vh">
   <div class="container hero-content">
     <div class="hero-topline">Июль 2026 · Анжелика × Малик</div>
     <span class="hero-eyebrow">Этап&nbsp;первый</span>
@@ -2188,16 +2229,12 @@
       <div class="hero-name" style="font-size:clamp(42px,10vw,110px)">Распаковка</div>
     </div>
     <p class="hero-tagline reveal reveal-delay-2">
-      Отвечайте голосовыми в&nbsp;нашем чате. Не&nbsp;готовьтесь, не&nbsp;формулируйте красиво&nbsp;— говорите как&nbsp;есть. Из&nbsp;этих ответов вырастет вся концепция блога.
+      Отвечайте голосовыми в&nbsp;нашем чате. Не&nbsp;готовьтесь и&nbsp;не&nbsp;формулируйте красиво&nbsp;— говорите как&nbsp;есть. Из&nbsp;этих ответов вырастет вся концепция блога.
     </p>
     <div class="hero-kpi reveal reveal-delay-3">
       <div class="hero-kpi-cell">
-        <div class="hero-kpi-value">14<sup>блоков</sup></div>
-        <div class="hero-kpi-label">По&nbsp;темам</div>
-      </div>
-      <div class="hero-kpi-cell">
-        <div class="hero-kpi-value">~5<sup>дней</sup></div>
-        <div class="hero-kpi-label">Спокойный&nbsp;темп</div>
+        <div class="hero-kpi-value">170<sup>вопросов</sup></div>
+        <div class="hero-kpi-label">Отвечать по&nbsp;порядку</div>
       </div>
     </div>
   </div>
@@ -2208,356 +2245,191 @@
   <div class="container">
     <p class="reveal">Как&nbsp;это работает.</p>
     <p class="reveal reveal-delay-1">
-      Вы&nbsp;берёте блок, читаете вопросы и&nbsp;наговариваете ответы голосовыми. Можно одним длинным сообщением на&nbsp;весь блок, можно по&nbsp;одному вопросу&nbsp;— как&nbsp;удобнее. Я&nbsp;всё расшифрую дословно, и&nbsp;дальше мы&nbsp;работаем с&nbsp;Вашими собственными словами, а&nbsp;не&nbsp;с&nbsp;тем, что&nbsp;я&nbsp;придумал за&nbsp;Вас.
+      Идите по&nbsp;порядку и&nbsp;наговаривайте ответы голосовыми. Можно по&nbsp;одному вопросу, можно сразу по&nbsp;несколько&nbsp;— как&nbsp;удобнее. Главное называйте номер, чтобы&nbsp;я&nbsp;не&nbsp;запутался. Я&nbsp;всё расшифрую дословно, и&nbsp;дальше мы&nbsp;работаем с&nbsp;Вашими словами, а&nbsp;не&nbsp;с&nbsp;тем, что&nbsp;я&nbsp;придумал за&nbsp;Вас.
     </p>
     <p class="reveal reveal-delay-2">
-      Три просьбы: <strong>не&nbsp;причёсывайте речь</strong>&nbsp;— мне нужны Ваши формулировки и&nbsp;интонация. <strong>Отвечайте примерами</strong>, а&nbsp;не&nbsp;определениями: не&nbsp;«я&nbsp;упорная», а&nbsp;случай, когда это проявилось. <strong>Если вопрос не&nbsp;заходит</strong>&nbsp;— скажите «пропускаю», это нормально.
+      Три просьбы. <strong>Не&nbsp;причёсывайте речь</strong>&nbsp;— мне нужны Ваши формулировки и&nbsp;интонация. <strong>Отвечайте примерами</strong>, а&nbsp;не&nbsp;определениями: не&nbsp;«я&nbsp;упорная», а&nbsp;случай, когда это проявилось. <strong>Если вопрос не&nbsp;заходит</strong>&nbsp;— скажите «пропускаю», это нормально.
     </p>
   </div>
 </section>
 
-<!-- 01 -->
-<section class="spacer" id="b1">
+<section class="spacer" id="questions">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 01</span>
-      <h2>Кто Вы <em>сейчас</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">1</div><div class="sit-point-text">Расскажите о&nbsp;себе так, как&nbsp;рассказали&nbsp;бы новому человеку на&nbsp;вечеринке. Три минуты, без&nbsp;регалий.</div></div>
-      <div class="sit-point"><div class="sit-point-num">2</div><div class="sit-point-text">А&nbsp;теперь то&nbsp;же самое, но&nbsp;как&nbsp;бы Вы&nbsp;представились человеку, который может стать Вашим клиентом.</div></div>
-      <div class="sit-point"><div class="sit-point-num">3</div><div class="sit-point-text">Как проходит Ваш обычный день от&nbsp;пробуждения до&nbsp;сна? Подробно, по&nbsp;часам, с&nbsp;деталями.</div></div>
-      <div class="sit-point"><div class="sit-point-num">4</div><div class="sit-point-text">Что в&nbsp;Вашей жизни сейчас занимает больше всего мыслей? Не&nbsp;времени, а&nbsp;именно мыслей.</div></div>
-      <div class="sit-point"><div class="sit-point-num">5</div><div class="sit-point-text">С&nbsp;кем Вы&nbsp;живёте и&nbsp;как&nbsp;устроен Ваш быт? Кто рядом каждый день?</div></div>
-      <div class="sit-point"><div class="sit-point-num">6</div><div class="sit-point-text">Апшеронск&nbsp;— какой он? Опишите город так, чтобы&nbsp;человек, который там не&nbsp;был, его увидел.</div></div>
-      <div class="sit-point"><div class="sit-point-num">7</div><div class="sit-point-text">Что Вам нравится в&nbsp;том, что&nbsp;Вы&nbsp;живёте именно там? А&nbsp;что&nbsp;бесит?</div></div>
-      <div class="sit-point"><div class="sit-point-num">8</div><div class="sit-point-text">Кем Вы&nbsp;работали раньше? Пройдитесь по&nbsp;всем профессиям, которые были, и&nbsp;скажите, что&nbsp;из&nbsp;каждой забрали с&nbsp;собой.</div></div>
-      <div class="sit-point"><div class="sit-point-num">9</div><div class="sit-point-text">Чем Вы&nbsp;занимаетесь, когда никто не&nbsp;видит и&nbsp;снимать не&nbsp;надо?</div></div>
-      <div class="sit-point"><div class="sit-point-num">10</div><div class="sit-point-text">Какой у&nbsp;Вас характер? Спросите у&nbsp;близкого человека и&nbsp;перескажите, что&nbsp;он&nbsp;ответил.</div></div>
-      <div class="sit-point"><div class="sit-point-num">11</div><div class="sit-point-text">За&nbsp;что&nbsp;Вас чаще всего хвалят? А&nbsp;за&nbsp;что&nbsp;ругают?</div></div>
-      <div class="sit-point"><div class="sit-point-num">12</div><div class="sit-point-text">Что Вы&nbsp;о&nbsp;себе знаете такого, чего почти никто не&nbsp;знает?</div></div>
+    <div class="qbox reveal">
+      <div class="qrow"><div class="qnum">1</div><div class="qtext">Расскажите о&nbsp;себе так, как&nbsp;рассказали&nbsp;бы новому человеку на&nbsp;вечеринке. Три минуты, без&nbsp;регалий.</div></div>
+      <div class="qrow"><div class="qnum">2</div><div class="qtext">А&nbsp;теперь то&nbsp;же самое, но&nbsp;как&nbsp;бы Вы&nbsp;представились человеку, который может стать Вашим клиентом.</div></div>
+      <div class="qrow"><div class="qnum">3</div><div class="qtext">Как проходит Ваш обычный день от&nbsp;пробуждения до&nbsp;сна? Подробно, по&nbsp;часам, с&nbsp;деталями.</div></div>
+      <div class="qrow"><div class="qnum">4</div><div class="qtext">Что в&nbsp;Вашей жизни сейчас занимает больше всего мыслей? Не&nbsp;времени, а&nbsp;именно мыслей.</div></div>
+      <div class="qrow"><div class="qnum">5</div><div class="qtext">С&nbsp;кем Вы&nbsp;живёте и&nbsp;как&nbsp;устроен Ваш быт? Кто рядом каждый день?</div></div>
+      <div class="qrow"><div class="qnum">6</div><div class="qtext">Апшеронск&nbsp;— какой он? Опишите город так, чтобы&nbsp;человек, который там не&nbsp;был, его увидел.</div></div>
+      <div class="qrow"><div class="qnum">7</div><div class="qtext">Что Вам нравится в&nbsp;том, что&nbsp;Вы&nbsp;живёте именно там? А&nbsp;что&nbsp;бесит?</div></div>
+      <div class="qrow"><div class="qnum">8</div><div class="qtext">Кем Вы&nbsp;работали раньше? Пройдитесь по&nbsp;всем профессиям, которые были, и&nbsp;скажите, что&nbsp;из&nbsp;каждой забрали с&nbsp;собой.</div></div>
+      <div class="qrow"><div class="qnum">9</div><div class="qtext">Чем Вы&nbsp;занимаетесь, когда никто не&nbsp;видит и&nbsp;снимать не&nbsp;надо?</div></div>
+      <div class="qrow"><div class="qnum">10</div><div class="qtext">Какой у&nbsp;Вас характер? Спросите у&nbsp;близкого человека и&nbsp;перескажите, что&nbsp;он&nbsp;ответил.</div></div>
+      <div class="qrow"><div class="qnum">11</div><div class="qtext">За&nbsp;что&nbsp;Вас чаще всего хвалят? А&nbsp;за&nbsp;что&nbsp;ругают?</div></div>
+      <div class="qrow"><div class="qnum">12</div><div class="qtext">Что Вы&nbsp;о&nbsp;себе знаете такого, чего почти никто не&nbsp;знает?</div></div>
+      <div class="qrow"><div class="qnum">13</div><div class="qtext">Вспомните самый первый раз, когда Вы&nbsp;решили испечь хлеб. Где Вы&nbsp;были, что&nbsp;происходило вокруг, почему именно тогда?</div></div>
+      <div class="qrow"><div class="qnum">14</div><div class="qtext">Каким получился первый хлеб? Опишите его честно.</div></div>
+      <div class="qrow"><div class="qnum">15</div><div class="qtext">Сколько было провалов до&nbsp;того, как&nbsp;получилось? Расскажите про&nbsp;самый обидный.</div></div>
+      <div class="qrow"><div class="qnum">16</div><div class="qtext">В&nbsp;какой момент Вы&nbsp;поняли, что&nbsp;это не&nbsp;просто увлечение?</div></div>
+      <div class="qrow"><div class="qnum">17</div><div class="qtext">Что Вы&nbsp;чувствуете физически, когда печёте? Опишите ощущения: руки, запах, звук, ожидание.</div></div>
+      <div class="qrow"><div class="qnum">18</div><div class="qtext">Что для&nbsp;Вас хлеб, если убрать слова «продукт» и&nbsp;«бизнес»?</div></div>
+      <div class="qrow"><div class="qnum">19</div><div class="qtext">Почему именно закваска, а&nbsp;не&nbsp;обычные дрожжи? Что&nbsp;Вас в&nbsp;ней зацепило?</div></div>
+      <div class="qrow"><div class="qnum">20</div><div class="qtext">У&nbsp;Вашей закваски есть имя или&nbsp;история? Сколько ей&nbsp;лет?</div></div>
+      <div class="qrow"><div class="qnum">21</div><div class="qtext">Что Вы&nbsp;думаете о&nbsp;магазинном хлебе? Скажите прямо, как&nbsp;думаете.</div></div>
+      <div class="qrow"><div class="qnum">22</div><div class="qtext">Есть ли&nbsp;в&nbsp;Вашей семье история, связанная с&nbsp;выпечкой? Кто-то пёк до&nbsp;Вас?</div></div>
+      <div class="qrow"><div class="qnum">23</div><div class="qtext">Какой хлеб Вы&nbsp;печёте чаще всего и&nbsp;почему именно его?</div></div>
+      <div class="qrow"><div class="qnum">24</div><div class="qtext">А&nbsp;какой хлеб у&nbsp;Вас пока не&nbsp;получается? Что&nbsp;с&nbsp;ним не&nbsp;так?</div></div>
+      <div class="qrow"><div class="qnum">25</div><div class="qtext">Что Вас в&nbsp;хлебопечении раздражает? Что&nbsp;бы&nbsp;Вы&nbsp;делать не&nbsp;хотели, но&nbsp;приходится?</div></div>
+      <div class="qrow"><div class="qnum">26</div><div class="qtext">Расскажите всю историю с&nbsp;кредитом с&nbsp;самого начала: как&nbsp;Вы&nbsp;согласились, что&nbsp;чувствовали тогда.</div></div>
+      <div class="qrow"><div class="qnum">27</div><div class="qtext">В&nbsp;какой момент Вы&nbsp;поняли, что&nbsp;всё пошло не&nbsp;так? Опишите этот день.</div></div>
+      <div class="qrow"><div class="qnum">28</div><div class="qtext">Что было самым тяжёлым за&nbsp;этот период? Не&nbsp;в&nbsp;деньгах, а&nbsp;внутри.</div></div>
+      <div class="qrow"><div class="qnum">29</div><div class="qtext">Кто был рядом, когда было хуже всего? Кто исчез?</div></div>
+      <div class="qrow"><div class="qnum">30</div><div class="qtext">Что помогло не&nbsp;сломаться? Что&nbsp;Вы&nbsp;себе говорили?</div></div>
+      <div class="qrow"><div class="qnum">31</div><div class="qtext">Почему Вы&nbsp;отказались от&nbsp;банкротства? Что&nbsp;для&nbsp;Вас за&nbsp;этим стоит?</div></div>
+      <div class="qrow"><div class="qnum">32</div><div class="qtext">Что изменилось в&nbsp;Вас за&nbsp;это время? Какой Вы&nbsp;были до&nbsp;и&nbsp;какая сейчас?</div></div>
+      <div class="qrow"><div class="qnum">33</div><div class="qtext">Что Вы&nbsp;теперь знаете о&nbsp;деньгах, чего не&nbsp;знали раньше?</div></div>
+      <div class="qrow"><div class="qnum">34</div><div class="qtext">Что бы&nbsp;Вы&nbsp;сказали женщине, которая прямо сейчас собирается взять кредит для&nbsp;мужчины?</div></div>
+      <div class="qrow"><div class="qnum">35</div><div class="qtext">Вы&nbsp;уже выкладывали часть истории и&nbsp;получили хейт. Что&nbsp;тогда почувствовали и&nbsp;почему всё&nbsp;равно не&nbsp;удалили?</div></div>
+      <div class="qrow"><div class="qnum">36</div><div class="qtext">Как Вы&nbsp;сами относитесь к&nbsp;фразе «разведёнка с&nbsp;кредитом»? Это про&nbsp;силу или&nbsp;про&nbsp;боль?</div></div>
+      <div class="qrow"><div class="qnum">37</div><div class="qtext">Чем для&nbsp;Вас закончится эта история? Опишите день, когда долг закрыт.</div></div>
+      <div class="qrow"><div class="qnum">38</div><div class="qtext">Какие слова и&nbsp;выражения Вы&nbsp;употребляете постоянно? Свои словечки, которые за&nbsp;Вами замечают.</div></div>
+      <div class="qrow"><div class="qnum">39</div><div class="qtext">Над чем&nbsp;Вы&nbsp;смеётесь? Приведите пример шутки, от&nbsp;которой Вас накрывает.</div></div>
+      <div class="qrow"><div class="qnum">40</div><div class="qtext">Что Вас выводит из&nbsp;себя мгновенно?</div></div>
+      <div class="qrow"><div class="qnum">41</div><div class="qtext">Вы&nbsp;скорее говорите прямо или&nbsp;смягчаете? Вспомните случай, когда сказали то, что&nbsp;другие побоялись&nbsp;бы.</div></div>
+      <div class="qrow"><div class="qnum">42</div><div class="qtext">Каких людей Вы&nbsp;не&nbsp;переносите?</div></div>
+      <div class="qrow"><div class="qnum">43</div><div class="qtext">Есть ли&nbsp;тема, на&nbsp;которую Вы&nbsp;можете говорить часами без&nbsp;подготовки?</div></div>
+      <div class="qrow"><div class="qnum">44</div><div class="qtext">Как Вы&nbsp;выглядите в&nbsp;обычный день дома? Не&nbsp;для&nbsp;камеры.</div></div>
+      <div class="qrow"><div class="qnum">45</div><div class="qtext">Что для&nbsp;Вас красота? Вы&nbsp;открыто говорите про&nbsp;процедуры&nbsp;— почему для&nbsp;Вас важно об&nbsp;этом не&nbsp;врать?</div></div>
+      <div class="qrow"><div class="qnum">46</div><div class="qtext">Какая музыка играет у&nbsp;Вас дома, когда Вы&nbsp;печёте?</div></div>
+      <div class="qrow"><div class="qnum">47</div><div class="qtext">Три вещи, которые Вас мгновенно радуют.</div></div>
+      <div class="qrow"><div class="qnum">48</div><div class="qtext">Чего Вы&nbsp;боитесь? По-настоящему.</div></div>
+      <div class="qrow"><div class="qnum">49</div><div class="qtext">Что Вы&nbsp;в&nbsp;себе не&nbsp;любите, но&nbsp;уже приняли?</div></div>
+      <div class="qrow"><div class="qnum">50</div><div class="qtext">Какое Ваше убеждение большинство людей не&nbsp;разделяет?</div></div>
+      <div class="qrow"><div class="qnum">51</div><div class="qtext">Что Вы&nbsp;думаете о&nbsp;том, какой должна быть женщина? И&nbsp;согласны&nbsp;ли Вы&nbsp;с&nbsp;этим сами?</div></div>
+      <div class="qrow"><div class="qnum">52</div><div class="qtext">Что для&nbsp;Вас значит «реализоваться»? Вы&nbsp;говорили, что&nbsp;женщина должна&nbsp;— почему?</div></div>
+      <div class="qrow"><div class="qnum">53</div><div class="qtext">Что Вы&nbsp;думаете об&nbsp;отношениях после всего, что&nbsp;было?</div></div>
+      <div class="qrow"><div class="qnum">54</div><div class="qtext">Вы&nbsp;занимаетесь матрицей судьбы. Что&nbsp;это для&nbsp;Вас&nbsp;— инструмент, вера, привычка?</div></div>
+      <div class="qrow"><div class="qnum">55</div><div class="qtext">Как эзотерика уживается у&nbsp;Вас с&nbsp;медицинским образованием?</div></div>
+      <div class="qrow"><div class="qnum">56</div><div class="qtext">Что Вы&nbsp;думаете о&nbsp;еде и&nbsp;здоровье? Есть&nbsp;ли то, во&nbsp;что&nbsp;Вы&nbsp;верите вопреки общепринятому?</div></div>
+      <div class="qrow"><div class="qnum">57</div><div class="qtext">Какой совет Вам давали чаще всего и&nbsp;оказался ерундой?</div></div>
+      <div class="qrow"><div class="qnum">58</div><div class="qtext">За&nbsp;что&nbsp;Вы&nbsp;уважаете человека?</div></div>
+      <div class="qrow"><div class="qnum">59</div><div class="qtext">Что Вы&nbsp;не&nbsp;простите никогда?</div></div>
+      <div class="qrow"><div class="qnum">60</div><div class="qtext">Если бы&nbsp;у&nbsp;Вас был один час эфира на&nbsp;всю страну&nbsp;— что&nbsp;бы&nbsp;Вы&nbsp;сказали?</div></div>
+      <div class="qrow"><div class="qnum">61</div><div class="qtext">Опишите человека, который Вас смотрит. Возраст, чем&nbsp;занимается, как&nbsp;живёт, что&nbsp;его беспокоит.</div></div>
+      <div class="qrow"><div class="qnum">62</div><div class="qtext">Что Вам чаще всего пишут в&nbsp;директ? Приведите три реальных сообщения.</div></div>
+      <div class="qrow"><div class="qnum">63</div><div class="qtext">О&nbsp;чём&nbsp;Вас спрашивают чаще всего?</div></div>
+      <div class="qrow"><div class="qnum">64</div><div class="qtext">Какой отзыв или&nbsp;сообщение Вас особенно тронуло? Перескажите.</div></div>
+      <div class="qrow"><div class="qnum">65</div><div class="qtext">Есть ли&nbsp;подписчицы, которых Вы&nbsp;знаете по&nbsp;именам? Расскажите про&nbsp;одну из&nbsp;них.</div></div>
+      <div class="qrow"><div class="qnum">66</div><div class="qtext">Что люди в&nbsp;Вас видят, по&nbsp;Вашим ощущениям? За&nbsp;чем&nbsp;они возвращаются?</div></div>
+      <div class="qrow"><div class="qnum">67</div><div class="qtext">А&nbsp;что&nbsp;они, наоборот, понимают о&nbsp;Вас неправильно?</div></div>
+      <div class="qrow"><div class="qnum">68</div><div class="qtext">Мужская аудитория&nbsp;— как&nbsp;Вы&nbsp;к&nbsp;ней относитесь? Что&nbsp;пишут мужчины?</div></div>
+      <div class="qrow"><div class="qnum">69</div><div class="qtext">Каких подписчиков Вы&nbsp;бы&nbsp;не&nbsp;хотели видеть в&nbsp;блоге?</div></div>
+      <div class="qrow"><div class="qnum">70</div><div class="qtext">Кого Вы&nbsp;хотели&nbsp;бы&nbsp;привлечь, но&nbsp;пока их&nbsp;нет?</div></div>
+      <div class="qrow"><div class="qnum">71</div><div class="qtext">Что Ваши подписчицы, по-Вашему, не&nbsp;могут решить сами и&nbsp;в&nbsp;чём&nbsp;Вы&nbsp;могли&nbsp;бы&nbsp;помочь?</div></div>
+      <div class="qrow"><div class="qnum">72</div><div class="qtext">Как Вы&nbsp;решили сделать курс? Расскажите про&nbsp;момент, когда люди начали просить.</div></div>
+      <div class="qrow"><div class="qnum">73</div><div class="qtext">Как проходили съёмки курса? Что&nbsp;было тяжелее всего?</div></div>
+      <div class="qrow"><div class="qnum">74</div><div class="qtext">Что человек реально получает после Вашего курса? Опишите результат его словами, а&nbsp;не&nbsp;программой.</div></div>
+      <div class="qrow"><div class="qnum">75</div><div class="qtext">Чем Ваш курс отличается от&nbsp;десятков других по&nbsp;выпечке?</div></div>
+      <div class="qrow"><div class="qnum">76</div><div class="qtext">Почему у&nbsp;людей не&nbsp;получается печь хлеб самостоятельно, без&nbsp;курса?</div></div>
+      <div class="qrow"><div class="qnum">77</div><div class="qtext">Какая самая частая ошибка новичка?</div></div>
+      <div class="qrow"><div class="qnum">78</div><div class="qtext">Кто покупал Ваш курс? Расскажите про&nbsp;каждого, кого помните: кто&nbsp;они, зачем пришли.</div></div>
+      <div class="qrow"><div class="qnum">79</div><div class="qtext">Кто-нибудь написал Вам после курса? Что&nbsp;именно?</div></div>
+      <div class="qrow"><div class="qnum">80</div><div class="qtext">Что в&nbsp;курсе Вам самой не&nbsp;нравится? Что&nbsp;бы&nbsp;переделали?</div></div>
+      <div class="qrow"><div class="qnum">81</div><div class="qtext">Чего в&nbsp;курсе не&nbsp;хватает, по&nbsp;отзывам учениц?</div></div>
+      <div class="qrow"><div class="qnum">82</div><div class="qtext">Что Вы&nbsp;могли&nbsp;бы&nbsp;дать людям сверх того, что&nbsp;даёте сейчас?</div></div>
+      <div class="qrow"><div class="qnum">83</div><div class="qtext">Если бы&nbsp;Вы&nbsp;делали курс мечты без&nbsp;ограничений&nbsp;— каким&nbsp;бы&nbsp;он&nbsp;был?</div></div>
+      <div class="qrow"><div class="qnum">84</div><div class="qtext">Сколько сейчас стоит курс и&nbsp;как&nbsp;Вы&nbsp;назначали эту цену?</div></div>
+      <div class="qrow"><div class="qnum">85</div><div class="qtext">Сколько Вы&nbsp;зарабатываете в&nbsp;месяц сейчас и&nbsp;из&nbsp;чего это складывается?</div></div>
+      <div class="qrow"><div class="qnum">86</div><div class="qtext">Сколько нужно в&nbsp;месяц, чтобы&nbsp;дышать спокойно?</div></div>
+      <div class="qrow"><div class="qnum">87</div><div class="qtext">Точная сумма долга и&nbsp;сколько уходит на&nbsp;платежи ежемесячно?</div></div>
+      <div class="qrow"><div class="qnum">88</div><div class="qtext">Есть ли&nbsp;жёсткие сроки&nbsp;— суды, коллекторы, реструктуризация?</div></div>
+      <div class="qrow"><div class="qnum">89</div><div class="qtext">Как Вы&nbsp;принимаете оплату за&nbsp;курс и&nbsp;какая комиссия у&nbsp;площадки?</div></div>
+      <div class="qrow"><div class="qnum">90</div><div class="qtext">Сколько берёте за&nbsp;рекламную интеграцию и&nbsp;как&nbsp;они к&nbsp;Вам приходят?</div></div>
+      <div class="qrow"><div class="qnum">91</div><div class="qtext">Какие бренды Вам писали? С&nbsp;кем&nbsp;работали, с&nbsp;кем&nbsp;отказались и&nbsp;почему?</div></div>
+      <div class="qrow"><div class="qnum">92</div><div class="qtext">Сколько Вы&nbsp;готовы вкладывать времени в&nbsp;блог ежедневно? Честно.</div></div>
+      <div class="qrow"><div class="qnum">93</div><div class="qtext">Что для&nbsp;Вас будет означать «получилось»? Назовите цифру и&nbsp;срок.</div></div>
+      <div class="qrow"><div class="qnum">94</div><div class="qtext">Какие свои ролики Вы&nbsp;любите больше всего? Назовите три и&nbsp;скажите почему.</div></div>
+      <div class="qrow"><div class="qnum">95</div><div class="qtext">Какие ролики Вам самой не&nbsp;нравятся, хотя они зашли?</div></div>
+      <div class="qrow"><div class="qnum">96</div><div class="qtext">На&nbsp;какие блоги Вы&nbsp;подписаны и&nbsp;смотрите сами? Пришлите ссылки.</div></div>
+      <div class="qrow"><div class="qnum">97</div><div class="qtext">Чей контент вызывает у&nbsp;Вас зависть в&nbsp;хорошем смысле?</div></div>
+      <div class="qrow"><div class="qnum">98</div><div class="qtext">Что в&nbsp;чужих блогах Вас бесит и&nbsp;чего Вы&nbsp;точно делать не&nbsp;будете?</div></div>
+      <div class="qrow"><div class="qnum">99</div><div class="qtext">Какой формат съёмки Вам приятен, а&nbsp;какой мучителен?</div></div>
+      <div class="qrow"><div class="qnum">100</div><div class="qtext">Вам комфортно говорить на&nbsp;камеру или&nbsp;проще делать без&nbsp;слов, под&nbsp;музыку?</div></div>
+      <div class="qrow"><div class="qnum">101</div><div class="qtext">Сколько времени сейчас уходит на&nbsp;один ролик от&nbsp;идеи до&nbsp;публикации?</div></div>
+      <div class="qrow"><div class="qnum">102</div><div class="qtext">Что в&nbsp;процессе съёмки и&nbsp;монтажа Вас больше всего выматывает?</div></div>
+      <div class="qrow"><div class="qnum">103</div><div class="qtext">На&nbsp;что&nbsp;Вы&nbsp;снимаете и&nbsp;в&nbsp;чём&nbsp;монтируете?</div></div>
+      <div class="qrow"><div class="qnum">104</div><div class="qtext">Какие места вокруг Вас можно снимать? Дом, кухня, город, природа&nbsp;— опишите, что&nbsp;доступно.</div></div>
+      <div class="qrow"><div class="qnum">105</div><div class="qtext">Кто может Вам помогать со&nbsp;съёмкой и&nbsp;как&nbsp;часто?</div></div>
+      <div class="qrow"><div class="qnum">106</div><div class="qtext">О&nbsp;чём&nbsp;Вы&nbsp;давно хотели снять, но&nbsp;не&nbsp;решались?</div></div>
+      <div class="qrow"><div class="qnum">107</div><div class="qtext">Расскажите про&nbsp;своё детство. Где&nbsp;росли, каким ребёнком были, что&nbsp;помните ярче всего.</div></div>
+      <div class="qrow"><div class="qnum">108</div><div class="qtext">Кто Ваши родители, чем&nbsp;занимались, какие они люди?</div></div>
+      <div class="qrow"><div class="qnum">109</div><div class="qtext">Какие у&nbsp;Вас отношения с&nbsp;мамой? Что&nbsp;Вы&nbsp;от&nbsp;неё взяли, а&nbsp;в&nbsp;чём&nbsp;Вы&nbsp;полная противоположность?</div></div>
+      <div class="qrow"><div class="qnum">110</div><div class="qtext">А&nbsp;с&nbsp;отцом? Что&nbsp;он&nbsp;Вам дал?</div></div>
+      <div class="qrow"><div class="qnum">111</div><div class="qtext">Сейчас Вы&nbsp;живёте с&nbsp;родителями. Как&nbsp;это устроено и&nbsp;как&nbsp;Вы&nbsp;к&nbsp;этому относитесь?</div></div>
+      <div class="qrow"><div class="qnum">112</div><div class="qtext">Есть ли&nbsp;братья и&nbsp;сёстры? Какие у&nbsp;Вас отношения?</div></div>
+      <div class="qrow"><div class="qnum">113</div><div class="qtext">Ваша фамилия и&nbsp;происхождение&nbsp;— расскажите про&nbsp;корни. Насколько это часть Вас?</div></div>
+      <div class="qrow"><div class="qnum">114</div><div class="qtext">Вы&nbsp;летали в&nbsp;Ереван, а&nbsp;один из&nbsp;Ваших самых популярных роликов&nbsp;— под&nbsp;армянскую песню. Что&nbsp;для&nbsp;Вас эта культура?</div></div>
+      <div class="qrow"><div class="qnum">115</div><div class="qtext">Какие традиции, блюда, привычки Вы&nbsp;унаследовали от&nbsp;семьи?</div></div>
+      <div class="qrow"><div class="qnum">116</div><div class="qtext">Кем Вы&nbsp;мечтали стать в&nbsp;детстве и&nbsp;что&nbsp;из&nbsp;этого сбылось?</div></div>
+      <div class="qrow"><div class="qnum">117</div><div class="qtext">Какой Вы&nbsp;были в&nbsp;школе и&nbsp;в&nbsp;юности?</div></div>
+      <div class="qrow"><div class="qnum">118</div><div class="qtext">Какое событие в&nbsp;жизни изменило Вас сильнее всего&nbsp;— кроме истории с&nbsp;кредитом?</div></div>
+      <div class="qrow"><div class="qnum">119</div><div class="qtext">Что в&nbsp;Вашей семье считалось правильным, а&nbsp;Вы&nbsp;с&nbsp;этим не&nbsp;согласны?</div></div>
+      <div class="qrow"><div class="qnum">120</div><div class="qtext">Как Ваши родные относятся к&nbsp;тому, что&nbsp;Вы&nbsp;ведёте блог?</div></div>
+      <div class="qrow"><div class="qnum">121</div><div class="qtext">Что для&nbsp;Вас значит быть женщиной? В&nbsp;чём&nbsp;это проявляется в&nbsp;обычной жизни?</div></div>
+      <div class="qrow"><div class="qnum">122</div><div class="qtext">Когда Вы&nbsp;чувствуете себя красивой по-настоящему?</div></div>
+      <div class="qrow"><div class="qnum">123</div><div class="qtext">Какие у&nbsp;Вас отношения со&nbsp;своим телом? Что&nbsp;изменилось с&nbsp;возрастом?</div></div>
+      <div class="qrow"><div class="qnum">124</div><div class="qtext">Расскажите про&nbsp;свои ритуалы ухода за&nbsp;собой. Что&nbsp;делаете для&nbsp;себя регулярно?</div></div>
+      <div class="qrow"><div class="qnum">125</div><div class="qtext">Как Вы&nbsp;одеваетесь и&nbsp;что&nbsp;для&nbsp;Вас стиль? Есть&nbsp;ли вещи, без&nbsp;которых Вы&nbsp;не&nbsp;выходите?</div></div>
+      <div class="qrow"><div class="qnum">126</div><div class="qtext">Вы&nbsp;занимаетесь спортом&nbsp;— расскажите, как&nbsp;это устроено и&nbsp;зачем Вам это.</div></div>
+      <div class="qrow"><div class="qnum">127</div><div class="qtext">Что Вы&nbsp;думаете про&nbsp;возраст? Двадцать восемь&nbsp;— это про&nbsp;что&nbsp;для&nbsp;Вас?</div></div>
+      <div class="qrow"><div class="qnum">128</div><div class="qtext">Чего Вы&nbsp;боитесь как&nbsp;женщина? Скажите честно.</div></div>
+      <div class="qrow"><div class="qnum">129</div><div class="qtext">Какие у&nbsp;Вас сейчас отношения с&nbsp;мужчинами? Хотите&nbsp;ли Вы&nbsp;новых отношений?</div></div>
+      <div class="qrow"><div class="qnum">130</div><div class="qtext">Что для&nbsp;Вас любовь и&nbsp;изменилось&nbsp;ли это понимание после всего?</div></div>
+      <div class="qrow"><div class="qnum">131</div><div class="qtext">Расскажите про&nbsp;свои подруги. Кто&nbsp;Ваш близкий круг?</div></div>
+      <div class="qrow"><div class="qnum">132</div><div class="qtext">Что Вы&nbsp;думаете про&nbsp;женскую дружбу и&nbsp;женскую конкуренцию?</div></div>
+      <div class="qrow"><div class="qnum">133</div><div class="qtext">Дети&nbsp;— есть, хотите, как&nbsp;относитесь к&nbsp;этой теме?</div></div>
+      <div class="qrow"><div class="qnum">134</div><div class="qtext">Какой женщиной Вы&nbsp;хотите быть через десять лет?</div></div>
+      <div class="qrow"><div class="qnum">135</div><div class="qtext">Кто для&nbsp;Вас пример женщины? Не&nbsp;обязательно известной.</div></div>
+      <div class="qrow"><div class="qnum">136</div><div class="qtext">Что Вас злит в&nbsp;том, как&nbsp;общество относится к&nbsp;женщинам?</div></div>
+      <div class="qrow"><div class="qnum">137</div><div class="qtext">Расскажите про&nbsp;матрицу судьбы: как&nbsp;пришли, что&nbsp;это Вам даёт, работаете&nbsp;ли с&nbsp;людьми сейчас.</div></div>
+      <div class="qrow"><div class="qnum">138</div><div class="qtext">Психология&nbsp;— Вы&nbsp;упоминали, что&nbsp;интересуетесь. Что&nbsp;именно и&nbsp;зачем?</div></div>
+      <div class="qrow"><div class="qnum">139</div><div class="qtext">У&nbsp;Вас медицинское образование. Как&nbsp;оно на&nbsp;Вас повлияло и&nbsp;пригождается&nbsp;ли?</div></div>
+      <div class="qrow"><div class="qnum">140</div><div class="qtext">Расскажите про&nbsp;своих животных. Кто&nbsp;у&nbsp;Вас живёт, какие у&nbsp;них характеры, откуда взялись?</div></div>
+      <div class="qrow"><div class="qnum">141</div><div class="qtext">Что Вы&nbsp;читаете и&nbsp;смотрите? Назовите то, что&nbsp;зацепило за&nbsp;последний год.</div></div>
+      <div class="qrow"><div class="qnum">142</div><div class="qtext">Куда Вы&nbsp;ездили и&nbsp;куда мечтаете? Какое место запомнилось сильнее всего?</div></div>
+      <div class="qrow"><div class="qnum">143</div><div class="qtext">Какой у&nbsp;Вас дом? Что&nbsp;для&nbsp;Вас уют?</div></div>
+      <div class="qrow"><div class="qnum">144</div><div class="qtext">Что Вы&nbsp;готовите кроме хлеба? Есть&nbsp;ли фирменное блюдо?</div></div>
+      <div class="qrow"><div class="qnum">145</div><div class="qtext">Как Вы&nbsp;отдыхаете и&nbsp;восстанавливаетесь, когда выгорели?</div></div>
+      <div class="qrow"><div class="qnum">146</div><div class="qtext">Есть ли&nbsp;у&nbsp;Вас увлечение, которое кажется странным со&nbsp;стороны?</div></div>
+      <div class="qrow"><div class="qnum">147</div><div class="qtext">Что Вы&nbsp;умеете такого, о&nbsp;чём&nbsp;почти никто не&nbsp;знает?</div></div>
+      <div class="qrow"><div class="qnum">148</div><div class="qtext">Чему Вы&nbsp;хотели&nbsp;бы&nbsp;научиться, но&nbsp;пока не&nbsp;дошли руки?</div></div>
+      <div class="qrow"><div class="qnum">149</div><div class="qtext">Если бы&nbsp;хлеба не&nbsp;было в&nbsp;Вашей жизни&nbsp;— чем&nbsp;бы&nbsp;Вы&nbsp;занимались?</div></div>
+      <div class="qrow"><div class="qnum">150</div><div class="qtext">О&nbsp;чём&nbsp;Вы&nbsp;могли&nbsp;бы&nbsp;говорить в&nbsp;блоге бесконечно, даже если это никак не&nbsp;связано с&nbsp;выпечкой?</div></div>
+      <div class="qrow"><div class="qnum">151</div><div class="qtext">Какие темы Вы&nbsp;не&nbsp;будете обсуждать в&nbsp;блоге ни&nbsp;при&nbsp;каких условиях?</div></div>
+      <div class="qrow"><div class="qnum">152</div><div class="qtext">Кого из&nbsp;близких нельзя показывать или&nbsp;упоминать?</div></div>
+      <div class="qrow"><div class="qnum">153</div><div class="qtext">Что из&nbsp;Вашей истории Вы&nbsp;готовы рассказать только намёком, без&nbsp;подробностей?</div></div>
+      <div class="qrow"><div class="qnum">154</div><div class="qtext">Есть ли&nbsp;люди, чья реакция Вас останавливает? Кого Вы&nbsp;стесняетесь?</div></div>
+      <div class="qrow"><div class="qnum">155</div><div class="qtext">Какие форматы Вы&nbsp;точно делать не&nbsp;будете, даже если они залетают у&nbsp;других?</div></div>
+      <div class="qrow"><div class="qnum">156</div><div class="qtext">Что Вас в&nbsp;блогерстве отталкивает больше всего?</div></div>
+      <div class="qrow"><div class="qnum">157</div><div class="qtext">Насколько Вы&nbsp;готовы к&nbsp;негативу? Где&nbsp;Ваш предел?</div></div>
+      <div class="qrow"><div class="qnum">158</div><div class="qtext">Что должно произойти, чтобы&nbsp;Вы&nbsp;захотели всё бросить?</div></div>
+      <div class="qrow"><div class="qnum">159</div><div class="qtext">Вы&nbsp;говорили, что&nbsp;не&nbsp;хотите быть «экспертом». Что&nbsp;именно Вас в&nbsp;этом слове отталкивает?</div></div>
+      <div class="qrow"><div class="qnum">160</div><div class="qtext">А&nbsp;кем&nbsp;Вы&nbsp;хотите, чтобы&nbsp;Вас считали?</div></div>
+      <div class="qrow"><div class="qnum">161</div><div class="qtext">Каким Вы&nbsp;видите свой блог через год? Опишите картинку в&nbsp;деталях.</div></div>
+      <div class="qrow"><div class="qnum">162</div><div class="qtext">Расскажите про&nbsp;пекарню. Какая она, где&nbsp;находится, что&nbsp;в&nbsp;ней происходит?</div></div>
+      <div class="qrow"><div class="qnum">163</div><div class="qtext">Почему пекарня, а&nbsp;не&nbsp;онлайн? Что&nbsp;для&nbsp;Вас в&nbsp;ней важно?</div></div>
+      <div class="qrow"><div class="qnum">164</div><div class="qtext">Что должно произойти в&nbsp;ближайшие три месяца, чтобы&nbsp;Вы&nbsp;сказали «идёт как&nbsp;надо»?</div></div>
+      <div class="qrow"><div class="qnum">165</div><div class="qtext">Кем Вы&nbsp;хотите быть через пять лет?</div></div>
+      <div class="qrow"><div class="qnum">166</div><div class="qtext">Что Вы&nbsp;хотите, чтобы&nbsp;о&nbsp;Вас говорили люди, которые Вас не&nbsp;знают лично?</div></div>
+      <div class="qrow"><div class="qnum">167</div><div class="qtext">Какую фразу Вы&nbsp;хотели&nbsp;бы&nbsp;слышать от&nbsp;подписчиц чаще всего?</div></div>
+      <div class="qrow"><div class="qnum">168</div><div class="qtext">Есть ли&nbsp;мечта, о&nbsp;которой Вы&nbsp;никому не&nbsp;говорили?</div></div>
+      <div class="qrow"><div class="qnum">169</div><div class="qtext">Чего Вы&nbsp;ждёте от&nbsp;нашей работы? Что&nbsp;должно измениться, чтобы&nbsp;Вы&nbsp;были довольны?</div></div>
+      <div class="qrow"><div class="qnum">170</div><div class="qtext">Чего Вы&nbsp;опасаетесь в&nbsp;нашей работе? Скажите прямо, это важно проговорить сразу.</div></div>
     </div>
   </div>
 </section>
 
-<!-- 02 -->
-<section class="spacer" id="b2">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 02</span>
-      <h2>Как в&nbsp;Вашей жизни появился <em>хлеб</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">13</div><div class="sit-point-text">Вспомните самый первый раз, когда Вы&nbsp;решили испечь хлеб. Где Вы&nbsp;были, что&nbsp;происходило вокруг, почему именно тогда?</div></div>
-      <div class="sit-point"><div class="sit-point-num">14</div><div class="sit-point-text">Каким получился первый хлеб? Опишите его честно.</div></div>
-      <div class="sit-point"><div class="sit-point-num">15</div><div class="sit-point-text">Сколько было провалов до&nbsp;того, как&nbsp;получилось? Расскажите про&nbsp;самый обидный.</div></div>
-      <div class="sit-point"><div class="sit-point-num">16</div><div class="sit-point-text">В&nbsp;какой момент Вы&nbsp;поняли, что&nbsp;это не&nbsp;просто увлечение?</div></div>
-      <div class="sit-point"><div class="sit-point-num">17</div><div class="sit-point-text">Что Вы&nbsp;чувствуете физически, когда печёте? Опишите ощущения: руки, запах, звук, ожидание.</div></div>
-      <div class="sit-point"><div class="sit-point-num">18</div><div class="sit-point-text">Что для&nbsp;Вас хлеб, если убрать слова «продукт» и&nbsp;«бизнес»?</div></div>
-      <div class="sit-point"><div class="sit-point-num">19</div><div class="sit-point-text">Почему именно закваска, а&nbsp;не&nbsp;обычные дрожжи? Что&nbsp;Вас в&nbsp;ней зацепило?</div></div>
-      <div class="sit-point"><div class="sit-point-num">20</div><div class="sit-point-text">У&nbsp;Вашей закваски есть имя или&nbsp;история? Сколько ей&nbsp;лет?</div></div>
-      <div class="sit-point"><div class="sit-point-num">21</div><div class="sit-point-text">Что Вы&nbsp;думаете о&nbsp;магазинном хлебе? Скажите прямо, как&nbsp;думаете.</div></div>
-      <div class="sit-point"><div class="sit-point-num">22</div><div class="sit-point-text">Есть ли&nbsp;в&nbsp;Вашей семье история, связанная с&nbsp;выпечкой? Кто-то пёк до&nbsp;Вас?</div></div>
-      <div class="sit-point"><div class="sit-point-num">23</div><div class="sit-point-text">Какой хлеб Вы&nbsp;печёте чаще всего и&nbsp;почему именно его?</div></div>
-      <div class="sit-point"><div class="sit-point-num">24</div><div class="sit-point-text">А&nbsp;какой хлеб у&nbsp;Вас пока не&nbsp;получается? Что&nbsp;с&nbsp;ним не&nbsp;так?</div></div>
-      <div class="sit-point"><div class="sit-point-num">25</div><div class="sit-point-text">Что Вас в&nbsp;хлебопечении раздражает? Что&nbsp;бы&nbsp;Вы&nbsp;делать не&nbsp;хотели, но&nbsp;приходится?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 -->
-<section class="spacer" id="b3">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 03</span>
-      <h2>Ваш путь и&nbsp;<em>перелом</em></h2>
-    </div>
-    <div class="reveal" style="margin-bottom:24px">
-      <p style="font-size:16px;color:var(--text)">Этот блок&nbsp;— про&nbsp;то, что&nbsp;Вы&nbsp;уже рассказывали. Мне нужны детали и&nbsp;Ваши формулировки, поэтому расскажите заново и&nbsp;не&nbsp;торопясь. Всё, что&nbsp;не&nbsp;захотите выносить в&nbsp;блог, останется между нами&nbsp;— это решаем потом отдельно.</p>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">26</div><div class="sit-point-text">Расскажите всю историю с&nbsp;кредитом с&nbsp;самого начала: как&nbsp;Вы&nbsp;согласились, что&nbsp;чувствовали тогда.</div></div>
-      <div class="sit-point"><div class="sit-point-num">27</div><div class="sit-point-text">В&nbsp;какой момент Вы&nbsp;поняли, что&nbsp;всё пошло не&nbsp;так? Опишите этот день.</div></div>
-      <div class="sit-point"><div class="sit-point-num">28</div><div class="sit-point-text">Что было самым тяжёлым за&nbsp;этот период? Не&nbsp;в&nbsp;деньгах, а&nbsp;внутри.</div></div>
-      <div class="sit-point"><div class="sit-point-num">29</div><div class="sit-point-text">Кто был рядом, когда было хуже всего? Кто исчез?</div></div>
-      <div class="sit-point"><div class="sit-point-num">30</div><div class="sit-point-text">Что помогло не&nbsp;сломаться? Что&nbsp;Вы&nbsp;себе говорили?</div></div>
-      <div class="sit-point"><div class="sit-point-num">31</div><div class="sit-point-text">Почему Вы&nbsp;отказались от&nbsp;банкротства? Что&nbsp;для&nbsp;Вас за&nbsp;этим стоит?</div></div>
-      <div class="sit-point"><div class="sit-point-num">32</div><div class="sit-point-text">Что изменилось в&nbsp;Вас за&nbsp;это время? Какой Вы&nbsp;были до&nbsp;и&nbsp;какая сейчас?</div></div>
-      <div class="sit-point"><div class="sit-point-num">33</div><div class="sit-point-text">Что Вы&nbsp;теперь знаете о&nbsp;деньгах, чего не&nbsp;знали раньше?</div></div>
-      <div class="sit-point"><div class="sit-point-num">34</div><div class="sit-point-text">Что бы&nbsp;Вы&nbsp;сказали женщине, которая прямо сейчас собирается взять кредит для&nbsp;мужчины?</div></div>
-      <div class="sit-point"><div class="sit-point-num">35</div><div class="sit-point-text">Вы&nbsp;уже выкладывали часть истории и&nbsp;получили хейт. Что&nbsp;тогда почувствовали и&nbsp;почему всё&nbsp;равно не&nbsp;удалили?</div></div>
-      <div class="sit-point"><div class="sit-point-num">36</div><div class="sit-point-text">Как Вы&nbsp;сами относитесь к&nbsp;фразе «разведёнка с&nbsp;кредитом»? Это про&nbsp;силу или&nbsp;про&nbsp;боль?</div></div>
-      <div class="sit-point"><div class="sit-point-num">37</div><div class="sit-point-text">Чем для&nbsp;Вас закончится эта история? Опишите день, когда долг закрыт.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 -->
-<section class="spacer" id="b4">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 04</span>
-      <h2>Ваш голос и&nbsp;<em>манера</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">38</div><div class="sit-point-text">Какие слова и&nbsp;выражения Вы&nbsp;употребляете постоянно? Свои словечки, которые за&nbsp;Вами замечают.</div></div>
-      <div class="sit-point"><div class="sit-point-num">39</div><div class="sit-point-text">Над чем&nbsp;Вы&nbsp;смеётесь? Приведите пример шутки, от&nbsp;которой Вас накрывает.</div></div>
-      <div class="sit-point"><div class="sit-point-num">40</div><div class="sit-point-text">Что Вас выводит из&nbsp;себя мгновенно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">41</div><div class="sit-point-text">Вы&nbsp;скорее говорите прямо или&nbsp;смягчаете? Вспомните случай, когда сказали то, что&nbsp;другие побоялись&nbsp;бы.</div></div>
-      <div class="sit-point"><div class="sit-point-num">42</div><div class="sit-point-text">Каких людей Вы&nbsp;не&nbsp;переносите?</div></div>
-      <div class="sit-point"><div class="sit-point-num">43</div><div class="sit-point-text">Есть ли&nbsp;тема, на&nbsp;которую Вы&nbsp;можете говорить часами без&nbsp;подготовки?</div></div>
-      <div class="sit-point"><div class="sit-point-num">44</div><div class="sit-point-text">Как Вы&nbsp;выглядите в&nbsp;обычный день дома? Не&nbsp;для&nbsp;камеры.</div></div>
-      <div class="sit-point"><div class="sit-point-num">45</div><div class="sit-point-text">Что для&nbsp;Вас красота? Вы&nbsp;открыто говорите про&nbsp;процедуры&nbsp;— почему для&nbsp;Вас важно об&nbsp;этом не&nbsp;врать?</div></div>
-      <div class="sit-point"><div class="sit-point-num">46</div><div class="sit-point-text">Какая музыка играет у&nbsp;Вас дома, когда Вы&nbsp;печёте?</div></div>
-      <div class="sit-point"><div class="sit-point-num">47</div><div class="sit-point-text">Три вещи, которые Вас мгновенно радуют.</div></div>
-      <div class="sit-point"><div class="sit-point-num">48</div><div class="sit-point-text">Чего Вы&nbsp;боитесь? По-настоящему.</div></div>
-      <div class="sit-point"><div class="sit-point-num">49</div><div class="sit-point-text">Что Вы&nbsp;в&nbsp;себе не&nbsp;любите, но&nbsp;уже приняли?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 -->
-<section class="spacer" id="b5">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 05</span>
-      <h2>Во&nbsp;что&nbsp;Вы <em>верите</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">50</div><div class="sit-point-text">Какое Ваше убеждение большинство людей не&nbsp;разделяет?</div></div>
-      <div class="sit-point"><div class="sit-point-num">51</div><div class="sit-point-text">Что Вы&nbsp;думаете о&nbsp;том, какой должна быть женщина? И&nbsp;согласны&nbsp;ли Вы&nbsp;с&nbsp;этим сами?</div></div>
-      <div class="sit-point"><div class="sit-point-num">52</div><div class="sit-point-text">Что для&nbsp;Вас значит «реализоваться»? Вы&nbsp;говорили, что&nbsp;женщина должна&nbsp;— почему?</div></div>
-      <div class="sit-point"><div class="sit-point-num">53</div><div class="sit-point-text">Что Вы&nbsp;думаете об&nbsp;отношениях после всего, что&nbsp;было?</div></div>
-      <div class="sit-point"><div class="sit-point-num">54</div><div class="sit-point-text">Вы&nbsp;занимаетесь матрицей судьбы. Что&nbsp;это для&nbsp;Вас&nbsp;— инструмент, вера, привычка?</div></div>
-      <div class="sit-point"><div class="sit-point-num">55</div><div class="sit-point-text">Как эзотерика уживается у&nbsp;Вас с&nbsp;медицинским образованием?</div></div>
-      <div class="sit-point"><div class="sit-point-num">56</div><div class="sit-point-text">Что Вы&nbsp;думаете о&nbsp;еде и&nbsp;здоровье? Есть&nbsp;ли то, во&nbsp;что&nbsp;Вы&nbsp;верите вопреки общепринятому?</div></div>
-      <div class="sit-point"><div class="sit-point-num">57</div><div class="sit-point-text">Какой совет Вам давали чаще всего и&nbsp;оказался ерундой?</div></div>
-      <div class="sit-point"><div class="sit-point-num">58</div><div class="sit-point-text">За&nbsp;что&nbsp;Вы&nbsp;уважаете человека?</div></div>
-      <div class="sit-point"><div class="sit-point-num">59</div><div class="sit-point-text">Что Вы&nbsp;не&nbsp;простите никогда?</div></div>
-      <div class="sit-point"><div class="sit-point-num">60</div><div class="sit-point-text">Если бы&nbsp;у&nbsp;Вас был один час эфира на&nbsp;всю страну&nbsp;— что&nbsp;бы&nbsp;Вы&nbsp;сказали?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 -->
-<section class="spacer" id="b6">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 06</span>
-      <h2>Ваши <em>подписчики</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">61</div><div class="sit-point-text">Опишите человека, который Вас смотрит. Возраст, чем&nbsp;занимается, как&nbsp;живёт, что&nbsp;его беспокоит.</div></div>
-      <div class="sit-point"><div class="sit-point-num">62</div><div class="sit-point-text">Что Вам чаще всего пишут в&nbsp;директ? Приведите три реальных сообщения.</div></div>
-      <div class="sit-point"><div class="sit-point-num">63</div><div class="sit-point-text">О&nbsp;чём&nbsp;Вас спрашивают чаще всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">64</div><div class="sit-point-text">Какой отзыв или&nbsp;сообщение Вас особенно тронуло? Перескажите.</div></div>
-      <div class="sit-point"><div class="sit-point-num">65</div><div class="sit-point-text">Есть ли&nbsp;подписчицы, которых Вы&nbsp;знаете по&nbsp;именам? Расскажите про&nbsp;одну из&nbsp;них.</div></div>
-      <div class="sit-point"><div class="sit-point-num">66</div><div class="sit-point-text">Что люди в&nbsp;Вас видят, по&nbsp;Вашим ощущениям? За&nbsp;чем&nbsp;они возвращаются?</div></div>
-      <div class="sit-point"><div class="sit-point-num">67</div><div class="sit-point-text">А&nbsp;что&nbsp;они, наоборот, понимают о&nbsp;Вас неправильно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">68</div><div class="sit-point-text">Мужская аудитория&nbsp;— как&nbsp;Вы&nbsp;к&nbsp;ней относитесь? Что&nbsp;пишут мужчины?</div></div>
-      <div class="sit-point"><div class="sit-point-num">69</div><div class="sit-point-text">Каких подписчиков Вы&nbsp;бы&nbsp;не&nbsp;хотели видеть в&nbsp;блоге?</div></div>
-      <div class="sit-point"><div class="sit-point-num">70</div><div class="sit-point-text">Кого Вы&nbsp;хотели&nbsp;бы&nbsp;привлечь, но&nbsp;пока их&nbsp;нет?</div></div>
-      <div class="sit-point"><div class="sit-point-num">71</div><div class="sit-point-text">Что Ваши подписчицы, по-Вашему, не&nbsp;могут решить сами и&nbsp;в&nbsp;чём&nbsp;Вы&nbsp;могли&nbsp;бы&nbsp;помочь?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 -->
-<section class="spacer" id="b7">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 07</span>
-      <h2>Курс и&nbsp;те, кто&nbsp;<em>купил</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">72</div><div class="sit-point-text">Как Вы&nbsp;решили сделать курс? Расскажите про&nbsp;момент, когда люди начали просить.</div></div>
-      <div class="sit-point"><div class="sit-point-num">73</div><div class="sit-point-text">Как проходили съёмки курса? Что&nbsp;было тяжелее всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">74</div><div class="sit-point-text">Что человек реально получает после Вашего курса? Опишите результат его словами, а&nbsp;не&nbsp;программой.</div></div>
-      <div class="sit-point"><div class="sit-point-num">75</div><div class="sit-point-text">Чем Ваш курс отличается от&nbsp;десятков других по&nbsp;выпечке?</div></div>
-      <div class="sit-point"><div class="sit-point-num">76</div><div class="sit-point-text">Почему у&nbsp;людей не&nbsp;получается печь хлеб самостоятельно, без&nbsp;курса?</div></div>
-      <div class="sit-point"><div class="sit-point-num">77</div><div class="sit-point-text">Какая самая частая ошибка новичка?</div></div>
-      <div class="sit-point"><div class="sit-point-num">78</div><div class="sit-point-text">Кто покупал Ваш курс? Расскажите про&nbsp;каждого, кого помните: кто&nbsp;они, зачем пришли.</div></div>
-      <div class="sit-point"><div class="sit-point-num">79</div><div class="sit-point-text">Кто-нибудь написал Вам после курса? Что&nbsp;именно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">80</div><div class="sit-point-text">Что в&nbsp;курсе Вам самой не&nbsp;нравится? Что&nbsp;бы&nbsp;переделали?</div></div>
-      <div class="sit-point"><div class="sit-point-num">81</div><div class="sit-point-text">Чего в&nbsp;курсе не&nbsp;хватает, по&nbsp;отзывам учениц?</div></div>
-      <div class="sit-point"><div class="sit-point-num">82</div><div class="sit-point-text">Что Вы&nbsp;могли&nbsp;бы&nbsp;дать людям сверх того, что&nbsp;даёте сейчас?</div></div>
-      <div class="sit-point"><div class="sit-point-num">83</div><div class="sit-point-text">Если бы&nbsp;Вы&nbsp;делали курс мечты без&nbsp;ограничений&nbsp;— каким&nbsp;бы&nbsp;он&nbsp;был?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 -->
-<section class="spacer" id="b8">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 08</span>
-      <h2>Деньги и&nbsp;<em>дело</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">84</div><div class="sit-point-text">Сколько сейчас стоит курс и&nbsp;как&nbsp;Вы&nbsp;назначали эту цену?</div></div>
-      <div class="sit-point"><div class="sit-point-num">85</div><div class="sit-point-text">Сколько Вы&nbsp;зарабатываете в&nbsp;месяц сейчас и&nbsp;из&nbsp;чего это складывается?</div></div>
-      <div class="sit-point"><div class="sit-point-num">86</div><div class="sit-point-text">Сколько нужно в&nbsp;месяц, чтобы&nbsp;дышать спокойно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">87</div><div class="sit-point-text">Точная сумма долга и&nbsp;сколько уходит на&nbsp;платежи ежемесячно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">88</div><div class="sit-point-text">Есть ли&nbsp;жёсткие сроки&nbsp;— суды, коллекторы, реструктуризация?</div></div>
-      <div class="sit-point"><div class="sit-point-num">89</div><div class="sit-point-text">Как Вы&nbsp;принимаете оплату за&nbsp;курс и&nbsp;какая комиссия у&nbsp;площадки?</div></div>
-      <div class="sit-point"><div class="sit-point-num">90</div><div class="sit-point-text">Сколько берёте за&nbsp;рекламную интеграцию и&nbsp;как&nbsp;они к&nbsp;Вам приходят?</div></div>
-      <div class="sit-point"><div class="sit-point-num">91</div><div class="sit-point-text">Какие бренды Вам писали? С&nbsp;кем&nbsp;работали, с&nbsp;кем&nbsp;отказались и&nbsp;почему?</div></div>
-      <div class="sit-point"><div class="sit-point-num">92</div><div class="sit-point-text">Сколько Вы&nbsp;готовы вкладывать времени в&nbsp;блог ежедневно? Честно.</div></div>
-      <div class="sit-point"><div class="sit-point-num">93</div><div class="sit-point-text">Что для&nbsp;Вас будет означать «получилось»? Назовите цифру и&nbsp;срок.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 09 -->
-<section class="spacer" id="b9">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 09</span>
-      <h2>Контент: что&nbsp;<em>нравится</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">94</div><div class="sit-point-text">Какие свои ролики Вы&nbsp;любите больше всего? Назовите три и&nbsp;скажите почему.</div></div>
-      <div class="sit-point"><div class="sit-point-num">95</div><div class="sit-point-text">Какие ролики Вам самой не&nbsp;нравятся, хотя они зашли?</div></div>
-      <div class="sit-point"><div class="sit-point-num">96</div><div class="sit-point-text">На&nbsp;какие блоги Вы&nbsp;подписаны и&nbsp;смотрите сами? Пришлите ссылки.</div></div>
-      <div class="sit-point"><div class="sit-point-num">97</div><div class="sit-point-text">Чей контент вызывает у&nbsp;Вас зависть в&nbsp;хорошем смысле?</div></div>
-      <div class="sit-point"><div class="sit-point-num">98</div><div class="sit-point-text">Что в&nbsp;чужих блогах Вас бесит и&nbsp;чего Вы&nbsp;точно делать не&nbsp;будете?</div></div>
-      <div class="sit-point"><div class="sit-point-num">99</div><div class="sit-point-text">Какой формат съёмки Вам приятен, а&nbsp;какой мучителен?</div></div>
-      <div class="sit-point"><div class="sit-point-num">100</div><div class="sit-point-text">Вам комфортно говорить на&nbsp;камеру или&nbsp;проще делать без&nbsp;слов, под&nbsp;музыку?</div></div>
-      <div class="sit-point"><div class="sit-point-num">101</div><div class="sit-point-text">Сколько времени сейчас уходит на&nbsp;один ролик от&nbsp;идеи до&nbsp;публикации?</div></div>
-      <div class="sit-point"><div class="sit-point-num">102</div><div class="sit-point-text">Что в&nbsp;процессе съёмки и&nbsp;монтажа Вас больше всего выматывает?</div></div>
-      <div class="sit-point"><div class="sit-point-num">103</div><div class="sit-point-text">На&nbsp;что&nbsp;Вы&nbsp;снимаете и&nbsp;в&nbsp;чём&nbsp;монтируете?</div></div>
-      <div class="sit-point"><div class="sit-point-num">104</div><div class="sit-point-text">Какие места вокруг Вас можно снимать? Дом, кухня, город, природа&nbsp;— опишите, что&nbsp;доступно.</div></div>
-      <div class="sit-point"><div class="sit-point-num">105</div><div class="sit-point-text">Кто может Вам помогать со&nbsp;съёмкой и&nbsp;как&nbsp;часто?</div></div>
-      <div class="sit-point"><div class="sit-point-num">106</div><div class="sit-point-text">О&nbsp;чём&nbsp;Вы&nbsp;давно хотели снять, но&nbsp;не&nbsp;решались?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 10 -->
-<section class="spacer" id="b12">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 10</span>
-      <h2>Корни и&nbsp;<em>семья</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">107</div><div class="sit-point-text">Расскажите про&nbsp;своё детство. Где&nbsp;росли, каким ребёнком были, что&nbsp;помните ярче всего.</div></div>
-      <div class="sit-point"><div class="sit-point-num">108</div><div class="sit-point-text">Кто Ваши родители, чем&nbsp;занимались, какие они люди?</div></div>
-      <div class="sit-point"><div class="sit-point-num">109</div><div class="sit-point-text">Какие у&nbsp;Вас отношения с&nbsp;мамой? Что&nbsp;Вы&nbsp;от&nbsp;неё взяли, а&nbsp;в&nbsp;чём&nbsp;Вы&nbsp;полная противоположность?</div></div>
-      <div class="sit-point"><div class="sit-point-num">110</div><div class="sit-point-text">А&nbsp;с&nbsp;отцом? Что&nbsp;он&nbsp;Вам дал?</div></div>
-      <div class="sit-point"><div class="sit-point-num">111</div><div class="sit-point-text">Сейчас Вы&nbsp;живёте с&nbsp;родителями. Как&nbsp;это устроено и&nbsp;как&nbsp;Вы&nbsp;к&nbsp;этому относитесь?</div></div>
-      <div class="sit-point"><div class="sit-point-num">112</div><div class="sit-point-text">Есть ли&nbsp;братья и&nbsp;сёстры? Какие у&nbsp;Вас отношения?</div></div>
-      <div class="sit-point"><div class="sit-point-num">113</div><div class="sit-point-text">Ваша фамилия и&nbsp;происхождение&nbsp;— расскажите про&nbsp;корни. Насколько это часть Вас?</div></div>
-      <div class="sit-point"><div class="sit-point-num">114</div><div class="sit-point-text">Вы&nbsp;летали в&nbsp;Ереван, а&nbsp;один из&nbsp;Ваших самых популярных роликов&nbsp;— под&nbsp;армянскую песню. Что&nbsp;для&nbsp;Вас эта культура?</div></div>
-      <div class="sit-point"><div class="sit-point-num">115</div><div class="sit-point-text">Какие традиции, блюда, привычки Вы&nbsp;унаследовали от&nbsp;семьи?</div></div>
-      <div class="sit-point"><div class="sit-point-num">116</div><div class="sit-point-text">Кем Вы&nbsp;мечтали стать в&nbsp;детстве и&nbsp;что&nbsp;из&nbsp;этого сбылось?</div></div>
-      <div class="sit-point"><div class="sit-point-num">117</div><div class="sit-point-text">Какой Вы&nbsp;были в&nbsp;школе и&nbsp;в&nbsp;юности?</div></div>
-      <div class="sit-point"><div class="sit-point-num">118</div><div class="sit-point-text">Какое событие в&nbsp;жизни изменило Вас сильнее всего&nbsp;— кроме истории с&nbsp;кредитом?</div></div>
-      <div class="sit-point"><div class="sit-point-num">119</div><div class="sit-point-text">Что в&nbsp;Вашей семье считалось правильным, а&nbsp;Вы&nbsp;с&nbsp;этим не&nbsp;согласны?</div></div>
-      <div class="sit-point"><div class="sit-point-num">120</div><div class="sit-point-text">Как Ваши родные относятся к&nbsp;тому, что&nbsp;Вы&nbsp;ведёте блог?</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="spacer" id="b13">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 11</span>
-      <h2>Женское</h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">121</div><div class="sit-point-text">Что для&nbsp;Вас значит быть женщиной? В&nbsp;чём&nbsp;это проявляется в&nbsp;обычной жизни?</div></div>
-      <div class="sit-point"><div class="sit-point-num">122</div><div class="sit-point-text">Когда Вы&nbsp;чувствуете себя красивой по-настоящему?</div></div>
-      <div class="sit-point"><div class="sit-point-num">123</div><div class="sit-point-text">Какие у&nbsp;Вас отношения со&nbsp;своим телом? Что&nbsp;изменилось с&nbsp;возрастом?</div></div>
-      <div class="sit-point"><div class="sit-point-num">124</div><div class="sit-point-text">Расскажите про&nbsp;свои ритуалы ухода за&nbsp;собой. Что&nbsp;делаете для&nbsp;себя регулярно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">125</div><div class="sit-point-text">Как Вы&nbsp;одеваетесь и&nbsp;что&nbsp;для&nbsp;Вас стиль? Есть&nbsp;ли вещи, без&nbsp;которых Вы&nbsp;не&nbsp;выходите?</div></div>
-      <div class="sit-point"><div class="sit-point-num">126</div><div class="sit-point-text">Вы&nbsp;занимаетесь спортом&nbsp;— расскажите, как&nbsp;это устроено и&nbsp;зачем Вам это.</div></div>
-      <div class="sit-point"><div class="sit-point-num">127</div><div class="sit-point-text">Что Вы&nbsp;думаете про&nbsp;возраст? Двадцать восемь&nbsp;— это про&nbsp;что&nbsp;для&nbsp;Вас?</div></div>
-      <div class="sit-point"><div class="sit-point-num">128</div><div class="sit-point-text">Чего Вы&nbsp;боитесь как&nbsp;женщина? Скажите честно.</div></div>
-      <div class="sit-point"><div class="sit-point-num">129</div><div class="sit-point-text">Какие у&nbsp;Вас сейчас отношения с&nbsp;мужчинами? Хотите&nbsp;ли Вы&nbsp;новых отношений?</div></div>
-      <div class="sit-point"><div class="sit-point-num">130</div><div class="sit-point-text">Что для&nbsp;Вас любовь и&nbsp;изменилось&nbsp;ли это понимание после всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">131</div><div class="sit-point-text">Расскажите про&nbsp;свои подруги. Кто&nbsp;Ваш близкий круг?</div></div>
-      <div class="sit-point"><div class="sit-point-num">132</div><div class="sit-point-text">Что Вы&nbsp;думаете про&nbsp;женскую дружбу и&nbsp;женскую конкуренцию?</div></div>
-      <div class="sit-point"><div class="sit-point-num">133</div><div class="sit-point-text">Дети&nbsp;— есть, хотите, как&nbsp;относитесь к&nbsp;этой теме?</div></div>
-      <div class="sit-point"><div class="sit-point-num">134</div><div class="sit-point-text">Какой женщиной Вы&nbsp;хотите быть через десять лет?</div></div>
-      <div class="sit-point"><div class="sit-point-num">135</div><div class="sit-point-text">Кто для&nbsp;Вас пример женщины? Не&nbsp;обязательно известной.</div></div>
-      <div class="sit-point"><div class="sit-point-num">136</div><div class="sit-point-text">Что Вас злит в&nbsp;том, как&nbsp;общество относится к&nbsp;женщинам?</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="spacer" id="b14">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 12</span>
-      <h2>Чем Вы&nbsp;<em>живёте</em> кроме хлеба</h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">137</div><div class="sit-point-text">Расскажите про&nbsp;матрицу судьбы: как&nbsp;пришли, что&nbsp;это Вам даёт, работаете&nbsp;ли с&nbsp;людьми сейчас.</div></div>
-      <div class="sit-point"><div class="sit-point-num">138</div><div class="sit-point-text">Психология&nbsp;— Вы&nbsp;упоминали, что&nbsp;интересуетесь. Что&nbsp;именно и&nbsp;зачем?</div></div>
-      <div class="sit-point"><div class="sit-point-num">139</div><div class="sit-point-text">У&nbsp;Вас медицинское образование. Как&nbsp;оно на&nbsp;Вас повлияло и&nbsp;пригождается&nbsp;ли?</div></div>
-      <div class="sit-point"><div class="sit-point-num">140</div><div class="sit-point-text">Расскажите про&nbsp;своих животных. Кто&nbsp;у&nbsp;Вас живёт, какие у&nbsp;них характеры, откуда взялись?</div></div>
-      <div class="sit-point"><div class="sit-point-num">141</div><div class="sit-point-text">Что Вы&nbsp;читаете и&nbsp;смотрите? Назовите то, что&nbsp;зацепило за&nbsp;последний год.</div></div>
-      <div class="sit-point"><div class="sit-point-num">142</div><div class="sit-point-text">Куда Вы&nbsp;ездили и&nbsp;куда мечтаете? Какое место запомнилось сильнее всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">143</div><div class="sit-point-text">Какой у&nbsp;Вас дом? Что&nbsp;для&nbsp;Вас уют?</div></div>
-      <div class="sit-point"><div class="sit-point-num">144</div><div class="sit-point-text">Что Вы&nbsp;готовите кроме хлеба? Есть&nbsp;ли фирменное блюдо?</div></div>
-      <div class="sit-point"><div class="sit-point-num">145</div><div class="sit-point-text">Как Вы&nbsp;отдыхаете и&nbsp;восстанавливаетесь, когда выгорели?</div></div>
-      <div class="sit-point"><div class="sit-point-num">146</div><div class="sit-point-text">Есть ли&nbsp;у&nbsp;Вас увлечение, которое кажется странным со&nbsp;стороны?</div></div>
-      <div class="sit-point"><div class="sit-point-num">147</div><div class="sit-point-text">Что Вы&nbsp;умеете такого, о&nbsp;чём&nbsp;почти никто не&nbsp;знает?</div></div>
-      <div class="sit-point"><div class="sit-point-num">148</div><div class="sit-point-text">Чему Вы&nbsp;хотели&nbsp;бы&nbsp;научиться, но&nbsp;пока не&nbsp;дошли руки?</div></div>
-      <div class="sit-point"><div class="sit-point-num">149</div><div class="sit-point-text">Если бы&nbsp;хлеба не&nbsp;было в&nbsp;Вашей жизни&nbsp;— чем&nbsp;бы&nbsp;Вы&nbsp;занимались?</div></div>
-      <div class="sit-point"><div class="sit-point-num">150</div><div class="sit-point-text">О&nbsp;чём&nbsp;Вы&nbsp;могли&nbsp;бы&nbsp;говорить в&nbsp;блоге бесконечно, даже если это никак не&nbsp;связано с&nbsp;выпечкой?</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="spacer" id="b10">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 13</span>
-      <h2>Границы: что&nbsp;<em>не&nbsp;трогаем</em></h2>
-    </div>
-    <div class="reveal" style="margin-bottom:24px">
-      <p style="font-size:16px;color:var(--text)">Самый важный блок. Всё, что&nbsp;Вы&nbsp;здесь назовёте, я&nbsp;больше никогда не&nbsp;предложу.</p>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">151</div><div class="sit-point-text">Какие темы Вы&nbsp;не&nbsp;будете обсуждать в&nbsp;блоге ни&nbsp;при&nbsp;каких условиях?</div></div>
-      <div class="sit-point"><div class="sit-point-num">152</div><div class="sit-point-text">Кого из&nbsp;близких нельзя показывать или&nbsp;упоминать?</div></div>
-      <div class="sit-point"><div class="sit-point-num">153</div><div class="sit-point-text">Что из&nbsp;Вашей истории Вы&nbsp;готовы рассказать только намёком, без&nbsp;подробностей?</div></div>
-      <div class="sit-point"><div class="sit-point-num">154</div><div class="sit-point-text">Есть ли&nbsp;люди, чья реакция Вас останавливает? Кого Вы&nbsp;стесняетесь?</div></div>
-      <div class="sit-point"><div class="sit-point-num">155</div><div class="sit-point-text">Какие форматы Вы&nbsp;точно делать не&nbsp;будете, даже если они залетают у&nbsp;других?</div></div>
-      <div class="sit-point"><div class="sit-point-num">156</div><div class="sit-point-text">Что Вас в&nbsp;блогерстве отталкивает больше всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">157</div><div class="sit-point-text">Насколько Вы&nbsp;готовы к&nbsp;негативу? Где&nbsp;Ваш предел?</div></div>
-      <div class="sit-point"><div class="sit-point-num">158</div><div class="sit-point-text">Что должно произойти, чтобы&nbsp;Вы&nbsp;захотели всё бросить?</div></div>
-      <div class="sit-point"><div class="sit-point-num">159</div><div class="sit-point-text">Вы&nbsp;говорили, что&nbsp;не&nbsp;хотите быть «экспертом». Что&nbsp;именно Вас в&nbsp;этом слове отталкивает?</div></div>
-      <div class="sit-point"><div class="sit-point-num">160</div><div class="sit-point-text">А&nbsp;кем&nbsp;Вы&nbsp;хотите, чтобы&nbsp;Вас считали?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 11 -->
-<section class="spacer" id="b11">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Блок 14</span>
-      <h2>Куда Вы&nbsp;<em>идёте</em></h2>
-    </div>
-    <div class="situation-points reveal reveal-delay-1">
-      <div class="sit-point"><div class="sit-point-num">161</div><div class="sit-point-text">Каким Вы&nbsp;видите свой блог через год? Опишите картинку в&nbsp;деталях.</div></div>
-      <div class="sit-point"><div class="sit-point-num">162</div><div class="sit-point-text">Расскажите про&nbsp;пекарню. Какая она, где&nbsp;находится, что&nbsp;в&nbsp;ней происходит?</div></div>
-      <div class="sit-point"><div class="sit-point-num">163</div><div class="sit-point-text">Почему пекарня, а&nbsp;не&nbsp;онлайн? Что&nbsp;для&nbsp;Вас в&nbsp;ней важно?</div></div>
-      <div class="sit-point"><div class="sit-point-num">164</div><div class="sit-point-text">Что должно произойти в&nbsp;ближайшие три месяца, чтобы&nbsp;Вы&nbsp;сказали «идёт как&nbsp;надо»?</div></div>
-      <div class="sit-point"><div class="sit-point-num">165</div><div class="sit-point-text">Кем Вы&nbsp;хотите быть через пять лет?</div></div>
-      <div class="sit-point"><div class="sit-point-num">166</div><div class="sit-point-text">Что Вы&nbsp;хотите, чтобы&nbsp;о&nbsp;Вас говорили люди, которые Вас не&nbsp;знают лично?</div></div>
-      <div class="sit-point"><div class="sit-point-num">167</div><div class="sit-point-text">Какую фразу Вы&nbsp;хотели&nbsp;бы&nbsp;слышать от&nbsp;подписчиц чаще всего?</div></div>
-      <div class="sit-point"><div class="sit-point-num">168</div><div class="sit-point-text">Есть ли&nbsp;мечта, о&nbsp;которой Вы&nbsp;никому не&nbsp;говорили?</div></div>
-      <div class="sit-point"><div class="sit-point-num">169</div><div class="sit-point-text">Чего Вы&nbsp;ждёте от&nbsp;нашей работы? Что&nbsp;должно измениться, чтобы&nbsp;Вы&nbsp;были довольны?</div></div>
-      <div class="sit-point"><div class="sit-point-num">170</div><div class="sit-point-text">Чего Вы&nbsp;опасаетесь в&nbsp;нашей работе? Скажите прямо, это важно проговорить сразу.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ФИНАЛ -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="reveal">
