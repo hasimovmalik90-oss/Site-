@@ -2083,6 +2083,46 @@
   .ig-num { display: flex; flex-direction: column; }
   .ig-num b { font-family: var(--display); font-size: 19px; color: var(--ink-bright); font-variant-numeric: tabular-nums; }
   .ig-num span { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+
+  /* МОБИЛЬНЫЕ ОТСТУПЫ: меньше пустот, шире текст */
+  @media (max-width: 700px) {
+    .container { padding: 0 20px; }
+    section.spacer { padding: 46px 0; }
+    .section-header { margin-bottom: 26px; }
+    .block { margin-bottom: 26px; }
+    .marquee { padding: 16px 0; }
+    .intro { padding: 46px 0; }
+    .intro p { margin-bottom: 16px; }
+    .psnap { padding: 20px 16px; }
+    .situation-points { gap: 12px; }
+    .sit-point { padding: 14px 0; }
+    .ps-tg-row { padding: 9px 0; font-size: 13.5px; }
+    .guarantee { padding: 26px 18px; }
+    .outcomes-grid { gap: 14px; }
+    .hero { min-height: 88vh; min-height: 88svh; }
+    .hero-rail { display: none; }
+    .nav-dots { display: none; }
+    h2 { margin-bottom: 10px; }
+    .block-body p { margin-top: 8px; }
+  }
+  @media (max-width: 420px) {
+    .container { padding: 0 16px; }
+    section.spacer { padding: 38px 0; }
+  }
+
+  /* ЗАЩИТА ОТ ГОРИЗОНТАЛЬНОГО ПЕРЕПОЛНЕНИЯ */
+  body { overflow-x: hidden; max-width: 100vw; }
+  img, table, pre { max-width: 100%; }
+  .hero-kpi, .proof-stats, .ig-nums, .outcomes-grid, .tariffs, .situation-points { flex-wrap: wrap; }
+  .ps-tg-row { flex-wrap: wrap; }
+  .ps-tg-t { min-width: 0; overflow-wrap: break-word; }
+  .hero-name, h1, h2, h3 { overflow-wrap: break-word; }
+  .marquee { max-width: 100vw; }
+  @media (max-width: 700px) {
+    .hero-kpi { flex-direction: column; gap: 0; }
+    .proof-stats { gap: 18px; }
+    .ig-nums { flex-wrap: wrap; }
+  }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -2126,7 +2166,7 @@
   <div class="hero-rail right">Анжелика × Малик</div>
 
   <div class="container hero-content">
-    <div class="hero-topline">Июль 2026 · Разбор блога, план работы и условия</div>
+    <div class="hero-topline">Июль 2026 · Разбор блога, план работы и&nbsp;условия</div>
     <span class="hero-eyebrow">Продюсирование&nbsp;личного&nbsp;бренда</span>
 
     <div class="hero-name-wrap reveal">
@@ -2199,14 +2239,14 @@
       Главный кейс&nbsp;— <strong>Каролина&nbsp;Читанава</strong>: с&nbsp;нуля собрали <strong>153&nbsp;000&nbsp;подписчиков</strong> и&nbsp;<strong>100+&nbsp;миллионов охватов</strong> за&nbsp;15&nbsp;месяцев работы.
     </p>
     <p class="reveal reveal-delay-2">
-      Перед тем как что-то предлагать, я&nbsp;выгрузил Ваш блог целиком, разобрал <strong>127&nbsp;роликов</strong> со&nbsp;статистикой и&nbsp;расшифровал их&nbsp;все. Ниже&nbsp;— что&nbsp;показали цифры, что&nbsp;с&nbsp;этим делаем по&nbsp;неделям и&nbsp;на&nbsp;каких условиях работаем.
+      Перед тем как&nbsp;что-то&nbsp;предлагать, я&nbsp;выгрузил Ваш блог целиком, разобрал <strong>127&nbsp;роликов</strong> со&nbsp;статистикой и&nbsp;расшифровал их&nbsp;все. Ниже&nbsp;— что&nbsp;показали цифры, что&nbsp;с&nbsp;этим делаем по&nbsp;неделям и&nbsp;на&nbsp;каких условиях работаем.
     </p>
   </div>
 </section>
 <section class="proof" id="proof">
   <div class="container proof-content reveal">
     <span class="eyebrow">Доказательство метода</span>
-    <h2 style="font-size: clamp(32px, 4.5vw, 48px);">Тот&nbsp;же метод собрал <em>153&nbsp;000</em> подписчиков для Каролины Читанавы за&nbsp;15&nbsp;месяцев</h2>
+    <h2 style="font-size: clamp(32px, 4.5vw, 48px);">Тот&nbsp;же метод собрал <em>153&nbsp;000</em> подписчиков для&nbsp;Каролины Читанавы за&nbsp;15&nbsp;месяцев</h2>
 
     <div class="proof-stats">
       <div class="proof-stat">
@@ -2224,7 +2264,7 @@
     </div>
 
     <p style="color: var(--text); max-width: 580px; margin: 0 auto;">
-      Всё, что описано ниже&nbsp;— система, которую я&nbsp;выстраивал у&nbsp;Каролины и&nbsp;которая дала измеримый результат. Не&nbsp;теория и&nbsp;не&nbsp;набор лайфхаков.
+      Всё, что&nbsp;описано ниже&nbsp;— система, которую я&nbsp;выстраивал у&nbsp;Каролины и&nbsp;которая дала измеримый результат. Не&nbsp;теория и&nbsp;не&nbsp;набор лайфхаков.
     </p>
 
     <a class="proof-link" href="https://hasimovmalik90-oss.github.io/Site-/karolina/" target="_blank">
@@ -2236,19 +2276,19 @@
   <div class="container" style="text-align:center;padding:40px 0">
     <div class="reveal">
       <span class="eyebrow">Часть первая</span>
-      <h2 style="font-size:clamp(30px,5vw,52px);margin-top:10px">Что показал <em>разбор</em></h2>
+      <h2 style="font-size:clamp(30px,5vw,52px);margin-top:10px">Что&nbsp;показал <em>разбор</em></h2>
     </div>
   </div>
 </section>
 <section class="spacer" id="numbers">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Разбор · 127 роликов</span>
-      <h2>Блог <em>в цифрах</em></h2>
+      <span class="eyebrow">Разбор · 127&nbsp;роликов</span>
+      <h2>Блог <em>в&nbsp;цифрах</em></h2>
     </div>
 
     <div class="psnap reveal reveal-delay-1">
-      <p class="psnap-lead">Прежде чем что-то строить&nbsp;— смотрим, что уже есть. Блог живой, с&nbsp;характером и&nbsp;с&nbsp;доказанным потенциалом. Но&nbsp;цифры показывают очень чёткую вещь: работает одно, а&nbsp;снимается совсем другое.</p>
+      <p class="psnap-lead">Прежде чем что-то&nbsp;строить&nbsp;— смотрим, что&nbsp;уже&nbsp;есть. Блог живой, с&nbsp;характером и&nbsp;с&nbsp;доказанным потенциалом. Но&nbsp;цифры показывают очень чёткую вещь: работает одно, а&nbsp;снимается совсем другое.</p>
 
       <div class="proof-stats" style="margin: 34px 0;">
         <div class="proof-stat">
@@ -2284,7 +2324,7 @@
         <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Последние 12&nbsp;роликов</h3>
         <span class="ps-tg-meta">СЕТКА ПРОФИЛЯ · ПРОСМОТРЫ</span>
       </div>
-      <p style="font-size: 15px; color: var(--text); margin: 14px 0 22px;">Золотом отмечен хлеб. Достаточно посмотреть на&nbsp;цифры под обложками, чтобы&nbsp;увидеть закономерность без&nbsp;всякой аналитики.</p>
+      <p style="font-size: 15px; color: var(--text); margin: 14px 0 22px;">Золотом отмечен хлеб. Достаточно посмотреть на&nbsp;цифры под&nbsp;обложками, чтобы&nbsp;увидеть закономерность без&nbsp;всякой аналитики.</p>
       <div class="reels-grid">
       <div class="grid-cell">
         <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAv6ADAAQAAAABAAABVAAAAAD/4Qm6aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgcGhvdG9zaG9wOkluc3RydWN0aW9ucz0iRkJNRDBmMDAwNzVjMDEwMDAwNDViMDAwMDA0ZGJjMDEwMDM5ZGYwMTAwMjVmZDAxMDA2NDU4MDIwMDgwOTgwMzAwZmQ5ZjAzMDAiLz4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSJ3Ij8+AP/tAJZQaG90b3Nob3AgMy4wADhCSU0EBAAAAAAAXhwBWgADGyVHHAIAAAIAAhwCKABKRkJNRDBmMDAwNzVjMDEwMDAwNDViMDAwMDA0ZGJjMDEwMDM5ZGYwMTAwMjVmZDAxMDA2NDU4MDIwMDgw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" alt="">
@@ -2349,7 +2389,7 @@
       </div>
 
       <div class="ps-tg-head" style="margin-top: 40px;">
-        <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Что работает, а&nbsp;что&nbsp;нет</h3>
+        <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Что&nbsp;работает, а&nbsp;что&nbsp;нет</h3>
         <span class="ps-tg-meta">МЕДИАНА ПРОСМОТРОВ ПО ТЕМАМ</span>
       </div>
       <div class="ps-tg-row">
@@ -2404,16 +2444,16 @@
         <span class="ps-tg-meta">РАСШИФРОВАНЫ ВСЕ 127 РОЛИКОВ</span>
       </div>
       <div class="ps-tg-row">
-        <span class="ps-tg-t">Вы говорите сами</span>
+        <span class="ps-tg-t">Вы&nbsp;говорите сами</span>
         <span class="ps-tg-v" style="color: var(--gold-bright);">17</span>
       </div>
       <div class="ps-tg-row">
-        <span class="ps-tg-t">Картинка под музыку, Вашего голоса нет</span>
+        <span class="ps-tg-t">Картинка под&nbsp;музыку, Вашего голоса нет</span>
         <span class="ps-tg-v">110</span>
       </div>
 
       <p style="margin-top: 26px; font-size: 16px; color: var(--ink);">
-        Мы расшифровали все&nbsp;127&nbsp;роликов и&nbsp;посчитали, где&nbsp;звучит Ваш голос. <strong class="gold">Вы&nbsp;говорите примерно в&nbsp;каждом седьмом ролике</strong>&nbsp;— остальное красивая картинка под музыку. Блог эксперта, который продаёт обучение, почти полностью немой. При&nbsp;этом лучший результат по&nbsp;охвату среди хлебных роликов дал именно тот, где&nbsp;Вы&nbsp;говорите заранее продуманный текст о&nbsp;ремесле&nbsp;— 13&nbsp;935&nbsp;просмотров.
+        Мы&nbsp;расшифровали все&nbsp;127&nbsp;роликов и&nbsp;посчитали, где&nbsp;звучит Ваш голос. <strong class="gold">Вы&nbsp;говорите примерно в&nbsp;каждом седьмом ролике</strong>&nbsp;— остальное красивая картинка под&nbsp;музыку. Блог эксперта, который продаёт обучение, почти полностью немой. При&nbsp;этом лучший результат по&nbsp;охвату среди хлебных роликов дал именно тот, где&nbsp;Вы&nbsp;говорите заранее продуманный текст о&nbsp;ремесле&nbsp;— 13&nbsp;935&nbsp;просмотров.
       </p>
 
       <div class="ps-tg-head" style="margin-top: 44px;">
@@ -2446,7 +2486,7 @@
       </div>
 
       <p style="margin-top: 26px; font-size: 16px; color: var(--ink);">
-        Охваты выросли <strong class="gold">в&nbsp;3–5&nbsp;раз</strong> ровно тогда, когда в&nbsp;блоге появился хлеб. Это не&nbsp;случайность и&nbsp;не&nbsp;везение&nbsp;— это сигнал, который блог даёт уже полгода. Вопрос только в&nbsp;том, чтобы&nbsp;его услышать и&nbsp;построить вокруг него систему.
+        Охваты выросли <strong class="gold">в&nbsp;3–5&nbsp;раз</strong> ровно тогда, когда в&nbsp;блоге появился хлеб. Это не&nbsp;случайность и&nbsp;не&nbsp;везение&nbsp;— это сигнал, который блог даёт уже&nbsp;полгода. Вопрос только в&nbsp;том, чтобы&nbsp;его услышать и&nbsp;построить вокруг него систему.
       </p>
     </div>
   </div>
@@ -2454,7 +2494,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Точка А · 01</span>
-      <h2>Где Вы <em>сейчас</em></h2>
+      <h2>Где&nbsp;Вы <em>сейчас</em></h2>
     </div>
 
     <div class="reveal reveal-delay-1">
@@ -2485,7 +2525,7 @@
       </div>
       <div class="sit-point">
         <div class="sit-point-num">05</div>
-        <div class="sit-point-text">Блог почти немой&nbsp;— Ваш голос звучит лишь в&nbsp;17&nbsp;роликах из&nbsp;127, остальное картинка под музыку. Ваша интонация&nbsp;— то, что&nbsp;невозможно скопировать&nbsp;— почти не&nbsp;используется</div>
+        <div class="sit-point-text">Блог почти немой&nbsp;— Ваш голос звучит лишь в&nbsp;17&nbsp;роликах из&nbsp;127, остальное картинка под&nbsp;музыку. Ваша интонация&nbsp;— то, что&nbsp;невозможно скопировать&nbsp;— почти не&nbsp;используется</div>
       </div>
       <div class="sit-point">
         <div class="sit-point-num">06</div>
@@ -2497,7 +2537,7 @@
       </div>
       <div class="sit-point">
         <div class="sit-point-num">08</div>
-        <div class="sit-point-text">Продукт готов, упаковка&nbsp;— нет. Курс снят и&nbsp;собран, но&nbsp;оффер и&nbsp;страница не&nbsp;докручены под продажу</div>
+        <div class="sit-point-text">Продукт готов, упаковка&nbsp;— нет. Курс снят и&nbsp;собран, но&nbsp;оффер и&nbsp;страница не&nbsp;докручены под&nbsp;продажу</div>
       </div>
       <div class="sit-point">
         <div class="sit-point-num">09</div>
@@ -2509,7 +2549,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Продукт · 03</span>
-      <h2>Что не&nbsp;так с&nbsp;<em>курсом</em></h2>
+      <h2>Что&nbsp;не&nbsp;так с&nbsp;<em>курсом</em></h2>
     </div>
 
     <div class="reveal reveal-delay-1">
@@ -2517,7 +2557,7 @@
         Курс снят, программа собрана, отзывы есть&nbsp;— продукт существует и&nbsp;он&nbsp;живой. Но&nbsp;продаётся не&nbsp;продукт, а&nbsp;<em class="gold">оффер</em>. И&nbsp;вот с&nbsp;оффером сейчас есть над&nbsp;чем работать.
       </p>
       <p style="font-size: 17px; color: var(--ink); margin-bottom: 24px;">
-        Если пропустить текущую упаковку через метод Хормози&nbsp;— по&nbsp;каждому из&nbsp;четырёх параметров, из&nbsp;которых складывается ценность предложения, есть просадка. Что человек получает в&nbsp;итоге, насколько он&nbsp;верит, что&nbsp;у&nbsp;него выйдет, сколько ждать результата и&nbsp;сколько усилий вложить&nbsp;— всё это сейчас в&nbsp;оффере либо не&nbsp;проговорено, либо проговорено слабо.
+        Если пропустить текущую упаковку через метод Хормози&nbsp;— по&nbsp;каждому из&nbsp;четырёх параметров, из&nbsp;которых складывается ценность предложения, есть просадка. Что&nbsp;человек получает в&nbsp;итоге, насколько он&nbsp;верит, что&nbsp;у&nbsp;него выйдет, сколько ждать результата и&nbsp;сколько усилий вложить&nbsp;— всё это сейчас в&nbsp;оффере либо не&nbsp;проговорено, либо проговорено слабо.
       </p>
       <p style="font-size: 17px; color: var(--ink);">
         Это чинится и&nbsp;чинится быстро: переписываем оффер, пересобираем страницу продажи, достраиваем то, чего&nbsp;в&nbsp;продукте не&nbsp;хватает для&nbsp;веса. Работа по&nbsp;продукту входит в&nbsp;консалтинг&nbsp;— без&nbsp;неё рост охватов не&nbsp;конвертируется в&nbsp;деньги.
@@ -2529,7 +2569,7 @@
   <div class="container" style="text-align:center;padding:40px 0">
     <div class="reveal">
       <span class="eyebrow">Часть вторая</span>
-      <h2 style="font-size:clamp(30px,5vw,52px);margin-top:10px">План на <em>12 недель</em></h2>
+      <h2 style="font-size:clamp(30px,5vw,52px);margin-top:10px">План на <em>12&nbsp;недель</em></h2>
     </div>
   </div>
 </section>
@@ -2548,7 +2588,7 @@
         Историю с&nbsp;кредитом запускаем рано&nbsp;— на&nbsp;второй неделе, не&nbsp;откладывая. Она сильная и&nbsp;она горит именно сейчас. Но&nbsp;перед запуском обязательно должно быть готово то, <em class="gold">куда придут люди</em>.
       </p>
       <p style="font-size: 17px; color: var(--ink);">
-        Почему на&nbsp;этом настаиваю: у&nbsp;Вас уже было два ролика на&nbsp;миллион и&nbsp;почти миллион просмотров. Продаж с&nbsp;них не&nbsp;случилось&nbsp;— людям некуда было прийти и&nbsp;незачем оставаться. Такая история срабатывает один раз, второй раз так&nbsp;же не&nbsp;выстрелит. Поэтому четыре-пять дней уходит на&nbsp;то, чтобы&nbsp;подготовить блог и&nbsp;продукт к&nbsp;приходу людей, и&nbsp;только потом запуск.
+        Почему на&nbsp;этом настаиваю: у&nbsp;Вас уже&nbsp;было два ролика на&nbsp;миллион и&nbsp;почти миллион просмотров. Продаж с&nbsp;них не&nbsp;случилось&nbsp;— людям некуда было прийти и&nbsp;незачем оставаться. Такая история срабатывает один раз, второй раз так&nbsp;же не&nbsp;выстрелит. Поэтому четыре-пять дней уходит на&nbsp;то, чтобы&nbsp;подготовить блог и&nbsp;продукт к&nbsp;приходу людей, и&nbsp;только потом запуск.
       </p>
     </div>
   </div>
@@ -2564,7 +2604,7 @@
       <div class="block-body">
         <h3>Распаковка личности</h3>
         <p>
-          100–150&nbsp;вопросов. Достаём Ваши формулировки, интонацию, темы, которые Вам близки. Отдельный блок&nbsp;— <strong>что мы&nbsp;не&nbsp;трогаем</strong>: сейчас в&nbsp;блоге тринадцать разных образов, и&nbsp;половину нужно отсечь, чтобы&nbsp;осталась одна узнаваемая линия.
+          100–150&nbsp;вопросов. Достаём Ваши формулировки, интонацию, темы, которые Вам близки. Отдельный блок&nbsp;— <strong>что&nbsp;мы&nbsp;не&nbsp;трогаем</strong>: сейчас в&nbsp;блоге тринадцать разных образов, и&nbsp;половину нужно отсечь, чтобы&nbsp;осталась одна узнаваемая линия.
         </p>
       </div>
     </div>
@@ -2660,7 +2700,7 @@
       <div class="guarantee-label">Условие запуска</div>
       <h3>Историю не&nbsp;запускаем, пока не&nbsp;готовы оффер, профиль и&nbsp;запас контента</h3>
       <p>
-        Это единственное жёсткое условие во&nbsp;всём плане. Подготовка занимает четыре-пять дней. Запуск без&nbsp;неё означает потратить самую сильную историю впустую&nbsp;— ровно так, как&nbsp;это уже произошло с&nbsp;двумя Вашими миллионными роликами.
+        Это единственное жёсткое условие во&nbsp;всём плане. Подготовка занимает четыре-пять дней. Запуск без&nbsp;неё означает потратить самую сильную историю впустую&nbsp;— ровно так, как&nbsp;это уже&nbsp;произошло с&nbsp;двумя Вашими миллионными роликами.
       </p>
     </div>
   </div>
@@ -2706,7 +2746,7 @@
       <div class="block-body">
         <h3>Первые продажи с&nbsp;нового трафика</h3>
         <p>
-          Оффер к&nbsp;этому моменту уже переписан, страница работает, анкета собирает данные. Продажи идут не&nbsp;на&nbsp;голом энтузиазме, а&nbsp;через&nbsp;выстроенный путь.
+          Оффер к&nbsp;этому моменту уже&nbsp;переписан, страница работает, анкета собирает данные. Продажи идут не&nbsp;на&nbsp;голом энтузиазме, а&nbsp;через&nbsp;выстроенный путь.
         </p>
       </div>
     </div>
@@ -2725,7 +2765,7 @@
     </div>
 
     <div class="ps-tg-head">
-      <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Что говорят Ваши цифры</h3>
+      <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Что&nbsp;говорят Ваши цифры</h3>
       <span class="ps-tg-meta">МЕДИАНА ПРОСМОТРОВ</span>
     </div>
     <div class="ps-tg-row" style="border-color: var(--gold-deep);">
@@ -2809,7 +2849,7 @@
       <div class="block-body">
         <h3>Вторая ступень продукта</h3>
         <p>
-          Расширение ассортимента&nbsp;— багеты, сдоба, другие виды теста. База у&nbsp;Вас уже есть, на&nbsp;неё навешивается следующий продукт для&nbsp;тех, кто&nbsp;прошёл первый.
+          Расширение ассортимента&nbsp;— багеты, сдоба, другие виды теста. База у&nbsp;Вас уже&nbsp;есть, на&nbsp;неё навешивается следующий продукт для&nbsp;тех, кто&nbsp;прошёл первый.
         </p>
       </div>
     </div>
@@ -2834,7 +2874,7 @@
     <div class="psnap reveal reveal-delay-1">
       <div class="ps-tg-head">
         <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Месяц 1</h3>
-        <span class="ps-tg-meta">ФУНДАМЕНТ И ИСТОРИЯ</span>
+        <span class="ps-tg-meta">ФУНДАМЕНТ И&nbsp;ИСТОРИЯ</span>
       </div>
       <div class="ps-tg-row"><span class="ps-tg-t">Подписчиков</span><span class="ps-tg-v">10–15&nbsp;000</span></div>
       <div class="ps-tg-row"><span class="ps-tg-t">Медиана ролика</span><span class="ps-tg-v">5–7&nbsp;000</span></div>
@@ -2842,7 +2882,7 @@
 
       <div class="ps-tg-head" style="margin-top: 40px;">
         <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Месяц 2</h3>
-        <span class="ps-tg-meta">ФОРМАТЫ И КОНВЕРСИЯ</span>
+        <span class="ps-tg-meta">ФОРМАТЫ И&nbsp;КОНВЕРСИЯ</span>
       </div>
       <div class="ps-tg-row"><span class="ps-tg-t">Подписчиков</span><span class="ps-tg-v">15–18&nbsp;000</span></div>
       <div class="ps-tg-row"><span class="ps-tg-t">Медиана ролика</span><span class="ps-tg-v">12&nbsp;000</span></div>
@@ -2850,7 +2890,7 @@
 
       <div class="ps-tg-head" style="margin-top: 40px;">
         <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Месяц 3</h3>
-        <span class="ps-tg-meta">СИСТЕМА И КАНАЛЫ</span>
+        <span class="ps-tg-meta">СИСТЕМА И&nbsp;КАНАЛЫ</span>
       </div>
       <div class="ps-tg-row"><span class="ps-tg-t">Подписчиков</span><span class="ps-tg-v" style="color: var(--gold-bright);">20–25&nbsp;000</span></div>
       <div class="ps-tg-row"><span class="ps-tg-t">Медиана ролика</span><span class="ps-tg-v" style="color: var(--gold-bright);">15&nbsp;000+</span></div>
@@ -2860,8 +2900,8 @@
 </section><section class="spacer" id="goal-math">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Цель по продажам</span>
-      <h2>Как выйти на&nbsp;<em>нужную цифру</em></h2>
+      <span class="eyebrow">Цель по&nbsp;продажам</span>
+      <h2>Как&nbsp;выйти на&nbsp;<em>нужную цифру</em></h2>
     </div>
 
     <div class="reveal reveal-delay-1">
@@ -2877,7 +2917,7 @@
     </div>
 
     <div class="ps-tg-head" style="margin-top: 44px;">
-      <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Как это может выглядеть</h3>
+      <h3 style="font-family: var(--serif); font-size: 22px; color: var(--ink-bright);">Как&nbsp;это может выглядеть</h3>
       <span class="ps-tg-meta">ГОРИЗОНТ 6–8 МЕСЯЦЕВ</span>
     </div>
     <div class="ps-tg-row">
@@ -2908,7 +2948,7 @@
 </section><section class="spacer" id="honest">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Без иллюзий</span>
+      <span class="eyebrow">Без&nbsp;иллюзий</span>
       <h2>Что&nbsp;честно сказать <em>сразу</em></h2>
     </div>
 
@@ -2937,7 +2977,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Модель</span>
-      <h2>Как мы <em>работаем</em></h2>
+      <h2>Как&nbsp;мы <em>работаем</em></h2>
     </div>
 
     <div class="reveal reveal-delay-1">
@@ -2953,7 +2993,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Условия</span>
-      <h2>Делим <em>50 на 50</em></h2>
+      <h2>Делим <em>50 на&nbsp;50</em></h2>
     </div>
 
     <div class="situation-points reveal reveal-delay-1">
@@ -2988,7 +3028,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Договорённость</span>
-      <h2>Как принимаем <em>решения</em></h2>
+      <h2>Как&nbsp;принимаем <em>решения</em></h2>
     </div>
 
     <div class="block reveal">
@@ -2996,7 +3036,7 @@
       <div class="block-body">
         <h3>Всё обсуждаем вместе</h3>
         <p>
-          Любое действие&nbsp;— формат, тема, запуск, цена&nbsp;— проходит через обсуждение. Где-то идею целиком приношу я, где-то целиком Вы, где-то она рождается в&nbsp;разговоре. Это нормальный рабочий процесс, и&nbsp;он&nbsp;не&nbsp;требует, чтобы&nbsp;кто-то один был прав.
+          Любое действие&nbsp;— формат, тема, запуск, цена&nbsp;— проходит через обсуждение. Где-то&nbsp;идею целиком приношу я, где-то&nbsp;целиком Вы, где-то&nbsp;она рождается в&nbsp;разговоре. Это нормальный рабочий процесс, и&nbsp;он&nbsp;не&nbsp;требует, чтобы&nbsp;кто-то&nbsp;один был прав.
         </p>
       </div>
     </div>
@@ -3006,7 +3046,7 @@
       <div class="block-body">
         <h3>Успех не&nbsp;делим на&nbsp;«моё» и&nbsp;«твоё»</h3>
         <p>
-          Когда что-то выстреливает, мы&nbsp;не&nbsp;выясняем, чья это была идея и&nbsp;благодаря кому получилось. Ни&nbsp;один результат не&nbsp;принадлежит кому-то одному: ролик снимаете Вы, стратегию и&nbsp;сценарий даю&nbsp;я, и&nbsp;без&nbsp;любой из&nbsp;этих частей результата не&nbsp;будет. Перетягивание одеяла разрушает работу быстрее, чем&nbsp;неудачи.
+          Когда что-то&nbsp;выстреливает, мы&nbsp;не&nbsp;выясняем, чья это была идея и&nbsp;благодаря кому получилось. Ни&nbsp;один результат не&nbsp;принадлежит кому-то&nbsp;одному: ролик снимаете Вы, стратегию и&nbsp;сценарий даю&nbsp;я, и&nbsp;без&nbsp;любой из&nbsp;этих частей результата не&nbsp;будет. Перетягивание одеяла разрушает работу быстрее, чем&nbsp;неудачи.
         </p>
       </div>
     </div>
@@ -3037,7 +3077,7 @@
 </section><section class="spacer" id="exit">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">На берегу</span>
+      <span class="eyebrow">На&nbsp;берегу</span>
       <h2>Если однажды решим <em>разойтись</em></h2>
     </div>
 
@@ -3145,7 +3185,7 @@
       </div>
       <div style="margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Telegram · @mhashimov_23</a>
-        <a href="#hero" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line-bright);padding:13px 26px;border-radius:30px;text-decoration:none">↑ В начало</a>
+        <a href="#hero" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line-bright);padding:13px 26px;border-radius:30px;text-decoration:none">↑ В&nbsp;начало</a>
       </div>
     </div>
   </div>
