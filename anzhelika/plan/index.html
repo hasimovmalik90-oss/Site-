@@ -2627,9 +2627,10 @@
 </footer>
 <script>
   // ===== SPLASH SCREEN =====
-  document.body.classList.add('splash-active');
   const splash = document.getElementById('splash');
+  if (splash) document.body.classList.add('splash-active');
   function hideSplash() {
+    if (!splash) { document.body.classList.remove('splash-active'); return; }
     splash.classList.add('hide');
     document.body.classList.remove('splash-active');
   }
@@ -2734,6 +2735,14 @@
   }, { threshold: 0.5 });
 
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // СТРАХОВКА: контент виден даже если что-то в скрипте упало
+  setTimeout(function(){
+    document.body.classList.remove('splash-active');
+    var sp = document.getElementById('splash');
+    if (sp) sp.classList.add('hide');
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+  }, 2500);
 </script>
 
 </body>
