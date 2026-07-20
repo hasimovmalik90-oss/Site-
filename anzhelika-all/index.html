@@ -2123,6 +2123,55 @@
     .proof-stats { gap: 18px; }
     .ig-nums { flex-wrap: wrap; }
   }
+
+  /* ЦЕНТРИРОВАНИЕ НАДЗАГОЛОВКОВ НА УЗКИХ ЭКРАНАХ */
+  .hero-eyebrow { max-width: 100%; }
+  @media (max-width: 700px) {
+    .hero-eyebrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      gap: 9px;
+      text-align: center;
+      margin-bottom: 26px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      width: 16px;
+      flex: 0 0 16px;
+    }
+    /* подзаголовки секций: разрешаем перенос и держим по центру блока */
+    .eyebrow {
+      white-space: normal;
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      gap: 8px;
+    }
+    .eyebrow::before, .eyebrow::after { flex: 0 0 auto; }
+    .section-header { text-align: center; }
+    .section-header .eyebrow { margin-left: auto; margin-right: auto; }
+  }
+  @media (max-width: 400px) {
+    .hero-eyebrow { font-size: 8.5px; letter-spacing: 0.14em; gap: 7px; }
+    .hero-eyebrow::before, .hero-eyebrow::after { width: 12px; flex: 0 0 12px; }
+  }
+
+  @media (max-width: 700px) {
+    .hero-topline, .hero-subtitle, .ps-tg-meta, .contact-author, .hero-meta-item, .price-eyebrow { white-space: normal; }
+    .hero-topline { font-size: 9px; letter-spacing: 0.14em; margin-bottom: 24px; line-height: 1.7; }
+    .hero-subtitle { flex-wrap: wrap; justify-content: center; gap: 6px; font-size: 11px; }
+    .ps-tg-meta { text-align: right; }
+    .scroll-hint { margin-top: 8px; }
+  }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
