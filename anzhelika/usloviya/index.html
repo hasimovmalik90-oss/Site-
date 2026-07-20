@@ -634,12 +634,13 @@
     text-shadow: 0 0 20px var(--gold-glow-soft);
   }
 
-  .reveal {
+  .reveal { opacity: 1; transform: none; }
+  html.js .reveal {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
   }
-  .reveal.in-view {
+  html.js .reveal.in-view {
     opacity: 1;
     transform: translateY(0);
   }
@@ -2083,18 +2084,11 @@
   .ig-num b { font-family: var(--display); font-size: 19px; color: var(--ink-bright); font-variant-numeric: tabular-nums; }
   .ig-num span { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <!-- SPLASH -->
-<div class="splash" id="splash">
-  <div class="splash-label">Условия партнёрства · 2026</div>
-  <div class="splash-name">Анжелика</div>
-  <div class="splash-sub">Малик · продюсер&nbsp;женских&nbsp;блогов</div>
-  <div class="splash-loader"></div>
-  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
-</div>
-
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot" data-section="hero" data-label="Начало"></button>
   <button class="nav-dot" data-section="model" data-label="Модель"></button>
@@ -2348,6 +2342,7 @@
   // ===== SPLASH SCREEN =====
   const splash = document.getElementById('splash');
   if (splash) document.body.classList.add('splash-active');
+  document.body.classList.remove('splash-active');
   function hideSplash() {
     if (!splash) { document.body.classList.remove('splash-active'); return; }
     splash.classList.add('hide');
