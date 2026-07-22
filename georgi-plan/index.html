@@ -1,6 +1,6 @@
 <!doctype html><html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>План работы и съёмок · Георгий</title>
+<title>Съёмка в офисе · Георгий</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -29,20 +29,10 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 .hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
 .hero h1{text-transform:uppercase;letter-spacing:.1em}
 .hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,27px);color:var(--accent);margin:18px auto 0;max-width:680px}
-.hero .pos{max-width:660px;margin:18px auto 0;color:var(--mute);font-size:15px;text-wrap:pretty}
 .hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
 .toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
 .toc a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.16s}
 .toc a:hover{border-color:var(--accent);color:var(--accent)}
-/* lead */
-.lead{font-size:clamp(16px,2vw,19px);color:#E8E4DE;max-width:820px}
-.lead.drop::first-letter{font-family:'Cormorant Garamond',serif;font-size:3.2em;float:left;line-height:.8;padding:6px 14px 0 0;color:var(--accent)}
-/* phases — пункты повестки */
-.phase{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line)}
-.phase:last-child{border-bottom:none}
-.phase .pn{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.35);line-height:1;flex:none;min-width:54px}
-.phase .pb h3{margin-bottom:8px} .phase .pb p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
-.phase .pb p strong{color:#E8E4DE;font-weight:600}
 /* списки */
 .li{list-style:none;margin-top:10px}
 .li li{padding:8px 0 8px 22px;position:relative;color:var(--text);font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
@@ -53,28 +43,19 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 .qs li{counter-increment:q;padding:9px 0 9px 40px;position:relative;color:var(--text);font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
 .qs li:last-child{border-bottom:none}
 .qs li::before{content:counter(q);position:absolute;left:0;top:8px;font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--accent);width:28px;text-align:right}
-.qs li.final{color:#F4F0EA}
-.qs li.final::after{content:'финал';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.3);border-radius:20px;padding:2px 9px;margin-left:10px}
 .qgroup{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:26px 0 2px}
-/* форматы — блиц-рилсы и карточки новостей */
+/* форматы */
 .fmt{border-top:1px solid var(--line);padding:34px 0}
 .fmt:first-of-type{border-top:none}
 .fmt-head{display:flex;gap:18px;align-items:baseline;margin-bottom:6px}
 .fmt-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.4);line-height:1;flex:none}
-.fmt-tag{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.3);border-radius:20px;padding:4px 11px;margin-top:8px}
 .fmt p{color:var(--text);max-width:780px;text-wrap:pretty}
 .fmt .sub{color:var(--mute);font-size:14.5px}
 .hook{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,24px);color:var(--accent);margin:12px 0 10px}
 .take{margin-top:12px;padding:14px 16px;background:rgba(201,183,155,.05);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text);font-size:14.5px;text-wrap:pretty}
 .take b{color:var(--accent);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
-/* callout */
-.callout{margin-top:22px;padding:22px 24px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;color:var(--text);font-size:15px;text-wrap:pretty}
-.callout b{color:var(--accent)}
-.wipbox{border:1px dashed rgba(201,183,155,.3);border-radius:14px;padding:22px 24px;color:var(--mute);font-size:14.5px;background:rgba(201,183,155,.02);margin-top:26px}
-.wipbox b{color:var(--accent)}
 /* closing */
 .closing{text-align:center;padding:74px 0 84px}
-.closing p{max-width:660px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
 .ornament{color:var(--accent);letter-spacing:.5em;margin:32px 0;opacity:.6}
 .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text);margin-top:34px}
 .sign small{display:block;font-family:Mulish,sans-serif;font-style:normal;color:var(--mute);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
@@ -85,7 +66,6 @@ section{padding:60px 0;border-top:1px solid var(--line)}
   section{padding:46px 0}
   .hero{padding:72px 0 46px} .hero h1{text-transform:none;letter-spacing:.03em}
   h2{font-size:clamp(26px,8vw,34px)}
-  .phase{gap:14px} .phase .pn{font-size:30px;min-width:40px}
   .fmt-head{gap:12px} .fmt-num{font-size:32px}
   .toc a{padding:8px 13px;font-size:11px}
 }
@@ -93,65 +73,30 @@ body{word-break:normal;overflow-wrap:normal}
 </style></head><body>
 
 <header class="hero"><div class="wrap">
-  <div class="top">Июль 2026 · 2-й месяц работы</div>
+  <div class="top">Июль 2026</div>
   <p class="fio">Георгий · @georgiy_gs</p>
-  <h1>План работы</h1>
-  <p class="slogan">Встреча 23 июля · офис</p>
-  <p class="pos">Что обсуждаем, что снимаем и куда двигаем блог дальше. 18 роликов опубликовано — переходим к следующему этапу.</p>
+  <h1>Съёмка в офисе</h1>
+  <p class="slogan">23 июля</p>
   <div class="hdiv"></div>
   <nav class="toc">
-    <a href="#povestka">I · Повестка</a>
-    <a href="#komanda">II · Георгий и команда</a>
-    <a href="#blitz">III · Блиц-рилсы</a>
-    <a href="#news">IV · Рубрика новостей</a>
+    <a href="#komanda">I · Георгий и команда</a>
+    <a href="#blitz">II · Блиц-рилсы</a>
+    <a href="#news">III · Рубрика новостей</a>
   </nav>
 </div></header>
 
 <!-- ===================== ЧАСТЬ I ===================== -->
-<section id="povestka"><div class="wrap narrow">
-  <div class="section-head"><span class="part-label">Часть I</span><h2>Повестка встречи</h2>
-    <p>Пять вопросов, которые фиксируем на встрече.</p></div>
-
-  <p class="lead drop">Где мы: опубликовано 18 роликов с начала работы, из них 13 — за последние десять дней. Формат говорящей головы поставлен и работает стабильно. Узкое место — живые исходники: закадровые озвучки проседают, потому что вставлять нечего. Следующий этап — сценарные и экспертные рилсы.</p>
-
-  <div style="margin-top:26px">
-    <div class="phase"><div class="pn">01</div><div class="pb">
-      <h3>Живой контент — главный приоритет</h3>
-      <p><strong>Машины (Taycan, Escalade) — отдельные съёмки.</strong> Выделенный вечер под машины либо короткие вечерние встречи. Нужен человек за рулём второй машины — снимаем движение. Цель: банк качественных исходников своих машин под темы драйва, скорости, эмоций.</p>
-      <p style="margin-top:10px"><strong>День с утра до вечера рядом.</strong> Снимаем всю рабочую фактуру: переговоры, напряжённые моменты, коммуникацию, обед. Это материал под закадры про бизнес, решения, мотивацию.</p>
-    </div></div>
-    <div class="phase"><div class="pn">02</div><div class="pb">
-      <h3>Объекты — выбираем дни выездов</h3>
-      <p><strong>Электросталь</strong> — склад Wildberries, 360+ тыс. м². <strong>Котовск</strong> (Тамбовская область, ~460 км) — сортировочный центр Wildberries. Плюс знаковые ближайшие объекты.</p>
-      <p style="margin-top:10px" class="dim">Тема на пике федеральных СМИ, но чувствительная — формат подачи согласовываем отдельно, с юридической вычиткой.</p>
-    </div></div>
-    <div class="phase"><div class="pn">03</div><div class="pb">
-      <h3>Калуга</h3>
-      <p>Едем, снимаем. Фиксируем дату. До поездки — подготовка: тезисный и сценарный план, что и где снимаем.</p>
-    </div></div>
-    <div class="phase"><div class="pn">04</div><div class="pb">
-      <h3>Сценарные рилсы — со следующей недели</h3>
-      <p>По качественному контенту просмотры и досматриваемость хорошие — наращиваем. Запускаем сценарный контент под аудиторию предпринимателей: сценарии, реквизит, при необходимости актёры, пробные съёмки.</p>
-    </div></div>
-    <div class="phase"><div class="pn">05</div><div class="pb">
-      <h3>Экспертный контент</h3>
-      <p>Экспертные рилсы — студия или формат интереснее. Плюс экспертная распаковка по направлению проектирования: фиксируем, где именно глубина экспертизы, и договариваемся о формате.</p>
-    </div></div>
-  </div>
-</div></section>
-
-<!-- ===================== ЧАСТЬ II ===================== -->
 <section id="komanda"><div class="wrap narrow">
-  <div class="section-head"><span class="part-label">Часть II · Съёмка в офисе</span><h2>Георгий и команда: <em>нарезка на контрасте</em></h2>
-    <p>Георгий рассказывает о каждом сотруднике — затем сотрудники отвечают о Георгии. Монтаж сталкивает ответы. С одной съёмки: флагманская нарезка, отдельные рилсы по людям и живой офисный материал под закадры.</p></div>
+  <div class="section-head"><span class="part-label">Часть I</span><h2>Георгий и команда</h2>
+    <p>Георгий рассказывает о каждом сотруднике — затем сотрудники отвечают о Георгии.</p></div>
 
-  <h3>Правила съёмки</h3>
+  <h3>Организация</h3>
   <ul class="li">
     <li>Все сидя, один кадр, петличка</li>
     <li>Один и тот же фон для всех сотрудников</li>
     <li>Георгий отвечает без сотрудников в комнате, сотрудники — без него</li>
-    <li>Сотрудники в кадре: имя и отдел, без фамилий, без привязок к объектам и цифрам</li>
-    <li>Ответы короткие; вопросы в кадре звучат впервые — реакции живые</li>
+    <li>Сотрудники в кадре: имя и отдел</li>
+    <li>Ответы короткие</li>
   </ul>
 
   <h3 style="margin-top:38px">Вопросы Георгию</h3>
@@ -178,11 +123,11 @@ body{word-break:normal;overflow-wrap:normal}
     <li>Самый тяжёлый день компании?</li>
     <li>Когда Вам было тяжелее всего — команда об этом знала?</li>
     <li>За что Вы хотели бы извиниться перед кем-то из команды?</li>
-    <li class="final">Скажите команде то, что никогда не говорили вслух</li>
+    <li>Скажите команде то, что никогда не говорили вслух</li>
   </ol>
 
   <h3 style="margin-top:38px">Вопросы сотрудникам</h3>
-  <p class="mute" style="font-size:14px">Разогрев, не в монтаж: представьтесь — кто вы, чем занимаетесь, сколько лет в компании.</p>
+  <p class="mute" style="font-size:14px">Начало: представьтесь — кто вы, чем занимаетесь, сколько лет в компании.</p>
   <div class="qgroup">Про работу с Георгием</div>
   <ol class="qs">
     <li>Как вы понимаете, что Георгий сегодня не в духе?</li>
@@ -211,104 +156,71 @@ body{word-break:normal;overflow-wrap:normal}
     <li>Был момент, когда хотели уволиться? Почему остались?</li>
     <li>Если бы Георгий всё потерял и начинал с нуля — пошли бы за ним?</li>
     <li>Каким видите его через десять лет?</li>
-    <li class="final">Скажите Георгию то, что никогда не говорили лично. Он это увидит</li>
+    <li>Скажите Георгию то, что никогда не говорили лично</li>
   </ol>
-
-  <div class="callout"><b>Монтажные пары.</b> «За что отругали бы» ↔ «что бесит» · прогноз Георгия ↔ реальные ответы · «кто работает больше всех» с двух сторон · «самый тяжёлый день» с двух сторон · обращение Георгия к команде ↔ слова сотрудников ему — финальная склейка встык.</div>
 </div></section>
 
-<!-- ===================== ЧАСТЬ III ===================== -->
+<!-- ===================== ЧАСТЬ II ===================== -->
 <section id="blitz"><div class="wrap narrow">
-  <div class="section-head"><span class="part-label">Часть III · Съёмка в офисе</span><h2>Пять <em>блиц-рилсов</em></h2>
-    <p>Формат: стимул — мгновенный вердикт — одна фраза-почему. Всё сидя, один кадр. Новый пункт каждые 5–7 секунд: зритель ждёт «свой» и спорит в комментариях. Вердикт всегда с характером — не «да/нет», а позиция. Пять рилсов — 30–40 минут съёмки. Списки в кадре звучат впервые.</p></div>
+  <div class="section-head"><span class="part-label">Часть II</span><h2>Пять <em>блиц-рилсов</em></h2>
+    <p>Вопрос — быстрый ответ — одна фраза-почему. Всё сидя, один кадр.</p></div>
 
   <div class="fmt">
-    <div class="fmt-head"><div class="fmt-num">01</div><h3>«Насколько легко разориться? Оцениваю от 1 до 10»</h3></div>
-    <div class="hook">— Кальянная? — 9.</div>
-    <p class="sub">Кальянная · пункт выдачи маркетплейса · продавать на Wildberries · кофейня · ресторан · барбершоп · автомойка · криптовалюта · трейдинг · бизнес с другом · бизнес с женой · взять кредит и открыться · франшиза · инвестировать в чужой бизнес · стройка частных домов</p>
-    <div class="take"><b>Финал</b>Свой бизнес в стройке — развёрнутый ответ на своей территории. Подпись: «С какой цифрой не согласны?»</div>
+    <div class="fmt-head"><div class="fmt-num">01</div><h3>«Насколько легко разориться? От 1 до 10»</h3></div>
+    <p class="sub">Кальянная · пункт выдачи маркетплейса · продавать на Wildberries · кофейня · ресторан · барбершоп · автомойка · криптовалюта · трейдинг · бизнес с другом · бизнес с женой · взять кредит и открыться · франшиза · инвестировать в чужой бизнес · стройка частных домов · в конце: свой бизнес в стройке</p>
   </div>
 
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">02</div><h3>«Важно или неважно, чтобы стать богатым?»</h3></div>
-    <div class="hook">— Высшее образование? — Вообще неважно.</div>
-    <p class="sub">Высшее образование · богатые родители · связи · стартовый капитал · везение · дисциплина · внешний вид · дорогая машина · офис в центре Москвы · умение красиво говорить · жёсткость · личный бренд · спорт · вставать в 5 утра · читать книги по бизнесу</p>
-    <div class="take"><b>Финал</b>Голод — желание доказать. Подпись: «Что бы вы добавили в список?»</div>
+    <p class="sub">Высшее образование · богатые родители · связи · стартовый капитал · везение · дисциплина · внешний вид · дорогая машина · офис в центре Москвы · умение красиво говорить · жёсткость · личный бренд · спорт · вставать в 5 утра · читать книги по бизнесу · в конце: голод — желание доказать</p>
   </div>
 
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">03</div><h3>«Предприниматель или сотрудник?»</h3></div>
-    <div class="hook">— Кто работает больше? — Предприниматель. Без вариантов.</div>
-    <p class="sub">Работает больше · лучше спит по ночам · больше свободы · нет личной жизни · выше потолок дохода · меньше рискует · оплачиваемый отпуск · больше нервничает · быстрее стареет · счастливее · кому проще начать сегодня</p>
-    <div class="take"><b>Финал</b>«Кем быть? — Каждому своё. Но я бы больше никогда не смог работать по найму». Подпись: «Вы предприниматель или сотрудник? И почему?»</div>
+    <p class="sub">Кто работает больше · кто лучше спит по ночам · у кого больше свободы · у кого нет личной жизни · у кого выше потолок дохода · кто меньше рискует · у кого оплачиваемый отпуск · кто больше нервничает · кто быстрее стареет · кто счастливее · кому проще начать сегодня · в конце: кем быть?</p>
   </div>
 
   <div class="fmt">
-    <div class="fmt-head"><div class="fmt-num">04</div><h3>«Что важнее в бизнесе?» — цепочка выборов</h3></div>
-    <div class="hook">— Команда или деньги? — ...</div>
-    <p class="sub">Победитель каждой пары выходит на следующего претендента: команда / деньги → связи → репутация → скорость → качество → дисциплина → контроль → доверие → система.</p>
-    <div class="take"><b>Финал</b>Победитель против «ты сам» — вердикт одной фразой. Подпись: «А что важнее для вас — пишите свою пару».</div>
+    <div class="fmt-head"><div class="fmt-num">04</div><h3>«Что важнее в бизнесе?»</h3></div>
+    <p class="sub">Выбор из двух — победитель выходит на следующую пару: команда / деньги → связи → репутация → скорость → качество → дисциплина → контроль → доверие → система → в конце: победитель против «ты сам»</p>
   </div>
 
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">05</div><h3>«Богатая или бедная привычка?»</h3></div>
-    <div class="hook">— Делить счёт пополам? — ...</div>
-    <p class="sub">Делить счёт пополам · давать деньги в долг · отвечать на сообщения быстро · опаздывать · торговаться · экономить на себе · экономить на команде · работать в выходные · хвастаться доходом · менять машину каждый год · всё контролировать самому · обещать и не делать · жаловаться на страну</p>
-    <div class="take"><b>Финал</b>Платить за всех за столом — позиция. Подпись: «Какая привычка бесит вас больше всего?»</div>
+    <p class="sub">Делить счёт пополам · давать деньги в долг · отвечать на сообщения быстро · опаздывать · торговаться · экономить на себе · экономить на команде · работать в выходные · хвастаться доходом · менять машину каждый год · всё контролировать самому · обещать и не делать · жаловаться на страну · в конце: платить за всех за столом</p>
   </div>
-
-  <div class="wipbox"><b>Второй сет готов в резерве</b> — тот же формат, но в боль предпринимателей: «было или не было», «кто виноват», жёсткие дилеммы, «совет за 5 секунд». Снимаем следующей съёмкой.</div>
 </div></section>
 
-<!-- ===================== ЧАСТЬ IV ===================== -->
+<!-- ===================== ЧАСТЬ III ===================== -->
 <section id="news"><div class="wrap narrow">
-  <div class="section-head"><span class="part-label">Часть IV · Новая рубрика</span><h2>Обзор <em>безумных новостей</em></h2>
-    <p>Еженедельная рубрика: Георгий впервые в кадре читает с карточки дикую новость недели — живая реакция — вердикт человека, который пятнадцать лет в бизнесе. Постоянная заставка и место. Первая регулярная рубрика блога — аудитория начинает ждать выпуск.</p></div>
-
-  <h3>Механика</h3>
-  <ul class="li">
-    <li>Стопка печатных карточек в руках: прочитал — отреагировал — отложил — следующая</li>
-    <li>3–5 новостей на выпуск, 60–90 секунд хронометража</li>
-    <li>Каждая новость с публичным источником, в кадре — «пишут, что»</li>
-    <li>Без политики и фамилий; чувствительные темы — после юридической вычитки</li>
-    <li>Еженедельная подборка из 6–8 новостей — выбираем 3–5 на выпуск</li>
-  </ul>
-
-  <h3 style="margin-top:38px">Выпуск №1 — порядок карточек</h3>
+  <div class="section-head"><span class="part-label">Часть III</span><h2>Рубрика: обзор <em>безумных новостей</em></h2>
+    <p>Стопка печатных карточек в руках: прочитал — отреагировал — отложил — следующая.</p></div>
 
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">01</div><h3>Сгорели склады Wildberries — ущерб до 50 млрд рублей</h3></div>
     <p class="sub">Тысячи предпринимателей потеряли весь товар за одну ночь. Восстановление — год-два.</p>
-    <div class="take"><b>Подача</b>Серьёзная, без шуток. Позиция человека из отрасли: что значит потерять всё за ночь. Деталей о проектировании не касаемся до юридического согласования.</div>
   </div>
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">02</div><h3>Братьев Тейт арестовали в Майами</h3></div>
     <p class="sub">38 обвинений от Британии: изнасилования, торговля людьми. Самые известные «успешные пацаны» интернета ждут экстрадиции в наручниках.</p>
-    <div class="take"><b>Крючок</b>Что Георгий думает про «гуру успеха» из интернета.</div>
   </div>
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">03</div><h3>Три завода в Кирове оштрафовали на 200 тысяч — не хватило сотрудников для охраны от дронов</h3></div>
     <p class="sub">Людей нет — но заплати за то, что их нет. Первый такой случай в России.</p>
-    <div class="take"><b>Крючок</b>Как это выглядит изнутри, когда отвечаешь за то, на что не влияешь.</div>
   </div>
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">04</div><h3>Американка потратила 5 000 долларов на билборды вдоль хайвея — искала мужа</h3></div>
     <p class="sub">Получила 4 000 заявок за восемь месяцев. В итоге нашла парня в обычном приложении для знакомств.</p>
-    <div class="take"><b>Крючок</b>Разбор как бизнес-кейса: вложения, конверсия, итог.</div>
   </div>
   <div class="fmt">
     <div class="fmt-head"><div class="fmt-num">05</div><h3>Предпринимателя оштрафовали за несуществующих пчёл</h3></div>
     <p class="sub">Курган. Россельхознадзор проверил учёт пчёл, которых у него нет, — и выписал штраф.</p>
-    <div class="take"><b>Крючок</b>Финал на чистом смехе. Свои истории про проверки.</div>
   </div>
-
-  <div class="callout"><b>Вердикт в конце выпуска:</b> «Вот в таком мире мы делаем бизнес. И всё равно делаем». Подпись под рилс: «Какая новость добила вас? Кидайте свою дичь в комменты — разберу в следующем выпуске».</div>
 </div></section>
 
 <section class="closing"><div class="wrap">
-  <p>Контент идёт, формат работает. Дальше — живые исходники, сценарные и экспертные рилсы и первая регулярная рубрика.</p>
   <div class="ornament">· · ·</div>
-  <div class="sign">Малик<small>план подготовлен к встрече · 23 июля 2026</small></div>
+  <div class="sign">Малик<small>съёмка · 23 июля 2026</small></div>
 </div></section>
 
 </body></html>
