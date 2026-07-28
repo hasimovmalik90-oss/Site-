@@ -2055,6 +2055,8 @@
   .chip{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);border:1px solid rgba(255,184,77,.32);border-radius:999px;padding:5px 13px;white-space:nowrap}
   .outline{margin-top:22px;padding:16px 20px;border-left:2px solid var(--gold-deep);background:var(--bg-card);font-family:var(--serif);font-style:italic;font-size:16px;color:var(--text);line-height:1.55}
   .outline b{color:var(--gold-bright);font-family:var(--sans);font-style:normal;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+  .loc-link{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--gold-deep);text-transform:uppercase}
+  .loc-link:hover{color:var(--gold-bright);text-shadow:0 0 20px var(--gold-glow)}
 
   .scene{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);align-items:flex-start}
   .scene:last-of-type{border-bottom:none}
@@ -2101,8 +2103,9 @@
 
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot" data-section="hero" data-label="Начало"></button>
-  <button class="nav-dot" data-section="b1" data-label="Разговорные ролики"></button>
-  <button class="nav-dot" data-section="b2" data-label="Куда сходить"></button>
+  <button class="nav-dot" data-section="b1" data-label="Два дня"></button>
+  <button class="nav-dot" data-section="b2" data-label="Где снимаем"></button>
+  <button class="nav-dot" data-section="b3" data-label="Форматы"></button>
   <button class="nav-dot" data-section="prep" data-label="Перед съёмками"></button>
   <button class="nav-dot" data-section="contact" data-label="Финал"></button>
 </nav>
@@ -2136,8 +2139,8 @@
         <div class="hero-kpi-label">разговорных&nbsp;роликов</div>
       </div>
       <div class="hero-kpi-cell">
-        <div class="hero-kpi-value">5<sup>мест</sup></div>
-        <div class="hero-kpi-label">на&nbsp;выбор</div>
+        <div class="hero-kpi-value">6<sup>локаций</sup></div>
+        <div class="hero-kpi-label">по&nbsp;городу</div>
       </div>
     </div>
   </div>
@@ -2146,41 +2149,57 @@
 
 <div class="marquee">
   <div class="marquee-track">
-    <span class="marquee-item"><span class="num">··</span> Разговорные ролики</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Прогулки</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> За рулём</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Шоппинг</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Салон красоты</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Книжный</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Музей</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Разговорные ролики</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Прогулки</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> За рулём</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Шоппинг</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Салон красоты</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Книжный</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Музей</span><span class="marquee-star">✦</span>
+    <span class="marquee-item"><span class="num">··</span> Разговорные ролики</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Золотое Яблоко</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Бутик «Суббота»</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Ресторан «Счастье»</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Cinéma Michèle</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Тир</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Конюшня</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Разговорные ролики</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Золотое Яблоко</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Бутик «Суббота»</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Ресторан «Счастье»</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Cinéma Michèle</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Тир</span><span class="marquee-star">✦</span><span class="marquee-item"><span class="num">··</span> Конюшня</span><span class="marquee-star">✦</span>
   </div>
 </div>
 
 <section class="spacer grp" id="b1" style="padding-top:80px">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Первое · главное</span>
-      <h2>Разговорные <em>ролики</em></h2>
-      <p class="what reveal" style="margin-top:14px">Ролики, где Вы делитесь мыслями, взглядами и историями. Тексты я подготовлю заранее — Вам останется только их проговорить.</p>
+      <span class="eyebrow">Первое · маршрут</span>
+      <h2>Как проходят <em>два дня</em></h2>
+      <p class="what reveal" style="margin-top:14px">Два съёмочных дня, два разных образа. В каждом дне — несколько локаций подряд, чтобы за один выезд снять сразу пачку роликов.</p>
     </div>
     <div class="tlist" style="margin-top:8px">
-      <div class="theme reveal"><span class="tn">1</span><div class="tb"><h3>На прогулке</h3><p>Вы идёте по набережной, красивой улице или бульвару и говорите на камеру.</p></div></div>
-      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>За рулём</h3><p>Вы за рулём — говорите по дороге.</p></div></div>
-      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Сидя</h3><p>В кофейне или ресторане, на красивом фоне.</p></div></div>
+      <div class="theme reveal"><span class="tn">Д1</span><div class="tb"><h3>День первый · дневной образ</h3><p>Золотое Яблоко, затем ресторан «Счастье» с видом на Исаакиевский — разговорные ролики, и в финале тир.</p></div></div>
+      <div class="theme reveal"><span class="tn">Д2</span><div class="tb"><h3>День второй · нарядный образ</h3><p>Бутик «Суббота» и платье, затем Cinéma Michèle — кино и кафе с видом на собор.</p></div></div>
+      <div class="theme reveal"><span class="tn">+</span><div class="tb"><h3>Отдельно · конюшня</h3><p>«Конная Лахта» — отдельный короткий выезд к лошадям, в свой день.</p></div></div>
     </div>
-    <div class="outline reveal"><b>Цель:</b> набрать минимум 10 таких роликов — каждый на своём фоне и в своём образе, чтобы лента была разной.</div>
+    <div class="outline reveal"><b>Цель</b> около десяти роликов за два дня — пять в одном образе и пять в другом, чтобы лента была разной.</div>
   </div>
 </section>
 
 <section class="spacer grp" id="b2">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Второе · выходы · на выбор</span>
-      <h2>Куда <em>сходить</em></h2>
-      <p class="what reveal" style="margin-top:14px">Выбираете, что откликается — каждый выход снимаем в своём образе.</p>
+      <span class="eyebrow">Второе · локации</span>
+      <h2>Где <em>снимаем</em></h2>
+      <p class="what reveal" style="margin-top:14px">Места, которые Вы выбрали. Съёмку на камеру, где нужно, согласую заранее.</p>
     </div>
     <div class="tlist" style="margin-top:8px">
-      <div class="theme reveal"><span class="tn">1</span><div class="tb"><h3>Шоппинг</h3><p>Одежда, косметика, парфюмерия. «Золотое яблоко» и магазины.</p></div></div>
-      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>Салон красоты</h3><p>Маникюр, педикюр.</p></div></div>
-      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Книжный магазин</h3><p>Красивый книжный, атмосфера.</p></div></div>
-      <div class="theme reveal"><span class="tn">4</span><div class="tb"><h3>Музей</h3><p>Или шире — что-то красивое.</p></div></div>
-      <div class="theme reveal"><span class="tn">5</span><div class="tb"><h3>Места культурного наследия</h3><p>Красивые локации — там, где разрешена съёмка.</p></div></div>
+      <div class="theme reveal"><span class="tn">1</span><div class="tb"><h3>Бутик «Суббота»</h3><p>Платья и образы, съёмка в бутике разрешена — то самое платье отсюда.</p><a class="loc-link" href="https://www.instagram.com/subbotastore/" target="_blank" rel="noopener">Instagram →</a></div></div>
+      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>Золотое Яблоко</h3><p>Косметика и парфюмерия — живые заходы, примерки, детали.</p></div></div>
+      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Ресторан «Счастье»</h3><p>Малая Морская, 24, напротив Исаакиевского. Разговорные ролики с видом на собор.</p><a class="loc-link" href="https://yandex.ru/navi/org/schastye/1153763644" target="_blank" rel="noopener">На карте →</a></div></div>
+      <div class="theme reveal"><span class="tn">4</span><div class="tb"><h3>Cinéma Michèle</h3><p>Малая Морская, 24. Кинотеатр с кафе, атмосферный вечерний выход, вид на собор.</p><a class="loc-link" href="https://yandex.ru/navi/org/cin_ma_mich_le/183384722926" target="_blank" rel="noopener">На карте →</a></div></div>
+      <div class="theme reveal"><span class="tn">5</span><div class="tb"><h3>Тир</h3><p>Динамичный эпизод со стрельбой — площадку добавим, как определимся.</p></div></div>
+      <div class="theme reveal"><span class="tn">6</span><div class="tb"><h3>«Конная Лахта»</h3><p>Лахта-Ольгино, по записи. Отдельный выезд к лошадям.</p><a class="loc-link" href="https://2gis.ru/spb/geo/5348552838722613/30.140733,59.990783" target="_blank" rel="noopener">На карте →</a></div></div>
     </div>
-    <p class="pause-note reveal">Съёмку в музее или салоне согласую заранее — где-то нужна предварительная запись.</p>
+    <p class="pause-note reveal">«Счастье» и Cinéma Michèle — по одному адресу, снимаем в один выход. На телефон снимаем везде; съёмку на камеру в кинотеатре и тире согласую заранее.</p>
+  </div>
+</section>
+
+<section class="spacer grp" id="b3">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Третье · форматы</span>
+      <h2>Форматы <em>роликов</em></h2>
+      <p class="what reveal" style="margin-top:14px">Что именно снимаем в этих локациях.</p>
+    </div>
+    <div class="tlist" style="margin-top:8px">
+      <div class="theme reveal"><span class="tn">1</span><div class="tb"><h3>Разговорные ролики</h3><p>Вы делитесь мыслями на камеру — в кафе, кинотеатре, в машине. Тексты подготовлю заранее.</p></div></div>
+      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>Мини-эпизоды</h3><p>Живые моменты: заход в магазин, стрельба, дорога. Не требуют одного образа.</p></div></div>
+      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Про естественность</h3><p>Короткие личные темы без постановки — то, что близко Вам.</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -2192,9 +2211,9 @@
     </div>
     <div class="tlist" style="margin-top:8px">
       <div class="theme reveal"><span class="tn">1</span><div class="tb"><h3>Два дня</h3><p>Определяем два удобных Вам дня.</p></div></div>
-      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>Образы</h3><p>Согласуем Ваши образы на оба дня.</p></div></div>
-      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Балу и животные</h3><p>Решаем, берём ли Балу и кто из питомцев будет дома.</p></div></div>
-      <div class="theme reveal"><span class="tn">4</span><div class="tb"><h3>Выходы</h3><p>Вы выбираете места из списка выше, съёмку я согласую заранее.</p></div></div>
+      <div class="theme reveal"><span class="tn">2</span><div class="tb"><h3>Образы</h3><p>Два образа — дневной и нарядный, примерно по пять роликов на каждый.</p></div></div>
+      <div class="theme reveal"><span class="tn">3</span><div class="tb"><h3>Тир</h3><p>Пришлёте площадку — добавлю её в маршрут первого дня.</p></div></div>
+      <div class="theme reveal"><span class="tn">4</span><div class="tb"><h3>Съёмка на камеру</h3><p>Согласую с кинотеатром и тиром заранее. На телефон снимаем везде.</p></div></div>
     </div>
   </div>
 </section>
