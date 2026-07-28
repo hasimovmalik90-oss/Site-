@@ -2245,6 +2245,29 @@
     font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
     text-transform: uppercase; color: var(--muted); text-align: center; margin-top: 14px;
   }
+
+  /* МОКАП ШАПКИ ПРОФИЛЯ */
+  .biocard { border:1px solid var(--line-bright); border-radius:16px; background:var(--bg-card); padding:24px 26px; margin-bottom:16px; box-shadow:0 0 40px rgba(0,0,0,.35); }
+  .biocard:hover { border-color:var(--line-glow); }
+  .bio-num { font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--gold-deep); margin-bottom:12px; }
+  .bio-name { font-family:var(--sans); font-weight:700; font-size:17px; color:var(--ink-bright); margin-bottom:10px; }
+  .bio-desc { font-size:14.5px; line-height:1.7; color:var(--text); }
+  .bio-desc .link { color:var(--gold); }
+  @media (max-width:700px){ .biocard{ padding:18px 16px; border-radius:12px; } .bio-name{ font-size:15.5px; } .bio-desc{ font-size:13.5px; } }
+  /* КАРТОЧКИ ЛИНИЙ ТЕМНИКА */
+  .tcard { border:1px solid var(--line); border-radius:18px; background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.008)); margin-bottom:20px; overflow:hidden; }
+  .tcard:hover{ border-color:var(--line-glow); }
+  .tcard-head { padding:22px 30px 16px; border-bottom:1px solid var(--line); position:relative; display:flex; align-items:baseline; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .tcard-head::before{ content:''; position:absolute; left:0; top:22px; bottom:16px; width:2px; background:linear-gradient(to bottom,var(--gold),transparent); box-shadow:0 0 10px var(--gold-glow); }
+  .tcard-ttl { font-family:var(--serif); font-size:clamp(20px,2.6vw,25px); color:var(--ink-bright); font-weight:400; }
+  .tcard-ttl .tg { display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:7px; }
+  .tcard-share { font-family:var(--mono); font-size:12px; color:var(--gold-bright); flex:none; }
+  .tcard-body { padding:10px 30px 20px; }
+  .trow { display:flex; gap:16px; align-items:baseline; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.035); }
+  .trow:last-child{ border-bottom:none; }
+  .tn { font-family:var(--mono); font-size:11px; color:var(--gold-deep); flex:0 0 26px; }
+  .tt { font-size:15.5px; line-height:1.55; color:var(--ink); flex:1; min-width:0; }
+  @media (max-width:700px){ .tcard-head{ padding:18px 18px 14px; } .tcard-head::before{ top:18px; bottom:14px; } .tcard-body{ padding:8px 18px 16px; } .trow{ gap:12px; padding:11px 0; } .tt{ font-size:14.5px; } }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -2268,6 +2291,7 @@
   <button class="nav-dot" data-section="image" data-label="Образ"></button>
   <button class="nav-dot" data-section="audience" data-label="Аудитория"></button>
   <button class="nav-dot" data-section="content" data-label="Контент"></button>
+  <button class="nav-dot" data-section="temnik" data-label="Темник"></button>
   <button class="nav-dot" data-section="formats" data-label="Форматы"></button>
   <button class="nav-dot" data-section="borders" data-label="Границы"></button>
   <button class="nav-dot" data-section="m1" data-label="Месяц 1"></button>
@@ -2373,6 +2397,33 @@
     <div class="ps-tg-row"><span class="ps-tg-t"><strong>Чем отличается</strong>&nbsp;— красивая, танцует и&nbsp;печёт хлеб; медик, косметолог, нумеролог в&nbsp;одном</span><span class="ps-tg-v" style="color:var(--gold-bright)">сочетание</span></div>
     <div class="ps-tg-row"><span class="ps-tg-t"><strong>Что обещает</strong>&nbsp;— «пересобрать себя можно, и&nbsp;я&nbsp;показываю как&nbsp;— на&nbsp;живом примере»</span><span class="ps-tg-v" style="color:var(--gold-bright)">обещание</span></div>
 
+
+    <div class="ps-tg-head reveal" style="margin-top:46px">
+      <h3 style="font-family:var(--serif);font-size:22px;color:var(--ink-bright)">Финальные варианты шапки</h3>
+      <span class="ps-tg-meta">ИМЯ + ОПИСАНИЕ · НА ВЫБОР И ПОД ТЕСТ</span>
+    </div>
+    <div class="biocard reveal">
+      <div class="bio-num">Вариант 1</div>
+      <div class="bio-name">Анжелика · должна только себе</div>
+      <div class="bio-desc">Взяла кредит за бывшего<br>Пеку хлеб на закваске и сама разгребаю долги<br><span class='link'>↓ мой курс</span></div>
+    </div>
+    <div class="biocard reveal">
+      <div class="bio-num">Вариант 2</div>
+      <div class="bio-name">Анжелика · разведёнка с кредитом</div>
+      <div class="bio-desc">Не с прицепом, а с кредитом за бывшего 🤍<br>Собрала из этого себя и своё дело — хлеб на закваске<br><span class='link'>↓ мой курс</span></div>
+    </div>
+    <div class="biocard reveal">
+      <div class="bio-num">Вариант 3</div>
+      <div class="bio-name">Анжелика · закрываю кредиты и гештальты</div>
+      <div class="bio-desc">Осталась с чужим долгом — и с собой настоящей<br>Пеку хлеб и разбираю себя по полочкам<br><span class='link'>↓ мой курс</span></div>
+    </div>
+    <div class="biocard reveal">
+      <div class="bio-num">Вариант 4</div>
+      <div class="bio-name">Анжелика · замешиваю травмы в тесто</div>
+      <div class="bio-desc">Всё, что болело, ушло в тесто<br>Пеку хлеб на закваске и учу вас<br><span class='link'>↓ мой курс</span></div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);font-family:var(--mono);margin-top:6px">Имя профиля меняется в пару кликов — это ещё и материал для A/B-теста: стартуем одним, через 3–4 недели проверяем другой по приросту подписок.</p>
+
     <div class="block reveal" style="margin-top:44px">
       <span class="block-num" data-tag="Отстройка">01</span>
       <div class="block-body">
@@ -2469,6 +2520,140 @@
       <p style="font-size:16px;color:var(--ink)">
         Каждая линия работает на&nbsp;один образ&nbsp;— поэтому подписчик, попавший на&nbsp;любой ролик, видит одного человека. Продукт (курс) не&nbsp;отдельная линия, а&nbsp;нативно вшит в&nbsp;линию хлеба и&nbsp;женской реализации.
       </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="spacer" id="temnik">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Темник · 05</span>
+      <h2>О чём <em>снимаем</em></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-bottom:30px">
+      <p style="font-size:17px;color:var(--ink)">Банк тем на месяцы вперёд — всё из Вашей распаковки, созвонов и Telegram, ничего выдуманного. Шесть линий вокруг одного ядра: личность ведёт, хлеб присутствует, остальное даёт объём. Стартовая арка идёт из Линии 01 (пункты 1–5).</p>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 01</span>Личность и путь</div>
+        <div class="tcard-share">35%</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">Как взяла кредит за бывшего — из силы, не из жалости («смотри, я могу, а ты нет»)</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Две жизни: «улыбаешься людям, а внутри пустота»</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Момент, когда появился хлеб: «замешивая тесто, собирала себя по кусочкам»</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">«Я заплатила за то, чтобы стать собой» — благодарность кредиту, что раскрыл потенциал</span></div>
+        <div class="trow"><span class="tn">05</span><span class="tt">«Из говна слеплю конфету» — девиз в действии</span></div>
+        <div class="trow"><span class="tn">06</span><span class="tt">Краснодар, «золотая эра», косметолог — кем была до надлома</span></div>
+        <div class="trow"><span class="tn">07</span><span class="tt">Почему сама назвала себя «разведёнка с кредитом» — самоирония как броня</span></div>
+        <div class="trow"><span class="tn">08</span><span class="tt">Отказ от банкротства: «забираю ответственность на себя»</span></div>
+        <div class="trow"><span class="tn">09</span><span class="tt">«Акушерка, косметолог, нумеролог, пекарь — и всё это я»</span></div>
+        <div class="trow"><span class="tn">10</span><span class="tt">Впервые гиперфокус на себе: «цель заработка на первом месте, как никогда»</span></div>
+        <div class="trow"><span class="tn">11</span><span class="tt">Мечта о переезде (США / Испания): «блог, который кормит, где бы я ни была»</span></div>
+        <div class="trow"><span class="tn">12</span><span class="tt">«Построить то, что у меня не смогут забрать»</span></div>
+        <div class="trow"><span class="tn">13</span><span class="tt">Самоирония: старые стрёмные рилсы, до брекетов, «кривляюсь — а потом красотка»</span></div>
+        <div class="trow"><span class="tn">14</span><span class="tt">«Стерва снаружи — простая внутри»</span></div>
+        <div class="trow"><span class="tn">15</span><span class="tt">Кофейня 2022: смеялись «тут только пивнушку» — а я сделала своё</span></div>
+        <div class="trow"><span class="tn">16</span><span class="tt">Терапия: как разбирала себя и что поняла про выбор мужчин</span></div>
+        <div class="trow"><span class="tn">17</span><span class="tt">Моя команда: Оля, Андрей, Мария — кто помог всё собрать</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 02</span>Хлеб как дело</div>
+        <div class="tcard-share">25%</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">Как научилась с нуля — вернулась, хотела сэндвич, а мест нет</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Закваска Lievito Madre, ей год — «надо освежить свою Мадре»</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Провалы новичка — самый обидный хлеб</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">Тартин и японский тостовый — её коньки</span></div>
+        <div class="trow"><span class="tn">05</span><span class="tt">«Закваска — это что-то на богатом. Дрожжи — попса»</span></div>
+        <div class="trow"><span class="tn">06</span><span class="tt">Хлеб как ритуал и медитация, «возвращение женщины к себе»</span></div>
+        <div class="trow"><span class="tn">07</span><span class="tt">Процесс выпечки крупно — эстетика теста, рук, хруста</span></div>
+        <div class="trow"><span class="tn">08</span><span class="tt">Мифы о хлебе от медика: глютен, ферментация, «человек плодоядное»</span></div>
+        <div class="trow"><span class="tn">09</span><span class="tt">«Тортики все пекут — попробуй хлеб. Хлеб всему голова»</span></div>
+        <div class="trow"><span class="tn">10</span><span class="tt">Casa del Pan — история бренда, «дом хлеба»</span></div>
+        <div class="trow"><span class="tn">11</span><span class="tt">Заказы: кто покупает, самый волнительный заказ</span></div>
+        <div class="trow"><span class="tn">12</span><span class="tt">Хлеб как навык, «который у тебя никто не заберёт»</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 03</span>Женское</div>
+        <div class="tcard-share">20%</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">«Быть женщиной и ощущать себя женщиной — это разные вещи»</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">«Я красивая, когда счастливая» — красота как состояние</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Операция открыто, как медик: асимметрия, редукция, тромбофилия чуть не убила</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">Процедуры без вранья: ботокс с 25, планы на ринопластику</span></div>
+        <div class="trow"><span class="tn">05</span><span class="tt">«Ненавижу фразу — женщина должна быть мудрой»</span></div>
+        <div class="trow"><span class="tn">06</span><span class="tt">Любовь = надёжность: «страшно доверять, но я знаю, что получится»</span></div>
+        <div class="trow"><span class="tn">07</span><span class="tt">Прямой совет: не бери кредит для мужчины</span></div>
+        <div class="trow"><span class="tn">08</span><span class="tt">Женская реализация: «женщина должна реализовывать свой потенциал»</span></div>
+        <div class="trow"><span class="tn">09</span><span class="tt">Материнство на своих условиях: «может, рожу к 40»</span></div>
+        <div class="trow"><span class="tn">10</span><span class="tt">Мизогиния и женская конкуренция</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 04</span>Эстетика и юг</div>
+        <div class="tcard-share">15%</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">Животный мир: Берта и 8 щенков, кошка Линда, кролик, ёжики, черепаха</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Потеря кота Васи перед операцией</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Большой дом, минимализм: «в маленьком доме сузилось бы мышление»</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">Амшенские корни, Чамурян, армянская церковь — «человек мира»</span></div>
+        <div class="trow"><span class="tn">05</span><span class="tt">Танцы (латина), акробатика в детстве, спорт с мамой</span></div>
+        <div class="trow"><span class="tn">06</span><span class="tt">Плов — фирменное, для младшей сестры</span></div>
+        <div class="trow"><span class="tn">07</span><span class="tt">День из жизни в маленьком южном городе</span></div>
+        <div class="trow"><span class="tn">08</span><span class="tt">Барселона как мечта: «представляю — и идёт дрожь и слёзы»</span></div>
+        <div class="trow"><span class="tn">09</span><span class="tt">Мама: опора и проводник в спорт, «от неё эмпатия и мягкость»</span></div>
+        <div class="trow"><span class="tn">10</span><span class="tt">Младшая сестра: разница 17 лет, «за неё любого порву»</span></div>
+        <div class="trow"><span class="tn">11</span><span class="tt">Отец — дозированно: «папина дочка», через тему ВДА</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 05</span>Грань-эзотерика</div>
+        <div class="tcard-share">5%</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">Матрица судьбы как компас, её аркан — император</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Нумерология: сертификат с 2022, расклады для девочек</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Приметы и сглаз — «чувствительна, но не фанатик»</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">Как эзотерика уживается с медициной: «одно другому не мешает»</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Линия 06</span>Здоровье и энергия</div>
+        <div class="tcard-share">доп.</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">Железодефицит с юности: «только встала — уже устала»</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Как вернула силы с нутрициологом — схема, БАДы, микрофлора</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Интуитивное питание: «жить в жёстких ограничениях хуже»</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">«Человек — плодоядное»: почему год не ела мясо и как вернула</span></div>
+        <div class="trow"><span class="tn">05</span><span class="tt">Здоровая еда без задрота: гречка без зажарки, варёное яйцо</span></div>
+        <div class="trow"><span class="tn">06</span><span class="tt">Противоречие глютена: раньше «ред флаг», теперь пеку — как уживается</span></div>
+        <div class="trow"><span class="tn">07</span><span class="tt">Вялотекущий стресс забирает силы — как замечаю и что делаю</span></div>
+      </div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-head">
+        <div class="tcard-ttl"><span class="tg">Вшито в линии 01–02</span>Прогрев курса</div>
+        <div class="tcard-share">нативно</div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span class="tn">01</span><span class="tt">История ученицы: девочка из-за границы прислала свой хлеб на следующий день</span></div>
+        <div class="trow"><span class="tn">02</span><span class="tt">Что человек реально получает — результат, а не программа</span></div>
+        <div class="trow"><span class="tn">03</span><span class="tt">Почему без курса печь долго и мучительно</span></div>
+        <div class="trow"><span class="tn">04</span><span class="tt">Мечта об офлайн-курсе: «собрать девочек, печь и есть вместе»</span></div>
+      </div>
     </div>
   </div>
 </section>
