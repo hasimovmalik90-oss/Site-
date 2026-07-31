@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анжелика — контент-план Telegram · 3–16 августа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#060606;--bg-deep:#030303;--ink-bright:#faf9f6;--ink:#ebe9e2;--text:#b5b3aa;
+ --muted:#6a6862;--dim:#3a3833;--gold-bright:#ffd17a;--gold:#ffb84d;--gold-deep:#c8893a;
+ --gold-glow:rgba(255,184,77,.4);--gold-glow-soft:rgba(255,184,77,.18);--gold-glow-faint:rgba(255,184,77,.06);
+ --line:rgba(255,255,255,.06);--line-bright:rgba(255,255,255,.14);--line-glow:rgba(255,184,77,.3);
+ --display:'Fraunces','Times New Roman',serif;--serif:'Instrument Serif','Times New Roman',serif;
+ --sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'Geist Mono',ui-monospace,monospace;
+ --container:820px;--ease:cubic-bezier(.2,.6,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--mx:50%;--my:50%;
+}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw;}
+body{font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--text);background:var(--bg);
+ -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;max-width:100vw;position:relative;text-wrap:pretty;}
+p,li{text-wrap:pretty;} h1,h2,h3,h4,.qcard-title,.hero-name{text-wrap:balance;}
+img{max-width:100%;height:auto;display:block;}
+/* атмосфера */
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.ambient::before,.ambient::after{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.5;}
+.ambient::before{width:600px;height:600px;background:radial-gradient(circle,rgba(255,184,77,.16),transparent 70%);top:-200px;left:-100px;animation:d1 22s ease-in-out infinite;}
+.ambient::after{width:500px;height:500px;background:radial-gradient(circle,rgba(255,184,77,.10),transparent 70%);bottom:-150px;right:-100px;animation:d2 28s ease-in-out infinite;}
+@keyframes d1{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(80px,60px) scale(1.1);}66%{transform:translate(-40px,100px) scale(.95);}}
+@keyframes d2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-100px,-60px) scale(1.15);}}
+.spotlight{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(circle 600px at var(--mx) var(--my),rgba(255,184,77,.05),transparent 50%);transition:background .08s linear;mix-blend-mode:screen;}
+@media(hover:none){.spotlight{display:none;}}
+.progress-bar{position:fixed;top:0;left:0;width:var(--scroll,0%);height:1px;background:linear-gradient(to right,transparent,var(--gold),var(--gold-bright));box-shadow:0 0 20px var(--gold-glow);z-index:998;transition:width .05s linear;}
+main,header,section,footer{position:relative;z-index:2;}
+.container{max-width:var(--container);width:100%;margin:0 auto;padding:0 32px;}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:inline-flex;align-items:center;gap:14px;}
+.eyebrow::before,.eyebrow::after{content:'';width:28px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);box-shadow:0 0 8px var(--gold-glow);}
+/* hero */
+.hero{min-height:78vh;min-height:78svh;padding:96px 0 72px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;text-align:center;position:relative;}
+.hero::before{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-glow),transparent);}
+.hero .eyebrow{justify-content:center;}
+.hero-name{font-family:var(--serif);font-style:italic;font-size:clamp(66px,13vw,150px);line-height:.95;color:var(--gold-bright);
+ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+ text-shadow:0 0 60px var(--gold-glow-soft);letter-spacing:-.02em;margin-bottom:24px;}
+.hero-sub{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 340;font-style:italic;font-size:clamp(18px,2.2vw,25px);color:var(--text);max-width:640px;margin:0 auto 40px;line-height:1.5;}
+.hero-stats{display:inline-flex;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:0 auto;}
+.hstat{background:var(--bg-deep);padding:18px 30px;text-align:center;}
+.hstat-v{font-family:var(--serif);font-size:34px;color:var(--gold-bright);line-height:1;}
+.hstat-l{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+/* intro */
+.intro{padding:96px 0;text-align:center;background:var(--bg-deep);position:relative;}
+.intro::before{content:'';position:absolute;top:44px;left:50%;transform:translateX(-50%);width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);box-shadow:0 0 16px var(--gold-glow);}
+.intro p{font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 350;font-style:italic;font-size:clamp(19px,2vw,24px);line-height:1.55;color:var(--text);max-width:720px;margin:0 auto 18px;text-wrap:balance;}
+/* оглавление */
+.toc{padding:80px 0 20px;}
+.toc-grid{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.toc-row{display:flex;align-items:baseline;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .3s var(--ease);}
+.toc-row:last-child{border-bottom:none;}
+.toc-row:hover{background:rgba(255,184,77,.04);}
+.toc-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);flex:0 0 120px;}
+.toc-title{font-family:var(--serif);font-size:20px;color:var(--ink-bright);flex:1;}
+.toc-count{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+/* карточки тем */
+.cards{padding:48px 0 40px;}
+.qcard{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.008));margin-bottom:26px;overflow:hidden;scroll-margin-top:24px;}
+.qcard-head{padding:28px 34px 22px;border-bottom:1px solid var(--line);position:relative;}
+.qcard-head::before{content:'';position:absolute;left:0;top:28px;bottom:22px;width:2px;background:linear-gradient(to bottom,var(--gold),transparent);box-shadow:0 0 10px var(--gold-glow);}
+.qcard-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:9px;}
+.qcard-title{font-family:var(--serif);font-size:clamp(23px,3vw,30px);color:var(--ink-bright);line-height:1.2;font-weight:400;}
+.qcard-count{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);display:block;margin-top:10px;}
+.qcard-body{padding:10px 34px 26px;}
+/* вопрос+ответ */
+.qa{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.qa:last-child{border-bottom:none;}
+.qrow{display:flex;gap:18px;align-items:baseline;}
+.qnum{font-family:var(--mono);font-size:11px;color:var(--gold-deep);flex:0 0 34px;font-variant-numeric:tabular-nums;padding-top:2px;}
+.qtext{font-size:17px;line-height:1.55;color:var(--ink-bright);flex:1;min-width:0;font-weight:500;}
+.ans{margin:12px 0 0 52px;}
+.ans-tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;display:inline-block;margin-bottom:7px;}
+.ans-body{font-size:15.5px;line-height:1.7;color:var(--text);}
+.ans-voice{border-left:2px solid transparent;border-image:linear-gradient(to bottom,var(--gold),transparent) 1;padding-left:18px;}
+.ans-voice .ans-tag{color:var(--gold);}
+.ans-voice .ans-tag::before{content:'◈ ';}
+.ans-text{border-left:2px solid var(--dim);padding-left:18px;}
+.ans-text .ans-tag{color:var(--muted);}
+.ans-text .ans-body{color:var(--ink);}
+.ans-empty{margin-left:52px;font-style:italic;color:var(--dim);font-size:14px;}
+.ans-pending{color:var(--muted);font-style:italic;}
+.ans + .ans{margin-top:14px;}
+/* футер */
+.foot{padding:90px 0;text-align:center;border-top:1px solid var(--line);}
+.foot-q{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--ink-bright);max-width:640px;margin:0 auto 16px;}
+.foot-meta{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+.up{position:fixed;right:24px;bottom:24px;z-index:100;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-bright);background:rgba(10,10,10,.6);backdrop-filter:blur(10px);color:var(--gold);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s;}
+.up.show{opacity:1;pointer-events:auto;}
+@media(max-width:640px){
+ .container{padding:0 18px;}
+ .qcard-head{padding:20px 18px 16px;}.qcard-head::before{top:20px;bottom:16px;}
+ .qcard-body{padding:6px 18px 18px;}
+ .qnum{flex:0 0 28px;font-size:10px;}.qtext{font-size:16px;}
+ .ans{margin-left:0;margin-top:12px;}.ans-empty{margin-left:0;}
+ .toc-tag{flex-basis:88px;}.toc-title{font-size:17px;}
+ .hero-stats{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:300px;margin:40px auto 0;}
+ .hstat{padding:15px 10px;}.hstat-v{font-size:26px;}
+ .intro{padding:60px 0;}.toc{padding:56px 0 10px;}
+}
+</style>
+
+<style>
+  .ans-body{white-space:pre-line;word-break:break-word;}
+  .ans-body strong{color:var(--ink-bright);font-weight:600;}
+  .need{margin:16px 0 0;padding:12px 16px;border-left:2px solid var(--gold-deep);background:rgba(255,255,255,.02);font-size:14.5px;line-height:1.6;color:var(--text);border-radius:0 6px 6px 0;}
+  .wk-row .qnum{flex:0 0 74px;color:var(--gold);}
+  @media(max-width:680px){
+    .hero-stats{grid-template-columns:repeat(3,1fr)!important;max-width:330px!important;}
+    .hstat{padding:13px 4px!important;}
+    .hstat-v{font-size:23px!important;}
+    .hstat-l{font-size:8px!important;letter-spacing:.1em!important;}
+    .was{display:inline-block;margin-left:0;margin-top:5px;}
+  }
+</style>
+  <style>
+  .was{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);border:1px solid rgba(255,255,255,.08);padding:2px 7px;border-radius:20px;margin-left:10px;white-space:nowrap;}
+  .free{color:var(--gold-deep);border-color:rgba(255,184,77,.25);}
+  .qrow{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+  .qrow:last-child{border-bottom:none;}
+  .sfera-note{font-size:14.5px;color:var(--muted);padding:2px 0 12px;line-height:1.6;}
+  </style>
+</head><body>
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
+
+<header class="hero">
+<div class="container">
+<div class="eyebrow">Темы и контент-план · на согласование</div>
+<div class="hero-name">Telegram</div>
+<p class="hero-sub">Все темы, из&nbsp;которых собирается канал, разложенные по&nbsp;сферам. Дальше&nbsp;— план на&nbsp;две недели и&nbsp;запас тем на&nbsp;любой день.</p>
+<div class="hero-stats">
+<div class="hstat"><div class="hstat-v">65</div><div class="hstat-l">тем</div></div>
+<div class="hstat"><div class="hstat-v">6</div><div class="hstat-l">сфер</div></div>
+<div class="hstat"><div class="hstat-v">14</div><div class="hstat-l">постов в плане</div></div>
+</div>
+</div>
+</header>
+
+<section class="intro"><div class="container">
+<p>В центре — Вы: характер, взгляды, жизнь. Хлеб идёт рядом и не забирает всё внимание.</p>
+</div></section>
+
+<section class="toc"><div class="container">
+<div class="eyebrow">Как читать документ</div>
+<div class="toc-grid">
+<div class="toc-row"><span class="toc-tag">Часть 1</span><span class="toc-title">Сферы и все темы</span><span class="toc-count">65</span></div>
+<div class="toc-row"><span class="toc-tag">Часть 2</span><span class="toc-title">План на две недели</span><span class="toc-count">14 дней</span></div>
+<div class="toc-row"><span class="toc-tag">Часть 3</span><span class="toc-title">Готовые тексты постов</span><span class="toc-count">14</span></div>
+<div class="toc-row"><span class="toc-tag">Часть 4</span><span class="toc-title">Свободные темы на любой день</span><span class="toc-count">запас</span></div>
+<div class="toc-row"><span class="toc-tag">Часть 5</span><span class="toc-title">Событийность — что снимать по ходу</span><span class="toc-count">43 повода</span></div>
+</div>
+</div></section>
+
+<main class="cards"><div class="container">
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 01 · 35% контента</span><h3 class="qcard-title">Личность и путь</h3><span class="qcard-count">17 тем · главная линия канала</span></div>
+<div class="qcard-body">
+<div class="sfera-note">Помечено «было» — то, что в канале уже звучало. Остальное свободно.</div>
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Как взяли кредит за бывшего — из силы, не из жалости <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Две жизни: «улыбаешься людям, а внутри пустота» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Момент, когда появился хлеб: «замешивая тесто, собирала себя по кусочкам» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">«Я заплатила за то, чтобы стать собой» — благодарность кредиту <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">«Из говна слеплю конфету» — девиз в действии <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Краснодар, «золотая эра», косметолог — кем были до надлома <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Почему сами назвали себя «разведёнка с кредитом» — самоирония как броня <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Отказ от банкротства: «забираю ответственность на себя» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">«Акушерка, косметолог, нумеролог, пекарь — и всё это я» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">Впервые гиперфокус на себе: «цель заработка на первом месте» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">11</span><span class="qtext">Мечта о переезде: «блог, который кормит, где бы я ни была» <span class="was">частично</span></span></div>
+<div class="qrow"><span class="qnum">12</span><span class="qtext">«Построить то, что у меня не смогут забрать» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">13</span><span class="qtext">Самоирония: старые стрёмные рилсы, до брекетов <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">14</span><span class="qtext">«Стерва снаружи — простая внутри» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">15</span><span class="qtext">Кофейня 2022: смеялись «тут только пивнушку» — а я сделала своё <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">16</span><span class="qtext">Терапия: что поняли про себя и про выбор мужчин <span class="was">частично</span></span></div>
+<div class="qrow"><span class="qnum">17</span><span class="qtext">Моя команда: кто помогает и что делает <span class="was free">свободно</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 02 · 25% контента</span><h3 class="qcard-title">Хлеб как дело</h3><span class="qcard-count">12 тем · Casa del Pan</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Как научились с нуля — вернулись, хотели сэндвич, а мест нет <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Закваска, ей год — имя, характер, «надо освежить» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Провалы новичка — самый обидный хлеб <span class="was">вскользь</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Тартин и японский тостовый — Ваши коньки <span class="was">частично</span></span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">«Закваска — это что-то на богатом. Дрожжи — попса» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Хлеб как ритуал и медитация, «возвращение к себе» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Процесс выпечки крупно — эстетика теста, рук, хруста <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Мифы о хлебе от медика: глютен, ферментация <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">«Тортики все пекут — попробуй хлеб. Хлеб всему голова» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">Casa del Pan — история бренда, «дом хлеба» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">11</span><span class="qtext">Заказы: кто покупает, самый волнительный заказ <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">12</span><span class="qtext">Хлеб как навык, «который у тебя никто не заберёт» <span class="was free">свободно</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 03 · 20% контента</span><h3 class="qcard-title">Женское</h3><span class="qcard-count">10 тем · про позицию, не только про тело</span></div>
+<div class="qcard-body">
+<div class="sfera-note">В канале эта сфера раскрыта только через тело и процедуры. Смыслы — целина.</div>
+<div class="qrow"><span class="qnum">01</span><span class="qtext">«Быть женщиной и ощущать себя женщиной — это разные вещи» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">«Я красивая, когда счастливая» — красота как состояние <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Операция открыто, как медик <span class="was">было подробно</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Процедуры без вранья: ботокс, планы <span class="was">было подробно</span></span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">«Ненавижу фразу — женщина должна быть мудрой» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Любовь = надёжность: «страшно доверять, но я знаю, что получится» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Прямой совет: не бери кредит для мужчины <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Женская реализация: «женщина должна реализовывать свой потенциал» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">Материнство на своих условиях: «может, рожу к 40» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">Мизогиния и женская конкуренция <span class="was free">свободно</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 04 · 15% контента</span><h3 class="qcard-title">Юг и стая</h3><span class="qcard-count">11 тем · в канале почти не звучало</span></div>
+<div class="qcard-body">
+<div class="sfera-note">Самая свободная сфера: животных, дома, плова, сестры и корней в канале не было вообще.</div>
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Стая: Берта и восемь щенков, кошка Линда, кролик, черепаха <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Потеря кота Васи перед операцией <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Большой дом, минимализм: «в маленьком доме сузилось бы мышление» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Амшенские корни, армянская церковь — «человек мира» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Танцы, акробатика в детстве, спорт с мамой <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Плов — фирменное, для младшей сестры <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">День из жизни в маленьком южном городе <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Барселона как мечта: «представляю — и идёт дрожь» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">Мама: опора и проводник в спорт, «от неё эмпатия» <span class="was">частично</span></span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">Младшая сестра: разница 17 лет, «за неё любого порву» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">11</span><span class="qtext">Отец — дозированно, через тему ВДА <span class="was">частично</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 05 · 5% контента</span><h3 class="qcard-title">Грань</h3><span class="qcard-count">4 темы · эзотерика и медицина</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Матрица судьбы как компас, Ваш аркан <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Нумерология: сертификат, расклады для девочек <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Приметы и сглаз — «чувствительна, но не фанатик» <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Как эзотерика уживается с медициной <span class="was free">свободно</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сфера 06 · дополнительная</span><h3 class="qcard-title">Здоровье и энергия</h3><span class="qcard-count">7 тем · осторожно, канал этим переполнен</span></div>
+<div class="qcard-body">
+<div class="sfera-note">Первые 35 постов канала были про это. Тему брать редко и только под новым углом — например, через противоречие с хлебом.</div>
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Железодефицит: «только встала — уже устала» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Как вернули силы с нутрициологом <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Интуитивное питание: «жить в жёстких ограничениях хуже» <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">«Человек — плодоядное»: год без мяса и как вернули <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Здоровая еда без задрота <span class="was">было</span></span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Противоречие глютена: раньше «ред флаг», теперь пеку хлеб <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Вялотекущий стресс забирает силы — как замечаете <span class="was free">свободно</span></span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Отдельная линия</span><h3 class="qcard-title">Курс — нативно, внутри хлеба</h3><span class="qcard-count">4 темы · не отдельная сфера</span></div>
+<div class="qcard-body">
+<div class="sfera-note">Курс не выносим в отдельную рубрику — он живёт внутри сферы хлеба.</div>
+<div class="qrow"><span class="qnum">01</span><span class="qtext">История ученицы: прислала свой хлеб на следующий день <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Что человек реально получает — результат, а не программа <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Почему без курса печь долго и мучительно <span class="was free">свободно</span></span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Мечта об офлайн-курсе: «собрать девочек, печь и есть вместе» <span class="was free">свободно</span></span></div>
+</div>
+</section>
+</div></main>
+
+<section class="toc"><div class="container">
+<div class="eyebrow">Часть 2 · План на две недели</div>
+<div class="sfera-note" style="max-width:640px;padding-top:6px">Посты каждый день, но большие тексты чередуются с лёгкими — два тяжёлых подряд не идут. Лёгкие дни снимаются пачкой заранее, за один съёмочный день на неделю.<br><br>В плане по датам стоит только то, что не зависит от случая: текст можно написать когда угодно, стая дома всегда, кухня на месте. Всё, что зависит от событий — приехала сестра, пришёл крупный заказ, позвали куда-то — вынесено в пятую часть и ставится в тот день, когда случилось.</div>
+</div></section>
+
+<main class="cards"><div class="container">
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сетка</span><h3 class="qcard-title">Неделя первая</h3><span class="qcard-count">3 — 9 августа</span></div>
+<div class="qcard-body">
+<div class="qrow wk-row"><span class="qnum">Пн 03</span><span class="qtext">Манифест · Позиция силы · в закреп</span></div>
+<div class="qrow wk-row"><span class="qnum">Вт 04</span><span class="qtext">Знакомство с закваской · Casa del Pan · фото</span></div>
+<div class="qrow wk-row"><span class="qnum">Ср 05</span><span class="qtext">Знакомство со стаей · Юг и стая · фото</span></div>
+<div class="qrow wk-row"><span class="qnum">Чт 06</span><span class="qtext">Кружок из кухни · Камерное</span></div>
+<div class="qrow wk-row"><span class="qnum">Пт 07</span><span class="qtext">Закваска против дрожжей · Casa del Pan</span></div>
+<div class="qrow wk-row"><span class="qnum">Сб 08</span><span class="qtext">Болталка голосом · Камерное · голосовое</span></div>
+<div class="qrow wk-row"><span class="qnum">Вс 09</span><span class="qtext">Мой город в августе · Юг и стая · фото</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Сетка</span><h3 class="qcard-title">Неделя вторая</h3><span class="qcard-count">10 — 16 августа</span></div>
+<div class="qcard-body">
+<div class="qrow wk-row"><span class="qnum">Пн 10</span><span class="qtext">«Женщина должна быть мудрой» · Позиция силы</span></div>
+<div class="qrow wk-row"><span class="qnum">Вт 11</span><span class="qtext">Большой дом · Юг и стая · фото</span></div>
+<div class="qrow wk-row"><span class="qnum">Ср 12</span><span class="qtext">Мифы о хлебе от медика · Casa del Pan</span></div>
+<div class="qrow wk-row"><span class="qnum">Чт 13</span><span class="qtext">Быть женщиной и ощущать себя ею · Из говна конфету</span></div>
+<div class="qrow wk-row"><span class="qnum">Пт 14</span><span class="qtext">Курс по хлебу · в закреп</span></div>
+<div class="qrow wk-row"><span class="qnum">Сб 15</span><span class="qtext">Мама · Юг и стая · фото</span></div>
+<div class="qrow wk-row"><span class="qnum">Вс 16</span><span class="qtext">Приметы и медицина · Грань</span></div>
+</div>
+</section>
+
+</div></main>
+
+<section class="toc"><div class="container">
+<div class="eyebrow">Часть 3 · Готовые тексты</div>
+<div class="sfera-note" style="max-width:640px;padding-top:6px">Правьте под себя — важно сохранить интонацию и короткие абзацы.</div>
+</div></section>
+
+<main class="cards"><div class="container">
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Позиция силы</span><h3 class="qcard-title">Манифест</h3><span class="qcard-count">Пн 3 августа · текст · в закреп</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Я как-то написала здесь, что у меня яйца побольше, чем у большинства мужиков.
+Мне это до сих пор припоминают😹
+
+А я вот думаю- что такого страшного я сделала?
+
+Вышла и сказала вслух, что вляпалась. Что есть проблема, и я её решаю. Не ною, не прошу, не собираю ни на какую карту- просто решаю.
+
+Оказалось, это бесит людей сильнее, чем если бы я молчала и красиво улыбалась.
+
+Знаете, что я поняла за эти месяцы?
+
+Женщину любят удобной. Пока ты миленькая, тихонькая, «мудрая»- всё нормально. Как только открыла рот и сказала как есть- сразу «а чего это она такая».
+
+Ну а чего это я, да🤌🏿
+
+Короче. Раз уж вас тут стало больше- скажу сразу, чтобы потом не было сюрпризов.
+
+Здесь будет про меня. Неотфильтрованную.
+Про то, как я собираю себя из того, что осталось.
+Про женское- и не про «мудрость» с терпением, а про право говорить и жить как хочешь.
+Про мою стаю, мой юг, мою маму, мои закидоны с матрицами.
+И про хлеб конечно- он никуда не денется, но он тут не главный герой. Главный герой тут я.
+
+Не всем зайдёт. И это абсолютно нормально)
+
+Я не удобная. Я настоящая- и это единственное, за что мне ни разу не было стыдно.</div></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Casa del Pan</span><h3 class="qcard-title">Знакомство с закваской</h3><span class="qcard-count">Вт 4 августа · фото + короткий текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">У меня дома живёт существо, которому уже год.
+
+Кормлю два раза в день, слежу за температурой, иногда с ней разговариваю😹
+
+Это моя закваска. Без неё не будет ни одного моего хлеба.
+
+Пропущу кормление- обидится и не поднимет тесто. Характер у неё будь здоров, получше моего🤌🏿</div></div>
+<div class="need">Фото банки с закваской. Можно снять в любой день — она всегда на кухне. Имя закваски подставить своё.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Юг и стая</span><h3 class="qcard-title">Знакомство со стаей</h3><span class="qcard-count">Ср 5 августа · фото или видео + текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Знакомьтесь, это Берта🤍
+
+И восемь причин, почему я нормально не сплю с весны😹
+
+Кто-то заводит одну собачку. У меня- стая. Берта, восемь этих товарищей, кошка Линда, кролик, черепаха… я уже сама путаюсь в переписи населения🫠
+
+Утро у меня начинается не с кофе.
+Утро у меня начинается с «КТО ОПЯТЬ?!»
+
+Но вот эта возня с шести утра- она меня и держит. Когда в доме столько жизни, как-то не получается долго себя жалеть.</div></div>
+<div class="need">Нужно фото или короткое видео стаи. Живое, не постановочное.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Камерное</span><h3 class="qcard-title">Кружок из кухни</h3><span class="qcard-count">Чт 6 августа · кружок + подпись</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Мой главный штаб😹
+
+Тут одновременно: тесто, ноут, кофе, телефон на штативе и щенки под ногами. Отсюда делается вообще всё.</div></div>
+<div class="need">Кружок на 20–40 секунд прямо с кухни, без подготовки. Можно просто показать, что происходит вокруг, и сказать пару слов.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Casa del Pan</span><h3 class="qcard-title">Закваска против дрожжей</h3><span class="qcard-count">Пт 7 августа · фото среза + текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Закваска- это что-то на богатом.
+Дрожжи- попса🤌🏿
+
+Ща объясню.
+
+Дрожжевой хлеб делается за пару часов. Быстро, дёшево, много. Тесто ничего не успевает- просто раздулось и в печь.
+
+Моя закваска живёт у меня уже год. У неё имя, режим и характер получше моего😹 Хлеб на ней поднимается сутки.
+
+Сутки.
+
+За это время тесто ферментируется само: часть глютена расщепляется, фитиновая кислота уходит, сахара съедаются. Как медик говорю- на выходе принципиально другой продукт для вашего ЖКТ. Хотя выглядит так же.
+
+Поэтому когда мне пишут «а чего так дорого за буханку»- я не за буханку беру. Я за сутки.</div></div>
+<div class="need">Нужно фото среза хлеба.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Камерное</span><h3 class="qcard-title">Болталка голосом</h3><span class="qcard-count">Сб 8 августа · голосовое + подводка</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Записала голосом. Печатать это всё сил уже нет😹</div></div>
+<div class="need">О чём наговорить, 3–5 минут без сценария: как прошла неделя, что вымотало и что порадовало · что с заказами, сколько хлеба на этой неделе · что сейчас меняется в блоге и что из этого в кайф · чем закончить: за что сейчас благодарны. Не переписывать и не перезаписывать.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Юг и стая</span><h3 class="qcard-title">Мой город в августе</h3><span class="qcard-count">Вс 9 августа · фото + короткий текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Апшеронск в августе🤍
+
+Горы рядом, море недалеко, а вечером пахнет травой и чем-то жареным у соседей.
+
+Я несколько лет считала, что вернуться сюда- это поражение. Так и жила с этой мыслью.
+
+А сейчас смотрю вокруг и понимаю, что мне тут просто дышится.</div></div>
+<div class="need">Фото города, двора или вида с прогулки. Вечерний свет — лучше всего.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Позиция силы</span><h3 class="qcard-title">«Женщина должна быть мудрой»</h3><span class="qcard-count">Пн 10 августа · текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Ненавижу фразу «женщина должна быть мудрой».
+
+Ща объясню, почему меня от неё трясёт.
+
+Потому что её никогда не говорят просто так. Её достают ровно в одном случае- когда женщине надо что-то проглотить.
+
+Он наорал- «будь мудрее, не отвечай».
+Он не работает- «будь мудрее, поддержи».
+Он гуляет- «будь мудрее, семья важнее».
+Ты собралась уходить- «ну и дура, надо было быть мудрее».
+
+Ничего не замечаете? Мудрость почему-то всегда работает в одну сторону😹 Мужикам её как-то никто не прописывает.
+
+Скажу, что такое мудрость по-моему.
+
+Мудрость- это вовремя понять, что тебя используют. И встать. И уйти. Даже если все вокруг скажут, что ты «не потерпела».
+
+ТЕРПЕНИЕ И МУДРОСТЬ- ЭТО ДВА РАЗНЫХ СЛОВА.
+
+Их когда-то подменили. А мы и повелись.</div></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Юг и стая</span><h3 class="qcard-title">Большой дом</h3><span class="qcard-count">Вт 11 августа · фото + короткий текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Дом у меня большой. И это принципиально🤍
+
+Когда-то я заметила такую штуку: в маленьком доме у меня и мышление сжимается. Начинаю жить по чуть-чуть, экономить на себе, никуда не разворачиваться.
+
+А тут есть куда расти. Есть куда позвать людей. Есть где поставить восемь щенков, если что😹
+
+Хотя убирать его- это отдельный вид спорта, конечно.</div></div>
+<div class="need">Фото дома, двора или комнаты. Снимается в любой день.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Casa del Pan</span><h3 class="qcard-title">Мифы о хлебе от медика</h3><span class="qcard-count">Ср 12 августа · текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">«От хлеба толстеют», «глютен убивает», «хлеб- это пустые калории».
+
+Я медик. Давайте по порядку🤌🏿
+
+<strong>1. «От хлеба толстеют»</strong>
+Толстеют от профицита калорий. Два куска хлеба в день ещё никого не испортили, а вот запреты и срывы после них- испортили многих.
+
+<strong>2. «Глютен убивает»</strong>
+Глютен опасен при целиакии. Это диагноз, он примерно у 1% людей. Всем остальным просто продали проблему. При длительной ферментации часть глютена расщепляется ещё в тесте.
+
+<strong>3. «Хлеб- пустые калории»</strong>
+Пустые- это про батон из магазина за 30 рублей. Мука, вода, соль и сутки времени- это другая история.
+
+<strong>4. «Дрожжи- химия»</strong>
+Дрожжи живут на муке, на фруктах и на вас прямо сейчас😹 Вопрос вообще не в дрожжах. Вопрос в скорости.
+
+<strong>5. «Закваска- это сложно»</strong>
+Вот с этим соглашусь наполовину. Сложно первые две недели, пока не поймёшь логику. Дальше руки делают сами.
+
+Хлеб на закваске есть можно. Вопрос только в том, какой хлеб вы едите.</div></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Из говна конфету</span><h3 class="qcard-title">Быть женщиной и ощущать себя ею</h3><span class="qcard-count">Чт 13 августа · текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Быть женщиной и ощущать себя женщиной- это вообще две разные вещи.
+
+Я долго думала, что это про внешнее. Что сделаешь себе- и почувствуешь.
+
+Не работает так😹
+
+Я делала. И красиво, и правильно, и по показаниям- я ни о чём не жалею и всё вам рассказывала честно. Но вот этого щелчка «о, теперь я женщина»- не случилось. Ни в тот день, ни через месяц.
+
+Оно пришло вообще не оттуда.
+
+Оно пришло, когда я перестала спрашивать разрешения.
+Когда сама решила, где жить и чем заниматься.
+Когда решила, кому больше не звонить.
+Когда первый раз за долгое время потратила деньги и время на себя- и не оправдывалась ни перед кем.
+
+Вот тогда щёлкнуло.
+
+Женщиной меня сделало не то, что во мне поменяли. А то, что я перестала спрашивать- а можно ли мне.</div></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Курс</span><h3 class="qcard-title">Курс по хлебу</h3><span class="qcard-count">Пт 14 августа · текст + видео · в закреп</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Мой первый нормальный хлеб получился недели через две.
+А чтобы он получался КАЖДЫЙ раз- ушло полтора года😹
+
+Полтора года я тестировала рецепты из интернета. В каждом свои пропорции, своя схема, своё «просто сделай так». Результат то есть, то нет. Сколько муки я перевела впустую- лучше не считать🫠
+
+Знакомо вообще?
+Тесто не держит форму. Хлеб плотный. Мякиш сырой. И главное- непонятно, что конкретно ты сделала не так.
+
+В какой-то момент я плюнула и разобралась сама. Не по рецептам- по логике. Начала понимать тесто: какое оно на ощупь, когда готово, почему ведёт себя именно так.
+
+Вот эту систему я собрала в курс. Печём тартин- тот самый, с хрустящей коркой и живым мякишем. Мои ученицы повторяют его дома, в обычных духовках. 86% получают красивый хлеб со второй-третьей попытки.
+
+<strong>Курс для вас, если:</strong>
+— хочется печь дома нормальный хлеб, а не кирпич по рецепту из интернета
+— заводили закваску и она умерла (она умирала у всех, спокойно)
+— надоело покупать «хлеб» с составом на пол-этикетки
+— хочется дело, которое со временем может стать деньгами
+
+<strong>Что внутри:</strong>
+Веду за руку по всем 7 этапам- закваска, автолиз, замес, брожение, формовка, расстойка, выпечка.
+— пошаговые видеоуроки
+— текстовые инструкции
+— тайминги и пропорции
+— чек-лист с инвентарём и ссылками, где взять недорого
+— ответы на популярные вопросы
+— примеры теста и результата на каждом этапе
+
+🎁 Бонус: рецепт безглютенового хлеба из зелёной гречки
+
+<strong>Из техники нужны:</strong> духовка, казан или камень, весы и закваска. Всё. Никакого специального оборудования, никаких улучшителей и готовых смесей- 4 ингредиента.
+
+<strong>Доступ навсегда.</strong> Возвращаетесь к урокам когда угодно, хоть через год.
+
+<strong>Почему у меня:</strong>
+Я не теоретик. Я пеку каждый день и продаю свой хлеб. Плюс я медик- и объясняю не «делай так», а почему тесто ведёт себя именно так🤌🏿
+
+<strong>3 890 ₽</strong>
+Забрать: taplink.cc/breadbyqueenanj
+Оплата иностранной картой- через boosty, там же
+
+Вопросы- пишите прямо в лс, отвечаю сама🤍</div></div>
+<div class="need">Нужно короткое видео процесса и две цифры: сколько в курсе видеоуроков и сколько учениц уже прошли. Этот пост пишется один раз и остаётся в канале — дальше на него просто ссылка.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Юг и стая</span><h3 class="qcard-title">Мама</h3><span class="qcard-count">Сб 15 августа · фото + текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Всю мягкость, которую вы во мне видите, я не сама придумала. Она мамина.
+
+Я вообще колючая. Могу и послать, и характер показать- вы в курсе😹
+А мама наоборот. Тихая сила. Из тех женщин, которые не орут, а просто делают.
+
+Мы с ней ходим в зал вместе. Представьте картину: я, мама и тренер🤌🏿 Она меня и в детстве в спорт притащила, на акробатику.
+
+Она амшенка, я тоже. Все наши штуки- плов на большую семью, дом полный людей, «сначала поешь, потом поговорим»- это всё оттуда.
+
+Я много про себя разобрала в терапии. Но вот эту часть- эмпатию и способность жалеть людей- разбирать не хочу. Это единственное, что я взяла целиком и не переделывала.</div></div>
+<div class="need">Нужно фото с мамой и её согласие на публикацию.</div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Грань</span><h3 class="qcard-title">Приметы и медицина</h3><span class="qcard-count">Вс 16 августа · короткий текст</span></div>
+<div class="qcard-body">
+<div class="ans"><div class="ans-body">Я медик. С образованием, с практикой, с пониманием, как устроен организм.
+
+И при этом я стучу по дереву, не передаю ничего через порог и если утро началось с разбитой чашки- никуда не тороплюсь😹
+
+Меня спрашивают, как это во мне уживается.
+Да прекрасно уживается.
+
+Медицина объясняет, как работает тело. А приметы- это про то, что человек всегда чувствовал больше, чем мог доказать.</div></div>
+</div>
+</section>
+
+</div></main>
+
+<section class="toc"><div class="container">
+<div class="eyebrow">Часть 4 · Свободные темы</div>
+<div class="sfera-note" style="max-width:640px;padding-top:6px">Этого в канале не было ни разу. Любую можно взять в любой день — если план сбился, нечего выкладывать или просто захотелось.</div>
+</div></section>
+
+<main class="cards"><div class="container">
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Запас · короткие</span><h3 class="qcard-title">На один пост, без подготовки</h3><span class="qcard-count">фото или пара абзацев</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Кот Вася — про того, кого потеряли перед операцией</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Большой дом: почему именно большой, «в маленьком сузилось бы мышление»</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Амшенские корни: фамилия, церковь, что из этого в Вас осталось</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Младшая сестра: разница 17 лет, «за неё любого порву»</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">День из жизни маленького южного города — от утра до вечера</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Старые стрёмные рилсы: показать и посмеяться над собой</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">«Стерва снаружи — простая внутри»</span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">«Я красивая, когда счастливая» — красота как состояние, а не как процедуры</span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">Закваска: имя, возраст, характер — знакомство с ней как с живым существом</span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">«Тортики все пекут — попробуй хлеб»</span></div>
+<div class="qrow"><span class="qnum">11</span><span class="qtext">Противоречие: раньше писала, что глютен — ред флаг, а теперь пеку хлеб</span></div>
+<div class="qrow"><span class="qnum">12</span><span class="qtext">Вялотекущий стресс: как замечаете, что подкрался, и что с этим делаете</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Запас · большие</span><h3 class="qcard-title">На сильный пост, когда есть настроение</h3><span class="qcard-count">требуют текста и сил</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Краснодар, «золотая эра»: кем Вы были до надлома</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Две жизни: «улыбаешься людям, а внутри пустота»</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Момент, когда появился хлеб: «замешивая тесто, собирала себя по кусочкам»</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">«Я заплатила за то, чтобы стать собой» — благодарность самой тяжёлой истории</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Не бери кредит для мужчины — прямой совет женщине, которая сейчас собирается</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Почему сами назвали себя «разведёнка с кредитом»</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Любовь = надёжность: что теперь считаете любовью</span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Материнство на своих условиях: «может, рожу к 40»</span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">Мизогиния: почему женщины гнобят женщин</span></div>
+<div class="qrow"><span class="qnum">10</span><span class="qtext">«Построить то, что у меня не смогут забрать»</span></div>
+<div class="qrow"><span class="qnum">11</span><span class="qtext">Гиперфокус на себе: впервые в жизни цель заработка на первом месте</span></div>
+<div class="qrow"><span class="qnum">12</span><span class="qtext">Хлеб как навык, который никто не отнимет</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Запас · про курс</span><h3 class="qcard-title">Нативно, между делом</h3><span class="qcard-count">не продажа в лоб</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">История ученицы: прислала свой хлеб на следующий день после курса</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Что человек реально получает — результат, а не список уроков</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Почему без курса печь долго и мучительно</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Мечта об офлайн-курсе: «собрать девочек, печь и есть вместе»</span></div>
+</div>
+</section>
+
+</div></main>
+
+<section class="toc"><div class="container">
+<div class="eyebrow">Часть 5 · Событийность</div>
+<div class="sfera-note" style="max-width:640px;padding-top:6px">Это не планируется — это ловится по ходу жизни. Собрано из Вашей распаковки: как проходит день, что дома, что в городе, что в работе. Если случилось что-то из списка — пост идёт в тот же день и двигает плановый.</div>
+</div></section>
+
+<main class="cards"><div class="container">
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · кухня</span><h3 class="qcard-title">Хлеб и заказы</h3><span class="qcard-count">случается почти каждый день</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Утро: освежаете закваску — короткое видео или фото банки</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Вечерний замес — руки, тесто, как это выглядит на самом деле</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">День выпечки: партия из печи, хруст корки</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Упаковали заказы и ждёте, когда приедут забирать</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Крупный или необычный заказ — кто и зачем заказал</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Хлеб не получился — показать честно, это располагает сильнее удачного</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Пробуете новый вид хлеба или рецепт</span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Музыка, под которую печёте: итальянское, испанское, армянское, Akon</span></div>
+<div class="qrow"><span class="qnum">09</span><span class="qtext">Пекли что-то из семейного: бабушкины армянские пирожки</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · дом</span><h3 class="qcard-title">Дом, стая, семья</h3><span class="qcard-count">всегда под рукой</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Утреннее кормление щенков — то, с чего начинается Ваш день</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Кто-то из стаи учудил — снять и рассказать</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Щенка пристроили или подросли — этап, за которым люди следят</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Уборка большого дома — «отдельный вид спорта»</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Ужин, когда мама с папой вернулись с работы — как устроен вечер</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Время с младшей сестрой — разница 17 лет, часть воспитания была на Вас</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Готовите не хлеб: борщ, суп, плов — фирменное</span></div>
+<div class="qrow"><span class="qnum">08</span><span class="qtext">Семейный сбор, гости, стол на большую компанию</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · тело</span><h3 class="qcard-title">Спорт, режим, состояние</h3><span class="qcard-count">регулярное</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Зал с мамой — она пошла туда впервые в жизни, ради Вас</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Вернулись на танцы или снова отложили — честно, как есть</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Акробатика в детстве, разряд — старое фото, если найдётся</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">День, когда выгорели: Вы это проживаете, а не лечите — так и показать</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Режим сна: почему Вы за него держитесь</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Уход за собой без пафоса — зубы, душ, никаких пятиступенчатых ритуалов</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Дома выглядите так же, как для камеры, «только с закрытым декольте»</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · город</span><h3 class="qcard-title">Апшеронск и выезды</h3><span class="qcard-count">когда выходите из дома</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Виды на горы — снежные и лесные, это редкая картинка для ленты</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Доехали до центра на велосипеде — маленький город как плюс</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Чего здесь не хватает: нет мест, нет социума — про это можно прямо</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Поездка в Краснодар или на побережье</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Новое место в городе, если открылось</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Зашли в церковь — Вы туда ходите, когда тяжело</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · дело</span><h3 class="qcard-title">Блог, курс, деньги</h3><span class="qcard-count">по мере того, как случается</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">Прилетел хамский или показательный комментарий — разбор в тот же день. Самый сильный формат канала</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Пришёл отзыв ученицы или фото её хлеба — скрин и короткая реакция</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Съёмочный день — как на самом деле выглядит красивая картинка</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Написал бренд, обсуждаете интеграцию</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Скопировали: в городе повторяют то, над чем раньше смеялись</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Купили технику, о которой мечтали — камера, айпад</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Хороший день по продажам или, наоборот, тишина — обе стороны честны</span></div>
+</div>
+</section>
+
+<section class="qcard">
+<div class="qcard-head"><span class="qcard-tag">Событийность · внутреннее</span><h3 class="qcard-title">То, что происходит в голове</h3><span class="qcard-count">когда есть что сказать</span></div>
+<div class="qcard-body">
+<div class="qrow"><span class="qnum">01</span><span class="qtext">После сессии с психологом что-то про себя поняли</span></div>
+<div class="qrow"><span class="qnum">02</span><span class="qtext">Заглянули в матрицу по конкретному вопросу — как компас, не как догма</span></div>
+<div class="qrow"><span class="qnum">03</span><span class="qtext">Примета сработала или наоборот</span></div>
+<div class="qrow"><span class="qnum">04</span><span class="qtext">Помолились ночью — Вы делаете это каждую ночь</span></div>
+<div class="qrow"><span class="qnum">05</span><span class="qtext">Посмотрели или прочитали что-то, что задело — своё мнение, а не пересказ</span></div>
+<div class="qrow"><span class="qnum">06</span><span class="qtext">Всплыло воспоминание из Краснодара — тогда и сейчас</span></div>
+<div class="qrow"><span class="qnum">07</span><span class="qtext">Накрыло мыслями о будущем и переезде — это то, о чём Вы думаете больше всего</span></div>
+</div>
+</section>
+
+
+
+</div></main>
+
+<footer class="foot"><div class="container">
+<p class="foot-q">Instagram собирает людей. Telegram делает их своими.</p>
+<div class="foot-meta">Темы и контент-план · Анжелика · август 2026</div>
+</div></footer>
+<button class="up" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+addEventListener('mousemove',e=>{document.documentElement.style.setProperty('--mx',e.clientX+'px');document.documentElement.style.setProperty('--my',e.clientY+'px');});
+addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;h.style.setProperty('--scroll',p+'%');document.querySelector('.up').classList.toggle('show',h.scrollTop>800);});
+</script>
+</body>
+</html>
