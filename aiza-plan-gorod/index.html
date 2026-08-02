@@ -2366,16 +2366,19 @@
   tickSpotlight();
 
   // ===== REVEAL ON SCROLL =====
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
+  function showVisible() {
+    document.querySelectorAll('.reveal:not(.in-view)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.94 && r.bottom > -80) el.classList.add('in-view');
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+  showVisible();
+  window.addEventListener('scroll', showVisible, { passive: true });
+  window.addEventListener('resize', showVisible, { passive: true });
+  window.addEventListener('load', showVisible);
+  setTimeout(showVisible, 300);
+  setTimeout(showVisible, 1200);
+  setTimeout(showVisible, 2600);
 
   // ===== STICKY DOT NAVIGATION =====
   const navDots = document.getElementById('navDots');
