@@ -2087,8 +2087,11 @@
   .loc-cover figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding:10px 12px}
 
 /* ===== ОТЧЁТ: доп. компоненты ===== */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
 border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:8px}
+.stat-grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.stat-grid,.stat-grid.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.stat-grid,.stat-grid.four{grid-template-columns:1fr}}
 .stat-cell{background:var(--bg-1);padding:34px 26px}
 .stat-cell .sv{font-family:var(--display);font-weight:300;font-size:clamp(30px,4.6vw,44px);line-height:1;
 color:var(--gold-bright);letter-spacing:-.02em;margin-bottom:12px}
@@ -2112,6 +2115,15 @@ color:var(--gold-bright);letter-spacing:-.02em;margin-bottom:12px}
 .rrow .rv{font-family:var(--mono);font-size:14.5px;color:var(--text);text-align:right}
 .rrow .rv.hi{color:var(--gold-bright)}
 .rrow.rtop .rn{color:var(--gold-bright)}
+
+.profile-shot{margin-top:8px;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:var(--bg-1)}
+.profile-shot img{display:block;width:100%;height:auto}
+.profile-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+border:1px solid var(--line);border-top:none;overflow:hidden}
+.profile-meta div{background:var(--bg-1);padding:24px 22px;text-align:center}
+.profile-meta .pv{font-family:var(--display);font-weight:300;font-size:clamp(24px,3.6vw,34px);color:var(--gold-bright);line-height:1;margin-bottom:9px}
+.profile-meta .pl{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:540px){.profile-meta{grid-template-columns:1fr}}
 
 .goalbox{margin-top:46px;padding:44px 34px;border:1px solid var(--line-bright);border-radius:2px;
 background:radial-gradient(ellipse 80% 100% at 50% 0%,var(--gold-glow-faint),transparent 70%);text-align:center}
@@ -2155,6 +2167,7 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot" data-section="hero" data-label="Начало"></button>
   <button class="nav-dot" data-section="b1" data-label="Итоги"></button>
+  <button class="nav-dot" data-section="b1b" data-label="Профиль"></button>
   <button class="nav-dot" data-section="b2" data-label="Динамика"></button>
   <button class="nav-dot" data-section="b3" data-label="Ролики"></button>
   <button class="nav-dot" data-section="b4" data-label="Работы"></button>
@@ -2222,13 +2235,31 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
     </div>
 
     <p class="what reveal" style="margin-top:52px;margin-bottom:8px">Как аудитория реагировала на опубликованные ролики — суммарно за месяц.</p>
-    <div class="stat-grid reveal">
+    <div class="stat-grid four reveal">
       <div class="stat-cell"><div class="sv">18 982</div><div class="sl">Отметки «нравится»</div><div class="ss">По всем восьми роликам</div></div>
       <div class="stat-cell"><div class="sv">2 593</div><div class="sl">Пересылки</div><div class="ss">Отправили друзьям в личные сообщения</div></div>
       <div class="stat-cell"><div class="sv">1 065</div><div class="sl">Сохранения</div><div class="ss">Сохранили ролик себе</div></div>
       <div class="stat-cell"><div class="sv">287</div><div class="sl">Комментарии</div><div class="ss">Написали под роликами</div></div>
     </div>
     <div class="outline reveal"><b>Главное</b> почти весь охват пришёл к людям, которые Вас ещё не знали — блог набирает аудиторию с холодного трафика, а не показывается одним и тем же. Пересылки и сохранения показывают, что роликами делятся: их отправили друзьям почти три тысячи раз.</div>
+  </div>
+</section>
+
+<section class="spacer grp" id="b1b">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Профиль</span>
+      <h2>Как выглядит <em>сейчас</em></h2>
+      <p class="what reveal" style="margin-top:14px">Аккаунт на второе августа — через десять дней после запуска.</p>
+    </div>
+    <div class="profile-shot reveal">
+      <img src="profile.png" alt="Профиль Айзы в Instagram" loading="lazy">
+    </div>
+    <div class="profile-meta reveal">
+      <div><div class="pv">476</div><div class="pl">подписчиков</div></div>
+      <div><div class="pv">9</div><div class="pl">публикаций</div></div>
+      <div><div class="pv">35</div><div class="pl">подписок</div></div>
+    </div>
   </div>
 </section>
 
@@ -2244,7 +2275,7 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
       <div class="drow"><div class="dm">Лучший ролик</div><div class="da">5 000</div><div class="db">234 386</div><div class="dx">×47</div></div>
       <div class="drow"><div class="dm">Средний ролик</div><div class="da">1 500</div><div class="db">34 013</div><div class="dx">×22</div></div>
       <div class="drow"><div class="dm">Реакции на ролик</div><div class="da">~51</div><div class="db">~2 370</div><div class="dx">×46</div></div>
-      <div class="drow"><div class="dm">Подписчики</div><div class="da">136</div><div class="db">~500</div><div class="dx">×3,7</div></div>
+      <div class="drow"><div class="dm">Подписчики</div><div class="da">136</div><div class="db">476</div><div class="dx">×3,5</div></div>
       <div class="drow"><div class="dm">Ритм публикаций</div><div class="da">Рывками</div><div class="db">Ежедневно</div><div class="dx">—</div></div>
     </div>
   </div>
@@ -2314,7 +2345,7 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">Итог</span>
-      <p class="contact-quote-big">«Первый месяц — полмиллиона просмотров и почти пятьсот подписчиков с нуля.»</p>
+      <p class="contact-quote-big">«Первый месяц — полмиллиона просмотров и 476 подписчиков с нуля.»</p>
       <p class="contact-quote">Второй месяц строим вокруг проявленности и формата со стаей — того, что уже дало результат.</p>
       <div class="contact-author">Отчёт · Первый месяц · Азиза <span class="accent">×</span> Малик <span class="accent">·</span> Июль 2026</div>
     </div>
