@@ -2125,6 +2125,18 @@ border:1px solid var(--line);border-top:none;overflow:hidden}
 .profile-meta .pl{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 @media(max-width:540px){.profile-meta{grid-template-columns:1fr}}
 
+.docs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:8px}
+.doc-card{background:var(--bg-1);padding:28px 26px;display:block;text-decoration:none;color:inherit;
+transition:background .4s var(--ease),transform .4s var(--ease)}
+.doc-card:hover{background:var(--bg-2)}
+.doc-card .dnum{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold-deep);margin-bottom:12px}
+.doc-card .dttl{font-family:var(--serif);font-size:21px;color:var(--ink-bright);margin-bottom:8px;line-height:1.25}
+.doc-card .ddesc{font-size:14.5px;color:var(--text);line-height:1.55;margin-bottom:14px}
+.doc-card .dgo{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.doc-card:hover .dgo{color:var(--gold-bright)}
+@media(max-width:700px){.docs-grid{grid-template-columns:1fr}}
+
 .goalbox{margin-top:46px;padding:44px 34px;border:1px solid var(--line-bright);border-radius:2px;
 background:radial-gradient(ellipse 80% 100% at 50% 0%,var(--gold-glow-faint),transparent 70%);text-align:center}
 .goalbox .gk{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
@@ -2171,6 +2183,7 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
   <button class="nav-dot" data-section="b2" data-label="Динамика"></button>
   <button class="nav-dot" data-section="b3" data-label="Ролики"></button>
   <button class="nav-dot" data-section="b4" data-label="Работы"></button>
+  <button class="nav-dot" data-section="b4b" data-label="Материалы"></button>
   <button class="nav-dot" data-section="b5" data-label="Август"></button>
   <button class="nav-dot" data-section="contact" data-label="Финал"></button>
 </nav>
@@ -2315,6 +2328,58 @@ background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));
       <div class="theme reveal"><span class="tn">02</span><div class="tb"><h3>Съёмки и продакшн</h3><p>Три съёмочных дня: 17 июля в городе, 18 июля дома и 31 июля в городе с оператором. Подбор оператора и координация, согласование локаций и разрешений на съёмку. Монтаж, обложки, титры и подписи по каждому ролику. Закадровая озвучка по Африке: текст, разбор всего архива поездки и сборка ролика.</p></div></div>
       <div class="theme reveal"><span class="tn">03</span><div class="tb"><h3>Аккаунт</h3><p>Запуск нового аккаунта 21 июля и упаковка профиля: имя, шапка, описание. Ежедневные публикации с первого дня. Ведение комментариев и работа с откликом аудитории. Отслеживание показателей по каждому ролику.</p></div></div>
       <div class="theme reveal"><span class="tn">04</span><div class="tb"><h3>Сопровождение</h3><p>Семь созвонов с разборами за период работы. Персональный рабочий чат и ежедневное согласование. Обложка и подпись согласуются по каждой публикации. Разбор отснятого материала после каждой съёмки.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="spacer grp" id="b4b">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Материалы</span>
+      <h2>Всё, что <em>собрано</em></h2>
+      <p class="what reveal" style="margin-top:14px">Документы за первый месяц. Открываются по ссылке с телефона и компьютера, остаются у Вас навсегда.</p>
+    </div>
+    <div class="docs-grid reveal">
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-strategiya/" target="_blank" rel="noopener">
+        <div class="dnum">01</div><div class="dttl">Стратегия блога</div>
+        <div class="ddesc">Позиционирование, направление, о чём говорим и как звучим.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-raspakovka/" target="_blank" rel="noopener">
+        <div class="dnum">02</div><div class="dttl">Распаковка · портрет</div>
+        <div class="ddesc">Смысловой портрет: ценности, взгляды, история — собранное в структуру.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-raspakovka-doslovno/" target="_blank" rel="noopener">
+        <div class="dnum">03</div><div class="dttl">Распаковка · дословно</div>
+        <div class="ddesc">Все Ваши ответы в исходном виде, Вашими словами.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-temy/" target="_blank" rel="noopener">
+        <div class="dnum">04</div><div class="dttl">Банк тем</div>
+        <div class="ddesc">101 тема с готовыми зацепками — запас, из которого берём ролики.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-teksty/" target="_blank" rel="noopener">
+        <div class="dnum">05</div><div class="dttl">Тексты роликов</div>
+        <div class="ddesc">26 разговорных текстов, собранных из Ваших слов. Опора на съёмке.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-plan/" target="_blank" rel="noopener">
+        <div class="dnum">06</div><div class="dttl">План съёмок · обзор</div>
+        <div class="ddesc">Пять вариантов съёмочных дней с форматами под каждый.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-plan-dom/" target="_blank" rel="noopener">
+        <div class="dnum">07</div><div class="dttl">План съёмок · дом</div>
+        <div class="ddesc">Домашний день: десять локаций, что снимаем в каждой.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-plan-gorod/" target="_blank" rel="noopener">
+        <div class="dnum">08</div><div class="dttl">План съёмок · город</div>
+        <div class="ddesc">Городской день: маршрут, точки, форматы.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-semki/" target="_blank" rel="noopener">
+        <div class="dnum">09</div><div class="dttl">Съёмки в Петербурге</div>
+        <div class="ddesc">Два дня в городе: локации, образы, что снимаем в каждой точке.</div><div class="dgo">Открыть →</div>
+      </a>
+      <a class="doc-card" href="https://hasimovmalik90-oss.github.io/Site-/aiza-otchet-iyul/" target="_blank" rel="noopener">
+        <div class="dnum">10</div><div class="dttl">Отчёт за июль</div>
+        <div class="ddesc">Этот документ — итоги первого месяца и план на август.</div><div class="dgo">Вы здесь</div>
+      </a>
     </div>
   </div>
 </section>
