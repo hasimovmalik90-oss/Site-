@@ -405,6 +405,83 @@
     box-shadow: 0 0 10px var(--gold-glow);
   }
 
+  /* ---- screenshot ---- */
+  .shot {
+    border: 1px solid var(--line-bright); border-radius: 7px;
+    overflow: hidden; background: var(--bg-2);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  }
+  .shot img { width: 100%; height: auto; display: block; }
+  .shot-cap {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); padding: 11px 14px;
+    border-top: 1px solid var(--line); background: var(--bg-1);
+  }
+
+  /* ---- reels grid ---- */
+  .reels {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+  .reels.three { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  .reels.mini { grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 18px; }
+  .reels.mini .reel-play, .reels.mini .reel-date { display: none; }
+  .reel {
+    position: relative; aspect-ratio: 9 / 16;
+    border-radius: 5px; overflow: hidden;
+    background: var(--bg-2); border: 1px solid var(--line);
+  }
+  .reel img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    opacity: 0.9; transition: opacity 0.35s var(--ease), transform 0.6s var(--ease);
+  }
+  .reel:hover img { opacity: 1; transform: scale(1.05); }
+  .reel-play {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 26px 8px 7px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
+    font-family: var(--mono); font-size: 10.5px;
+    color: var(--ink-bright); letter-spacing: 0.03em;
+    text-align: center;
+  }
+  .reel.hot { border-color: var(--line-glow); }
+  .reel.hot .reel-play { color: var(--gold-bright); }
+  .reel.cold .reel-play { color: var(--viz-3); }
+  .reel-date {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 7px 8px 16px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.72), transparent);
+    font-family: var(--mono); font-size: 9px;
+    color: rgba(255,255,255,0.62); letter-spacing: 0.06em;
+    text-align: center;
+  }
+
+  /* ---- versus ---- */
+  .versus {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 22px; margin: 34px 0 10px;
+  }
+  .vs-shot {
+    aspect-ratio: 9 / 16; border-radius: 7px; overflow: hidden;
+    border: 1px solid var(--line-bright); position: relative;
+    background: var(--bg-2);
+  }
+  .vs-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vs-item.win .vs-shot { border-color: var(--line-glow); box-shadow: 0 0 44px var(--gold-glow-faint); }
+  .vs-val {
+    font-family: var(--display); font-size: clamp(24px, 4.4vw, 34px);
+    font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+    margin: 18px 0 7px; color: var(--viz-3);
+  }
+  .vs-item.win .vs-val { color: var(--gold-bright); }
+  .vs-lab {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 9px;
+  }
+  .vs-desc { font-size: 14px; color: var(--text); line-height: 1.55; }
+
   /* ---- meter ---- */
   .meter {
     height: 40px; background: rgba(255,255,255,0.035);
@@ -625,6 +702,10 @@
     .quote p { font-size: 18px; }
     .hero-meta { gap: 10px 20px; font-size: 10px; }
     .dotgrid { grid-template-columns: repeat(auto-fill, minmax(9px, 1fr)); gap: 3px; }
+    .reels { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+    .reel-play { font-size: 9.5px; padding: 20px 4px 6px; }
+    .reel-date { font-size: 8px; }
+    .versus { grid-template-columns: 1fr; gap: 28px; }
   }
 </style>
 </head>
@@ -659,6 +740,14 @@
     <span class="sec-num">01 — Где Вы сейчас</span>
     <h2>Фундамент уже есть</h2>
     <p class="lead">Прежде чем говорить о проблемах, зафиксируем то, что работает. Это не комплимент, это выводы из&nbsp;цифр.</p>
+
+    <figure class="rv">
+      <div class="shot">
+        <img src="img/profile.jpg" alt="Шапка профиля @sya_life_" loading="lazy">
+        <div class="shot-cap">Профиль на 28 июля 2026</div>
+      </div>
+      <p class="fig-note">В&nbsp;шапке заявлено сильное: возраст как ресурс, путь из&nbsp;nail-мастера в&nbsp;дизайнера, заработок с&nbsp;15&nbsp;€. Три строки, в&nbsp;которых уже лежит позиционирование — но&nbsp;дальше по&nbsp;блогу оно почти не&nbsp;разворачивается.</p>
+    </figure>
 
     <div class="stats">
       <div class="stat"><div class="stat-val">20 900</div><div class="stat-label">Подписчиков</div></div>
@@ -724,12 +813,46 @@
     </figure>
 
     <figure class="rv">
+      <figcaption>Восемь роликов, которые сделали блог</figcaption>
+      <div class="reels">
+        <div class="reel hot"><div class="reel-date">21.12.25</div><img src="img/DShwUSzinf7.jpg" alt="" loading="lazy"><div class="reel-play">2 398 621</div></div>
+        <div class="reel hot"><div class="reel-date">24.05.26</div><img src="img/DYgyewjqzzL.jpg" alt="" loading="lazy"><div class="reel-play">499 547</div></div>
+        <div class="reel hot"><div class="reel-date">12.05.26</div><img src="img/DYOvE7iKf4G.jpg" alt="" loading="lazy"><div class="reel-play">495 290</div></div>
+        <div class="reel hot"><div class="reel-date">24.07.26</div><img src="img/DbL8N4PKPYi.jpg" alt="" loading="lazy"><div class="reel-play">468 491</div></div>
+        <div class="reel hot"><div class="reel-date">22.05.26</div><img src="img/DYoei9iqYvF.jpg" alt="" loading="lazy"><div class="reel-play">377 732</div></div>
+        <div class="reel hot"><div class="reel-date">17.04.26</div><img src="img/DXOaLzyih-U.jpg" alt="" loading="lazy"><div class="reel-play">295 191</div></div>
+        <div class="reel hot"><div class="reel-date">26.12.25</div><img src="img/DSswdcXikqE.jpg" alt="" loading="lazy"><div class="reel-play">189 219</div></div>
+        <div class="reel hot"><div class="reel-date">21.06.26</div><img src="img/DZ2G69fq9c5.jpg" alt="" loading="lazy"><div class="reel-play">165 698</div></div>
+      </div>
+      <p class="fig-note">Почти везде — Вы в&nbsp;кадре и&nbsp;говорите. Ни&nbsp;одного лукбука, ни&nbsp;одной раскладки вещей.</p>
+    </figure>
+
+    <figure class="rv">
       <figcaption>Просмотры по месяцам</figcaption>
       <div class="chart-scroll">
         <div class="cols" id="chart-views"></div>
         <div class="col-labels" id="chart-views-x"></div>
       </div>
       <p class="fig-note">Декабрь&nbsp;2025 и май&nbsp;2026 вместе дали 62% годового результата. Остальные девять месяцев — 38%.</p>
+    </figure>
+
+    <figure class="rv">
+      <figcaption>Последние 12 рилсов подряд — с 16 по 27 июля</figcaption>
+      <div class="reels three">
+        <div class="reel cold"><div class="reel-date">16.07</div><img src="img/Da0zEeZqhEY.jpg" alt="" loading="lazy"><div class="reel-play">4 772</div></div>
+        <div class="reel cold"><div class="reel-date">17.07</div><img src="img/Da4or1CqRZZ.jpg" alt="" loading="lazy"><div class="reel-play">7 336</div></div>
+        <div class="reel cold"><div class="reel-date">18.07</div><img src="img/Da7PpyBq_LU.jpg" alt="" loading="lazy"><div class="reel-play">11 052</div></div>
+        <div class="reel cold"><div class="reel-date">19.07</div><img src="img/Da_A9yeK3tN.jpg" alt="" loading="lazy"><div class="reel-play">5 972</div></div>
+        <div class="reel cold"><div class="reel-date">20.07</div><img src="img/DbBecgUKRvN.jpg" alt="" loading="lazy"><div class="reel-play">6 918</div></div>
+        <div class="reel cold"><div class="reel-date">21.07</div><img src="img/DbC-GHCKxgD.jpg" alt="" loading="lazy"><div class="reel-play">13 484</div></div>
+        <div class="reel cold"><div class="reel-date">22.07</div><img src="img/DbFqJ0CK1I3.jpg" alt="" loading="lazy"><div class="reel-play">8 992</div></div>
+        <div class="reel cold"><div class="reel-date">23.07</div><img src="img/DbILP8eK3ZH.jpg" alt="" loading="lazy"><div class="reel-play">6 022</div></div>
+        <div class="reel hot"><div class="reel-date">24.07</div><img src="img/DbL8N4PKPYi.jpg" alt="" loading="lazy"><div class="reel-play">468 491</div></div>
+        <div class="reel cold"><div class="reel-date">25.07</div><img src="img/DbNaRF1qx0Q.jpg" alt="" loading="lazy"><div class="reel-play">6 012</div></div>
+        <div class="reel cold"><div class="reel-date">26.07</div><img src="img/DbP6E71K0pT.jpg" alt="" loading="lazy"><div class="reel-play">6 548</div></div>
+        <div class="reel cold"><div class="reel-date">27.07</div><img src="img/DbTrwtGKylz.jpg" alt="" loading="lazy"><div class="reel-play">2 192</div></div>
+      </div>
+      <p class="fig-note">Двенадцать дней подряд, ровный визуал, одинаковое качество съёмки. Одиннадцать роликов в&nbsp;коридоре от&nbsp;2&nbsp;до&nbsp;13&nbsp;тысяч и&nbsp;один на&nbsp;468&nbsp;тысяч. Разброс в&nbsp;двести раз при&nbsp;одинаковых усилиях.</p>
     </figure>
 
     <p>Так работает любой блог без стратегии: Вы снимаете много, что-то случайно попадает, охваты подскакивают, потом падают обратно. Управлять этим нельзя — <strong>можно только продолжать снимать и надеяться</strong>.</p>
@@ -755,6 +878,22 @@
     </figure>
 
     <p>Образы, лукбуки и показ вещей — <strong>последнее место из девяти тем</strong>. 28&nbsp;роликов, медиана 5&nbsp;543. Ваш последний лукбук от&nbsp;27&nbsp;июля с&nbsp;перечнем брендов собрал 2&nbsp;192&nbsp;просмотра — худший результат за&nbsp;всю выборку.</p>
+
+    <div class="versus rv">
+      <div class="vs-item win">
+        <div class="vs-shot"><img src="img/DShwUSzinf7.jpg" alt="Лучший рилс блога" loading="lazy"></div>
+        <div class="vs-val">2 398 621</div>
+        <div class="vs-lab">21 декабря 2025</div>
+        <p class="vs-desc">Юмор про содержанок. Вы в кадре и говорите, подпись — один смайлик. Ни одной вещи, ни одного бренда. Треть всех просмотров блога за одиннадцать месяцев.</p>
+      </div>
+      <div class="vs-item">
+        <div class="vs-shot"><img src="img/DbTrwtGKylz.jpg" alt="Последний лукбук" loading="lazy"></div>
+        <div class="vs-val">2 192</div>
+        <div class="vs-lab">27 июля 2026</div>
+        <p class="vs-desc">Лукбук с перечнем брендов в подписи: платье, купальник, очки, сумка. Худший результат за всю выборку из 264 роликов.</p>
+      </div>
+    </div>
+    <p class="fig-note" style="margin-bottom:26px">Разница — в&nbsp;1&nbsp;094&nbsp;раза. Съёмка, свет и&nbsp;качество картинки в&nbsp;обоих случаях одинаковые.</p>
 
     <p>А работает прямая речь: деньги и доход, Италия и переезд, отношения. То есть Вы сами в&nbsp;кадре, говорящая камера, личный опыт.</p>
 
@@ -799,6 +938,8 @@
       </div>
       <p class="fig-note">2018–2019 — 96&nbsp;упоминаний за&nbsp;два года, период белорусского ателье. 2023–2024 — ни&nbsp;одного. 2025–2026 — по&nbsp;два в&nbsp;год.</p>
     </figure>
+
+    <p>Причём аккаунтов у&nbsp;дела было два: помимо @the_salsedine в&nbsp;подписях 2016–2020&nbsp;годов <strong>42&nbsp;раза</strong> отмечено @sya_atelier — это ателье, и&nbsp;в&nbsp;актуальных до&nbsp;сих пор висят отзывы клиенток с&nbsp;этой отметкой. После 2020&nbsp;года — тишина по&nbsp;обоим.</p>
 
     <p class="lead">Это важный факт, который меняет всю картину: <strong>бренд существует с&nbsp;2016&nbsp;года</strong>. Вы не&nbsp;запускаетесь с&nbsp;нуля — Вы перезапускаете дело, которое уже работало и&nbsp;приносило результат.</p>
     <p>И работало оно тогда, когда блог был на&nbsp;пике вовлечения: медиана лайков в&nbsp;2018&nbsp;году — 331, выше сегодняшней.</p>
@@ -859,18 +1000,33 @@
     <div class="cards">
       <div class="card">
         <div class="card-num">79 файлов</div>
+        <div class="reels mini">
+          <div class="reel"><img src="img/hl1.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl2.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl3.jpg" alt="" loading="lazy"></div>
+        </div>
         <h4>SYA — дело мечты</h4>
-        <p>Ателье изнутри: примерки, работа с тканью, брендированные коробки с шоколадом и логотипом, отзывы клиенток из Минска. Фактуры работающего бизнеса в рилсах нет вообще.</p>
+        <p>Ателье изнутри и отзывы клиенток: платья, рубашки, благодарности с отметкой ателье. Фактуры работающего бизнеса в рилсах нет вообще.</p>
       </div>
       <div class="card">
         <div class="card-num">23 файла</div>
+        <div class="reels mini">
+          <div class="reel"><img src="img/hl4.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl5.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl6.jpg" alt="" loading="lazy"></div>
+        </div>
         <h4>Зубы</h4>
-        <p>Полная история: имплант, воспаление, выбор между Италией и Беларусью, операция. В рилсы попал один эпизод — и дал 500 тысяч просмотров.</p>
+        <p>История с началом, серединой и ценой вопроса: пломбы полетели от стресса после переезда, операция, импланты и виниры на 20 000 €. В рилсы попал один эпизод — и дал 500 тысяч просмотров.</p>
       </div>
       <div class="card">
         <div class="card-num">29 файлов</div>
+        <div class="reels mini">
+          <div class="reel"><img src="img/hl7.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl8.jpg" alt="" loading="lazy"></div>
+          <div class="reel"><img src="img/hl9.jpg" alt="" loading="lazy"></div>
+        </div>
         <h4>Миллионер</h4>
-        <p>Закрытый сайт знакомств для состоятельных, отбор кандидаток, наблюдения о поведении обеспеченных мужчин. Смежная тема с роликом на 2,4 млн.</p>
+        <p>Закрытый сайт знакомств для состоятельных и Ваши свидания с него: «казалось, он идеален» — и «уехала домой». Смежная тема с роликом на 2,4 млн.</p>
       </div>
     </div>
 
