@@ -635,6 +635,40 @@
     width: 6px; height: 1px; background: var(--gold-deep);
   }
 
+  /* ============ TIMELINE ============ */
+  .tl { position: relative; margin: 44px 0 8px; padding-left: 38px; }
+  .tl::before {
+    content: ''; position: absolute; left: 8px; top: 6px; bottom: 34px;
+    width: 1px; background: linear-gradient(180deg, var(--gold-deep), var(--line) 85%);
+  }
+  .tl-item { position: relative; padding-bottom: 34px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -34px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 4px var(--bg), 0 0 16px var(--gold-glow);
+  }
+  .tl-item.soft::before { background: var(--dim); box-shadow: 0 0 0 4px var(--bg); }
+  .tl-step {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold-deep); margin-bottom: 8px;
+  }
+  .tl-item.soft .tl-step { color: var(--muted); }
+  .tl-title {
+    font-family: var(--display); font-size: 20px;
+    font-weight: 400; color: var(--ink-bright);
+    line-height: 1.25; margin-bottom: 9px; letter-spacing: -0.01em;
+  }
+  .tl-item p { font-size: 15px; margin-bottom: 0; }
+  .tl-when {
+    display: inline-block; margin-top: 10px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line);
+    padding: 4px 10px; border-radius: 3px;
+  }
+
   /* ============ PRICE ============ */
   .price-box {
     border: 1px solid var(--line-bright);
@@ -1220,6 +1254,58 @@
     </div>
 
     <p>Дальнейший формат — ведение блога или консалтинг — обсуждаем после, когда будет понятно, куда идём и&nbsp;как нам работается вместе. Загонять Вас в&nbsp;полугодовой контракт на&nbsp;старте я&nbsp;не&nbsp;вижу смысла: Вы это уже проходили дважды.</p>
+
+  </div>
+</section>
+
+<!-- ============ 13. СТАРТ ============ -->
+<section class="deep">
+  <div class="wrap">
+    <span class="sec-num">13 — Старт работы</span>
+    <h2>Что происходит после оплаты</h2>
+    <p class="lead">Чтобы не&nbsp;было неясности, как всё устроено технически — по&nbsp;шагам, от&nbsp;оплаты до&nbsp;готовых материалов.</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-step">Шаг 1</div>
+        <div class="tl-title">Оплата</div>
+        <p>Вы вносите оплату. Работа считается начатой с&nbsp;этого момента — никаких дополнительных согласований и&nbsp;подписаний не&nbsp;требуется.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-step">Шаг 2</div>
+        <div class="tl-title">Общий чат</div>
+        <p>Создаю отдельный чат в&nbsp;Telegram — там идёт вся работа: вопросы, Ваши голосовые, черновики, любые уточнения по&nbsp;ходу. Всё в&nbsp;одном месте, ничего не&nbsp;теряется в&nbsp;переписке.</p>
+        <span class="tl-when">В день оплаты</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-step">Шаг 3</div>
+        <div class="tl-title">Первый блок вопросов</div>
+        <p>Присылаю в&nbsp;чат первый блок — про Ваш путь, Беларусь, ателье, переезд. Вы отвечаете голосовыми, когда удобно. Дедлайнов по&nbsp;часам нет, но&nbsp;чем плотнее отвечаете, тем быстрее двигаемся.</p>
+        <span class="tl-when">Следующий день</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-step">Шаг 4</div>
+        <div class="tl-title">Следующие блоки</div>
+        <p>Слушаю ответы и&nbsp;присылаю новые вопросы — уже прицельно туда, где нашлось важное. Обычно три-четыре блока. Здесь же задаю уточняющие, если что-то прозвучало вскользь.</p>
+        <span class="tl-when">Первая неделя</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-step">Шаг 5</div>
+        <div class="tl-title">Сборка</div>
+        <p>Расшифровываю все голосовые, свожу их с&nbsp;разбором блога и&nbsp;собираю документы: позиционирование, портрет аудитории, связку с&nbsp;брендом, форматы. Ваше участие на&nbsp;этом этапе не&nbsp;нужно.</p>
+        <span class="tl-when">Вторая неделя</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-step">Шаг 6</div>
+        <div class="tl-title">Защита материалов</div>
+        <p>Созваниваемся, я&nbsp;разбираю всё по&nbsp;документам и&nbsp;отвечаю на&nbsp;вопросы. Вы говорите, где узнаёте себя, а&nbsp;где нет.</p>
+      </div>
+      <div class="tl-item soft">
+        <div class="tl-step">Шаг 7</div>
+        <div class="tl-title">Правки и передача</div>
+        <p>Вношу правки и&nbsp;отдаю финальные материалы. Дальше Вы решаете, продолжаем ли мы работу — или Вы работаете по&nbsp;ним самостоятельно.</p>
+      </div>
+    </div>
 
     <div class="rule"></div>
 
