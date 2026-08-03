@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анжелика — форматы рилсов</title>
+<meta name="description" content="Четырнадцать форматов рилсов с разбором механики, живыми примерами и темами под каждый.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 780px;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 16.5px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    hyphens: none;
+    overflow-x: hidden;
+  }
+
+  p { text-wrap: pretty; }
+  h1, h2, h3, h4 { text-wrap: balance; hyphens: none; }
+
+  .wrap { max-width: var(--container); width: 100%; margin: 0 auto; padding: 0 26px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 88svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 30%, var(--gold-glow-soft), transparent 68%),
+      radial-gradient(ellipse 50% 40% at 50% 0%, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: clamp(44px, 10.5vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -0.028em;
+    color: var(--ink-bright);
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .hero-lead {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    max-width: 540px;
+    margin-bottom: 52px;
+  }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 30px 44px; }
+  .stats > div { min-width: 0; }
+  .stat-num {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+  }
+  .stat-lbl {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 92px 0; position: relative; }
+  .sec-head { margin-bottom: 60px; }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .sec-head h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(30px, 6.4vw, 48px);
+    line-height: 1.06;
+    letter-spacing: -0.024em;
+    color: var(--ink-bright);
+    margin-bottom: 20px;
+  }
+  .sec-head p { color: var(--text); max-width: 580px; font-size: 16px; }
+
+  .rule { height: 1px; background: var(--line); border: 0; }
+
+  /* ===== ПРАВИЛА ===== */
+  .rules { display: grid; gap: 20px; }
+  .rule-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 32px 30px;
+  }
+  .rule-card h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 15.5px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .rule-card p { font-size: 15.2px; color: var(--text); }
+  .rule-card .mark { color: var(--gold-bright); font-weight: 400; }
+
+  /* ===== ФОРМАТ ===== */
+  .fmt {
+    border-top: 1px solid var(--line);
+    padding: 68px 0;
+  }
+  .fmt:first-of-type { border-top: 0; padding-top: 8px; }
+
+  .fmt-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+  }
+  .fmt h3 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(26px, 5.6vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--ink-bright);
+    margin-bottom: 22px;
+  }
+  .fmt-mech { font-size: 16.2px; color: var(--text); margin-bottom: 34px; }
+  .fmt-mech strong { color: var(--ink); font-weight: 400; }
+
+  /* ===== ВИДЕО ===== */
+  .ref {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 26px;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 22px;
+    margin-bottom: 34px;
+  }
+  .ref video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #000;
+    display: block;
+    cursor: pointer;
+  }
+  .ref-meta .ref-who {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    word-break: break-word;
+  }
+  .ref-nums { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 16px; }
+  .ref-n {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 1;
+    color: var(--ink-bright);
+  }
+  .ref-l {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 7px;
+  }
+  .ref-desc { font-size: 14.6px; color: var(--text); line-height: 1.62; margin-bottom: 16px; }
+  .ref-link {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 137, 58, 0.35);
+    padding-bottom: 3px;
+    transition: color 0.3s var(--ease-out);
+  }
+  .ref-link:hover { color: var(--gold-bright); }
+
+  /* ===== КАК СНИМАЕТСЯ ===== */
+  .how { margin-bottom: 34px; }
+  .how-t {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .how-cell { background: var(--bg); padding: 18px 16px; }
+  .how-k {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .how-v { font-size: 14.4px; color: var(--ink); line-height: 1.5; }
+
+  /* ===== ТЕМЫ ===== */
+  .themes-t {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 18px;
+  }
+  .theme {
+    border-left: 1px solid var(--line-bright);
+    padding: 4px 0 4px 24px;
+    margin-bottom: 26px;
+  }
+  .theme:last-child { margin-bottom: 0; }
+  .theme h4 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ink-bright);
+    margin-bottom: 10px;
+    letter-spacing: 0.005em;
+  }
+  .theme p { font-size: 15.2px; color: var(--text); }
+  .theme .beat { color: var(--muted); font-size: 14.2px; margin-top: 8px; }
+  .theme .beat b { color: var(--ink); font-weight: 400; }
+
+  /* ===== ФИНАЛ ===== */
+  .close { text-align: center; padding: 110px 0 130px; position: relative; }
+  .close::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--gold-glow-faint), transparent 70%);
+    pointer-events: none;
+  }
+  .close-inner { position: relative; z-index: 2; }
+  .close h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(28px, 6vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--ink-bright);
+    margin-bottom: 24px;
+  }
+  .close p { color: var(--text); max-width: 520px; margin: 0 auto 18px; font-size: 16px; }
+  .sig {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 56px;
+  }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    section { padding: 70px 0; }
+    .fmt { padding: 54px 0; }
+    .ref { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
+    .ref video { max-width: 230px; margin: 0 auto; }
+    .how-grid { grid-template-columns: 1fr; }
+    .stats { gap: 24px 26px; }
+    .stat-num { font-size: 33px; }
+    .stat-lbl { letter-spacing: 0.16em; font-size: 9px; }
+    .hero-lead, .sec-head p, .close p { max-width: 100%; }
+    .ref-nums { gap: 18px; }
+    .theme { padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Август 2026 · Анжелика × Малик</div>
+    <h1>Форматы<br><em>рилсов</em></h1>
+    <p class="hero-lead">Четырнадцать форматов, которые мы берём в работу. У&nbsp;каждого — живой пример с&nbsp;цифрами, объяснение механики и&nbsp;две темы из&nbsp;Вашей фактуры. Ничего выдуманного: все примеры разобраны покадрово, все темы взяты из&nbsp;распаковки, созвонов и&nbsp;Вашего канала.</p>
+    <div class="stats">
+      <div>
+        <div class="stat-num">14</div>
+        <div class="stat-lbl">форматов</div>
+      </div>
+      <div>
+        <div class="stat-num">28</div>
+        <div class="stat-lbl">роликов</div>
+      </div>
+      <div>
+        <div class="stat-num">22</div>
+        <div class="stat-lbl">разобрано примеров</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<!-- ============ ПРАВИЛА ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">Прежде чем начать</div>
+      <h2>Три правила, которые важнее самих форматов</h2>
+      <p>Они собраны из разбора девяти аккаунтов, которые живут ровно на&nbsp;этих форматах. Без&nbsp;них любой формат превращается в&nbsp;случайный ролик.</p>
+    </div>
+
+    <div class="rules">
+      <div class="rule-card">
+        <h3>Два ролика на формат, не один</h3>
+        <p>У авторов, которых мы разбирали, разброс внутри одного и&nbsp;того же формата — <span class="mark">от 243 до 138 000 лайков</span>. Одна студия, одно платье, одна механика. Формат не&nbsp;«залетает» — он&nbsp;набирает статистику. Поэтому каждый пробуем минимум дважды и&nbsp;только потом решаем, живёт он&nbsp;или нет.</p>
+      </div>
+      <div class="rule-card">
+        <h3>У серии есть имя</h3>
+        <p>Не тема, а&nbsp;название, которое повторяется из&nbsp;ролика в&nbsp;ролик: «у мужлан нет прав», «женщины через 100 лет», «девки, ваш выход». Зритель начинает искать продолжение и&nbsp;идёт в&nbsp;профиль за&nbsp;предыдущими частями.</p>
+      </div>
+      <div class="rule-card">
+        <h3>Подпись работает одинаково во всех роликах</h3>
+        <p>У одного из&nbsp;разобранных авторов в&nbsp;38 роликах из&nbsp;40 дословно одна и&nbsp;та&nbsp;же строка про&nbsp;то, что происходит в&nbsp;профиле. Подпись — не&nbsp;украшение, а&nbsp;указатель: человек досмотрел, прочитал строку и&nbsp;понял, зачем подписываться.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ ПРИОРИТЕТ 1 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">Приоритет 01</div>
+      <h2>Снимается без единого слова в кадр</h2>
+      <p>Вы сами сказали, что на&nbsp;камеру без&nbsp;подготовки «плывёте». Эти пять форматов закрывают вопрос полностью: текст, монтаж и&nbsp;закадровый голос делают всё за&nbsp;Вас. В&nbsp;110 из&nbsp;127 Ваших роликов Вы&nbsp;и&nbsp;так молчите — здесь молчание работает на&nbsp;формат.</p>
+    </div>
+
+    <!-- Ф1 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 01</div>
+      <h3>Текст-ситуация и реакция телом</h3>
+      <p class="fmt-mech">Сверху весь ролик висит одна фраза — узнаваемая ситуация. Дальше Вы&nbsp;её просто <strong>проживаете телом</strong>: без&nbsp;слов, без&nbsp;объяснений. Вся комедия в&nbsp;разрыве между спокойным текстом и&nbsp;тем, что происходит в&nbsp;кадре.</p>
+
+      <div class="ref">
+        <video src="media/DVDzTIZDI3j.mp4" poster="media/DVDzTIZDI3j.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@1fari_n</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">203 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">14 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Текст: «Когда в&nbsp;3 часа ночи подруга, которая давно в&nbsp;депрессии, написала: спасибо за&nbsp;всё, ты&nbsp;моя лучшая подруга». Она спит, нашаривает телефон, читает — и&nbsp;вылетает из&nbsp;кровати. Ни&nbsp;слова, одна локация.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DVDzTIZDI3j/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">10–15 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Плашка сверху, весь ролик</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Телефон на штативе, одна комната</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Написал бывший, за которого Вы выплачиваете кредит</h4>
+        <p>Текст сверху ставит ситуацию, дальше — только реакция.</p>
+        <p class="beat"><b>Кадры:</b> лежите, тянетесь к&nbsp;телефону не&nbsp;глядя → читаете → замираете → медленно накрываетесь одеялом с&nbsp;головой.</p>
+      </div>
+      <div class="theme">
+        <h4>Будильник в четыре утра на замес, а легли в два</h4>
+        <p>Ваша реальная рутина пекаря, которую аудитория не&nbsp;видит.</p>
+        <p class="beat"><b>Кадры:</b> подъём в&nbsp;темноте, лицо человека, который не&nbsp;спал → склейка → Вы&nbsp;уже с&nbsp;готовой буханкой и&nbsp;при полном параде.</p>
+      </div>
+    </article>
+
+    <!-- Ф2 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 02</div>
+      <h3>Текст-мем на статике</h3>
+      <p class="fmt-mech">Самый дешёвый формат из&nbsp;всех. Вы&nbsp;<strong>просто стоите и&nbsp;молчите</strong>, весь ролик держит одна фраза на&nbsp;экране. Шесть секунд, ноль движения, ноль монтажа. Работает за&nbsp;счёт узнавания: человек читает и&nbsp;видит там себя.</p>
+
+      <div class="ref">
+        <video src="media/DZPnGNhs-RX.mp4" poster="media/DZPnGNhs-RX.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@1fari_n</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">100 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">6 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Текст: «Когда день рождение подруги летом: a) Июнь b) Июль». Она стоит, смотрит вверх, не&nbsp;делает ничего. Шесть секунд статики — сто тысяч лайков.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DZPnGNhs-RX/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">6–9 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Одна фраза по центру сверху</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Образ и хороший свет, больше ничего</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>«Такая красивая — и одна»</h4>
+        <p>Фраза, которую Вам пишут в&nbsp;директ регулярно. Выносим её на&nbsp;экран и&nbsp;не&nbsp;отвечаем ничего.</p>
+        <p class="beat"><b>Кадр:</b> стоите, смотрите в&nbsp;камеру, ноль реакции. Ответ достаётся комментариям.</p>
+      </div>
+      <div class="theme">
+        <h4>«А чего так дорого за буханку»</h4>
+        <p>Второй по&nbsp;частоте вопрос, который Вы&nbsp;слышите. Здесь он&nbsp;без&nbsp;объяснений — объяснение будет в&nbsp;другом формате.</p>
+        <p class="beat"><b>Кадр:</b> стоите с&nbsp;буханкой в&nbsp;руках, молчите.</p>
+      </div>
+    </article>
+
+    <!-- Ф3 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 03</div>
+      <h3>Дилемма и ответ чужим кадром</h3>
+      <p class="fmt-mech">На экране — вопрос-дилемма, Вы&nbsp;молча стоите. Затем титр «Я&nbsp;перед ними:» и&nbsp;<strong>чужой мем-фрагмент вместо ответа</strong>. Своих кадров в&nbsp;ролике секунд пять, остальное — найденная нарезка.</p>
+
+      <div class="ref">
+        <video src="media/DXRdBNrDL0V.mp4" poster="media/DXRdBNrDL0V.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@1fari_n</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">472 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">9 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">«У тебя есть один стакан воды и&nbsp;два человека, умирающих от&nbsp;жажды: тот, кто тебя предал, и&nbsp;тот, кто тебя ненавидит. Кого выберешь?» Дальше — «Я&nbsp;перед ними:» и&nbsp;кадр, где женщина выпивает стакан сама.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DXRdBNrDL0V/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">8–14 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Вопрос, затем титр перед вставкой</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Ваш кадр плюс найденная нарезка</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Последний кусок хлеба и двое</h4>
+        <p>Дилемма: тот, кто занял и&nbsp;не&nbsp;вернул, и&nbsp;тот, кто говорил, что у&nbsp;Вас не&nbsp;получится.</p>
+        <p class="beat"><b>Ответ:</b> вставка, где Вы&nbsp;съедаете сами. Подбираем под&nbsp;неё готовый мем-фрагмент.</p>
+      </div>
+      <div class="theme">
+        <h4>Кому достаётся первая буханка</h4>
+        <p>Маме или тем, кто в&nbsp;2022-м смеялся, что в&nbsp;этом городе пойдёт только пивная.</p>
+        <p class="beat"><b>Ответ:</b> кадр без&nbsp;слов, выбор очевиден — и&nbsp;в&nbsp;этом весь ролик.</p>
+      </div>
+    </article>
+
+    <!-- Ф4 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 04</div>
+      <h3>Закадровый голос, руки и предметы</h3>
+      <p class="fmt-mech">Лица в&nbsp;кадре нет вообще. Только руки, вещи и&nbsp;свет. Голос идёт закадром, титры дублируют по&nbsp;слову. <strong>Вы уже умеете этот формат</strong>: Ваши закадровые ролики про ремесленную выпечку дали 13,9&nbsp;и&nbsp;8,4&nbsp;тысячи при медиане блога 3,9.</p>
+
+      <div class="ref">
+        <video src="media/Da1lV-oN6nL.mp4" poster="media/Da1lV-oN6nL.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@sterva_oh</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">9,3 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">61 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Руки на&nbsp;подоконнике, бельё и&nbsp;лавровый лист. Рассказ о&nbsp;том, зачем в&nbsp;женском белье внутренний кармашек: Балканы, защита от&nbsp;дурного глаза, дезинфекция. Финал — просьба переслать подруге. Важная деталь: в&nbsp;этом аккаунте обычные ролики набирают 15–140 лайков. Формат вытащил сам.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/Da1lV-oN6nL/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">45–70 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Закадр плюс титры по слову</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Стол у окна, предметы, руки</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Приметы про хлеб — и что за ними стоит</h4>
+        <p>Почему нельзя переворачивать буханку и&nbsp;класть на&nbsp;неё нож. Здесь Ваши две стороны сходятся в&nbsp;одном ролике: примета — и&nbsp;объяснение медика.</p>
+        <p class="beat"><b>Кадр:</b> руки, буханка, нож, свет из&nbsp;окна. Лица нет.</p>
+      </div>
+      <div class="theme">
+        <h4>Что происходит с тестом за сутки</h4>
+        <p>Ферментация как процесс: что уходит, что расщепляется, почему на&nbsp;выходе другой продукт. Ровно то, за&nbsp;что Вы&nbsp;берёте деньги.</p>
+        <p class="beat"><b>Кадр:</b> банка закваски, тесто крупно, руки. Голос спокойный, без&nbsp;лекции.</p>
+      </div>
+    </article>
+
+    <!-- Ф5 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 05</div>
+      <h3>Сторителл по годам на своём архиве</h3>
+      <p class="fmt-mech">Хронология жизни закадровым голосом: «мне&nbsp;17… мне&nbsp;20… мне&nbsp;22…». Видеоряд — <strong>старые фотографии и&nbsp;видео из&nbsp;телефона</strong>, ничего не&nbsp;снимается заново. Держит повторяющаяся фраза-рефрен, которая в&nbsp;какой-то момент ломается.</p>
+
+      <div class="ref">
+        <video src="media/DaodukRKjs3.mp4" poster="media/DaodukRKjs3.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@prikoliiza</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">431 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">178 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Три минуты закадра на&nbsp;личном архиве: переезды, коммуналка, роддом без&nbsp;мужа, вышивка от&nbsp;одиночества. Через весь ролик рефреном «мне всё нравится» — пока однажды не&nbsp;звучит «мне впервые что-то не&nbsp;нравится». Никакой съёмки, только архив.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DaodukRKjs3/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">90–180 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Закадр по написанному сценарию</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Архив фото и видео за нужные годы</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>История по годам: от кредита до своего дела</h4>
+        <p>Тот самый сторителл, который мы решили выпустить один раз и&nbsp;замерить отклик. Из&nbsp;позиции силы, без&nbsp;сумм, схем и&nbsp;имён.</p>
+        <p class="beat"><b>Рефрен:</b> одна повторяющаяся фраза через весь ролик, которая ломается в&nbsp;момент разворота.</p>
+      </div>
+      <div class="theme">
+        <h4>Кофейня 2022 года</h4>
+        <p>Отдельная арка: над идеей смеялись, говорили, что в&nbsp;этом городе пойдёт только пивная. Что было дальше.</p>
+        <p class="beat"><b>Материал:</b> фотографии того периода, кадры места, нынешняя кухня.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ ПРИОРИТЕТ 2 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">Приоритет 02</div>
+      <h2>Разборы: то, от чего у Вас горит</h2>
+      <p>Формат, который Вы&nbsp;сами предложили на&nbsp;созвоне. Мы&nbsp;разобрали, как он&nbsp;устроен у&nbsp;тех, кто на&nbsp;нём вырос, и&nbsp;нашли способ снизить главный риск — встречную агрессию.</p>
+    </div>
+
+    <!-- Ф6 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 06</div>
+      <h3>Реакция на чужое видео</h3>
+      <p class="fmt-mech">Чередование двух источников: фрагмент чужого высказывания — и&nbsp;сразу Ваш ответ. Ключевое: <strong>ответ не&nbsp;аргументирует, а&nbsp;бьёт одной фразой</strong> и&nbsp;уходит. Никаких разборов по&nbsp;пунктам — заготовленные короткие реплики по&nbsp;две секунды.</p>
+
+      <div class="ref">
+        <video src="media/DbTOV7Gtbaj.mp4" poster="media/DbTOV7Gtbaj.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@igor_razhabov</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">83 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">62 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Тот самый автор, которого Вы&nbsp;присылали. Берёт мужчину, перечисляющего свои требования к&nbsp;женщинам, и&nbsp;на&nbsp;каждый пункт выдаёт готовую рифмованную реплику. Снято дома на&nbsp;телефон.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DbTOV7Gtbaj/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">45–70 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Ваша речь, реплики написаны заранее</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Найденный фрагмент и один дубль дома</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>«Женщина должна быть мудрой»</h4>
+        <p>Фраза, от&nbsp;которой Вас, по&nbsp;Вашим же словам, трясёт. Механика ответа: мудрость почему-то прописывают только в&nbsp;одну сторону.</p>
+        <p class="beat"><b>Материал:</b> подбираем фрагмент, где это произносят всерьёз.</p>
+      </div>
+      <div class="theme">
+        <h4>Слово «тарелочница»</h4>
+        <p>Разбор самого термина: кто его придумал и&nbsp;что им&nbsp;на&nbsp;самом деле закрывают.</p>
+        <p class="beat"><b>Материал:</b> любой подкаст, где это звучит как аргумент.</p>
+      </div>
+    </article>
+
+    <!-- Ф7 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 07</div>
+      <h3>Разбор отдан комментариям</h3>
+      <p class="fmt-mech">Вы не&nbsp;спорите и&nbsp;не&nbsp;объясняете. Показываете материал и&nbsp;<strong>передаёте слово аудитории</strong>. Это же снимает главный риск, который мы&nbsp;обсуждали: Вы&nbsp;не&nbsp;нападаете — Вы&nbsp;приносите, а&nbsp;разносят комментарии.</p>
+
+      <div class="ref">
+        <video src="media/DbGfo-lo_gS.mp4" poster="media/DbGfo-lo_gS.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@igor_razhabov</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">174 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">71 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Его самый сильный ролик за&nbsp;последние сорок. Рубрика с&nbsp;постоянным названием, где он&nbsp;показывает чужое высказывание и&nbsp;зовёт зрителей высказаться в&nbsp;комментариях. Сам почти ничего не&nbsp;говорит.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DbGfo-lo_gS/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">30–70 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Короткая подводка и призыв в конце</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Материал и название рубрики</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Скриншот из Вашего директа</h4>
+        <p>Вы говорили, что там завал. Берём сообщение, где вместо разговора — оценка внешности, закрываем имя и&nbsp;отдаём в&nbsp;комментарии.</p>
+        <p class="beat"><b>Финал:</b> одна строка-приглашение высказаться. Дальше не&nbsp;вмешиваемся.</p>
+      </div>
+      <div class="theme">
+        <h4>«Женщина не должна курить»</h4>
+        <p>Ваш собственный пример с&nbsp;созвона. Приносим чужое высказывание целиком и&nbsp;не&nbsp;комментируем.</p>
+        <p class="beat"><b>Финал:</b> тот же вопрос в&nbsp;зал — что ещё женщина, по&nbsp;их&nbsp;мнению, не&nbsp;должна.</p>
+      </div>
+    </article>
+
+    <!-- Ф8 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 08</div>
+      <h3>Список у доски</h3>
+      <p class="fmt-mech">Флипчарт, маркер, петличка. Вы&nbsp;пишете пронумерованный список и&nbsp;идёте по&nbsp;пунктам. Формально это разговор на&nbsp;камеру, но&nbsp;<strong>доска держит структуру за&nbsp;Вас</strong>: руки заняты, следующий пункт написан, сбиться негде. Ровно решение проблемы «плыву без&nbsp;сценария».</p>
+
+      <div class="ref">
+        <video src="media/DaA5t6GsoeF.mp4" poster="media/DaA5t6GsoeF.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@alena_gur1</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">138 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">66 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Белая комната, платье, флипчарт. Пишет список из&nbsp;пяти пунктов и&nbsp;разбирает каждый, поверх кадра всплывают картинки-иллюстрации. У&nbsp;неё это конвейер: одна и&nbsp;та&nbsp;же декорация, десятки роликов, отдельная рубрика с&nbsp;названием.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DaA5t6GsoeF/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">50–80 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Ваша речь плюс список на доске</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Флипчарт, маркер, петличка, светлая стена</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Пять случаев, когда женщине включают «будь мудрее»</h4>
+        <p>Список ситуаций, в&nbsp;которых эта фраза появляется, — и&nbsp;что она в&nbsp;каждой из&nbsp;них означает на&nbsp;самом деле.</p>
+        <p class="beat"><b>На доске:</b> пять пунктов, пишете по&nbsp;ходу.</p>
+      </div>
+      <div class="theme">
+        <h4>За что Вы платите, покупая хлеб на закваске</h4>
+        <p>Тот же формат, но&nbsp;на&nbsp;Вашей экспертизе: пять пунктов — время, ферментация, мука, ручная работа, отсутствие ускорителей.</p>
+        <p class="beat"><b>Итог:</b> тот самый ответ на&nbsp;«дорого», но&nbsp;уже разложенный.</p>
+      </div>
+    </article>
+
+    <!-- Ф9 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 09</div>
+      <h3>Инверсия ролей</h3>
+      <p class="fmt-mech">Берётся фраза, которую обычно говорят про&nbsp;женщин, и&nbsp;<strong>меняется пол говорящего</strong>. Вы&nbsp;играете роль, за&nbsp;кадром задают вопросы. Комментарии взрываются, потому что люди спорят со&nbsp;своими же словами, не&nbsp;узнавая их.</p>
+
+      <div class="ref">
+        <video src="media/DX9serJiVM5.mp4" poster="media/DX9serJiVM5.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@juli.yunusova</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">22 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">34 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Плашка «женщины через 100 лет, часть 2» висит весь ролик. На&nbsp;вопрос «что для Вас главное в&nbsp;мужчине» отвечает мужскими же клише наоборот: главное — чтобы был девственник, если были отношения до&nbsp;меня, то&nbsp;это второсортный материал. Кресло, кепка, один дубль.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DX9serJiVM5/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">30–50 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Ваша речь по сценарию, плашка сверху</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Кресло, второй человек за кадром</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Мужчины через сто лет</h4>
+        <p>Интервью, где мужчину спрашивают то, что обычно спрашивают у&nbsp;женщин: про&nbsp;возраст, вес, готовку и&nbsp;«а&nbsp;чего один».</p>
+        <p class="beat"><b>Заявка:</b> сразу как рубрика с&nbsp;номером части — формат рассчитан на&nbsp;продолжение.</p>
+      </div>
+      <div class="theme">
+        <h4>Если бы кредиты за женщин брали мужчины</h4>
+        <p>Ваша история, вывернутая наизнанку: те&nbsp;же реплики, тот&nbsp;же тон, только роли поменялись местами.</p>
+        <p class="beat"><b>Осторожно:</b> без&nbsp;сумм и&nbsp;конкретики — работает сама ситуация.</p>
+      </div>
+    </article>
+
+    <!-- Ф10 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 10</div>
+      <h3>Ответка в ритм под бит</h3>
+      <p class="fmt-mech">Двадцать секунд, ритмичный текст под&nbsp;музыку. Не&nbsp;спор и&nbsp;не&nbsp;объяснение — <strong>ритм и&nbsp;рифма</strong>. Самый быстрый в&nbsp;производстве из&nbsp;разговорных: один дубль, один образ.</p>
+
+      <div class="ref">
+        <video src="media/DZFqLvjCBT9.mp4" poster="media/DZFqLvjCBT9.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@juli.yunusova</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">36 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">20 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Ответ мужчине из&nbsp;переписки, зачитанный в&nbsp;рифму под&nbsp;бит: просит лишнего — блокирую, пишет ночью — блокирую, обиделся — блокирую, переписку копирую. Двадцать секунд, весь эффект в&nbsp;ритме.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DZFqLvjCBT9/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">15–25 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Ваш голос в ритм, текст написан заранее</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Трендовый бит и один образ</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Ответ тем, кто припоминает Вам ту самую фразу</h4>
+        <p>Вы писали, что сказали про&nbsp;себя резко — и&nbsp;Вам это до&nbsp;сих пор вспоминают. Здесь ответ идёт ритмом, а&nbsp;не&nbsp;объяснением.</p>
+        <p class="beat"><b>Тон:</b> без&nbsp;оправданий. Оправдание убивает формат.</p>
+      </div>
+      <div class="theme">
+        <h4>Ответ директу</h4>
+        <p>Собирательный ответ на&nbsp;то, что приходит Вам в&nbsp;сообщения каждый день.</p>
+        <p class="beat"><b>Тон:</b> легко и&nbsp;свысока, без&nbsp;злости — злость читается как задело.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ ПРИОРИТЕТ 3 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">Приоритет 03</div>
+      <h2>Ваша среда и то, что уже сработало</h2>
+      <p>Четыре формата, которые опираются на&nbsp;то, что у&nbsp;Вас уже есть: кухня, хлеб, внешность и&nbsp;цифры Ваших собственных роликов.</p>
+    </div>
+
+    <!-- Ф11 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 11</div>
+      <h3>Абсурдный лайфхак на кухне</h3>
+      <p class="fmt-mech">С каменным лицом объясняется совершенно очевидная вещь — с&nbsp;интонацией серьёзного совета. Юмор строится на&nbsp;<strong>разрыве между важностью тона и&nbsp;пустотой содержания</strong>. Заканчивается прямой просьбой сохранить и&nbsp;переслать — отсюда и&nbsp;берутся репосты.</p>
+
+      <div class="ref">
+        <video src="media/DZKSISvIl1t.mp4" poster="media/DZKSISvIl1t.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@mama.sita_1755</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">23 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">60 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">«Многие спрашивают, как я&nbsp;чищу морковку» — и&nbsp;дальше минута предельно серьёзных инструкций ни&nbsp;о&nbsp;чём, с&nbsp;двойным дном в&nbsp;каждой фразе. Кухня, перчатки, доска. В&nbsp;финале — сохраните и&nbsp;отправьте другому.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DZKSISvIl1t/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">40–60 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Ваша речь, тон подчёркнуто серьёзный</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Ваша кухня и то, что на ней и так есть</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>«Как правильно вымесить тесто»</h4>
+        <p>Формально Вы&nbsp;просто месите. Тон — как будто объясняете нечто крайне важное.</p>
+        <p class="beat"><b>Финал:</b> просьба сохранить и&nbsp;переслать той, кто ещё не&nbsp;умеет.</p>
+      </div>
+      <div class="theme">
+        <h4>«Как понять, что багет готов»</h4>
+        <p>Доведённая до&nbsp;абсурда инструкция к&nbsp;вещи, которая понятна с&nbsp;первого взгляда.</p>
+        <p class="beat"><b>Реквизит:</b> багеты, которые у&nbsp;Вас и&nbsp;так пекутся.</p>
+      </div>
+    </article>
+
+    <!-- Ф12 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 12</div>
+      <h3>Собираюсь и рассказываю</h3>
+      <p class="fmt-mech">Вы делаете макияж и&nbsp;параллельно рассказываете историю. <strong>Руки заняты, глаза в&nbsp;зеркале</strong> — говорить становится легко, потому что Вы&nbsp;не&nbsp;смотрите в&nbsp;объектив. Никакой постановки: халат, комната, обычный свет.</p>
+
+      <div class="ref">
+        <video src="media/C6QeCpDgZg1.mp4" poster="media/C6QeCpDgZg1.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@mama.sita_1755</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">31 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">90 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Полтора минуты: красится и&nbsp;рассказывает историю про&nbsp;поход в&nbsp;государственное учреждение. Ни&nbsp;света, ни&nbsp;монтажа, ни&nbsp;сценария на&nbsp;бумаге — держит только сама история.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/C6QeCpDgZg1/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">60–90 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Живая речь, тезисы держим в голове</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Зеркало, косметика, телефон рядом</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Как Вы ходили разговаривать в банк</h4>
+        <p>История про&nbsp;то, как это выглядит изнутри, — без&nbsp;сумм, без&nbsp;схемы, без&nbsp;названий. Только как это переживается.</p>
+        <p class="beat"><b>Тон:</b> буднично. Именно будничность делает историю сильной.</p>
+      </div>
+      <div class="theme">
+        <h4>Самый волнительный заказ</h4>
+        <p>История про&nbsp;заказ, за&nbsp;который было по-настоящему страшно, и&nbsp;чем всё кончилось.</p>
+        <p class="beat"><b>Материал:</b> если есть фото того хлеба — вставляем в&nbsp;середину.</p>
+      </div>
+    </article>
+
+    <!-- Ф13 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 13</div>
+      <h3>Сборка «Я — и он»</h3>
+      <p class="fmt-mech">Ваш кадр с&nbsp;титром-подводкой, затем титр «Он:» и&nbsp;<strong>чужая нарезка вместо ответа</strong>. Тринадцать секунд, из&nbsp;них Ваших — пять. Собирается за&nbsp;вечер.</p>
+
+      <div class="ref">
+        <video src="media/DYcmj2JMXwm.mp4" poster="media/DYcmj2JMXwm.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@alxndlv</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">11 К</div><div class="ref-l">лайков</div></div>
+            <div><div class="ref-n">13 с</div><div class="ref-l">длина</div></div>
+          </div>
+          <p class="ref-desc">Она с&nbsp;чёрным котом на&nbsp;руках, титр «решила положиться на&nbsp;мужчину». Дальше титр «Он:» и&nbsp;фрагмент из&nbsp;телешоу, где мужчина жалуется, что сегодня слабый и&nbsp;много плакал.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DYcmj2JMXwm/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">10–15 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Два титра: подводка и «Он:»</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Ваш короткий кадр и найденный фрагмент</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>«Решила положиться на мужчину»</h4>
+        <p>Ваш кадр — со&nbsp;щенком или с&nbsp;Бертой на&nbsp;руках. Ответ приходит чужой нарезкой.</p>
+        <p class="beat"><b>Плюс:</b> линия про&nbsp;животных в&nbsp;блоге пока пустая, а&nbsp;собак у&nbsp;Вас целая стая.</p>
+      </div>
+      <div class="theme">
+        <h4>«Я после того, как сказала, что разгребу сама»</h4>
+        <p>Подводка Ваша, а&nbsp;реакцию окружения показывает вставка.</p>
+        <p class="beat"><b>Материал:</b> подбираем нарезку под&nbsp;нужную интонацию.</p>
+      </div>
+    </article>
+
+    <!-- Ф14 -->
+    <article class="fmt">
+      <div class="fmt-tag">Формат 14</div>
+      <h3>Короткая эстетика и подпись, которая заводит комментарии</h3>
+      <p class="fmt-mech">Пять-девять секунд, музыка, Вы&nbsp;в&nbsp;кадре, ни&nbsp;слова. Вся смысловая нагрузка уходит в&nbsp;подпись. <strong>Это Ваш собственный доказанный формат</strong>: все три Ваших ролика-миллионника сделаны именно так.</p>
+
+      <div class="ref">
+        <video src="media/DXJK7X8CFS0.mp4" poster="media/DXJK7X8CFS0.jpg" controls preload="none" playsinline></video>
+        <div class="ref-meta">
+          <div class="ref-who">@queen__anj — Ваш ролик</div>
+          <div class="ref-nums">
+            <div><div class="ref-n">1,03 млн</div><div class="ref-l">просмотров</div></div>
+            <div><div class="ref-n">1 657</div><div class="ref-l">комментариев</div></div>
+          </div>
+          <p class="ref-desc">Шесть секунд, Вы&nbsp;молчите. Работает подпись: открытый текст про&nbsp;возраст и&nbsp;процедуры. Полторы тысячи комментариев — при&nbsp;том, что средний Ваш ролик собирает несколько десятков. Разговор случился не&nbsp;в&nbsp;ролике, а&nbsp;под&nbsp;ним.</p>
+          <a class="ref-link" href="https://www.instagram.com/reel/DXJK7X8CFS0/" target="_blank" rel="noopener">Открыть в Instagram</a>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="how-t">Как снимается</div>
+        <div class="how-grid">
+          <div class="how-cell"><div class="how-k">Длина</div><div class="how-v">5–9 секунд</div></div>
+          <div class="how-cell"><div class="how-k">Где текст</div><div class="how-v">Целиком в подписи под роликом</div></div>
+          <div class="how-cell"><div class="how-k">Нужно</div><div class="how-v">Образ, свет и точная подпись</div></div>
+        </div>
+      </div>
+
+      <div class="themes-t">Две темы</div>
+      <div class="theme">
+        <h4>Проходка с багетами</h4>
+        <p>Та самая съёмка, о&nbsp;которой Вы&nbsp;договорились с&nbsp;видеографом. По&nbsp;механике: багет появляется не&nbsp;сразу, а&nbsp;в&nbsp;середине прохода — это и&nbsp;есть точка удивления.</p>
+        <p class="beat"><b>Подпись:</b> одна фраза, которая заводит спор. Не&nbsp;описание того, что видно.</p>
+      </div>
+      <div class="theme">
+        <h4>Танец с хлебом — серией из трёх</h4>
+        <p>У Вас это уже залетало один раз. Повторяем не&nbsp;единичным роликом, а&nbsp;серией: разные образы, разная музыка, один приём.</p>
+        <p class="beat"><b>Замер:</b> три ролика подряд дают понять, случайность это была или формат.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ ФИНАЛ ============ -->
+<section class="close">
+  <div class="wrap close-inner">
+    <h2>Что делаем дальше</h2>
+    <p>Начинаем с&nbsp;первых пяти форматов — они не&nbsp;требуют говорить на&nbsp;камеру и&nbsp;снимаются дома. По&nbsp;два ролика на&nbsp;каждый, это десять роликов на&nbsp;две недели.</p>
+    <p>Смотрим не&nbsp;на&nbsp;просмотры, а&nbsp;на&nbsp;три вещи: досмотры до&nbsp;конца, репосты и&nbsp;подписки с&nbsp;ролика. Репосты у&nbsp;Вас сейчас почти нулевые — именно они растят охват дешевле всего.</p>
+    <p>Форматы, которые дадут результат на&nbsp;обоих роликах, превращаем в&nbsp;серии с&nbsp;названием. Остальные закрываем без&nbsp;сожалений.</p>
+    <div class="sig">Анжелика × Малик · август 2026</div>
+  </div>
+</section>
+
+</body>
+</html>
