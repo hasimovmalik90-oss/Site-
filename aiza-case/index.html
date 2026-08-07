@@ -1,525 +1,3695 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Азиза × Малик Хашимов&nbsp;— кейс</title>
-<meta name="description" content="Аккаунт с нуля: 0 подписчиков → 466 454 просмотра за десять дней публикаций. Полностью органически.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg-deep:#030303; --bg:#060606; --faded:#252420; --dim:#3a3833;
-  --ink-bright:#faf9f6; --ink:#ebe9e2; --text:#b5b3aa; --muted:#6a6862;
-  --gold:#ffb84d; --gold-bright:#ffd17a; --gold-deep:#c8893a;
-  --display:'Fraunces','Times New Roman',serif;
-  --serif:'Instrument Serif','Times New Roman',serif;
-  --sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;
-  --mono:'Geist Mono',ui-monospace,monospace;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;
-  line-height:1.65;-webkit-font-smoothing:antialiased;hyphens:none;overflow-x:hidden;max-width:100vw}
-section{padding:118px 0;overflow:hidden;position:relative}
-.deep{background:var(--bg-deep)}
-.container{width:100%;max-width:1080px;margin:0 auto;padding:0 28px;min-width:0}
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
 
-h1,h2,h3{font-family:var(--display);font-weight:300;color:var(--ink-bright);
-  letter-spacing:-.028em;line-height:1.05;text-wrap:balance}
-h2{font-size:clamp(34px,5.2vw,60px);margin-bottom:20px}
-h3{font-size:clamp(19px,2.4vw,26px);margin-bottom:12px}
-p{text-wrap:pretty;max-width:64ch}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold-deep);margin-bottom:24px}
-.section-header{margin-bottom:56px}
-.thin{color:var(--muted)}
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
 
-/* SPLASH */
-#splash{position:fixed;inset:0;z-index:999;background:var(--bg-deep);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  transition:opacity .8s ease,visibility .8s}
-#splash.gone{opacity:0;visibility:hidden}
-.sp-mark{font-family:var(--display);font-size:clamp(56px,11vw,132px);color:var(--ink-bright);
-  letter-spacing:-.05em;line-height:1;opacity:0;animation:spIn 1s .2s forwards}
-.sp-sub{font-family:var(--mono);font-size:11px;letter-spacing:.34em;text-transform:uppercase;
-  color:var(--gold-deep);margin-top:22px;opacity:0;animation:spIn 1s .8s forwards}
-.sp-skip{position:absolute;bottom:44px;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--dim);background:none;border:0;
-  cursor:pointer;opacity:0;animation:spIn 1s 1.6s forwards}
-@keyframes spIn{to{opacity:1}}
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .marquee-track{animation:none}
-  #splash{display:none}
-}
-.no-js .reveal{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;
-  background:radial-gradient(ellipse at 72% 34%,rgba(255,184,77,.09),transparent 60%),var(--bg-deep)}
-.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold-deep);margin-bottom:36px}
-.hero h1{font-size:clamp(52px,10vw,132px);letter-spacing:-.045em;margin-bottom:6px}
-.hero h1 em{font-family:var(--serif);font-style:italic;color:var(--gold)}
-.hero-lead{font-size:clamp(17px,2.05vw,21px);color:var(--text);max-width:52ch;margin-top:30px}
-.hero-meta{margin-top:46px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--muted)}
-.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-  font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+    /* TYPOGRAPHY */
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
 
-/* MARQUEE */
-.marquee{overflow:hidden;border-top:1px solid var(--faded);border-bottom:1px solid var(--faded);
-  padding:26px 0;background:var(--bg-deep)}
-.marquee-track{display:flex;gap:0;width:max-content;animation:mq 46s linear infinite}
-.marquee-item{display:flex;align-items:baseline;gap:11px;padding:0 34px;white-space:nowrap;
-  border-right:1px solid var(--faded)}
-.marquee-item b{font-family:var(--display);font-weight:400;font-size:27px;color:var(--gold)}
-.marquee-item span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted)}
-@keyframes mq{to{transform:translateX(-50%)}}
+    --container: 760px;
+    --container-wide: 1080px;
 
-/* KPI */
-.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;
-  background:var(--faded);margin-top:52px}
-.kpi > div{background:var(--bg-deep);padding:40px 30px}
-.kpi .num{font-family:var(--display);font-size:clamp(38px,5.4vw,60px);color:var(--gold);
-  line-height:1;letter-spacing:-.035em}
-.kpi .label{font-family:var(--mono);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;
-  color:var(--muted);margin-top:15px}
-.kpi .note{font-size:13.5px;color:var(--dim);margin-top:7px}
-.deep .kpi > div{background:var(--bg)}
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
-/* A→B */
-.ab{margin-top:52px;border-top:1px solid var(--faded)}
-.ab-row{display:grid;grid-template-columns:1.25fr 1fr 1fr .6fr;gap:16px;align-items:center;
-  padding:22px 0;border-bottom:1px solid var(--faded)}
-.ab-head{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--muted);padding:0 0 15px}
-.ab-row-label{color:var(--text);font-size:15.5px}
-.ab-was{color:var(--dim);font-family:var(--mono);font-size:15px}
-.ab-now{color:var(--ink-bright);font-family:var(--display);font-size:23px;letter-spacing:-.02em}
-.multiplier{font-family:var(--display);color:var(--gold);font-size:21px;text-align:right;white-space:nowrap}
+    --mx: 50%;
+    --my: 50%;
+  }
 
-/* ГРАФИК */
-.chart{margin-top:54px;background:var(--bg-deep);border:1px solid var(--faded);padding:36px 26px 26px}
-.deep .chart{background:var(--bg)}
-.chart svg{width:100%;height:auto;display:block;overflow:visible}
-.chart-legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.chart-legend i{display:inline-block;width:20px;height:2px;background:var(--gold);
-  margin-right:9px;vertical-align:middle;font-style:normal}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-/* ХРОНОЛОГИЯ */
-.timeline{margin-top:54px;border-left:1px solid var(--faded);padding-left:32px}
-.timeline-item{position:relative;padding-bottom:46px}
-.timeline-item:last-child{padding-bottom:0}
-.timeline-item::before{content:'';position:absolute;left:-37px;top:9px;width:9px;height:9px;
-  border-radius:50%;background:var(--gold-deep)}
-.timeline-date{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-deep);margin-bottom:10px}
-.timeline-title{font-family:var(--display);font-size:24px;color:var(--ink-bright);margin-bottom:8px;
-  letter-spacing:-.02em}
-.timeline-stats{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-/* PROOF SHOTS */
-.proof-shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin-top:52px}
-.proof-shot img{width:100%;display:block;border:1px solid var(--faded);border-radius:9px}
-.proof-shot-caption{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--muted);margin-top:12px;line-height:1.5}
-.proof-wide{margin-top:52px}
-.proof-wide img{width:100%;display:block;border:1px solid var(--faded);border-radius:11px}
+  /* Lock scroll while splash is visible */
+  body.splash-active { overflow: hidden; height: 100vh; }
 
-/* БЛОКИ РАБОТ */
-.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
-  background:var(--faded);margin-top:52px}
-.blocks > div{background:var(--bg);padding:34px 28px}
-.deep .blocks > div{background:var(--bg-deep)}
-.blocks h3{font-size:18px;color:var(--ink);margin-bottom:9px;font-family:var(--sans);font-weight:500}
-.blocks p{font-size:14.5px;color:var(--muted);line-height:1.62}
+  /* ============================================================ */
+  /* SPLASH SCREEN                                                */
+  /* ============================================================ */
 
-/* ЦИТАТЫ */
-.quotes{display:grid;gap:28px;margin-top:54px}
-.quote{border-left:2px solid var(--gold-deep);padding:26px 30px;background:rgba(255,184,77,.032)}
-.quote p{font-family:var(--serif);font-size:clamp(20px,2.5vw,27px);line-height:1.42;
-  color:var(--ink-bright);font-style:italic;max-width:none}
-.quote cite{display:block;margin-top:16px;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-style:normal}
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
 
-.note-box{margin-top:52px;padding:30px 32px;border-left:2px solid var(--gold-deep);
-  background:rgba(255,184,77,.035)}
-.note-box p{color:var(--ink);font-size:17px}
+  .splash.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 
-/* CTA */
-.cta{text-align:center}
-.cta p{margin:0 auto 42px;max-width:52ch}
-.btn{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--bg-deep);background:var(--gold);padding:19px 44px;
-  text-decoration:none;border-radius:2px;transition:background .2s}
-.btn:hover{background:var(--gold-bright)}
-.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold-deep);margin-left:12px}
-.btn-ghost:hover{background:rgba(255,184,77,.08)}
-footer{padding:54px 0;border-top:1px solid var(--faded);text-align:center;font-family:var(--mono);
-  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+  .splash::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
 
-@media(max-width:680px){
-  section{padding:78px 0}
-  .container{padding:0 20px}
-  p,.hero-lead{max-width:100%}
-  .hero{min-height:auto;padding:120px 0 90px}
-  .ab-row{grid-template-columns:1fr 1fr;gap:8px 14px;padding:20px 0}
-  .ab-row-label{grid-column:1/-1;font-size:14px;color:var(--muted)}
-  .multiplier{text-align:left}
-  .ab-head{display:none}
-  .timeline{padding-left:24px}
-  .timeline-item::before{left:-29px}
-  .btn{display:block}
-  .btn-ghost{margin-left:0;margin-top:12px}
-  .marquee-item{padding:0 22px}
-  .marquee-item b{font-size:22px}
-}
+  .splash-monogram {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.1s forwards;
+  }
+
+  .splash-monogram svg {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 24px var(--gold-glow));
+  }
+
+  .splash-monogram .ring {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: drawRing 1.4s var(--ease-out) 0.3s forwards;
+  }
+
+  @keyframes drawRing {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .splash-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.5s forwards;
+  }
+
+  .splash-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    font-size: clamp(64px, 12vw, 144px);
+    line-height: 1;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.7s forwards;
+    text-shadow: 0 0 40px rgba(255, 184, 77, 0.2);
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .splash-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 0;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.9s forwards;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .splash-loader {
+    width: 200px;
+    height: 1px;
+    background: var(--line);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 0.4s forwards;
+  }
+
+  .splash-loader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+    animation: loaderSweep 2s var(--ease) 0.5s forwards;
+    transform: translateX(-100%);
+  }
+
+  @keyframes loaderSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes splashFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .splash-skip {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    z-index: 2;
+    background: none;
+    border: 1px solid var(--line-bright);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 1.2s forwards;
+  }
+
+  .splash-skip:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* ATMOSPHERIC LAYERS                                           */
+  /* ============================================================ */
+
+  .ambient {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+
+  .ambient::before, .ambient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+  }
+
+  .ambient::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 70%);
+    top: -200px; left: -100px;
+    animation: drift1 22s ease-in-out infinite;
+  }
+
+  .ambient::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.12), transparent 70%);
+    bottom: -150px; right: -100px;
+    animation: drift2 28s ease-in-out infinite;
+  }
+
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, 60px) scale(1.1); }
+    66% { transform: translate(-40px, 100px) scale(0.95); }
+  }
+
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-100px, -60px) scale(1.15); }
+  }
+
+  .spotlight {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(circle 600px at var(--mx) var(--my), rgba(255, 184, 77, 0.05), transparent 50%);
+    transition: background 0.1s linear;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    z-index: 1000;
+    mix-blend-mode: overlay;
+  }
+
+  main, header, section, footer { position: relative; z-index: 2; }
+
+  /* ============================================================ */
+  /* PROGRESS BAR                                                 */
+  /* ============================================================ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: var(--scroll, 0%);
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), var(--gold-bright));
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    z-index: 998;
+    transition: width 0.05s linear;
+  }
+
+  /* ============================================================ */
+  /* STICKY DOT NAVIGATION                                        */
+  /* ============================================================ */
+
+  .nav-dots {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 14px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease) 0.4s, transform 0.6s var(--ease) 0.4s;
+    transform: translateY(-50%) translateX(20px);
+  }
+
+  .nav-dots.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--muted);
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    padding: 0;
+  }
+
+  .nav-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    right: calc(100% + 16px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-dot:hover {
+    border-color: var(--gold);
+    background: var(--gold-glow-soft);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .nav-dot:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .nav-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+
+  @media (max-width: 1100px) {
+    .nav-dots { display: none; }
+  }
+
+  /* ============================================================ */
+  /* TYPOGRAPHY                                                   */
+  /* ============================================================ */
+
+  h1, h2, h3, h4 {
+    color: var(--ink-bright);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  /* Display headings - Fraunces */
+  h2 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    line-height: 0.95;
+  }
+
+  h2 em {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--ink-bright);
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  p { margin-bottom: 18px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+
+  a {
+    color: var(--gold-bright);
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+  }
+  a:hover { color: var(--gold); text-shadow: 0 0 20px var(--gold-glow); }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .container-wide {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ============================================================ */
+  /* COMMON                                                       */
+  /* ============================================================ */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 96px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+  .reveal-delay-5 { transition-delay: 0.7s; }
+
+  /* ============================================================ */
+  /* HERO — DRAMATIC                                              */
+  /* ============================================================ */
+
+  .hero {
+    min-height: 100vh;
+    padding: 96px 0 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+
+  /* Decorative side rails with year */
+  .hero-rail {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .hero-rail.left { left: 32px; }
+  .hero-rail.right { right: 32px; transform: translateY(-50%) rotate(180deg); }
+
+  .hero-rail::before, .hero-rail::after {
+    content: '';
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold-deep), transparent);
+  }
+
+  @media (max-width: 1100px) {
+    .hero-rail { display: none; }
+  }
+
+  .hero-tape {
+    position: absolute;
+    top: 32px;
+    left: 0; right: 0;
+    z-index: 3;
+  }
+
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-meta .accent { color: var(--gold); }
+
+  .hero-meta .pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .hero-meta .sep {
+    width: 24px;
+    height: 1px;
+    background: var(--line-bright);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow-soft); }
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Big italic name overlay */
+  .hero-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 120px);
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    margin-bottom: 40px;
+    text-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* The hero number — Fraunces variable, characterful */
+  .hero-number-wrap {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .hero-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(120px, 22vw, 280px);
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: var(--ink-bright);
+    background: linear-gradient(180deg,
+      var(--ink-bright) 0%,
+      var(--ink) 50%,
+      var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 80px rgba(255, 184, 77, 0.18));
+    position: relative;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero-number-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 400px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 56px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-subtitle .arrow {
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  .hero-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: normal;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.45;
+    color: var(--text);
+    max-width: 660px;
+    margin: 0 auto 80px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-tagline em {
+    font-style: italic;
+    color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .hero-tagline strong {
+    color: var(--ink-bright);
+    font-weight: 400;
+  }
+
+  /* KPI strip */
+  .hero-kpi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .hero-kpi-cell {
+    background: var(--bg);
+    padding: 36px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s var(--ease);
+  }
+
+  .hero-kpi-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+  }
+
+  .hero-kpi-cell:hover { background: var(--bg-1); }
+  .hero-kpi-cell:hover::before { opacity: 1; }
+
+  .hero-kpi-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(40px, 5.5vw, 56px);
+    line-height: 1;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+
+  .hero-kpi-value sup {
+    font-size: 0.4em;
+    color: var(--gold);
+    font-variation-settings: "opsz" 9, "wght" 400, "SOFT" 0;
+    margin-left: 4px;
+    vertical-align: super;
+    text-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .hero-kpi-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    position: relative;
+  }
+
+  .hero-handles {
+    margin-top: 56px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-handles a {
+    margin: 0 12px;
+    border-bottom: 1px dotted var(--gold-glow);
+    padding-bottom: 2px;
+  }
+
+  .scroll-hint {
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    opacity: 0.7;
+    z-index: 3;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 12px auto 0;
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: translateY(-8px) scaleY(0.5); opacity: 0; }
+    50% { transform: translateY(0) scaleY(1); opacity: 1; }
+    100% { transform: translateY(8px) scaleY(0.5); opacity: 0; }
+  }
+
+  /* ============================================================ */
+  /* MARQUEE                                                      */
+  /* ============================================================ */
+
+  .marquee {
+    padding: 24px 0;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee::before, .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee::before { left: 0; background: linear-gradient(to right, var(--bg-deep), transparent); }
+  .marquee::after { right: 0; background: linear-gradient(to left, var(--bg-deep), transparent); }
+
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .marquee-item .num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: 24px;
+    color: var(--gold-bright);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .marquee-item .star {
+    color: var(--gold);
+    font-size: 16px;
+    margin: 0 8px;
+  }
+
+  /* ============================================================ */
+  /* INTRO                                                        */
+  /* ============================================================ */
+
+  .intro {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 60px; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .intro p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 780px;
+    margin: 0 auto 22px;
+    text-wrap: balance;
+    -webkit-hyphens: none;
+    hyphens: none;
+  }
+
+  .intro p:last-of-type { margin-bottom: 0; }
+  .intro p strong, .intro p em {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* SECTION                                                      */
+  /* ============================================================ */
+
+  section { padding: 140px 0; position: relative; }
+  .section-bg-deep { background: var(--bg-deep); }
+
+  /* ============================================================ */
+  /* AB TABLE                                                     */
+  /* ============================================================ */
+
+  .ab-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 56px 0;
+  }
+
+  .ab-cell {
+    background: var(--bg);
+    padding: 56px 40px;
+    position: relative;
+  }
+
+  .ab-cell.before { background: var(--bg-deep); }
+  .ab-cell.after {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 70%),
+      var(--bg);
+  }
+
+  .ab-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ab-cell.before .ab-label { color: var(--muted); }
+  .ab-cell.after .ab-label { color: var(--gold); }
+
+  .ab-cell.before .ab-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+  }
+
+  .ab-cell.after .ab-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+
+  .ab-row {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ab-row:last-child { border-bottom: none; }
+
+  .ab-row-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ab-row-value {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.005em;
+  }
+
+  .ab-cell.before .ab-row-value { color: var(--text); font-weight: 300; }
+  .ab-cell.after .ab-row-value {
+    color: var(--ink-bright);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50;
+    font-size: 22px;
+  }
+
+  .ab-row-value .multiplier {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 16px;
+    color: var(--gold);
+    margin-left: 8px;
+    text-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* CLIENT BLOCK                                                 */
+  /* ============================================================ */
+
+  .client-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .client-block .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .client-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 400;
+    line-height: 0.95;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+  }
+
+  .client-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .client-bullets li {
+    padding: 16px 0;
+    padding-left: 32px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+  }
+
+  .client-bullets li:last-child { border-bottom: none; }
+
+  .client-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 16px; height: 1px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  .client-bullets strong { color: var(--ink-bright); font-weight: 500; }
+
+  .client-meta {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .client-meta-item .ab-row-label { margin-bottom: 12px; }
+  .client-meta-item p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ============================================================ */
+  /* GROWTH CHART                                                 */
+  /* ============================================================ */
+
+  .chart-section {
+    padding: 140px 0;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .chart-wrap {
+    margin: 64px auto 0;
+    max-width: 920px;
+    padding: 48px 32px 32px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .chart-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+
+  .chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .chart-y-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .chart-x-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .chart-grid {
+    stroke: var(--line);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+  }
+
+  .chart-path {
+    fill: none;
+    stroke: url(#goldGradient);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    filter: drop-shadow(0 0 6px var(--gold-glow));
+  }
+
+  .chart-section .chart-path {
+    animation: drawPath 3.4s var(--ease-out) 0.3s forwards;
+  }
+
+  @keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .chart-area {
+    fill: url(#areaGradient);
+    opacity: 0;
+  }
+
+  .chart-section .chart-area {
+    animation: fadeArea 1.5s var(--ease-out) 2s forwards;
+  }
+
+  @keyframes fadeArea {
+    to { opacity: 0.6; }
+  }
+
+  .chart-dot {
+    fill: var(--bg);
+    stroke: var(--gold);
+    stroke-width: 2;
+    opacity: 0;
+  }
+
+  .chart-section .chart-dot {
+    animation: popDot 0.5s var(--ease-out) forwards;
+  }
+
+  .chart-dot.delay-1 { animation-delay: 1.0s; }
+  .chart-dot.delay-2 { animation-delay: 1.3s; }
+  .chart-dot.delay-3 { animation-delay: 1.6s; }
+  .chart-dot.delay-4 { animation-delay: 1.9s; }
+  .chart-dot.delay-5 { animation-delay: 2.2s; }
+  .chart-dot.delay-6 { animation-delay: 2.5s; }
+
+  @keyframes popDot {
+    from { opacity: 0; transform: scale(0); transform-origin: center; }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .chart-peak-ring {
+    fill: var(--gold);
+    opacity: 0;
+    transform-origin: center;
+  }
+
+  .chart-section .chart-peak-ring {
+    animation: peakPulse 2s ease-in-out 3.1s infinite;
+  }
+
+  @keyframes peakPulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0; transform: scale(2.5); }
+    100% { opacity: 0; transform: scale(2.5); }
+  }
+
+  .chart-peak-dot {
+    fill: var(--gold);
+    filter: drop-shadow(0 0 10px var(--gold)) drop-shadow(0 0 20px var(--gold-glow));
+    opacity: 0;
+  }
+
+  .chart-section .chart-peak-dot {
+    animation: popDot 0.6s var(--ease-out) 2.4s forwards;
+  }
+
+  .chart-annotation {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    fill: var(--gold);
+    opacity: 0;
+  }
+
+  .chart-section .chart-annotation {
+    animation: fadeIn 0.6s var(--ease-out) 3.1s forwards;
+  }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .chart-pause-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+    opacity: 0;
+  }
+
+  .chart-section .chart-pause-label {
+    animation: fadeIn 0.6s var(--ease-out) 2.6s forwards;
+  }
+
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chart-legend-item .marker {
+    width: 12px; height: 1.5px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  .chart-legend-item .marker.peak {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+  }
+
+  .chart-legend-item .marker.dashed {
+    width: 16px; height: 1.5px;
+    background: repeating-linear-gradient(to right, var(--muted) 0 4px, transparent 4px 8px);
+    box-shadow: none;
+  }
+
+  /* ============================================================ */
+  /* METHODOLOGY                                                  */
+  /* ============================================================ */
+
+  .method-intro {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 96px;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .method-intro em {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85em;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .block {
+    margin-bottom: 88px;
+    position: relative;
+    padding-left: 96px;
+  }
+
+  .block-num {
+    position: absolute;
+    left: 0; top: -8px;
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+
+  .block-num::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-top: 16px;
+    box-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+
+  .block h3 {
+    margin-bottom: 16px;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50;
+    font-size: 32px;
+    letter-spacing: -0.025em;
+    color: var(--ink-bright);
+  }
+
+  .block .why {
+    margin-top: 24px;
+    padding: 20px 28px;
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    color: var(--text);
+    font-size: 15px;
+    box-shadow: -8px 0 32px rgba(255, 184, 77, 0.04);
+    position: relative;
+  }
+
+  .block .why strong {
+    color: var(--gold);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* LIST                                                         */
+  /* ============================================================ */
+
+  ul.refined { list-style: none; padding: 0; margin: 16px 0; }
+
+  ul.refined li {
+    padding: 16px 0;
+    padding-left: 32px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  ul.refined li:last-child { border-bottom: none; }
+
+  ul.refined li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 16px; height: 1px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  ul.refined strong { color: var(--ink-bright); font-weight: 500; }
+
+  /* ============================================================ */
+  /* FORMULA                                                      */
+  /* ============================================================ */
+
+  .formula {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 64px 48px;
+    margin: 32px 0;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .formula::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+
+  .formula .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .formula .quote {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(24px, 2.8vw, 32px);
+    line-height: 1.5;
+    color: var(--ink-bright);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .formula .quote em {
+    font-style: normal;
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* ============================================================ */
+  /* DATA TABLE                                                   */
+  /* ============================================================ */
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-family: var(--sans);
+  }
+
+  .data-table thead tr { border-bottom: 1px solid var(--line-bright); }
+  .data-table tbody tr { border-bottom: 1px solid var(--line); transition: all 0.3s var(--ease); }
+  .data-table tbody tr:hover {
+    background: linear-gradient(to right, transparent 5%, var(--gold-glow-faint), transparent 95%);
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 16px 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .data-table td {
+    padding: 18px 10px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .data-table td.viral {
+    color: var(--gold-bright);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .data-table td.num {
+    text-align: right;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-weight: 400;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .data-table tfoot tr {
+    border-top: 1px solid var(--line-bright);
+    background: var(--bg-card);
+  }
+
+  .data-table tfoot td {
+    font-weight: 500;
+    color: var(--ink-bright);
+    padding-top: 22px; padding-bottom: 22px;
+  }
+
+  /* ============================================================ */
+  /* TIMELINE                                                     */
+  /* ============================================================ */
+
+  .timeline {
+    margin: 64px 0;
+    position: relative;
+    padding-left: 56px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px; top: 12px; bottom: 12px;
+    width: 1px;
+    background: linear-gradient(to bottom,
+      var(--gold-glow-soft) 0%,
+      var(--line) 20%,
+      var(--line) 80%,
+      var(--gold-glow-soft) 100%);
+  }
+
+  .timeline-item {
+    margin-bottom: 72px;
+    position: relative;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -56px; top: 12px;
+    width: 11px; height: 11px;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 12px var(--gold-glow),
+      0 0 24px var(--gold-glow-soft);
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -52px; top: 16px;
+    width: 3px; height: 3px;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+  }
+
+  .timeline-item.peak::before {
+    width: 13px; height: 13px;
+    left: -57px; top: 11px;
+    background: var(--gold);
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 16px var(--gold),
+      0 0 32px var(--gold-glow),
+      0 0 64px var(--gold-glow-soft);
+  }
+
+  .timeline-item.peak::after {
+    background: var(--bg);
+    width: 4px; height: 4px;
+    left: -52px; top: 16px;
+    box-shadow: none;
+  }
+
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .timeline-title {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 50;
+    font-size: clamp(36px, 4.5vw, 52px);
+    color: var(--ink-bright);
+    margin-bottom: 24px;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .timeline-title .multiplier {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 0.4em;
+    color: var(--gold);
+    margin-left: 12px;
+    letter-spacing: 0;
+    text-shadow: 0 0 12px var(--gold-glow);
+    vertical-align: middle;
+  }
+
+  .timeline-stats { list-style: none; padding: 0; }
+
+  .timeline-stats li {
+    padding: 8px 0 8px 24px;
+    color: var(--text);
+    font-size: 15px;
+    position: relative;
+  }
+
+  .timeline-stats li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 16px;
+    width: 12px; height: 1px;
+    background: var(--gold-deep);
+  }
+
+  .timeline-stats li.highlight { color: var(--ink); }
+  .timeline-stats strong {
+    color: var(--gold-bright);
+    font-weight: 400;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* VIRAL CARDS WITH 3D TILT                                     */
+  /* ============================================================ */
+
+  .viral-grid {
+    display: grid;
+    gap: 32px;
+    margin-top: 56px;
+    perspective: 1500px;
+  }
+
+  .viral-card {
+    padding: 48px;
+    background:
+      radial-gradient(circle at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .viral-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .viral-card:hover {
+    border-color: transparent;
+    box-shadow:
+      0 32px 80px rgba(0, 0, 0, 0.6),
+      0 0 80px var(--gold-glow-faint);
+  }
+
+  .viral-card:hover::before { opacity: 1; }
+
+  .viral-card-inner {
+    position: relative;
+    transform: translateZ(40px);
+  }
+
+  .viral-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .viral-card-rank {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 96px;
+    line-height: 0.85;
+    color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+
+  .viral-card-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 12px;
+    border: 1px solid var(--line-bright);
+    border-radius: 100px;
+  }
+
+  .viral-card-tag.peak {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: var(--gold-glow-faint);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .viral-card-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--ink-bright);
+    margin-bottom: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+
+  .viral-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .viral-stat-block .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 50;
+    font-size: clamp(32px, 4vw, 44px);
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  .viral-stat-block .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .viral-card-note {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .viral-extra {
+    margin-top: 56px;
+    padding: 32px 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .viral-extra-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .viral-extra-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .viral-extra-row:last-child { border-bottom: none; }
+
+  .viral-extra-row .title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .viral-extra-row .stats {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 16px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+    white-space: nowrap;
+  }
+
+  /* ============================================================ */
+  /* SPRINT BLOCK (May 2026)                                      */
+  /* ============================================================ */
+
+  .sprint-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin: 56px 0;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .sprint-meta-cell {
+    background: var(--bg);
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .sprint-meta-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .sprint-meta-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .sprint-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+  .evolution-table {
+    margin-top: 32px;
+  }
+
+  .evolution-table th {
+    text-align: right;
+  }
+
+  .evolution-table th:first-child {
+    text-align: left;
+  }
+
+  .evolution-table td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .evolution-table td:first-child {
+    text-align: left;
+    color: var(--text);
+    font-size: 13px;
+    font-family: var(--mono);
+  }
+
+  .evolution-table td.peak-col {
+    color: var(--gold-bright);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+    background: var(--gold-glow-faint);
+  }
+
+  /* Stories block */
+  .stories-block {
+    margin-top: 56px;
+  }
+
+  .stories-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 32px;
+  }
+
+  .stories-list li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stories-list li:last-child { border-bottom: none; }
+
+  .stories-list .num-cell {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    width: 24px;
+  }
+
+  .stories-list .theme {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .stories-list .views {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 17px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .stories-total {
+    background: linear-gradient(to right, var(--gold-glow-faint), transparent);
+    padding: 18px 24px;
+    border-top: 1px solid var(--gold-glow);
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: baseline;
+  }
+
+  .stories-total .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .stories-total .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: 26px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* Client tease quote */
+  .client-tease {
+    margin: 56px 0 0;
+    padding: 48px 40px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+  }
+
+  .client-tease::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .client-tease-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .client-tease-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--ink-bright);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .client-tease-author {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .client-tease-result {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    font-size: 22px;
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* ============================================================ */
+  /* BUSINESS                                                     */
+  /* ============================================================ */
+
+  .business-grid { display: grid; gap: 80px; margin-top: 56px; }
+
+  .business-list { list-style: none; padding: 0; margin-top: 20px; }
+
+  .business-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .business-list li:last-child { border-bottom: none; }
+
+  .business-list li .label {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .business-list li .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    font-size: 18px;
+  }
+
+  .business-list li .value.glow {
+    color: var(--gold-bright);
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+    font-size: 22px;
+  }
+
+  /* ============================================================ */
+  /* INFLUENCER                                                   */
+  /* ============================================================ */
+
+  .influencer-quote {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 56px 48px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .influencer-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+
+  .influencer-author {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink-bright);
+    margin-bottom: 6px;
+  }
+
+  .influencer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .influencer-meta .dot {
+    width: 3px; height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .influencer-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .influencer-text::before, .influencer-text::after {
+    color: var(--gold);
+    font-style: normal;
+    font-family: var(--display);
+  }
+  .influencer-text::before { content: '"'; margin-right: 4px; }
+  .influencer-text::after { content: '"'; margin-left: 4px; }
+
+  /* ============================================================ */
+  /* TESTIMONIAL HERO — MASSIVE                                   */
+  /* ============================================================ */
+
+  .testimonial-hero {
+    padding: 220px 0;
+    text-align: center;
+    position: relative;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .testimonial-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 60% 40% at top, var(--gold-glow-faint), transparent 60%),
+      radial-gradient(ellipse 60% 40% at bottom, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+
+  .testimonial-ornament {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    color: var(--gold);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 16px var(--gold-glow));
+  }
+
+  .testimonial-ornament.left { left: 8%; }
+  .testimonial-ornament.right { right: 8%; transform: translateY(-50%) scaleX(-1); }
+
+  @media (max-width: 900px) {
+    .testimonial-ornament { display: none; }
+  }
+
+  .testimonial-mark {
+    position: absolute;
+    top: 80px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 320px;
+    color: var(--gold);
+    opacity: 0.18;
+    line-height: 0.8;
+    text-shadow: 0 0 100px var(--gold-glow);
+    z-index: 1;
+  }
+
+  .testimonial-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .testimonial-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 56px;
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .testimonial-eyebrow::before, .testimonial-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .testimonial-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(44px, 7vw, 88px);
+    line-height: 1.1;
+    color: var(--ink-bright);
+    max-width: 920px;
+    margin: 0 auto 56px;
+    letter-spacing: -0.025em;
+    text-shadow: 0 0 60px rgba(255, 184, 77, 0.15);
+  }
+
+  .testimonial-mega {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 200, "SOFT" 80;
+    font-style: italic;
+    font-size: 1.5em;
+    color: var(--gold-bright);
+    text-shadow:
+      0 0 32px var(--gold),
+      0 0 64px var(--gold-glow),
+      0 0 120px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    transform: translateY(0.05em);
+  }
+
+  .testimonial-author {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+  }
+
+  .testimonial-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================================ */
+  /* REACTIONS BLOCK                                              */
+  /* ============================================================ */
+
+  .reactions-block {
+    text-align: center;
+  }
+
+  .reactions-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .reactions-title {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--ink-bright);
+    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+  }
+
+  .reactions-subtitle {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 56px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reaction-quotes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 720px) {
+    .reaction-quotes { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  .reaction-quote {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s var(--ease);
+  }
+
+  .reaction-quote::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 64px;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    text-shadow: 0 0 20px var(--gold-glow);
+  }
+
+  .reaction-quote:hover {
+    border-color: var(--gold-glow);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+    transform: translateY(-2px);
+  }
+
+  .reaction-quote .quote-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--ink-bright);
+    margin-bottom: 16px;
+    margin-top: 24px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .reaction-quote .quote-text-soft {
+    font-size: 14px;
+    color: var(--text);
+    text-shadow: none;
+    font-weight: 300;
+  }
+
+  .reaction-quote .quote-meta {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ============================================================ */
+  /* FOOTER                                                       */
+  /* ============================================================ */
+
+  .footer {
+    padding: 160px 0 80px;
+    text-align: center;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow);
+  }
+
+  .footer h2 { color: var(--ink-bright); margin-bottom: 16px; }
+
+  .footer-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--muted);
+    margin-bottom: 80px;
+  }
+
+  .contacts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto 96px;
+    perspective: 1000px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    color: var(--text);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .contact-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .contact-link:hover {
+    border-color: transparent;
+    box-shadow:
+      0 12px 40px rgba(255, 184, 77, 0.12),
+      0 0 0 1px var(--gold-glow);
+  }
+  .contact-link:hover::before { opacity: 1; }
+  .contact-link:hover::after { opacity: 1; }
+  .contact-link:hover .contact-icon {
+    color: var(--gold);
+    filter: drop-shadow(0 0 12px var(--gold-glow));
+  }
+  .contact-link:hover .contact-handle { color: var(--gold-bright); }
+
+  .contact-link-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    transform: translateZ(20px);
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    color: var(--muted);
+    transition: all 0.4s var(--ease);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .contact-handle {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -0.005em;
+  }
+
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    line-height: 2;
+  }
+
+  /* ============================================================ */
+  /* ECONOMICS BLOCK                                              */
+  /* ============================================================ */
+
+  .economics-block {
+    margin: 32px 0 0;
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .economics-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .econ-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr;
+    align-items: baseline;
+    gap: 24px;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.3s var(--ease);
+  }
+
+  .econ-row:last-child { border-bottom: none; }
+
+  .econ-row:hover {
+    background: var(--gold-glow-faint);
+  }
+
+  .econ-row.total {
+    background: linear-gradient(to right, var(--gold-glow-faint), transparent);
+    border-top: 1px solid var(--gold-glow);
+  }
+
+  .econ-row.total::before {
+    content: '';
+    position: absolute;
+    left: 32px; right: 32px;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-glow), transparent);
+    margin-top: -22px;
+  }
+
+  .econ-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .econ-row.total .econ-label {
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .econ-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: 22px;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .econ-value .hl {
+    color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 60;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .econ-row.total .econ-value {
+    font-size: 28px;
+  }
+
+  .econ-row.total .econ-value .hl {
+    text-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+
+  .econ-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .econ-row.total .econ-meta {
+    color: var(--gold);
+  }
+
+  @media (max-width: 720px) {
+    .econ-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 20px 24px;
+    }
+
+    .econ-meta { text-align: left; }
+
+    .econ-value { font-size: 24px; }
+    .econ-row.total .econ-value { font-size: 28px; }
+  }
+
+  /* ============================================================ */
+  /* RESPONSIVE                                                   */
+  /* ============================================================ */
+
+  @media (max-width: 720px) {
+    body { font-size: 15px; }
+
+    section { padding: 96px 0; }
+    .hero { padding: 96px 0 64px; min-height: auto; }
+    .intro { padding: 96px 0; }
+    .testimonial-hero { padding: 120px 0; }
+    .footer { padding: 96px 0 64px; }
+
+    .container { padding: 0 24px; }
+
+    .hero-meta { flex-direction: column; gap: 8px; }
+    .hero-meta .sep { display: none; }
+    .hero-kpi { grid-template-columns: 1fr; gap: 1px; }
+
+    /* первый экран на мобилке: чтобы ничего не вылезало и не рвалось криво */
+    .hero-name { font-size: clamp(42px, 12vw, 66px); margin-bottom: 24px; }
+    .hero-number { font-size: clamp(50px, 17vw, 84px); letter-spacing: -0.03em; }
+    .hero-number-wrap { margin-bottom: 40px; }
+    .hero-subtitle { flex-wrap: wrap; justify-content: center; gap: 8px 12px; font-size: 10px; letter-spacing: 0.22em; margin-bottom: 40px; padding: 0 12px; }
+    .hero-tagline { font-size: 17px; line-height: 1.55; margin-bottom: 56px; max-width: 100%; }
+    .hero-tagline br { display: none; }
+    .hero-kpi-cell { padding: 22px 16px; }
+    .hero-kpi-value { font-size: clamp(32px, 9vw, 44px); }
+
+    .ab-wrap { grid-template-columns: 1fr; }
+
+    .client-block { grid-template-columns: 1fr; gap: 32px; }
+    .client-meta { grid-template-columns: 1fr; }
+
+    .block { padding-left: 0; }
+    .block-num { position: relative; display: inline-block; margin-bottom: 16px; font-size: 56px; }
+
+    .timeline { padding-left: 32px; }
+    .timeline::before { left: 5px; }
+    .timeline-item::before { left: -32px; }
+    .timeline-item::after { left: -28px; }
+    .timeline-item.peak::before { left: -33px; }
+    .timeline-item.peak::after { left: -28px; }
+
+    .ab-cell { padding: 32px 24px; }
+
+    .data-table th, .data-table td { padding: 12px 4px; font-size: 12px; }
+
+    .viral-card { padding: 32px 24px; }
+    .viral-card-rank { font-size: 64px; }
+    .viral-card-stats { grid-template-columns: 1fr; gap: 16px; }
+
+    .viral-extra-row { grid-template-columns: 1fr; gap: 6px; }
+
+    .formula { padding: 40px 24px; }
+    .testimonial-mark { font-size: 200px; top: 40px; }
+    .influencer-quote { padding: 36px 24px; }
+
+    .business-list li { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+    .contacts { grid-template-columns: 1fr; gap: 12px; }
+
+    .chart-wrap { padding: 32px 16px; }
+
+    .stories-list li { grid-template-columns: 1fr; gap: 4px; }
+    .stories-list .num-cell { display: none; }
+  }
+
+  /* ============================================================ */
+  /* PROOF SCREENSHOTS — frame hugs each image's natural size      */
+  /* ============================================================ */
+
+  .proof-shots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .proof-shot {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    background: rgba(255, 255, 255, 0.018);
+    border: 1px solid rgba(255, 184, 77, 0.12);
+    border-radius: 18px;
+    padding: 14px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .proof-shot:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 77, 0.32);
+    box-shadow: 0 24px 60px -20px rgba(255, 184, 77, 0.18);
+  }
+
+  .proof-shot img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 340px;
+    max-height: 460px;
+    border-radius: 10px;
+    background: #0d0d0f;
+  }
+
+  /* Tall phone-style screenshots: tighter width cap */
+  .proof-shot.tall img { max-width: 240px; max-height: 480px; }
+  /* Thin horizontal stat slices: wider but short */
+  .proof-shot.thin img { max-width: 420px; max-height: 140px; }
+
+  /* мобилка: обжимаем плитки под ширину экрана. ВАЖНО: у .proof-shot ЖЁСТКИЙ max-width в px (не 100%!) — иначе картинка раздувается до натуральных 900px и тянет страницу вширь */
+  @media (max-width: 720px) {
+    .proof-shot { max-width: 300px; box-sizing: border-box; }
+    .proof-shot img,
+    .proof-shot.tall img,
+    .proof-shot.thin img { max-width: 100%; max-height: 440px; height: auto; }
+    .proof-shot-caption { white-space: normal !important; }   /* иначе длинная подпись в одну строку тянет страницу вширь */
+    .viral-extra-row .stats { white-space: normal; }
+    .data-table { table-layout: fixed; }
+    .data-table th, .data-table td { overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
+  }
+
+  .proof-shot-caption {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .proof-shot-caption strong {
+    color: var(--gold-bright);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .proof-shot-single {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 720px) {
+    .proof-shots { gap: 16px; }
+    .proof-shot { padding: 10px; }
+    .proof-shot img {
+      max-width: calc(50vw - 28px);
+      max-height: 360px;
+    }
+    .proof-shot.tall img { max-width: 180px; max-height: 360px; }
+    .proof-shot.thin img { max-width: calc(100vw - 56px); max-height: 110px; }
+    .proof-shot-caption { font-size: 10px; margin-top: 10px; }
+  }
 </style>
 </head>
-<body>
+<body class="splash-active">
 
-<div id="splash">
-  <div class="sp-mark">MH</div>
-  <div class="sp-sub">Кейс · Азиза · Instagram с нуля</div>
-  <button class="sp-skip" onclick="hideSplash()">Пропустить</button>
+<!-- ============================================================ -->
+<!-- SPLASH SCREEN                                                -->
+<!-- ============================================================ -->
+<div class="splash" id="splash">
+  <div class="splash-monogram">
+    <svg viewBox="0 0 80 80" fill="none">
+      <circle class="ring" cx="40" cy="40" r="35" stroke="var(--gold)" stroke-width="1"/>
+      <text x="40" y="50" font-family="Fraunces, serif" font-size="32" font-style="italic" font-weight="300" fill="var(--gold)" text-anchor="middle" letter-spacing="-2">MH</text>
+    </svg>
+  </div>
+
+  <div class="splash-label">Кейс · Азиза</div>
+
+  <div class="splash-number" id="splashCounter">0</div>
+
+  <div class="splash-name">— Азиза</div>
+
+  <div class="splash-loader"></div>
+
+  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
 </div>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-tag reveal">Кейс · 2026 · Instagram</div>
-    <h1 class="reveal d1">466&nbsp;454<br><em>просмотра</em></h1>
-    <p class="hero-lead reveal d2">Новый аккаунт. Ноль подписчиков, ноль публикаций. Через десять дней публикаций&nbsp;— почти полмиллиона просмотров и&nbsp;316&nbsp;тысяч охваченных людей. Без&nbsp;рекламы, без&nbsp;продвижения, без&nbsp;единого вложенного рубля в&nbsp;трафик.</p>
-    <div class="hero-meta reveal d3">Азиза × Малик Хашимов · июль 2026</div>
-  </div>
-  <div class="scroll-hint">Прокрутить</div>
-</section>
+<!-- Atmospheric layers -->
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
 
+<!-- ============================================================ -->
+<!-- STICKY DOT NAVIGATION                                        -->
+<!-- ============================================================ -->
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-target="hero" data-label="Hero"></button>
+  <button class="nav-dot" data-target="result" data-label="Результат"></button>
+  <button class="nav-dot" data-target="account-month" data-label="Статистика"></button>
+  <button class="nav-dot" data-target="client" data-label="Клиент"></button>
+  <button class="nav-dot" data-target="growth" data-label="График"></button>
+  <button class="nav-dot" data-target="method" data-label="Метод"></button>
+  <button class="nav-dot" data-target="timeline" data-label="Хронология"></button>
+  <button class="nav-dot" data-target="testimonial" data-label="Отзыв"></button>
+  <button class="nav-dot" data-target="contacts" data-label="Контакты"></button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- HERO                                                         -->
+<!-- ============================================================ -->
+<header class="hero" id="hero">
+
+  <div class="hero-rail left">21 июля 2026</div>
+  <div class="hero-rail right">31 июля 2026</div>
+
+  <div class="hero-tape">
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="pulse"></span>
+        <span>Кейс · Instagram с нуля</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="sep"></span>
+        <span class="accent">10 дней публикаций</span>
+        <span class="sep"></span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Малик Хашимов</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-name reveal">Азиза</div>
+
+    <div class="hero-number-wrap reveal reveal-delay-1">
+      <div class="hero-number" data-counter="466454">466&#8239;454</div>
+    </div>
+
+    <div class="hero-subtitle reveal reveal-delay-2">
+      <span>с&nbsp;нуля</span><span class="arrow">→</span>
+      <span class="accent">466&#8239;454 просмотра</span><span class="arrow">↗</span><span>10 дней</span>
+    </div>
+    <p class="hero-tagline reveal reveal-delay-3">
+      <em>315&#8239;776</em> охваченных аккаунтов.<br>
+      Топ-ролик на&nbsp;<em>238&#8239;000</em> просмотров.<br>
+      Ноль рублей на&nbsp;рекламу.
+    </p>
+
+    <div class="hero-kpi reveal reveal-delay-4">
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">×236<sup>↑</sup></div>
+        <div class="hero-kpi-label">Рост базы</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">100<sup>M+</sup></div>
+        <div class="hero-kpi-label">Охватов</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">+20<sup>K</sup></div>
+        <div class="hero-kpi-label">С&nbsp;1 ролика</div>
+      </div>
+    </div>
+
+    <div class="hero-handles reveal reveal-delay-5">
+      <a href="https://www.instagram.com/karolina_chitanava" target="_blank">@karolina_chitanava</a>
+      <a href="https://www.instagram.com/jamaliofficial.ru" target="_blank">@jamaliofficial.ru</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint reveal reveal-delay-5">Прокрутить</div>
+</header>
+
+<!-- ============================================================ -->
+<!-- MARQUEE                                                      -->
+<!-- ============================================================ -->
 <div class="marquee">
   <div class="marquee-track">
-    <div class="marquee-item"><b>466 454</b><span>просмотра</span></div>
-    <div class="marquee-item"><b>315 776</b><span>охват</span></div>
-    <div class="marquee-item"><b>+468</b><span>подписчиков</span></div>
-    <div class="marquee-item"><b>238K</b><span>топ-ролик</span></div>
-    <div class="marquee-item"><b>99,6%</b><span>новая аудитория</span></div>
-    <div class="marquee-item"><b>8</b><span>роликов</span></div>
-    <div class="marquee-item"><b>10</b><span>дней</span></div>
-    <div class="marquee-item"><b>0 ₽</b><span>на рекламу</span></div>
-    <div class="marquee-item"><b>466 454</b><span>просмотра</span></div>
-    <div class="marquee-item"><b>315 776</b><span>охват</span></div>
-    <div class="marquee-item"><b>+468</b><span>подписчиков</span></div>
-    <div class="marquee-item"><b>238K</b><span>топ-ролик</span></div>
-    <div class="marquee-item"><b>99,6%</b><span>новая аудитория</span></div>
-    <div class="marquee-item"><b>8</b><span>роликов</span></div>
-    <div class="marquee-item"><b>10</b><span>дней</span></div>
-    <div class="marquee-item"><b>0 ₽</b><span>на рекламу</span></div>
+    <span class="marquee-item"><span class="num">153&nbsp;000</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+20&nbsp;833</span> с&nbsp;1 ролика</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">100M+</span> охватов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×236</span> рост базы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">4,7M</span> вирусный хит</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">30+</span> вирусных роликов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">sold out</span> коллекций</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">153&nbsp;000</span> подписчиков</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">12M</span> топ-ролик</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">+20&nbsp;833</span> с&nbsp;1 ролика</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">100M+</span> охватов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×236</span> рост базы</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">4,7M</span> вирусный хит</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">30+</span> вирусных роликов</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">sold out</span> коллекций</span>
+    <span class="star">✦</span>
   </div>
 </div>
 
-<section class="deep">
+<!-- ============================================================ -->
+<!-- INTRO                                                        -->
+<!-- ============================================================ -->
+<section class="intro">
   <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Кто вёл</div>
-      <h2 class="reveal d1">Я Малик Хашимов&nbsp;— <span class="thin">продюсер женских блогов</span></h2>
-    </div>
-    <p class="reveal d2">Выстраиваю блоги медийных личностей и&nbsp;экспертов: от&nbsp;распаковки личности и&nbsp;позиционирования до&nbsp;съёмок, монтажа и&nbsp;ежедневного ведения. С&nbsp;Каролиной Читанавой с&nbsp;нуля сделали <span style="color:var(--gold)">153&nbsp;000 подписчиков</span> и&nbsp;<span style="color:var(--gold)">100+&nbsp;млн охватов</span>.</p>
-    <p class="reveal d2" style="margin-top:18px">Азиза пришла с&nbsp;задачей построить блог с&nbsp;нуля&nbsp;— системно, а&nbsp;не&nbsp;наугад. Ниже&nbsp;— что получилось за&nbsp;первый месяц.</p>
+    <p class="reveal">Я&nbsp;<strong>Малик&nbsp;Хашимов</strong>&nbsp;— <em>продюсер женских блогов</em>.</p>
+    <p class="reveal reveal-delay-1">100+ проектов. Медийные личности, блогеры-миллионники, лидеры рынка.</p>
+    <p class="reveal reveal-delay-2">С&nbsp;Азизой запустили блог <strong>с&nbsp;нуля</strong>: за&nbsp;десять дней публикаций&nbsp;— <strong>466&#8239;454 просмотра</strong> и&nbsp;<strong>315&#8239;776 охваченных аккаунтов</strong>. Без&nbsp;рекламы, без&nbsp;продвижения, полностью органически.</p>
   </div>
 </section>
 
-<section>
+<!-- ============================================================ -->
+<!-- POINT A → POINT B                                            -->
+<!-- ============================================================ -->
+<section id="result">
   <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Точка отсчёта</div>
-      <h2 class="reveal d1">Ноль. Совсем ноль</h2>
-      <p class="reveal d2">Прежний аккаунт был закрытым: 136&nbsp;подписчиков, знакомые и&nbsp;семья, публикации рывками. Для&nbsp;блога завели новый&nbsp;— чистый, без&nbsp;единой публикации.</p>
+    <div class="section-header reveal">
+      <span class="eyebrow">Точка А&nbsp;→ Точка Б</span>
+      <h2>Результат <em>в&nbsp;одной таблице</em></h2>
     </div>
-    <div class="proof-shots reveal">
-      <figure class="proof-shot">
-        <img src="img/p0-zero.jpg" alt="Пустой аккаунт: 0 публикаций, 0 подписчиков" loading="lazy">
-        <figcaption class="proof-shot-caption">День 0 · 0 публикаций · 0 подписчиков</figcaption>
-      </figure>
-      <figure class="proof-shot">
-        <img src="img/p1-78.jpg" alt="2 публикации, 78 подписчиков" loading="lazy">
-        <figcaption class="proof-shot-caption">2 публикации · 78 подписчиков · 285 просмотров</figcaption>
-      </figure>
-      <figure class="proof-shot">
-        <img src="img/p2-282.jpg" alt="4 публикации, 282 подписчика" loading="lazy">
-        <figcaption class="proof-shot-caption">4 публикации · 282 подписчика · 205 тыс. просмотров</figcaption>
-      </figure>
-      <figure class="proof-shot">
-        <img src="img/p4-493.jpg" alt="8 публикаций, 493 подписчика" loading="lazy">
-        <figcaption class="proof-shot-caption">8 публикаций · 493 подписчика</figcaption>
-      </figure>
+    <div class="ab-wrap reveal reveal-delay-1">
+      <div class="ab-cell before">
+        <div class="ab-label">До работы</div>
+        <div class="ab-row"><div class="ab-row-label">Аккаунт для блога</div><div class="ab-row-value">0 публикаций</div></div>
+        <div class="ab-row"><div class="ab-row-label">Подписчиков</div><div class="ab-row-value">136 <span style="color:var(--muted)">закрытый</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Лучший ролик</div><div class="ab-row-value">5&#8239;000</div></div>
+        <div class="ab-row"><div class="ab-row-label">Средний ролик</div><div class="ab-row-value">1&#8239;500</div></div>
+        <div class="ab-row"><div class="ab-row-label">Реакции на ролик</div><div class="ab-row-value">~51</div></div>
+        <div class="ab-row"><div class="ab-row-label">Ритм</div><div class="ab-row-value">рывками</div></div>
+        <div class="ab-row"><div class="ab-row-label">Система</div><div class="ab-row-value">нет</div></div>
+      </div>
+      <div class="ab-cell after">
+        <div class="ab-label">Через месяц · 31 июля 2026</div>
+        <div class="ab-row"><div class="ab-row-label">Просмотров</div><div class="ab-row-value">466&#8239;454</div></div>
+        <div class="ab-row"><div class="ab-row-label">Подписчиков</div><div class="ab-row-value">493 <span class="multiplier">×3,6</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Лучший ролик</div><div class="ab-row-value">238&#8239;000 <span class="multiplier">×47</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Средний ролик</div><div class="ab-row-value">34&#8239;013 <span class="multiplier">×22</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Реакции на ролик</div><div class="ab-row-value">~2&#8239;370 <span class="multiplier">×46</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Ритм</div><div class="ab-row-value">ежедневно</div></div>
+        <div class="ab-row"><div class="ab-row-label">Система</div><div class="ab-row-value">выстроена</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="deep">
+<!-- ============================================================ -->
+<!-- ACCOUNT — FRESH MONTH                                        -->
+<!-- ============================================================ -->
+<section id="account-month">
   <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Кривая роста</div>
-      <h2 class="reveal d1">От нуля<br>до 466&nbsp;тысяч</h2>
-      <p class="reveal d2">Первые два ролика собрали 285&nbsp;просмотров. Третий изменил всё.</p>
+    <div class="section-header reveal">
+      <span class="eyebrow">Аккаунт за&nbsp;месяц</span>
+      <h2>Первый месяц <em>· 466&#8239;454 просмотра</em></h2>
     </div>
-    <div class="chart reveal">
-      <svg viewBox="0 0 900 320" role="img" aria-label="Рост просмотров по мере публикаций">
+    <div class="proof-shots reveal reveal-delay-1" style="margin-top: 8px;">
+      <div class="proof-shot">
+        <img src="img/stat-obzor.jpg" alt="Просмотры 466 454, прирост +468" loading="lazy">
+        <div class="proof-shot-caption">просмотры · <strong>466&#8239;454</strong> · прирост <strong>+468</strong></div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/stat-ohvat.jpg" alt="Охваченные аккаунты 315 776" loading="lazy">
+        <div class="proof-shot-caption">охват · <strong>315&#8239;776</strong> аккаунтов</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/stat-profil.jpg" alt="Посещения профиля 9 994" loading="lazy">
+        <div class="proof-shot-caption">посещения профиля · <strong>9&#8239;994</strong></div>
+      </div>
+    </div>
+    <div class="proof-shot-single reveal reveal-delay-2" style="margin-top: 28px;">
+      <div class="proof-shot thin">
+        <img src="img/stat-top.jpg" alt="Топ-ролик: 234 386 просмотров, 317 подписок" loading="lazy">
+        <div class="proof-shot-caption">топ-ролик · <strong>238&#8239;000</strong> просмотров · <strong>+317</strong> подписок · досмотр <strong>16&nbsp;с</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CLIENT                                                       -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="client">
+  <div class="container-wide">
+    <div class="client-block">
+      <div class="reveal">
+        <span class="eyebrow">Клиент</span>
+        <div class="client-name">Азиза</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <ul class="client-bullets">
+          <li>Живёт на&nbsp;две страны&nbsp;— Россия и&nbsp;Испания</li>
+          <li>Стиль, дороги и&nbsp;вкус к&nbsp;жизни</li>
+          <li>До&nbsp;этого блог не&nbsp;вела</li>
+        </ul>
+        <div class="client-meta">
+          <div class="client-meta-item">
+            <div class="ab-row-label">Точка А&nbsp;· июнь 2026</div>
+            <p>Закрытый аккаунт на&nbsp;136&nbsp;подписчиков&nbsp;— семья и&nbsp;знакомые. Личность есть, фактура есть. <em style="color: var(--gold-bright);">Блога нет вообще.</em></p>
+          </div>
+          <div class="client-meta-item">
+            <div class="ab-row-label">Запрос</div>
+            <p>Построить блог с&nbsp;нуля системно, а&nbsp;не&nbsp;наугад. Комплексный подход под&nbsp;ключ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ANIMATED GROWTH CHART                                        -->
+<!-- ============================================================ -->
+<section class="chart-section" id="growth">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Кривая роста</span>
+      <h2>От&nbsp;нуля <em>до&nbsp;466&nbsp;тысяч</em></h2>
+    </div>
+
+    <div class="chart-wrap reveal reveal-delay-1">
+      <svg class="chart-svg" viewBox="0 0 920 380" preserveAspectRatio="xMidYMid meet">
         <defs>
-          <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffb84d" stop-opacity=".26"/>
+          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#c8893a"/>
+            <stop offset="50%" stop-color="#ffb84d"/>
+            <stop offset="100%" stop-color="#ffd17a"/>
+          </linearGradient>
+          <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffb84d" stop-opacity="0.4"/>
             <stop offset="100%" stop-color="#ffb84d" stop-opacity="0"/>
           </linearGradient>
         </defs>
-        <line x1="0" y1="280" x2="900" y2="280" stroke="#252420"/>
-        <line x1="0" y1="190" x2="900" y2="190" stroke="#141312"/>
-        <line x1="0" y1="100" x2="900" y2="100" stroke="#141312"/>
-        <line x1="0" y1="20"  x2="900" y2="20"  stroke="#141312"/>
-        <path d="M20,278 L230,277 L450,152 L640,145 L780,72 L880,26 L880,280 L20,280 Z" fill="url(#fill)"/>
-        <path d="M20,278 L230,277 L450,152 L640,145 L780,72 L880,26"
-              fill="none" stroke="#ffb84d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="20"  cy="278" r="5" fill="#030303" stroke="#ffb84d" stroke-width="2.5"/>
-        <circle cx="230" cy="277" r="5" fill="#030303" stroke="#ffb84d" stroke-width="2.5"/>
-        <circle cx="450" cy="152" r="5" fill="#030303" stroke="#ffb84d" stroke-width="2.5"/>
-        <circle cx="640" cy="145" r="5" fill="#030303" stroke="#ffb84d" stroke-width="2.5"/>
-        <circle cx="780" cy="72"  r="5" fill="#030303" stroke="#ffb84d" stroke-width="2.5"/>
-        <circle cx="880" cy="26"  r="6" fill="#ffb84d"/>
-        <text x="20"  y="303" fill="#6a6862" font-family="Geist Mono, monospace" font-size="12">0 публ.</text>
-        <text x="205" y="303" fill="#6a6862" font-family="Geist Mono, monospace" font-size="12">2 публ.</text>
-        <text x="425" y="303" fill="#6a6862" font-family="Geist Mono, monospace" font-size="12">4 публ.</text>
-        <text x="615" y="303" fill="#6a6862" font-family="Geist Mono, monospace" font-size="12">6 публ.</text>
-        <text x="825" y="303" fill="#6a6862" font-family="Geist Mono, monospace" font-size="12">8 публ.</text>
-        <text x="240" y="266" fill="#8a8880" font-family="Geist Mono, monospace" font-size="12">285</text>
-        <text x="460" y="141" fill="#8a8880" font-family="Geist Mono, monospace" font-size="12">205 000</text>
-        <text x="790" y="61"  fill="#8a8880" font-family="Geist Mono, monospace" font-size="12">290 100</text>
-        <text x="790" y="18"  fill="#ffb84d" font-family="Geist Mono, monospace" font-size="13">466 454</text>
+
+        <!-- Horizontal grid lines -->
+        <line class="chart-grid" x1="80" y1="40" x2="880" y2="40"/>
+        <line class="chart-grid" x1="80" y1="96" x2="880" y2="96"/>
+        <line class="chart-grid" x1="80" y1="152" x2="880" y2="152"/>
+        <line class="chart-grid" x1="80" y1="208" x2="880" y2="208"/>
+        <line class="chart-grid" x1="80" y1="264" x2="880" y2="264"/>
+        <line class="chart-grid" x1="80" y1="320" x2="880" y2="320"/>
+
+        <!-- Y-axis labels -->
+        <text class="chart-y-label" x="68" y="44" text-anchor="end">450K</text>
+        <text class="chart-y-label" x="68" y="100" text-anchor="end">360K</text>
+        <text class="chart-y-label" x="68" y="156" text-anchor="end">270K</text>
+        <text class="chart-y-label" x="68" y="212" text-anchor="end">180K</text>
+        <text class="chart-y-label" x="68" y="268" text-anchor="end">90K</text>
+        <text class="chart-y-label" x="68" y="324" text-anchor="end">0</text>
+
+        <!-- Area fill -->
+        <path class="chart-area" d="M 80 320 L 240 319 L 440 192 L 640 140 L 860 44 L 860 320 L 80 320 Z"/>
+
+        <!-- Active phase 1 -->
+        <path class="chart-path" d="M 80 320 L 240 319 L 440 192 L 640 140 L 860 44"/>
+
+        <!-- Pause indication -->
+        
+
+        <!-- Pause label -->
+        
+
+        <!-- Data points -->
+        <circle class="chart-dot delay-1" cx="80" cy="320" r="5"/>
+        <circle class="chart-dot delay-2" cx="240" cy="319" r="5"/>
+        <circle class="chart-dot delay-3" cx="440" cy="192" r="5"/>
+        <circle class="chart-dot delay-4" cx="640" cy="140" r="5"/>
+        
+        
+
+        <!-- Final peak point -->
+        <circle class="chart-peak-ring" cx="860" cy="44" r="8"/>
+        <circle class="chart-peak-dot" cx="860" cy="44" r="7"/>
+
+        <!-- Annotations -->
+        <text class="chart-annotation" x="440" y="180" text-anchor="middle">VIRAL</text>
+        <text class="chart-annotation" x="860" y="34" text-anchor="end">466&nbsp;454</text>
+
+        <!-- X-axis labels -->
+        <text class="chart-x-label" x="80" y="355" text-anchor="middle">0 публ.</text>
+        
+        <text class="chart-x-label" x="240" y="355" text-anchor="middle">2 публ.</text>
+        
+        
+        <text class="chart-x-label" x="440" y="355" text-anchor="middle">4 публ.</text>
+        <text class="chart-x-label" x="640" y="355" text-anchor="middle">6 публ.</text>
+        <text class="chart-x-label" x="860" y="355" text-anchor="middle">8 публ.</text>
       </svg>
-      <div class="chart-legend"><span><i></i>Просмотры за последние 30 дней · по данным профиля</span></div>
-    </div>
-  </div>
-</section>
 
-<section>
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Результат</div>
-      <h2 class="reveal d1">Итоги первого месяца</h2>
-      <p class="reveal d2">Данные Instagram за&nbsp;тридцать дней. Восемь роликов, опубликованных с&nbsp;21&nbsp;по&nbsp;31&nbsp;июля.</p>
-    </div>
-    <div class="kpi reveal">
-      <div><div class="num">466 454</div><div class="label">Просмотры</div><div class="note">Весь контент за месяц</div></div>
-      <div><div class="num">315 776</div><div class="label">Охваченные аккаунты</div><div class="note">Уникальные люди</div></div>
-      <div><div class="num">+468</div><div class="label">Новые подписчики</div><div class="note">Чистый прирост</div></div>
-      <div><div class="num">9 994</div><div class="label">Посещения профиля</div><div class="note">Переходы из роликов</div></div>
-      <div><div class="num">99,6%</div><div class="label">Новая аудитория</div><div class="note">Просмотры от неподписчиков</div></div>
-      <div><div class="num">0 ₽</div><div class="label">Бюджет на рекламу</div><div class="note">Только органика</div></div>
-    </div>
-    <div class="note-box reveal">
-      <p>Почти весь охват пришёл к&nbsp;людям, которые аккаунт ещё не&nbsp;знали. Блог набирал аудиторию с&nbsp;холодного трафика, а&nbsp;не&nbsp;крутился по&nbsp;одним и&nbsp;тем&nbsp;же подписчикам.</p>
-    </div>
-  </div>
-</section>
-
-<section class="deep">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Динамика</div>
-      <h2 class="reveal d1">Было и&nbsp;стало</h2>
-      <p class="reveal d2">Сравнение с&nbsp;показателями прежнего аккаунта, зафиксированными на&nbsp;входе в&nbsp;работу.</p>
-    </div>
-    <div class="ab reveal">
-      <div class="ab-row ab-head"><div>Показатель</div><div>Было</div><div>Стало</div><div style="text-align:right">Рост</div></div>
-      <div class="ab-row"><div class="ab-row-label">Лучший ролик</div><div class="ab-was">5 000</div><div class="ab-now">238 000</div><div class="multiplier">×47</div></div>
-      <div class="ab-row"><div class="ab-row-label">Средний ролик</div><div class="ab-was">1 500</div><div class="ab-now">34 013</div><div class="multiplier">×22</div></div>
-      <div class="ab-row"><div class="ab-row-label">Реакции на ролик</div><div class="ab-was">~51</div><div class="ab-now">~2 370</div><div class="multiplier">×46</div></div>
-      <div class="ab-row"><div class="ab-row-label">Подписчики</div><div class="ab-was">136</div><div class="ab-now">493</div><div class="multiplier">×3,6</div></div>
-      <div class="ab-row"><div class="ab-row-label">Ритм публикаций</div><div class="ab-was">рывками</div><div class="ab-now">ежедневно</div><div class="multiplier">—</div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Флагман</div>
-      <h2 class="reveal d1">Один ролик<br>сделал две трети</h2>
-      <p class="reveal d2">Ролик про мейн-куна собрал больше просмотров, чем все остальные вместе взятые, и&nbsp;привёл две&nbsp;трети новых подписчиков.</p>
-    </div>
-    <div class="kpi reveal">
-      <div><div class="num">238 000</div><div class="label">Просмотры</div></div>
-      <div><div class="num">170 967</div><div class="label">Охваченные аккаунты</div></div>
-      <div><div class="num">+317</div><div class="label">Подписки с ролика</div></div>
-      <div><div class="num">16 с</div><div class="label">Средний досмотр</div></div>
-    </div>
-    <div class="proof-wide reveal">
-      <img src="img/grid-views.jpg" alt="Сетка профиля с просмотрами роликов" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<section class="deep">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Отклик</div>
-      <h2 class="reveal d1">Как отвечала аудитория</h2>
-      <p class="reveal d2">Суммарно по&nbsp;восьми роликам. Пересылки и&nbsp;сохранения&nbsp;— главный сигнал алгоритму, что контент стоит показывать дальше.</p>
-    </div>
-    <div class="kpi reveal">
-      <div><div class="num">18 982</div><div class="label">Отметки «нравится»</div></div>
-      <div><div class="num">2 593</div><div class="label">Пересылки</div><div class="note">Отправили друзьям в личные</div></div>
-      <div><div class="num">1 065</div><div class="label">Сохранения</div></div>
-      <div><div class="num">287</div><div class="label">Комментарии</div></div>
-    </div>
-    <div class="proof-shots reveal">
-      <figure class="proof-shot">
-        <img src="img/comments-1.jpg" alt="Лента уведомлений с комментариями" loading="lazy">
-        <figcaption class="proof-shot-caption">Уведомления в первые сутки после ролика</figcaption>
-      </figure>
-      <figure class="proof-shot">
-        <img src="img/comments-2.jpg" alt="Комментарии под роликами" loading="lazy">
-        <figcaption class="proof-shot-caption">Комментарии приходят каждую минуту</figcaption>
-      </figure>
-      <figure class="proof-shot">
-        <img src="img/repost.jpg" alt="Упоминание аккаунта в чужих сторис" loading="lazy">
-        <figcaption class="proof-shot-caption">Ролики репостят незнакомые аккаунты</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Подтверждение</div>
-      <h2 class="reveal d1">Статистика Instagram</h2>
-      <p class="reveal d2">Скриншоты из&nbsp;аккаунта, без&nbsp;обработки.</p>
-    </div>
-    <div class="proof-shots reveal">
-      <figure class="proof-shot"><img src="img/stat-obzor.jpg" alt="Обзор за 30 дней" loading="lazy"><figcaption class="proof-shot-caption">Обзор · 30 дней</figcaption></figure>
-      <figure class="proof-shot"><img src="img/stat-ohvat.jpg" alt="Охват по типу контента" loading="lazy"><figcaption class="proof-shot-caption">Охват по типу контента</figcaption></figure>
-      <figure class="proof-shot"><img src="img/stat-profil.jpg" alt="Действия в профиле" loading="lazy"><figcaption class="proof-shot-caption">Действия в профиле</figcaption></figure>
-      <figure class="proof-shot"><img src="img/stat-top.jpg" alt="Статистика топового ролика" loading="lazy"><figcaption class="proof-shot-caption">Топ-ролик · подробно</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="deep">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Хронология</div>
-      <h2 class="reveal d1">Что было сделано</h2>
-      <p class="reveal d2">Месяц работы: от&nbsp;распаковки личности до&nbsp;ежедневных публикаций.</p>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-date">Неделя 1</div>
-        <div class="timeline-title">Распаковка личности</div>
-        <div class="timeline-stats">Две версии&nbsp;— структурный портрет и&nbsp;дословная расшифровка. Больше ста вопросов, ответы голосовыми.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Неделя 1–2</div>
-        <div class="timeline-title">Стратегия и&nbsp;упаковка</div>
-        <div class="timeline-stats">Позиционирование, шапка профиля, банк из&nbsp;101&nbsp;темы, 26&nbsp;текстов под разговорные ролики.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">17–18 июля</div>
-        <div class="timeline-title">Первые съёмки</div>
-        <div class="timeline-stats">Два съёмочных дня&nbsp;— город и&nbsp;дом. Четыре плана съёмок с&nbsp;локациями, образами и&nbsp;раскадровкой.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">21 июля</div>
-        <div class="timeline-title">Запуск аккаунта</div>
-        <div class="timeline-stats">Первая публикация. Ежедневный ритм с&nbsp;первого дня.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">31 июля</div>
-        <div class="timeline-title">Съёмка с&nbsp;оператором</div>
-        <div class="timeline-stats">Третий съёмочный день. Плюс закадровые озвучки из&nbsp;архива поездок&nbsp;— без&nbsp;новых съёмок.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Весь месяц</div>
-        <div class="timeline-title">Ежедневное ведение</div>
-        <div class="timeline-stats">Семь созвонов, 1109&nbsp;сообщений и&nbsp;364&nbsp;голосовых в&nbsp;рабочем чате.</div>
+      <div class="chart-legend">
+        <div class="chart-legend-item">
+          <span class="marker"></span>
+          <span>Активная работа</span>
+        </div>
+        <div class="chart-legend-item">
+          <span class="marker dashed"></span>
+          <span>Органический хвост</span>
+        </div>
+        <div class="chart-legend-item">
+          <span class="marker peak"></span>
+          <span>Текущее значение</span>
+        </div>
       </div>
     </div>
-    <p class="reveal" style="margin-top:46px">Полная раскладка с&nbsp;разбором каждого ролика&nbsp;— <a href="https://hasimovmalik90-oss.github.io/Site-/aiza-otchet-iyul/" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-deep)">в&nbsp;отчёте за&nbsp;июль</a>.</p>
+
+    <div class="proof-shots reveal reveal-delay-2" style="margin-top: 80px;">
+      <div class="proof-shot">
+        <img src="img/p0-zero.jpg" alt="Пустой аккаунт: 0 публикаций, 0 подписчиков" loading="lazy">
+        <div class="proof-shot-caption">день&nbsp;0 · <strong>0</strong> публикаций · <strong>0</strong> подписчиков</div>
+      </div>
+      <div class="proof-shot thin">
+        <img src="img/p1-78.jpg" alt="2 публикации, 78 подписчиков" loading="lazy">
+        <div class="proof-shot-caption">2 публикации · <strong>78</strong> подписчиков · 285 просмотров</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/p2-282.jpg" alt="4 публикации, 282 подписчика" loading="lazy">
+        <div class="proof-shot-caption">4 публикации · <strong>282</strong> подписчика · 205&nbsp;тыс. просмотров</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/p3-444.jpg" alt="6 публикаций, 444 подписчика" loading="lazy">
+        <div class="proof-shot-caption">6 публикаций · <strong>444</strong> подписчика · 290&nbsp;тыс. просмотров</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/p4-493.jpg" alt="8 публикаций, 493 подписчика" loading="lazy">
+        <div class="proof-shot-caption">8 публикаций · <strong>493</strong> подписчика</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/grid-views.jpg" alt="Сетка профиля с просмотрами роликов" loading="lazy">
+        <div class="proof-shot-caption">лента профиля · просмотры каждого ролика</div>
+      </div>
+      <div class="proof-shot">
+        <img src="img/comments-1.jpg" alt="Уведомления с комментариями" loading="lazy">
+        <div class="proof-shot-caption">уведомления в&nbsp;первые сутки после ролика</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section>
+<!-- ============================================================ -->
+<!-- METHODOLOGY                                                  -->
+<!-- ============================================================ -->
+<section id="method">
   <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal">Слова клиента</div>
-      <h2 class="reveal d1">Что говорила Азиза</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow">Метод · 6 блоков</span>
+      <h2>Что&nbsp;мы <em>сделали</em></h2>
     </div>
-    <div class="quotes">
-      <blockquote class="quote reveal">
-        <p>Вы единственный продюсер, который вот просто разжевал всё настолько, что мне понятно и&nbsp;интересно.</p>
-        <cite>Первый созвон · 26 июня</cite>
-      </blockquote>
-      <blockquote class="quote reveal d1">
-        <p>Я довольна результатом на&nbsp;этой неделе, если честно.</p>
-        <cite>В работе · 25 июля</cite>
-      </blockquote>
-      <blockquote class="quote reveal d2">
-        <p>У&nbsp;меня к&nbsp;вам вообще нету претензий, слово «совсем».</p>
-        <cite>Финальный созвон · 5 августа</cite>
-      </blockquote>
+    <p class="method-intro reveal reveal-delay-1">
+      Аккаунт запускался с&nbsp;нуля. Это&nbsp;значит, что&nbsp;каждый слой строился заново&nbsp;— и&nbsp;без предыдущего следующий не&nbsp;работает.
+    </p>
+    <div class="block reveal">
+      <span class="block-num">01</span>
+      <h3>Распаковали личность</h3>
+      <p>Более ста вопросов, ответы голосовыми, дословная расшифровка. Две&nbsp;версии на&nbsp;выходе: структурный портрет и&nbsp;дословный документ, куда возвращаемся за&nbsp;формулировками.</p>
+      <div class="why"><strong>Зачем:</strong> без распаковки контент получается «как у&nbsp;всех». С&nbsp;ней у&nbsp;блога появляется голос, который нельзя скопировать.</div>
+    </div>
+    <div class="block reveal">
+      <span class="block-num">02</span>
+      <h3>Собрали позиционирование и&nbsp;упаковку</h3>
+      <p>Шапка профиля, имя, актуальные, визуальный код. Определили, кто&nbsp;мы для&nbsp;аудитории и&nbsp;о&nbsp;чём блог&nbsp;— до&nbsp;первой съёмки, а&nbsp;не&nbsp;после.</p>
+      <div class="why"><strong>Зачем:</strong> человек попадает в&nbsp;профиль и&nbsp;за&nbsp;секунду понимает, чем вы&nbsp;живёте и&nbsp;почему стоит подписаться.</div>
+    </div>
+    <div class="block reveal">
+      <span class="block-num">03</span>
+      <h3>Подобрали рабочие форматы</h3>
+      <p>Банк из&nbsp;101&nbsp;темы и&nbsp;26&nbsp;текстов под&nbsp;разговорные ролики. Форматы отбирались по&nbsp;трём критериям: близко, интересно снимать, актуально сейчас.</p>
+      <div class="why"><strong>Зачем:</strong> никаких «снимем что-нибудь и&nbsp;посмотрим». Только то,&nbsp;что вписывается в&nbsp;алгоритм.</div>
+    </div>
+    <div class="block reveal">
+      <span class="block-num">04</span>
+      <h3>Провели три съёмочных дня</h3>
+      <p>Четыре плана съёмок&nbsp;— обзорный, дом, город, Петербург. С&nbsp;локациями, образами и&nbsp;раскадровкой. Один день&nbsp;— с&nbsp;оператором.</p>
+      <div class="why"><strong>Зачем:</strong> за&nbsp;два-три съёмочных дня набирается запас контента на&nbsp;несколько недель ежедневных публикаций.</div>
+    </div>
+    <div class="block reveal">
+      <span class="block-num">05</span>
+      <h3>Запустили ежедневный ритм</h3>
+      <p>Публикации с&nbsp;21&nbsp;июля каждый день. Закадровые озвучки из&nbsp;архива поездок&nbsp;— контент без&nbsp;новых съёмок.</p>
+      <div class="why"><strong>Зачем:</strong> алгоритм даёт охват тем, кто&nbsp;не&nbsp;пропадает. Провалы в&nbsp;ритме обнуляют разгон.</div>
+    </div>
+    <div class="block reveal">
+      <span class="block-num">06</span>
+      <h3>Вели ежедневно</h3>
+      <p>Семь созвонов за&nbsp;месяц, 1109&nbsp;сообщений и&nbsp;364&nbsp;голосовых в&nbsp;рабочем чате. Разбор каждого ролика после публикации.</p>
+      <div class="why"><strong>Зачем:</strong> блог растёт на&nbsp;повторяемости действий, а&nbsp;не&nbsp;на&nbsp;разовых удачах.</div>
     </div>
   </div>
 </section>
 
-<section class="cta deep">
+<!-- ============================================================ -->
+<!-- TIMELINE                                                     -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="timeline">
   <div class="container">
-    <div class="eyebrow reveal">Работа со мной</div>
-    <h2 class="reveal d1">Выстроим ваш блог</h2>
-    <p class="reveal d2">От&nbsp;распаковки и&nbsp;позиционирования до&nbsp;съёмок и&nbsp;ежедневного ведения. Беру не&nbsp;больше трёх проектов одновременно.</p>
-    <div class="reveal d3">
-      <a class="btn" href="https://t.me/mhashimov_23">Написать в Telegram</a>
-      <a class="btn btn-ghost" href="https://hasimovmalik90-oss.github.io/karolina-case/">Кейс на 153 000</a>
+    <div class="section-header reveal">
+      <span class="eyebrow">Хронология</span>
+      <h2>Как рос аккаунт <em>по&nbsp;публикациям</em></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">21 июля · старт</div>
+        <div class="timeline-title">0<span class="multiplier">публикаций</span></div>
+        <ul class="timeline-stats"><li>Новый аккаунт. Ноль подписчиков, ноль публикаций</li></ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Первые дни</div>
+        <div class="timeline-title">78<span class="multiplier">подписчиков</span></div>
+        <ul class="timeline-stats"><li>2 публикации</li><li>285 просмотров за 30 дней</li></ul>
+      </div>
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">Третий ролик · вирус</div>
+        <div class="timeline-title">282<span class="multiplier">подписчика</span></div>
+        <ul class="timeline-stats">
+          <li class="highlight">205&#8239;000 просмотров</li>
+          <li>4 публикации</li>
+          <li>Ролик про мейн-куна выходит в&nbsp;рекомендации</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Середина месяца</div>
+        <div class="timeline-title">444<span class="multiplier">подписчика</span></div>
+        <ul class="timeline-stats"><li>6 публикаций</li><li>290&#8239;100 просмотров</li></ul>
+      </div>
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">31 июля · итог месяца</div>
+        <div class="timeline-title">493<span class="multiplier">подписчика</span></div>
+        <ul class="timeline-stats">
+          <li class="highlight">466&#8239;454 просмотра</li>
+          <li>315&#8239;776 охваченных аккаунтов</li>
+          <li>8 роликов · 99,6% просмотров от&nbsp;неподписчиков</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<footer><div class="container">Малик Хашимов · продюсер женских блогов · 2026</div></footer>
+<!-- ============================================================ -->
+<!-- VIRAL TOP-3                                                  -->
+<!-- ============================================================ -->
+
+
+<!-- ============================================================ -->
+<!-- LONG TAIL                                                    -->
+<!-- ============================================================ -->
+
+
+<!-- ============================================================ -->
+<!-- SPRINT MAY 2026                                              -->
+<!-- ============================================================ -->
+
+
+<!-- ============================================================ -->
+<!-- BUSINESS                                                     -->
+<!-- ============================================================ -->
+
+
+<!-- ============================================================ -->
+<!-- TESTIMONIAL HERO                                             -->
+<!-- ============================================================ -->
+<section class="testimonial-hero" id="testimonial">
+
+  <svg class="testimonial-ornament left" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <svg class="testimonial-ornament right" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <div class="testimonial-mark">"</div>
+  <div class="container testimonial-content">
+    <div class="testimonial-eyebrow reveal">Отзыв клиента</div>
+    <div class="testimonial-text reveal reveal-delay-1">
+      Вы&nbsp;единственный продюсер,<br>который просто <span class="testimonial-mega">разжевал</span> всё&nbsp;настолько,<br>что&nbsp;мне понятно и&nbsp;интересно
+    </div>
+    <div class="testimonial-author reveal reveal-delay-2">— Азиза, июнь&nbsp;— август 2026</div>
+    <div class="testimonial-date reveal reveal-delay-3">Первый созвон · 26 июня 2026</div>
+  </div>
+</section>
+
+<section style="padding: 80px 0 0;">
+  <div class="container">
+    <div class="proof-shots reveal" style="max-width: 760px; margin: 0 auto;">
+      <div class="proof-shot thin">
+        <img src="img/review-100k.jpg" alt="Сообщение клиента: Малик будет 100к у нас. С двух рилсов" loading="lazy">
+      </div>
+      <div class="proof-shot thin">
+        <img src="img/review-ca.jpg" alt="Сообщение клиента: круто зашёл на нужную ЦА, крутые люди подписываются" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 96px 0 0;">
+  <div class="container-wide">
+    <div class="reactions-block reveal">
+      <div class="reactions-eyebrow">Реакции в&nbsp;моменте</div>
+      <h3 class="reactions-title">Эмоции после каждого ролика</h3>
+      <p class="reactions-subtitle">«80% ваша заслуга»&nbsp;— это&nbsp;не итоговый отзыв, а&nbsp;сумма десятков таких сообщений</p>
+
+      <div class="reaction-quotes">
+
+        <div class="reaction-quote">
+          <div class="quote-text">Это&nbsp;просто разрыв 💔</div>
+          <div class="quote-meta">— реакция на&nbsp;свежий ролик</div>
+        </div>
+
+        <div class="reaction-quote">
+          <div class="quote-text">Просто бомба 😍 Вы&nbsp;лучший</div>
+          <div class="quote-meta">— после публикации</div>
+        </div>
+
+        <div class="reaction-quote">
+          <div class="quote-text">Не&nbsp;могу пересматриваю без конца 💔<br><span class="quote-text-soft">Я&nbsp;редко когда&nbsp;себе нравлюсь так&nbsp;круто</span></div>
+          <div class="quote-meta">— о&nbsp;собственном ролике</div>
+        </div>
+
+        <div class="reaction-quote">
+          <div class="quote-text">И&nbsp;как круто зашёл на&nbsp;нужную ЦА рилс вчерашний<br><span class="quote-text-soft">Я&nbsp;вижу по&nbsp;подпискам, крутые люди подписываются</span></div>
+          <div class="quote-meta">— наблюдение за&nbsp;подписчиками</div>
+        </div>
+
+      </div>
+
+      <div class="proof-shots reveal" style="margin-top: 56px;">
+        <div class="proof-shot">
+          <img src="img/reaction-razryv.jpg" alt="Сообщение в чате: Это просто разрыв" loading="lazy">
+        </div>
+        <div class="proof-shot">
+          <img src="img/reaction-bomba.jpg" alt="Сообщение в чате: Просто бомба, Вы лучший" loading="lazy">
+        </div>
+        <div class="proof-shot thin">
+          <img src="img/reaction-peresmatrivayu.jpg" alt="Сообщение в чате: Я не могу пересматриваю без конца" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer class="footer" id="contacts">
+  <div class="container">
+    <span class="eyebrow reveal">Контакты</span>
+    <h2 class="reveal reveal-delay-1">Связаться</h2>
+    <p class="footer-tagline reveal reveal-delay-2">По&nbsp;вопросам сотрудничества</p>
+
+    <div class="contacts reveal reveal-delay-3">
+
+      <a href="https://t.me/mhashimov_23" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.643.135-.953l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Telegram</span>
+            <span class="contact-handle">@mhashimov_23</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/mhashimov_" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-handle">@mhashimov_</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://youtube.com/@mhashimov_23" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a2.998 2.998 0 0 0-2.108-2.117C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.39.523A2.998 2.998 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a2.998 2.998 0 0 0 2.108 2.117C4.495 20.454 12 20.454 12 20.454s7.505 0 9.39-.523a2.998 2.998 0 0 0 2.108-2.117C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">YouTube</span>
+            <span class="contact-handle">Малик Хашимов</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://t.me/mhashimov_69" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Telegram-канал</span>
+            <span class="contact-handle">@mhashimov_69</span>
+          </span>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="footer-meta reveal reveal-delay-4">
+      Кейс: Азиза × Малик Хашимов<br>
+      Период работы: 21.04.2025&nbsp;— июль 2026 · 2 фазы · перерыв 7&nbsp;мес.<br>
+      Актуальные данные: июль 2026
+    </div>
+  </div>
+</footer>
 
 <script>
-function hideSplash(){document.getElementById('splash').classList.add('gone')}
-setTimeout(hideSplash, 2600);
+  const splash = document.getElementById('splash');
+  const splashCounter = document.getElementById('splashCounter');
 
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) } })
-}, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 
-// счётчики
-function animate(el){
-  const raw = el.textContent.replace(/\s/g,'');
-  const m = raw.match(/^([+×]?)([\d]+(?:[.,]\d+)?)(.*)$/);
-  if(!m) return;
-  const pre=m[1], target=parseFloat(m[2].replace(',','.')), post=m[3];
-  const dec = m[2].includes(',') ? 1 : 0;
-  const dur=1500, t0=performance.now();
-  function frame(t){
-    const p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
-    const v=(target*e).toFixed(dec).replace('.',',');
-    el.textContent = pre + Number(v.replace(',','.')).toLocaleString('ru-RU',{minimumFractionDigits:dec,maximumFractionDigits:dec}) + post;
-    if(p<1) requestAnimationFrame(frame);
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.floor(target * eased);
+      el.textContent = current.toLocaleString('ru-RU').replace(/\s/g, ' ');
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = target.toLocaleString('ru-RU').replace(/\s/g, ' ');
+      }
+    }
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
-}
-const io2 = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ animate(e.target); io2.unobserve(e.target) } })
-}, {threshold:.6});
-document.querySelectorAll('.kpi .num').forEach(el=>io2.observe(el));
+
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.remove('splash-active');
+    setTimeout(() => {
+      splash.style.display = 'none';
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in-view'), 100 + i * 100);
+      });
+    }, 800);
+  }
+
+  function skipSplash() {
+    hideSplash();
+  }
+
+  setTimeout(() => animateCounter(splashCounter, 153000, 1800), 700);
+  setTimeout(hideSplash, 3200);
+
+  document.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = (scrolled / total) * 100;
+    document.documentElement.style.setProperty('--scroll', percent + '%');
+  }
+  let progressTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!progressTicking) { requestAnimationFrame(() => { updateProgress(); progressTicking = false; }); progressTicking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  reveals.forEach(el => observer.observe(el));
+
+  const chartSection = document.querySelector('.chart-section');
+  if (chartSection) {
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartSection);
+  }
+
+  const heroNumber = document.querySelector('.hero-number[data-counter]');
+  if (heroNumber) {
+    const target = parseInt(heroNumber.getAttribute('data-counter'));
+    setTimeout(() => animateCounter(heroNumber, target, 2400), 3500);
+  }
+
+  const navDots = document.getElementById('navDots');
+  const dots = document.querySelectorAll('.nav-dot');
+  setTimeout(() => navDots.classList.add('visible'), 3400);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.getAttribute('data-target'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  const sections = ['hero', 'result', 'client', 'growth', 'method', 'timeline', 'viral', 'long-tail', 'sprint', 'business', 'testimonial', 'contacts'];
+
+  function updateActiveDot() {
+    const scrollPos = window.scrollY + window.innerHeight / 3;
+    let activeId = sections[0];
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos) {
+        activeId = id;
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.classList.toggle('active', dot.getAttribute('data-target') === activeId);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveDot, { passive: true });
+  updateActiveDot();
+
+  const tiltElements = document.querySelectorAll('.tilt');
+
+  tiltElements.forEach(el => {
+    let rect = null;
+
+    el.addEventListener('mouseenter', () => {
+      rect = el.getBoundingClientRect();
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      if (!rect) rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+
+      const rotateY = ((x - cx) / cx) * 8;
+      const rotateX = -((y - cy) / cy) * 8;
+
+      el.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) translateY(0)';
+      rect = null;
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    tiltElements.forEach(el => {
+      el.style.transform = '';
+    });
+  });
 </script>
 
 </body>
