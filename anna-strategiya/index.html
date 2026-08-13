@@ -1,0 +1,572 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стратегия развития блога · Анна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px} .narrow{max-width:840px;margin-left:auto;margin-right:auto}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(44px,9vw,80px);letter-spacing:.05em}
+h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:8px}
+h3{font-size:clamp(20px,3vw,27px)} h4{font-size:18px;font-weight:400;color:#F2EEE8}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.dim{color:var(--dim)}.mute{color:var(--mute)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:34px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px;text-wrap:pretty}
+.part-label{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8;display:block;margin-bottom:6px}
+.hero{text-align:center;padding:104px 0 70px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
+.hero h1{text-transform:uppercase;letter-spacing:.1em}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,27px);color:var(--accent);margin:18px auto 0;max-width:680px}
+.hero .pos{max-width:660px;margin:18px auto 0;color:var(--mute);font-size:15px;text-wrap:pretty}
+.hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.toc a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.16s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+.lead{font-size:clamp(16px,2vw,19px);color:#E8E4DE;max-width:820px}
+.sits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:30px}
+.sit{background:var(--soft);padding:22px;display:flex;gap:14px;align-items:flex-start}
+.sit-n{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);flex:none;line-height:1}
+.sit-t{color:var(--text);font-size:14.5px;text-wrap:pretty}
+.goal{max-width:780px;margin:0 auto;text-align:center}
+.goal .big{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,68px);color:var(--accent);line-height:1;margin:8px 0}
+.goal-note{text-align:center;color:var(--mute);font-size:12px;letter-spacing:.16em;text-transform:uppercase;max-width:620px;margin:22px auto 0}
+.posbox{max-width:820px;margin:0 auto;background:linear-gradient(160deg,rgba(201,183,155,.08),rgba(201,183,155,.02));border:1px solid rgba(201,183,155,.28);border-radius:18px;padding:38px 34px;text-align:center}
+.posbox .axis{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.4vw,40px);color:#F4F0EA;line-height:1.15}
+.posbox .exp{color:var(--text);margin-top:18px;font-size:15.5px;text-wrap:pretty}
+.shapka{max-width:600px;margin:26px auto 0;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:left}
+.shapka .nm{font-weight:600;color:#F4F0EA;font-size:15px;margin-bottom:6px}
+.shapka .ln{color:var(--text);font-size:14.5px;padding:7px 0;border-bottom:1px solid var(--line)} .shapka .ln:last-child{border-bottom:none}
+.shapka .cnt{color:var(--dim);font-size:12px;margin-top:8px;letter-spacing:.1em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card-n{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--accent);margin-bottom:10px}
+.card h3,.card h4{margin-bottom:9px} .card p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:26px}
+.pil{background:var(--soft);padding:26px}
+.pil .num{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:8px}
+.pil h4{font-size:19px;margin-bottom:10px}
+.pil .what{color:var(--mute);font-size:14px;margin-bottom:14px}
+.pil .mine{color:var(--text);font-size:14.5px;border-top:1px dashed var(--line);padding-top:12px}
+.pil .check{color:var(--accent);font-size:13px;font-style:italic;margin-top:12px;font-family:'Cormorant Garamond',serif}
+.formula{max-width:760px;margin:30px auto 0;text-align:center;background:var(--soft);border:1px solid rgba(201,183,155,.3);border-radius:14px;padding:28px}
+.formula .f{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.4vw,30px);color:var(--accent)}
+.formula p{color:var(--mute);font-size:14.5px;margin-top:14px}
+.counter{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:26px}
+.cnt-box{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.cnt-box .v{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--accent);line-height:1}
+.cnt-box .l{color:var(--mute);font-size:13px;margin-top:8px}
+.fmt{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-top:18px}
+.fmt .head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline;margin-bottom:14px}
+.fmt .n{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--accent)}
+.fmt .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.fmt .scene{color:var(--text);font-size:15px;margin-bottom:12px}
+.fmt .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+.fmt .meta div{font-size:13.5px;color:var(--mute)}
+.fmt .meta b{color:var(--accent);font-weight:600;display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px}
+.col{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:26px}
+.col h4{margin-bottom:14px;color:var(--accent)}
+.col ul{list-style:none} .col li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--text)} .col li:last-child{border-bottom:none}
+.weeks{margin-top:24px}
+.week{display:grid;grid-template-columns:110px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.week:last-child{border-bottom:none}
+.week .w{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--accent);letter-spacing:.06em}
+.week .t{font-size:14.5px;color:var(--text)}
+.done{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+.done .d{background:var(--soft);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:10px;padding:18px 20px;font-size:14px;color:var(--text)}
+.done .d span{display:block;color:var(--dim);font-size:12px;margin-top:6px}
+.mets{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:24px}
+.met{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px}
+.met .name{color:#F4F0EA;font-size:15px;margin-bottom:6px;font-weight:500}
+.met .desc{color:var(--mute);font-size:13.5px}
+.note{max-width:820px;margin:30px auto 0;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;padding:24px 26px;color:var(--text);font-size:14.5px}
+.fin{text-align:center;padding:80px 0 100px;border-top:1px solid var(--line)}
+.fin .big{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.4vw,40px);color:#F4F0EA;max-width:760px;margin:0 auto;line-height:1.2}
+.fin p{color:var(--mute);max-width:640px;margin:20px auto 0;font-size:15px}
+@media(max-width:720px){
+  .sits{grid-template-columns:1fr}
+  .week{grid-template-columns:1fr;gap:8px}
+  .wrap{padding:0 20px}
+  section{padding:46px 0}
+}
+</style></head><body>
+
+<header class="hero wrap">
+  <div class="top">Август 2026 · Стратегия развития блога</div>
+  <div class="fio">Анна · @annushka_prod</div>
+  <h1>Стратегия</h1>
+  <div class="slogan">Сделала известными других — теперь делаю себя</div>
+  <p class="pos">Как мы строим Ваш личный бренд: что показываем, в каких форматах снимаем, кто какие решения принимает и к какому результату идём за три месяца.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#fundament">I · Фундамент</a>
+    <a href="#lichnost">II · Раскрытие личности</a>
+    <a href="#kontent">III · Контент</a>
+    <a href="#rabota">IV · Как мы работаем</a>
+    <a href="#sostav">V · Состав работ</a>
+    <a href="#plan">VI · Ближайшие две недели</a>
+  </nav>
+</header>
+
+<section id="fundament" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть I</span>
+    <h2>Фундамент</h2>
+    <p>С чего начинаем, как себя позиционируем и в каких границах работаем.</p>
+  </div>
+
+  <div class="narrow">
+    <p class="lead">У Вас есть то, чего нет у большинства: реальная профессия, живые кейсы и аудитория, которая уже приходит к Вам от клиенток. Чего нет — блога, из которого понятно, кто Вы. Двадцать один месяц лента показывает красивую женщину и ни разу не показывает продюсера.</p>
+
+    <div class="sits">
+      <div class="sit"><span class="sit-n">01</span><span class="sit-t"><strong>743 подписчика при 915 000 просмотров.</strong> Трафик приходит и уходит — подписываться не на кого</span></div>
+      <div class="sit"><span class="sit-n">02</span><span class="sit-t"><strong>Три ролика дают 90% всех просмотров.</strong> Медиана по остальным — 6 038</span></div>
+      <div class="sit"><span class="sit-n">03</span><span class="sit-t"><strong>Ни одного ролика про работу.</strong> В шапке продюсер, в ленте — цветы, машина и путешествия</span></div>
+      <div class="sit"><span class="sit-n">04</span><span class="sit-t"><strong>Живая речь — один ролик из восемнадцати.</strong> Голоса и мыслей в блоге нет</span></div>
+      <div class="sit"><span class="sit-n">05</span><span class="sit-t"><strong>Нет воронки.</strong> Ни закрепа, ни актуального с услугой, ни ссылок в историях</span></div>
+      <div class="sit"><span class="sit-n">06</span><span class="sit-t"><strong>Рваный ритм.</strong> 36 публикаций за 21 месяц, семь месяцев паузы подряд</span></div>
+    </div>
+
+    <div class="note">
+      <strong>Главное следствие.</strong> В апреле ролик собрал 657 000 просмотров — база выросла примерно на 390 человек за десять месяцев. 11 августа история повторилась: больше 400 000 просмотров и 75 подписок. Это 0,02% при рабочей норме 1–3%. Дело не в охватах — охваты у Вас есть. Дело в том, что человека за картинкой не видно, и подписываться не на кого.
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="goal">
+    <span class="eyebrow">Цель первых трёх месяцев</span>
+    <div class="big">10 000</div>
+    <p class="mute">подписчиков — и блог, из которого понятно, кто Вы, чем занимаетесь и зачем к Вам приходить.</p>
+    <div class="goal-note">Без обещаний «сто тысяч за месяц». Сначала система и образ, потом масштаб</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head narrow">
+    <span class="eyebrow">Позиционирование · ось блога</span>
+    <h2>Кто Вы в кадре</h2>
+    <p>Ось — это одна мысль, которая должна оставаться у человека после любого Вашего ролика. Выбираем одну на созвоне, дальше весь контент держим под неё.</p>
+  </div>
+
+  <div class="posbox">
+    <div class="axis">Продюсер, которая делает женщин известными — и на себе показывает, как это работает</div>
+    <p class="exp">Годами Вы делали медийность другим: Рожкова, клиентка с 20 000 подписчиков за два месяца, люди, которые приходят к Вам от Ваших же клиенток. Себя откладывали. Сейчас впервые взялись за себя — и это происходит публично, в прямом эфире. Аудитория смотрит не на эксперта, который учит, а на женщину, которая делает свой блог у неё на глазах и попутно показывает кухню профессии.</p>
+  </div>
+
+  <div class="narrow" style="margin-top:34px">
+    <h4 style="margin-bottom:14px">Два запасных варианта — на случай, если ось не откликнется</h4>
+    <div class="cards">
+      <div class="card">
+        <div class="card-n">A</div>
+        <h4>Продюсер впереди</h4>
+        <p>«Делаю женщин известными». Экспертная подача, кейсы, метод. Аудитория — те, кто хочет расти. Минус: расходится с текущей лентой, часть аудитории отвалится.</p>
+      </div>
+      <div class="card">
+        <div class="card-n">B</div>
+        <h4>Личность впереди</h4>
+        <p>«Self-made женщина, всё сделала сама». Широкая женская аудитория, та, что уже есть. Минус: непонятно, чем Вы зарабатываете, заявок будет меньше.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="shapka">
+    <div class="nm">Шапка профиля — варианты на выбор</div>
+    <div class="ln"><strong>1.</strong> Продюсер · делаю женщин известными<br>Веду блоги, которые растут с нуля<br>Сейчас раскручиваю себя — смотрите, как это работает<div class="cnt">116 / 150</div></div>
+    <div class="ln"><strong>2.</strong> Делаю женщин известными<br>20 000 подписчиков клиентке за 2 месяца<br>Теперь собираю свой блог — при вас<div class="cnt">98 / 150</div></div>
+    <div class="ln"><strong>3.</strong> Продюсер женских блогов<br>Из Грузии в Москву — всё сама<br>Показываю кухню профессии и свою жизнь<div class="cnt">104 / 150</div></div>
+    <div class="ln wip">Имя профиля: Анна · Продюсер. Финальный вариант выбираем на созвоне, дальше не меняем минимум три месяца.</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head narrow">
+    <span class="eyebrow">Границы</span>
+    <h2>Что не показываем</h2>
+  </div>
+  <div class="split narrow">
+    <div class="col">
+      <h4>Не выносим в кадр</h4>
+      <ul>
+        <li>Суммы и внутренние условия работы с клиентками</li>
+        <li>Клиенток без их прямого согласия на съёмку</li>
+        <li>Адрес, подъезд, номер машины, геометки дома</li>
+        <li>Семейные темы, которые Вы закроете на распаковке</li>
+        <li>Конфликты с людьми из индустрии поимённо</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Показываем смело</h4>
+      <ul>
+        <li>Кухню работы: съёмки, разборы, переписки с клиентами</li>
+        <li>Свои решения и суммы в собственной жизни</li>
+        <li>Путь: Грузия, Москва, первые деньги, первая машина</li>
+        <li>Тело, зал, еда — без глянца</li>
+        <li>Характер и юмор в моменте</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note narrow">Список закрывается на распаковке. Пока он не закрыт, спорные темы в кадр не идут — это защищает Вас, а не ограничивает.</div>
+</section>
+
+<section id="lichnost" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть II</span>
+    <h2>Раскрытие личности</h2>
+    <p>Самая частая причина, по которой блог с большими просмотрами не растёт, — зритель не понимает, кто перед ним. Чтобы это не обсуждать на вкус, у нас есть восемь столбов. Каждый ролик закрывает один из них.</p>
+  </div>
+
+  <div class="narrow">
+    <p class="lead">Раскрытие личности — это когда человек, впервые увидевший Ваш ролик, понимает, как Вы устроены: во что верите, какая Вы с людьми, что прошли и по каким правилам живёте. После этого он может предсказать Вашу реакцию в новой ситуации — и решает, свой Вы человек или нет. Именно это превращает просмотр в подписку, а подписчика — в клиента.</p>
+  </div>
+
+  <div class="pillars">
+    <div class="pil">
+      <span class="num">Столб 01</span>
+      <h4>Ценности</h4>
+      <div class="what">Что для Вас важно, во что верите, чего не допускаете никогда.</div>
+      <div class="mine">У Вас есть: отношение к клиентам — «когда у человека горят глаза, неважно, какой сегодня день». Отказ работать за полцены. Позиция против накрутки. Первый в жизни пост длиной 49 дней.</div>
+      <div class="check">«Она считает, что…»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 02</span>
+      <h4>Истории с людьми</h4>
+      <div class="what">Какая Вы с клиентами, подругами, семьёй. Где ставите границы, как проходите конфликт.</div>
+      <div class="mine">У Вас есть: клиентка с 20 000 подписчиков за два месяца. Рожкова. Девочка, которой отказали из-за бюджета. Подруга, ради которой полетели в Китай. Невестка, вложившаяся в камни.</div>
+      <div class="check">«С людьми она такая: …»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 03</span>
+      <h4>Путь: решения и события</h4>
+      <div class="what">Что сделали, через что прошли, как изменились, куда идёте.</div>
+      <div class="mine">У Вас есть: Грузия — Москва. Первый Mercedes. Семь месяцев тишины в блоге и возвращение. Решение перестать брать клиентов и заняться собой. Камни из Китая как новое дело.</div>
+      <div class="check">«Она прошла через…»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 04</span>
+      <h4>Принципы</h4>
+      <div class="what">Правила, по которым живёте. Взгляды на мир, веру, отношения, работу, дружбу.</div>
+      <div class="mine">У Вас есть: сначала медийность, потом продажи — то, что Вы объясняете своим клиенткам. Вера и пост. Взгляд на женщин, которые ждут, что их обеспечат. Отношение к «успешному успеху» в нише.</div>
+      <div class="check">«Она из тех, кто всегда или никогда…»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 05</span>
+      <h4>Характер и манера</h4>
+      <div class="what">Как шутите, как реагируете, темперамент, речь. То, каким Вас видят в первые пять секунд.</div>
+      <div class="mine">Ваша сильная сторона: «в моменте очень хорошо шучу». Самоирония — про нос, про «жертвую имиджем, когда опаздываю». Это уже работает и залетает.</div>
+      <div class="check">«С ней рядом — вот так»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 06</span>
+      <h4>Тело и здоровье</h4>
+      <div class="what">Спорт, еда, вес, внешность, борьба с собой и принятие себя.</div>
+      <div class="mine">У Вас есть: зал, который тяжело даётся. Онлайн-тренер вместо зального. Тема худобы и женственности, которую Вы сами хотите поднять. Честность про то, что не всегда хочется в кадр.</div>
+      <div class="check">«Со своим телом она…»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 07</span>
+      <h4>Деньги</h4>
+      <div class="what">Как зарабатываете, тратите, считаете. Переломные покупки, экономика решений.</div>
+      <div class="mine">У Вас есть: парковка с 200 до 600 рублей и абонемент за 12 000. Тренер 7 000 против 1 500. Часы за 45 000 по бартеру. Камни из Китая. Первая машина.</div>
+      <div class="check">«С деньгами она обращается так: …»</div>
+    </div>
+    <div class="pil">
+      <span class="num">Столб 08</span>
+      <h4>Быт и среда</h4>
+      <div class="what">Дом, распорядок, машина, места, стиль вокруг. Единственный столб, который работает картинкой — без речи.</div>
+      <div class="mine">У Вас есть: сборы и выход из дома, машина, Лужники, кофейни, поездки. Это Вы уже снимаете и это Вам легко даётся.</div>
+      <div class="check">«Живёт она вот так»</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="f">Раскрытие = смысл + носитель</div>
+    <p>Смысл — это какой столб мы показываем. Носитель — событие или сцена, внутри которой он проявляется. Столб без события превращается в рассуждение на камеру, и его справедливо называют водой. Событие без столба даёт просмотры и ноль подписок — как в апреле.</p>
+  </div>
+
+  <div class="narrow" style="margin-top:40px">
+    <h4 style="margin-bottom:6px">Где Вы сейчас по столбам</h4>
+    <p class="mute" style="font-size:14.5px">Считаем по всей истории блога — 36 публикаций за 21 месяц.</p>
+    <div class="counter">
+      <div class="cnt-box"><div class="v">0</div><div class="l">Ценности</div></div>
+      <div class="cnt-box"><div class="v">0</div><div class="l">Истории с людьми</div></div>
+      <div class="cnt-box"><div class="v">1</div><div class="l">Путь</div></div>
+      <div class="cnt-box"><div class="v">0</div><div class="l">Принципы</div></div>
+      <div class="cnt-box"><div class="v">6</div><div class="l">Характер</div></div>
+      <div class="cnt-box"><div class="v">0</div><div class="l">Тело</div></div>
+      <div class="cnt-box"><div class="v">2</div><div class="l">Деньги</div></div>
+      <div class="cnt-box"><div class="v">20+</div><div class="l">Быт и среда</div></div>
+    </div>
+    <div class="note">Правая половина закрыта хорошо: Вас видно, Вы красивая, жизнь показана. Левая — пустая. Поэтому люди смотрят и не остаются: посмотреть есть на что, а узнать нечего. Вся работа ближайшего месяца — наполнить первые четыре столба, не потеряв силу последних четырёх.</div>
+  </div>
+</section>
+
+<section id="kontent" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть III</span>
+    <h2>Как устроен контент</h2>
+    <p>Два контура работают вместе: один приводит людей, второй превращает их в подписчиков и заявки. У каждого своя задача и своя метрика — поэтому мы не сравниваем их между собой.</p>
+  </div>
+
+  <div class="split narrow">
+    <div class="col">
+      <h4>Контур притяжения</h4>
+      <ul>
+        <li>Сцена, образ, атрибут, юмор, провокация</li>
+        <li>Задача — охват и первое касание</li>
+        <li>Метрика — просмотры, репосты, посещаемость профиля</li>
+        <li>У Вас это уже работает: апрель, 11 августа</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Контур раскрытия</h4>
+      <ul>
+        <li>Восемь столбов: ценности, люди, путь, принципы и остальные</li>
+        <li>Задача — доверие, подписка, заявка</li>
+        <li>Метрика — подписки на тысячу просмотров, сохранения, сообщения в директ</li>
+        <li>У Вас этого нет вообще — с этого и начинаем</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note narrow">Правило пропорции на первый месяц: на каждые два ролика притяжения — три ролика раскрытия. Пока левая половина столбов пустая, перевес держим в её сторону, иначе рост охватов снова не превратится в аудиторию.</div>
+
+  <div class="narrow" style="margin-top:44px">
+    <h3 style="margin-bottom:8px">Форматы</h3>
+    <p class="mute" style="font-size:14.5px;margin-bottom:10px">Под каждым — сцена, столб, который он закрывает, и что человек понимает про Вас после просмотра.</p>
+
+    <div class="fmt">
+      <div class="head"><span class="n">01</span><h4>Влог-сюжет: поездка за часами</h4><span class="tag">снято 8 августа</span></div>
+      <div class="scene">Сборы дома, выход, машина, дорога с разговором, приезд, примерка, момент получения. Часы показываем в самом конце — на этом держится досматриваемость. Отдельно короткая версия и закадровая озвучка.</div>
+      <div class="meta">
+        <div><b>Столб</b>Истории с людьми · Деньги</div>
+        <div><b>Что понимают</b>Она работает с блогерами, её клиентки получают бартер, вот как это выглядит изнутри</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">02</span><h4>Лужники: парковка и челлендж</h4><span class="tag">снято 10 августа</span></div>
+      <div class="scene">Выезд, шлагбаум, покупка месячного абонемента, объяснение экономики: почасовая парковка выросла с 200 до 600, безлимит стоит 12 000. Дальше серия «день первый, день второй» — Вы ходите в зал, потому что жалко потраченных денег.</div>
+      <div class="meta">
+        <div><b>Столб</b>Деньги · Тело · Характер</div>
+        <div><b>Что понимают</b>Она считает деньги, умеет находить решения и честно говорит, что заставить себя тяжело</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">03</span><h4>Закулисье продюсера</h4><span class="tag">основной формат</span></div>
+      <div class="scene">Съёмочный день с клиенткой: как ставится кадр, сколько дублей, что не получается с первой попытки, как отрабатывается реклама. Заголовок в духе «сейчас мы будем отрабатывать часы за 45 тысяч».</div>
+      <div class="meta">
+        <div><b>Столб</b>Истории с людьми · Принципы</div>
+        <div><b>Что понимают</b>Вот чем она занимается и как это устроено на самом деле — этого не показывает почти никто</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">04</span><h4>Разговор в машине</h4><span class="tag">формат-носитель</span></div>
+      <div class="scene">Камера сбоку, город за окном, крупные субтитры. Под этот формат заходит любая тема: случай недели, история с клиентом, позиция по спорному вопросу. Минимум продакшна — рабочая лошадка между съёмочными днями.</div>
+      <div class="meta">
+        <div><b>Столб</b>Любой из первых четырёх</div>
+        <div><b>Условие</b>Всегда с конкретным случаем внутри. Без истории формат превращается в рассуждение</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">05</span><h4>Сборы и выход из дома</h4><span class="tag">визуальный якорь</span></div>
+      <div class="scene">Утро, сборы, духи, образ, лифт, машина. Работает без слов, под музыку или закадровый голос. Ваш самый сильный визуальный материал — то, что Вы сами называете «где есть я».</div>
+      <div class="meta">
+        <div><b>Столб</b>Быт и среда · Характер</div>
+        <div><b>Что понимают</b>Вот как она живёт, вот её вкус, вот её ритм</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">06</span><h4>Камни из Китая</h4><span class="tag">новое дело</span></div>
+      <div class="scene">Красивая локация, камни на столе или в мешочке. Рассказ: как вышли на поставщика, сколько стоит здесь и там, почему решили этим заняться. Три камня — 4 карата, 2 и 1.</div>
+      <div class="meta">
+        <div><b>Столб</b>Деньги · Путь</div>
+        <div><b>Что понимают</b>Она не только продюсер — она видит возможности и заходит в новое</div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <div class="head"><span class="n">07</span><h4>Провокация и сценка</h4><span class="tag">контур притяжения</span></div>
+      <div class="scene">Ваш формат, который уже залетал: короткая сценка с самоиронией, крупный текст, музыка. «Жертвую имиджем, когда опаздываю», «думаешь, мне легко» с контрастом образов.</div>
+      <div class="meta">
+        <div><b>Столб</b>Характер</div>
+        <div><b>Задача</b>Приводить новых людей на профиль, где их встречают ролики раскрытия</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:40px">
+    <h4 style="margin-bottom:12px">Как принимается решение по каждому ролику</h4>
+    <div class="split" style="margin-top:12px">
+      <div class="col">
+        <h4>Два вопроса на входе</h4>
+        <ul>
+          <li>Какой столб закрывает? Если ни один — это контур притяжения</li>
+          <li>Через какое событие показан? Если события нет — ролик не готов</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Что это даёт</h4>
+        <ul>
+          <li>Спор о ролике происходит на этапе идеи, а не готового монтажа</li>
+          <li>Видно, каких столбов не хватает — и что снимать дальше</li>
+          <li>Обсуждение перестаёт быть спором о вкусе</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rabota" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть IV</span>
+    <h2>Как мы работаем</h2>
+    <p>Договорённости, чтобы работа шла спокойно и никто не тратил нервы на выяснение, кто что решает.</p>
+  </div>
+
+  <div class="split narrow">
+    <div class="col">
+      <h4>Решаете Вы</h4>
+      <ul>
+        <li>Как Вы выглядите в кадре — вето на любой ролик, где Вы себе не нравитесь</li>
+        <li>Границы: темы, люди, места, которые не показываем</li>
+        <li>Что из Вашей жизни идёт в контент, а что остаётся личным</li>
+        <li>Финальное согласование перед публикацией</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Решаю я</h4>
+      <ul>
+        <li>Последовательность: какой ролик выходит первым и почему</li>
+        <li>Форматы, сценарии, монтаж, обложки, подписи</li>
+        <li>Какой столб закрываем на этой неделе</li>
+        <li>Ответственность за результат — при условии, что порядок соблюдён</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:22px">
+    <div class="split">
+      <div class="col">
+        <h4>Если мнения разошлись</h4>
+        <ul>
+          <li>Вопрос «нравится или нет» — Ваш, здесь спора нет</li>
+          <li>Вопрос «что выйдет раньше» — мой, потому что за результат отвечаю я</li>
+          <li>Если Вы настаиваете на своём порядке — делаем по-Вашему, и ответственность за результат в этой части переходит к Вам. Это не обида, это честное распределение</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Сроки и ритм</h4>
+        <ul>
+          <li>Материал после съёмки — первые ролики в течение 48 часов</li>
+          <li>Ролики на согласование приходят за день до публикации, не в день выхода</li>
+          <li>Съёмки — один-два раза в неделю, 3–4 часа</li>
+          <li>Созвон-разбор — раз в неделю, по цифрам и плану</li>
+          <li>Публикации — до 21:00</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="note narrow"><strong>Что нужно от Вас в первую очередь.</strong> Ответы на распаковку. Пока их нет, позиционирование, шапка, актуальные и темы для роликов собираются на догадках. С ответами всё это собирается за два дня, и дальше мы просто снимаем.</div>
+</section>
+
+<section id="sostav" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть V</span>
+    <h2>Состав работ</h2>
+    <p>Что входит в работу месяца — по неделям.</p>
+  </div>
+
+  <div class="narrow weeks">
+    <div class="week"><div class="w">Неделя 1</div><div class="t"><strong>Фундамент.</strong> Разбор блога и цифр, распаковка, стратегия, позиционирование и ось, шапка профиля, структура актуальных, границы. Первая съёмка.</div></div>
+    <div class="week"><div class="w">Неделя 2</div><div class="t"><strong>Запуск.</strong> Вторая съёмка, первые ролики раскрытия, оформление профиля, закреп с историей пути, точки входа на связь.</div></div>
+    <div class="week"><div class="w">Неделя 3</div><div class="t"><strong>Наполнение столбов.</strong> Съёмка под конкретные столбы, которых не хватает. Первый разбор цифр: что зашло, что нет, какие форматы оставляем.</div></div>
+    <div class="week"><div class="w">Неделя 4</div><div class="t"><strong>Ритм.</strong> Банк контента на две недели вперёд, отбор рабочих форматов, план второго месяца, отчёт по результатам.</div></div>
+  </div>
+
+  <div class="narrow" style="margin-top:34px">
+    <h4 style="margin-bottom:14px">Что делаю я на протяжении месяца</h4>
+    <div class="cards">
+      <div class="card"><h4>Стратегия и смыслы</h4><p>Распаковка и её обработка, позиционирование, банк тем по восьми столбам, сценарий под каждый ролик.</p></div>
+      <div class="card"><h4>Съёмка</h4><p>Съёмочные дни, режиссура сцены, ракурсы, работа с Вами в кадре, чтобы было легко и естественно.</p></div>
+      <div class="card"><h4>Продакшн</h4><p>Монтаж, субтитры, обложки, подписи, музыка. Ролик приходит к Вам готовым, а не заготовкой.</p></div>
+      <div class="card"><h4>Ведение</h4><p>Порядок выкладки, разбор каждого вышедшего ролика, актуальные и сторис, еженедельный отчёт по цифрам.</p></div>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:40px">
+    <h4 style="margin-bottom:6px">Что уже сделано с 1 августа</h4>
+    <p class="mute" style="font-size:14.5px">Первый месяц идёт с 1 августа по 31 августа.</p>
+    <div class="done">
+      <div class="d">Полный разбор блога<span>18 роликов, 36 публикаций, 61 история, метрики, выводы</span></div>
+      <div class="d">Распаковка<span>199 вопросов в 19 темах, отправлена 1 августа</span></div>
+      <div class="d">Две съёмки<span>8 августа — часы, 10 августа — Лужники</span></div>
+      <div class="d">Три ролика<span>смонтированы, один опубликован</span></div>
+      <div class="d">Стратегия<span>этот документ</span></div>
+      <div class="d">Оперативное сопровождение<span>вход в аккаунт, работа с комментариями, заявка на верификацию</span></div>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:40px">
+    <h4 style="margin-bottom:14px">Три месяца — этапы</h4>
+    <div class="cards">
+      <div class="card"><div class="card-n">I</div><h4>Месяц первый · фундамент</h4><p>Позиционирование, упаковка профиля, наполнение пустых столбов, поиск форматов, которые работают именно у Вас.</p></div>
+      <div class="card"><div class="card-n">II</div><h4>Месяц второй · ритм</h4><p>Усиление того, что сработало. Банк контента, стабильный выпуск, первые заявки в директ, работа с актуальными.</p></div>
+      <div class="card"><div class="card-n">III</div><h4>Месяц третий · масштаб</h4><p>Поиск флагманского формата, серии и рубрики, монетизация: продюсирование, консультации, камни.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Часть VI</span>
+    <h2>Ближайшие две недели</h2>
+    <p>Конкретика: что выходит, что снимаем, что нужно от Вас.</p>
+  </div>
+
+  <div class="narrow weeks">
+    <div class="week"><div class="w">Уже готово</div><div class="t"><strong>Влог про часы</strong> — собран, выходит первым. Короткая версия, следом полная. <strong>Лужники</strong> — материал отснят, ролик про парковку и абонемент собираем следом.</div></div>
+    <div class="week"><div class="w">Съёмка 1</div><div class="t"><strong>Закулисье продюсера.</strong> Съёмочный день с клиенткой от начала до конца — как ставится кадр, сколько дублей, что не получается. Первый ролик, из которого понятно, чем Вы занимаетесь.</div></div>
+    <div class="week"><div class="w">Съёмка 2</div><div class="t"><strong>Зал и челлендж.</strong> Старт серии «день первый». Плюс тема тренера за 7 000 против онлайн за 1 500 и разговор про худобу и женственность.</div></div>
+    <div class="week"><div class="w">Съёмка 3</div><div class="t"><strong>Камни и сборы.</strong> Красивая локация, история про Китай и поставщика. Сюда же — блок сборов и выхода из дома в новом образе.</div></div>
+    <div class="week"><div class="w">От Вас</div><div class="t"><strong>Распаковка.</strong> Голосовыми, по порядку, в рабочем чате. Это единственное, что сейчас держит позиционирование, шапку и актуальные.</div></div>
+    <div class="week"><div class="w">Профиль</div><div class="t"><strong>Упаковка.</strong> Новая шапка, закреп с историей пути, пять актуальных: кто я · моя работа · кейсы · жизнь · связь. Точка входа на связь в каждой истории.</div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head narrow">
+    <span class="eyebrow">Результат</span>
+    <h2>Как мы понимаем, что идём правильно</h2>
+    <p>Смотрим не на просмотры — их у Вас и так хватает. Смотрим на то, во что они превращаются.</p>
+  </div>
+  <div class="mets narrow">
+    <div class="met"><div class="name">Подписки на тысячу просмотров</div><div class="desc">Главная цифра. Сейчас 0,2 подписки на тысячу. Рабочая норма — 10–30.</div></div>
+    <div class="met"><div class="name">Сохранения и репосты</div><div class="desc">Показывают, что ролик задел, а не просто промелькнул.</div></div>
+    <div class="met"><div class="name">Сообщения в директ</div><div class="desc">Люди пишут, когда понимают, кто Вы и зачем к Вам приходить.</div></div>
+    <div class="met"><div class="name">Закрытые столбы</div><div class="desc">Сколько единиц по каждому из восьми. Считаем на еженедельном разборе.</div></div>
+  </div>
+</section>
+
+<footer class="fin wrap">
+  <div class="big">У Вас есть всё, кроме одного: блога, из которого понятно, кто Вы. Этим и займёмся.</div>
+  <p>Документ рабочий — после Ваших ответов на распаковку он дополняется: ось, шапка, границы и темы становятся точными.</p>
+</footer>
+
+</body></html>
