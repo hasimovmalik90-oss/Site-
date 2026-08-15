@@ -1,0 +1,312 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разбор блога · Анна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;overflow-wrap:break-word;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px} .narrow{max-width:860px;margin-left:auto;margin-right:auto}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(40px,8vw,74px);letter-spacing:.05em}
+h2{font-size:clamp(27px,4.4vw,44px);margin-bottom:8px}
+h4{font-size:18px;font-weight:400;color:#F2EEE8}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.mute{color:var(--mute)}
+section{padding:58px 0;border-top:1px solid var(--line)}
+section > .narrow > div:last-child{margin-bottom:34px}
+.section-head{margin-bottom:32px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px}
+.part-label{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8;display:block;margin-bottom:6px}
+.hero{text-align:center;padding:96px 0 64px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.hero h1{text-transform:uppercase;letter-spacing:.09em}
+.hero .pos{max-width:660px;margin:22px auto 0;color:var(--mute);font-size:15px}
+.hdiv{width:56px;height:1px;background:var(--accent);opacity:.5;margin:32px auto 0}
+.toc{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:30px}
+.toc a{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.lead{font-size:clamp(16px,2vw,18px);max-width:820px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:26px}
+.k{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.k .v{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);color:var(--accent);line-height:1}
+.k .l{color:var(--mute);font-size:13px;margin-top:8px}
+.tbl{width:100%;border-collapse:collapse;margin:26px 0 34px;font-size:14.3px}
+.tbl th{text-align:left;color:var(--accent);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 12px 0;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 8px 13px 0;border-bottom:1px solid var(--line)}
+.tbl td.num{text-align:right;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--accent);white-space:nowrap}
+.tbl tr:last-child td{border-bottom:none}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-top:16px}
+.card h4{margin-bottom:9px}
+.card p{color:var(--mute);font-size:14.4px}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;margin-top:22px}
+.col{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.col h4{margin-bottom:12px;color:var(--accent)}
+.col ul{list-style:none} .col li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14.2px} .col li:last-child{border-bottom:none}
+.note{max-width:860px;margin:30px auto 40px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;padding:22px 24px;font-size:14.5px}
+.obs{background:var(--soft);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:12px;padding:22px 24px;margin-top:16px}
+.obs h4{margin-bottom:8px}
+.obs p{font-size:14.5px;color:var(--text)}
+.fin{text-align:center;padding:70px 0 92px;border-top:1px solid var(--line)}
+.fin .big{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,3.6vw,34px);color:#F4F0EA;max-width:760px;margin:0 auto;line-height:1.22}
+.fin p{color:var(--mute);max-width:620px;margin:18px auto 0;font-size:14.5px}
+@media(max-width:720px){
+  .wrap{padding:0 18px}
+  section{padding:44px 0}
+  .card,.col,.obs{padding:20px}
+  .tbl{font-size:13.4px}
+}
+</style></head><body>
+
+<header class="hero wrap">
+  <div class="top">Выгрузка и анализ · 29 июля 2026</div>
+  <div class="fio">Анна · @annushka_prod</div>
+  <h1>Разбор блога</h1>
+  <p class="pos">Что опубликовано за всё время, какие цифры дают ролики и посты, что внутри контента и что из этого следует. Источник — прямая выгрузка профиля и метрики Instagram.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#profil">Профиль</a>
+    <a href="#opublikovano">Что опубликовано</a>
+    <a href="#cifry">Цифры по роликам</a>
+    <a href="#vnutri">Что внутри</a>
+    <a href="#posty">Посты</a>
+    <a href="#aktualnye">Актуальные</a>
+    <a href="#vyvody">Что видно</a>
+  </nav>
+</header>
+
+<section id="profil" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">01</span>
+    <h2>Профиль</h2>
+  </div>
+  <div class="narrow">
+    <div class="kpi">
+      <div class="k"><div class="v">743</div><div class="l">подписчика</div></div>
+      <div class="k"><div class="v">230</div><div class="l">подписок</div></div>
+      <div class="k"><div class="v">25</div><div class="l">публикаций в сетке</div></div>
+      <div class="k"><div class="v">6</div><div class="l">альбомов актуальных</div></div>
+      <div class="k"><div class="v">61</div><div class="l">история в них</div></div>
+    </div>
+
+    <div class="card">
+      <h4>Шапка профиля на момент разбора</h4>
+      <p>Анна 🇬🇪 | Self-made woman | Продюсер запусков | Москва<br>
+      «Делаю деньги, имея 2 инструмента — голову и телефон»<br>
+      «Вывожу на новый уровень экспертов»<br>
+      «+30% в доходе с первого созвона»</p>
+    </div>
+
+    <div class="card">
+      <h4>Тип аккаунта и точка входа</h4>
+      <p>Personal blog, не бизнес-аккаунт, без верификации. Ссылка в шапке ведёт напрямую в личку Telegram — не на канал и не на сайт. Других точек входа на связь в профиле нет: ссылок-стикеров в историях ноль.</p>
+    </div>
+
+    <div class="note">Шапка обещает продюсера запусков с конкретной цифрой результата. Ниже — что показывает лента.</div>
+  </div>
+</section>
+
+<section id="opublikovano" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">02</span>
+    <h2>Что опубликовано</h2>
+    <p>Период с 29 октября 2024 по 28 июля 2026 — 21 месяц ведения.</p>
+  </div>
+  <div class="narrow">
+    <table class="tbl">
+      <tr><th>Формат</th><th style="text-align:right">Количество</th></tr>
+      <tr><td>Рилсы</td><td class="num">18</td></tr>
+      <tr><td>Карусели</td><td class="num">13</td></tr>
+      <tr><td>Одиночные фото</td><td class="num">5</td></tr>
+      <tr><td>Всего публикаций</td><td class="num">36</td></tr>
+      <tr><td>Темп</td><td class="num">1,7 в месяц</td></tr>
+    </table>
+
+    <div class="card">
+      <h4>В сетке видно меньше, чем есть</h4>
+      <p>В профиле отображается 25 публикаций, при этом рилсов существует 18 — и 11 из них в сетку не выведены, они доступны только во вкладке Reels.</p>
+    </div>
+
+    <div class="card">
+      <h4>Часть архива исчезла</h4>
+      <p>На Вашем же скриншоте профиля внутри ролика от 12 сентября 2025 видно 63 публикации и 351 подписчик. Сейчас публикаций 25. То есть за десять месяцев база выросла примерно на 390 человек, а количество постов уменьшилось более чем вдвое.</p>
+    </div>
+
+    <div class="card">
+      <h4>Ритм публикаций рваный</h4>
+      <p>Осень-зима 2024/2025 — редкие посты. С 15 февраля по 12 сентября 2025 — рилсы с паузами в один-три месяца. С 12 сентября 2025 по 8 апреля 2026 — семь месяцев без единого рилса. Апрель 2026 — три рилса за шесть дней. Май — пусто. Июнь — один. Июль — четыре.</p>
+    </div>
+
+    <div class="card">
+      <h4>Время публикации</h4>
+      <p>С 11:00 до 20:00, чаще всего в 19:00 — так вышло у пяти рилсов из восемнадцати. Дни недели без системы.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cifry" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">03</span>
+    <h2>Цифры по роликам</h2>
+  </div>
+  <div class="narrow">
+    <div class="kpi">
+      <div class="k"><div class="v">914 672</div><div class="l">просмотров всего</div></div>
+      <div class="k"><div class="v">50 815</div><div class="l">среднее на ролик</div></div>
+      <div class="k"><div class="v">6 038</div><div class="l">медиана</div></div>
+      <div class="k"><div class="v">657 005</div><div class="l">максимум</div></div>
+      <div class="k"><div class="v">1 621</div><div class="l">минимум</div></div>
+    </div>
+
+    <div class="note">Разрыв между средним и медианой в восемь раз означает одно: весь блог держится на трёх роликах. Медиана — это то, что реально собирает обычный ролик.</div>
+
+    <h4 style="margin-top:34px">Три ролика, которые дали 90% всех просмотров</h4>
+    <table class="tbl">
+      <tr><th>Дата</th><th>Ролик</th><th style="text-align:right">Просмотры</th><th style="text-align:right">Лайки</th><th style="text-align:right">Комм.</th></tr>
+      <tr><td>13.04.2026</td><td>Случай в лифте</td><td class="num">657 005</td><td class="num">22 261</td><td class="num">165</td></tr>
+      <tr><td>13.04.2026</td><td>Сейчас приеду и успокою</td><td class="num">117 082</td><td class="num">3 427</td><td class="num">102</td></tr>
+      <tr><td>08.04.2026</td><td>Осталось ветром лишь стать</td><td class="num">53 220</td><td class="num">1 870</td><td class="num">74</td></tr>
+    </table>
+    <p class="mute" style="font-size:14.3px;margin-top:-18px">827 тысяч просмотров из 915 тысяч. Остальные пятнадцать роликов лежат в диапазоне от 1,6 до 15,3 тысяч.</p>
+
+    <h4 style="margin-top:34px">До и после всплеска</h4>
+    <table class="tbl">
+      <tr><th>Период</th><th style="text-align:right">Роликов</th><th style="text-align:right">Среднее</th><th style="text-align:right">Медиана</th></tr>
+      <tr><td>До апреля 2026</td><td class="num">10</td><td class="num">4 970</td><td class="num">5 150</td></tr>
+      <tr><td>Апрель 2026 и позже</td><td class="num">8</td><td class="num">108 122</td><td class="num">11 658</td></tr>
+      <tr><td>После всплеска, июнь–июль</td><td class="num">5</td><td class="num">7 534</td><td class="num">6 373</td></tr>
+    </table>
+    <p class="mute" style="font-size:14.3px;margin-top:-18px">Блог вернулся на прежний уровень: после 657 тысяч свежие ролики дают 3–15 тысяч. Лучший результат после апреля — 15 309 просмотров у ролика от 28 июля.</p>
+
+    <div class="split">
+      <div class="col">
+        <h4>Вовлечение</h4>
+        <ul>
+          <li>Лайки к просмотрам — 2–3,5%, нормальный уровень</li>
+          <li>Комментарии — медиана 3–6 на ролик</li>
+          <li>У ролика на 657 тысяч — 165 комментариев</li>
+          <li>Репостов у него же — 123, это 0,019% от просмотров</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Технические параметры</h4>
+        <ul>
+          <li>Средняя длительность — 15,3 секунды</li>
+          <li>Медиана длительности — 10 секунд</li>
+          <li>13 роликов на оригинальном аудио</li>
+          <li>5 роликов на официальных треках</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note"><strong>Главное несоответствие.</strong> 657 тысяч просмотров при базе 743 подписчика. Виральный охват почти не сконвертировался в подписки — аудитория пришла посмотреть картинку и ушла.</div>
+  </div>
+</section>
+
+<section id="vnutri" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">04</span>
+    <h2>Что внутри роликов</h2>
+    <p>Посмотрены покадрово все восемнадцать, транскрибированы семнадцать.</p>
+  </div>
+  <div class="narrow">
+    <p class="lead"><strong>Формат один на весь блог:</strong> вертикальное видео с телефона, крупный текстовый оверлей, музыка фоном, без монтажа. Живой речи нет ни в одном ролике, кроме единственного влога от 4 марта 2025 — он же единственный, где Вы что-то рассказываете.</p>
+
+    <div class="card"><h4>Флирт-юмор про мужчин и отношения</h4><p>Ядро блога и все три вирусных ролика: лифт с букетом роз, голосовое от инста-ухажёра на парковке, «милый, выходи, я мириться приехала», «тебе наверное молоденькие нравятся», «прокомментируйте фотку как завистливая подруга».</p></div>
+    <div class="card"><h4>Цветы</h4><p>Четыре ролика с крупными букетами — пионы, розы, подписи в духе «цветы пустая трата денег».</p></div>
+    <div class="card"><h4>Статус и деньги</h4><p>Покупка Mercedes: детское фото — чёрный Mercedes в паркинге, подпись «Мечты сбываются».</p></div>
+    <div class="card"><h4>Путешествия и лайфстайл</h4><p>Океан, Таиланд, вечеринки, мотивационные подписи.</p></div>
+    <div class="card"><h4>Самоирония про внешность</h4><p>«Когда в мире идеально маленьких носов ты осталась преданна своему грузинскому шнобелю».</p></div>
+    <div class="card"><h4>Единственный ролик с речью</h4><p>4 марта 2025, 69 секунд, 5 702 просмотра — про первый в жизни пост: не есть и не пить, разбор вещей, косметика подруге, вещи на благотворительность.</p></div>
+
+    <div class="note">Экспертного контента нет ни в одном ролике: ни кейсов, ни клиентов, ни «как я вывожу экспертов», ни разговорных роликов о работе — при том, что шапка обещает именно это.</div>
+  </div>
+</section>
+
+<section id="posty" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">05</span>
+    <h2>Посты и карусели</h2>
+  </div>
+  <div class="narrow">
+    <p class="lead">18 публикаций, визуально — портфолио внешности: селфи в зеркало и в машине, съёмки в путешествиях, цветы, собачка в паркинге, рестораны и террасы.</p>
+    <div class="split">
+      <div class="col">
+        <h4>Тексты</h4>
+        <ul>
+          <li>12 из 18 постов вообще без подписи</li>
+          <li>Остальные — короткая эмодзи-подпись</li>
+          <li>Ни одного текста, где раскрывается эксперт</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Реакции</h4>
+        <ul>
+          <li>Лайки ровные: от 38 до 123</li>
+          <li>Медиана — около 65</li>
+          <li>Комментарии — от 0 до 12</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aktualnye" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">06</span>
+    <h2>Актуальные</h2>
+    <p>61 история в шести альбомах.</p>
+  </div>
+  <div class="narrow">
+    <table class="tbl">
+      <tr><th>Альбом</th><th style="text-align:right">Историй</th><th style="text-align:right">Период</th></tr>
+      <tr><td>Thailand</td><td class="num">18</td><td class="num">янв–фев 2025</td></tr>
+      <tr><td>China</td><td class="num">13</td><td class="num">ноя 2025</td></tr>
+      <tr><td>Egypt</td><td class="num">10</td><td class="num">июль 2026</td></tr>
+      <tr><td>Мерс</td><td class="num">9</td><td class="num">июн–дек 2025</td></tr>
+      <tr><td>I'm</td><td class="num">6</td><td class="num">янв–июль 2026</td></tr>
+      <tr><td>Work</td><td class="num">5</td><td class="num">дек 2024 – дек 2025</td></tr>
+    </table>
+
+    <div class="note">56 историй из 61 — путешествия, машина и лайфстайл. Работа — один альбом из пяти историй, и именно там лежит вся экспертная фактура блога.</div>
+
+    <div class="card">
+      <h4>Что внутри альбома «Work»</h4>
+      <p>Съёмка подкаста. Переписки с клиентом: «Мне постить рилсы 3 шт в день?», «Хочу на каникулах» — и Ваш ответ: «самое важное, когда у клиента горят глаза и он настроен на результат, неважно, какой сегодня день. Именно таких клиентов я жду». Торт с цифрой 20: «вчера поздравила её с 20 000 подписчиков, эту цифру мы сделали меньше чем за 2 месяца». И план: «дойти до 100 000 подписчиков и разорвать блог на монетизации».</p>
+    </div>
+
+    <div class="card">
+      <h4>Чего в актуальных нет</h4>
+      <p>Ни одного альбома с услугами, отзывами, форматами работы или условиями. Ссылок-стикеров в историях нет ни одной — единственная точка входа на связь это ссылка в шапке.</p>
+    </div>
+  </div>
+</section>
+
+<section id="vyvody" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">07</span>
+    <h2>Что видно по цифрам</h2>
+    <p>Только наблюдения из данных, без интерпретаций.</p>
+  </div>
+  <div class="narrow">
+    <div class="obs"><h4>Упаковка и контент говорят о разных людях</h4><p>Шапка — продюсер запусков с обещанием +30% дохода. Лента — женский лайфстайл про флирт, цветы и машину. Пересечение между ними — пять историй в одном альбоме актуальных.</p></div>
+    <div class="obs"><h4>Вирус случился на женском триггере, не на экспертизе</h4><p>657 тысяч дал ролик с букетом роз в лифте — без речи, без смысла, на визуале.</p></div>
+    <div class="obs"><h4>Виральность не удержана</h4><p>Три ролика в апреле, затем полтора месяца тишины. Прирост базы за десять месяцев — около 390 человек при почти миллионе просмотров.</p></div>
+    <div class="obs"><h4>Элементов воронки нет</h4><p>Нет закрепа, нет актуального с услугой, нет ссылок в историях, нет призывов, подписи пустые. Единственная точка контакта — личка в Telegram по ссылке в шапке.</p></div>
+    <div class="obs"><h4>Комментарии не растятся</h4><p>При 22 тысячах лайков на вирусном ролике — 165 комментариев. С аудиторией не разговаривают.</p></div>
+    <div class="obs"><h4>Производство простое</h4><p>Телефон, один дубль, типовой шрифт, музыка из трендов, длительность 5–25 секунд. Ни один ролик не требовал съёмочной группы — рост упирается не в бюджет.</p></div>
+    <div class="obs"><h4>Фактура для контента есть, и сильная</h4><p>Реальный кейс 20 000 подписчиков за два месяца, работа с клиентами-блогерами, подкаст, Грузия, переезд, покупка Mercedes, путешествия, тема self-made woman. Всё это лежит в историях и не выведено в ленту.</p></div>
+  </div>
+</section>
+
+<footer class="fin wrap">
+  <div class="big">Охваты у блога есть. Нет человека, за которым эти охваты остаются.</div>
+  <p>Данные собраны 29 июля 2026: прямая выгрузка медиа и метрики Instagram — просмотры, лайки, комментарии, репосты, длительность, аудио. Скачано 18 роликов, 39 файлов постов, 61 история, транскрибировано 17 роликов.</p>
+</footer>
+
+</body></html>
