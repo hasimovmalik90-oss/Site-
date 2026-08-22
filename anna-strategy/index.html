@@ -1,0 +1,618 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стратегия развития блога · Анна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px} .narrow{max-width:860px;margin-left:auto;margin-right:auto}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(44px,9vw,80px);letter-spacing:.05em}
+h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:8px}
+h3{font-size:clamp(20px,3vw,27px)} h4{font-size:18px;font-weight:400}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.dim{color:var(--dim)}.mute{color:var(--mute)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:34px} .section-head p{color:var(--mute);max-width:780px;margin-top:10px;text-wrap:pretty}
+/* hero */
+.hero{text-align:center;padding:104px 0 70px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
+.hero h1{text-transform:uppercase;letter-spacing:.1em}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,27px);color:var(--accent);margin:18px auto 0;max-width:700px}
+.hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.toc a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.16s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+.lead{font-size:clamp(16px,2vw,19px);color:#E8E4DE;max-width:840px}
+/* позиционирование */
+.pos{border-top:1px solid var(--line);padding:38px 0}
+.pos:first-of-type{border-top:none;padding-top:8px}
+.pos-head{display:flex;gap:18px;align-items:baseline;margin-bottom:14px}
+.pos-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.4);line-height:1;flex:none}
+.pos-name{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,34px);color:#F4F0EA;letter-spacing:.08em;text-transform:uppercase}
+.pos p{color:var(--text);max-width:800px;font-size:15.5px}
+.pos .cut{color:var(--mute);font-size:14.5px;margin-top:10px}
+.pos .cut b{color:var(--accent);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+.shapka{max-width:520px;margin:20px 0 0;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px}
+.shapka .ln{color:var(--text);font-size:14.5px;padding:7px 0;border-bottom:1px solid var(--line)} .shapka .ln:last-child{border-bottom:none}
+.shapka .ln.en{color:var(--accent)}
+.shapka .alt{display:block;color:var(--dim);font-size:12.5px;font-style:italic;margin-top:3px}
+/* карточки */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card-n{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--accent);margin-bottom:10px}
+.card h3{margin-bottom:9px} .card p{color:var(--mute);font-size:14.5px;text-wrap:pretty}
+/* таблица актуальных */
+.tbl{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px}
+.tbl th{text-align:left;font-family:Mulish,sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);padding:12px 14px;border-bottom:1px solid var(--line)}
+.tbl td{padding:14px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top;text-wrap:pretty}
+.tbl td.n{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);width:40px}
+.tbl td.st{color:var(--mute);font-size:13.5px}
+.tbl tr.vis td{background:rgba(201,183,155,.04)}
+/* сторителлинги */
+.story{border-top:1px solid var(--line);padding:30px 0}
+.story:first-of-type{border-top:none}
+.story-head{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px}
+.story-w{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.3);border-radius:20px;padding:4px 11px}
+.story h3{color:#F4F0EA}
+.beats{list-style:none}
+.beats li{padding:9px 0 9px 24px;position:relative;color:var(--text);font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.beats li:last-child{border-bottom:none}
+.beats li::before{content:'';position:absolute;left:0;top:17px;width:6px;height:6px;border:1px solid var(--accent);border-radius:50%}
+.beats li b{color:var(--accent);font-weight:600}
+.note{margin-top:14px;padding:16px 18px;background:rgba(201,183,155,.05);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text);font-size:14px;text-wrap:pretty}
+.note b{color:var(--accent);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+/* форматы */
+.fmt{border-top:1px solid var(--line);padding:34px 0}
+.fmt:first-of-type{border-top:none}
+.fmt-head{display:flex;gap:18px;align-items:baseline;margin-bottom:10px}
+.fmt-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(201,183,155,.4);line-height:1;flex:none}
+.fmt p{color:var(--text);max-width:800px;text-wrap:pretty;font-size:15px}
+.fmt .sub{color:var(--mute);font-size:14.5px}
+/* столбы */
+.pillar{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px 26px 20px;margin-top:20px}
+.pillar-head{display:flex;gap:14px;align-items:baseline;margin-bottom:6px;flex-wrap:wrap}
+.pillar-n{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--accent);line-height:1}
+.pillar h3{color:#F4F0EA}
+.pillar .check{font-size:12px;color:var(--dim);font-style:italic;width:100%;margin-bottom:14px}
+.themes{list-style:none;counter-reset:t}
+.themes li{counter-increment:t;padding:12px 0 12px 38px;position:relative;border-bottom:1px solid var(--line);color:var(--text);font-size:14.5px;text-wrap:pretty}
+.themes li:last-child{border-bottom:none}
+.themes li::before{content:counter(t);position:absolute;left:0;top:12px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--accent);width:24px;text-align:center}
+.themes li q{quotes:'«' '»';color:#F4F0EA;font-weight:400}
+.themes li .arrow{color:var(--mute);display:block;margin-top:3px;font-size:13.5px}
+.themes li .flag{color:var(--accent);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:inline-block;margin-top:5px}
+/* callout */
+.callout{margin-top:24px;padding:22px 24px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;color:var(--text);font-size:15px;text-wrap:pretty}
+.callout b{color:var(--accent)}
+.wipbox{border:1px dashed rgba(201,183,155,.3);border-radius:14px;padding:22px 24px;color:var(--mute);font-size:14.5px;background:rgba(201,183,155,.02);margin-top:24px}
+.wipbox b{color:var(--accent)}
+/* решения */
+.dec{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.dec:last-child{border-bottom:none}
+.dec .dn{font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(201,183,155,.4);line-height:1;flex:none;min-width:38px}
+.dec .db{color:var(--text);font-size:15px;text-wrap:pretty}
+.dec .db span{display:block;color:var(--mute);font-size:14px;margin-top:4px}
+.closing{text-align:center;padding:74px 0 84px}
+.sign{margin-top:52px;padding-top:38px;border-top:1px solid var(--line);max-width:420px;margin-left:auto;margin-right:auto}
+.sign-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:#F4F0EA;letter-spacing:.02em}
+.sign-role{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:7px}
+.tgbtn{display:inline-block;margin-top:24px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.4);border-radius:30px;padding:13px 28px;transition:.18s}
+.tgbtn:hover{background:var(--accent);color:#0B0B0C;border-color:var(--accent)}
+.closing p{max-width:680px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:32px 0;opacity:.6}
+@media(max-width:720px){
+  .wrap{padding:0 18px}
+  body{font-size:16px}
+  section{padding:46px 0}
+  .hero{padding:72px 0 46px} .hero h1{text-transform:none;letter-spacing:.03em}
+  h2{font-size:clamp(26px,8vw,34px)}
+  .fmt-head,.pos-head{gap:12px} .fmt-num,.pos-num{font-size:32px}
+  .pillar{padding:22px 18px 16px}
+  .tbl td,.tbl th{padding:10px 8px;font-size:13.5px}
+  .shapka{padding:18px}
+}
+</style></head><body>
+
+<header class="hero wrap">
+  <div class="fio">Анна</div>
+  <div class="top">Стратегия развития блога · 22&nbsp;августа 2026</div>
+  <h1>Стратегия</h1>
+  <p class="slogan">Охваты у&nbsp;блога были. Человека, за&nbsp;которым эти охваты остаются,&nbsp;— не&nbsp;было.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#pos">Позиционирование</a>
+    <a href="#hl">Актуальные</a>
+    <a href="#st">Сторителлинги</a>
+    <a href="#fmt">Форматы</a>
+    <a href="#pil">Восемь столбов</a>
+    <a href="#prof">Профессия</a>
+    <a href="#extra">Женское и&nbsp;раскрытие</a>
+    <a href="#dec">Решения</a>
+  </nav>
+</header>
+
+<section id="pos">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел первый</span>
+    <h2>Позиционирование</h2>
+    <p>Главное решение всей стратегии: какое одно слово Вы&nbsp;занимаете в&nbsp;голове аудитории. Из&nbsp;него выводится всё остальное&nbsp;— актуальные, темы, форматы, тон. Ниже пять вариантов, собранных из&nbsp;Ваших собственных ответов. Общий заход у&nbsp;всех один: позиция силы, подача из&nbsp;точки, куда Вы&nbsp;пришли, а&nbsp;не&nbsp;из&nbsp;точки пути.</p>
+  </div>
+
+  <div class="narrow">
+
+  <div class="pos">
+    <div class="pos-head"><span class="pos-num">1</span><span class="pos-name">Одна</span></div>
+    <p>Сила берётся из&nbsp;Вашего же&nbsp;тезиса: надо уметь быть одной. Не&nbsp;одиночество как беда, а&nbsp;выбранное состояние, из&nbsp;которого женщина становится сильной. Мужчина в&nbsp;такой картине не&nbsp;спасение, а&nbsp;дополнение к&nbsp;уже готовой жизни.</p>
+    <p>Работает потому, что бьёт в&nbsp;реальную боль третьего слоя аудитории&nbsp;— женщин, которые терпят, потому что боятся остаться одни. Вы&nbsp;показываете, что одна&nbsp;— это не&nbsp;приговор, а&nbsp;база.</p>
+    <div class="cut"><b>Чем жертвуем</b>Сюжетами про ожидание и&nbsp;поиск, жалобами. Ухаживания остаются, но&nbsp;Вы&nbsp;в&nbsp;них всегда та сторона, которая выбирает.</div>
+    <div class="shapka">
+      <div class="ln">Anna [Фамилия]</div>
+      <div class="ln en">Content creator · Lifestyle</div>
+      <div class="ln en">Strong enough to be alone</div>
+      <div class="ln">Продюсер личных брендов<span class="alt">или просто: Продюсер</span></div>
+    </div>
+  </div>
+
+  <div class="pos">
+    <div class="pos-head"><span class="pos-num">2</span><span class="pos-name">Свобода</span></div>
+    <p>Ваша прямая цитата: свобода для меня&nbsp;— это только деньги. Здесь и&nbsp;позиция силы, и&nbsp;объяснение, зачем женщине зарабатывать: не&nbsp;ради статуса, а&nbsp;чтобы не&nbsp;зависеть&nbsp;— от&nbsp;мужчины, от&nbsp;работы, от&nbsp;чужого решения.</p>
+    <p>Это самый честный Ваш мотив из&nbsp;всей распаковки. Вы&nbsp;пережили период, когда не&nbsp;было денег на&nbsp;воду, и&nbsp;с&nbsp;тех пор держите подушку безопасности&nbsp;— даже машину взяли в&nbsp;кредит, лишь бы&nbsp;её&nbsp;не&nbsp;трогать. Такое не&nbsp;выдумывается, и&nbsp;аудитория это считывает.</p>
+    <div class="cut"><b>Чем жертвуем</b>Демонстрацией трат как самоцелью. Каждая покупка в&nbsp;кадре объясняется через свободу, а&nbsp;не&nbsp;через «смотрите, что я&nbsp;могу».</div>
+    <div class="shapka">
+      <div class="ln">Anna [Фамилия]</div>
+      <div class="ln en">Content creator · Lifestyle</div>
+      <div class="ln en">Freedom is money. Money is a skill</div>
+      <div class="ln">Продюсирование женских блогов</div>
+    </div>
+  </div>
+
+  <div class="pos">
+    <div class="pos-head"><span class="pos-num">3</span><span class="pos-name">Планка</span></div>
+    <p>Позиция чистого лидерства: Вы&nbsp;не&nbsp;учите и&nbsp;не&nbsp;доказываете, Вы&nbsp;задаёте уровень, на&nbsp;который смотрят. Всё в&nbsp;кадре&nbsp;— вещи, места, решения, круг общения&nbsp;— работает на&nbsp;одно: показать планку, ниже которой Вы&nbsp;не&nbsp;опускаетесь.</p>
+    <p>Опирается на&nbsp;то, что уже есть: Кутузовский, машина, бизнес-класс, отбор клиентов по&nbsp;принципу «пустых не&nbsp;беру». Плюс Ваша установка&nbsp;— покупали машину, которую хотели, а&nbsp;не&nbsp;которую могли себе позволить.</p>
+    <div class="cut"><b>Риск</b>Самый острый из&nbsp;пяти. Вы&nbsp;сами назвали высокомерие одной из&nbsp;трёх вещей, которые о&nbsp;Вас думают неправильно. Планка без человеческого слоя превращает это опасение в&nbsp;факт.</div>
+    <div class="shapka">
+      <div class="ln">Anna [Фамилия]</div>
+      <div class="ln en">Content creator · Lifestyle</div>
+      <div class="ln en">I set the standard</div>
+      <div class="ln">Продюсер</div>
+    </div>
+  </div>
+
+  <div class="pos">
+    <div class="pos-head"><span class="pos-num">4</span><span class="pos-name">Своё</span></div>
+    <p>Всё, что у&nbsp;Вас есть, добыто Вашими руками&nbsp;— и&nbsp;это единственное, что делает женщину спокойной. Отвечает сразу на&nbsp;два обвинения, которые Вы&nbsp;сами назвали: что помогают родители и&nbsp;что за&nbsp;Вами кто-то&nbsp;стоит. Ответ не&nbsp;в&nbsp;оправдании, а&nbsp;в&nbsp;позиции: моё&nbsp;— значит моё, вопросов нет.</p>
+    <p>Тише первых трёх, но&nbsp;крепче. Не&nbsp;требует ни агрессии, ни демонстрации, и&nbsp;оставляет полную свободу показывать что угодно&nbsp;— от&nbsp;квартиры до&nbsp;тренировок.</p>
+    <div class="cut"><b>Чем жертвуем</b>Любыми намёками на&nbsp;чужой ресурс, подарками в&nbsp;кадре, темой «мне это досталось».</div>
+    <div class="shapka">
+      <div class="ln">Anna [Фамилия]</div>
+      <div class="ln en">Content creator · Lifestyle</div>
+      <div class="ln en">Everything here is mine</div>
+      <div class="ln">Продюсер женских блогов</div>
+    </div>
+  </div>
+
+  <div class="pos">
+    <div class="pos-head"><span class="pos-num">5</span><span class="pos-name">Продюсер</span></div>
+    <p>Слово, которое Вы&nbsp;уже носите, но&nbsp;с&nbsp;двойным дном: Вы&nbsp;продюсируете не&nbsp;только чужие блоги, но&nbsp;и&nbsp;собственную жизнь. Позиция силы в&nbsp;том, что Вы&nbsp;никогда не&nbsp;пассажир&nbsp;— всегда тот, кто принимает решение и&nbsp;отвечает за&nbsp;результат.</p>
+    <p>Единственный вариант, где профессия и&nbsp;личность не&nbsp;спорят, а&nbsp;объясняют друг друга. Ваш метод&nbsp;— работать на&nbsp;процент, а&nbsp;не&nbsp;за&nbsp;фикс, то&nbsp;есть заходить в&nbsp;результат деньгами. Отсюда прямо следует и&nbsp;личное: свою жизнь Вы&nbsp;ведёте так же.</p>
+    <p>Плюс закрывает разрыв, из-за&nbsp;которого блог не&nbsp;рос: шапка обещала продюсера, лента показывала постороннего человека. Здесь обещание и&nbsp;содержание становятся одним.</p>
+    <div class="cut"><b>Чем жертвуем</b>Контентом, где Вы&nbsp;наблюдатель. В&nbsp;каждом сюжете Вы&nbsp;принимаете решение.</div>
+    <div class="shapka">
+      <div class="ln">Anna [Фамилия]</div>
+      <div class="ln en">Producer · Content creator · Lifestyle</div>
+      <div class="ln">Выращиваю женские блоги и&nbsp;собственную жизнь</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+</section>
+
+<section id="hl">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел второй</span>
+    <h2>Актуальные</h2>
+    <p>Сейчас шесть альбомов и&nbsp;шестьдесят одна история. Из&nbsp;них пятьдесят шесть&nbsp;— путешествия, машина и&nbsp;лайфстайл, а&nbsp;вся работа умещается в&nbsp;пять сторис. Новый человек заходит и&nbsp;не&nbsp;понимает, кто перед ним. Пропорцию переворачиваем: девять альбомов, первые четыре видны без прокрутки и&nbsp;отвечают на&nbsp;вопросы&nbsp;— кто Вы, что умеете, что думаете, к&nbsp;чему идёте.</p>
+  </div>
+
+  <table class="tbl">
+    <tr><th></th><th>Альбом</th><th>Что внутри</th><th>Как собирается</th></tr>
+    <tr class="vis"><td class="n">1</td><td><strong>Мой путь</strong></td><td>Кто Вы, откуда, чем жили, чем занимаетесь сейчас, куда идёте</td><td class="st">Сторителлинг, первая неделя</td></tr>
+    <tr class="vis"><td class="n">2</td><td><strong>Work</strong></td><td>Кейсы, клиенты, результаты, закулисье съёмок</td><td class="st">Есть основа, дополняется с&nbsp;текущих проектов</td></tr>
+    <tr class="vis"><td class="n">3</td><td><strong>О&nbsp;женском</strong></td><td>Ваша позиция про женщин, реализацию, самодостаточность</td><td class="st">Сторителлинг, вторая неделя</td></tr>
+    <tr class="vis"><td class="n">4</td><td><strong>Деньги</strong></td><td>Отношение к&nbsp;деньгам, тратам, свободе</td><td class="st">Сторителлинг, пятая неделя</td></tr>
+    <tr><td class="n">5</td><td><strong>Вера</strong></td><td>Православие с&nbsp;детства, что даёт, чем держит</td><td class="st">Сторителлинг, четвёртая неделя</td></tr>
+    <tr><td class="n">6</td><td><strong>Спорт</strong></td><td>Зал, тренировки, дисциплина, питание</td><td class="st">Съёмочный день, фактура готова</td></tr>
+    <tr><td class="n">7</td><td><strong>Реклама и Barter</strong></td><td>Как устроены интеграции, что берёте и&nbsp;что нет</td><td class="st">Сторителлинг, третья неделя</td></tr>
+    <tr><td class="n">8</td><td><strong>Travel</strong></td><td>Таиланд, Китай, Египет сводятся в&nbsp;один альбом</td><td class="st">Из&nbsp;готового, только пересобрать</td></tr>
+    <tr><td class="n">9</td><td><strong>I am</strong></td><td>Красивое, рестораны, лайфстайл&nbsp;— всё, что Вам нравится</td><td class="st">Остаётся как есть</td></tr>
+  </table>
+
+  <div class="callout"><b>Что расформировывается.</b> Альбом «Мерс» перестаёт существовать отдельно&nbsp;— машина уходит внутрь «Моего пути» как этап. Сейчас она стоит витриной и&nbsp;читается как главное достижение.</div>
+  <div class="callout"><b>Оформление.</b> Единый стиль обложек на&nbsp;всю линейку, названия одним языком. Сторис в&nbsp;форматы контента не&nbsp;входят&nbsp;— это отдельный слой работы.</div>
+</div>
+</section>
+
+<section id="st">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел третий</span>
+    <h2>Сторителлинги</h2>
+    <p>Один в&nbsp;неделю, поверх текущего контента. Пять недель закрывают всю линейку актуальных. Ниже&nbsp;— содержание каждого: из&nbsp;чего складывается история и&nbsp;где проходят границы. Механика подачи прорабатывается отдельно.</p>
+  </div>
+
+  <div class="narrow">
+
+  <div class="story">
+    <div class="story-head"><span class="story-w">Неделя 1</span><h3>Мой путь</h3></div>
+    <p class="mute">Самый длинный, делаем первым: на&nbsp;него будут ссылаться все остальные.</p>
+    <ul class="beats">
+      <li><b>Завязка.</b> Маленький город, семья, которая всё потеряла после 2008-го. У&nbsp;отца были предприятия, заправки, швейные цеха в&nbsp;Европе, у&nbsp;детей водитель и&nbsp;няня. Потом не&nbsp;стало ничего.</li>
+      <li><b>Развитие.</b> Двадцать два года, бренд на Wildberries. На&nbsp;эти деньги переезд в&nbsp;Москву в&nbsp;2022-м, студия двадцать два метра в&nbsp;Котельниках за&nbsp;тридцать восемь тысяч.</li>
+      <li><b>Дно.</b> Девять переездов за&nbsp;четыре года, съёмные комнаты, квартиры с&nbsp;тараканами, увольнения. Зарплата восемьдесят, комната тридцать, жить на&nbsp;пятьдесят. День, когда не&nbsp;было денег на&nbsp;воду.</li>
+      <li><b>Перелом.</b> Первые двести тысяч в&nbsp;профессии&nbsp;— случайно, попалась женщина с&nbsp;залетевшим роликом.</li>
+      <li><b>Сегодня.</b> Кутузовский, свои клиенты, машина.</li>
+      <li><b>Вывод.</b> Из&nbsp;этого периода Вас никто не&nbsp;вытащил.</li>
+    </ul>
+    <div class="note"><b>Границы</b>Без темы обувного магазина и&nbsp;без темы веса&nbsp;— Вы&nbsp;их&nbsp;закрыли.</div>
+  </div>
+
+  <div class="story">
+    <div class="story-head"><span class="story-w">Неделя 2</span><h3>О&nbsp;женском</h3></div>
+    <p class="mute">Не&nbsp;история, а&nbsp;позиция. Строится не&nbsp;по&nbsp;сюжету, а&nbsp;по&nbsp;тезисам.</p>
+    <ul class="beats">
+      <li><b>Тезис.</b> Надо уметь быть одной. Не&nbsp;потому что мужчины не&nbsp;нужны, а&nbsp;потому что без этого не&nbsp;будет стержня.</li>
+      <li><b>Развитие.</b> Женская реализация до&nbsp;замужества&nbsp;— убеждение, которое поменялось за&nbsp;пять лет, раньше Вы&nbsp;думали ровно наоборот.</li>
+      <li><b>Противоречие, которое держим открыто.</b> При этом Вы&nbsp;считаете нормальным, когда женщину обеспечивают. Росли в&nbsp;семье, где мама не&nbsp;работала ни дня, родители вместе сорок пять лет.</li>
+      <li><b>Разрешение.</b> Работать не&nbsp;из-за&nbsp;денег, а&nbsp;потому что хочешь&nbsp;— вот Ваш идеал.</li>
+      <li><b>Острое.</b> Позиция против пропаганды разводов: Вы&nbsp;считаете, что это транслируют женщины, которых не&nbsp;любят.</li>
+    </ul>
+  </div>
+
+  <div class="story">
+    <div class="story-head"><span class="story-w">Неделя 3</span><h3>Реклама и&nbsp;бартер</h3></div>
+    <p class="mute">Работает на&nbsp;профессию, поэтому третьим. Единственный из&nbsp;пяти, где Вы&nbsp;показываете ремесло вместо мыслей.</p>
+    <ul class="beats">
+      <li><b>Завязка.</b> Что такое бартер и&nbsp;чем отличается от&nbsp;рекламы. Почему бренды дают вещи, а&nbsp;не&nbsp;деньги.</li>
+      <li><b>Механика.</b> Как приходит предложение, как согласовываются ролики, сколько занимает отработка.</li>
+      <li><b>Живой кейс.</b> Часы за&nbsp;сорок пять тысяч&nbsp;— согласованы два ролика, один постановочный. Снимается прямо сейчас, ничего восстанавливать не&nbsp;надо.</li>
+      <li><b>Закулисье.</b> Как это выглядит изнутри: нелепые дубли, то, что не&nbsp;получается с&nbsp;первого раза.</li>
+      <li><b>Позиция.</b> Что берёте, что не&nbsp;берёте и&nbsp;почему.</li>
+    </ul>
+  </div>
+
+  <div class="story">
+    <div class="story-head"><span class="story-w">Неделя 4</span><h3>Вера</h3></div>
+    <ul class="beats">
+      <li><b>Основа.</b> Православная с&nbsp;детства, религия на&nbsp;первом месте.</li>
+      <li><b>Ключевой эпизод.</b> Период, когда Вы&nbsp;заходили в&nbsp;церковь, чтобы стало легче. Он&nbsp;же&nbsp;связывает Веру с&nbsp;«Моим путём»&nbsp;— та же&nbsp;точка, другой ракурс.</li>
+      <li><b>Убеждение.</b> Жизнь двигается в&nbsp;направлении самой сильной мысли.</li>
+      <li><b>Сегодня.</b> Что это даёт в&nbsp;обычной жизни.</li>
+    </ul>
+    <div class="note"><b>Правило</b>Вера и&nbsp;национальность не&nbsp;пересекаются ни в&nbsp;одном кадре. Тема веры фильтрует аудиторию: часть отвалится сразу&nbsp;— это нормально и&nbsp;правильно, но&nbsp;к&nbsp;этому нужно быть готовой заранее.</div>
+  </div>
+
+  <div class="story">
+    <div class="story-head"><span class="story-w">Неделя 5</span><h3>Деньги</h3></div>
+    <ul class="beats">
+      <li><b>Тезис.</b> Свобода&nbsp;— это только деньги.</li>
+      <li><b>Откуда взялся.</b> Страх остаться ни с&nbsp;чем после того периода. Подушка безопасности, из-за&nbsp;которой машина взята в&nbsp;кредит, хотя деньги были.</li>
+      <li><b>Как тратите.</b> Легко на&nbsp;комфорт&nbsp;— бизнес-класс, массаж. Экономите на&nbsp;бытовом и&nbsp;ежедневном.</li>
+      <li><b>Неочевидное.</b> Самая бесполезная трата&nbsp;— аренда квартиры. Самая ценная&nbsp;— инвестиции. Регулярно помогаете маме.</li>
+      <li><b>Позиция.</b> Враньё&nbsp;— это обещания быстрого дохода с&nbsp;блога.</li>
+    </ul>
+  </div>
+
+  </div>
+</div>
+</section>
+
+<section id="fmt">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел четвёртый</span>
+    <h2>Форматы</h2>
+    <p>Семь форматов, которые реализуем. Это база, а&nbsp;не&nbsp;закрытый список&nbsp;— она дополняется по&nbsp;ходу работы.</p>
+  </div>
+
+  <div class="narrow">
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">1</span><h3>Закадровая озвучка</h3></div>
+    <p>Основной формат старта. Через него заходит всё, что Вы&nbsp;пока не&nbsp;готовы говорить на&nbsp;камеру.</p>
+    <p>Снимается в&nbsp;два этапа: сначала картинка&nbsp;— Вы&nbsp;едете, идёте, собираетесь, работаете; потом отдельно, дома, наговариваете текст. Голос пишется не&nbsp;на&nbsp;площадке, а&nbsp;когда рядом никого нет&nbsp;— именно это снимает страх осуждения.</p>
+    <p class="sub">Длительность тридцать-шестьдесят секунд. Нынешние ролики по&nbsp;пять-двадцать пять секунд при досмотре около пятнадцати&nbsp;— под смысл этого мало. Самый дешёвый в&nbsp;производстве: картинка набирается попутно, в&nbsp;любой съёмочный день.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">2</span><h3>Говорящая голова</h3></div>
+    <p>Единственный формат, который отвечает на&nbsp;вопрос «кто она». Без него человек не&nbsp;понимает, за&nbsp;кем идёт.</p>
+    <p>Вводится лестницей, не&nbsp;сразу соло. Первая ступень&nbsp;— в&nbsp;паре: Вам так легче, Вы&nbsp;сами это уточнили. Вторая&nbsp;— соло в&nbsp;движении: в&nbsp;машине, на&nbsp;ходу, за&nbsp;сборами, когда руки заняты и&nbsp;камера не&nbsp;давит. Третья&nbsp;— соло статикой, лицом в&nbsp;кадр. Это цель, а&nbsp;не&nbsp;старт.</p>
+    <p class="sub">Правило съёмки: искренний дубль, где Вы&nbsp;переживаете за&nbsp;то, что говорите, заходит лучше структурно правильного&nbsp;— тот выглядит холодным и&nbsp;наигранным. Берём второй-третий дубль, а&nbsp;не&nbsp;десятый.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">3</span><h3>Постановка</h3></div>
+    <p>Формат охвата, единственный, который у&nbsp;Вас уже доказанно работает. Сценарий на&nbsp;несколько дублей, один-два человека в&nbsp;кадре, реквизит. То&nbsp;же, что Вы&nbsp;делали сами, но&nbsp;с&nbsp;продуманной сценой вместо случайной шутки.</p>
+    <p class="sub">Правило целостности: постановка не&nbsp;ставится между двумя сильными смысловыми роликами, если в&nbsp;ней Вы&nbsp;выглядите не&nbsp;в&nbsp;лучшем свете&nbsp;— восприятие рвётся. Каждая постановка идёт с&nbsp;подпоркой: следом смысловой ролик, чтобы пришедшим по&nbsp;охвату было что смотреть в&nbsp;профиле.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">4</span><h3>Влог</h3></div>
+    <p>Формат привыкания: человек проводит с&nbsp;Вами время и&nbsp;начинает считать своей. Снимается одно событие или день целиком&nbsp;— сборы, дорога, встреча, работа, вечер. Речь появляется в&nbsp;кадре естественно, между делом, и&nbsp;это ещё и&nbsp;подготовка к&nbsp;говорящей голове без прямого давления.</p>
+    <p class="sub">Рабочий приём производства: снимать несколько дней за&nbsp;один заход, чтобы не&nbsp;выходить с&nbsp;камерой каждый день.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">5</span><h3>Закулисье работы</h3></div>
+    <p>Экспертность без позы учителя. Не&nbsp;рассказываете, как надо&nbsp;— показываете, как делаете. Камера просто работает во&nbsp;время реальной работы: согласование рекламы, отработка бартера, съёмка с&nbsp;клиенткой, монтаж, нелепые дубли.</p>
+    <p class="sub">Материал появляется сам, отдельных съёмочных дней не&nbsp;требует. Он&nbsp;же&nbsp;идёт в&nbsp;актуальное Work.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">6</span><h3>Лайфстайл без речи</h3></div>
+    <p>Вертикаль с&nbsp;телефона, текст поверх, музыка&nbsp;— то, что Вы&nbsp;снимаете сейчас. В&nbsp;производстве не&nbsp;меняем ничего, меняем отбор: каждый такой ролик несёт свой смысловой блок, а&nbsp;не&nbsp;просто занимает день.</p>
+    <p class="sub">Быт, среда, дом, машина, места, собака&nbsp;— всё это работает картинкой и&nbsp;речи не&nbsp;требует. Наполнитель между смысловыми единицами.</p>
+  </div>
+
+  <div class="fmt">
+    <div class="fmt-head"><span class="fmt-num">7</span><h3>Бьюти</h3></div>
+    <p>Прямой ответ на&nbsp;текущий запрос аудитории: сейчас девушки пишут Вам в&nbsp;личку именно про внешность. Сборы, макияж, причёска, разбор образа. Вы&nbsp;работали визажистом-стилистом с&nbsp;шестнадцати лет&nbsp;— говорите из&nbsp;профессии, а&nbsp;не&nbsp;из&nbsp;любительства.</p>
+    <p class="sub">До&nbsp;первой съёмки нужно снять вопрос со&nbsp;стилем: в&nbsp;распаковке ответы расходятся&nbsp;— в&nbsp;одном сдержанность, в&nbsp;другом короткие юбки и&nbsp;облегающее.</p>
+  </div>
+
+  <div class="wipbox"><b>Список открытый.</b> Форматы дополняются по&nbsp;ходу работы&nbsp;— от&nbsp;того, что покажут цифры, что окажется Вам органично, что появится по&nbsp;вдохновению и&nbsp;что будет актуально в&nbsp;моменте. Новые вводятся по&nbsp;рекомендации продюсера, отработанные усиливаются, неработающие снимаются.</div>
+
+  </div>
+</div>
+</section>
+
+<section id="pil">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел пятый</span>
+    <h2>Восемь столбов</h2>
+    <p>Раскрытие личности&nbsp;— это когда зритель через контент понимает, как человек устроен внутри: во&nbsp;что верит, какой он&nbsp;с&nbsp;людьми, что прошёл и&nbsp;по&nbsp;каким правилам живёт. Восемь столбов делятся пополам. Первые четыре&nbsp;— внутреннее устройство, они дают доверие и&nbsp;ответ «свой или не&nbsp;свой». Вторые четыре&nbsp;— проявленное, они дают узнавание и&nbsp;досматриваемость. Закрыты обе половины&nbsp;— человек раскрыт.</p>
+    <p>Под каждым столбом по&nbsp;пять тем. Формулировка&nbsp;— это то, с&nbsp;чего ролик начинается, дальше указано, куда идёт мысль.</p>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">01</span><h3>Ценности</h3></div>
+    <div class="check">Что важно, во&nbsp;что верит, чего не&nbsp;допускает. Проверка: «она считает, что…»</div>
+    <ul class="themes">
+      <li><q>Был период, когда я&nbsp;заходила в&nbsp;церковь просто чтобы стало легче</q><span class="arrow">Что просили и&nbsp;что изменилось</span></li>
+      <li><q>Блоги про разводы ведут женщины, которых не&nbsp;любят</q><span class="arrow">Почему считаете это пропагандой</span><span class="flag">Поляризует&nbsp;— готовить к&nbsp;реакции</span></li>
+      <li><q>Пять лет назад я&nbsp;была уверена, что сначала замуж, а&nbsp;потом всё остальное</q><span class="arrow">Что перевернуло убеждение</span></li>
+      <li><q>Я&nbsp;не&nbsp;считаю себя успешной</q><span class="arrow">Ваша формула: семья плюс бизнес, одно без другого не&nbsp;считается</span></li>
+      <li><q>Я&nbsp;переехала в&nbsp;Москву, потому что слишком долго об&nbsp;этом думала</q><span class="arrow">Мысль как направление жизни</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">02</span><h3>Люди</h3></div>
+    <div class="check">Клиенты, друзья, семья: что делает для людей, где границы, как проходит конфликт. Проверка: «с&nbsp;людьми она такая…»</div>
+    <ul class="themes">
+      <li><q>Сейчас у&nbsp;неё восемьдесят тысяч. Когда мы&nbsp;начинали, не&nbsp;было ничего</q><span class="arrow">Кейс: двадцать тысяч подписчиков меньше чем за&nbsp;два месяца</span><span class="flag">Нужно разрешение клиентки</span></li>
+      <li><q>Есть человек, который может сказать мне не&nbsp;выкладывать&nbsp;— и&nbsp;я&nbsp;не&nbsp;выложу</q><span class="arrow">Чьё мнение весит больше всех и&nbsp;почему</span></li>
+      <li><q>Мой брат платил за&nbsp;меня до&nbsp;двадцати трёх лет, лишь бы&nbsp;я&nbsp;не&nbsp;шла работать</q><span class="arrow">Два образования и&nbsp;что Вы&nbsp;с&nbsp;этим сделали</span></li>
+      <li><q>Я&nbsp;отказываю людям с&nbsp;деньгами</q><span class="arrow">Если клиент пустой, я&nbsp;не&nbsp;беру его в&nbsp;работу</span></li>
+      <li><q>Мы&nbsp;жили впятером в&nbsp;одной комнате и&nbsp;ни разу не&nbsp;поругались</q><span class="arrow">Что такое женская дружба</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">03</span><h3>Путь</h3></div>
+    <div class="check">Что сделал, через что прошёл, что потерял, как изменился. Проверка: «она прошла через…»</div>
+    <ul class="themes">
+      <li><q>У&nbsp;меня в&nbsp;детстве были водитель и&nbsp;няня</q><span class="arrow">И&nbsp;как это закончилось в&nbsp;один год</span></li>
+      <li><q>Я&nbsp;получала восемьдесят, отдавала тридцать за&nbsp;комнату и&nbsp;жила на&nbsp;пятьдесят</q><span class="arrow">Период, который вспоминаете чёрно-белым</span></li>
+      <li><q>Был день, когда я&nbsp;не&nbsp;могла купить себе воду</q><span class="arrow">Дно и&nbsp;что было дальше</span></li>
+      <li><q>Первые двести тысяч я&nbsp;заработала случайно</q><span class="arrow">Женщина с&nbsp;залетевшим роликом</span></li>
+      <li><q>Я&nbsp;взяла машину, которую хотела, а&nbsp;не&nbsp;ту, которую могла себе позволить</q><span class="arrow">Почему всё равно в&nbsp;кредит</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">04</span><h3>Принципы</h3></div>
+    <div class="check">Правила жизни и&nbsp;работы. Проверка: «она из&nbsp;тех, кто всегда или никогда…»</div>
+    <ul class="themes">
+      <li><q>Я&nbsp;не&nbsp;работаю за&nbsp;фикс</q><span class="arrow">Захожу в&nbsp;процент от&nbsp;того, что человек заработает</span></li>
+      <li><q>Я&nbsp;не&nbsp;купила ни одного курса</q><span class="arrow">Посмотрела, как это делают, и&nbsp;сделала лучше</span></li>
+      <li><q>Я&nbsp;не&nbsp;переношу съёмки. Никогда</q><span class="arrow">Почему это правило, а&nbsp;не&nbsp;характер</span></li>
+      <li><q>Главная ошибка продюсера&nbsp;— отстранённость от&nbsp;блога</q><span class="arrow">Как работаете Вы</span></li>
+      <li><q>Вам врут, когда обещают быстрые деньги с&nbsp;блога</q><span class="arrow">Сколько это занимает на&nbsp;самом деле</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">05</span><h3>Характер</h3></div>
+    <div class="check">Как шутит, как реагирует, темперамент, речь. Проверка: «с&nbsp;ней рядом&nbsp;— вот так»</div>
+    <ul class="themes">
+      <li><q>Я&nbsp;не&nbsp;умею шутить по&nbsp;сценарию</q><span class="arrow">Смешная только в&nbsp;моменте&nbsp;— снимается живой съёмкой</span></li>
+      <li><q>Я&nbsp;взяла от&nbsp;папы девяносто девять процентов</q><span class="arrow">Рост, характер, замашки, чувство юмора</span></li>
+      <li><q>Один конфликт выбивает меня на&nbsp;несколько дней</q><span class="arrow">Что значит быть эмпатом в&nbsp;работе</span></li>
+      <li><q>Я&nbsp;вела блог двадцать один месяц и&nbsp;ни разу не&nbsp;сказала ни слова в&nbsp;кадре</q><span class="arrow">Чего боялись</span><span class="flag">Лучший заход на&nbsp;первую говорящую голову</span></li>
+      <li><q>В&nbsp;мире идеально маленьких носов я&nbsp;осталась верна своему грузинскому</q><span class="arrow">Уже снято и&nbsp;работает</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">06</span><h3>Тело</h3></div>
+    <div class="check">Спорт, еда, вес, внешность, борьба с&nbsp;собой и&nbsp;принятие себя. Проверка: «со&nbsp;своим телом она…»</div>
+    <ul class="themes">
+      <li><q>Я&nbsp;перебрала двадцать аккаунтов, пока не&nbsp;поняла, за&nbsp;что плачу</q><span class="arrow">Вывод про обязательство, а&nbsp;не&nbsp;про технику</span></li>
+      <li><q>Тренер нужен мне не&nbsp;для техники</q><span class="arrow">Он&nbsp;нужен, чтобы я&nbsp;пришла</span></li>
+      <li><q>Я&nbsp;пропускаю еду, чтобы похудеть, и&nbsp;из-за&nbsp;этого срываюсь ночью</q><span class="arrow">Без прикрас</span></li>
+      <li><q>У&nbsp;меня была дисциплина. Я&nbsp;её&nbsp;где-то&nbsp;потеряла</q><span class="arrow">Что Вы&nbsp;с&nbsp;этим делаете</span></li>
+      <li><q>Если я&nbsp;вижу лишний вес&nbsp;— я&nbsp;отменяю съёмку</q><span class="arrow">Как тело влияет на&nbsp;работу</span><span class="flag">Держать в&nbsp;настоящем времени</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">07</span><h3>Деньги</h3></div>
+    <div class="check">Как зарабатывает, тратит, считает. Проверка: «с&nbsp;деньгами она обращается так…»</div>
+    <ul class="themes">
+      <li><q>Свобода для меня&nbsp;— это только деньги</q><span class="arrow">Откуда такая формулировка</span></li>
+      <li><q>У&nbsp;меня были деньги на&nbsp;машину. Я&nbsp;всё равно взяла кредит</q><span class="arrow">Подушка, которую нельзя трогать</span></li>
+      <li><q>Самая бесполезная трата в&nbsp;моей жизни&nbsp;— аренда квартиры</q><span class="arrow">И&nbsp;почему Вы&nbsp;это терпите</span></li>
+      <li><q>Я&nbsp;не&nbsp;экономлю на&nbsp;бизнес-классе, но&nbsp;экономлю на&nbsp;продуктах</q><span class="arrow">Ваша логика трат</span></li>
+      <li><q>Продюсирование стоит сто пятьдесят в&nbsp;месяц</q><span class="arrow">Почему запуски только пятьдесят на&nbsp;пятьдесят</span><span class="flag">Решить: публикуем ли&nbsp;цены</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">08</span><h3>Быт</h3></div>
+    <div class="check">Дом, распорядок, животные, машина, места. Работает картинкой, без речи. Проверка: «живёт она вот так»</div>
+    <ul class="themes">
+      <li><q>Я&nbsp;хожу в&nbsp;одно и&nbsp;то&nbsp;же&nbsp;место три раза в&nbsp;неделю</q><span class="arrow">Хамовники, подруги, почему именно там</span></li>
+      <li><q>Раз в&nbsp;месяц я&nbsp;закупаюсь на&nbsp;оптовом рынке на&nbsp;месяц вперёд</q><span class="arrow">Как устроен Ваш быт</span></li>
+      <li><q>Я&nbsp;живу одна в&nbsp;клубном доме на&nbsp;Кутузовском</q><span class="arrow">Что для Вас значит своя квартира</span></li>
+      <li><q>У&nbsp;моих родителей вторая чау-чау</q><span class="arrow">Почему снова эта порода</span></li>
+      <li><q>Я&nbsp;могу сесть в&nbsp;машину и&nbsp;поехать к&nbsp;родителям просто потому, что соскучилась</q><span class="arrow">Про связь с&nbsp;семьёй</span></li>
+    </ul>
+  </div>
+
+  <div class="callout"><b>Обязательное условие.</b> У&nbsp;каждой темы есть событие, в&nbsp;котором она проявляется. Ценность без события превращается в&nbsp;рассуждение&nbsp;— и&nbsp;это то, что Вы&nbsp;сами называете мусорным контентом. Проверка любого ролика: какой столб несёт и&nbsp;через какое событие показан. Если событие назвать нельзя, ролик не&nbsp;готов.</div>
+</div>
+</section>
+
+<section id="prof">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел шестой</span>
+    <h2>Профессия</h2>
+    <p>Отдельный слой: как Вы&nbsp;работаете, с&nbsp;кем и&nbsp;почему именно так. Двадцать две темы, почти все&nbsp;— говорящая голова, потому что профессиональный разговор без лица не&nbsp;работает.</p>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">01</span><h3>Метод</h3></div>
+    <ul class="themes">
+      <li><q>На&nbsp;первом созвоне я&nbsp;решаю не&nbsp;продать, а&nbsp;брать ли&nbsp;вас</q><span class="arrow">По&nbsp;каким признакам видите потенциал</span></li>
+      <li><q>Я&nbsp;смотрю на&nbsp;блог как на&nbsp;заработный проект</q><span class="arrow">Транслируем не&nbsp;то, что хочется, а&nbsp;то, что нужно для монетизации</span></li>
+      <li><q>Минимум один рилс в&nbsp;день, и&nbsp;не&nbsp;шаблонный</q><span class="arrow">Что считаете рабочим темпом</span></li>
+      <li><q>Я&nbsp;сразу говорю: результата за&nbsp;месяц не&nbsp;будет</q><span class="arrow">Почему предупреждаете на&nbsp;берегу</span></li>
+      <li><q>Когда ролик не&nbsp;выстрелил, я&nbsp;расстраиваюсь ровно десять минут</q><span class="arrow">Потом придумываю круче, исходя из&nbsp;ошибок</span></li>
+      <li><q>Я&nbsp;знаю, какой ролик выстрелит</q><span class="arrow">И&nbsp;до&nbsp;сих пор не&nbsp;поняли собственную схему</span></li>
+      <li><q>Как я&nbsp;работаю с&nbsp;теми, кто стесняется камеры</q><span class="arrow">Кому лекция, кому полчаса, кого держать закадром прямо на&nbsp;съёмке</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">02</span><h3>Клиенты</h3></div>
+    <ul class="themes">
+      <li><q>Когда вы&nbsp;друг друга не&nbsp;поджигаете&nbsp;— это провал</q><span class="arrow">Расписали съёмку, принесли восемь идей, а&nbsp;в&nbsp;ответ «ну не&nbsp;знаю»</span><span class="flag">Сильнейшая на&nbsp;старт</span></li>
+      <li><q>Продюсер&nbsp;— это губка</q><span class="arrow">Что впитываете за&nbsp;кадром, включая чужой негатив</span></li>
+      <li><q>Лучшая благодарность, которую я&nbsp;получала,&nbsp;— это слёзы</q><span class="arrow">Человека первый раз узнали на&nbsp;улице</span><span class="flag">Сильнейшая на&nbsp;старт</span></li>
+      <li><q>Она решила, что может сама</q><span class="arrow">Единственный клиент, с&nbsp;которым разошлись, и&nbsp;долг</span></li>
+      <li><q>Мой клиент&nbsp;— тот, у&nbsp;кого база уже есть</q><span class="arrow">Почему любите не&nbsp;с&nbsp;нуля, а&nbsp;вторую жизнь блогу</span></li>
+      <li><q>Я&nbsp;не&nbsp;работаю с&nbsp;теми, кто ищет причины</q><span class="arrow">С&nbsp;кем не&nbsp;будете ни за&nbsp;какие деньги</span></li>
+      <li><q>Самый сложный проект&nbsp;— тот, где не&nbsp;за&nbsp;что зацепиться</q><span class="arrow">Девушка без экспертности, образ придумывали с&nbsp;нуля</span></li>
+      <li><q>Мой первый клиент&nbsp;— кондитер из&nbsp;деревни с&nbsp;пятью тысячами мёртвых подписчиков</q><span class="arrow">Машинка из&nbsp;Китая и&nbsp;миллион за&nbsp;первый месяц</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">03</span><h3>Деньги профессии</h3></div>
+    <ul class="themes">
+      <li><q>За&nbsp;два месяца мы&nbsp;сделали два миллиона</q><span class="arrow">Блог стоял пять лет, с&nbsp;восьми тысяч до&nbsp;тридцати</span><span class="flag">Нужно разрешение клиента</span></li>
+      <li><q>Я&nbsp;вписываюсь в&nbsp;запуски только на&nbsp;пятьдесят на&nbsp;пятьдесят</q><span class="arrow">Почему не&nbsp;берёте фикс</span></li>
+      <li><q>Я&nbsp;могу вести три проекта и&nbsp;два запуска, больше нет</q><span class="arrow">Где Ваш физический предел</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">04</span><h3>Взгляды на&nbsp;профессию</h3></div>
+    <ul class="themes">
+      <li><q>Блоги не&nbsp;растут только по&nbsp;одной причине</q><span class="arrow">Всё в&nbsp;голове: нет ресурса, нет дисциплины, не&nbsp;горит</span></li>
+      <li><q>Мусорный контент&nbsp;— это вода</q><span class="arrow">Снято, чтобы просто выложить, без души и&nbsp;смысла</span></li>
+      <li><q>От&nbsp;трендов открещиваться нельзя, но&nbsp;свои придумывать надо</q><span class="arrow">Как совмещаете</span></li>
+    </ul>
+  </div>
+
+  <div class="wipbox"><b>Продуктовая линейка&nbsp;— отдельным блоком.</b> Пошаговая механика от&nbsp;созвона до&nbsp;результата, воронка от&nbsp;ролика до&nbsp;денег, что делаете при остановке роста, сколько часов занимает проект. Это закрывается отдельной продуктовой распаковкой.</div>
+</div>
+</section>
+
+<section id="extra">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел седьмой</span>
+    <h2>Женское и&nbsp;раскрытие</h2>
+    <p>Два среза из&nbsp;остатка распаковки. Первый&nbsp;— то, что работает на&nbsp;женскую аудиторию и&nbsp;даёт разговор в&nbsp;комментариях. Второй&nbsp;— то, что раскрывает Вас как личность.</p>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">01</span><h3>Для женской аудитории</h3></div>
+    <ul class="themes">
+      <li><q>Я&nbsp;считаю нормальным, когда женщину обеспечивают</q><span class="arrow">При том что себя Вы&nbsp;обеспечили сами</span><span class="flag">Самая спорная&nbsp;— разведёт комментарии на&nbsp;два лагеря</span></li>
+      <li><q>Я&nbsp;бы&nbsp;не&nbsp;хотела зарабатывать больше своего мужчины</q><span class="arrow">И&nbsp;на&nbsp;подсознательном уровне могу зарабатывать меньше</span></li>
+      <li><q>Мне завидуют не&nbsp;из-за&nbsp;внешности</q><span class="arrow">Из-за&nbsp;внутренней опоры и&nbsp;отсутствия зажатостей</span></li>
+      <li><q>Все мои подруги колют ботокс с&nbsp;девятнадцати. Я&nbsp;не&nbsp;колю ничего</q><span class="arrow">Живое старение и&nbsp;подтяжка в&nbsp;пятьдесят</span></li>
+      <li><q>Я&nbsp;никогда не&nbsp;была за&nbsp;границей с&nbsp;мужчиной</q><span class="arrow">Все поездки оплатили сами</span></li>
+      <li><q>Если вы&nbsp;зарабатываете восемьдесят тысяч и&nbsp;думаете, что это потолок</q><span class="arrow">Вы&nbsp;сами были в&nbsp;этой точке</span></li>
+      <li><q>Я&nbsp;всегда чувствовала себя красивой</q><span class="arrow">И&nbsp;почему это не&nbsp;про внешность</span></li>
+      <li><q>В&nbsp;любом весе я&nbsp;выгляжу хорошо. Но&nbsp;поняла я&nbsp;это только сейчас</q><span class="arrow">Путь к&nbsp;принятию</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="pillar-n">02</span><h3>На&nbsp;раскрытие личности</h3></div>
+    <ul class="themes">
+      <li><q>Слово «нет» для меня&nbsp;— это личный проигрыш</q><span class="arrow">Осталось от&nbsp;детства, и&nbsp;Вы&nbsp;хотите с&nbsp;этим работать</span></li>
+      <li><q>Я&nbsp;ещё не&nbsp;раскрылась. Я&nbsp;сама не&nbsp;понимаю, кто я</q><span class="arrow">Честно про точку, в&nbsp;которой находитесь</span><span class="flag">Первая на&nbsp;старт</span></li>
+      <li><q>Мне мешает моя собственная неуверенность</q><span class="arrow">Ваш ответ, почему не&nbsp;зарабатываете больше</span></li>
+      <li><q>Я&nbsp;наняла продюсера, потому что боялась начать сама</q><span class="arrow">Три однотипных ролика в&nbsp;день, всё пришлось удалить</span></li>
+      <li><q>Я&nbsp;записывала себе послания в&nbsp;будущее</q><span class="arrow">Худший период, когда предали подруги</span><span class="flag">Самая сильная сцена распаковки</span></li>
+      <li><q>Я&nbsp;вижу людей насквозь&nbsp;— и&nbsp;это моя проблема</q><span class="arrow">Подруг было бы&nbsp;больше, будь Вы&nbsp;глупее в&nbsp;этом</span></li>
+      <li><q>Я&nbsp;никогда не&nbsp;даю заднюю</q><span class="arrow">Почему ни разу не&nbsp;думали вернуться в&nbsp;родной город</span></li>
+      <li><q>Главный человек в&nbsp;моей жизни сегодня&nbsp;— это я&nbsp;сама</q><span class="arrow">Как Вы&nbsp;к&nbsp;этому пришли</span></li>
+    </ul>
+  </div>
+
+  <div class="callout"><b>Три темы, с&nbsp;которых начинаем.</b> «Я&nbsp;ещё не&nbsp;раскрылась»&nbsp;— честный ответ на&nbsp;вопрос, который возникнет у&nbsp;каждого нового зрителя. «Я&nbsp;считаю нормальным, когда женщину обеспечивают»&nbsp;— единственная тема, которая гарантированно даст комментарии, а&nbsp;их&nbsp;сейчас три-шесть на&nbsp;ролик. «Я&nbsp;записывала себе послания в&nbsp;будущее»&nbsp;— лучший носитель для столба Путь, ложится прямо в&nbsp;первый сторителлинг.</div>
+</div>
+</section>
+
+<section id="dec">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел восьмой</span>
+    <h2>Что решаем до&nbsp;старта</h2>
+  </div>
+
+  <div class="narrow">
+    <div class="dec"><span class="dn">1</span><div class="db">Финальное позиционирование<span>Какой из&nbsp;пяти вариантов берём в&nbsp;работу</span></div></div>
+    <div class="dec"><span class="dn">2</span><div class="db">Цены в&nbsp;публичном поле<span>Называем ли&nbsp;сто пятьдесят в&nbsp;месяц и&nbsp;пятьдесят на&nbsp;пятьдесят. Плюс&nbsp;— отсекает несерьёзных и&nbsp;работает на&nbsp;позицию. Минус&nbsp;— цифра в&nbsp;блоге фиксирует планку, поднять её&nbsp;потом сложнее</span></div></div>
+    <div class="dec"><span class="dn">3</span><div class="db">Цифра публичной цели<span>Двадцать тысяч или тридцать. В&nbsp;распаковке Вы&nbsp;называете обе&nbsp;— если объявляем цель вслух, она должна быть одна</span></div></div>
+    <div class="dec"><span class="dn">4</span><div class="db">Разрешения на&nbsp;кейсы<span>Кейс с&nbsp;восьмьюдесятью тысячами и&nbsp;кейс с&nbsp;двумя миллионами&nbsp;— что можно называть публично и&nbsp;с&nbsp;какими цифрами</span></div></div>
+    <div class="dec"><span class="dn">5</span><div class="db">Сверка деталей<span>Имена людей, город родителей, вопрос со&nbsp;стилем одежды&nbsp;— в&nbsp;распаковке ответы расходятся</span></div></div>
+    <div class="dec"><span class="dn">6</span><div class="db">Фамилия в&nbsp;нике<span>Фамилия родовая. Через три года Вы&nbsp;планируете замуж&nbsp;— решаем сейчас, остаётся ли&nbsp;она псевдонимом или меняется вместе с&nbsp;фамилией</span></div></div>
+  </div>
+</div>
+</section>
+
+<div class="closing wrap">
+  <div class="ornament">◆ ◆ ◆</div>
+  <p>Восемьдесят пять тем, семь форматов, девять актуальных и&nbsp;пять сторителлингов. Материала хватает до&nbsp;конца октября с&nbsp;запасом&nbsp;— вопрос не&nbsp;в&nbsp;контенте, а&nbsp;в&nbsp;ритме производства.</p>
+  <p class="mute">Документ рабочий и&nbsp;дополняется по&nbsp;ходу.</p>
+  <div class="sign">
+    <div class="sign-name">Подготовил Малик Хашимов</div>
+    <div class="sign-role">Продюсер</div>
+    <a class="tgbtn" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+  </div>
+</div>
+
+</body></html>
