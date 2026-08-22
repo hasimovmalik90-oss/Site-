@@ -97,6 +97,11 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 .wipbox{border:1px dashed rgba(201,183,155,.3);border-radius:14px;padding:22px 24px;color:var(--mute);font-size:14.5px;background:rgba(201,183,155,.02);margin-top:24px}
 .wipbox b{color:var(--accent)}
 /* решения */
+.done-i{display:flex;gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.done-i:last-child{border-bottom:none}
+.done-i .dd{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);flex:none;min-width:112px;padding-top:4px}
+.done-i .db strong{display:block;color:#F4F0EA;font-weight:600;font-size:15.5px;margin-bottom:5px}
+.done-i .db span{color:var(--mute);font-size:14.5px;text-wrap:pretty}
 .dec{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
 .dec:last-child{border-bottom:none}
 .dec .dn{font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(201,183,155,.4);line-height:1;flex:none;min-width:38px}
@@ -118,8 +123,21 @@ section{padding:60px 0;border-top:1px solid var(--line)}
   h2{font-size:clamp(26px,8vw,34px)}
   .fmt-head,.pos-head{gap:12px} .fmt-num,.pos-num{font-size:32px}
   .pillar{padding:22px 18px 16px}
-  .tbl td,.tbl th{padding:10px 8px;font-size:13.5px}
   .shapka{padding:18px}
+  .done-i{flex-direction:column;gap:6px}
+  .done-i .dd{min-width:0;padding-top:0}
+  .dec{gap:12px}
+  /* таблица актуальных превращается в карточки */
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl tr:first-child{display:none}
+  .tbl tr{border-bottom:1px solid var(--line);padding:16px 14px;border-radius:12px}
+  .tbl tr.vis{background:rgba(201,183,155,.04)}
+  .tbl tr.vis td{background:none}
+  .tbl td{border:none;padding:0}
+  .tbl td.n{display:inline-block;width:auto;font-size:18px;margin-right:9px;vertical-align:baseline}
+  .tbl td:nth-child(2){display:inline-block;width:auto;font-size:16px;vertical-align:baseline}
+  .tbl td:nth-child(3){margin-top:7px;font-size:14.5px}
+  .tbl td:nth-child(4){margin-top:7px;color:var(--mute);font-size:13px}
 }
 </style></head><body>
 
@@ -137,6 +155,7 @@ section{padding:60px 0;border-top:1px solid var(--line)}
     <a href="#pil">Восемь столбов</a>
     <a href="#prof">Профессия</a>
     <a href="#extra">Женское и&nbsp;раскрытие</a>
+    <a href="#done">Сделано</a>
     <a href="#dec">Решения</a>
   </nav>
 </header>
@@ -586,10 +605,40 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 </div>
 </section>
 
-<section id="dec">
+<section id="done">
 <div class="wrap">
   <div class="section-head">
     <span class="eyebrow">Раздел восьмой</span>
+    <h2>Что уже сделано</h2>
+    <p>Работы, выполненные с&nbsp;момента старта.</p>
+  </div>
+
+  <div class="narrow">
+    <div class="done-i"><span class="dd">29 июля</span><div class="db"><strong>Полный разбор блога</strong><span>Выгружены и&nbsp;разобраны все публикации: 18&nbsp;рилсов, 13&nbsp;каруселей, 5&nbsp;фото, 61&nbsp;история в&nbsp;6&nbsp;альбомах актуальных. Собраны цифры по&nbsp;каждому ролику: просмотры, лайки, комментарии, репосты, досмотры. Посмотрены покадрово все ролики, сняты транскрипты.</span></div></div>
+
+    <div class="done-i"><span class="dd">29–30 июля</span><div class="db"><strong>Условия и&nbsp;план работы</strong><span>Встреча, обсуждение условий, этапов и&nbsp;порядка работы.</span></div></div>
+
+    <div class="done-i"><span class="dd">1 августа</span><div class="db"><strong>Составлена распаковка</strong><span>199&nbsp;вопросов по&nbsp;всем блокам личности: корни, путь, деньги, профессия, метод, клиенты, блог, тело, женщина, взгляды, окружение, аудитория, съёмки, границы, цели.</span></div></div>
+
+    <div class="done-i"><span class="dd">Август</span><div class="db"><strong>Начаты съёмки</strong><span>Первые съёмочные дни. Ролик от&nbsp;11&nbsp;августа&nbsp;— больше 400&nbsp;000 просмотров.</span></div></div>
+
+    <div class="done-i"><span class="dd">12–20 августа</span><div class="db"><strong>Распаковка пройдена</strong><span>206&nbsp;голосовых сообщений, около 122&nbsp;минут записи. Все ответы расшифрованы и&nbsp;вычитаны.</span></div></div>
+
+    <div class="done-i"><span class="dd">15 августа</span><div class="db"><strong>Разбор блога и&nbsp;цифр</strong><span>Совместный разбор: что показывают метрики, где разрыв между шапкой и&nbsp;лентой, почему охваты не&nbsp;конвертируются в&nbsp;подписки.</span></div></div>
+
+    <div class="done-i"><span class="dd">17 августа</span><div class="db"><strong>Личный бренд и&nbsp;порядок раскрытия</strong><span>Проговорены условия, ответственность, порядок раскрытия&nbsp;— женщина, человек, эксперт&nbsp;— и&nbsp;слои аудитории.</span></div></div>
+
+    <div class="done-i"><span class="dd">20 августа</span><div class="db"><strong>Две версии распаковки</strong><span>Портрет&nbsp;— выжимка по&nbsp;блокам с&nbsp;выделенными узлами и&nbsp;противоречиями. Дословная версия&nbsp;— все 199&nbsp;ответов без правок.</span></div></div>
+
+    <div class="done-i"><span class="dd">22 августа</span><div class="db"><strong>Стратегия</strong><span>Этот документ: пять вариантов позиционирования, девять актуальных, пять сторителлингов, семь форматов и&nbsp;85&nbsp;тем с&nbsp;формулировками и&nbsp;границами.</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="dec">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел девятый</span>
     <h2>Что решаем до&nbsp;старта</h2>
   </div>
 
