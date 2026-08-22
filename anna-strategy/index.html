@@ -102,6 +102,12 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 .done-i .dd{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);flex:none;min-width:112px;padding-top:4px}
 .done-i .db strong{display:block;color:#F4F0EA;font-weight:600;font-size:15.5px;margin-bottom:5px}
 .done-i .db span{color:var(--mute);font-size:14.5px;text-wrap:pretty}
+.total{margin-top:34px;padding-top:30px;border-top:1px solid var(--line)}
+.total-t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.total-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tt{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+.tt b{display:block;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px;color:var(--accent);line-height:1}
+.tt span{display:block;color:var(--mute);font-size:12.5px;margin-top:8px;text-wrap:pretty}
 .dec{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
 .dec:last-child{border-bottom:none}
 .dec .dn{font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(201,183,155,.4);line-height:1;flex:none;min-width:38px}
@@ -125,6 +131,8 @@ section{padding:60px 0;border-top:1px solid var(--line)}
   .pillar{padding:22px 18px 16px}
   .shapka{padding:18px}
   .done-i{flex-direction:column;gap:6px}
+  .total-g{grid-template-columns:repeat(2,1fr);gap:12px}
+  .tt{padding:16px 10px} .tt b{font-size:30px}
   .done-i .dd{min-width:0;padding-top:0}
   .dec{gap:12px}
   /* таблица актуальных превращается в карточки */
@@ -155,8 +163,8 @@ section{padding:60px 0;border-top:1px solid var(--line)}
     <a href="#pil">Восемь столбов</a>
     <a href="#prof">Профессия</a>
     <a href="#extra">Женское и&nbsp;раскрытие</a>
-    <a href="#done">Сделано</a>
     <a href="#dec">Решения</a>
+    <a href="#done">Сделано</a>
   </nav>
 </header>
 
@@ -605,10 +613,28 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 </div>
 </section>
 
-<section id="done">
+<section id="dec">
 <div class="wrap">
   <div class="section-head">
     <span class="eyebrow">Раздел восьмой</span>
+    <h2>Что решаем до&nbsp;старта</h2>
+  </div>
+
+  <div class="narrow">
+    <div class="dec"><span class="dn">1</span><div class="db">Финальное позиционирование<span>Какой из&nbsp;пяти вариантов берём в&nbsp;работу</span></div></div>
+    <div class="dec"><span class="dn">2</span><div class="db">Цены в&nbsp;публичном поле<span>Называем ли&nbsp;сто пятьдесят в&nbsp;месяц и&nbsp;пятьдесят на&nbsp;пятьдесят. Плюс&nbsp;— отсекает несерьёзных и&nbsp;работает на&nbsp;позицию. Минус&nbsp;— цифра в&nbsp;блоге фиксирует планку, поднять её&nbsp;потом сложнее</span></div></div>
+    <div class="dec"><span class="dn">3</span><div class="db">Цифра публичной цели<span>Двадцать тысяч или тридцать. В&nbsp;распаковке Вы&nbsp;называете обе&nbsp;— если объявляем цель вслух, она должна быть одна</span></div></div>
+    <div class="dec"><span class="dn">4</span><div class="db">Разрешения на&nbsp;кейсы<span>Кейс с&nbsp;восьмьюдесятью тысячами и&nbsp;кейс с&nbsp;двумя миллионами&nbsp;— что можно называть публично и&nbsp;с&nbsp;какими цифрами</span></div></div>
+    <div class="dec"><span class="dn">5</span><div class="db">Сверка деталей<span>Имена людей, город родителей, вопрос со&nbsp;стилем одежды&nbsp;— в&nbsp;распаковке ответы расходятся</span></div></div>
+    <div class="dec"><span class="dn">6</span><div class="db">Фамилия в&nbsp;нике<span>Фамилия родовая. Через три года Вы&nbsp;планируете замуж&nbsp;— решаем сейчас, остаётся ли&nbsp;она псевдонимом или меняется вместе с&nbsp;фамилией</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="done">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел девятый</span>
     <h2>Что уже сделано</h2>
     <p>Работы, выполненные с&nbsp;момента старта.</p>
   </div>
@@ -631,27 +657,22 @@ section{padding:60px 0;border-top:1px solid var(--line)}
     <div class="done-i"><span class="dd">20 августа</span><div class="db"><strong>Две версии распаковки</strong><span>Портрет&nbsp;— выжимка по&nbsp;блокам с&nbsp;выделенными узлами и&nbsp;противоречиями. Дословная версия&nbsp;— все 199&nbsp;ответов без правок.</span></div></div>
 
     <div class="done-i"><span class="dd">22 августа</span><div class="db"><strong>Стратегия</strong><span>Этот документ: пять вариантов позиционирования, девять актуальных, пять сторителлингов, семь форматов и&nbsp;85&nbsp;тем с&nbsp;формулировками и&nbsp;границами.</span></div></div>
+
+    <div class="total">
+      <div class="total-t">Итого за&nbsp;месяц работы</div>
+      <div class="total-g">
+        <div class="tt"><b>36</b><span>публикаций разобрано</span></div>
+        <div class="tt"><b>61</b><span>история в&nbsp;актуальных</span></div>
+        <div class="tt"><b>199</b><span>вопросов распаковки</span></div>
+        <div class="tt"><b>206</b><span>голосовых расшифровано</span></div>
+        <div class="tt"><b>3</b><span>созвона в&nbsp;тексте</span></div>
+        <div class="tt"><b>85</b><span>тем для контента</span></div>
+      </div>
+    </div>
   </div>
 </div>
 </section>
 
-<section id="dec">
-<div class="wrap">
-  <div class="section-head">
-    <span class="eyebrow">Раздел девятый</span>
-    <h2>Что решаем до&nbsp;старта</h2>
-  </div>
-
-  <div class="narrow">
-    <div class="dec"><span class="dn">1</span><div class="db">Финальное позиционирование<span>Какой из&nbsp;пяти вариантов берём в&nbsp;работу</span></div></div>
-    <div class="dec"><span class="dn">2</span><div class="db">Цены в&nbsp;публичном поле<span>Называем ли&nbsp;сто пятьдесят в&nbsp;месяц и&nbsp;пятьдесят на&nbsp;пятьдесят. Плюс&nbsp;— отсекает несерьёзных и&nbsp;работает на&nbsp;позицию. Минус&nbsp;— цифра в&nbsp;блоге фиксирует планку, поднять её&nbsp;потом сложнее</span></div></div>
-    <div class="dec"><span class="dn">3</span><div class="db">Цифра публичной цели<span>Двадцать тысяч или тридцать. В&nbsp;распаковке Вы&nbsp;называете обе&nbsp;— если объявляем цель вслух, она должна быть одна</span></div></div>
-    <div class="dec"><span class="dn">4</span><div class="db">Разрешения на&nbsp;кейсы<span>Кейс с&nbsp;восьмьюдесятью тысячами и&nbsp;кейс с&nbsp;двумя миллионами&nbsp;— что можно называть публично и&nbsp;с&nbsp;какими цифрами</span></div></div>
-    <div class="dec"><span class="dn">5</span><div class="db">Сверка деталей<span>Имена людей, город родителей, вопрос со&nbsp;стилем одежды&nbsp;— в&nbsp;распаковке ответы расходятся</span></div></div>
-    <div class="dec"><span class="dn">6</span><div class="db">Фамилия в&nbsp;нике<span>Фамилия родовая. Через три года Вы&nbsp;планируете замуж&nbsp;— решаем сейчас, остаётся ли&nbsp;она псевдонимом или меняется вместе с&nbsp;фамилией</span></div></div>
-  </div>
-</div>
-</section>
 
 <div class="closing wrap">
   <div class="ornament">◆ ◆ ◆</div>
