@@ -2034,9 +2034,13 @@
   .ps-tg-v { color: var(--gold); font-variant-numeric: tabular-nums; flex: none; }
   .ps-tg-v::before { content: '▶ '; color: var(--muted); }
 
-  html, body { max-width: 100%; overflow-x: hidden; }
   img { max-width: 100%; height: auto; }
   .reels-grid > *, .split-insight > *, .tariffs > * { min-width: 0; }
+  /* СТРАХОВКА: если JS не отработал — контент виден, страница не пустая */
+  .reveal { opacity: 1; transform: none; }
+  html.js .reveal { opacity: 0; transform: translateY(28px); }
+  html.js .reveal.in-view { opacity: 1; transform: none; }
+  html.js .splash-fallback { display: none; }
 </style>
 </head>
 <body>
@@ -2644,6 +2648,7 @@
 
 <script>
   // ===== SPLASH SCREEN =====
+  document.documentElement.classList.add('js');
   document.body.classList.add('splash-active');
   const splash = document.getElementById('splash');
   function hideSplash() {
@@ -2652,6 +2657,15 @@
   }
   function skipSplash() { hideSplash(); }
   setTimeout(hideSplash, 2400);
+  // страховка: что бы ни случилось — через 5с страница разблокирована и видна
+  setTimeout(function () {
+    try { hideSplash(); } catch (e) {}
+    document.body.classList.remove('splash-active');
+    document.querySelectorAll('.reveal:not(.in-view)').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 1.5) el.classList.add('in-view');
+    });
+  }, 5000);
 
   // ===== PROGRESS BAR =====
   const progressBar = document.querySelector('.progress-bar');
