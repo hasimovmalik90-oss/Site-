@@ -2022,6 +2022,13 @@
     .reels-grid { margin-top: 28px; }
     .split-insight { margin-top: 40px; }
   }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .container, .container-wide { width: 100%; max-width: min(100%, var(--container-wide)); }
+  .container { max-width: min(100%, var(--container)); }
+  .reels-grid, .split-insight, .price-duo, .situation-points { min-width: 0; }
+  .reels-grid > *, .split-insight > *, .price-duo > * { min-width: 0; }
+  img { max-width: 100%; height: auto; }
+  .remote-card li, .sit-point-text { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
@@ -2250,18 +2257,18 @@
         <h4>Что уже работает</h4>
         <h3>Острая тема и&nbsp;живой герой</h3>
         <ul style="list-style:none; margin-top:14px;">
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Социальные темы с&nbsp;Вашей позицией&nbsp;— медиана <b>456&nbsp;232</b></li>
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Интервью и&nbsp;расследования&nbsp;— медиана <b>99&nbsp;144</b>, 52&nbsp;ролика за&nbsp;год</li>
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Ролики длиннее полутора минут&nbsp;— медиана <b>416&nbsp;622</b></li>
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Развёрнутая подпись&nbsp;— <b>99&nbsp;107</b> против <b>3&nbsp;491</b> у&nbsp;короткой</li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Социальные темы с Вашей позицией — медиана <b>456&nbsp;232</b></li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Интервью и&nbsp;расследования — медиана <b>99&nbsp;144</b>, 52 ролика за год</li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Ролики длиннее полутора минут — медиана <b>416&nbsp;622</b></li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Развёрнутая подпись&nbsp;— <b>99&nbsp;107</b> против <b>3&nbsp;491</b> у короткой</li>
         </ul>
       </div>
       <div class="remote-card reveal reveal-delay-1">
         <h4>Что съедает охваты</h4>
         <h3>Лайфстайл без темы</h3>
         <ul style="list-style:none; margin-top:14px;">
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Тревел и&nbsp;бытовые зарисовки&nbsp;— медиана <b>3&nbsp;363</b></li>
-          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Ролики короче двадцати секунд&nbsp;— медиана <b>3&nbsp;655</b></li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Тревел и бытовые зарисовки — медиана <b>3&nbsp;363</b></li>
+          <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Ролики короче двадцати секунд — медиана <b>3&nbsp;655</b></li>
           <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Публикация без подписи&nbsp;— зритель не&nbsp;понимает, зачем смотреть</li>
           <li style="padding:7px 0 7px 22px; position:relative; color:var(--ink); font-size:15px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Слабый ролик рядом с&nbsp;сильным сажает охваты следующего</li>
         </ul>
