@@ -2098,6 +2098,15 @@
     .ps-bio { text-align: center; font-size: 15px; }
     .ps-avatar { width: 88px; height: 88px; }
   }
+
+  .tl { margin-top: 16px; border-top: 1px solid var(--line); }
+  .tl-row { display: grid; grid-template-columns: 74px 68px 1fr; gap: 10px;
+            align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .tl-date { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
+  .tl-price { font-family: var(--display); font-weight: 400; font-size: 16px; color: var(--gold); }
+  .tl-what { font-size: 13.5px; color: var(--ink); line-height: 1.4; }
+  .tl-note { margin-top: 16px; font-size: 13.5px; color: var(--muted); font-style: italic; font-family: var(--serif); }
+  @media (max-width: 560px) { .tl-row { grid-template-columns: 66px 62px 1fr; gap: 8px; } .tl-what { font-size: 12.5px; } }
 </style>
 </head>
 <body>
@@ -2119,6 +2128,7 @@
   <button class="nav-dot" data-section="hero" data-label="Начало"></button>
   <button class="nav-dot" data-section="proof" data-label="Доказательство"></button>
   <button class="nav-dot" data-section="now" data-label="Что есть сейчас"></button>
+  <button class="nav-dot" data-section="sales" data-label="Как продавалось"></button>
   <button class="nav-dot" data-section="fix" data-label="Что исправить"></button>
   <button class="nav-dot" data-section="goal" data-label="Куда идём"></button>
   <button class="nav-dot" data-section="method" data-label="Этапы"></button>
@@ -2347,11 +2357,74 @@
   </div>
 </section>
 
+
+<!-- КАК ПРОДАВАЛОСЬ -->
+<section class="spacer" id="sales">
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="eyebrow">Разбор · 02</span>
+      <h2>Как продавалось <em>весь год</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      Я&nbsp;поднял каждый Ваш продающий пост за&nbsp;год. Вот вся история цен&nbsp;— по&nbsp;датам.
+    </p>
+
+    <div class="split-insight">
+      <div class="remote-card reveal">
+        <h4>Продукт 01</h4>
+        <h3>Сборник рецептов</h3>
+        <div class="tl">
+          <div class="tl-row"><span class="tl-date">09.06.25</span><span class="tl-price">9 990</span><span class="tl-what">старт, открытие доступа</span></div>
+          <div class="tl-row"><span class="tl-date">16.06.25</span><span class="tl-price">3 990</span><span class="tl-what">предзапись, после запуска 4 990</span></div>
+          <div class="tl-row"><span class="tl-date">07.08.25</span><span class="tl-price">4 990</span><span class="tl-what">обычная продажа</span></div>
+          <div class="tl-row"><span class="tl-date">29.08.25</span><span class="tl-price">9 990</span><span class="tl-what">анонс повышения с 1 сентября</span></div>
+          <div class="tl-row"><span class="tl-date">19.10.25</span><span class="tl-price">4 990</span><span class="tl-what">акция «48 часов»</span></div>
+          <div class="tl-row"><span class="tl-date">24.02.26</span><span class="tl-price">4 990</span><span class="tl-what">та же акция · пост собрал 11 400</span></div>
+          <div class="tl-row"><span class="tl-date">14.04.26</span><span class="tl-price">4 990</span><span class="tl-what">отработка «дорого»: 33 ₽ за рецепт</span></div>
+          <div class="tl-row"><span class="tl-date">19.05.26</span><span class="tl-price">3 990</span><span class="tl-what">акция «24 часа», цена предзаписи</span></div>
+        </div>
+        <p class="tl-note">Цена 9 990 объявлялась дважды и оба раза откатывалась. Фактическая цена весь год&nbsp;— 4 990 со&nbsp;сбросами до&nbsp;3 990.</p>
+      </div>
+
+      <div class="remote-card reveal reveal-delay-1">
+        <h4>Продукт 02</h4>
+        <h3>Клуб · подписка со&nbsp;специалистами</h3>
+        <div class="tl">
+          <div class="tl-row"><span class="tl-date">19.10.25</span><span class="tl-price">999</span><span class="tl-what">старт: 999 / 2 599 / 5 599 / 9 999</span></div>
+          <div class="tl-row"><span class="tl-date">26.11.25</span><span class="tl-price">999</span><span class="tl-what">новый поток с 1 декабря</span></div>
+          <div class="tl-row"><span class="tl-date">20.12.25</span><span class="tl-price">999</span><span class="tl-what">вход с 1 января</span></div>
+          <div class="tl-row"><span class="tl-date">30.01.26</span><span class="tl-price">−20%</span><span class="tl-what">первым восьми, на 3/6/12 месяцев</span></div>
+          <div class="tl-row"><span class="tl-date">25.02.26</span><span class="tl-price">999</span><span class="tl-what">тот же оффер · пост собрал 10 400</span></div>
+          <div class="tl-row"><span class="tl-date">23.04.26</span><span class="tl-price">999</span><span class="tl-what">тот же оффер</span></div>
+          <div class="tl-row"><span class="tl-date">11.07.26</span><span class="tl-price">1 999</span><span class="tl-what">перезапуск: далее 2 499, только помесячно</span></div>
+        </div>
+        <p class="tl-note">Линейка держалась девять месяцев. При&nbsp;перезапуске длинные тарифы исчезли, цена выросла вдвое.</p>
+      </div>
+    </div>
+
+    <div class="situation-points reveal" style="margin-top:44px;">
+      <div class="sit-point">
+        <div class="sit-point-num">01</div>
+        <div class="sit-point-text"><b>Один приём весь год.</b> Ограничение по времени со снижением цены: «48 часов» в октябре и феврале, скидка 20% в январе, «24 часа» в мае. Четыре раза за год</div>
+      </div>
+      <div class="sit-point">
+        <div class="sit-point-num">02</div>
+        <div class="sit-point-text"><b>Единственный всплеск внимания не отработан.</b> В феврале, во время операции, продающие посты собрали 11 400 и 10 400 вместо обычных 2 500 — и в эти дни продавали по акции, а не по полной цене</div>
+      </div>
+      <div class="sit-point">
+        <div class="sit-point-num">03</div>
+        <div class="sit-point-text"><b>Оффер не менялся.</b> Текст «это не магия, это еда» дословно повторялся с июня 2025 по май 2026 — аудитория видела одно и то же объявление восемь раз</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ЧТО НУЖНО СКОРРЕКТИРОВАТЬ -->
 <section class="spacer" id="fix">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Разбор · 02</span>
+      <span class="eyebrow">Разбор · 03</span>
       <h2>Что нужно <em>скорректировать</em></h2>
     </div>
 
