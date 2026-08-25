@@ -2036,6 +2036,66 @@
 
   img { max-width: 100%; height: auto; }
   .reels-grid > *, .split-insight > *, .tariffs > * { min-width: 0; }
+  .shot {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-2);
+    box-shadow: 0 30px 70px -34px rgba(0,0,0,0.9);
+    transition: all 0.5s var(--ease);
+  }
+  .shot:hover {
+    border-color: var(--gold-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.95), 0 0 50px var(--gold-glow-faint);
+  }
+  .shot img { width: 100%; height: auto; display: block; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 56px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 10px 18px;
+  }
+  .chip b { color: var(--gold-bright); font-weight: 500; }
+  figcaption {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 14px;
+    text-align: center;
+  }
+  .media-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+
+  .reels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 700px) { .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+  .reels-grid figure { margin: 0; }
+  .reels-grid .shot { aspect-ratio: 9 / 16; }
+  .reels-grid .shot img { width: 100%; height: 100%; object-fit: cover; }
+
   /* Контент виден всегда — анимация появления отключена намеренно:
      при любом сбое JS страница обязана оставаться читаемой. */
   .reveal, .reveal.in-view { opacity: 1 !important; transform: none !important; }
