@@ -2107,6 +2107,13 @@
   .tl-what { font-size: 13.5px; color: var(--ink); line-height: 1.4; }
   .tl-note { margin-top: 16px; font-size: 13.5px; color: var(--muted); font-style: italic; font-family: var(--serif); }
   @media (max-width: 560px) { .tl-row { grid-template-columns: 66px 62px 1fr; gap: 8px; } .tl-what { font-size: 12.5px; } }
+
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .q { margin: 0; padding: 20px 22px; background: var(--bg-card);
+       border: 1px solid var(--line); border-left: 2px solid var(--gold); border-radius: 10px;
+       font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink); }
+  .q cite { display: block; margin-top: 12px; font-family: var(--mono); font-style: normal;
+            font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -2129,9 +2136,11 @@
   <button class="nav-dot" data-section="proof" data-label="Доказательство"></button>
   <button class="nav-dot" data-section="now" data-label="Что есть сейчас"></button>
   <button class="nav-dot" data-section="sales" data-label="Как продавалось"></button>
+  <button class="nav-dot" data-section="econ" data-label="Экономика"></button>
   <button class="nav-dot" data-section="fix" data-label="Что исправить"></button>
   <button class="nav-dot" data-section="goal" data-label="Куда идём"></button>
   <button class="nav-dot" data-section="method" data-label="Этапы"></button>
+  <button class="nav-dot" data-section="road" data-label="Сроки"></button>
   <button class="nav-dot" data-section="result" data-label="Результат"></button>
   <button class="nav-dot" data-section="process" data-label="Процесс"></button>
   <button class="nav-dot" data-section="scope" data-label="Что входит"></button>
@@ -2287,6 +2296,21 @@
       <span class="chip">Tribute с <b>14 августа</b></span>
     </div>
 
+
+    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(24px,3.2vw,34px); text-align:center; margin:72px 0 10px;" class="reveal">Кто Вас смотрит</h3>
+    <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto 32px;">Почти вся аудитория&nbsp;— женщины с&nbsp;лишним весом. Они пишут Вам каждый день. Вот их слова.</p>
+
+    <div class="quotes reveal reveal-delay-1">
+      <blockquote class="q">«Эль, как похудеть, как изменить свою жизнь»<cite>то, что приходит в&nbsp;директ каждый день</cite></blockquote>
+      <blockquote class="q">«Эля, даже не&nbsp;представляешь, сколько жизней от&nbsp;ожирения ты&nbsp;спасаешь»<cite>подписчица</cite></blockquote>
+      <blockquote class="q">«В&nbsp;ноябре я&nbsp;заходила в&nbsp;чат с&nbsp;весом 136. Сейчас у&nbsp;меня 121,5&nbsp;— и&nbsp;я&nbsp;жду рубеж 120»<cite>участница клуба</cite></blockquote>
+      <blockquote class="q">«Минус 3&nbsp;кг за&nbsp;месяц на&nbsp;Элиных рецептах. Требую разместить реквизиты для&nbsp;донатов&nbsp;— я&nbsp;уже купила доступ, но&nbsp;хочу поблагодарить ещё»<cite>покупательница рецептов</cite></blockquote>
+      <blockquote class="q">«Спасибо за&nbsp;этот чат, за&nbsp;уровень организации, специалисты по&nbsp;разным сферам&nbsp;— такое вижу первый раз»<cite>участница клуба</cite></blockquote>
+      <blockquote class="q">«Как и&nbsp;когда можно продлить подписку? Я&nbsp;взяла месяц, чтобы посмотреть, но&nbsp;вопрос важный»<cite>человек, который хочет заплатить снова</cite></blockquote>
+    </div>
+
+    <p class="reveal" style="text-align:center; color:var(--muted); font-size:14px; max-width:600px; margin:26px auto 0; font-style:italic; font-family:var(--serif);">Спрос сформирован. Люди просят помощи и&nbsp;готовы платить&nbsp;— в&nbsp;том числе те, кто уже заплатил.</p>
+
     <p class="reveal" style="text-align:center; color:var(--text); max-width:660px; margin:44px auto 0;">
       Лучше всего заходит то, где результат <em class="gold">видно глазами</em>: куртка 56&nbsp;размера, отражение в&nbsp;зеркале, дни после операции. Сильнейший хронометраж&nbsp;— 45–90&nbsp;секунд, в&nbsp;среднем <b>337&nbsp;238</b> просмотров.
     </p>
@@ -2420,11 +2444,64 @@
   </div>
 </section>
 
+
+<!-- ЭКОНОМИКА -->
+<section class="spacer" id="econ">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Разбор · 03</span>
+      <h2>Во что это <em>обходится</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      Без обещаний и&nbsp;прогнозов&nbsp;— только то, что видно по&nbsp;цифрам сегодня.
+    </p>
+
+    <div class="proof-stats reveal reveal-delay-1" style="margin:36px auto 8px;">
+      <div class="proof-stat">
+        <div class="proof-stat-value">121 507</div>
+        <div class="proof-stat-label">Человек в&nbsp;аудитории</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-value">~85</div>
+        <div class="proof-stat-label">Купили рецепты</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-value">0,07%</div>
+        <div class="proof-stat-label">Дошли до&nbsp;покупки</div>
+      </div>
+    </div>
+
+    <div class="situation-points reveal reveal-delay-2" style="margin-top:40px;">
+      <div class="sit-point">
+        <div class="sit-point-num">01</div>
+        <div class="sit-point-text">Канал с&nbsp;рецептами вырос с&nbsp;<b>3</b> подписчиков в&nbsp;июне до&nbsp;<b>85</b> в&nbsp;конце августа. Это все покупки за&nbsp;два с&nbsp;половиной месяца активных продаж</div>
+      </div>
+      <div class="sit-point">
+        <div class="sit-point-num">02</div>
+        <div class="sit-point-text">Продающих постов&nbsp;— <b>371 из&nbsp;6 393</b>. Шесть процентов канала говорит о&nbsp;продукте, остальные девяносто четыре&nbsp;— бесплатный контент</div>
+      </div>
+      <div class="sit-point">
+        <div class="sit-point-num">03</div>
+        <div class="sit-point-text">В&nbsp;феврале, когда внимание выросло впятеро, продающие посты собрали <b>11 400</b> и&nbsp;<b>10 400</b>. Продавали в&nbsp;эти дни <b>по&nbsp;акции</b>, а&nbsp;не&nbsp;по&nbsp;полной цене</div>
+      </div>
+      <div class="sit-point">
+        <div class="sit-point-num">04</div>
+        <div class="sit-point-text">Оплата через Tribute появилась <b>14 августа 2026</b>. Всё, что продано до&nbsp;этого, продано вручную&nbsp;— переводами и&nbsp;криптой, часть аудитории заплатить просто не&nbsp;могла</div>
+      </div>
+    </div>
+
+    <p class="price-note reveal reveal-delay-2" style="margin-top:32px;">
+      Дело не&nbsp;в&nbsp;продукте и&nbsp;не&nbsp;в&nbsp;аудитории. И&nbsp;то, и&nbsp;другое есть. Не&nbsp;хватает пути, по&nbsp;которому человек доходит от&nbsp;просмотра до&nbsp;оплаты.
+    </p>
+  </div>
+</section>
+
 <!-- ЧТО НУЖНО СКОРРЕКТИРОВАТЬ -->
 <section class="spacer" id="fix">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Разбор · 03</span>
+      <span class="eyebrow">Разбор · 04</span>
       <h2>Что нужно <em>скорректировать</em></h2>
     </div>
 
@@ -2578,6 +2655,36 @@
           <strong>Что это Вам даёт</strong>
           Продажи перестают быть разовыми. Вместо «двух постов за&nbsp;четыре дня до&nbsp;старта» появляется система, которая работает на&nbsp;каждом цикле. Условия по&nbsp;этому этапу обсуждаются отдельно.
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ДОРОЖНАЯ КАРТА -->
+<section class="spacer" id="road">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Сроки</span>
+      <h2>Первые <em>три месяца</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      Из&nbsp;чего складывается срок, на&nbsp;который я&nbsp;даю гарантию по&nbsp;охватам.
+    </p>
+
+    <div class="work-grid" style="margin-top:36px;">
+      <div class="work-item reveal">
+        <h3>Месяц первый · фундамент</h3>
+        <p>Распаковка и&nbsp;позиционирование. Пять–семь форматов, первые съёмочные дни, первые влоги и&nbsp;закадровые монологи. Параллельно&nbsp;— аудит воронки и&nbsp;оплата во&nbsp;всех точках касания: шапка, актуальные, посты.</p>
+      </div>
+      <div class="work-item reveal reveal-delay-1">
+        <h3>Месяц второй · система</h3>
+        <p>Форматы, которые сработали, превращаем в&nbsp;серии. Переупаковываем актуальные так, чтобы каждый вёл к&nbsp;действию. Оформляем доступ и&nbsp;продление подписки. Разбираем каждую публикацию по&nbsp;цифрам и&nbsp;правим курс.</p>
+      </div>
+      <div class="work-item reveal reveal-delay-2">
+        <h3>Месяц третий · продукты</h3>
+        <p>На&nbsp;выросших охватах переупаковываем рецепты и&nbsp;клуб, выводим консультации. Единая цена вместо акций. Готовим материалы к&nbsp;первому полноценному запуску.</p>
       </div>
     </div>
   </div>
