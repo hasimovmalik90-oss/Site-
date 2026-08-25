@@ -2096,6 +2096,17 @@
   .reels-grid .shot { aspect-ratio: 9 / 16; }
   .reels-grid .shot img { width: 100%; height: 100%; object-fit: cover; }
 
+
+  .reels-grid a { text-decoration: none; display: block; position: relative; }
+  .reels-grid a .shot { transition: transform .35s var(--ease), border-color .35s var(--ease); }
+  .reels-grid a:hover .shot { transform: translateY(-4px); border-color: var(--line-bright); }
+  .reel-views {
+    display: block; margin-top: 8px; text-align: center;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+    color: var(--muted);
+  }
+  .reels-grid a:hover .reel-views { color: var(--gold); }
+
   /* Контент виден всегда — анимация появления отключена намеренно:
      при любом сбое JS страница обязана оставаться читаемой. */
   .reveal, .reveal.in-view { opacity: 1 !important; transform: none !important; }
@@ -2318,18 +2329,55 @@
     <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(26px,3.4vw,38px); text-align:center; margin:72px 0 8px;" class="reveal">Ваши сильнейшие ролики</h3>
     <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto 8px;">Двенадцать публикаций, давших основную часть охвата за год. Общее у них одно: конкретное дело, названный герой и Ваша позиция по нему.</p>
     <div class="reels-grid reveal reveal-delay-1">
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-01.jpg" alt="2 149 363 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-02.jpg" alt="1 173 777 просмотров"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-03.jpg" alt="1 155 652 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-04.jpg" alt="1 105 090 просмотров"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-05.jpg" alt="1 001 070 просмотров"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-06.jpg" alt="676 223 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-07.jpg" alt="471 597 просмотров"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-08.jpg" alt="467 295 просмотров"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-09.jpg" alt="462 974 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-10.jpg" alt="456 232 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-11.jpg" alt="380 552 просмотра"></div></figure>
-      <figure><div class="shot"><img loading="lazy" decoding="async" src="assets/reel-12.jpg" alt="377 013 просмотров"></div></figure>
+      <figure><a href="https://www.instagram.com/p/DRmHwfbDkqg/" target="_blank" rel="noopener" title="2 149 363 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-01.webp" type="image/webp"><img loading="eager" decoding="async" width="400" height="710" src="assets/reel-01.jpg" alt="2 149 363 просмотров"></picture></div>
+        <span class="reel-views">2 149 363</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DTF3KDoDEkj/" target="_blank" rel="noopener" title="1 173 777 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-02.webp" type="image/webp"><img loading="eager" decoding="async" width="400" height="710" src="assets/reel-02.jpg" alt="1 173 777 просмотров"></picture></div>
+        <span class="reel-views">1 173 777</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DQ9omNeiBNX/" target="_blank" rel="noopener" title="1 155 652 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-03.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-03.jpg" alt="1 155 652 просмотров"></picture></div>
+        <span class="reel-views">1 155 652</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DWRcKOzEhOz/" target="_blank" rel="noopener" title="1 105 090 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-04.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-04.jpg" alt="1 105 090 просмотров"></picture></div>
+        <span class="reel-views">1 105 090</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DVYsHqtjIf_/" target="_blank" rel="noopener" title="1 001 070 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-05.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-05.jpg" alt="1 001 070 просмотров"></picture></div>
+        <span class="reel-views">1 001 070</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DZphgzFNpMh/" target="_blank" rel="noopener" title="676 223 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-06.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-06.jpg" alt="676 223 просмотров"></picture></div>
+        <span class="reel-views">676 223</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DTFadIWDeW1/" target="_blank" rel="noopener" title="471 597 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-07.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-07.jpg" alt="471 597 просмотров"></picture></div>
+        <span class="reel-views">471 597</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DbSgwaoug-5/" target="_blank" rel="noopener" title="467 295 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-08.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-08.jpg" alt="467 295 просмотров"></picture></div>
+        <span class="reel-views">467 295</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DYO40QTAwOj/" target="_blank" rel="noopener" title="462 974 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-09.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-09.jpg" alt="462 974 просмотров"></picture></div>
+        <span class="reel-views">462 974</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DW3Q2lMgjbS/" target="_blank" rel="noopener" title="456 232 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-10.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-10.jpg" alt="456 232 просмотров"></picture></div>
+        <span class="reel-views">456 232</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DVarxUIDQeQ/" target="_blank" rel="noopener" title="380 552 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-11.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-11.jpg" alt="380 552 просмотров"></picture></div>
+        <span class="reel-views">380 552</span>
+      </a></figure>
+      <figure><a href="https://www.instagram.com/p/DVG_HNGDUMZ/" target="_blank" rel="noopener" title="377 013 просмотров — открыть в Instagram">
+        <div class="shot"><picture><source srcset="assets/reel-12.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-12.jpg" alt="377 013 просмотров"></picture></div>
+        <span class="reel-views">377 013</span>
+      </a></figure>
+    </div>
     </div>
     <figcaption style="margin-top:18px;">От 377 тысяч до 2,15 миллиона просмотров. Это Ваш доказанный потолок — и он далеко не предел</figcaption>
   </div>
