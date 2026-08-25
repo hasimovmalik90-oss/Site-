@@ -2036,11 +2036,9 @@
 
   img { max-width: 100%; height: auto; }
   .reels-grid > *, .split-insight > *, .tariffs > * { min-width: 0; }
-  /* СТРАХОВКА: если JS не отработал — контент виден, страница не пустая */
-  .reveal { opacity: 1; transform: none; }
-  html.js .reveal { opacity: 0; transform: translateY(28px); }
-  html.js .reveal.in-view { opacity: 1; transform: none; }
-  html.js .splash-fallback { display: none; }
+  /* Контент виден всегда — анимация появления отключена намеренно:
+     при любом сбое JS страница обязана оставаться читаемой. */
+  .reveal, .reveal.in-view { opacity: 1 !important; transform: none !important; }
 </style>
 </head>
 <body>
