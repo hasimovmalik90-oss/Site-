@@ -1,0 +1,422 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Темы и тексты · Анна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(42px,8vw,72px);letter-spacing:.06em}
+h2{font-size:clamp(28px,4.6vw,44px);margin-bottom:8px}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.mute{color:var(--mute)}
+section{padding:58px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:34px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px;text-wrap:pretty}
+.hero{text-align:center;padding:96px 0 62px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.hero h1{text-transform:uppercase;letter-spacing:.1em}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2.4vw,25px);color:var(--accent);margin:18px auto 0;max-width:640px}
+.hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:32px auto 0}
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.toc a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.16s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+/* темы */
+.theme{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:18px}
+.theme-head{display:flex;gap:16px;align-items:baseline;margin-bottom:14px}
+.theme-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(201,183,155,.5);line-height:1;flex:none;min-width:34px}
+.theme-t{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,26px);color:#F4F0EA;line-height:1.2}
+.src{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+.quote{color:var(--text);font-size:15px;padding-left:16px;border-left:2px solid rgba(201,183,155,.35);text-wrap:pretty}
+.quote p{margin-bottom:.7em}
+/* тексты-цитаты */
+.rub{margin-top:38px}
+.rub-t{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-top:16px;position:relative}
+.card-n{position:absolute;top:20px;right:22px;font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(201,183,155,.3)}
+.hookline{color:#F4F0EA;font-size:16px;font-weight:500;margin-bottom:10px;padding-right:34px}
+.body{color:var(--text);font-size:15px;margin-bottom:10px;text-wrap:pretty}
+.punch{color:var(--accent);font-size:15.5px;text-wrap:pretty}
+.closing{text-align:center;padding:70px 0 80px}
+.closing p{max-width:640px;margin:0 auto 1em;color:var(--text);text-wrap:pretty}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:30px 0;opacity:.6}
+.sign{margin-top:48px;padding-top:36px;border-top:1px solid var(--line);max-width:420px;margin-left:auto;margin-right:auto}
+.sign-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:#F4F0EA}
+.sign-role{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:7px}
+.tgbtn{display:inline-block;margin-top:22px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.4);border-radius:30px;padding:13px 28px;transition:.18s}
+.tgbtn:hover{background:var(--accent);color:#0B0B0C}
+@media(max-width:720px){
+  .wrap{padding:0 18px} body{font-size:16px} section{padding:44px 0}
+  .hero{padding:66px 0 42px} .hero h1{text-transform:none;letter-spacing:.03em}
+  h2{font-size:clamp(26px,8vw,32px)}
+  .theme{padding:20px 18px} .theme-head{gap:11px} .theme-n{font-size:24px;min-width:26px}
+  .card{padding:20px 18px} .card-n{top:16px;right:16px;font-size:18px}
+  .rub-t{font-size:22px}
+}
+</style></head><body>
+
+<header class="hero wrap">
+  <div class="fio">Анна</div>
+  <div class="top">Темы и&nbsp;тексты · 28 августа 2026</div>
+  <h1>Темы</h1>
+  <p class="slogan">Пятнадцать тем под&nbsp;съёмку и&nbsp;тридцать два текста для&nbsp;наложения на&nbsp;видео.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#gg">Темы под&nbsp;съёмку</a>
+    <a href="#txt">Тексты</a>
+  </nav>
+</header>
+
+<section id="gg">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел первый</span>
+    <h2>Пятнадцать тем под&nbsp;съёмку</h2>
+    <p>Все пятнадцать записываются за&nbsp;один съёмочный день в&nbsp;одной локации: разговор в&nbsp;кадре, без&nbsp;выездов и&nbsp;постановок. Под каждой темой&nbsp;— Ваш собственный ответ из&nbsp;распаковки: это опора для&nbsp;текста, а&nbsp;не&nbsp;сценарий, читать дословно не&nbsp;нужно.</p>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">1</span><span class="theme-t">«Сейчас у&nbsp;неё восемьдесят тысяч. Когда мы&nbsp;начинали, не&nbsp;было ничего»</span></div>
+    <div class="src">Из распаковки · вопрос 78</div>
+    <div class="quote"><p>Это девушка, которая пришла ко&nbsp;мне с&nbsp;нулём подписчиков. Она хотела стать лайфстайл-блогером, но&nbsp;у&nbsp;неё не&nbsp;было ни&nbsp;специфики, ни&nbsp;образования, ни&nbsp;экспертности, вообще ничего, за&nbsp;что можно зацепиться. Было решено делать юмористические форматы и&nbsp;сделать образ, который ей&nbsp;подходит. Мы&nbsp;попали на&nbsp;все сто процентов и&nbsp;сделали образ маньячки&nbsp;— и&nbsp;это залетело на&nbsp;миллионы. Очень быстро мы&nbsp;сделали результат: двадцать тысяч подписчиков. На&nbsp;сегодняшний день у&nbsp;нас уже восемьдесят тысяч.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">2</span><span class="theme-t">«Мой брат платил за&nbsp;меня до&nbsp;двадцати трёх лет, лишь бы&nbsp;я&nbsp;не&nbsp;шла работать»</span></div>
+    <div class="src">Из распаковки · вопрос 18</div>
+    <div class="quote"><p>До двадцати двух, даже до&nbsp;двадцати трёх лет мне не&nbsp;разрешали работать. В&nbsp;основном не&nbsp;разрешал мой брат. Он&nbsp;мне всегда давал деньги, лишь бы&nbsp;я&nbsp;не&nbsp;работала, хотя сам был юный и&nbsp;денег у&nbsp;него было немного. Получается, до&nbsp;двадцати трёх он&nbsp;меня полностью обеспечивал, за&nbsp;что я&nbsp;ему очень благодарна: мои два высших образования оплатил именно мой старший брат.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">3</span><span class="theme-t">«Мы жили впятером в&nbsp;одной комнате и&nbsp;ни&nbsp;разу не&nbsp;поругались»</span></div>
+    <div class="src">Из распаковки · вопрос 151</div>
+    <div class="quote"><p>Мы были впятером с&nbsp;девочками в&nbsp;одном большом доме, но&nbsp;при этом спали в&nbsp;одной комнате и&nbsp;делили одну ванну&nbsp;— настолько у&nbsp;нас был дружеский женский вайб. Мы&nbsp;ни&nbsp;разу не&nbsp;поссорились, даже имея одну ванну на&nbsp;пятерых. Мне очень повезло с&nbsp;подругами: у&nbsp;нас все самодостаточные и&nbsp;красивые, и&nbsp;между нами нет зависти и&nbsp;негатива. Когда говорят о&nbsp;женской дружбе, я&nbsp;вспоминаю эту поездку.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">4</span><span class="theme-t">«Я получала восемьдесят, отдавала тридцать за&nbsp;комнату и&nbsp;жила на&nbsp;пятьдесят»</span></div>
+    <div class="src">Из распаковки · вопрос 34</div>
+    <div class="quote"><p>Когда меня начала засасывать Москва&nbsp;— эти увольнения, это одиночество, эти съёмные комнаты,&nbsp;— я&nbsp;столкнулась с&nbsp;тем, что зарплата восемьдесят тысяч, съёмная комната тридцать, и&nbsp;жить на&nbsp;пятьдесят. Вот тогда я&nbsp;начала считать каждую тысячу. Это очень тоскливые времена, мне себя жалко вспоминать, и&nbsp;я&nbsp;вспоминаю об&nbsp;этом как о&nbsp;чём-то чёрно-белом. У&nbsp;меня с&nbsp;детства не&nbsp;было, чтобы я&nbsp;считала и&nbsp;экономила. Когда я&nbsp;с&nbsp;этим столкнулась, у&nbsp;меня душа сжалась: я&nbsp;подумала, что сдаю позиции и&nbsp;делаю шаг назад.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">5</span><span class="theme-t">«У меня в&nbsp;детстве были водитель и&nbsp;няня»</span></div>
+    <div class="src">Из распаковки · вопрос 10</div>
+    <div class="quote"><p>Мой папа очень состоятельный человек. До&nbsp;2008 года он&nbsp;был крупным бизнесменом: у&nbsp;него были предприятия, заправки, швейные цеха в&nbsp;Европе. До&nbsp;2008 года мы&nbsp;жили очень хорошо, у&nbsp;меня лично были водитель и&nbsp;нянечка. Потом случился кризис, и&nbsp;мы&nbsp;начали жить достаточно бедно. Очень долгое время ушло на&nbsp;то, чтобы снова встать на&nbsp;ноги. Но&nbsp;встали мы&nbsp;по&nbsp;отдельности.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">6</span><span class="theme-t">«Я взяла машину, которую хотела, а&nbsp;не&nbsp;ту, которую могла себе позволить»</span></div>
+    <div class="src">Из распаковки · вопросы 41 и&nbsp;42</div>
+    <div class="quote"><p>Я просто купила машину, которую хотела, а&nbsp;не&nbsp;которую могла себе позволить. И&nbsp;с&nbsp;того дня я&nbsp;поняла: я&nbsp;хочу покупать что хочу и&nbsp;делать что хочу.</p><p>На протяжении долгого времени я&nbsp;жила в&nbsp;стрессе, и&nbsp;все заработанные деньги лежали у&nbsp;меня просто на&nbsp;счету. Я&nbsp;полностью обеспечивала себя сама и&nbsp;могла полагаться только на&nbsp;себя, поэтому боялась остаться без денег снова. В&nbsp;один день мне всё надоело, и&nbsp;я&nbsp;решила: хватит, я&nbsp;хочу тратить деньги на&nbsp;себя. Но&nbsp;несмотря на&nbsp;то, что деньги у&nbsp;меня были, я&nbsp;решила взять кредит.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">7</span><span class="theme-t">«Я наняла продюсера, потому что боялась начать сама»</span></div>
+    <div class="src">Из распаковки · вопрос 106</div>
+    <div class="quote"><p>Год назад был период, когда я&nbsp;нанимала человека, который просто клепал мне однотипные, скучные, неинтересные рилсы. Естественно, они не&nbsp;заходили, люди не&nbsp;подписывались, а&nbsp;их&nbsp;было по&nbsp;три штуки в&nbsp;день. Я&nbsp;делегировала это, потому что просто боялась начать сама. Это была моя большая ошибка, и&nbsp;мне пришлось все эти неудачные рилсы удалить.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">8</span><span class="theme-t">«Я ещё не&nbsp;раскрылась. Я&nbsp;сама не&nbsp;понимаю, кто я»</span></div>
+    <div class="src">Из распаковки · вопрос 110</div>
+    <div class="quote"><p>Как блогер я, наверное, не&nbsp;могу сказать, кто я, потому что я&nbsp;ещё не&nbsp;раскрылась, я&nbsp;не&nbsp;понимаю ещё, кто я. На&nbsp;данный момент я&nbsp;бы&nbsp;назвала свой блог просто личным блогом, и&nbsp;всё. Пока у&nbsp;меня нет чёткого ответа на&nbsp;этот вопрос. Я&nbsp;сама не&nbsp;знаю, как я&nbsp;хочу себя видеть.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">9</span><span class="theme-t">«Я отказываю людям с&nbsp;деньгами»</span></div>
+    <div class="src">Из распаковки · вопросы 69 и&nbsp;86</div>
+    <div class="quote"><p>Если клиент пустой, я&nbsp;не&nbsp;беру его в&nbsp;работу, потому что мне важен результат и&nbsp;важна дальнейшая монетизация. Я&nbsp;отвечаю за&nbsp;работу всегда своим состоянием.</p><p>Я никогда не&nbsp;буду работать с&nbsp;человеком, который не&nbsp;знает своей дальнейшей точки, который хочет всю ответственность за&nbsp;результат переложить на&nbsp;продюсера, который постоянно ищет причины и&nbsp;у&nbsp;которого вся надежда только на&nbsp;продюсера, но&nbsp;сам он&nbsp;не&nbsp;готов работать в&nbsp;тандеме.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">10</span><span class="theme-t">«Я никогда не&nbsp;даю заднюю»</span></div>
+    <div class="src">Из распаковки · вопрос 21</div>
+    <div class="quote"><p>У меня никогда не&nbsp;было мысли вернуться в&nbsp;свой родной город, абсолютно никогда. Я&nbsp;даже не&nbsp;знаю почему&nbsp;— наверное, потому что я&nbsp;никогда не&nbsp;даю заднюю. И&nbsp;в&nbsp;моём городе всё стало мало. Мне кажется, что всё, что могла, я&nbsp;в&nbsp;маленьком городе уже сделала.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">11</span><span class="theme-t">«Главный человек в&nbsp;моей жизни сегодня&nbsp;— это я&nbsp;сама»</span></div>
+    <div class="src">Из распаковки · вопрос 161</div>
+    <div class="quote"><p>Главный человек в&nbsp;моей жизни сегодня, как бы&nbsp;банально это ни&nbsp;звучало,&nbsp;— это я&nbsp;сама. Только я&nbsp;есть у&nbsp;себя, и&nbsp;в&nbsp;данный момент только я&nbsp;на&nbsp;первом месте. У&nbsp;меня больше нет человека, кто может быть главным в&nbsp;моей жизни.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">12</span><span class="theme-t">«Слово „нет“ для&nbsp;меня&nbsp;— это личный проигрыш»</span></div>
+    <div class="src">Из распаковки · вопрос 14</div>
+    <div class="quote"><p>Я была очень избалованным ребёнком, мои родители всегда шли у&nbsp;меня на&nbsp;поводу. Даже сейчас, если я&nbsp;услышу слово «нет», я&nbsp;впадаю&nbsp;— для&nbsp;меня слово «нет» это мой личный проигрыш. Я&nbsp;хочу над этим работать. Это, наверное, всё, что осталось у&nbsp;меня от&nbsp;детской избалованности.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">13</span><span class="theme-t">«Мне никогда никто не&nbsp;финансировал ни&nbsp;одну поездку»</span></div>
+    <div class="src">Из распаковки · вопрос 153</div>
+    <div class="quote"><p>Я мечтаю полететь на&nbsp;Мальдивы и&nbsp;на&nbsp;Бали. Естественно, я&nbsp;это не&nbsp;исполнила из-за денег, потому что все свои поездки, в&nbsp;которых я&nbsp;была, я&nbsp;оплачивала самостоятельно. Я&nbsp;никогда не&nbsp;была за&nbsp;границей с&nbsp;мужчиной. Поэтому, конечно, я&nbsp;хочу путешествовать как можно больше.</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">14</span><span class="theme-t">«Мусорный контент&nbsp;— это картинка с&nbsp;подписью и&nbsp;музыкой»</span></div>
+    <div class="src">Из распаковки · вопрос 72 и&nbsp;уточнение с&nbsp;созвона 25.08</div>
+    <div class="quote"><p>Мусорным я&nbsp;считаю контент, который ни&nbsp;о&nbsp;чём&nbsp;— какая-то вода, что-то отснятое, чтобы просто выложить. В&nbsp;нём нет души, нет смысла, он&nbsp;не&nbsp;раскрывает личность. Это сделано, чтобы занять место и&nbsp;время.</p><p>С созвона: «Год назад я&nbsp;просила девочку лепить мне картинки&nbsp;— тупая картинка, подпись, музыка. Вот это для&nbsp;меня мусорный контент. Я&nbsp;всё это убрала в&nbsp;архив.»</p></div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-head"><span class="theme-n">15</span><span class="theme-t">«Раньше я&nbsp;могла отменить съёмку, если немного поправилась»</span></div>
+    <div class="src">Из распаковки · вопрос 178</div>
+    <div class="quote"><p>Моя неуверенность в&nbsp;себе вызвана только моим внешним видом перед выходом на&nbsp;улицу&nbsp;— из-за отёков, из-за лишнего веса. Если я&nbsp;немного поднабрала, я&nbsp;могу отменить съёмку, потому что у&nbsp;меня очень сильное РПП. Если я&nbsp;в&nbsp;весе, который меня устраивает, у&nbsp;меня нет никаких зажатостей. Но&nbsp;я&nbsp;с&nbsp;этим борюсь и&nbsp;понимаю, что я&nbsp;в&nbsp;любом весе выгляжу хорошо&nbsp;— просто это я&nbsp;начала только сейчас.</p></div>
+  </div>
+
+</div>
+</section>
+
+<section id="txt">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Раздел второй</span>
+    <h2>Тексты для&nbsp;наложения</h2>
+    <p>Тридцать два текста, которые кладутся поверх красивых кадров. Механика везде одна: чужой упрёк, развёрнутый ответ с&nbsp;конкретикой, короткий вывод. Смысловые опоры&nbsp;— Вулф, Бовуар, Эстес, Браун; фактура&nbsp;— Ваша, из&nbsp;распаковки.</p>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Своя дверь</div>
+
+    <div class="card"><span class="card-n">01</span>
+      <div class="hookline">«сколько тебе нужно денег для&nbsp;счастья»</div>
+      <div class="body">мне не&nbsp;нужны деньги для&nbsp;счастья. мне нужны деньги, чтобы в&nbsp;любой момент встать и&nbsp;уйти. с&nbsp;работы, из&nbsp;компании, из&nbsp;отношений, из&nbsp;города. чтобы у&nbsp;меня всегда была своя дверь, которую я&nbsp;закрываю сама, и&nbsp;ключ, который лежит только у&nbsp;меня.</div>
+      <div class="punch">я не&nbsp;покупаю на&nbsp;них счастье. я&nbsp;покупаю на&nbsp;них право не&nbsp;терпеть</div>
+    </div>
+
+    <div class="card"><span class="card-n">02</span>
+      <div class="hookline">«зачем женщине зарабатывать много»</div>
+      <div class="body">чтобы её&nbsp;«нет» ничего ей&nbsp;не&nbsp;стоило. пока женщина зависит от&nbsp;чужих денег, каждое её&nbsp;несогласие имеет цену, и&nbsp;она эту цену считает: промолчать или остаться без. я&nbsp;знаю этот счёт наизусть&nbsp;— восемьдесят, минус тридцать за&nbsp;комнату, жить на&nbsp;пятьдесят.</div>
+      <div class="punch">женщине нужны свои деньги не&nbsp;для&nbsp;роскоши. для&nbsp;права на&nbsp;своё мнение</div>
+    </div>
+
+    <div class="card"><span class="card-n">03</span>
+      <div class="hookline">«а если он&nbsp;будет обеспечивать?»</div>
+      <div class="body">пусть обеспечивает&nbsp;— я&nbsp;выросла в&nbsp;семье, где мама не&nbsp;работала ни&nbsp;дня, и&nbsp;не&nbsp;считаю это чем-то стыдным. только это должен быть выбор, а&nbsp;не&nbsp;единственный вариант.</div>
+      <div class="punch">разница между содержанкой и&nbsp;любимой женщиной ровно одна: могла ли&nbsp;она уйти</div>
+    </div>
+
+    <div class="card"><span class="card-n">04</span>
+      <div class="hookline">«деньги не&nbsp;главное»</div>
+      <div class="body">это правда&nbsp;— до&nbsp;того дня, когда их&nbsp;нет. я&nbsp;помню день, когда не&nbsp;смогла купить себе воду. и&nbsp;я&nbsp;помню, как в&nbsp;тот момент выглядели все мои принципы, характер и&nbsp;планы на&nbsp;жизнь.</div>
+      <div class="punch">деньги не&nbsp;главное. они просто то, без чего всё остальное не&nbsp;работает</div>
+    </div>
+
+    <div class="card"><span class="card-n">05</span>
+      <div class="hookline">самое дорогое, что у&nbsp;меня есть,&nbsp;— не&nbsp;машина и&nbsp;не&nbsp;квартира</div>
+      <div class="body">это возможность в&nbsp;любой день сказать «я так не&nbsp;буду» и&nbsp;не&nbsp;проверять, чем мне это обойдётся.</div>
+      <div class="punch">за эту фразу я&nbsp;платила четыре года</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Сценарий</div>
+
+    <div class="card"><span class="card-n">06</span>
+      <div class="hookline">«женщина должна»</div>
+      <div class="body">до двадцати четырёх я&nbsp;знала, что должна: удачно выйти замуж, не&nbsp;работать, быть при&nbsp;ком-то. мне не&nbsp;разрешали работать до&nbsp;двадцати трёх, брат давал деньги, лишь бы&nbsp;я&nbsp;сидела дома, и&nbsp;я&nbsp;честно ждала, что придёт кто-то и&nbsp;всё решит.</div>
+      <div class="punch">никто не&nbsp;пришёл. и&nbsp;оказалось, что решать умею я</div>
+    </div>
+
+    <div class="card"><span class="card-n">07</span>
+      <div class="hookline">«тебя так воспитали»</div>
+      <div class="body">меня воспитали в&nbsp;патриархальной семье, где слово мужчины закон, а&nbsp;женщина не&nbsp;работает. я&nbsp;до&nbsp;сих пор считаю это нормальным укладом и&nbsp;не&nbsp;спорю с&nbsp;ним.</div>
+      <div class="punch">я просто добавила к&nbsp;нему одну вещь: женщина должна уметь прожить одна. на&nbsp;случай, если уклад не&nbsp;сложится</div>
+    </div>
+
+    <div class="card"><span class="card-n">08</span>
+      <div class="hookline">«ты не&nbsp;такая, как раньше»</div>
+      <div class="body">раньше я&nbsp;была той, кем меня сделали: удобной, ждущей, уверенной, что мою жизнь устроит кто-то другой. я&nbsp;не&nbsp;выбирала эту версию себя, я&nbsp;в&nbsp;неё выросла.</div>
+      <div class="punch">сегодняшнюю я&nbsp;выбрала сама. поэтому её&nbsp;и&nbsp;защищаю</div>
+    </div>
+
+    <div class="card"><span class="card-n">09</span>
+      <div class="hookline">«в твоём возрасте уже пора»</div>
+      <div class="body">в моём возрасте моя мама была замужем десять лет. в&nbsp;моём возрасте её&nbsp;ровесницы вырастили детей.</div>
+      <div class="punch">а я&nbsp;в&nbsp;своём возрасте впервые в&nbsp;жизни ни&nbsp;у&nbsp;кого не&nbsp;спрашиваю разрешения. у&nbsp;каждого поколения своя работа</div>
+    </div>
+
+    <div class="card"><span class="card-n">10</span>
+      <div class="hookline">мне двадцать восемь, и&nbsp;я&nbsp;до&nbsp;сих пор пересобираю себя</div>
+      <div class="body">пять лет назад я&nbsp;была уверена, что сначала замуж, а&nbsp;потом всё остальное. сейчас я&nbsp;знаю обратное: сначала женщина должна состояться сама.</div>
+      <div class="punch">я не&nbsp;жалею о&nbsp;тех годах. я&nbsp;просто больше не&nbsp;строю жизнь на&nbsp;том, что кто-то придёт</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Голос</div>
+
+    <div class="card"><span class="card-n">11</span>
+      <div class="hookline">«почему ты&nbsp;молчишь о&nbsp;себе»</div>
+      <div class="body">двадцать один месяц я&nbsp;вела блог и&nbsp;не&nbsp;сказала в&nbsp;кадре ни&nbsp;одного слова. я&nbsp;снимала текстом на&nbsp;экране, потому что так безопасно: написанное не&nbsp;осудят, а&nbsp;сказанное&nbsp;— могут.</div>
+      <div class="punch">молчание&nbsp;— это не&nbsp;скромность. это страх, которому позволили решать за&nbsp;тебя</div>
+    </div>
+
+    <div class="card"><span class="card-n">12</span>
+      <div class="hookline">«мне не&nbsp;нравится, как я&nbsp;звучу»</div>
+      <div class="body">я ненавижу смотреть свои видео. открываю, вижу себя, и&nbsp;хочется закрыть&nbsp;— стыдно. я&nbsp;решила, что у&nbsp;меня грубый голос и&nbsp;слишком прямая подача, и&nbsp;молчала об&nbsp;этом годами.</div>
+      <div class="punch">потом поняла: женщина, которая молчит, чтобы её&nbsp;не&nbsp;осудили, соглашается быть незаметной. я&nbsp;больше не&nbsp;согласна</div>
+    </div>
+
+    <div class="card"><span class="card-n">13</span>
+      <div class="hookline">«не выноси личное»</div>
+      <div class="body">всё, что я&nbsp;прятала, я&nbsp;прятала не&nbsp;потому, что это стыдно, а&nbsp;потому, что боялась: увидят и&nbsp;обесценят. переезды, комнаты, увольнения, дни, когда не&nbsp;на&nbsp;что было есть.</div>
+      <div class="punch">но люди тянутся не&nbsp;к&nbsp;безупречным. они тянутся к&nbsp;тем, в&nbsp;ком узнают себя</div>
+    </div>
+
+    <div class="card"><span class="card-n">14</span>
+      <div class="hookline">«зачем рассказывать о&nbsp;плохом»</div>
+      <div class="body">потому что моё хорошее без него не&nbsp;читается. без съёмных комнат и&nbsp;уволенных месяцев моя квартира&nbsp;— просто квартира, а&nbsp;не&nbsp;итог четырёх лет.</div>
+      <div class="punch">я рассказываю не&nbsp;о&nbsp;плохом. я&nbsp;рассказываю, чем всё это оплачено</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Одна</div>
+
+    <div class="card"><span class="card-n">15</span>
+      <div class="hookline">«ты одна, потому что никому не&nbsp;нужна»</div>
+      <div class="body">я одна, потому что у&nbsp;меня есть где жить, на&nbsp;что жить и&nbsp;с&nbsp;кем разговаривать. я&nbsp;не&nbsp;занимаю место рядом с&nbsp;собой кем попало и&nbsp;не&nbsp;остаюсь с&nbsp;человеком из&nbsp;страха, что другого не&nbsp;будет.</div>
+      <div class="punch">меня не&nbsp;«не&nbsp;выбрали». просто я&nbsp;тоже выбираю</div>
+    </div>
+
+    <div class="card"><span class="card-n">16</span>
+      <div class="hookline">«не страшно одной?»</div>
+      <div class="body">страшно было в&nbsp;двадцать четыре, одной, в&nbsp;чужом городе, где не&nbsp;к&nbsp;кому пойти. страшно было понимать, что если я&nbsp;сейчас сломаюсь, меня некому подхватить, и&nbsp;я&nbsp;всё равно не&nbsp;имею права позвонить домой и&nbsp;признаться.</div>
+      <div class="punch">сейчас я&nbsp;живу одна и&nbsp;мне спокойно. это разные вещи&nbsp;— быть одной и&nbsp;быть брошенной</div>
+    </div>
+
+    <div class="card"><span class="card-n">17</span>
+      <div class="hookline">«а как же любовь»</div>
+      <div class="body">я хочу замуж и&nbsp;хочу детей. я&nbsp;не&nbsp;из&nbsp;тех, кто объявил мужчин ненужными и&nbsp;назвал это свободой.</div>
+      <div class="punch">я просто не&nbsp;хочу приходить в&nbsp;отношения пустой и&nbsp;ждать, что меня наполнят. я&nbsp;хочу приходить целой</div>
+    </div>
+
+    <div class="card"><span class="card-n">18</span>
+      <div class="hookline">уметь быть одной&nbsp;— не&nbsp;значит выбрать одиночество</div>
+      <div class="body">это значит перестать соглашаться на&nbsp;людей, рядом с&nbsp;которыми хуже, чем самой с&nbsp;собой.</div>
+      <div class="punch">и как только женщина это умеет, к&nbsp;ней перестают приходить те, с&nbsp;кем плохо</div>
+    </div>
+
+    <div class="card"><span class="card-n">19</span>
+      <div class="hookline">«тебя не&nbsp;выбирают, потому что ты&nbsp;сильная»</div>
+      <div class="body">меня не&nbsp;выбирает тот, кому нужна удобная. а&nbsp;тому, кто ищет женщину, а&nbsp;не&nbsp;функцию, моя опора не&nbsp;мешает&nbsp;— она ему нравится.</div>
+      <div class="punch">сила отпугивает не&nbsp;мужчин. сила отпугивает мальчиков</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Тело</div>
+
+    <div class="card"><span class="card-n">20</span>
+      <div class="hookline">«тебе легко, ты&nbsp;красивая»</div>
+      <div class="body">красиво выглядеть&nbsp;— это зал, режим, отказ от&nbsp;половины того, что хочется, и&nbsp;дисциплина в&nbsp;дни, когда не&nbsp;хочется вообще ничего. это работа, которую никто не&nbsp;видит и&nbsp;за&nbsp;которую никто не&nbsp;хвалит.</div>
+      <div class="punch">лёгкой её&nbsp;называют только те, кто её&nbsp;не&nbsp;делал</div>
+    </div>
+
+    <div class="card"><span class="card-n">21</span>
+      <div class="hookline">«все колют, я&nbsp;одна такая»</div>
+      <div class="body">мои ровесницы начали в&nbsp;девятнадцать, я&nbsp;не&nbsp;сделала ни&nbsp;одного укола в&nbsp;лицо. я&nbsp;хочу дойти до&nbsp;сорока с&nbsp;живой мимикой&nbsp;— чтобы по&nbsp;лицу было видно, что я&nbsp;чувствую, а&nbsp;не&nbsp;как хорошо меня сделали.</div>
+      <div class="punch">я не&nbsp;против красоты. я&nbsp;против лица, по&nbsp;которому ничего не&nbsp;прочитать</div>
+    </div>
+
+    <div class="card"><span class="card-n">22</span>
+      <div class="hookline">я годами решала за&nbsp;других, достойна ли&nbsp;я&nbsp;быть увиденной</div>
+      <div class="body">поправилась на&nbsp;два килограмма&nbsp;— отменила съёмку. отекла&nbsp;— отменила встречу. я&nbsp;сама выдавала себе допуск к&nbsp;собственной жизни, и&nbsp;в&nbsp;плохие недели не&nbsp;выдавала.</div>
+      <div class="punch">я в&nbsp;любом весе выгляжу хорошо. просто дошла до&nbsp;этого только сейчас</div>
+    </div>
+
+    <div class="card"><span class="card-n">23</span>
+      <div class="hookline">«ты слишком себя контролируешь»</div>
+      <div class="body">я не&nbsp;контролирую. я&nbsp;не&nbsp;отдаю своё тело на&nbsp;волю случая&nbsp;— так же, как не&nbsp;отдаю деньги и&nbsp;время.</div>
+      <div class="punch">дисциплина&nbsp;— это не&nbsp;жёсткость к&nbsp;себе. это единственная форма уважения, которая работает каждый день</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Путь</div>
+
+    <div class="card"><span class="card-n">24</span>
+      <div class="hookline">«тебе повезло»</div>
+      <div class="body">девять переездов за&nbsp;четыре года. съёмные комнаты, чужие соседки, квартиры с&nbsp;тараканами. два увольнения подряд. год, который я&nbsp;вспоминаю чёрно-белым.</div>
+      <div class="punch">покажите мне, как тогда выглядит невезение</div>
+    </div>
+
+    <div class="card"><span class="card-n">25</span>
+      <div class="hookline">«почему ты&nbsp;не&nbsp;попросила помощи»</div>
+      <div class="body">могла. одного звонка домой хватило бы: мне сняли бы&nbsp;квартиру, дали денег, забрали обратно. я&nbsp;не&nbsp;позвонила ни&nbsp;разу, и&nbsp;мои родные до&nbsp;сих пор не&nbsp;знают, как я&nbsp;жила.</div>
+      <div class="punch">я не&nbsp;героиня. я&nbsp;просто понимала: если меня вытащат, это будет не&nbsp;моя жизнь</div>
+    </div>
+
+    <div class="card"><span class="card-n">26</span>
+      <div class="hookline">«ты просто оказалась в&nbsp;нужное время»</div>
+      <div class="body">я оказалась в&nbsp;чужом городе, в&nbsp;двадцать четыре, одна, без единого знакомого человека, без работы и&nbsp;без понимания, что делать дальше.</div>
+      <div class="punch">нужное время не&nbsp;случается. его делают тем, что не&nbsp;уезжают обратно</div>
+    </div>
+
+    <div class="card"><span class="card-n">27</span>
+      <div class="hookline">«а вдруг не&nbsp;получится»</div>
+      <div class="body">у меня уже не&nbsp;получалось. меня увольняли, я&nbsp;оставалась без денег, я&nbsp;не&nbsp;понимала, что дальше, и&nbsp;спросить было не&nbsp;у&nbsp;кого.</div>
+      <div class="punch">всё, что у&nbsp;меня есть сегодня, началось ровно после того, как не&nbsp;получилось</div>
+    </div>
+
+    <div class="card"><span class="card-n">28</span>
+      <div class="hookline">я не&nbsp;поднималась ровно вверх</div>
+      <div class="body">сначала сняла студию, не&nbsp;потянула, ушла в&nbsp;комнату. потом в&nbsp;другую. потом ещё. со&nbsp;стороны это выглядело как топтание на&nbsp;месте.</div>
+      <div class="punch">это и&nbsp;есть путь. просто он&nbsp;никогда не&nbsp;выглядит как график роста</div>
+    </div>
+  </div>
+
+  <div class="rub">
+    <div class="rub-t">Границы</div>
+
+    <div class="card"><span class="card-n">29</span>
+      <div class="hookline">«ты высокомерная»</div>
+      <div class="body">я не&nbsp;улыбаюсь тем, кто мне неприятен. не&nbsp;поддерживаю разговоры, которые мне не&nbsp;нужны. не&nbsp;трачу вечера на&nbsp;людей, рядом с&nbsp;которыми пусто.</div>
+      <div class="punch">это не&nbsp;высокомерие. это границы&nbsp;— просто у&nbsp;женщин их&nbsp;до&nbsp;сих пор принято называть характером</div>
+    </div>
+
+    <div class="card"><span class="card-n">30</span>
+      <div class="hookline">«почему у&nbsp;тебя так мало подруг»</div>
+      <div class="body">потому что я&nbsp;вижу, кто рядом и&nbsp;зачем: кто завидует, кто улыбается в&nbsp;лицо и&nbsp;обсуждает за&nbsp;спиной. я&nbsp;не&nbsp;выясняю отношения, я&nbsp;просто перестаю продолжать.</div>
+      <div class="punch">у меня мало подруг. зато каждая из&nbsp;них радуется моим новостям по-настоящему</div>
+    </div>
+
+    <div class="card"><span class="card-n">31</span>
+      <div class="hookline">«ты изменилась»</div>
+      <div class="body">да. я&nbsp;перестала объяснять, почему я&nbsp;так живу, почему столько работаю и&nbsp;почему не&nbsp;соглашаюсь на&nbsp;удобное для&nbsp;других.</div>
+      <div class="punch">это не&nbsp;другой человек. это тот же&nbsp;человек, который перестал оправдываться</div>
+    </div>
+
+    <div class="card"><span class="card-n">32</span>
+      <div class="hookline">завидуют не&nbsp;внешности и&nbsp;не&nbsp;деньгам</div>
+      <div class="body">завидуют спокойствию: тому, что человек не&nbsp;суетится, не&nbsp;оправдывается и&nbsp;не&nbsp;бежит за&nbsp;одобрением.</div>
+      <div class="punch">внешность можно повторить. спокойствие приходится заработать</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="closing wrap">
+  <div class="ornament">◆ ◆ ◆</div>
+  <p>Пятнадцать тем под&nbsp;один съёмочный день и&nbsp;тридцать два текста, которые кладутся на&nbsp;уже отснятые кадры.</p>
+  <p class="mute">Документ рабочий и&nbsp;дополняется по&nbsp;ходу.</p>
+  <div class="sign">
+    <div class="sign-name">Подготовил Малик Хашимов</div>
+    <div class="sign-role">Продюсер</div>
+    <a class="tgbtn" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+  </div>
+</div>
+
+</body></html>
