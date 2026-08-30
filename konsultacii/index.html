@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Консультации — коммерческое предложение</title>
-<meta name="description" content="Разовая консультация по блогу: разбор, позиционирование, контент-модель, темы и съёмочный план — 20 000 ₽.">
+<meta name="description" content="Разовая консультация по блогу: разбор, позиционирование, контент-модель, темы и что снимать — 20 000 ₽.">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -2115,6 +2115,21 @@
        font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink); }
   .q cite { display: block; margin-top: 12px; font-family: var(--mono); font-style: normal;
             font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+  /* --- мобильные правки: шапка-эйбрау и тап-таргеты --- */
+  @media (max-width: 430px) {
+    .hero-eyebrow {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      max-width: 100%;
+      text-align: center;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { width: 22px; }
+    .hero-handles a { display: inline-block; padding: 10px 10px 8px; margin: 0 4px; }
+  }
 </style>
 </head>
 <body>
@@ -2165,7 +2180,7 @@
     </div>
 
     <p class="hero-tagline reveal reveal-delay-2">
-      Одна встреча, после которой у&nbsp;Вас остаётся не&nbsp;вдохновение, а&nbsp;<em class="gold">рабочий документ</em>: позиционирование, форматы, темы, сценарии и&nbsp;съёмочный план.
+      Одна встреча, после которой у&nbsp;Вас остаётся не&nbsp;вдохновение, а&nbsp;<em class="gold">рабочий документ</em>: позиционирование, форматы, темы, сценарии и&nbsp;понимание, что снимать.
     </p>
 
     <div class="hero-kpi reveal reveal-delay-3">
@@ -2174,8 +2189,8 @@
         <div class="hero-kpi-label">Рублей · одна&nbsp;встреча</div>
       </div>
       <div class="hero-kpi-cell">
-        <div class="hero-kpi-value" data-count="7" data-suffix=" дней">0</div>
-        <div class="hero-kpi-label">Поддержка после</div>
+        <div class="hero-kpi-value" data-count="2" data-suffix=" недели">0</div>
+        <div class="hero-kpi-label">Обратная связь</div>
       </div>
     </div>
   </div>
@@ -2246,7 +2261,7 @@
         <h4>Моя сторона</h4>
         <h3>Разбор, решения, документ</h3>
         <p style="color:var(--text); font-size:14.5px; margin-top:12px;">
-          Полный разбор публикаций по&nbsp;цифрам, позиционирование, контент-модель из&nbsp;5–7&nbsp;форматов, темы и&nbsp;сценарии, съёмочный план, упаковка профиля и&nbsp;актуальных, план по&nbsp;продуктам.
+          Полный разбор публикаций по&nbsp;цифрам, позиционирование, контент-модель из&nbsp;5–7&nbsp;форматов, темы и&nbsp;сценарии, как и&nbsp;что снимать, упаковка профиля и&nbsp;актуальных.
         </p>
       </div>
       <div class="remote-card reveal reveal-delay-1">
@@ -2288,7 +2303,7 @@
           Начинаем с&nbsp;распаковки: Ваш путь, принципы, взгляды, отношение к&nbsp;людям и&nbsp;к&nbsp;делу. Формат&nbsp;— голосовые в&nbsp;отдельном чате, в&nbsp;удобном темпе. Я&nbsp;транскрибирую и&nbsp;собираю Ваши формулировки.
         </p>
         <p class="what">
-          Параллельно разбираю профиль целиком: публикации по&nbsp;цифрам, шапку, актуальные, продукты и&nbsp;точки, где принимаются деньги. К&nbsp;встрече я&nbsp;прихожу с&nbsp;фактами, а&nbsp;не&nbsp;с&nbsp;вопросом «расскажите о&nbsp;себе».
+          Параллельно&nbsp;— комплексный разбор блога: лента и&nbsp;обложки, цифры, шапка, «О&nbsp;себе», актуальные и&nbsp;точки входа в&nbsp;профиле. К&nbsp;встрече я&nbsp;прихожу с&nbsp;фактами, а&nbsp;не&nbsp;с&nbsp;вопросом «расскажите о&nbsp;себе».
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2305,7 +2320,7 @@
           На&nbsp;встрече собираем ядро блога: о&nbsp;чём Вы&nbsp;говорите, кому и&nbsp;почему верят именно Вам. Из&nbsp;этого выводим контент-модель&nbsp;— 5–7&nbsp;рабочих форматов вместо разрозненных роликов.
         </p>
         <p class="what">
-          Здесь&nbsp;же разбираем продукты и&nbsp;цену: что продаётся, куда ведут ссылки, где теряются люди и&nbsp;как выстроить лестницу&nbsp;— вход, следующая ступень, сопровождение.
+          Здесь&nbsp;же смотрим цифры: какие темы и&nbsp;обложки дают охват, а&nbsp;какие его теряют&nbsp;— и&nbsp;как из&nbsp;этого собрать понятную зрителю логику блога.
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2317,12 +2332,12 @@
     <div class="block reveal">
       <span class="block-num" data-tag="После">03</span>
       <div class="block-body">
-        <h3>Документ: темы, сценарии, съёмочный план</h3>
+        <h3>Документ: темы, сценарии, что снимать</h3>
         <p class="what">
-          Всё, что решили, я&nbsp;собираю в&nbsp;один документ: позиционирование, форматы, темы, сценарные каркасы под&nbsp;ролики, съёмочный план на&nbsp;неделю, тексты подписей и&nbsp;заголовков.
+          Всё, что решили, я&nbsp;собираю в&nbsp;один документ: позиционирование, форматы, темы, сценарные каркасы под&nbsp;ролики, отдельный блок «как, что и&nbsp;каким форматом снимать», тексты подписей и&nbsp;заголовков.
         </p>
         <p class="what">
-          Отдельным блоком&nbsp;— упаковка профиля: шапка, «О&nbsp;себе», структура актуальных, и&nbsp;план по&nbsp;сторис: рубрики, ритм, связка с&nbsp;лентой.
+          Отдельным блоком&nbsp;— упаковка профиля: новая шапка, «О&nbsp;себе» и&nbsp;структура актуальных, которые нужно внедрить.
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2334,12 +2349,12 @@
     <div class="block reveal">
       <span class="block-num" data-tag="Внедрение">04</span>
       <div class="block-body">
-        <h3>Семь дней на&nbsp;связи</h3>
+        <h3>Две недели на&nbsp;связи</h3>
         <p class="what">
-          После консультации остаётся неделя, в&nbsp;которую я&nbsp;отвечаю на&nbsp;вопросы по&nbsp;внедрению: посмотреть черновик сценария, подсказать по&nbsp;съёмке, поправить формулировку в&nbsp;шапке.
+          После консультации остаются две недели, в&nbsp;которые я&nbsp;отвечаю на&nbsp;вопросы по&nbsp;внедрению: посмотреть черновик сценария, подсказать по&nbsp;съёмке, поправить формулировку в&nbsp;шапке.
         </p>
         <p class="what">
-          Самая частая точка, где всё останавливается,&nbsp;— первый шаг после встречи. Эта неделя нужна ровно для&nbsp;того, чтобы первый шаг был сделан.
+          Самая частая точка, где всё останавливается,&nbsp;— первый шаг после встречи. Эти две недели нужны ровно для&nbsp;того, чтобы первый шаг был сделан.
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2371,13 +2386,13 @@
       </div>
       <div class="outcome reveal reveal-delay-2">
         <div class="outcome-num">03</div>
-        <h3>Съёмочный план на&nbsp;неделю</h3>
-        <p>Что снимать, в&nbsp;каком порядке и&nbsp;какими словами открывать. Можно начинать на&nbsp;следующий день.</p>
+        <h3>Как и&nbsp;что снимать</h3>
+        <p>Какие форматы, какие темы и&nbsp;какими словами открывать. Можно начинать на&nbsp;следующий день.</p>
       </div>
       <div class="outcome reveal reveal-delay-3">
         <div class="outcome-num">04</div>
         <h3>Профиль, который продаёт</h3>
-        <p>Шапка, актуальные, сторис и&nbsp;продукты собраны в&nbsp;одну воронку: человек доходит от&nbsp;ролика до&nbsp;покупки.</p>
+        <p>Новая шапка, структура актуальных и&nbsp;первая ссылка: человеку с&nbsp;рекомендаций есть куда идти.</p>
       </div>
     </div>
   </div>
@@ -2397,9 +2412,9 @@
         <h3>Подготовка</h3>
         <ul style="list-style:none; margin-top:14px;">
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Распаковка личности: голосовые, транскрибация, сбор смыслов</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор публикаций по&nbsp;цифрам: что даёт охват, а&nbsp;что нет</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Аудит профиля, шапки и&nbsp;актуальных</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Аудит продуктов, цен и&nbsp;точек оплаты</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Комплексный разбор блога: лента, обложки, цифры</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор шапки, «О себе» и&nbsp;актуальных</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Где сейчас точки входа в&nbsp;профиле</li>
         </ul>
       </div>
 
@@ -2409,8 +2424,7 @@
         <ul style="list-style:none; margin-top:14px;">
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Позиционирование и&nbsp;ядро блога</li>
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Контент-модель: 5–7 рабочих форматов</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор цифр: почему одни ролики зашли, а&nbsp;другие нет</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Продукты, цена и&nbsp;лестница: вход, ступень, сопровождение</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор цифр: какие темы и&nbsp;обложки дают охват</li>
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Запись встречи остаётся у&nbsp;Вас</li>
         </ul>
       </div>
@@ -2418,15 +2432,15 @@
 
     <div class="remote-card reveal" style="margin-top:24px;">
       <h4>Этап 03 · После встречи</h4>
-      <h3>Документ и&nbsp;неделя на&nbsp;связи</h3>
+      <h3>Документ в&nbsp;течение недели</h3>
       <ul style="list-style:none; margin-top:14px;">
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Позиционирование письменно</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> 5–7 форматов с&nbsp;описанием</li>
         <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Темы и&nbsp;сценарные каркасы под&nbsp;ролики</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Съёмочный план на&nbsp;неделю</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Как, что и&nbsp;каким форматом снимать</li>
         <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Тексты подписей и&nbsp;заголовков</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Упаковка профиля: шапка, «О себе», структура актуальных</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> План по&nbsp;сторис: рубрики, ритм, связка с&nbsp;лентой</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> База знаний и&nbsp;шаблонов</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Личный чат для&nbsp;оперативных вопросов&nbsp;— 7&nbsp;дней после встречи</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Новая шапка и&nbsp;актуальные, которые нужно внедрить</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Обратная связь в&nbsp;течение 2&nbsp;недель после встречи</li>
       </ul>
       <p style="margin-top:16px; color:var(--muted); font-size:13.5px;">Съёмка, монтаж и&nbsp;выпуск&nbsp;— на&nbsp;Вашей стороне.</p>
     </div>
@@ -2448,18 +2462,19 @@
         <div class="tariff-price">20&nbsp;000<span>₽</span></div>
         <div class="tariff-period">одна&nbsp;встреча</div>
         <ul>
-          <li>Разбор блога и&nbsp;распаковка до&nbsp;встречи</li>
+          <li>Комплексный разбор блога и&nbsp;распаковка</li>
           <li>Созвон 1,5–2 часа с&nbsp;записью</li>
           <li>Позиционирование и&nbsp;контент-модель</li>
-          <li>Темы, сценарии и&nbsp;съёмочный план письменно</li>
-          <li>7 дней на&nbsp;связи по&nbsp;внедрению</li>
+          <li>Темы, сценарии и&nbsp;что снимать&nbsp;— письменно</li>
+          <li>Обратная связь 2&nbsp;недели</li>
+          <li>100% предоплата до&nbsp;старта</li>
         </ul>
         <p class="tariff-note">Разбор на&nbsp;мне, съёмка на&nbsp;Вас.</p>
       </div>
     </div>
 
     <p class="price-note reveal reveal-delay-2">
-      100%&nbsp;предоплата, дата встречи закрепляется после оплаты. Документ приходит в&nbsp;течение трёх рабочих дней. Все&nbsp;материалы и&nbsp;запись остаются у&nbsp;Вас&nbsp;навсегда.
+      <strong>100%&nbsp;предоплата</strong> до&nbsp;старта работ&nbsp;— дата встречи закрепляется после оплаты. Документ приходит в&nbsp;течение недели. Все&nbsp;материалы и&nbsp;запись остаются у&nbsp;Вас&nbsp;навсегда.
     </p>
   </div>
 </section>
@@ -2468,26 +2483,34 @@
 <section class="spacer" id="guarantee">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Гарантии</span>
+      <span class="eyebrow">Обязательства</span>
       <h2>За что я <em>отвечаю</em></h2>
     </div>
 
     <div class="guarantee reveal">
-      <div class="guarantee-label">Гарантия 01 · Объём и&nbsp;сроки</div>
-      <h3>Объём фиксируется письменно</h3>
+      <div class="guarantee-label">Обязательство 01 · Объём</div>
+      <h3>Состав работы фиксируется письменно</h3>
       <p>
-        Разбор до&nbsp;встречи, созвон 1,5–2&nbsp;часа, документ с&nbsp;позиционированием, форматами, темами, сценариями и&nbsp;съёмочным планом, семь дней на&nbsp;связи. Документ приходит <strong>в&nbsp;течение трёх рабочих дней</strong> после встречи. Если объём <strong>не выполнен по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>100% стоимости</strong>.
+        До&nbsp;оплаты мы&nbsp;письменно фиксируем всё, что перечислено выше: разбор до&nbsp;встречи, созвон 1,5–2&nbsp;часа с&nbsp;записью, документ и&nbsp;две недели обратной связи. Если что-то из&nbsp;этого <strong>не сделано по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>50% стоимости</strong>.
       </p>
     </div>
 
     <div class="guarantee reveal reveal-delay-1" style="margin-top:24px;">
-      <div class="guarantee-label">Гарантия 02 · Конкретика</div>
-      <h3>Никаких общих советов</h3>
+      <div class="guarantee-label">Обязательство 02 · Срок</div>
+      <h3>Документ приходит в&nbsp;течение недели</h3>
       <p>
-        Каждый пункт документа опирается на&nbsp;Ваши цифры и&nbsp;Ваши формулировки: конкретные ролики, конкретные охваты, конкретные темы под&nbsp;съёмку. Ничего, что можно было&nbsp;бы отдать любому другому блогу без&nbsp;изменений.
+        Отсчёт&nbsp;— со&nbsp;дня встречи. Если документ не&nbsp;пришёл в&nbsp;срок&nbsp;— возвращаю <strong>50% стоимости</strong>.
+      </p>
+    </div>
+
+    <div class="guarantee reveal reveal-delay-2" style="margin-top:24px;">
+      <div class="guarantee-label">Обязательство 03 · Честно</div>
+      <h3>Чего я не&nbsp;обещаю</h3>
+      <p>
+        Одна консультация <strong>не гарантирует</strong> рост охватов и&nbsp;подписчиков&nbsp;— это зависит от&nbsp;того, будете&nbsp;ли Вы&nbsp;снимать по&nbsp;плану. Я&nbsp;отвечаю за&nbsp;разбор, за&nbsp;решения и&nbsp;за&nbsp;документ, а&nbsp;не&nbsp;за&nbsp;Вашу съёмку.
       </p>
       <p style="margin-top: 16px; font-size: 14px; color: var(--muted);">
-        Условие&nbsp;— доступ к&nbsp;статистике профиля и&nbsp;голосовые на&nbsp;этапе распаковки.
+        Условие с&nbsp;Вашей стороны&nbsp;— доступ к&nbsp;статистике профиля и&nbsp;голосовые на&nbsp;этапе распаковки.
       </p>
     </div>
   </div>
@@ -2511,12 +2534,20 @@
 <section class="contact" id="contact">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Финал</span>
+      <span class="eyebrow">Связаться</span>
       <div class="contact-author">
-        Малик <span class="accent">·</span> продюсер&nbsp;женских&nbsp;блогов <span class="accent">·</span> Август&nbsp;2026
+        Малик Хошимов <span class="accent">·</span> продюсер&nbsp;женских&nbsp;блогов
       </div>
-      <div style="margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Telegram · @mhashimov_23</a>
+
+      <div style="margin-top:34px;display:flex;justify-content:center">
+        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener"
+           style="display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#17110a;background:var(--gold);border:1px solid var(--gold);padding:19px 44px;border-radius:40px;text-decoration:none;font-weight:600;box-shadow:0 14px 40px rgba(255,184,77,.22)">
+          Написать в&nbsp;Telegram
+        </a>
+      </div>
+
+      <div style="margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted)">
+        @mhashimov_23 <span class="accent">·</span> Август&nbsp;2026
       </div>
     </div>
   </div>

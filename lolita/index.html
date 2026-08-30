@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Лолита — коммерческое предложение</title>
-<meta name="description" content="Разбор блога @dr.murmanovna и консультация: позиционирование, контент-модель, съёмочный план — 20 000 ₽.">
+<meta name="description" content="Разбор блога @dr.murmanovna и консультация: позиционирование, контент-модель, что снимать — 20 000 ₽.">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -2115,6 +2115,21 @@
        font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink); }
   .q cite { display: block; margin-top: 12px; font-family: var(--mono); font-style: normal;
             font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+  /* --- мобильные правки: шапка-эйбрау и тап-таргеты --- */
+  @media (max-width: 430px) {
+    .hero-eyebrow {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      max-width: 100%;
+      text-align: center;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { width: 22px; }
+    .hero-handles a { display: inline-block; padding: 10px 10px 8px; margin: 0 4px; }
+  }
 </style>
 </head>
 <body>
@@ -2294,33 +2309,29 @@
       <span class="chip">треть среза даёт <b>11%</b> просмотров</span>
     </div>
 
-    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(26px,3.4vw,38px); text-align:center; margin:72px 0 8px;" class="reveal">Четыре сильнейшие в&nbsp;срезе</h3>
-    <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto 8px;">Общее у&nbsp;них одно: в&nbsp;кадре есть <em class="gold">Вы</em> или Ваша среда&nbsp;— и&nbsp;есть, на&nbsp;что смотреть.</p>
+    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(26px,3.4vw,38px); text-align:center; margin:72px 0 8px;" class="reveal">Как блог выглядит <em>сейчас</em></h3>
+    <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto 8px;">Четыре самые просматриваемые публикации в&nbsp;срезе. Под каждой&nbsp;— только цифра.</p>
     <div class="reels-grid reveal reveal-delay-1">
       <figure>
         <div class="shot"><img loading="eager" decoding="async" width="390" height="681" src="assets/top-18800.jpg" alt="18 800 просмотров"></div>
         <span class="reel-views">18 800</span>
-        <span class="reel-cap">Образ · зеркальное селфи</span>
       </figure>
       <figure>
         <div class="shot"><img loading="eager" decoding="async" width="390" height="681" src="assets/top-13400.jpg" alt="13 400 просмотров"></div>
         <span class="reel-views">13 400</span>
-        <span class="reel-cap">Личное · вечер вдвоём</span>
       </figure>
       <figure>
         <div class="shot"><img loading="lazy" decoding="async" width="390" height="681" src="assets/top-11700.jpg" alt="11 700 просмотров"></div>
         <span class="reel-views">11 700</span>
-        <span class="reel-cap">Эстетика · утро и&nbsp;предметка</span>
       </figure>
       <figure>
         <div class="shot"><img loading="lazy" decoding="async" width="390" height="681" src="assets/top-9576.jpg" alt="9 576 просмотров"></div>
         <span class="reel-views">9 576</span>
-        <span class="reel-cap">Эстетика · шёлк и&nbsp;свет</span>
       </figure>
     </div>
 
     <p class="reveal" style="text-align:center; color:var(--text); max-width:660px; margin:44px auto 0;">
-      А&nbsp;слабее всего в&nbsp;срезе&nbsp;— кадры без&nbsp;человека и&nbsp;без&nbsp;мысли: тень на&nbsp;палубе&nbsp;— <b>579</b>, следы на&nbsp;песке&nbsp;— <b>1&nbsp;210</b>. Красивые, но&nbsp;пустые: смотреть в&nbsp;них не&nbsp;на&nbsp;что.
+      Разброс в&nbsp;срезе&nbsp;— от&nbsp;<b>579</b> до&nbsp;<b>18&nbsp;800</b> просмотров. Результат пока не&nbsp;повторяется.
     </p>
   </div>
 </section>
@@ -2340,31 +2351,19 @@
     <div class="situation-points reveal reveal-delay-2">
       <div class="sit-point">
         <div class="sit-point-num">01</div>
-        <div class="sit-point-text"><b>Профессии в блоге нет.</b> В шапке написано «врач гинеколог-хирург», в ленте — ни одного кадра из профессии. Самое ценное, что у Вас есть, не показано ни разу</div>
+        <div class="sit-point-text"><b>Профессии не видно.</b> В шапке — «врач гинеколог-хирург». Ни одна из 27 обложек не про профессию, ни один альбом актуальных не назван про работу. Самое ценное не показано</div>
       </div>
       <div class="sit-point">
         <div class="sit-point-num">02</div>
-        <div class="sit-point-text"><b>124 публикации — 380 подписчиков.</b> Контент выходит регулярно, база не растёт. Люди смотрят и уходят, потому что им не дали причины остаться</div>
+        <div class="sit-point-text"><b>124 публикации — 380 подписчиков.</b> Контент выходит регулярно, база не растёт</div>
       </div>
       <div class="sit-point">
         <div class="sit-point-num">03</div>
-        <div class="sit-point-text"><b>Шапка ничего не обещает.</b> «lifestyle • beauty • travel • family» — это набор тегов. По нему невозможно понять, зачем подписываться именно на Вас</div>
+        <div class="sit-point-text"><b>Внимание есть, причины остаться нет.</b> Средняя публикация в срезе — 4 033 просмотра при базе 380. Люди видят и проходят мимо. Шапка «lifestyle • beauty • travel • family» — набор тегов, по нему непонятно, зачем подписываться</div>
       </div>
       <div class="sit-point">
         <div class="sit-point-num">04</div>
-        <div class="sit-point-text"><b>Треть среза даёт 11% просмотров.</b> Девять слабейших публикаций из 27 собрали 11 696 из 108 893. Это кадры без человека: тень, следы, интерьер без Вас</div>
-      </div>
-      <div class="sit-point">
-        <div class="sit-point-num">05</div>
-        <div class="sit-point-text"><b>Актуальные — дневник, а не воронка.</b> «Turkey 26′», «Summer 26′», «life», «m e»: ни одного альбома «обо мне», о работе, о пациентках, о результатах</div>
-      </div>
-      <div class="sit-point">
-        <div class="sit-point-num">06</div>
-        <div class="sit-point-text"><b>Разговорный формат не отработан.</b> Видео, где Вы говорите на камеру, собрало 743 просмотра — один из худших результатов ленты. При этом для врача это главный формат: доверие строится на голосе и лице</div>
-      </div>
-      <div class="sit-point">
-        <div class="sit-point-num">07</div>
-        <div class="sit-point-text"><b>Продукта и ссылки нет.</b> Внимание приходит — деть его некуда. Ни ссылки в шапке, ни консультаций, ни записи. Каждый месяц сто тысяч просмотров уходят в ноль</div>
+        <div class="sit-point-text"><b>Некуда вести.</b> В шапке нет ни одной ссылки. Человек, который досмотрел, упирается в тупик</div>
       </div>
     </div>
   </div>
@@ -2411,7 +2410,7 @@
         <h4>Моя сторона</h4>
         <h3>Разбор, решения, документ</h3>
         <p style="color:var(--text); font-size:14.5px; margin-top:12px;">
-          Полный разбор публикаций по&nbsp;цифрам, позиционирование, контент-модель из&nbsp;5–7&nbsp;форматов, темы и&nbsp;сценарии, съёмочный план, упаковка профиля и&nbsp;актуальных, план по&nbsp;продуктам.
+          Полный разбор публикаций по&nbsp;цифрам, позиционирование, контент-модель из&nbsp;5–7&nbsp;форматов, темы и&nbsp;сценарии, как и&nbsp;что снимать, упаковка профиля и&nbsp;актуальных.
         </p>
       </div>
       <div class="remote-card reveal reveal-delay-1">
@@ -2453,7 +2452,7 @@
           Распаковка: как Вы&nbsp;пришли в&nbsp;хирургию, что для&nbsp;Вас операционная, что Вы&nbsp;видите у&nbsp;пациенток каждый день, во&nbsp;что верите и&nbsp;чего не&nbsp;переносите. Формат&nbsp;— голосовые в&nbsp;отдельном чате, в&nbsp;удобном темпе. Я&nbsp;транскрибирую и&nbsp;собираю Ваши формулировки.
         </p>
         <p class="what">
-          Параллельно разбираю профиль целиком: все публикации по&nbsp;цифрам, шапку, актуальные, сохранения и&nbsp;переходы. К&nbsp;встрече я&nbsp;прихожу с&nbsp;фактами, а&nbsp;не&nbsp;с&nbsp;вопросом «расскажите о&nbsp;себе».
+          Параллельно&nbsp;— комплексный разбор блога: лента и&nbsp;обложки, цифры, шапка, «О&nbsp;себе», актуальные и&nbsp;точки входа в&nbsp;профиле. К&nbsp;встрече я&nbsp;прихожу с&nbsp;фактами, а&nbsp;не&nbsp;с&nbsp;вопросом «расскажите о&nbsp;себе».
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2470,7 +2469,7 @@
           Главный вопрос встречи&nbsp;— как соединить врача и&nbsp;женщину в&nbsp;одном блоге так, чтобы не&nbsp;превратиться ни&nbsp;в&nbsp;сухой медицинский аккаунт, ни&nbsp;в&nbsp;ещё одну красивую ленту. Из&nbsp;этого выводим контент-модель: 5–7&nbsp;форматов, где эстетика остаётся, а&nbsp;экспертиза появляется.
         </p>
         <p class="what">
-          Здесь&nbsp;же&nbsp;— продукты: консультации, сопровождение, разборы. Что можно продавать врачу с&nbsp;Вашей специализацией, по&nbsp;какой цене и&nbsp;куда вести человека из&nbsp;ролика.
+          Здесь&nbsp;же смотрим цифры: какие темы и&nbsp;обложки дают охват, а&nbsp;какие его теряют&nbsp;— и&nbsp;как из&nbsp;этого собрать понятную зрителю логику блога.
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2482,9 +2481,9 @@
     <div class="block reveal">
       <span class="block-num" data-tag="После">03</span>
       <div class="block-body">
-        <h3>Документ: темы, сценарии, съёмочный план</h3>
+        <h3>Документ: темы, сценарии, что снимать</h3>
         <p class="what">
-          Всё, что решили, я&nbsp;собираю в&nbsp;один документ: позиционирование, форматы, темы, сценарные каркасы под&nbsp;ролики, съёмочный план на&nbsp;неделю, тексты подписей и&nbsp;заголовков.
+          Всё, что решили, я&nbsp;собираю в&nbsp;один документ: позиционирование, форматы, темы, сценарные каркасы под&nbsp;ролики, отдельный блок «как, что и&nbsp;каким форматом снимать», тексты подписей и&nbsp;заголовков.
         </p>
         <p class="what">
           Отдельным блоком&nbsp;— упаковка профиля: новая шапка вместо набора тегов, структура актуальных (включая альбомы о&nbsp;работе и&nbsp;«обо мне»), и&nbsp;куда вести человека, который досмотрел ролик до&nbsp;конца.
@@ -2499,12 +2498,12 @@
     <div class="block reveal">
       <span class="block-num" data-tag="Внедрение">04</span>
       <div class="block-body">
-        <h3>Семь дней на&nbsp;связи</h3>
+        <h3>Две недели на&nbsp;связи</h3>
         <p class="what">
-          После консультации остаётся неделя, в&nbsp;которую я&nbsp;отвечаю на&nbsp;вопросы по&nbsp;внедрению: посмотреть черновик сценария, подсказать по&nbsp;съёмке, поправить формулировку в&nbsp;шапке.
+          После консультации остаются две недели, в&nbsp;которые я&nbsp;отвечаю на&nbsp;вопросы по&nbsp;внедрению: посмотреть черновик сценария, подсказать по&nbsp;съёмке, поправить формулировку в&nbsp;шапке.
         </p>
         <p class="what">
-          Самая частая точка, где всё останавливается,&nbsp;— первый шаг после встречи. Особенно первый экспертный ролик: его всегда страшно снимать. Эта неделя нужна ровно для&nbsp;того, чтобы он&nbsp;вышел.
+          Самая частая точка, где всё останавливается,&nbsp;— первый шаг после встречи. Особенно первый ролик про&nbsp;профессию: его всегда страшно снимать. Эти две недели нужны ровно для&nbsp;того, чтобы он&nbsp;вышел.
         </p>
         <div class="gives">
           <strong>Что это Вам даёт</strong>
@@ -2536,13 +2535,13 @@
       </div>
       <div class="outcome reveal reveal-delay-2">
         <div class="outcome-num">03</div>
-        <h3>Съёмочный план на&nbsp;неделю</h3>
-        <p>Что снимать, в&nbsp;каком порядке и&nbsp;какими словами открывать. Можно начинать на&nbsp;следующий день.</p>
+        <h3>Как и&nbsp;что снимать</h3>
+        <p>Какие форматы, какие темы и&nbsp;какими словами открывать. Можно начинать на&nbsp;следующий день.</p>
       </div>
       <div class="outcome reveal reveal-delay-3">
         <div class="outcome-num">04</div>
         <h3>Профиль, который продаёт</h3>
-        <p>Шапка, актуальные и&nbsp;первая ссылка: человек, пришедший с&nbsp;рекомендаций, доходит до&nbsp;записи.</p>
+        <p>Новая шапка, структура актуальных и&nbsp;первая ссылка: человеку с&nbsp;рекомендаций есть куда идти.</p>
       </div>
     </div>
   </div>
@@ -2562,9 +2561,9 @@
         <h3>Подготовка</h3>
         <ul style="list-style:none; margin-top:14px;">
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Распаковка личности: голосовые, транскрибация, сбор смыслов</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор публикаций по&nbsp;цифрам: что даёт охват, а&nbsp;что нет</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Аудит профиля, шапки и&nbsp;актуальных</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Аудит продуктов и&nbsp;точек, где человек может записаться</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Комплексный разбор блога: лента, обложки, цифры</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор шапки, «О себе» и&nbsp;актуальных</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Где сейчас точки входа в&nbsp;профиле</li>
         </ul>
       </div>
 
@@ -2574,8 +2573,7 @@
         <ul style="list-style:none; margin-top:14px;">
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Позиционирование и&nbsp;ядро блога</li>
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Контент-модель: 5–7 рабочих форматов</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор цифр: почему одни публикации зашли, а&nbsp;другие нет</li>
-          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Продукты, цена и&nbsp;лестница: вход, ступень, сопровождение</li>
+          <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Разбор цифр: какие темы и&nbsp;обложки дают охват</li>
           <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Запись встречи остаётся у&nbsp;Вас</li>
         </ul>
       </div>
@@ -2583,15 +2581,15 @@
 
     <div class="remote-card reveal" style="margin-top:24px;">
       <h4>Этап 03 · После встречи</h4>
-      <h3>Документ и&nbsp;неделя на&nbsp;связи</h3>
+      <h3>Документ в&nbsp;течение недели</h3>
       <ul style="list-style:none; margin-top:14px;">
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Позиционирование письменно</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> 5–7 форматов с&nbsp;описанием</li>
         <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Темы и&nbsp;сценарные каркасы под&nbsp;ролики</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Съёмочный план на&nbsp;неделю</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Как, что и&nbsp;каким форматом снимать</li>
         <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Тексты подписей и&nbsp;заголовков</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Упаковка профиля: шапка, «О себе», структура актуальных</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> План по&nbsp;сторис: рубрики, ритм, связка с&nbsp;лентой</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> База знаний и&nbsp;шаблонов</li>
-        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Личный чат для&nbsp;оперативных вопросов&nbsp;— 7&nbsp;дней после встречи</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Новая шапка и&nbsp;актуальные, которые нужно внедрить</li>
+        <li style="padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px;"><span style="position:absolute;left:0;color:var(--gold)">—</span> Обратная связь в&nbsp;течение 2&nbsp;недель после встречи</li>
       </ul>
       <p style="margin-top:16px; color:var(--muted); font-size:13.5px;">Съёмка, монтаж и&nbsp;выпуск&nbsp;— на&nbsp;Вашей стороне.</p>
     </div>
@@ -2613,18 +2611,19 @@
         <div class="tariff-price">20&nbsp;000<span>₽</span></div>
         <div class="tariff-period">одна&nbsp;встреча</div>
         <ul>
-          <li>Разбор блога и&nbsp;распаковка до&nbsp;встречи</li>
+          <li>Комплексный разбор блога и&nbsp;распаковка</li>
           <li>Созвон 1,5–2 часа с&nbsp;записью</li>
           <li>Позиционирование и&nbsp;контент-модель</li>
-          <li>Темы, сценарии и&nbsp;съёмочный план письменно</li>
-          <li>7 дней на&nbsp;связи по&nbsp;внедрению</li>
+          <li>Темы, сценарии и&nbsp;что снимать&nbsp;— письменно</li>
+          <li>Обратная связь 2&nbsp;недели</li>
+          <li>100% предоплата до&nbsp;старта</li>
         </ul>
         <p class="tariff-note">Разбор на&nbsp;мне, съёмка на&nbsp;Вас.</p>
       </div>
     </div>
 
     <p class="price-note reveal reveal-delay-2">
-      100%&nbsp;предоплата, дата встречи закрепляется после оплаты. Документ приходит в&nbsp;течение трёх рабочих дней. Все&nbsp;материалы и&nbsp;запись остаются у&nbsp;Вас&nbsp;навсегда.
+      <strong>100%&nbsp;предоплата</strong> до&nbsp;старта работ&nbsp;— дата встречи закрепляется после оплаты. Документ приходит в&nbsp;течение недели. Все&nbsp;материалы и&nbsp;запись остаются у&nbsp;Вас&nbsp;навсегда.
     </p>
   </div>
 </section>
@@ -2633,26 +2632,34 @@
 <section class="spacer" id="guarantee">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Гарантии</span>
+      <span class="eyebrow">Обязательства</span>
       <h2>За что я <em>отвечаю</em></h2>
     </div>
 
     <div class="guarantee reveal">
-      <div class="guarantee-label">Гарантия 01 · Объём и&nbsp;сроки</div>
-      <h3>Объём фиксируется письменно</h3>
+      <div class="guarantee-label">Обязательство 01 · Объём</div>
+      <h3>Состав работы фиксируется письменно</h3>
       <p>
-        Разбор до&nbsp;встречи, созвон 1,5–2&nbsp;часа, документ с&nbsp;позиционированием, форматами, темами, сценариями и&nbsp;съёмочным планом, семь дней на&nbsp;связи. Документ приходит <strong>в&nbsp;течение трёх рабочих дней</strong> после встречи. Если объём <strong>не выполнен по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>100% стоимости</strong>.
+        До&nbsp;оплаты мы&nbsp;письменно фиксируем всё, что перечислено выше: разбор до&nbsp;встречи, созвон 1,5–2&nbsp;часа с&nbsp;записью, документ и&nbsp;две недели обратной связи. Если что-то из&nbsp;этого <strong>не сделано по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>50% стоимости</strong>.
       </p>
     </div>
 
     <div class="guarantee reveal reveal-delay-1" style="margin-top:24px;">
-      <div class="guarantee-label">Гарантия 02 · Конкретика</div>
-      <h3>Никаких общих советов</h3>
+      <div class="guarantee-label">Обязательство 02 · Срок</div>
+      <h3>Документ приходит в&nbsp;течение недели</h3>
       <p>
-        Разбор выше&nbsp;— уже пример того, как я&nbsp;работаю, и&nbsp;это только срез: <strong>27&nbsp;публикаций</strong>, средний охват <strong>4&nbsp;033</strong>, медиана <strong>2&nbsp;566</strong>, разброс <strong>×32</strong>. На&nbsp;консультации так&nbsp;же разбираются все&nbsp;124. Каждый пункт документа так&nbsp;же опирается на&nbsp;Ваши цифры и&nbsp;Ваши формулировки&nbsp;— ничего, что можно было&nbsp;бы отдать любому другому блогу без&nbsp;изменений.
+        Отсчёт&nbsp;— со&nbsp;дня встречи. Если документ не&nbsp;пришёл в&nbsp;срок&nbsp;— возвращаю <strong>50% стоимости</strong>.
+      </p>
+    </div>
+
+    <div class="guarantee reveal reveal-delay-2" style="margin-top:24px;">
+      <div class="guarantee-label">Обязательство 03 · Честно</div>
+      <h3>Чего я не&nbsp;обещаю</h3>
+      <p>
+        Одна консультация <strong>не гарантирует</strong> рост охватов и&nbsp;подписчиков&nbsp;— это зависит от&nbsp;того, будете&nbsp;ли Вы&nbsp;снимать по&nbsp;плану. Я&nbsp;отвечаю за&nbsp;разбор, за&nbsp;решения и&nbsp;за&nbsp;документ, а&nbsp;не&nbsp;за&nbsp;Вашу съёмку.
       </p>
       <p style="margin-top: 16px; font-size: 14px; color: var(--muted);">
-        Условие&nbsp;— доступ к&nbsp;статистике профиля и&nbsp;голосовые на&nbsp;этапе распаковки.
+        Условие с&nbsp;Вашей стороны&nbsp;— доступ к&nbsp;статистике профиля и&nbsp;голосовые на&nbsp;этапе распаковки.
       </p>
     </div>
   </div>
@@ -2676,12 +2683,20 @@
 <section class="contact" id="contact">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Финал</span>
+      <span class="eyebrow">Связаться</span>
       <div class="contact-author">
-        Малик <span class="accent">·</span> продюсер&nbsp;женских&nbsp;блогов <span class="accent">·</span> Август&nbsp;2026
+        Малик Хошимов <span class="accent">·</span> продюсер&nbsp;женских&nbsp;блогов
       </div>
-      <div style="margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Telegram · @mhashimov_23</a>
+
+      <div style="margin-top:34px;display:flex;justify-content:center">
+        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener"
+           style="display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#17110a;background:var(--gold);border:1px solid var(--gold);padding:19px 44px;border-radius:40px;text-decoration:none;font-weight:600;box-shadow:0 14px 40px rgba(255,184,77,.22)">
+          Написать в&nbsp;Telegram
+        </a>
+      </div>
+
+      <div style="margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted)">
+        @mhashimov_23 <span class="accent">·</span> Август&nbsp;2026
       </div>
     </div>
   </div>
