@@ -2145,6 +2145,21 @@
     .profile-duo .ps-num { padding: 14px 4px; }
     .profile-duo .ps-num span { letter-spacing: .06em; font-size: 9.5px; }
   }
+
+  /* --- компактная карточка профиля на телефоне --- */
+  @media (max-width: 640px) {
+    .ps-headcard .ps-hi {
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 14px;
+    }
+    .ps-headcard .ps-avatar { width: 60px; height: 60px; }
+    .ps-headcard .ps-hi h3 { font-size: 19px !important; line-height: 1.2; }
+    .ps-headcard .ps-hi .ps-handle { font-size: 11px; letter-spacing: .12em; margin: 4px 0 0; }
+    .ps-headcard .ps-bio { text-align: left; font-size: 14px; }
+    .ps-headcard .ps-note { text-align: left; }
+  }
 </style>
 </head>
 <body>
