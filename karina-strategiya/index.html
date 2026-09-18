@@ -1,0 +1,686 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Карина — позиционирование и темы</title><meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B;--new:#9FC0A4;--part:#D8BE8A;--was:#7C766D}
+*{box-sizing:border-box;margin:0;padding:0}
+*{hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.6;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(40px,8vw,72px);letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(28px,4.4vw,44px);margin-bottom:8px}
+h3{font-size:clamp(20px,2.8vw,26px)}
+p,li{text-wrap:pretty}
+p{margin:0 0 1em} p:last-child{margin:0}
+strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;white-space:nowrap}
+section{padding:60px 0;border-top:1px solid var(--line)}
+.sh{margin-bottom:30px} .sh p{color:var(--mute);max-width:760px;margin-top:10px}
+.hero{text-align:center;padding:100px 0 64px;border:none}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:22px}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,26px);color:var(--accent);margin:14px 0 0}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:44px}
+.stat{background:var(--soft);padding:20px 12px;text-align:center}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,3.4vw,34px);color:var(--accent);line-height:1.1;white-space:nowrap}
+.stat span{font-size:12px;color:var(--mute)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px}
+.nav a{font-size:12.5px;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--mute);white-space:nowrap}
+.nav a:hover{border-color:var(--accent);color:var(--accent)}
+/* bios */
+.bios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.bio{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:24px}
+.bio.now{opacity:.75}
+.bio .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:block}
+.bio h3{margin-bottom:16px}
+.phone{background:#000;border:1px solid #262523;border-radius:12px;padding:16px 16px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:400;font-size:14px;line-height:1.45;color:#F5F5F5}
+.phone .nm{font-weight:600;margin-bottom:2px}
+.phone .ln{white-space:pre-line}
+.phone .cta{color:#E0F1FF}
+.phone .handle{color:#9CA3AF;font-size:12px;margin-bottom:8px}
+.bio .alts{margin-top:14px;font-size:13.5px;color:var(--mute)}
+.bio .alts b{color:var(--text);font-weight:400}
+.bio .alts ul{list-style:none;margin-top:6px}
+.bio .alts li{padding:4px 0 4px 14px;position:relative}
+.bio .alts li:before{content:'';position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--accent)}
+.bio .note{margin-top:12px;font-size:13px;color:var(--dim)}
+/* plots */
+.plots{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.plot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,1.2fr) 110px;gap:18px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--soft);font-size:14px;align-items:start}
+.plot:last-child{border-bottom:none}
+.plot.h{background:var(--card);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);padding:12px 20px}
+.plot .nm{color:#F2EEE8;font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.2}
+.plot .c{color:var(--mute)}
+.plot .k{text-align:right;white-space:nowrap}
+.plot .k b{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--new);font-weight:400}
+.plot .k small{display:block;color:var(--dim);font-size:11.5px}
+.plot .ml{display:none;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+/* topics */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.fbtn{font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--mute);border-radius:30px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.fbtn.on{border-color:var(--accent);color:var(--accent)}
+details.blk{border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--soft);overflow:hidden}
+details.blk summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+details.blk summary::-webkit-details-marker{display:none}
+details.blk summary h3{font-size:clamp(19px,2.4vw,23px)}
+details.blk summary .sc{font-size:12px;color:var(--dim);white-space:nowrap}
+details.blk summary .sc i{font-style:normal;color:var(--new)}
+details.blk[open] summary{border-bottom:1px solid var(--line)}
+.tp{padding:12px 20px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;font-size:14.5px}
+.tp:last-child{border-bottom:none}
+.pill{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 0;text-align:center;height:fit-content;white-space:nowrap;border:1px solid}
+.pill.новая{color:var(--new);border-color:rgba(159,192,164,.4)}
+.pill.частично{color:var(--part);border-color:rgba(216,190,138,.4)}
+.pill.было{color:var(--was);border-color:var(--line)}
+.tp .tt{color:var(--text)}
+.tp .q{color:var(--dim);font-size:12px;white-space:nowrap;margin-left:6px}
+.tp .w{display:block;color:var(--dim);font-size:12.5px;margin-top:3px}
+.tp .w b{color:var(--mute);font-weight:400}
+.tp .tag{display:inline-block;margin-top:5px;font-size:11px;color:var(--part);border:1px dashed rgba(216,190,138,.4);border-radius:12px;padding:1px 9px;white-space:nowrap}
+.tp.было .tt{color:var(--mute)}
+/* highlights */
+.hsum{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px}
+.hsum div{background:var(--soft);padding:16px 8px;text-align:center}
+.hsum b{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:var(--accent);line-height:1}
+.hsum span{font-size:12px;color:var(--mute);white-space:nowrap}
+.hg{margin-bottom:26px}
+.hg h3{margin-bottom:4px}
+.hg>p{color:var(--mute);font-size:14px;margin-bottom:12px}
+.al{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.a{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px}
+.a .an{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.a .an b{color:#F2EEE8;font-weight:500}
+.a .an span{color:var(--dim);font-size:12px;white-space:nowrap}
+.a .per{color:var(--dim);font-size:12px}
+.a .why{color:var(--mute);margin-top:6px}
+.a .cut{color:var(--part);font-size:13px;margin-top:4px}
+.ask{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:12px;padding:20px 22px}
+.ask ol{padding-left:20px;color:var(--mute);font-size:14.5px}
+.ask li{padding:5px 0} .ask li b{color:var(--text);font-weight:500}
+/* tg */
+.tgfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:28px}
+.tgfacts div{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--mute)}
+.tgfacts b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:var(--accent);line-height:1.1;margin-bottom:4px}
+.tgg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tgc{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.tgc h3{margin-bottom:4px}
+.tgc>p{color:var(--dim);font-size:13px;margin-bottom:10px}
+.tgc ul{list-style:none}
+.tgc li{font-size:14.5px;padding:7px 0;border-bottom:1px solid var(--line);color:var(--text)}
+.tgc li:last-child{border-bottom:none}
+.tgc li span{color:var(--dim);font-size:12px;white-space:nowrap;margin-left:6px}
+footer{padding:40px 0 70px;text-align:center;color:var(--dim);font-size:13px;border-top:1px solid var(--line)}
+@media(max-width:820px){
+ .wrap{padding:0 16px}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))} .stats .stat:last-child{grid-column:1/-1}
+ .bios,.al,.tgg,.tgfacts{grid-template-columns:minmax(0,1fr)}
+ .plot{grid-template-columns:minmax(0,1fr);gap:8px} .plot.h{display:none} .plot .k{text-align:left} .plot .ml{display:block}
+ .hsum{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .tp{grid-template-columns:minmax(0,1fr);gap:6px} .pill{width:92px}
+ section{padding:46px 0}
+}
+</style></head><body>
+<section class="hero"><div class="wrap">
+<div class="top">@karinaarapovaa · 19 сентября 2026</div>
+<h1>Карина Арапова</h1>
+<div class="slogan">Позиционирование, темы, актуальные и Telegram</div>
+<div class="stats">
+<div class="stat"><b>25 372</b><span>подписчика в Instagram</span></div>
+<div class="stat"><b>732</b><span>рилса расшифрованы</span></div>
+<div class="stat"><b>3 182</b><span>сообщения в Telegram</span></div>
+<div class="stat"><b>77</b><span>альбомов актуальных</span></div>
+<div class="stat"><b>287</b><span>темы из распаковки</span></div>
+</div><nav class="nav"><a href="#pos">Позиционирование</a><a href="#plots">Сюжеты блога</a><a href="#topics">Все темы по блокам</a><a href="#hl">Актуальные</a><a href="#tg">Темы для Telegram</a></nav>
+</div></section>
+<section id="pos"><div class="wrap"><div class="sh"><span class="eyebrow">01 · Позиционирование</span><h2>Три варианта шапки</h2>
+<p>Схема шапки: имя с поисковым словом → строка-ось → строка-доказательство → призыв. Имя до 30 символов, шапка до 150.</p></div>
+<div class="bios">
+<div class="bio now"><span class="lbl">Сейчас</span><h3>Текущая шапка</h3><div class="phone"><div class="handle">@karinaarapovaa</div><div class="nm">Карина блогер Нижний Новгород | Сериал - мама в 26</div><div class="ln">Сказали «замершая», а родилась принцесса</div><div class="ln">Восстанавливаю себя и жизнь после родов</div><div class="ln">pr: @karinaarapovaa_pr</div><div class="ln cta">В моем тг живут, настоящий экшн ↴</div></div></div>
+<div class="bio"><span class="lbl">Вариант 1</span><h3>Путь из Рузаевки</h3><div class="phone"><div class="handle">@karinaarapovaa</div><div class="nm">Карина Арапова | инфлюенсер НН</div><div class="ln">Из города, где блог — позор, в медийную личность</div><div class="ln">Модель · журналист · Мисс бизнес-леди НН</div><div class="ln cta">Моя жизнь каждый день — в тг ↓</div></div>
+<div class="alts"><b>Призыв — один из трёх:</b><ul><li>Моя жизнь каждый день — в тг ↓</li><li>Всё, что не влезает в рилс, — в тг ↓</li><li>Мама, жена и просто я — в тг ↓</li></ul></div></div>
+<div class="bio"><span class="lbl">Вариант 2</span><h3>Позиция силы</h3><div class="phone"><div class="handle">@karinaarapovaa</div><div class="nm">Карина Арапова</div><div class="ln">Родила в 26 и не сбавила темп</div><div class="ln">Дочка · семья · съёмки · бренды</div><div class="ln">Мисс бизнес-леди НН</div><div class="ln">pr: @karinaarapovaa_pr</div></div><div class="note">Вторая строка может сократиться до «Дочка · семья». Поисковое слово в имени — выбираем вместе.</div></div>
+<div class="bio"><span class="lbl">Вариант 3а</span><h3>Материнство</h3><div class="phone"><div class="handle">@karinaarapovaa</div><div class="nm">Карина Арапова</div><div class="ln">Мама Авроры, 26 лет</div><div class="ln">Показываю материнство, после которого хочется родить</div><div class="ln">Тело · дочка · семья — как есть</div><div class="ln">pr: @karinaarapovaa_pr</div></div></div>
+<div class="bio"><span class="lbl">Вариант 3д</span><h3>Материнство без страха</h3><div class="phone"><div class="handle">@karinaarapovaa</div><div class="nm">Карина Арапова</div><div class="ln">Мама Авроры, 26 лет</div><div class="ln">Беременность, роды и материнство — без страшилок</div><div class="ln">От двух полосок до первых шагов дочки — всё здесь</div><div class="ln">pr: @karinaarapovaa_pr</div></div><div class="note">Ответ на главный страх аудитории: «боюсь рожать, вдруг умру».</div></div>
+</div></div></section>
+<section id="plots"><div class="wrap"><div class="sh"><span class="eyebrow">02 · Сюжеты блога</span><h2>Что уже рассказано и чего не было</h2>
+<p>Сверка по всему контенту: речь, подписи и обложки 732 рилсов, вся лента Telegram с голосовыми, 1 874 сторис в 77 актуальных. Из 287 тем распаковки новых — 176, частично рассказано — 48, уже было — 63. Медиана рилса с 2025 года — 20 868 просмотров.</p></div>
+<div class="plots"><div class="plot h"><div>Сюжет</div><div>Instagram</div><div>Telegram</div><div class="k">Тем · новых</div></div>
+<div class="plot"><div class="nm">«Замершая» и тяжёлая беременность</div><div class="c"><span class="ml">Instagram</span>13 рилсов, медиана 83 808. Максимум с 2025 года — 4 256 079</div><div class="c"><span class="ml">Telegram</span>5 из 10 самых просматриваемых постов канала</div><div class="k"><b>2</b><small>новых из 10</small></div></div>
+<div class="plot"><div class="nm">Роды и первые дни</div><div class="c"><span class="ml">Instagram</span>64 рилса, медиана 36 186, 18 из них больше 100 тыс.</div><div class="c"><span class="ml">Telegram</span>Пост о рождении Авроры — рекорд канала, 325 реакций</div><div class="k"><b>1</b><small>новых из 6</small></div></div>
+<div class="plot"><div class="nm">Тело и восстановление после родов</div><div class="c"><span class="ml">Instagram</span>27 рилсов, медиана 55 949. «Бренды одежды, вы видели мою фигуру?» — 908 082</div><div class="c"><span class="ml">Telegram</span>96% хотят видеть восстановление, питание и тренировки</div><div class="k"><b>6</b><small>новых из 12</small></div></div>
+<div class="plot"><div class="nm">Муж</div><div class="c"><span class="ml">Instagram</span>69 рилсов, медиана 21 254. Ремонт с «женским столиком» — 1 686 427</div><div class="c"><span class="ml">Telegram</span>68% выбрали историю «реакция мужа на беременность»</div><div class="k"><b>8</b><small>новых из 20</small></div></div>
+<div class="plot"><div class="nm">Дочь: уход, развитие, девайсы</div><div class="c"><span class="ml">Instagram</span>25 рилсов, медиана 30 351. «Как мы назвали дочь» — 1 328 351</div><div class="c"><span class="ml">Telegram</span>Опросы про колики и сон — 107–182 голоса</div><div class="k"><b>3</b><small>новых из 8</small></div></div>
+<div class="plot"><div class="nm">Мама-трудяга: «как ты всё успеваешь»</div><div class="c"><span class="ml">Instagram</span>16 рилсов. «Мы настоящие трудяги» — 820 542, рекорд лайков (32 752) и репостов (976) с 2025 года</div><div class="c"><span class="ml">Telegram</span>50% ответили «не получается жить по режиму»</div><div class="k"><b>17</b><small>новых из 18</small></div></div>
+<div class="plot"><div class="nm">Семья и корни: мама, папа, бабушки, сестра</div><div class="c"><span class="ml">Instagram</span>17 рилсов, медиана 22 917. «Мама рассказала, как устала после родов» — 233 448</div><div class="c"><span class="ml">Telegram</span>98% в опросе «Чей папа?» ответили «Карины»</div><div class="k"><b>16</b><small>новых из 24</small></div></div>
+<div class="plot"><div class="nm">Маленький город, осуждение, хейт</div><div class="c"><span class="ml">Instagram</span>15 рилсов. «Я никогда не писала дрянь женщинам» — 273 693, 468 комментариев</div><div class="c"><span class="ml">Telegram</span>98% попросили историю про хейтера</div><div class="k"><b>7</b><small>новых из 10</small></div></div>
+<div class="plot"><div class="nm">Паралич лица в 17 лет</div><div class="c"><span class="ml">Instagram</span>Отдельного рилса нет, только упоминания</div><div class="c"><span class="ml">Telegram</span>Упоминания в постах 2023 и 2025 годов</div><div class="k"><b>4</b><small>новых из 7</small></div></div>
+<div class="plot"><div class="nm">Прошлые отношения — частями, с согласия мужа</div><div class="c"><span class="ml">Instagram</span>Только упоминания, до 19 460 просмотров</div><div class="c"><span class="ml">Telegram</span>57% в опросе против ролика о бывшем</div><div class="k"><b>7</b><small>новых из 14</small></div></div>
+<div class="plot"><div class="nm">«Стало можно»: TikTok-хаус, продюсер, артисты</div><div class="c"><span class="ml">Instagram</span>Про TikTok-хаус, Ханзу и Аска — ни одного рилса</div><div class="c"><span class="ml">Telegram</span>Рассказано в постах ноября 2025 и января 2026</div><div class="k"><b>3</b><small>новых из 12</small></div></div>
+<div class="plot"><div class="nm">Профессия: SMM, продюсирование, кейсы</div><div class="c"><span class="ml">Instagram</span>С 2025 года ни одного рилса, где профессия звучит вслух. Упоминания в подписях — медиана 6 757</div><div class="c"><span class="ml">Telegram</span>70% ответили «расскажи, как применить у себя»</div><div class="k"><b>44</b><small>новых из 61</small></div></div>
+<div class="plot"><div class="nm">Блогинг изнутри: рост, форматы, цели</div><div class="c"><span class="ml">Instagram</span>20 рилсов, медиана 15 597</div><div class="c"><span class="ml">Telegram</span>98–100% в опросах выбирают «всё и по-честному»</div><div class="k"><b>22</b><small>новых из 27</small></div></div>
+<div class="plot"><div class="nm">Деньги и отношение к ним</div><div class="c"><span class="ml">Instagram</span>Рилсов, где деньги — главная тема, почти нет</div><div class="c"><span class="ml">Telegram</span>94% ответили «да» на «поговорим про зарплату жены?»</div><div class="k"><b>6</b><small>новых из 13</small></div></div>
+<div class="plot"><div class="nm">Бренды, бартер, реклама</div><div class="c"><span class="ml">Instagram</span>17 рилсов, медиана 12 963</div><div class="c"><span class="ml">Telegram</span>80% считают бартер через менеджера нечестным</div><div class="k"><b>9</b><small>новых из 13</small></div></div>
+</div></div></section>
+<section id="topics"><div class="wrap"><div class="sh"><span class="eyebrow">03 · Темы по блокам</span><h2>Все темы из распаковки</h2>
+<p>287 тем по 21 блоку анкеты. У каждой — номер вопроса и где она уже звучала. Темы с личными суммами сюда не вынесены.</p></div>
+<div class="legend"><button class="fbtn on" data-f="all">Все · 287</button><button class="fbtn" data-f="новая">Новые · 176</button><button class="fbtn" data-f="частично">Частично · 48</button><button class="fbtn" data-f="было">Было · 63</button></div>
+<details class="blk" open><summary><h3>Опора · Старт</h3><span class="sc">вопросы 1–7 · 18 тем · <i>11 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">+13 тыс. подписчиков за полгода — впервые начала вести блог по-настоящему честно</span><span class="q">в. 1</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Муж подарил блогерскую технику — фотоаппараты, и я разбираюсь, как снимать</span><span class="q">в. 1</span><span class="w"><b>Было:</b> Telegram · 31.05.2026</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Практически вся база для ребёнка закрыта с блога — в основном бартером</span><span class="q">в. 1</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Хочу помогать другим мамам растить блоги — беременность и материнство самые «хайповые» темы</span><span class="q">в. 1</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кейс 12 млн рублей — вывела убыточный бизнес в монополиста города, открыли два новых магазина</span><span class="q">в. 2</span><span class="w"><b>Было:</b> Telegram · 27.10.2025</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кейс с ботаническим барельефом — 30 тыс. подписчиков с нуля</span><span class="q">в. 2</span><span class="w"><b>Было:</b> Актуальные «Кейс Света 1»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Кейс с брейдингом (косы) — почти 70 тыс. подписчиков</span><span class="q">в. 2</span><span class="tag">нужно Ваше решение</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Журналистское образование, работа на ТВ</span><span class="q">в. 2</span><span class="w"><b>Было:</b> Telegram, актуальные «Мисс НН» · 08.11.2023</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мечта — найти партнёра-продюсера, как у артиста, который закроет то, что не может сама, и вместе взлететь</span><span class="q">в. 3</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Умею видеть человека на несколько шагов вперёд — вижу точку B, C, D, E, но люди не готовы поверить в себя так быстро</span><span class="q">в. 3</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Цель — 250 тыс. подписчиков, крупные контракты, медийность, приглашения на ТВ-программы, своя команда</span><span class="q">в. 3</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Беременность была очень тяжёлой, сил почти не было, но делала максимум</span><span class="q">в. 3</span><span class="w"><b>Было:</b> Instagram, актуальные</span><span class="w"><b>Ещё не рассказано:</b> именно этот ракурс («делала максимум несмотря на»)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Реальный распорядок дня мамы на ГВ — кормления каждые 1–2 часа ночью, режим сдвинут на несколько часов</span><span class="q">в. 4</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Снимаю рилс даже с ребёнком на руках в обед</span><span class="q">в. 4</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Не пью и не курю вообще — часть того, как держу баланс между ребёнком и блогом</span><span class="q">в. 5</span><span class="w"><b>Было:</b> Instagram, Telegram · 14.11.2024</span><span class="w"><b>Ещё не рассказано:</b> не в привязке к балансу ребёнок/блог</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Парадокс: и ребёнок, и блог одновременно забирают силы и возвращают их</span><span class="q">в. 5</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что говорят обо мне муж, мама, папа, сестра и подруга — честные формулировки</span><span class="q">в. 6</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Парализованное лицо в 17 лет — точка, с которой всё изменилось; 4,5 года восстановления</span><span class="q">в. 7</span><span class="w"><b>Было:</b> Instagram, Telegram · 15.05.2025 · 19 460 просмотров</span><span class="w"><b>Ещё не рассказано:</b> деталь «4,5 года восстановления» и «родители сняли ресторан на выздоровление» не встречена — можно раскрыть дальше</span></div></div>
+</details>
+<details class="blk"><summary><h3>Опора · Корни</h3><span class="sc">вопросы 8–18 · 26 тем · <i>17 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">В Рузаевке пить — норма, а вести блог — позор</span><span class="q">в. 8</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Я всегда была недотрогой, берегла честь — не разделяла культуру лёгких связей в городе</span><span class="q">в. 8</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Только сейчас, спустя 7 лет, в родном городе люди стали становиться блогерами</span><span class="q">в. 8</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">В 19 лет — крупнейший блогер города, фоновый стресс от осуждения вылился в тяжёлую депрессию, диагноз у психиатра</span><span class="q">в. 9</span><span class="w"><b>Было:</b> Telegram · 21.08.2023</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Бывший парень унижал за блогинг, сравнивал с походом в туалет — первый сигнал, что с ним не будет семьи</span><span class="q">в. 9</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мама родила её в 19 лет, доучивалась в мед. колледже и получала высшее экономическое с Кариной на руках</span><span class="q">в. 10</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Бабушка и дед (чеченец) развелись из-за его патологической ревности — бабушка больше не вышла замуж, называет его первой и единственной любовью</span><span class="q">в. 10</span><span class="w"><b>Было:</b> Instagram · 25.08.2026 · 28 850 просмотров</span><span class="w"><b>Ещё не рассказано:</b> причина развода (его патологическая ревность) в подписи не названа — там другая причина (её нежелание быть просто домохозяйкой)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">От мамы взяла доброту и любовь к бьюти, но полная противоположность в деньгах: мама про «духовное богатство», я — про «хочу быть очень богатой»</span><span class="q">в. 11</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Маме 45 лет, шикарная фигура после четырёх детей</span><span class="q">в. 11</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Папа работает на РЖД, специально перевёлся на менее руководящую должность, чтобы раньше выйти на пенсию</span><span class="q">в. 12</span><span class="w"><b>Было:</b> Telegram · 19.10.2025</span><span class="w"><b>Ещё не рассказано:</b> деталь про специальный перевод на менее руководящую должность ради ранней пенсии</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Самый включённый отец — на фоне сверстников, росших без отцов или с отстранёнными</span><span class="q">в. 12</span><span class="w"><b>Было:</b> Instagram · 24.07.2026 · 20 868 просмотров</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Папа в приступе ревности порезал мамино платье и выкинул с балкона, разбивал ей телефон об стену</span><span class="q">в. 13</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Сама попросила родителей развестись — «самый эмоционально взрослый человек в семье»</span><span class="q">в. 13</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Развод родителей совпал с её расставанием с первым парнем — принёс облегчение, разрушил паттерн «одна любовь на всю жизнь»</span><span class="q">в. 13–14</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Сестра Элита (родная, 3,5 года разницы) — дрались в детстве, сейчас дружат, помогает с ребёнком</span><span class="q">в. 15</span><span class="w"><b>Было:</b> Telegram · 08.07.2024</span><span class="w"><b>Ещё не рассказано:</b> история про совместное детство/драки и помощь с ребёнком не встречена</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Младшие брат и сестра от нового брака мамы — Агата и Самуил — первые племянники, которых видела с рождения, поняла, что любит детей</span><span class="q">в. 15</span><span class="w"><b>Было:</b> Telegram · 08.07.2024</span><span class="w"><b>Ещё не рассказано:</b> «первые племянники, которых видела с рождения, поняла, что любит детей» — не встречено</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Агата и Самуил дерутся за то, кто повезёт коляску с их племянницей Авророй</span><span class="q">в. 15</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Бабушка по папе (Фая) — артистка/певица в клубе им. Ухтомского, брала внучку на конкурсы; так поняла, что любит сцену</span><span class="q">в. 16</span><span class="w"><b>Было:</b> Instagram, Telegram · 26.08.2026 · 22 917 просмотров</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">В 3 года сама попросилась на танцы, занималась 18 лет, пробовала разные направления</span><span class="q">в. 16</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> как отдельная развёрнутая тема (а не мимоходом)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Выиграла конкурс «Мисс чайка 2015» в детском лагере, была капитаном отряда</span><span class="q">в. 16</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Была лидером в школе — договаривалась с учителями, чтобы разрешали запрещённые мероприятия</span><span class="q">в. 16</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Любимое воспоминание детства — жареная картошка с селёдкой у бабушки Раи после школы, бабушка чесала спинку</span><span class="q">в. 16</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Стала отличницей в университете не по желанию, а чтобы доказать учителям, что не «глупышка», и забрала документы, потому что не хотела жить в Мордовии</span><span class="q">в. 17</span><span class="w"><b>Было:</b> Instagram, Telegram · 03.09.2026 · 12 149 просмотров</span><span class="w"><b>Ещё не рассказано:</b> деталь про «забрала документы, хотя предлагали перевести на бюджет»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Запретила бабушке говорить «они богатые, а мы бедные» — не хотела впитывать бедное мышление</span><span class="q">в. 18</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Две бабушки — два подхода к деньгам: одна жила по бартеру и считала долги на бумажке, другая всю жизнь работала и «бабло крутит» — берёт в пример вторую</span><span class="q">в. 18</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Материально поддерживает бабушку по маме, потому что та живёт одна</span><span class="q">в. 18</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 01 · Ценности</h3><span class="sc">вопросы 19–29 · 15 тем · <i>8 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Попробовала бросить блог ради бывшего парня, стать «тенью» — привело к тяжёлой депрессии</span><span class="q">в. 19</span><span class="w"><b>Было:</b> Telegram · 15.11.2024</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Верю, что деньги — это энергия, которую нужно раскачивать</span><span class="q">в. 20</span><span class="w"><b>Было:</b> Блог</span><span class="w"><b>Ещё не рассказано:</b> как отдельная тема-убеждение</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Непроработанные уроки возвращаются по кругу, пока не закрыл точку А</span><span class="q">в. 20</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Убеждение: неважно, в какой семье родился — богатство определяешь сам; сам выбираешь настрой (нытьё или позитив)</span><span class="q">в. 20–21</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Ей советовали рассказывать о страхах беременности для охватов — это дало рост, но сейчас хочет расти иначе</span><span class="q">в. 22</span><span class="w"><b>Было:</b> Instagram, актуальные</span><span class="w"><b>Ещё не рассказано:</b> признание «мне посоветовали для охватов»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Не прощает измены — ни в любви, ни в дружбе, ни в партнёрстве, «крысиные дела»</span><span class="q">в. 23</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Быть женщиной сегодня — свобода от навязанных «должна»</span><span class="q">в. 24</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Женщина предаёт себя, когда отказывается от реализации из страха осуждения мужа или друзей</span><span class="q">в. 24</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Верю в визуализацию как рабочий метод</span><span class="q">в. 25</span><span class="w"><b>Было:</b> Telegram · 02.06.2024</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Психолог — не «истина», а субъективное мнение человека со своими травмами, это «сито», а не точка опоры</span><span class="q">в. 25</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Успех — не предавать себя; единственный раз попыталась предать себя ради отношений, поняла, что не работает, и после этого встретила мужа</span><span class="q">в. 26</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Настоящая причина вести блог — не то, что «хорошо звучит»: деньги, вещи для ребёнка, бренды по всему миру</span><span class="q">в. 27</span><span class="w"><b>Было:</b> Блог</span><span class="w"><b>Ещё не рассказано:</b> такая прямая формулировка «настоящей причины»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Хочет, чтобы в родном городе увидели, каких высот достигла — не чтобы доказать, а потому что это уже так</span><span class="q">в. 28</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Тайно занимается благотворительностью для животных</span><span class="q">в. 29</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">В 22 года стала моделью, хотя все говорили, что поздно — продолжает, скоро новые модельные работы</span><span class="q">в. 29</span><span class="w"><b>Было:</b> Telegram · 12.09.2023</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 02 · Люди</h3><span class="sc">вопросы 30–42 · 25 тем · <i>12 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Как познакомились с мужем — фото из клуба и «привет, конфетка»</span><span class="q">в. 30</span><span class="w"><b>Было:</b> Instagram · 05.12.2025 · 15 895 просмотров</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Путешествие по 3 городам через 2 недели знакомства и переезд к нему</span><span class="q">в. 30</span><span class="w"><b>Было:</b> Instagram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Забота по мелочам — стакан воды на прикроватной тумбочке каждый вечер</span><span class="q">в. 31</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Роды мечты в ВИП-палате ЦКБ с личной акушеркой</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Аренда квартиры в Москве на 1,5 месяца перед родами (оплатил муж)</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Telegram · 17.04.2026</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Фотограф на память в честь рождения дочки — подарок мужа</span><span class="q">в. 31</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Новая квартира, купленная перед рождением ребёнка</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Автошкола в подарок на Новый год во время беременности</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Telegram · 06.12.2025</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кольцо Cartier на день рождения</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Instagram · 21.10.2025 · 6 440 просмотров</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Путешествия — Мальдивы дважды, Дубай, Турция, Фуджейра, Египет</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Instagram · 13.02.2025</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Подарок папе — новый телефон на 50-летие</span><span class="q">в. 31</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Утренний ритуал — муж забирает ребёнка, чтобы она спала до обеда</span><span class="q">в. 31</span><span class="w"><b>Было:</b> Instagram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Муж — перфекционист и тестировщик по профессии и по характеру</span><span class="q">в. 32</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Первые 5 дней в роддоме подгузники менял только муж</span><span class="q">в. 32</span><span class="w"><b>Было:</b> Блог</span><span class="w"><b>Ещё не рассказано:</b> именно этот факт (первые 5 дней — только муж)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Муж лучше готовит и убирается — противоположности дополняют друг друга</span><span class="q">в. 32</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Ссоры из-за быта (посуда) и примирение за 15–20 минут</span><span class="q">в. 33</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> конкретный сюжет «ссора + примирение именно за 15–20 минут» не встречен</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что можно и нельзя снимать с мужем — нужно согласование</span><span class="q">в. 34</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Дружба 12 лет и почему «зависницы» не задерживаются рядом</span><span class="q">в. 35</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Кому звонит первой — мужу, потом маме, папе, бабушке</span><span class="q">в. 36</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Стиль в конфликте — докапывается до причины, не любит враждовать</span><span class="q">в. 37</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">История с родственницей-ученицей — предательство после бесплатной работы</span><span class="q">в. 38</span><span class="tag">нужно Ваше решение</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Легко отказывает — «да-да, нет-нет»</span><span class="q">в. 39</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Как устроена помощь с ребёнком — свекровь редко, готовит еду контейнерами, 2–3 часа с мужем вечером</span><span class="q">в. 40</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Отвечает всем подписчицам вручную, при 25 тыс. не успевает — и это нормально</span><span class="q">в. 41</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">В клубах по рилсам называют мотиватором — что чаще спрашивают про блог</span><span class="q">в. 42</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 03 · Путь</h3><span class="sc">вопросы 43–59 · 27 тем · <i>12 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Первая любовь с 15 лет — знакомство в Ask.fm, 2 года «за ручку»</span><span class="q">в. 43</span><span class="w"><b>Было:</b> Актуальные «Мой путь»</span><span class="w"><b>Ещё не рассказано:</b> знакомство через Ask.fm не упомянуто</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Спалила бывшего с другой женщиной в машине у суши-бара</span><span class="q">в. 43</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Обман с Академией МВД — бывший скрыл, что поступил в другой город</span><span class="q">в. 43</span><span class="w"><b>Было:</b> Актуальные «Мой путь»</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первый абьюз — избил на дне рождения одноклассника, разгон на трассе 200 км/ч</span><span class="q">в. 44</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Вырвал телефон и удалил публикацию из ревности</span><span class="q">в. 45</span><span class="w"><b>Было:</b> Instagram · 06.02.2025 · 7 905 просмотров</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Парез лицевого нерва — 7 больниц отказали из-за возраста, тяжёлые прогнозы врачей</span><span class="q">в. 46</span><span class="w"><b>Было:</b> Instagram · 25.03.2026 · 8 283 просмотров</span><span class="w"><b>Ещё не рассказано:</b> детали (7 больниц, прогнозы, уколы) не раскрывались</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как прожила 2 месяца болезни — поставила цели и все выполнила</span><span class="q">в. 47</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Фраза бабушки «лучше бы это случилось со мной, а не с тобой»</span><span class="q">в. 47</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Переезд в Нижний Новгород после болезни</span><span class="q">в. 48</span><span class="w"><b>Было:</b> Актуальные «Мой путь»</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Первое путешествие — Таиланд, знакомство с блогером Владосом Миросом, который «вразумил»</span><span class="q">в. 48</span><span class="w"><b>Было:</b> Актуальные «Мой путь»</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как бывший бросил её в лесу — «привёз, чтобы ты проорался»</span><span class="q">в. 48</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Ультиматум «блог или я» — выбрала его и на 1,5 года бросила блог</span><span class="q">в. 49</span><span class="w"><b>Было:</b> Instagram, актуальные «Мой путь» · 06.02.2025</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Депрессия без лечения — амнезия того периода, переезд к родителям</span><span class="q">в. 50</span><span class="w"><b>Было:</b> Instagram · 06.02.2025</span><span class="w"><b>Ещё не рассказано:</b> «переезд к родителям» не встречен</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Точка разворота — вытащила себя сама постановкой целей</span><span class="q">в. 51</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">4 года восстановления с психологом — что изменилось</span><span class="q">в. 52</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">TikTok-хаус в Москве — 3 недели, участники Дома-2, 10 тыс. подписчиков за 2 дня</span><span class="q">в. 53</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные «Мой путь» · 18.01.2026</span><span class="w"><b>Ещё не рассказано:</b> без деталей про Дом-2 и локации (Hype City, ветеринарка, аптека)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">После TikTok-хауса — парень позвал на «свидание», чтобы узнать про блогинг, не про неё саму</span><span class="q">в. 53</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Знакомство с продюсером Ханзой на улице</span><span class="q">в. 53</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные «Мой путь»</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Дружба с Ханзой — книга Джона Кехо «Подсознание может всё» про визуализацию</span><span class="q">в. 55</span><span class="w"><b>Было:</b> Instagram, актуальные «books»</span><span class="w"><b>Ещё не рассказано:</b> что именно Ханза посоветовал эту книгу — не встречено</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Концерт Soda Love — VIP-вход, гримерка, шампанское, Ханза спел со сцены</span><span class="q">в. 55</span><span class="w"><b>Было:</b> Instagram, Telegram</span><span class="w"><b>Ещё не рассказано:</b> VIP-вход, чёрный БМВ, шампанское и то, что Ханза спел со сцены — не встречены</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Клип с мужем у артиста Аска — муж играл роль абьюзера</span><span class="q">в. 55</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> имя «Аск» и роль «абьюзер» не названы</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Артист Аск бесплатно выступил на их свадьбе, прилетев из Москвы</span><span class="q">в. 55</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Момент, когда «стало можно» — перелом благодаря новому кругу знакомств</span><span class="q">в. 56</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Начала работать в 15 лет мастером маникюра — клиентки от учителей до сотрудниц спецслужб, всё в квартире бабушки</span><span class="q">в. 57</span><span class="w"><b>Было:</b> Instagram</span><span class="w"><b>Ещё не рассказано:</b> про клиенток-силовиков и квартиру бабушки</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Первый блог — ногтевой аккаунт «Арабовый наилс» (искажение whisper, вероятно «Арапова наилс») с 2015–2016 года</span><span class="q">в. 57</span><span class="w"><b>Было:</b> Актуальные «nails»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Ветеран труда» — первая одежда, купленная на свои деньги в H&amp;M</span><span class="q">в. 58</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Письмо себе двадцатилетней — гордость собой</span><span class="q">в. 59</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 04 · Принципы</h3><span class="sc">вопросы 60–71 · 15 тем · <i>13 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Правило в работе с клиентами — всегда доводит до конца, никогда не бросает</span><span class="q">в. 60</span><span class="w"><b>Было:</b> Актуальные «Ученики»</span><span class="w"><b>Ещё не рассказано:</b> это сказано про учеников, а не как общий принцип доведения любых обязательств до конца</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Жизненные принципы — никогда не предаёт и не обманывает</span><span class="q">в. 61</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Каких клиентов не берёт — осуждающих коллег, торгующихся, с недостижимыми целями</span><span class="q">в. 62</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">После истории с родственницей — правило не брать близких в платную работу</span><span class="q">в. 63</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Проспала созвон с ученицей на токсикозе во время беременности — отработала бесплатно</span><span class="q">в. 64</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Список того, чего никогда не будет в блоге — гадания/таро, казино/ставки, интим, религия/война</span><span class="q">в. 65</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Геморроидальный узел в 3 триместре — рассказала в TG, огромный отклик</span><span class="q">в. 65</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Вредный совет индустрии — переснимать чужие видео ради охватов</span><span class="q">в. 66</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Непрофессионально — давать обещания и не выполнять</span><span class="q">в. 67</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему свернула экспертный аккаунт — забеременела, поняла: 70% лайфа / 30% экспертности работает лучше</span><span class="q">в. 68</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Не будет вести занудный экспертный контент (например, обучение монтажу) — не её тема</span><span class="q">в. 68</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Честность в блоге — всегда настоящая, без ролей</span><span class="q">в. 69</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему отказалась переснимать чужие ролики — про аутентичность</span><span class="q">в. 70</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Мягкая сила» — пример Аниты Коберевой</span><span class="q">в. 71</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Мягкая сила» — пример Веры (Веруля), нижегородского блогера, развод с мужем</span><span class="q">в. 71</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 05 · Характер</h3><span class="sc">вопросы 72–84 · 15 тем · <i>14 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Четыре качества: женственность, позитив, изобилие, труд</span><span class="q">в. 72</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Снимаю контент даже болея</span><span class="q">в. 73</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Творческо-аналитический склад ума</span><span class="q">в. 73</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Страх собственного масштаба из-за прошлого абьюза</span><span class="q">в. 74</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Топы для кормления — идея зависла без швеи</span><span class="q">в. 74</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Шутки и сарказм, ирония про «успешный успех»</span><span class="q">в. 75</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Вселенная сделала лучше» — философия провалов и недовольных клиентов</span><span class="q">в. 76</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Отходчивая, конфликт выбивает на 5 минут</span><span class="q">в. 77</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Дисциплина от жёсткого хореографа по танцам</span><span class="q">в. 78</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Не азартный игрок, решения — головой</span><span class="q">в. 79</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Чёрное платье с декольте и интуиция — миллион просмотров на двух роликах</span><span class="q">в. 79</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Реклама дала самый низкий рилс — 5 тыс. просмотров</span><span class="q">в. 80</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Слова-паразиты: «блог, сотрудничество, деньги, изобилие»</span><span class="q">в. 81</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первая модельная фотосессия через 4 месяца после родов — доделывала распаковку до утра</span><span class="q">в. 82</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">СДВГ в быту — забытый стакан чая</span><span class="q">в. 83</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> этот конкретный эпизод (забытый стакан чая) — отдельная история</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 06 · Тело</h3><span class="sc">вопросы 85–95 · 7 тем · <i>3 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мужская одежда из Befree во время беременности</span><span class="q">в. 86</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Ферритин 8–10, выпадение волос, послеродовая кровь, геморрой, без растяжек</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные «ферритин» · 26.05.2026 · 484 489 просмотров</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">«Восстанавливаю себя» по пунктам: зубы, гинеколог, чекап, психолог</span><span class="q">в. 87</span><span class="w"><b>Было:</b> Instagram, Telegram · 02.08.2026 · 28 880 просмотров</span><span class="w"><b>Ещё не рассказано:</b> конкретные пункты (зубы, гинеколог, чекап) — новые</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Парез: лицо восстановилось на 100%, благодарность врачам ЛФК</span><span class="q">в. 88</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Болезнь → страх потерять лицо → конкурсы красоты и мечта о ТВ</span><span class="q">в. 89</span><span class="w"><b>Было:</b> Telegram, актуальные</span><span class="w"><b>Ещё не рассказано:</b> причинно-следственная связь «парез → страх → конкурс → мечта о ТВ»</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Каратэ Кёкусинкай и фортепиано — бросила из-за танцев</span><span class="q">в. 91</span><span class="w"><b>Было:</b> Актуальные «Мисс Нижний Новгород» · 17.11.2023</span><span class="w"><b>Ещё не рассказано:</b> каратэ Кёкусинкай и причина бросить (танцы)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Не делает маникюр дома из-за риска оцарапать ребёнка</span><span class="q">в. 93</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 07 · Деньги</h3><span class="sc">вопросы 96–108 · 5 тем · <i>4 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первая брендовая покупка на первые деньги — кроссовки и сумка</span><span class="q">в. 98</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Распустила команду SMM перед родами</span><span class="q">в. 100</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">«Финансовое обнуление» — трансформация, а не крах</span><span class="q">в. 101</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">На чём трачу легко / муж говорит «транжирю»</span><span class="q">в. 104</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему рынок наставников обвалился</span><span class="q">в. 108</span></div></div>
+</details>
+<details class="blk"><summary><h3>Столб 08 · Быт</h3><span class="sc">вопросы 109–121 · 12 тем · <i>2 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Квартира по комнатам: кабинет мужа-IT, беговая дорожка для рилс, две гардеробные</span><span class="q">в. 109</span><span class="w"><b>Было:</b> Instagram, Telegram · 01.04.2026 · 1 686 427 просмотров</span><span class="w"><b>Ещё не рассказано:</b> детальный тур по комнатам с кабинетом мужа и беговой дорожкой</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">4 года на съёмных квартирах — «ощущала себя кочевником»</span><span class="q">в. 110</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Муж делает утренний уход за малышкой, пока я сплю после ночных кормлений</span><span class="q">в. 111</span><span class="w"><b>Было:</b> Instagram · 13.06.2026 · 32 473 просмотров</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Кофейня в подъезде с трубочками со сгущёнкой</span><span class="q">в. 112</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> именно кофейня в подъезде МЖК</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Ремонт за 2 недели перед родами, папа помогал</span><span class="w"><b>Было:</b> Instagram, Telegram · 1 686 427 просмотров</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Гид по её местам в Нижнем Новгороде: парк Швейцария, рестораны Escape / Сибирские огни / Раварня / Магадан</span><span class="q">в. 115</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> рестораны</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Как появилась кошка Ласка — бабушка купила на рынке за 50 ₽</span><span class="q">в. 117</span><span class="w"><b>Было:</b> Telegram, актуальные</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Спасение Ласки от онкологии — операции</span><span class="w"><b>Было:</b> Telegram, актуальные «Ласка»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Ритуалы: эстетичный завтрак, многоступенчатый уход, зубы в три этапа</span><span class="q">в. 118</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Вместо сериалов — анализирую контент конкурентов</span><span class="q">в. 119</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> именно про слежку за конкурентами</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Автошкола на VIP-условиях, права к 21 октября</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Снимает контент с ребёнком в кроватке на колёсиках</span><span class="q">в. 121</span></div></div>
+</details>
+<details class="blk"><summary><h3>Опора · Материнство</h3><span class="sc">вопросы 122–134 · 14 тем · <i>8 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Аврора — описание, опережает развитие</span><span class="w"><b>Было:</b> Instagram, Telegram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">История «замершая беременность» — врачебная ошибка</span><span class="q">в. 123</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные · 23.12.2025 · 283 991 просмотров</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Никому не говорили кроме мужа и подруги — родителям сказали только на 3-м месяце</span><span class="q">в. 124</span><span class="w"><b>Было:</b> Instagram</span><span class="w"><b>Ещё не рассказано:</b> конкретно про сроки для родителей</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первый звонок — подруге Ксюше (гинекологу)</span><span class="q">в. 125</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Роды в ЦКБ при президенте РФ — партнёрские, 12 часов</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Муж 5 дней не давал прикасаться к ребёнку — «отдыхай, восстанавливайся»</span><span class="q">в. 127</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Соски в кровь при кормлении</span><span class="q">в. 127</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Контраст: депрессия во время беременности → счастье после родов, «я ебашу, а не срач»</span><span class="q">в. 128</span><span class="w"><b>Было:</b> Telegram, актуальные «Роды» · 02.05.2026</span><span class="w"><b>Ещё не рассказано:</b> формулировка про «срач» и уборку</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Иди купи мне пива, я посижу с ребёнком» — взаимная поддержка с мужем</span><span class="q">в. 128</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«У меня появился дедлайн» — хочет, чтобы дочь видела достижения родителей</span><span class="q">в. 130</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Отсутствие чувства вины — объясняет дочке, что мама работает</span><span class="q">в. 131</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Смысл названия «Мама в 26» — противовес «Беременна в 16»</span><span class="q">в. 132</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что хочет, чтобы дочь знала о ней</span><span class="q">в. 133</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мамская тема — «самая масштабная, всегда работает»</span><span class="q">в. 134</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 01 · Профессия</h3><span class="sc">вопросы 135–151 · 13 тем · <i>11 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Международные клиенты — Таиланд, Дубай, Белоруссия, Китай, Турция</span><span class="q">в. 137</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первая ученица — подруга сама попросила научить</span><span class="q">в. 138</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Лучшая ученица курса — конверсия 8 из 10 созвонов</span><span class="q">в. 140</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Первый отказ от дешёвой работы</span><span class="q">в. 141</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Продюсер полного цикла» — 50/50 с учеником, курсы по барельефу, духам, косам, бровям</span><span class="q">в. 143</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Неопубликованное интервью с клиенткой</span><span class="q">в. 144</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Почему пик закончился — выгорание и кризис на Мальдивах</span><span class="q">в. 145</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Эмоциональное и финансовое обнуление в 25 лет</span><span class="q">в. 146</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> конкретные детали (лежала в кровати, портились отношения с мужем)</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Когда блогеров начали привлекать к ответственности — снесла экспертный аккаунт</span><span class="q">в. 147</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Учительское выгорание с 2021 — физические симптомы</span><span class="q">в. 148</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что для неё «наполнить ресурс»</span><span class="q">в. 149</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Закрыла проекты рожая, отучила последнюю ученицу — хочет массовый продукт</span><span class="q">в. 150</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">С кем интереснее работать — не по нише, а по типу человека («трудяги»)</span><span class="q">в. 151</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 02 · Кейсы</h3><span class="sc">вопросы 152–162 · 11 тем · <i>6 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кейс Алина — 12 млн, франчайзи парфюм</span><span class="q">в. 152</span><span class="w"><b>Было:</b> Telegram, актуальные «Кейс Алина» · 25.05.2024</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Личная трансформация Алины после кейса</span><span class="q">в. 152</span><span class="tag">нужно Ваше решение</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как собирали Алине отдел продаж и SMM-отдел — самое сложное держать её веру 24/7</span><span class="q">в. 153</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Кейс Света — ботанический барельеф, с нуля до миллиона за 2,5 месяца</span><span class="q">в. 154</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные «Кейс Света 1»</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Личная история Светы — мама двух детей, муж ушёл во время работы</span><span class="q">в. 154–156</span><span class="w"><b>Было:</b> Актуальные «Кейс Света 1»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Кейс 2300→72000 подписчиков за 4 месяца — мастер причёсок, туториалы «от начала до конца»</span><span class="q">в. 155</span><span class="tag">нужно Ваше решение</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кейс Анна — косметолог, 17 тыс. → 204 тыс. за 2,5 месяца</span><span class="q">в. 157</span><span class="w"><b>Было:</b> Telegram, актуальные «Кейс Аня» · 20.06.2024</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Кейс Настя — брови/макияж, +300 тыс.</span><span class="q">в. 157</span><span class="w"><b>Было:</b> Актуальные «Кейс Настя»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Где работалось лучше, куда не пойдёт — не по нише, а по типу человека</span><span class="q">в. 159</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Провальный кейс — бизнес по аппаратам для похудения, который подарил папа</span><span class="q">в. 160</span><span class="tag">нужно Ваше решение</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему на чужих блогах получается, а на своём — нет</span><span class="q">в. 162</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 03 · Метод</h3><span class="sc">вопросы 163–176 · 14 тем · <i>10 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Подход отличается — раскрывает аутентичность, не копирует</span><span class="q">в. 163</span><span class="w"><b>Было:</b> Instagram, актуальные «мой МЕТОД» · 24.02.2026</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">С чего начинает новый блог — точка А/Б, отбор на реалистичность</span><span class="q">в. 164</span><span class="w"><b>Было:</b> Instagram</span><span class="w"><b>Ещё не рассказано:</b> как отдельный процесс</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как выбирает темы для съёмки — от сильных сторон, а не слабых</span><span class="q">в. 165</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Чуйка на вирусный ролик — журналистское образование, 5 лет кликбейта в вузе</span><span class="q">в. 166</span><span class="w"><b>Было:</b> Instagram</span><span class="w"><b>Ещё не рассказано:</b> применение к «чуйке на ролик»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что делает, когда ролик не выстрелил — анализ и дальше</span><span class="q">в. 167</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Метрики, на которые смотрит / нет мусорных метрик</span><span class="q">в. 168</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Главная ошибка блогеров, которые не растут — затык в мышлении и страх опозориться</span><span class="q">в. 169</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Главная ошибка продюсеров — делать всех под копирку, надеяться на авось</span><span class="q">в. 170</span><span class="w"><b>Было:</b> Актуальные «мой МЕТОД»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Залётные форматы дают волну, цельный образ — лавину</span><span class="q">в. 171</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как оценивает качество аудитории — кто подписан, чем занимается</span><span class="q">в. 172</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Чему научили 6 лет — метод по позиционированию для учеников, но не для себя</span><span class="q">в. 173</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что полезно знать обычной женщине из её экспертизы</span><span class="q">в. 174</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Аналитика на практике — статистика, конкуренты, актуальность тем</span><span class="q">в. 175</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Провальный запуск партнёрши — бесплатные чек-листы убили продажи</span><span class="q">в. 176</span><span class="tag">нужно Ваше решение</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 04 · Блог</h3><span class="sc">вопросы 177–195 · 16 тем · <i>13 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Хейт от земляков — дословные фразы</span><span class="q">в. 178</span><span class="w"><b>Было:</b> Актуальные «Мой путь»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как переживала тогда и что сказала бы сейчас — блогинг почистил окружение</span><span class="q">в. 179</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Таргет по 50 копеек — механика мёртва, таргет заблокирован в РФ</span><span class="q">в. 180</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Экспертный блог про SMM упал до 7000 — Instagram сам отписал неактивных</span><span class="q">в. 182</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Поднял до 12000 — рилс про луки/стиль, переодевания летом</span><span class="q">в. 182</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему свернула экспертный блог — «обо всём и ни о чём»</span><span class="q">в. 183</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Возвращение через 4 года — объявила беременность, потом историю про «замершую»</span><span class="q">в. 184</span><span class="w"><b>Было:</b> Instagram, Telegram, актуальные «замершая»</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Рост пошёл с января — стала постить неидеальную регулярно по системе</span><span class="q">в. 185</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Переход к материнству — упали подписки в ТГ, в Инсте держится активность</span><span class="q">в. 187</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Лучший по смыслу ролик — отрывок из «Шрека» про семейные ценности, 16000 просмотров</span><span class="q">в. 189</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Тяжелее всего выложить — где плачет, показывает сильные эмоции</span><span class="q">в. 190</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Сколько времени уходит на блог — по часам</span><span class="q">в. 191</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Что делает через силу — сторис (бестолковые) и рилс ради охватов</span><span class="q">в. 192</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Хочет собрать блог в систему — «красивая мама, с которой хотят сотрудничать бренды»</span><span class="q">в. 193</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Новая аудитория не знает про 6 лет в профессии</span><span class="q">в. 194</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Страх выложить ролик про профессию — не хочет быть «инфоцыганом», не хочет как все экспертные рилсы</span><span class="q">в. 195</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 05 · Сериал</h3><span class="sc">вопросы 196–209 · 27 тем · <i>14 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Формулировка «Сериал — мама в 26»</span><span class="q">в. 196</span><span class="w"><b>Было:</b> Telegram · 05.05.2026</span><span class="w"><b>Ещё не рассказано:</b> именно сравнение «26 vs беременна в 16» не встречено</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Взросление ребёнка, умелки</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Рост блога + числа аудитории, поиск форматов</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Instagram</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Автошкола</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Instagram, Telegram · 05.09.2026 · 16 557 просмотров</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как создаёт из себя классного блогера, работа над контентом</span><span class="q">в. 199</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Учится быть мамой — что получается, что нет</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Отношения с мужем</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Путешествия с ребёнком</span><span class="q">в. 199</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Поиск своего стиля, пересборка себя после родов и депрессии</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Instagram</span><span class="w"><b>Ещё не рассказано:</b> там это шутка про ложную тревогу (спутала с приходом месячных через месяц после родов), а не реальная история переживания депрессии; сюжет «пересборка себя и стиля после родов»</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Питание и возврат тела в форму после родов</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Здоровье после родов</span><span class="q">в. 199</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Автошкола: сдача на права</span><span class="q">в. 200</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Подготовка к первому путешествию с дочкой</span><span class="q">в. 200</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">День рождения 21 октября 2026</span><span class="q">в. 200</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Переодевания и луки с дочкой вдвоём</span><span class="q">в. 201</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Подборки полезных детских девайсов</span><span class="q">в. 201</span><span class="w"><b>Было:</b> Блог</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Мечта о блогерском пресс-туре</span><span class="q">в. 201</span><span class="w"><b>Было:</b> Telegram · 01.06.2025</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Бартер, который стал испытанием (тай-дай футболки)</span><span class="q">в. 202</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как выглядит съёмка рилса с ребёнком (BTS)</span><span class="q">в. 203</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Обзор блогерской техники</span><span class="q">в. 204</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Показ, на который ушла на весь день, оставив дочь с мужем</span><span class="q">в. 208</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">День без сил («заебалась»)</span><span class="q">в. 208</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Болею и просто лежу</span><span class="q">в. 208</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Сколько всего для ребёнка закрыла через блог</span><span class="q">в. 209</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">+13 тысяч подписчиков за полгода беременности, несмотря на железодефицит</span><span class="q">в. 209</span><span class="w"><b>Было:</b> Instagram, Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">5 самых острых тем беременности, которые гарантированно взлетают</span><span class="q">в. 209</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как выстроен день, чтобы всё успевать с ребёнком</span><span class="q">в. 209</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 06 · Аудитория</h3><span class="sc">вопросы 210–224 · 7 тем · <i>5 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">«Боюсь рожать, вдруг умру» — как я отвечаю</span><span class="q">в. 212</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Как я быстро восстановилась после родов</span><span class="q">в. 217</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Меня шокировало, что женщины наряжаются, чтобы «отбить» мужа</span><span class="q">в. 217</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как я зарабатываю с блога (без цифр)</span><span class="q">в. 217</span></div></div>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Что мне пишут злого и как я реагирую</span><span class="q">в. 219</span><span class="w"><b>Было:</b> Instagram · 16.05.2026 · 273 693 просмотров</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Как я всё успеваю с ребёнком</span><span class="q">в. 222</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Кастдев подписчиц напрямую</span><span class="q">в. 223</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 07 · Монетизация</h3><span class="sc">вопросы 225–239 · 8 тем · <i>6 новых</i></span></summary>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Почему реклама на отдельном пиар-аккаунте</span><span class="q">в. 226</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мне предлагали рекламировать презервативы после родов</span><span class="q">в. 227</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Мечта пойти к брендам одежды, косметики, украшений</span><span class="q">в. 228</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Бартер, который стал испытанием — электрокачели</span><span class="q">в. 229</span><span class="w"><b>Было:</b> Instagram, Telegram</span><span class="w"><b>Ещё не рассказано:</b> эта история про измучивший бартер</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Блог приводил клиентов по сарафанному радио</span><span class="q">в. 230</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Реклама — это моё творчество, а не только деньги</span><span class="q">в. 236</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Бесплатный бот, через который купили менторство буквально за неделю</span><span class="q">в. 237</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Самый частый бесплатный вопрос — средство от коликов</span><span class="q">в. 238</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> именно как «самый частый бесплатный запрос»</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 08 · Команда</h3><span class="sc">вопросы 240–251 · 3 тем · <i>2 новых</i></span></summary>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Мой путь через продюсеров и наставничества</span><span class="q">в. 240–241</span><span class="w"><b>Было:</b> Telegram</span><span class="w"><b>Ещё не рассказано:</b> именно сведённый путь «от первого запуска до Бадди» с оценкой каждого — целиком не встречен</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Я вырастила подругу быстрее, чем себя</span><span class="q">в. 243</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Партнёрство, которое вовремя остановила</span><span class="q">в. 244</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 09 · Границы</h3><span class="sc">вопросы 252–261 · 3 тем · <i>1 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Почему я работаю только вчистую, плачу налоги</span><span class="q">в. 258</span><span class="w"><b>Было:</b> Telegram</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">История прошлых отношений — готова рассказывать частями</span><span class="q">в. 254</span><span class="w"><b>Было:</b> Telegram</span><span class="tag">только с согласия мужа</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Не останавливаюсь даже с простудой</span><span class="q">в. 259</span></div></div>
+</details>
+<details class="blk"><summary><h3>Блок 10 · Цели</h3><span class="sc">вопросы 262–272 · 6 тем · <i>4 новых</i></span></summary>
+<div class="tp было" data-s="было"><span class="pill было">было</span><div><span class="tt">Хочу сниматься в фильмах, рекламе, быть моделью, телеведущей</span><span class="q">в. 262</span><span class="w"><b>Было:</b> Telegram · 02.11.2024</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Моя цель — 250 тысяч подписчиков</span><span class="q">в. 263</span></div></div>
+<div class="tp частично" data-s="частично"><span class="pill частично">частично</span><div><span class="tt">Кем я хочу быть известной</span><span class="q">в. 265</span><span class="w"><b>Было:</b> Telegram · 02.11.2024</span><span class="w"><b>Ещё не рассказано:</b> именно связка «медийная личность + продюсер» не встречена</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Меня уже узнают не только в родном городе</span><span class="q">в. 266</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Видение через 3 года</span><span class="q">в. 267</span></div></div>
+<div class="tp новая" data-s="новая"><span class="pill новая">новая</span><div><span class="tt">Хочу свой оффлайн бизнес одежды</span><span class="q">в. 268</span></div></div>
+</details>
+</div></section>
+<section id="hl"><div class="wrap"><div class="sh"><span class="eyebrow">04 · Актуальные</span><h2>77 альбомов: что с каждым делать</h2>
+<p>Каждый альбом просмотрен целиком: текст на сторис, речь в видео, кадры. «В архив» — убрать из актуальных, сами сторис остаются в архиве аккаунта.</p></div>
+<div class="hsum"><div><b>8</b><span>поднять</span></div><div><b>17</b><span>оставить</span></div><div><b>7</b><span>обновить</span></div><div><b>5</b><span>объединить</span></div><div><b>25</b><span>в архив</span></div><div><b>15</b><span>удалить</span></div></div>
+<div class="hg"><h3>Поднять · 8</h3><p>Первыми в ряду актуальных — то, что объясняет новому подписчику, кто Вы и о чём блог.</p><div class="al">
+<div class="a"><div class="an"><b>Кто я?</b><span>21 сторис</span></div><div class="per">№02 · 24–25.07.2026</div><div class="why">Лучшее знакомство для новых подписчиков: кто Вы, семья, журфак, модельное прошлое.</div><div class="cut">Убрать пустые 007, 008, 017. Посмотреть 018.</div></div>
+<div class="a"><div class="an"><b>Замершая</b><span>27 сторис</span></div><div class="per">№06 · 15–30.12.2025</div><div class="why">Главная история блога.</div><div class="cut">Убрать 027: дубль из «Aurora». Сторис 019 обсудим на созвоне.</div></div>
+<div class="a"><div class="an"><b>Роды</b><span>37 сторис</span></div><div class="per">№09 · 27.04–02.05.2026</div><div class="why">Рождение Авроры, ядро блога.</div><div class="cut">Убрать пустую 011. Посмотреть 013 и 031.</div></div>
+<div class="a"><div class="an"><b>Ферритин</b><span>35 сторис</span></div><div class="per">№16 · 04–06.02.2026</div><div class="why">Откровенная история о здоровье в беременность.</div></div>
+<div class="a"><div class="an"><b>Гендерпати</b><span>15 сторис</span></div><div class="per">№18 · 11–12.01.2026</div><div class="why">Ключевая серия беременности.</div></div>
+<div class="a"><div class="an"><b>Беременная герой</b><span>20 сторис</span></div><div class="per">№19 · 22.12.2025</div><div class="why">Центральная часть истории беременности.</div></div>
+<div class="a"><div class="an"><b>Две полоски</b><span>10 сторис</span></div><div class="per">№20 · 03.12.2025</div><div class="why">Начало истории «Мама в 26».</div></div>
+<div class="a"><div class="an"><b>Ласка</b><span>58 сторис</span></div><div class="per">№40 · 01.03.2023–12.11.2024</div><div class="why">Самая сильная эмоциональная история среди старых альбомов.</div></div>
+</div></div>
+<div class="hg"><h3>Оставить · 17</h3><p>Работают на нынешний образ, трогать не нужно.</p><div class="al">
+<div class="a"><div class="an"><b>Автошкола</b><span>20 сторис</span></div><div class="per">№01 · 12.01.2026</div><div class="why">История прервалась беременностью и продолжилась после родов. В кадре бренд-партнёр автошколы.</div><div class="cut">Убрать пустую 011.</div></div>
+<div class="a"><div class="an"><b>Aurora</b><span>15 сторис</span></div><div class="per">№03 · 29.05–16.07.2026</div><div class="why">Месяцы Авроры, торты, угадывание имени.</div></div>
+<div class="a"><div class="an"><b>Колики/газики</b><span>4 сторис</span></div><div class="per">№05 · 08.06.2026</div><div class="why">Практичная подборка с артикулами.</div></div>
+<div class="a"><div class="an"><b>Молоко</b><span>4 сторис</span></div><div class="per">№07 · 27–28.05.2026</div><div class="why">Короткий практичный альбом.</div></div>
+<div class="a"><div class="an"><b>Тело в</b><span>8 сторис</span></div><div class="per">№13 · 23.04.2026</div><div class="why">Тело в беременность.</div></div>
+<div class="a"><div class="an"><b>Малышке</b><span>20 сторис</span></div><div class="per">№14 · 10.02–14.04.2026</div><div class="why">Покупки для дочки. Готовая витрина для брендов.</div></div>
+<div class="a"><div class="an"><b>Поворот</b><span>33 сторис</span></div><div class="per">№15 · 03–10.04.2026</div><div class="why">Отдельная сильная история.</div></div>
+<div class="a"><div class="an"><b>Maldives</b><span>52 сторис</span></div><div class="per">№23 · 15–22.09.2025</div><div class="why">Сильный визуал.</div><div class="cut">Сократить вдвое: много повторов.</div></div>
+<div class="a"><div class="an"><b>Моделинг</b><span>46 сторис</span></div><div class="per">№24 · 27.05–02.10.2025</div><div class="why">Модельное портфолио, нужно брендам.</div><div class="cut">Убрать повторы.</div></div>
+<div class="a"><div class="an"><b>Beauty</b><span>12 сторис</span></div><div class="per">№30 · 29.06.2024–04.03.2025</div><div class="why">Пригодится для бьюти-брендов.</div></div>
+<div class="a"><div class="an"><b>Образы</b><span>8 сторис</span></div><div class="per">№31 · 06.05.2025</div><div class="why">Образы, нужно брендам одежды.</div></div>
+<div class="a"><div class="an"><b>Sport</b><span>9 сторис</span></div><div class="per">№34 · 13.02.2025–12.03.2025</div><div class="why">Спорт и тело.</div></div>
+<div class="a"><div class="an"><b>Образование</b><span>9 сторис</span></div><div class="per">№36 · 17.02.2025</div><div class="why">Журфак работает на доверие.</div></div>
+<div class="a"><div class="an"><b>Дневник эмоций</b><span>10 сторис</span></div><div class="per">№37 · 10.02.2025</div><div class="why">Совпадает с темой восстановления.</div></div>
+<div class="a"><div class="an"><b>Платье</b><span>25 сторис</span></div><div class="per">№45 · 12.04.2024–25.04.2024</div><div class="why">Пролог к «Свадьбе», можно объединить с ней.</div></div>
+<div class="a"><div class="an"><b>Вы обо мне</b><span>20 сторис</span></div><div class="per">№48 · 29.03.2024</div><div class="why">Отзывы подписчиц о Вас.</div></div>
+<div class="a"><div class="an"><b>Кольцо (помолвка)</b><span>29 сторис</span></div><div class="per">№51 · 22–24.10.2023</div><div class="why">Помолвка — пролог к «Мама в 26». Можно поднять выше.</div></div>
+</div></div>
+<div class="hg"><h3>Обновить · 7</h3><p>Оставить, но поправить внутри.</p><div class="al">
+<div class="a"><div class="an"><b>Кровь</b><span>7 сторис</span></div><div class="per">№04 · 13–14.07.2026</div><div class="why">У истории нет развязки. Добавить сторис о том, чем всё закончилось.</div></div>
+<div class="a"><div class="an"><b>Трансформация</b><span>30 сторис</span></div><div class="per">№25 · 09.09.2025</div><div class="why">Часть сторис нужно убрать.</div><div class="cut">Какие именно — обсудим на созвоне.</div></div>
+<div class="a"><div class="an"><b>Отношения</b><span>17 сторис</span></div><div class="per">№28 · 24.05.2025</div><div class="why">Одну сторис нужно убрать.</div><div class="cut">Какую — обсудим на созвоне.</div></div>
+<div class="a"><div class="an"><b>ОАЭ на нг</b><span>29 сторис</span></div><div class="per">№38 · 30.12.2024–31.12.2024</div><div class="why">Одну сторис нужно убрать.</div><div class="cut">Какую — обсудим на созвоне.</div></div>
+<div class="a"><div class="an"><b>Maldives</b><span>100 сторис</span></div><div class="per">№39 · 06.08.2024–13.08.2024</div><div class="why">100 сторис.</div><div class="cut">Убрать повторы.</div></div>
+<div class="a"><div class="an"><b>Свадьба</b><span>88 сторис</span></div><div class="per">№41 · 02.08.2024–05.08.2024</div><div class="why">Костяк истории оставить.</div><div class="cut">Убрать репосты гостей.</div></div>
+<div class="a"><div class="an"><b>Девичник</b><span>42 сторис</span></div><div class="per">№42 · 27.07.2024–29.07.2024</div><div class="why">Предсвадебная история.</div><div class="cut">Убрать два лишних фрагмента.</div></div>
+</div></div>
+<div class="hg"><h3>Объединить · 5</h3><p>Одна история разбита на несколько альбомов.</p><div class="al">
+<div class="a"><div class="an"><b>Эпиду</b><span>4 сторис</span></div><div class="per">№08 · 24.05.2026</div><div class="why">Часть истории родов.</div><div class="cut">Перенести в «Роды».</div></div>
+<div class="a"><div class="an"><b>Патология</b><span>8 сторис</span></div><div class="per">№10 · 05–09.05.2026</div><div class="why">Часть истории родов.</div><div class="cut">Перенести в «Роды».</div></div>
+<div class="a"><div class="an"><b>Начало</b><span>6 сторис</span></div><div class="per">№11 · 06–09.05.2026</div><div class="why">Часть истории родов.</div><div class="cut">Перенести в «Роды».</div></div>
+<div class="a"><div class="an"><b>bangkok</b><span>13 сторис</span></div><div class="per">№76 · 12–14.02.2020</div><div class="why">Одна поездка разбита на два альбома.</div><div class="cut">Свести с «thailand» в «Thailand 2020» или удалить оба.</div></div>
+<div class="a"><div class="an"><b>thailand</b><span>23 сторис</span></div><div class="per">№77 · 17.01–09.02.2020</div><div class="why">Одна поездка разбита на два альбома.</div><div class="cut">Свести с «bangkok» в «Thailand 2020» или удалить оба.</div></div>
+</div></div>
+<div class="hg"><h3>В архив · 25</h3><p>Убрать из актуальных, сторис остаются в архиве аккаунта.</p><div class="al">
+<div class="a"><div class="an"><b>Личное в ТГ</b><span>4 сторис</span></div><div class="per">№17 · 01.02.2026</div><div class="why">Только переход в Telegram. История уже есть в других альбомах.</div></div>
+<div class="a"><div class="an"><b>Переход</b><span>14 сторис</span></div><div class="per">№21 · 27.10.2025</div><div class="why">Подача наставника и продюсера. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Квартира</b><span>10 сторис</span></div><div class="per">№22 · 10.10.2025</div><div class="why">Устарело. Видно расположение квартиры.</div></div>
+<div class="a"><div class="an"><b>Ем в НН</b><span>15 сторис</span></div><div class="per">№26 · 15.07–30.08.2025</div><div class="why">Еда без истории.</div></div>
+<div class="a"><div class="an"><b>Liu</b><span>44 сторис</span></div><div class="per">№27 · 01.06–14.06.2025</div><div class="why">Устарело, не про нынешний образ.</div></div>
+<div class="a"><div class="an"><b>Обо мне</b><span>14 сторис</span></div><div class="per">№29 · 14.05.2025</div><div class="why">Старая визитка. Её заменяет «Кто я?».</div></div>
+<div class="a"><div class="an"><b>1+1=11</b><span>6 сторис</span></div><div class="per">№32 · 21.03.2025</div><div class="why">Старый кейс наставничества.</div></div>
+<div class="a"><div class="an"><b>Готовлю</b><span>18 сторис</span></div><div class="per">№33 · 22.09.2024–10.03.2025</div><div class="why">Кулинарный дневник без связи с нынешними темами.</div></div>
+<div class="a"><div class="an"><b>мой МЕТОД</b><span>11 сторис</span></div><div class="per">№35 · 19.06.2024</div><div class="why">Подача эксперта-наставника. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Кейс Аня</b><span>9 сторис</span></div><div class="per">№43 · 19.06.2024–20.06.2024</div><div class="why">Кейс наставничества. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Кейс Света 1</b><span>20 сторис</span></div><div class="per">№44 · 30.05.2024</div><div class="why">Кейс наставничества. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Кейс Женя</b><span>18 сторис</span></div><div class="per">№46 · 23.04.2024</div><div class="why">Кейс наставничества. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Кейс Диана</b><span>18 сторис</span></div><div class="per">№47 · 02.04.2024–03.04.2024</div><div class="why">Кейс наставничества. Старый образ.</div></div>
+<div class="a"><div class="an"><b>Воркшоп в Мск</b><span>21 сторис</span></div><div class="per">№49 · 09–13.02.2024</div><div class="why">Старая профессиональная глава.</div></div>
+<div class="a"><div class="an"><b>Мисс НН</b><span>100 сторис</span></div><div class="per">№50 · 03–18.11.2023</div><div class="why">100 сторис из жизни до Авроры, перегружает актуальные.</div><div class="cut">Если в шапке останется «Мисс бизнес-леди НН» — вернуть короткой версией.</div></div>
+<div class="a"><div class="an"><b>Dubai  2023</b><span>46 сторис</span></div><div class="per">№52 · 15–19.10.2023</div><div class="why">Жизнь до Авроры.</div></div>
+<div class="a"><div class="an"><b>Turkey 2023</b><span>52 сторис</span></div><div class="per">№54 · 12–19.06.2023</div><div class="why">Жизнь до Авроры.</div></div>
+<div class="a"><div class="an"><b>Model</b><span>72 сторис</span></div><div class="per">№56 · 26.07.2022–19.04.2023</div><div class="why">Большой альбом из жизни до Авроры.</div><div class="cut">Если в шапке останется «Модель» — вернуть короткой версией.</div></div>
+<div class="a"><div class="an"><b>Egypt 2023</b><span>54 сторис</span></div><div class="per">№57 · 17–26.01.2023</div><div class="why">Жизнь до Авроры.</div></div>
+<div class="a"><div class="an"><b>Консультации</b><span>14 сторис</span></div><div class="per">№63 · май–окт 2021, июнь 2022</div><div class="why">Не удалять: пригодится как материал для продукта.</div></div>
+<div class="a"><div class="an"><b>Путь в SMM</b><span>16 сторис</span></div><div class="per">№64 · 30.06.2022</div><div class="why">Не удалять: пригодится как материал для продукта.</div></div>
+<div class="a"><div class="an"><b>Мой путь</b><span>27 сторис</span></div><div class="per">№65 · 28–29.06.2022</div><div class="why">Сильная история, но нужна пересборка.</div><div class="cut">Обсудим на созвоне.</div></div>
+<div class="a"><div class="an"><b>Наставничество</b><span>22 сторис</span></div><div class="per">№66 · дек.2021–фев.2022</div><div class="why">Не удалять: пригодится как материал для продукта.</div></div>
+<div class="a"><div class="an"><b>меня</b><span>21 сторис</span></div><div class="per">№69 · окт.2020–апр.2021</div><div class="why">Устарело.</div></div>
+<div class="a"><div class="an"><b>books</b><span>8 сторис</span></div><div class="per">№75 · июнь 2020–февр.2021</div><div class="why">Устарело. Формат подборки книг можно вернуть позже.</div></div>
+</div></div>
+<div class="hg"><h3>Удалить · 15</h3><p>Нет ценности для нынешнего образа или повторяют другие альбомы.</p><div class="al">
+<div class="a"><div class="an"><b>Роддом</b><span>7 сторис</span></div><div class="per">№12 · 28.04.2026</div><div class="why">Полный дубль сторис из «Роды».</div></div>
+<div class="a"><div class="an"><b>Кейс Алина</b><span>6 сторис</span></div><div class="per">№53 · 01.10.2023</div><div class="why">Старый кейс и продажа наставничества.</div></div>
+<div class="a"><div class="an"><b>Кейс Настя</b><span>15 сторис</span></div><div class="per">№55 · 20.04.2023</div><div class="why">Старый кейс и продажа наставничества.</div></div>
+<div class="a"><div class="an"><b>Ученики</b><span>18 сторис</span></div><div class="per">№58 · 06.08–27.10.2022</div><div class="why">Старый продукт наставничества.</div></div>
+<div class="a"><div class="an"><b>3 дня!</b><span>8 сторис</span></div><div class="per">№59 · 17.09–03.10.2022</div><div class="why">Старый продукт наставничества.</div></div>
+<div class="a"><div class="an"><b>Smm за 3 дня!</b><span>16 сторис</span></div><div class="per">№60 · 22–25.08.2022</div><div class="why">Старый продукт наставничества.</div></div>
+<div class="a"><div class="an"><b>Кейсы</b><span>21 сторис</span></div><div class="per">№61 · 05.10.2021–10.08.2022</div><div class="why">Старые кейсы наставничества, 2021–2022.</div></div>
+<div class="a"><div class="an"><b>Telegram</b><span>7 сторис</span></div><div class="per">№62 · 03.08.2022</div><div class="why">Старый продающий анонс. В кадре чужие платёжные данные.</div></div>
+<div class="a"><div class="an"><b>Turkey 2021</b><span>57 сторис</span></div><div class="per">№67 · 08–16.08.2021</div><div class="why">Контент 2021 года, не про нынешний образ.</div></div>
+<div class="a"><div class="an"><b>Обучение тикток</b><span>26 сторис</span></div><div class="per">№68 · апр–май 2021</div><div class="why">Контент 2021 года, не про нынешний образ.</div></div>
+<div class="a"><div class="an"><b>nails</b><span>15 сторис</span></div><div class="per">№70 · окт.2020–апр.2021</div><div class="why">Ногтевой период, не про нынешний образ.</div></div>
+<div class="a"><div class="an"><b>boy</b><span>5 сторис</span></div><div class="per">№71 · 07.04.2021</div><div class="why">Контент 2021 года.</div></div>
+<div class="a"><div class="an"><b>my start</b><span>14 сторис</span></div><div class="per">№72 · март–апрель 2021</div><div class="why">Контент 2021 года.</div></div>
+<div class="a"><div class="an"><b>me</b><span>68 сторис</span></div><div class="per">№73 · июль 2020–март 2021</div><div class="why">68 разрозненных сторис 2020–2021, повторяют другие альбомы.</div></div>
+<div class="a"><div class="an"><b>hb21</b><span>23 сторис</span></div><div class="per">№74 · 21–26.10.2020</div><div class="why">День рождения 2020 года.</div></div>
+</div></div>
+<div class="ask"><h3 style="margin-bottom:10px">Решить вместе</h3><ol>
+<li><b>Кейсы учениц</b> — 12 альбомов 2021–2025 годов. Удалить или держать в архиве как материал для будущего продукта.</li>
+<li><b>Роды</b> — история разбита на 5 альбомов. Один большой альбом или главы.</li>
+<li><b>Жизнь до Авроры</b> — путешествия, «Мисс НН», модельство, свадьба, девичник. Что оставить как «сериал до Авроры».</li>
+<li><b>Шапка и актуальные</b> — если в шапке будут «Модель» и «Мисс бизнес-леди НН», им нужно подтверждение в актуальных. Сейчас «Мисс НН» и «Model» идут в архив.</li>
+</ol></div></div></section>
+<section id="tg"><div class="wrap"><div class="sh"><span class="eyebrow">05 · Telegram</span><h2>Темы для канала</h2>
+<p>52 тем, которых в канале ещё не было или которые рассказаны частично. Все — из Вашей распаковки, в скобках номер вопроса.</p></div>
+<div class="tgfacts">
+<div><b>1 320 → 628</b>медиана просмотров поста: май 2026 → сентябрь 2026</div>
+<div><b>325 реакций</b>рекорд канала — пост о рождении Авроры</div>
+<div><b>98–100%</b>в опросах выбирают «всё и по-честному»</div>
+</div><div class="tgg">
+<div class="tgc"><h3>Истории частями</h3><p>Формат, который в канале уже работает: «часть 1, часть 2», «ставьте реакцию, если ждёте продолжение».</p><ul>
+<li>Паралич лица в 17: семь больниц отказали из-за возраста, два месяца болезни с целями, фраза бабушки «лучше бы со мной», лицо восстановилось полностью<span>в. 46–47, 88</span></li>
+<li>Родители: ревность папы, порезанное платье, и как я сама попросила их развестись<span>в. 13</span></li>
+<li>«Стало можно»: TikTok-хаус, «свидание» ради разговора о блогинге, Аск бесплатно выступил на свадьбе<span>в. 53–56</span></li>
+<li>Земляки и хейт: «пить — норма, блог — позор», что говорили тогда и что бы я ответила сейчас<span>в. 8, 178–179</span></li>
+<li>Прошлые отношения — частями и только с согласия мужа<span>в. 43–51, 254</span></li>
+<li>Письмо себе двадцатилетней<span>в. 59</span></li>
+</ul></div>
+<div class="tgc"><h3>Муж</h3><p>Раздел, который аудитория просит чаще всего.</p><ul>
+<li>Стакан воды на тумбочке каждый вечер<span>в. 31</span></li>
+<li>Муж перфекционист — и по работе, и по характеру<span>в. 32</span></li>
+<li>Он лучше готовит и убирается: противоположности<span>в. 32</span></li>
+<li>«Иди купи мне пива, я посижу с ребёнком» — как вы поддерживаете друг друга<span>в. 128</span></li>
+<li>Ссора из-за посуды и мир через 15–20 минут<span>в. 33</span></li>
+<li>Фотограф на память о рождении дочки — подарок мужа<span>в. 31</span></li>
+<li>Кому я звоню первой<span>в. 36</span></li>
+</ul></div>
+<div class="tgc"><h3>Мама-трудяга</h3><p>Самая сильная связка: рекорд лайков и репостов в Instagram, а конкретных историй ещё не было.</p><ul>
+<li>Реальный распорядок на ГВ: кормления каждые 1–2 часа, сдвинутый режим<span>в. 4</span></li>
+<li>Снимаю рилс с Авророй на руках в обед<span>в. 4</span></li>
+<li>Нет чувства вины: «доча, сейчас домонтируем рилс»<span>в. 131</span></li>
+<li>Кроватка на колёсиках, в которой Аврора рядом, пока я снимаю<span>в. 121</span></li>
+<li>Дни без сил. Болею и просто лежу<span>в. 208</span></li>
+<li>Первый показ на весь день, Аврора с папой<span>в. 208</span></li>
+<li>Сколько часов на самом деле уходит на блог<span>в. 191</span></li>
+</ul></div>
+<div class="tgc"><h3>Семья и корни</h3><ul>
+<li>Мама родила меня в 19 и училась со мной на руках<span>в. 10</span></li>
+<li>Маме 45, фигура после четырёх детей<span>в. 11</span></li>
+<li>Две бабушки — два отношения к деньгам<span>в. 18</span></li>
+<li>Запретила бабушке говорить «они богатые, а мы бедные»<span>в. 18</span></li>
+<li>Жареная картошка с селёдкой у бабушки Раи<span>в. 16</span></li>
+<li>«Мисс чайка 2015» и капитан отряда<span>в. 16</span></li>
+<li>Агата и Самуил дерутся, кто повезёт коляску Авроры<span>в. 15</span></li>
+<li>Подарок папе на 50 лет<span>в. 31</span></li>
+</ul></div>
+<div class="tgc"><h3>Тело и восстановление</h3><p>96% голосовавших в канале хотят видеть восстановление, питание и тренировки.</p><ul>
+<li>Восстанавливаю себя по пунктам: зубы, гинеколог, чекап, психолог<span>в. 87</span></li>
+<li>Первая модельная съёмка через 4 месяца после родов<span>в. 82</span></li>
+<li>Не делаю маникюр — боюсь оцарапать дочку<span>в. 93</span></li>
+<li>Мужская одежда из Befree в беременность<span>в. 86</span></li>
+<li>Утренние ритуалы: завтрак, уход, зубы в три этапа<span>в. 118</span></li>
+</ul></div>
+<div class="tgc"><h3>Блог изнутри и бренды</h3><ul>
+<li>Вся база для Авроры закрыта через блог, в основном бартером<span>в. 1, 209</span></li>
+<li>Почему реклама идёт через отдельный pr-аккаунт<span>в. 226</span></li>
+<li>Предлагали рекламировать презервативы после родов<span>в. 227</span></li>
+<li>Реклама — это моё творчество, а не только деньги<span>в. 236</span></li>
+<li>Бренды, к которым хочу: одежда, косметика, украшения<span>в. 228</span></li>
+<li>Что тяжелее всего выложить — где плачу<span>в. 190</span></li>
+<li>Что делаю через силу<span>в. 192</span></li>
+<li>«Мама в 26» — ответ «Беременна в 16»<span>в. 132</span></li>
+<li>Обзор блогерской техники<span>в. 204</span></li>
+</ul></div>
+<div class="tgc"><h3>Мысли и взгляды — голосовыми</h3><p>Голосовые и кружки в канале выходят регулярно.</p><ul>
+<li>Психолог — не истина, а сито<span>в. 25</span></li>
+<li>Женщина предаёт себя, когда отказывается от реализации из страха осуждения<span>в. 24</span></li>
+<li>Непроработанные уроки возвращаются по кругу<span>в. 20</span></li>
+<li>Не прощаю измены — ни в любви, ни в дружбе, ни в работе<span>в. 23</span></li>
+<li>«Вселенная сделала лучше» — как я отношусь к провалам<span>в. 76</span></li>
+<li>«Боюсь рожать, вдруг умру» — что я отвечаю<span>в. 212</span></li>
+</ul></div>
+<div class="tgc"><h3>Что впереди</h3><p>Истории, которые ещё не случились — можно вести с первого дня.</p><ul>
+<li>Подготовка к первому путешествию с Авророй<span>в. 200</span></li>
+<li>Сдача на права<span>в. 200</span></li>
+<li>День рождения 21 октября<span>в. 200</span></li>
+<li>Луки с дочкой вдвоём<span>в. 201</span></li>
+</ul></div>
+</div></div></section>
+<footer><div class="wrap">Малик Хашимов · продюсер женских блогов · <a href="https://t.me/mhashimov_23">@mhashimov_23</a></div></footer>
+<script>
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===b));
+ const f=b.dataset.f;
+ document.querySelectorAll('.tp').forEach(r=>{r.style.display=(f==='all'||r.dataset.s===f)?'':'none'});
+ document.querySelectorAll('details.blk').forEach(d=>{
+   const vis=[...d.querySelectorAll('.tp')].some(r=>r.style.display!=='none');
+   d.style.display=vis?'':'none'; if(f!=='all') d.open=true;
+ });
+}));
+</script></body></html>
