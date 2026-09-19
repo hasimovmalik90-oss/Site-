@@ -2141,6 +2141,32 @@
   .li-list { list-style:none; margin-top:14px; }
   .li-list li { padding:6px 0 6px 22px; position:relative; color:var(--ink); font-size:14.5px; }
   .li-list li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+
+  .stage-test { margin-top:14px; font-size:14px; color:var(--muted); border-top:1px dashed var(--line); padding-top:12px; }
+  .stage-test b { color:var(--gold); font-weight:500; }
+  @media (max-width:700px){ .cmp.stages thead{display:none} .cmp.stages tr{display:block;border-bottom:1px solid var(--line);padding:10px 0} .cmp.stages td{display:flex;justify-content:space-between;gap:12px;border:none;padding:3px 0;text-align:right;font-size:13px} .cmp.stages td:first-child{display:block;text-align:left;color:var(--ink);font-size:14px;padding-bottom:6px} .cmp.stages td::before{content:attr(data-l);color:var(--muted);text-align:left;white-space:nowrap} .cmp.stages td:first-child::before{content:none} }
+  .tariff-price small { font-size:.42em; color:var(--muted); margin-right:8px; }
+  .cmp.prod td, .cmp.prod th { text-align:left; }
+  .cmp.prod td:nth-child(3) { color:var(--gold); white-space:nowrap; }
+  .cmp.prod td:nth-child(4) { color:var(--muted); white-space:nowrap; font-family:var(--mono); font-size:12px; }
+  .cmp td { font-size:13.5px; }
+  @media (max-width:700px){ .cmp.prod{min-width:560px} .cmp.prod td,.cmp.prod th{padding:10px 8px} }
+  .funnel { max-width:820px; margin:40px auto 0; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .fstep { width:var(--w); min-width:260px; border:1px solid var(--line); border-radius:10px; padding:14px 18px; text-align:center; background:rgba(255,255,255,.02); }
+  .fstep b { display:block; font-family:var(--mono); font-weight:400; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .fstep span { color:var(--ink); font-size:14.5px; }
+  .fstep.bad { border-color:rgba(201,120,100,.45); }
+  .fstep.bad b { color:#d9907c; }
+  .unknown { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; max-width:900px; margin:36px auto 0; }
+  .unknown div { border:1px solid var(--line); border-radius:10px; padding:18px 20px; color:var(--ink); font-size:15px; }
+  .unknown div b { display:block; font-family:var(--mono); font-weight:400; font-size:11.5px; letter-spacing:.16em; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+  .audit-card { max-width:760px; margin:36px auto 0; border:1px solid var(--gold); border-radius:14px; padding:34px 34px 28px; background:linear-gradient(180deg,rgba(201,183,155,.07),rgba(201,183,155,0)); }
+  .audit-card .ap { font-family:var(--display); font-weight:300; font-size:clamp(40px,6vw,58px); color:var(--ink); line-height:1; margin:10px 0 6px; }
+  .audit-card .ap span { color:var(--gold); font-size:.5em; margin-left:6px; }
+  .audit-card .al { font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+  .audit-card p { color:var(--text); margin-top:14px; }
+  .cta { display:inline-block; margin-top:22px; font-family:var(--mono); font-size:12.5px; letter-spacing:.12em; color:#0B0B0C; background:var(--gold); padding:14px 28px; border-radius:30px; text-decoration:none; }
+  @media (max-width:600px){ .audit-card{padding:26px 20px 22px} }
 </style>
 </head>
 
@@ -2155,28 +2181,28 @@
 <div class="ambient"></div>
 <div class="spotlight"></div>
 <div class="progress-bar"></div>
-<nav class="nav-dots" id="navDots"><button class="nav-dot" data-section="hero" data-label="Начало"></button><button class="nav-dot" data-section="proof" data-label="Доказательство"></button><button class="nav-dot" data-section="now" data-label="Что есть сейчас"></button><button class="nav-dot" data-section="works" data-label="Что работает"></button><button class="nav-dot" data-section="sales" data-label="Как продавалось"></button><button class="nav-dot" data-section="fix" data-label="Где теряются люди"></button><button class="nav-dot" data-section="goal" data-label="Куда идём"></button><button class="nav-dot" data-section="horizon" data-label="Горизонт"></button><button class="nav-dot" data-section="formats" data-label="Три формата"></button><button class="nav-dot" data-section="compare" data-label="Сравнение"></button><button class="nav-dot" data-section="process" data-label="Процесс"></button><button class="nav-dot" data-section="price" data-label="Стоимость"></button><button class="nav-dot" data-section="guarantee" data-label="Гарантия"></button><button class="nav-dot" data-section="contact" data-label="Финал"></button></nav>
+<nav class="nav-dots" id="navDots"><button class="nav-dot" data-section="hero" data-label="Начало"></button><button class="nav-dot" data-section="proof" data-label="Доказательство"></button><button class="nav-dot" data-section="now" data-label="Что есть сейчас"></button><button class="nav-dot" data-section="works" data-label="Что работает"></button><button class="nav-dot" data-section="products" data-label="Все продукты"></button><button class="nav-dot" data-section="leak" data-label="Слив аудитории"></button><button class="nav-dot" data-section="unknown" data-label="Что не знаем"></button><button class="nav-dot" data-section="method" data-label="Этапы"></button><button class="nav-dot" data-section="horizon" data-label="Горизонт"></button><button class="nav-dot" data-section="audit" data-label="Аудит"></button><button class="nav-dot" data-section="formats" data-label="Форматы"></button><button class="nav-dot" data-section="price" data-label="Стоимость"></button><button class="nav-dot" data-section="guarantee" data-label="Гарантия"></button><button class="nav-dot" data-section="contact" data-label="Финал"></button></nav>
 
 <header class="hero" id="hero">
   <div class="hero-rail left">Сентябрь&nbsp;2026 · Предложение</div>
   <div class="hero-rail right">Юлия × Малик</div>
   <div class="container hero-content">
     <div class="hero-topline">Сентябрь 2026 · Коммерческое предложение</div>
-    <span class="hero-eyebrow">Система в&nbsp;блоге</span>
+    <span class="hero-eyebrow">Системный личный бренд</span>
     <div class="hero-name-wrap reveal"><div class="hero-name">Юлия</div></div>
     <div class="hero-subtitle reveal reveal-delay-1">
       <span>сегодня <span class="accent">26&nbsp;271</span></span>
       <span class="arrow">→</span>
-      <span>горизонт <span class="accent">блог, который продаёт сам</span></span>
+      <span>горизонт <span class="accent">системные продажи</span></span>
     </div>
     <p class="hero-tagline reveal reveal-delay-2">
-      Два ролика за&nbsp;миллион и&nbsp;26&nbsp;тысяч подписчиков. Осталось построить то, что&nbsp;продаёт без&nbsp;запусков и&nbsp;созвонов&nbsp;— <em class="gold">автоворонку и&nbsp;клуб</em>.
+      Охваты и&nbsp;аудитория у&nbsp;Вас&nbsp;уже были. Прежде чем&nbsp;строить клуб или&nbsp;воронку, нужно понять, <em class="gold">что&nbsp;именно эти люди готовы купить</em>.
     </p>
     <div class="hero-kpi reveal reveal-delay-3">
       <div class="hero-kpi-cell"><div class="hero-kpi-value" data-count="26271">0</div><div class="hero-kpi-label">Подписчиков</div></div>
       <div class="hero-kpi-cell"><div class="hero-kpi-value" data-count="613">0</div><div class="hero-kpi-label">Рилсов</div></div>
       <div class="hero-kpi-cell"><div class="hero-kpi-value" data-count="1089">0</div><div class="hero-kpi-label">В Telegram-канале</div></div>
-      <div class="hero-kpi-cell"><div class="hero-kpi-value" data-count="35">0</div><div class="hero-kpi-label">Альбомов актуальных</div></div>
+      <div class="hero-kpi-cell"><div class="hero-kpi-value" data-count="7">0</div><div class="hero-kpi-label">Этапов работы</div></div>
     </div>
     <div class="hero-handles reveal reveal-delay-4">
       <a href="https://www.instagram.com/d.julice" target="_blank">@d.julice</a>
@@ -2190,7 +2216,7 @@
   <div class="container">
     <p class="reveal">Я <strong>Малик</strong>, <em>продюсер женских блогов</em>.</p>
     <p class="reveal reveal-delay-1">Главный кейс&nbsp;— <strong>Каролина Читанава</strong>: с&nbsp;нуля собрали <strong>180&nbsp;000&nbsp;подписчиков</strong> и&nbsp;<strong>100+ млн охватов</strong>.</p>
-    <p class="reveal reveal-delay-2">Вы&nbsp;попросили заранее прислать условия и&nbsp;то, чем&nbsp;я&nbsp;могу помочь. Перед этим предложением я&nbsp;разобрал Ваши площадки целиком: <strong>1&nbsp;010 публикаций</strong> Instagram со&nbsp;всеми просмотрами, <strong>613&nbsp;рилсов</strong> с&nbsp;расшифровкой речи сильнейших, <strong>5&nbsp;298 сообщений</strong> Telegram и&nbsp;<strong>35 альбомов</strong> актуальных&nbsp;— это&nbsp;1&nbsp;036 историй. Ниже&nbsp;— что&nbsp;показали цифры и&nbsp;три формата работы на&nbsp;выбор.</p>
+    <p class="reveal reveal-delay-2">Вы&nbsp;попросили заранее прислать условия и&nbsp;то, чем&nbsp;я&nbsp;могу помочь. Перед этим я&nbsp;разобрал Ваши площадки целиком: <strong>1&nbsp;010 публикаций</strong> Instagram со&nbsp;всеми просмотрами, речь в&nbsp;сильнейших рилсах, <strong>5&nbsp;298 сообщений</strong> Telegram и&nbsp;<strong>35 альбомов</strong> актуальных. Ниже&nbsp;— точка А, этапы, по&nbsp;которым я&nbsp;бы&nbsp;строил систему, и&nbsp;форматы работы.</p>
   </div>
 </section>
 
@@ -2203,14 +2229,14 @@
       <div class="proof-stat"><div class="proof-stat-value">100+ млн</div><div class="proof-stat-label">Охватов</div></div>
       <div class="proof-stat"><div class="proof-stat-value">×277</div><div class="proof-stat-label">Рост базы</div></div>
     </div>
-    <p style="color: var(--text); max-width: 580px; margin: 0 auto;">Та же&nbsp;система: позиционирование, контент на&nbsp;сильных форматах, путь от&nbsp;просмотра до&nbsp;оплаты.</p>
+    <p style="color: var(--text); max-width: 580px; margin: 0 auto;">Работаем по&nbsp;этапам. Решения принимаем на&nbsp;цифрах и&nbsp;словах аудитории, а&nbsp;не&nbsp;на&nbsp;догадках.</p>
     <a class="proof-link" href="https://hasimovmalik90-oss.github.io/Site-/karolina/" target="_blank">Открыть полный кейс →</a>
   </div>
 </section>
 
 <section class="spacer" id="now">
   <div class="container-wide">
-    <div class="section-header reveal"><span class="eyebrow">Разбор · 01</span><h2>Что есть <em>сейчас</em></h2></div>
+    <div class="section-header reveal"><span class="eyebrow">Точка А · 01</span><h2>Что есть <em>сейчас</em></h2></div>
     <p class="method-intro reveal reveal-delay-1">Факты из&nbsp;полной выгрузки Instagram и&nbsp;Telegram на&nbsp;19 сентября 2026.</p>
     <div class="ps-headcard reveal reveal-delay-1">
       <div class="ps-hi">
@@ -2225,7 +2251,6 @@
       </div>
       <p class="ps-note">В шапке четыре ссылки: Telegram-канал, «Скорая помощь от&nbsp;тревоги», анонимные вопросы, книга на&nbsp;Wildberries.</p>
     </div>
-
     <div class="split-insight">
       <div class="remote-card reveal">
         <h4>Instagram</h4>
@@ -2238,17 +2263,8 @@
         <ul class="li-list"><li><b>1&nbsp;089</b> подписчиков, <b>5&nbsp;298</b> сообщений с&nbsp;мая 2023</li><li>Обычный пост собирает <b>136</b> просмотров</li><li>Голос: <b>605</b> кружков и&nbsp;<b>155</b> голосовых, <b>141</b> опрос</li><li>Цифры канала почти не&nbsp;менялись три года&nbsp;— и&nbsp;в&nbsp;момент взлёта Instagram тоже</li></ul>
       </div>
     </div>
-
-    <div class="chips reveal" style="margin-top:44px;">
-      <span class="chip">консультации и&nbsp;сопровождение</span>
-      <span class="chip">гипноз, телесные практики</span>
-      <span class="chip">книга «Психология веса» на&nbsp;WB</span>
-      <span class="chip">мероприятия в&nbsp;Воронеже</span>
-      <span class="chip">закрытый клуб «Прайд»&nbsp;— был в&nbsp;2024</span>
-    </div>
-
-    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(24px,3.2vw,34px); text-align:center; margin:72px 0 10px;" class="reveal">Охват рилсов по&nbsp;месяцам</h3>
-    <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto;">Сумма просмотров всех роликов, вышедших в&nbsp;месяц. Декабрь 2025&nbsp;— сентябрь 2026 (сентябрь&nbsp;— по&nbsp;18 число).</p>
+    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; text-align:center; font-size:clamp(24px,3.2vw,34px); margin:72px 0 10px;" class="reveal">Охват рилсов по&nbsp;месяцам</h3>
+    <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto;">Сумма просмотров всех роликов, вышедших в&nbsp;месяц. Сентябрь&nbsp;— по&nbsp;18 число.</p>
     <div class="bars reveal reveal-delay-1"><div class="bar"><b>141&nbsp;тыс</b><i style="height:7.9%"></i><span>дек</span></div><div class="bar"><b>426&nbsp;тыс</b><i style="height:23.9%"></i><span>янв</span></div><div class="bar"><b>1,38&nbsp;млн</b><i style="height:77.0%"></i><span>фев</span></div><div class="bar"><b>849&nbsp;тыс</b><i style="height:47.5%"></i><span>мар</span></div><div class="bar"><b>300&nbsp;тыс</b><i style="height:16.8%"></i><span>апр</span></div><div class="bar"><b>1,79&nbsp;млн</b><i style="height:100.0%"></i><span>май</span></div><div class="bar"><b>555&nbsp;тыс</b><i style="height:31.0%"></i><span>июн</span></div><div class="bar low"><b>81&nbsp;тыс</b><i style="height:4.5%"></i><span>июл</span></div><div class="bar low"><b>65&nbsp;тыс</b><i style="height:3.6%"></i><span>авг</span></div><div class="bar low"><b>45&nbsp;тыс</b><i style="height:2.5%"></i><span>сен</span></div></div>
     <p class="reveal" style="text-align:center; color:var(--text); max-width:660px; margin:36px auto 0;">В мае&nbsp;— <b>1&nbsp;787 275</b> просмотров, в&nbsp;августе&nbsp;— <b>64&nbsp;998</b>. Роликов выходит столько же, <b style="white-space:nowrap">31–35</b> в&nbsp;месяц, а&nbsp;охват меньше в&nbsp;<b>27&nbsp;раз</b>.</p>
   </div>
@@ -2256,107 +2272,113 @@
 
 <section class="spacer" id="works">
   <div class="container-wide">
-    <div class="section-header reveal"><span class="eyebrow">Разбор · 02</span><h2>Что <em>работает</em></h2></div>
-    <p class="method-intro reveal reveal-delay-1">Я расшифровал речь в&nbsp;сильнейших роликах. Рост дали не&nbsp;отдельные удачные ролики, а&nbsp;четыре вещи.</p>
+    <div class="section-header reveal"><span class="eyebrow">Точка А · 02</span><h2>Какие форматы <em>заходят</em></h2></div>
+    <p class="method-intro reveal reveal-delay-1">Я расшифровал речь в&nbsp;сильнейших роликах. Рост дали четыре вещи.</p>
     <div class="situation-points reveal reveal-delay-2">
-      <div class="sit-point"><div class="sit-point-num">01</div><div class="sit-point-text"><b>Сериал «психолог на&nbsp;вахте в&nbsp;доме престарелых».</b> Февраль&nbsp;— апрель. Речь перед пожилыми&nbsp;— 1&nbsp;088 367 просмотров и&nbsp;2&nbsp;183 комментария. Практики с&nbsp;пожилыми&nbsp;— 413&nbsp;959. Дальше десятки роликов по&nbsp;схеме «упражнение, которое я&nbsp;делала со&nbsp;стариками, пригодится каждому»: обычно от&nbsp;9 до&nbsp;40&nbsp;тысяч</div></div>
-      <div class="sit-point"><div class="sit-point-num">02</div><div class="sit-point-text"><b>Моржевание.</b> Утро в&nbsp;холодной воде&nbsp;— 1&nbsp;237 304 и&nbsp;347&nbsp;141, «Юля-МоржЮля»&nbsp;— 284&nbsp;148. Это то, что&nbsp;отличает Вас&nbsp;от&nbsp;любого другого психолога</div></div>
+      <div class="sit-point"><div class="sit-point-num">01</div><div class="sit-point-text"><b>Сериал «психолог на&nbsp;вахте в&nbsp;доме престарелых».</b> Февраль&nbsp;— апрель. Речь перед пожилыми&nbsp;— 1&nbsp;088 367 просмотров и&nbsp;2&nbsp;183 комментария. Практики с&nbsp;пожилыми&nbsp;— 413&nbsp;959. Дальше ролики по&nbsp;схеме «упражнение, которое я&nbsp;делала со&nbsp;стариками, пригодится каждому»: обычно от&nbsp;9 до&nbsp;40&nbsp;тысяч</div></div>
+      <div class="sit-point"><div class="sit-point-num">02</div><div class="sit-point-text"><b>Моржевание.</b> Утро в&nbsp;холодной воде&nbsp;— 1&nbsp;237 304 и&nbsp;347&nbsp;141, «Юля-МоржЮля»&nbsp;— 284&nbsp;148. То, что&nbsp;отличает Вас&nbsp;от&nbsp;любого другого психолога</div></div>
       <div class="sit-point"><div class="sit-point-num">03</div><div class="sit-point-text"><b>Практика через историю.</b> Не «5 техник от&nbsp;тревоги», а&nbsp;«упражнение, которое спасло меня после нападения собак»&nbsp;— 32&nbsp;323. Экспертиза заходит, когда у&nbsp;неё есть сюжет</div></div>
-      <div class="sit-point"><div class="sit-point-num">04</div><div class="sit-point-text"><b>Женское тело и&nbsp;цикл.</b> «Ликбез по&nbsp;женскому циклу»&nbsp;— 412&nbsp;881, «Женщина и&nbsp;её&nbsp;цикл»&nbsp;— 62&nbsp;600. Под первым&nbsp;— кодовое слово ЦИКЛ: тема, которая сама ведёт к&nbsp;продукту</div></div>
+      <div class="sit-point"><div class="sit-point-num">04</div><div class="sit-point-text"><b>Женское тело и&nbsp;цикл.</b> «Ликбез по&nbsp;женскому циклу»&nbsp;— 412&nbsp;881, «Женщина и&nbsp;её&nbsp;цикл»&nbsp;— 62&nbsp;600. Под первым&nbsp;— кодовое слово ЦИКЛ</div></div>
     </div>
-    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; font-size:clamp(26px,3.4vw,38px); text-align:center; margin:72px 0 8px;" class="reveal">Двенадцать сильнейших сюжетов</h3>
+    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; text-align:center; font-size:clamp(26px,3.4vw,38px); margin:72px 0 8px;" class="reveal">Двенадцать сильнейших сюжетов</h3>
     <p class="reveal" style="text-align:center; color:var(--text); max-width:640px; margin:0 auto 8px;">Шесть из&nbsp;них&nbsp;— вахта в&nbsp;доме престарелых, по&nbsp;два&nbsp;— холодная вода и&nbsp;женский цикл. Каждая обложка открывает ролик.</p>
     <div class="reels-grid reveal reveal-delay-1"><figure><a href="https://www.instagram.com/reel/DX1ABHeoMMt/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-01.webp" type="image/webp"><img loading="eager" decoding="async" width="400" height="710" src="assets/reel-01.jpg" alt="1 237 304 просмотров"></picture></div><span class="reel-views">1&nbsp;237 304</span><span class="reel-cap">Утро в&nbsp;холодной воде</span></a></figure><figure><a href="https://www.instagram.com/reel/DVBSy1eCAXs/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-02.webp" type="image/webp"><img loading="eager" decoding="async" width="400" height="710" src="assets/reel-02.jpg" alt="1 088 367 просмотров"></picture></div><span class="reel-views">1&nbsp;088 367</span><span class="reel-cap">Речь перед пожилыми на&nbsp;вахте</span></a></figure><figure><a href="https://www.instagram.com/reel/DVbBAr-iJ8_/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-03.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-03.jpg" alt="413 959 просмотров"></picture></div><span class="reel-views">413&nbsp;959</span><span class="reel-cap">Практики для&nbsp;мозга, которые я&nbsp;делаю с&nbsp;пожилыми</span></a></figure><figure><a href="https://www.instagram.com/reel/DZDmWero9ut/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-04.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-04.jpg" alt="412 881 просмотров"></picture></div><span class="reel-views">412&nbsp;881</span><span class="reel-cap">Ликбез по&nbsp;женскому циклу</span></a></figure><figure><a href="https://www.instagram.com/reel/DTx8PU3ihjd/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-05.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-05.jpg" alt="284 148 просмотров"></picture></div><span class="reel-views">284&nbsp;148</span><span class="reel-cap">Юля-МоржЮля</span></a></figure><figure><a href="https://www.instagram.com/reel/DV0grmMCiuD/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-06.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-06.jpg" alt="126 218 просмотров"></picture></div><span class="reel-views">126&nbsp;218</span><span class="reel-cap">Видео, после которого о&nbsp;Вас&nbsp;узнал интернет</span></a></figure><figure><a href="https://www.instagram.com/reel/DUTQvDaiNGc/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-07.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-07.jpg" alt="62 600 просмотров"></picture></div><span class="reel-views">62&nbsp;600</span><span class="reel-cap">Женщина и&nbsp;её&nbsp;цикл</span></a></figure><figure><a href="https://www.instagram.com/reel/DWlAaWMquHU/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-08.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-08.jpg" alt="40 146 просмотров"></picture></div><span class="reel-views">40&nbsp;146</span><span class="reel-cap">Как я&nbsp;учила пожилых выражать эмоции</span></a></figure><figure><a href="https://www.instagram.com/reel/DT52go8iBqF/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-09.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-09.jpg" alt="39 371 просмотров"></picture></div><span class="reel-views">39&nbsp;371</span><span class="reel-cap">Свидание на&nbsp;рынке</span></a></figure><figure><a href="https://www.instagram.com/reel/DWZjP_iiNVv/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-10.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-10.jpg" alt="32 323 просмотров"></picture></div><span class="reel-views">32&nbsp;323</span><span class="reel-cap">Упражнение после нападения собак</span></a></figure><figure><a href="https://www.instagram.com/reel/DXrGdCWCHvr/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-11.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-11.jpg" alt="21 501 просмотров"></picture></div><span class="reel-views">21&nbsp;501</span><span class="reel-cap">День красоты в&nbsp;доме престарелых</span></a></figure><figure><a href="https://www.instagram.com/reel/DVjXw_mCBgr/" target="_blank" rel="noopener" title="Открыть в Instagram"><div class="shot"><picture><source srcset="assets/reel-12.webp" type="image/webp"><img loading="lazy" decoding="async" width="400" height="710" src="assets/reel-12.jpg" alt="17 154 просмотров"></picture></div><span class="reel-views">17&nbsp;154</span><span class="reel-cap">Три упражнения на&nbsp;бодрость</span></a></figure></div>
     <p class="reveal" style="text-align:center; color:var(--text); max-width:660px; margin:44px auto 0;">С июля сериал закончился, и&nbsp;замены ему не&nbsp;появилось. На его место пришли монологи про мужчин, бытовые истории и&nbsp;ролики с&nbsp;заведениями по&nbsp;бартеру. Сильнейший ролик за&nbsp;июль&nbsp;— сентябрь&nbsp;— <b>16&nbsp;251</b>, обычный&nbsp;— около <b>1&nbsp;200</b>.</p>
   </div>
 </section>
 
-<section class="spacer" id="sales">
+<section class="spacer" id="products">
   <div class="container-wide">
-    <div class="section-header reveal"><span class="eyebrow">Разбор · 03</span><h2>Как <em>продавалось</em></h2></div>
-    <p class="method-intro reveal reveal-delay-1">Я поднял продающие посты канала и&nbsp;тексты актуальных. Вот история цен и&nbsp;форматов по&nbsp;датам.</p>
-    <div class="split-insight">
-      <div class="remote-card reveal">
-        <h4>Цены</h4>
-        <h3>Три года продаж</h3>
-        <div class="tl"><div class="tl-row"><span class="tl-date">2023–24</span><span class="tl-price">2&nbsp;000</span><span class="tl-what">диагностика, час</span></div><div class="tl-row"><span class="tl-date">27.12.24</span><span class="tl-price">990</span><span class="tl-what">предновогодний эфир, «минимальная цена»</span></div><div class="tl-row"><span class="tl-date">16.04.25</span><span class="tl-price">×0,5</span><span class="tl-what">реалити: 4 лота по&nbsp;1 месту, «в&nbsp;2&nbsp;раза ниже обычной работы»</span></div><div class="tl-row"><span class="tl-date">05.05.25</span><span class="tl-price">555</span><span class="tl-what">предоплата за&nbsp;тренинг до&nbsp;объявления программы и&nbsp;цены</span></div><div class="tl-row"><span class="tl-date">06.05.25</span><span class="tl-price">6&nbsp;666</span><span class="tl-what">тренинг, групповой тариф · ПРО&nbsp;— 15&nbsp;555</span></div><div class="tl-row"><span class="tl-date">11.05.25</span><span class="tl-price">7&nbsp;777</span><span class="tl-what">тренинг, групповой · ПРО&nbsp;— 20&nbsp;000</span></div><div class="tl-row"><span class="tl-date">15.07.25</span><span class="tl-price">2&nbsp;500</span><span class="tl-what">офлайн-гипноз в&nbsp;Воронеже, до&nbsp;4&nbsp;000 на&nbsp;входе</span></div><div class="tl-row"><span class="tl-date">19.12.25</span><span class="tl-price">1&nbsp;000</span><span class="tl-what">первая сессия</span></div><div class="tl-row"><span class="tl-date">13.05.26</span><span class="tl-price">3&nbsp;000</span><span class="tl-what">гипноз-практика, «в&nbsp;2&nbsp;раза дешевле классической консультации»</span></div><div class="tl-row"><span class="tl-date">06.08.26</span><span class="tl-price">—</span><span class="tl-what">первая консультация по&nbsp;блогу, дальше месяц сопровождения</span></div></div>
-        <p class="tl-note">Цена почти всегда подаётся через скидку: «минимальная», «в&nbsp;2&nbsp;раза ниже», «по&nbsp;спеццене», «по&nbsp;1 месту». Базовой цены консультации в&nbsp;открытом доступе нет.</p>
-      </div>
-      <div class="remote-card reveal reveal-delay-1">
-        <h4>Запуски</h4>
-        <h3>Что стояло за&nbsp;деньгами</h3>
-        <ul class="li-list"><li>Запуск на&nbsp;<b>500&nbsp;000</b> чистыми&nbsp;— при&nbsp;прошлом максимуме 25&nbsp;тысяч в&nbsp;месяц</li><li>Конец 2024&nbsp;— «×5 в&nbsp;доходе за&nbsp;месяц»</li><li>Закрытый клуб «Прайд», 2024&nbsp;год</li><li>Лето 2025&nbsp;— запуск в&nbsp;закрытую через личные созвоны: команда на&nbsp;аутсорсе, 50&nbsp;000 на&nbsp;рекламу, <b>первый кассовый разрыв</b></li><li>В актуальных&nbsp;— урок, который «стоил 1,4&nbsp;млн, посаженное здоровье и&nbsp;не&nbsp;один нервный срыв»</li></ul>
-        <p class="tl-note">Отсюда Ваш запрос: «Запуски продуктов-курсов делать не&nbsp;хочу, продажи через созвоны тоже&nbsp;— меня это&nbsp;убивает». Предложение ниже построено вокруг этого.</p>
-      </div>
+    <div class="section-header reveal"><span class="eyebrow">Точка А · 03</span><h2>Все <em>продукты</em></h2></div>
+    <p class="method-intro reveal reveal-delay-1">Я поднял продающие посты канала и&nbsp;тексты актуальных за&nbsp;три года. Вот всё, что&nbsp;Вы&nbsp;продавали.</p>
+    <div class="cmp-wrap reveal"><table class="cmp prod"><thead><tr><th>Продукт</th><th>Формат</th><th>Цена, ₽</th><th>Когда</th></tr></thead><tbody><tr><td><b>Диагностика</b></td><td>час, первопричина и&nbsp;алгоритм выхода</td><td>2&nbsp;000</td><td>2023–24</td></tr><tr><td><b>Первая сессия</b></td><td>консультация</td><td>1&nbsp;000</td><td>дек 2025</td></tr><tr><td><b>Классическая консультация</b></td><td>сессия</td><td>в&nbsp;открытом доступе нет</td><td>—</td></tr><tr><td><b>Пакет сессий</b></td><td>от&nbsp;4 сессий; «15–20 сессий = 65–90&nbsp;тыс»</td><td>по&nbsp;запросу</td><td>2025</td></tr><tr><td><b>Сопровождение по&nbsp;аскезе</b></td><td>1&nbsp;месяц: консультация + 3 сессии, связь между сессиями</td><td>по&nbsp;запросу</td><td>2025</td></tr><tr><td><b>Наставничество</b></td><td>2&nbsp;месяца, постоянно на&nbsp;связи</td><td>по&nbsp;запросу</td><td>2023–25</td></tr><tr><td><b>Тренинг «Красота, идеальное тело и&nbsp;антистресс»</b></td><td>3 недели, группа и&nbsp;ПРО</td><td>5&nbsp;555 – 20&nbsp;000</td><td>май 2025</td></tr><tr><td><b>Реалити</b></td><td>4 лота по&nbsp;1 месту</td><td>в&nbsp;2&nbsp;раза ниже обычной</td><td>апр 2025</td></tr><tr><td><b>Эфиры</b></td><td>предновогодний эфир с&nbsp;разборами</td><td>от&nbsp;990</td><td>дек 2024</td></tr><tr><td><b>Офлайн-гипноз и&nbsp;мероприятия</b></td><td>Воронеж, экстатик, фестиваль</td><td>2&nbsp;500 – 4&nbsp;000</td><td>2024–25</td></tr><tr><td><b>Гипноз-практика</b></td><td>~1 час, 5 мест</td><td>3&nbsp;000</td><td>май 2026</td></tr><tr><td><b>Консультация по&nbsp;блогу</b></td><td>и&nbsp;месяц сопровождения</td><td>по&nbsp;запросу</td><td>авг 2026</td></tr><tr><td><b>Закрытый клуб «Прайд»</b></td><td>эфиры в&nbsp;закрытом канале</td><td>—</td><td>2024</td></tr><tr><td><b>Книга «Психология веса»</b></td><td>Wildberries, внутри бот с&nbsp;практиками</td><td>с&nbsp;продаж Вам&nbsp;ничего</td><td>—</td></tr><tr><td><b>Лид-магнит «Скорая помощь от&nbsp;тревоги»</b></td><td>бот в&nbsp;шапке профиля</td><td>бесплатно · бот отключён</td><td>—</td></tr></tbody></table></div>
+    <div class="situation-points reveal reveal-delay-2" style="margin-top:40px;">
+      <div class="sit-point"><div class="sit-point-num">01</div><div class="sit-point-text"><b>Продуктов много, линейки нет.</b> Каждый продавался отдельно и&nbsp;на&nbsp;время. Нет пути от&nbsp;бесплатного к&nbsp;первой покупке и&nbsp;дальше к&nbsp;дорогому формату</div></div>
+      <div class="sit-point"><div class="sit-point-num">02</div><div class="sit-point-text"><b>Цена почти всегда через скидку.</b> «Минимальная», «в&nbsp;2&nbsp;раза ниже», «по&nbsp;спеццене», «по&nbsp;1 месту». Базовой цены консультации в&nbsp;открытом доступе нет</div></div>
+      <div class="sit-point"><div class="sit-point-num">03</div><div class="sit-point-text"><b>Запуски дали деньги и&nbsp;выжгли.</b> Запуск на&nbsp;500&nbsp;000 чистыми, конец 2024&nbsp;— «×5 в&nbsp;доходе». Лето 2025&nbsp;— запуск через личные созвоны, 50&nbsp;000 на&nbsp;рекламу и&nbsp;первый кассовый разрыв. Отсюда Ваше «продажи через созвоны меня убивают»</div></div>
+      <div class="sit-point"><div class="sit-point-num">04</div><div class="sit-point-text"><b>Клуб уже был.</b> «Прайд» в&nbsp;2024&nbsp;году. Опыт подписочной модели есть&nbsp;— и&nbsp;его стоит разобрать до&nbsp;того, как&nbsp;запускать новый</div></div>
     </div>
   </div>
 </section>
 
-<section class="spacer" id="fix">
+<section class="spacer" id="leak">
   <div class="container">
-    <div class="section-header reveal"><span class="eyebrow">Разбор · 04</span><h2>Где <em>теряются</em> люди</h2></div>
-    <p class="method-intro reveal reveal-delay-1">Каждый пункт закрывается конкретным этапом работы&nbsp;— это&nbsp;<em>план</em>, а&nbsp;не&nbsp;список претензий.</p>
-    <div class="situation-points reveal reveal-delay-2"><div class="sit-point"><div class="sit-point-num">01</div><div class="sit-point-text"><b>Охват упал в&nbsp;27&nbsp;раз.</b> Май&nbsp;— 1&nbsp;787 275 просмотров за&nbsp;месяц, август&nbsp;— 64&nbsp;998. Темп публикаций тот же</div></div><div class="sit-point"><div class="sit-point-num">02</div><div class="sit-point-text"><b>Сериалу нет замены.</b> Вахта дала 1,09&nbsp;млн и&nbsp;414&nbsp;тысяч. С июля нет сюжета, за&nbsp;которым аудитория следит от&nbsp;ролика к&nbsp;ролику</div></div><div class="sit-point"><div class="sit-point-num">03</div><div class="sit-point-text"><b>Instagram не&nbsp;переводит в&nbsp;канал.</b> 26&nbsp;271 человек в&nbsp;Instagram и&nbsp;+16&nbsp;000 за&nbsp;месяц&nbsp;— а&nbsp;в&nbsp;канале 1&nbsp;089, и&nbsp;обычный пост собирает 136 просмотров</div></div><div class="sit-point"><div class="sit-point-num">04</div><div class="sit-point-text"><b>Ссылка в&nbsp;шапке не&nbsp;работает.</b> «Скорая помощь от&nbsp;тревоги» открывает ответ «Telegram бот отключен». Это единственный лид-магнит в&nbsp;профиле</div></div><div class="sit-point"><div class="sit-point-num">05</div><div class="sit-point-text"><b>Кодовые слова разные.</b> ЦИКЛ, ТГ, «Залипла», ДИАГНОСТИКА&nbsp;— каждое ведёт в&nbsp;своё место. Единого пути от&nbsp;ролика к&nbsp;продукту нет</div></div><div class="sit-point"><div class="sit-point-num">06</div><div class="sit-point-text"><b>Продаёте только Вы&nbsp;сами.</b> Консультации и&nbsp;сопровождение продаются через личное общение. Доход упирается в&nbsp;Ваше время и&nbsp;силы</div></div><div class="sit-point"><div class="sit-point-num">07</div><div class="sit-point-text"><b>Цена не&nbsp;закреплена.</b> Первая сессия за&nbsp;1&nbsp;000, практика «в&nbsp;2&nbsp;раза дешевле», лоты «по&nbsp;1 месту». Аудитория привыкает ждать спеццену</div></div><div class="sit-point"><div class="sit-point-num">08</div><div class="sit-point-text"><b>Актуальные&nbsp;— архив, а&nbsp;не&nbsp;витрина.</b> 35 альбомов, в&nbsp;15 последняя история от&nbsp;августа 2025. Нет альбома «Работа со&nbsp;мной» с&nbsp;ценой и&nbsp;шагом записи</div></div></div>
+    <div class="section-header reveal"><span class="eyebrow">Точка А · 04</span><h2>Где <em>сливается</em> аудитория</h2></div>
+    <p class="method-intro reveal reveal-delay-1">Путь человека от&nbsp;ролика до&nbsp;покупки. На каждом шаге&nbsp;— сколько людей доходит и&nbsp;что&nbsp;мешает.</p>
+    <div class="funnel reveal reveal-delay-1"><div class="fstep ok" style="--w:100%"><b>Ролик</b><span>май&nbsp;— 1&nbsp;787 275 просмотров за&nbsp;месяц, август&nbsp;— 64&nbsp;998</span></div><div class="fstep mid" style="--w:87%"><b>Профиль</b><span>26&nbsp;271&nbsp;подписчик, 4 ссылки в&nbsp;шапке, альбома «Работа со&nbsp;мной» нет</span></div><div class="fstep bad" style="--w:74%"><b>Telegram-канал</b><span>1&nbsp;089 человек, обычный пост&nbsp;— 136 просмотров</span></div><div class="fstep bad" style="--w:61%"><b>Бот / лид-магнит</b><span>«Скорая помощь от&nbsp;тревоги»&nbsp;— «Telegram бот отключен»</span></div><div class="fstep bad" style="--w:48%"><b>Покупка</b><span>только через личное общение, цена почти всегда через скидку</span></div></div>
+    <p class="reveal" style="text-align:center; color:var(--text); max-width:660px; margin:36px auto 0;">Внимание было&nbsp;— миллионы просмотров весной. До канала дошла малая часть, до&nbsp;бота&nbsp;— никто: он&nbsp;отключён. Кодовые слова разные (ЦИКЛ, ТГ, «Залипла», ДИАГНОСТИКА), и&nbsp;каждое ведёт в&nbsp;своё место.</p>
   </div>
 </section>
 
-<section class="spacer" id="goal">
+<section class="spacer" id="unknown">
   <div class="container">
-    <div class="section-header reveal"><span class="eyebrow">Цель</span><h2>Куда мы&nbsp;<em>идём</em></h2></div>
-    <p class="method-intro reveal reveal-delay-1">Блог, который продаёт <em>без&nbsp;запусков и&nbsp;без&nbsp;созвонов</em>. Ролик приводит человека в&nbsp;канал, канал&nbsp;— в&nbsp;автоворонку, автоворонка&nbsp;— к&nbsp;оплате. Следующая ступень&nbsp;— закрытый клуб по&nbsp;подписке, который приносит доход каждый месяц.</p>
-    <div class="work-grid" style="margin-top:36px;">
-      <div class="work-item reveal"><h3>Контент</h3><p>Сюжеты и&nbsp;форматы, которые уже доказали охват: сериал, моржевание, практика через историю.</p></div>
-      <div class="work-item reveal reveal-delay-1"><h3>Автоворонка</h3><p>Одно кодовое слово, лид-магнит, бот, цепочка прогрева, оплата без&nbsp;переписки.</p></div>
-      <div class="work-item reveal reveal-delay-2"><h3>Клуб</h3><p>Подписка с&nbsp;понятной программой, ценой, оплатой и&nbsp;продлением. Доход без&nbsp;запусков.</p></div>
+    <div class="section-header reveal"><span class="eyebrow">Главное</span><h2>Чего мы&nbsp;<em>пока не&nbsp;знаем</em></h2></div>
+    <p class="method-intro reveal reveal-delay-1">Цифры показывают, что&nbsp;люди смотрят. Но не&nbsp;показывают, кто они и&nbsp;за&nbsp;что&nbsp;готовы платить. Без этого любой продукт&nbsp;— гадание.</p>
+    <div class="unknown reveal reveal-delay-2">
+      <div><b>Кто они</b>Возраст, город, ситуация, с&nbsp;какой болью пришли</div>
+      <div><b>Платёжеспособность</b>Какой доход и&nbsp;сколько готовы отдать за&nbsp;решение</div>
+      <div><b>Почему остались</b>Вахта, моржевание, психология тела или&nbsp;Вы&nbsp;как&nbsp;человек</div>
+      <div><b>Что ценят в&nbsp;Вас</b>Чем восхищаются и&nbsp;что&nbsp;отталкивает</div>
+      <div><b>Какой формат купят</b>Клуб, курс, сессии, интенсив, мероприятие</div>
+      <div><b>Какая цена</b>Где вход, где основной продукт, где дорогой формат</div>
     </div>
+    <p class="price-note reveal reveal-delay-2" style="margin-top:32px;">Клуб по&nbsp;подписке&nbsp;— хорошая гипотеза. Но подписка&nbsp;— это&nbsp;способ оплаты, а&nbsp;не&nbsp;продукт: по&nbsp;подписке можно продавать что&nbsp;угодно. Клуб держится на&nbsp;наполнении, за&nbsp;которым люди возвращаются каждый месяц. Каким оно должно быть и&nbsp;стоит ли&nbsp;отказываться от&nbsp;других форматов&nbsp;— покажет исследование.</p>
+  </div>
+</section>
+
+<section class="spacer" id="method">
+  <div class="container">
+    <div class="section-header reveal"><span class="eyebrow">Метод · 7 этапов</span><h2>Как я&nbsp;бы&nbsp;<em>строил</em> систему</h2></div>
+    <p class="method-intro reveal reveal-delay-1">Каждый этап заканчивается проверкой. Прошли&nbsp;— идём дальше. Не прошли&nbsp;— корректируем, а&nbsp;не&nbsp;запускаем вслепую.</p>
+    <div class="ornament reveal reveal-delay-2"><div class="ornament-mark"><span class="ornament-line-v"></span><span class="ornament-diamond"></span><span class="ornament-line-v"></span></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Фундамент">00</span><div class="block-body"><h3>Распаковка, аудит продуктов и&nbsp;слива</h3><p class="what">Распаковка голосовыми: Ваш путь, метод, взгляды, отношение к&nbsp;деньгам и&nbsp;людям. Разбор всех продуктов из&nbsp;списка выше и&nbsp;каждого шага, где теряется аудитория. Позиционирование и&nbsp;одна понятная линия блога.</p><p class="what">Параллельно наводим порядок: рабочая ссылка в&nbsp;шапке, одно кодовое слово, альбом «Работа со&nbsp;мной».</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Блог перестаёт терять людей на&nbsp;ровном месте, и&nbsp;становится ясно, на&nbsp;чём строить дальше.</div><p class="stage-test"><b>Переход дальше:</b> позиционирование утверждено, все&nbsp;точки слива закрыты.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Исследование">01</span><div class="block-body"><h3>Кастдевы и&nbsp;сводная таблица</h3><p class="what">Анкета в&nbsp;сторис и&nbsp;канале&nbsp;— 50–100 ответов. Глубинные интервью с&nbsp;5–10 людьми из&nbsp;Вашей аудитории, все&nbsp;записываются и&nbsp;расшифровываются.</p><p class="what">Прямые цитаты сводим в&nbsp;одну таблицу: боли, доход, желания, запросы, что&nbsp;в&nbsp;Вас&nbsp;нравится, какой формат удобен. Ищем самую сильную связку.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Вы&nbsp;говорите с&nbsp;аудиторией её&nbsp;же&nbsp;словами&nbsp;— в&nbsp;контенте, в&nbsp;офферах, в&nbsp;продажах.</div><p class="stage-test"><b>Переход дальше:</b> понятны 2–3 главных сегмента, их&nbsp;боли и&nbsp;платёжеспособность.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Продукт">02</span><div class="block-body"><h3>Продуктовая линейка на&nbsp;данных</h3><p class="what">На основе таблицы решаем: какой продукт, для&nbsp;кого, на&nbsp;сколько человек, по&nbsp;какой цене. Клуб&nbsp;— одна из&nbsp;гипотез наряду с&nbsp;сессиями, курсом, интенсивом, мероприятиями. Выстраиваем лестницу: вход&nbsp;— основной продукт&nbsp;— дорогой формат.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Продукт, который собран под&nbsp;реальный запрос, а&nbsp;не&nbsp;под&nbsp;предположение.</div><p class="stage-test"><b>Переход дальше:</b> выбран первый продукт, его наполнение и&nbsp;цена.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Тест">03</span><div class="block-body"><h3>MVP и&nbsp;закрытые предпродажи</h3><p class="what">Минимальная версия продукта и&nbsp;закрытые предпродажи тем, кто проявил интерес на&nbsp;исследовании. Без большого запуска, без&nbsp;рекламы, без&nbsp;созвонов с&nbsp;каждым.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Проверка спроса до&nbsp;того, как&nbsp;вложены силы и&nbsp;деньги. Урок лета 2025 не&nbsp;повторяется.</div><p class="stage-test"><b>Переход дальше:</b> 5–15 предпродаж. Если нет&nbsp;— возвращаемся к&nbsp;этапу 02.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Смыслы">04</span><div class="block-body"><h3>Лестница Ханта и&nbsp;прогрев</h3><p class="what">Раскладываем аудиторию по&nbsp;уровням осознанности: у&nbsp;кого есть проблема, кто ищет решение, кто выбирает, кто готов купить. Оцениваем доверие к&nbsp;Вам&nbsp;как&nbsp;к&nbsp;личности, к&nbsp;теме, к&nbsp;экспертности и&nbsp;к&nbsp;продукту. На этом строим контент-план прогрева на&nbsp;Ваших сильных форматах.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Понятно, где говорить в&nbsp;лоб, а&nbsp;где подстелить соломку. Прогрев без&nbsp;«продажи в&nbsp;лоб».</div><p class="stage-test"><b>Переход дальше:</b> контент-план утверждён, растёт переход в&nbsp;канал.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Воронка">05</span><div class="block-body"><h3>Автоворонка без&nbsp;созвонов</h3><p class="what">Кодовое слово в&nbsp;ролике → бот → лид-магнит → прогрев в&nbsp;канале → оплата и&nbsp;доступ без&nbsp;переписки. Собираем, тестируем, смотрим, где уходят люди.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Продажи, которые не&nbsp;требуют Вашего личного времени на&nbsp;каждого покупателя.</div><p class="stage-test"><b>Переход дальше:</b> стабильная конверсия из&nbsp;ролика в&nbsp;оплату.</p></div></div>
+    <div class="block reveal"><span class="block-num" data-tag="Система">06</span><div class="block-body"><h3>Системные продажи</h3><p class="what">Регулярный цикл: замер цифр, диагностика, правки, повторный замер. Наращиваем трафик на&nbsp;то, что&nbsp;уже продаёт. Следующие продукты линейки запускаем по&nbsp;тому же&nbsp;пути: исследование&nbsp;— тест&nbsp;— воронка.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Доход, который держится от&nbsp;месяца к&nbsp;месяцу, а&nbsp;не&nbsp;от&nbsp;запуска к&nbsp;запуску.</div><p class="stage-test"><b>Переход дальше:</b> масштабирование того, что&nbsp;доказало результат.</p></div></div>
   </div>
 </section>
 
 <section class="spacer" id="horizon">
   <div class="container">
     <div class="section-header reveal"><span class="eyebrow">Горизонт</span><h2>Почему это&nbsp;<em>не&nbsp;на&nbsp;месяц</em></h2></div>
-    <p class="method-intro reveal reveal-delay-1">Автоворонку можно собрать и&nbsp;протестировать за&nbsp;месяц-два. Но воронка&nbsp;— это&nbsp;путь, по&nbsp;которому идут люди. Сколько она&nbsp;приносит, зависит от&nbsp;того, сколько людей в&nbsp;неё заходит. А это&nbsp;блог, охваты и&nbsp;работа с&nbsp;аудиторией&nbsp;— постоянная работа, а&nbsp;не&nbsp;разовая настройка.</p>
-    <div class="phase reveal"><h3>1–2&nbsp;месяц · фундамент и&nbsp;воронка</h3><p>Позиционирование, сильные форматы, упаковка профиля. Схема воронки и&nbsp;клуба, первая версия собрана и&nbsp;протестирована.</p></div>
-    <div class="phase reveal"><h3>3–6&nbsp;месяц · трафик и&nbsp;клуб</h3><p>Возвращаем охваты на&nbsp;уровень весны, настраиваем переход в&nbsp;канал, по&nbsp;цифрам дорабатываем воронку. Первый набор в&nbsp;клуб.</p></div>
-    <div class="phase reveal"><h3>6–12&nbsp;месяц · устойчивый доход</h3><p>Клуб растёт от&nbsp;месяца к&nbsp;месяцу, воронка работает на&nbsp;каждом новом охвате. Доход выходит на&nbsp;уровень, который соответствует аудитории.</p></div>
-    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; max-width: 620px; margin: 40px auto 0;">МИНИМАЛЬНЫЙ СРОК СОПРОВОЖДЕНИЯ&nbsp;— 3 МЕСЯЦА. РЕАЛЬНЫЙ ФИНАНСОВЫЙ РЕЗУЛЬТАТ&nbsp;— ОТ ПОЛУГОДА ДО ГОДА.</p>
+    <p class="method-intro reveal reveal-delay-1">Воронку можно собрать за&nbsp;пару недель. Но сколько она&nbsp;приносит, зависит от&nbsp;того, что&nbsp;в&nbsp;неё продаётся и&nbsp;сколько людей в&nbsp;неё заходит. А это&nbsp;исследование, продукт, блог и&nbsp;работа с&nbsp;аудиторией&nbsp;— постоянная работа, а&nbsp;не&nbsp;разовая настройка.</p>
+    <div class="phase reveal"><h3>1&nbsp;месяц · этапы 00–01</h3><p>Фундамент, закрытые точки слива, исследование аудитории и&nbsp;сводная таблица.</p></div>
+    <div class="phase reveal"><h3>2–3&nbsp;месяц · этапы 02–03</h3><p>Продуктовая линейка, MVP, закрытые предпродажи. Параллельно возвращаем охваты на&nbsp;сильных форматах.</p></div>
+    <div class="phase reveal"><h3>4–6&nbsp;месяц · этапы 04–05</h3><p>Прогрев по&nbsp;лестнице Ханта, автоворонка, первые продажи без&nbsp;созвонов.</p></div>
+    <div class="phase reveal"><h3>6–12&nbsp;месяц · этап 06</h3><p>Системные продажи, следующие продукты линейки, рост трафика на&nbsp;то, что&nbsp;уже продаёт.</p></div>
+    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; max-width: 620px; margin: 40px auto 0;">МИНИМАЛЬНЫЙ СРОК РАБОТЫ&nbsp;— 3 МЕСЯЦА. РЕАЛЬНЫЙ ФИНАНСОВЫЙ РЕЗУЛЬТАТ&nbsp;— ОТ ПОЛУГОДА ДО ГОДА.</p>
+  </div>
+</section>
+
+<section class="spacer" id="audit">
+  <div class="container">
+    <div class="section-header reveal"><span class="eyebrow">Первый шаг</span><h2>Аудит <em>блога</em></h2></div>
+    <p class="method-intro reveal reveal-delay-1">С чего начинаем. Аудит показывает, что&nbsp;происходит с&nbsp;блогом и&nbsp;продуктами, и&nbsp;по&nbsp;нему понятно, какой формат работы Вам&nbsp;подходит.</p>
+    <div class="audit-card reveal reveal-delay-2">
+      <div class="al">Аудит блога</div>
+      <div class="ap">5&nbsp;000<span>₽</span></div>
+      <ul class="li-list"><li>Глубокий анализ того, что&nbsp;сейчас происходит с&nbsp;Вашим блогом, каналом и&nbsp;продуктами</li><li>Что бы&nbsp;я&nbsp;делал на&nbsp;Вашем месте: видение и&nbsp;рекомендации</li><li>Дорожная карта развития по&nbsp;этапам</li><li>Стратегический план возможной совместной работы</li></ul>
+      <p>Что нужно от&nbsp;Вас: запись экрана или&nbsp;скриншоты статистики профиля. Через 3 дня Вы&nbsp;получаете документ с&nbsp;разбором, и&nbsp;мы&nbsp;созваниваемся, чтобы пройтись по&nbsp;нему. Стоимость аудита засчитывается, если после него продолжаем работу.</p>
+      <a class="cta" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Записаться на&nbsp;аудит</a>
+    </div>
   </div>
 </section>
 
 <section class="spacer" id="formats">
-  <div class="container">
-    <div class="section-header reveal"><span class="eyebrow">Три формата</span><h2>Как мы&nbsp;можем <em>работать</em></h2></div>
-    <p class="method-intro reveal reveal-delay-1">Снимаете и&nbsp;монтируете Вы&nbsp;сами во&nbsp;всех трёх форматах. Разница&nbsp;— в&nbsp;глубине моего участия.</p>
-
-    <span class="fmt-tag reveal">Формат А</span>
-    <h3 class="fmt-title reveal">Консультация</h3>
-    <p class="fmt-lead reveal">Разовая работа. Вы&nbsp;получаете карту и&nbsp;внедряете сами.</p>
-    <div class="block reveal"><span class="block-num" data-tag="Разбор">01</span><div class="block-body"><h3>Полный разбор площадок</h3><p class="what">Разбор уже сделан&nbsp;— всё, что&nbsp;выше на&nbsp;этой странице. На сессии идём глубже: Ваши продукты, внутренняя кухня, что&nbsp;Вы&nbsp;готовы и&nbsp;не&nbsp;готовы делать.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Решения принимаются на&nbsp;цифрах, а&nbsp;не&nbsp;на&nbsp;ощущениях.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Сессия">02</span><div class="block-body"><h3>Стратегическая сессия</h3><p class="what">Позиционирование: кто Вы&nbsp;для&nbsp;аудитории и&nbsp;почему к&nbsp;Вам, а&nbsp;не&nbsp;к&nbsp;другому психологу. Сильные форматы и&nbsp;сюжет на&nbsp;ближайшие месяцы. Схема автоворонки и&nbsp;модель клуба.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Понимание, что&nbsp;делать, в&nbsp;каком порядке и&nbsp;зачем.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Документ">03</span><div class="block-body"><h3>Документ-стратегия</h3><p class="what">По итогам сессии&nbsp;— письменная стратегия: позиционирование, 5–7 форматов с&nbsp;темами, схема воронки (кодовое слово, лид-магнит, бот, прогрев, оплата), модель клуба (программа, цена, продление), упаковка шапки и&nbsp;актуальных, план на&nbsp;три месяца.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>План, по&nbsp;которому Вы&nbsp;или&nbsp;Ваш специалист собираете систему без&nbsp;меня.</div></div></div>
-
-    <span class="fmt-tag reveal">Формат Б</span>
-    <h3 class="fmt-title reveal">Сопровождение</h3>
-    <p class="fmt-lead reveal">Помесячно, от&nbsp;трёх месяцев. Стратегия и&nbsp;контент на&nbsp;мне, съёмка и&nbsp;техническая сборка на&nbsp;Вас.</p>
-    <div class="block reveal"><span class="block-num" data-tag="Фундамент">01</span><div class="block-body"><h3>Распаковка и&nbsp;позиционирование</h3><p class="what">Распаковка голосовыми в&nbsp;удобном темпе: Ваш путь, взгляды, метод, отношение к&nbsp;деньгам и&nbsp;людям. Я транскрибирую и&nbsp;собираю формулировки. Из этого&nbsp;— позиционирование и&nbsp;новая шапка.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Аудитория понимает, кто Вы&nbsp;и&nbsp;зачем за&nbsp;Вами следить, с&nbsp;первого ролика.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Контент">02</span><div class="block-body"><h3>Контент-система на&nbsp;сильных форматах</h3><p class="what">Новый сюжет-сериал на&nbsp;месте вахты, моржевание, практика через историю. Каждую неделю&nbsp;— темы и&nbsp;каркасы сценариев. Каждый ролик разбираем по&nbsp;цифрам и&nbsp;правим курс.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Вместо разовых всплесков&nbsp;— повторяемый охват.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Путь">03</span><div class="block-body"><h3>Упаковка и&nbsp;связка с&nbsp;каналом</h3><p class="what">Шапка, альбом «Работа со&nbsp;мной», закреп. Одно кодовое слово вместо четырёх. Рубрики канала, чтобы люди из&nbsp;Instagram оставались в&nbsp;Telegram.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Охват начинает превращаться в&nbsp;подписчиков канала и&nbsp;заявки.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Система">04</span><div class="block-body"><h3>Проект автоворонки и&nbsp;клуба</h3><p class="what">Схема воронки, тексты бота и&nbsp;прогрева, программа и&nbsp;механика клуба&nbsp;— в&nbsp;виде готовых ТЗ. Собираете Вы&nbsp;или&nbsp;Ваш технический специалист, я&nbsp;проверяю и&nbsp;дорабатываю по&nbsp;цифрам.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Система продаж без&nbsp;созвонов, собранная по&nbsp;проверенной схеме.</div></div></div>
-
-    <span class="fmt-tag reveal">Формат В</span>
-    <h3 class="fmt-title reveal">Личная работа</h3>
-    <p class="fmt-lead reveal">Помесячно, от&nbsp;трёх месяцев. Всё из&nbsp;сопровождения, плюс воронку и&nbsp;клуб я&nbsp;собираю своими руками.</p>
-    <div class="block reveal"><span class="block-num" data-tag="Основа">01</span><div class="block-body"><h3>Всё из&nbsp;сопровождения</h3><p class="what">Распаковка, позиционирование, контент-система, разбор каждого ролика, упаковка профиля, связка с&nbsp;каналом, еженедельный созвон и&nbsp;чат.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Та же&nbsp;стратегическая работа над&nbsp;блогом.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Воронка">02</span><div class="block-body"><h3>Автоворонка под&nbsp;ключ</h3><p class="what">Лид-магнит, бот, цепочка прогрева, приём оплаты. Собираю, запускаю, тестирую и&nbsp;дорабатываю по&nbsp;цифрам: где люди уходят, что&nbsp;меняем.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Вам&nbsp;не&nbsp;нужно разбираться в&nbsp;ботах и&nbsp;платёжках. Заявки и&nbsp;оплаты приходят без&nbsp;переписки.</div></div></div>
-    <div class="block reveal"><span class="block-num" data-tag="Клуб">03</span><div class="block-body"><h3>Клуб под&nbsp;ключ</h3><p class="what">Формат и&nbsp;программа, цена и&nbsp;продление, тексты продающих постов и&nbsp;сторис, оплата и&nbsp;доступ. Первый набор ведём вместе.</p><div class="gives"><strong>Что это&nbsp;Вам&nbsp;даёт</strong>Доход по&nbsp;подписке каждый месяц&nbsp;— без&nbsp;запусков и&nbsp;без&nbsp;продаж через созвоны.</div></div></div>
-  </div>
-</section>
-
-<section class="spacer" id="compare">
   <div class="container-wide">
-    <div class="section-header reveal"><span class="eyebrow">Сравнение</span><h2>Что входит <em>в&nbsp;каждый формат</em></h2></div>
-    <div class="cmp-wrap reveal"><table class="cmp"><thead><tr><th>Что входит</th><th><span class="full">А · Консультация</span><span class="short">А</span></th><th><span class="full">Б · Сопровождение</span><span class="short">Б</span></th><th><span class="full">В · Личная работа</span><span class="short">В</span></th></tr></thead><tbody><tr><td>Полный разбор блога, канала и&nbsp;актуальных</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Стратегическая сессия</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Документ-стратегия: позиционирование, форматы, схема воронки и&nbsp;клуба</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Распаковка личности и&nbsp;смыслов</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Темы и&nbsp;каркасы сценариев каждую неделю</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Разбор каждого ролика по&nbsp;цифрам</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Упаковка профиля: шапка, актуальные, закреп</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Связка Instagram → Telegram, рубрики канала</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Еженедельный созвон и&nbsp;личный чат</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Подробные ТЗ на&nbsp;воронку и&nbsp;клуб, проверка сборки</td><td class="n">—</td><td class="y">●</td><td class="y">●</td></tr><tr><td>Сборка автоворонки: бот, прогрев, оплата</td><td class="n">—</td><td class="n">—</td><td class="y">●</td></tr><tr><td>Клуб под&nbsp;ключ: программа, тексты, оплата, продление</td><td class="n">—</td><td class="n">—</td><td class="y">●</td></tr><tr><td>Тесты и&nbsp;доработка воронки по&nbsp;цифрам</td><td class="n">—</td><td class="n">—</td><td class="y">●</td></tr><tr><td>Продающие тексты для&nbsp;канала и&nbsp;сторис</td><td class="n">—</td><td class="n">—</td><td class="y">●</td></tr></tbody></table></div>
-    <p class="reveal" style="text-align:center; color:var(--muted); font-size:13.5px; margin-top:18px;">Съёмка и&nbsp;монтаж&nbsp;— на&nbsp;Вашей стороне во&nbsp;всех форматах. Оплата сервисов (конструктор бота, платёжный сервис)&nbsp;— за&nbsp;Ваш счёт.</p>
+    <div class="section-header reveal"><span class="eyebrow">Форматы работы</span><h2>Что входит <em>в&nbsp;каждый формат</em></h2></div>
+    <p class="method-intro reveal reveal-delay-1">Съёмка и&nbsp;монтаж во&nbsp;всех форматах на&nbsp;Вас. Разница&nbsp;— в&nbsp;том, какие этапы мы&nbsp;проходим вместе и&nbsp;сколько из&nbsp;них я&nbsp;делаю своими руками.</p>
+    <div class="work-grid" style="margin-top:36px;">
+      <div class="work-item reveal"><h3>А · Консультация</h3><p>Разово. Этап 00 и&nbsp;план остальных: позиционирование, план исследования с&nbsp;вопросами для&nbsp;анкеты и&nbsp;кастдевов, гипотезы линейки и&nbsp;схема воронки. Дальше Вы&nbsp;идёте сами.</p></div>
+      <div class="work-item reveal reveal-delay-1"><h3>Б · Сопровождение</h3><p>Помесячно. Веду Вас&nbsp;по&nbsp;всем этапам: готовлю анкету и&nbsp;сценарий кастдевов, свожу таблицу, собираю продукт и&nbsp;оффер, пишу прогрев и&nbsp;ТЗ воронки, разбираю каждый ролик. Интервью проводите и&nbsp;воронку собираете Вы.</p></div>
+      <div class="work-item reveal reveal-delay-2"><h3>В · Личная работа</h3><p>Помесячно. Всё из&nbsp;сопровождения, плюс руками делаю я: провожу кастдевы, упаковываю MVP и&nbsp;предпродажи, собираю и&nbsp;тестирую воронку, веду аналитику продаж.</p></div>
+    </div>
+    <h3 style="font-family:var(--display); font-variation-settings:'opsz' 144,'wght' 300,'SOFT' 80; font-weight:300; text-align:center; font-size:clamp(24px,3.2vw,34px); margin:64px 0 0;" class="reveal">Этапы по&nbsp;форматам</h3>
+    <div class="cmp-wrap reveal"><table class="cmp stages"><thead><tr><th>Этап</th><th><span class="full">А · Консультация</span><span class="short">А</span></th><th><span class="full">Б · Сопровождение</span><span class="short">Б</span></th><th><span class="full">В · Личная работа</span><span class="short">В</span></th></tr></thead><tbody><tr><td>Аудит · 5&nbsp;000&nbsp;₽</td><td class="y" data-l="А · Консультация">засчитывается</td><td class="y" data-l="Б · Сопровождение">засчитывается</td><td class="y" data-l="В · Личная работа">засчитывается</td></tr><tr><td>00 · Фундамент: распаковка, аудит продуктов и&nbsp;слива, позиционирование</td><td class="y" data-l="А · Консультация">стратегия</td><td class="y" data-l="Б · Сопровождение">делаем вместе</td><td class="y" data-l="В · Личная работа">делаем вместе</td></tr><tr><td>01 · Исследование: анкета, кастдевы, таблица цитат</td><td class="y" data-l="А · Консультация">план и&nbsp;вопросы</td><td class="y" data-l="Б · Сопровождение">готовлю, проводите Вы, свожу я</td><td class="y" data-l="В · Личная работа">провожу и&nbsp;свожу я</td></tr><tr><td>02 · Продуктовая линейка на&nbsp;данных</td><td class="y" data-l="А · Консультация">гипотезы</td><td class="y" data-l="Б · Сопровождение">●</td><td class="y" data-l="В · Личная работа">●</td></tr><tr><td>03 · MVP и&nbsp;закрытые предпродажи</td><td class="n" data-l="А · Консультация">—</td><td class="y" data-l="Б · Сопровождение">оффер и&nbsp;тексты</td><td class="y" data-l="В · Личная работа">под&nbsp;ключ</td></tr><tr><td>04 · Смыслы по&nbsp;лестнице Ханта, прогрев</td><td class="n" data-l="А · Консультация">—</td><td class="y" data-l="Б · Сопровождение">●</td><td class="y" data-l="В · Личная работа">●</td></tr><tr><td>05 · Воронка: кодовое слово, бот, лид-магнит, оплата</td><td class="y" data-l="А · Консультация">схема</td><td class="y" data-l="Б · Сопровождение">ТЗ, собираете Вы</td><td class="y" data-l="В · Личная работа">собираю я</td></tr><tr><td>06 · Системные продажи: замер и&nbsp;корректировка</td><td class="n" data-l="А · Консультация">—</td><td class="y" data-l="Б · Сопровождение">●</td><td class="y" data-l="В · Личная работа">●</td></tr><tr><td>Разбор каждого ролика, еженедельный созвон, чат</td><td class="n" data-l="А · Консультация">—</td><td class="y" data-l="Б · Сопровождение">●</td><td class="y" data-l="В · Личная работа">●</td></tr></tbody></table></div>
+    <p class="reveal" style="text-align:center; color:var(--muted); font-size:13.5px; margin-top:18px;">Оплата сервисов (конструктор бота, платёжный сервис)&nbsp;— за&nbsp;Ваш счёт.</p>
   </div>
 </section>
 
@@ -2364,11 +2386,11 @@
   <div class="container">
     <div class="section-header reveal"><span class="eyebrow">Процесс</span><h2>Как будет проходить <em>наша работа</em></h2></div>
     <div class="work-grid">
-      <div class="work-item reveal"><h3>Стратегический созвон на&nbsp;входе</h3><p>Дорожная карта: что&nbsp;делаем в&nbsp;первый месяц, что&nbsp;во&nbsp;второй, к&nbsp;чему идём за&nbsp;год.</p></div>
-      <div class="work-item reveal reveal-delay-1"><h3>Еженедельный созвон</h3><p>Разбор недели и&nbsp;план на&nbsp;следующую. Вы&nbsp;всегда знаете, что&nbsp;делать дальше.</p></div>
-      <div class="work-item reveal reveal-delay-2"><h3>Разбор каждого ролика</h3><p>Смотрим, что&nbsp;дало охват, а&nbsp;что&nbsp;нет, и&nbsp;правим курс на&nbsp;фактах.</p></div>
+      <div class="work-item reveal"><h3>Стратегический созвон на&nbsp;входе</h3><p>Дорожная карта по&nbsp;этапам: что&nbsp;делаем в&nbsp;первый месяц, что&nbsp;во&nbsp;второй, к&nbsp;чему идём за&nbsp;год.</p></div>
+      <div class="work-item reveal reveal-delay-1"><h3>Еженедельный созвон</h3><p>Разбор недели, цифры, план на&nbsp;следующую.</p></div>
+      <div class="work-item reveal reveal-delay-2"><h3>Работа по&nbsp;этапам</h3><p>Этап закрыт проверкой&nbsp;— идём дальше. Этапы не&nbsp;перескакиваем: результат держится на&nbsp;порядке.</p></div>
       <div class="work-item reveal reveal-delay-3"><h3>Личный чат</h3><p>Оперативные вопросы&nbsp;— без&nbsp;ожидания созвона.</p></div>
-      <div class="work-item reveal reveal-delay-4"><h3>Рабочее пространство</h3><p>Все материалы, сценарии и&nbsp;ТЗ хранятся в&nbsp;одном месте и&nbsp;остаются у&nbsp;Вас.</p></div>
+      <div class="work-item reveal reveal-delay-4"><h3>Рабочее пространство</h3><p>Распаковка, таблица цитат, сценарии, ТЗ&nbsp;— в&nbsp;одном месте и&nbsp;остаются у&nbsp;Вас.</p></div>
     </div>
   </div>
 </section>
@@ -2376,33 +2398,41 @@
 <section class="spacer" id="price">
   <div class="container-wide">
     <div class="section-header reveal"><span class="eyebrow">Стоимость</span><h2>Условия <em>сотрудничества</em></h2></div>
-    <div class="tariffs reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); max-width:1080px; margin:0 auto;">
+    <div class="tariffs reveal reveal-delay-1" style="grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); max-width:1180px; margin:0 auto;">
+      <div class="tariff featured">
+        <div class="tariff-tag">Первый шаг</div>
+        <h3 class="tariff-name">Аудит блога</h3>
+        <div class="tariff-price">5&nbsp;000<span>₽</span></div>
+        <div class="tariff-period">разово</div>
+        <ul><li>Документ с&nbsp;разбором и&nbsp;созвон</li><li>Дорожная карта</li><li>План совместной работы</li><li>Засчитывается в&nbsp;стоимость формата</li></ul>
+        <p class="tariff-note">По итогам понятно, какой формат Вам&nbsp;подходит.</p>
+      </div>
       <div class="tariff">
         <div class="tariff-tag">Разово</div>
         <h3 class="tariff-name">А · Консультация</h3>
-        <div class="tariff-price">35&nbsp;000<span>₽</span></div>
+        <div class="tariff-price"><small>от</small>35&nbsp;000<span>₽</span></div>
         <div class="tariff-period">один раз</div>
-        <ul><li>Полный разбор площадок</li><li>Стратегическая сессия</li><li>Документ-стратегия: позиционирование, форматы, схема воронки и&nbsp;клуба, план на&nbsp;три месяца</li></ul>
+        <ul><li>Этап 00: позиционирование и&nbsp;аудит продуктов</li><li>План исследования и&nbsp;вопросы для&nbsp;кастдевов</li><li>Гипотезы линейки и&nbsp;схема воронки</li></ul>
         <p class="tariff-note">Карта на&nbsp;руках, внедрение на&nbsp;Вас.</p>
       </div>
       <div class="tariff">
         <div class="tariff-tag">Каждый месяц · от&nbsp;3&nbsp;месяцев</div>
         <h3 class="tariff-name">Б · Сопровождение</h3>
-        <div class="tariff-price">80&nbsp;000<span>₽</span></div>
+        <div class="tariff-price"><small>от</small>80&nbsp;000<span>₽</span></div>
         <div class="tariff-period">в&nbsp;месяц</div>
-        <ul><li>Распаковка и&nbsp;позиционирование</li><li>Контент-система, темы и&nbsp;сценарии каждую неделю</li><li>Разбор каждого ролика</li><li>Упаковка профиля и&nbsp;связка с&nbsp;каналом</li><li>Проект воронки и&nbsp;клуба в&nbsp;ТЗ</li><li>Еженедельный созвон и&nbsp;чат</li></ul>
-        <p class="tariff-note">Стратегия на&nbsp;мне, сборка на&nbsp;Вас.</p>
+        <ul><li>Все этапы 00–06 под&nbsp;моим руководством</li><li>Таблица цитат, продукт, оффер, прогрев</li><li>ТЗ воронки</li><li>Разбор каждого ролика, созвон раз&nbsp;в&nbsp;неделю, чат</li></ul>
+        <p class="tariff-note">Стратегия на&nbsp;мне, исполнение на&nbsp;Вас.</p>
       </div>
-      <div class="tariff featured">
+      <div class="tariff">
         <div class="tariff-tag">Каждый месяц · от&nbsp;3&nbsp;месяцев</div>
         <h3 class="tariff-name">В · Личная работа</h3>
-        <div class="tariff-price">130&nbsp;000<span>₽</span></div>
+        <div class="tariff-price"><small>от</small>130&nbsp;000<span>₽</span></div>
         <div class="tariff-period">в&nbsp;месяц</div>
-        <ul><li>Всё из&nbsp;сопровождения</li><li>Автоворонка под&nbsp;ключ: бот, прогрев, оплата</li><li>Клуб под&nbsp;ключ: программа, тексты, оплата, продление</li><li>Тесты и&nbsp;доработка по&nbsp;цифрам</li><li>Продающие тексты для&nbsp;канала и&nbsp;сторис</li></ul>
+        <ul><li>Всё из&nbsp;сопровождения</li><li>Кастдевы провожу я</li><li>MVP и&nbsp;предпродажи под&nbsp;ключ</li><li>Воронку собираю и&nbsp;тестирую я</li></ul>
         <p class="tariff-note">Вы&nbsp;в&nbsp;кадре, система на&nbsp;мне.</p>
       </div>
     </div>
-    <p class="price-note reveal reveal-delay-2">Сопровождение и&nbsp;личная работа&nbsp;— помесячно, от&nbsp;трёх месяцев, 100% предоплата до&nbsp;старта каждого месяца. Все материалы остаются у&nbsp;Вас&nbsp;навсегда.</p>
+    <p class="price-note reveal reveal-delay-2">Точный формат и&nbsp;стоимость определяем после аудита. Сопровождение и&nbsp;личная работа&nbsp;— помесячно, от&nbsp;трёх месяцев, 100% предоплата до&nbsp;старта каждого месяца. Все материалы остаются у&nbsp;Вас&nbsp;навсегда.</p>
   </div>
 </section>
 
@@ -2412,7 +2442,7 @@
     <div class="guarantee reveal">
       <div class="guarantee-label">Гарантия · Объём работ</div>
       <h3>Объём фиксируется письменно</h3>
-      <p>До старта мы&nbsp;фиксируем, что&nbsp;входит в&nbsp;выбранный формат: сессии, созвоны, разборы, документы, этапы сборки воронки и&nbsp;клуба. Если объём <strong>не&nbsp;выполнен по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>50% стоимости месяца</strong>.</p>
+      <p>До старта фиксируем, что&nbsp;входит в&nbsp;выбранный формат: этапы, созвоны, разборы, документы. Если объём <strong>не&nbsp;выполнен по&nbsp;моей вине</strong>&nbsp;— возвращаю <strong>50% стоимости месяца</strong>.</p>
     </div>
   </div>
 </section>
@@ -2423,7 +2453,7 @@
       <span class="eyebrow">Финал</span>
       <div class="contact-author">Малик <span class="accent">·</span> продюсер женских блогов <span class="accent">·</span> Сентябрь 2026</div>
       <div style="margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Telegram · @mhashimov_23</a>
+        <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:13px 26px;border-radius:30px;text-decoration:none">Записаться на&nbsp;аудит · @mhashimov_23</a>
         <a href="https://hasimovmalik90-oss.github.io/Site-/karolina/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--ink);border:1px solid var(--line);padding:13px 26px;border-radius:30px;text-decoration:none">Кейс Каролины</a>
       </div>
     </div>
