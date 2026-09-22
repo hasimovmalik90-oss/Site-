@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каролина Читанава&nbsp;— план запуска</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1080px;
+
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; hyphens: none; -webkit-hyphens: none; word-break: normal; overflow-wrap: normal; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ambient {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 40% at 50% 0%, var(--gold-glow-faint), transparent 70%),
+      radial-gradient(ellipse 50% 30% at 50% 100%, rgba(255, 184, 77, 0.03), transparent 70%);
+  }
+
+  h1, h2, h3, h4 { color: var(--ink-bright); line-height: 1.05; letter-spacing: -0.025em; text-wrap: balance; }
+
+  h2 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    line-height: 0.98;
+  }
+
+  h2 em {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+
+  h3 { font-family: var(--sans); font-size: 24px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 14px; }
+  h4 { font-family: var(--sans); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+
+  p { margin-bottom: 18px; color: var(--text); text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+  a { color: var(--gold-bright); text-decoration: none; transition: all 0.3s var(--ease); }
+  a:hover { color: var(--gold); text-shadow: 0 0 20px var(--gold-glow); }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 26px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  .section-header { text-align: center; margin-bottom: 80px; }
+  .section-header p { color: var(--muted); max-width: 620px; margin: 0 auto; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+
+  /* HERO */
+  .hero { padding: 120px 0 90px; text-align: center; position: relative; background: var(--bg-deep); }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--gold-glow-soft), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-meta {
+    display: flex; justify-content: center; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .hero-meta .accent { color: var(--gold); }
+  .hero-meta .sep { width: 24px; height: 1px; background: var(--dim); display: inline-block; }
+
+  .hero-name {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 60;
+    font-size: clamp(46px, 9vw, 96px);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    color: var(--ink-bright);
+    margin-bottom: 20px;
+  }
+  .hero-name em {
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 40px var(--gold-glow);
+  }
+
+  .hero-sub {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 56px;
+  }
+
+  .hero-kpi {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+  }
+  .hero-kpi-cell { background: var(--bg); padding: 26px 14px; transition: background 0.4s var(--ease); }
+  .hero-kpi-cell:hover { background: var(--bg-1); }
+  .hero-kpi-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: clamp(30px, 4vw, 44px); line-height: 1; color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow-soft); margin-bottom: 10px;
+  }
+  .hero-kpi-label {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* INTRO */
+  .intro { padding: 120px 0; text-align: center; position: relative; }
+  .intro::before {
+    content: '';
+    position: absolute; top: 56px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+  .intro p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55; color: var(--text);
+    max-width: 700px; margin: 0 auto 22px; text-wrap: balance;
+  }
+  .intro p strong {
+    color: var(--gold-bright); font-style: normal;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  section { padding: 120px 0; position: relative; }
+  .section-bg-deep { background: var(--bg-deep); }
+
+  /* STAGES */
+  .block { margin-bottom: 84px; position: relative; padding-left: 96px; }
+  .block:last-child { margin-bottom: 0; }
+
+  .block-num {
+    position: absolute; left: 0; top: -6px;
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 64px; line-height: 1; color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+  .block-num::after {
+    content: ''; display: block; width: 40px; height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-top: 14px; box-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+
+  .block h3 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50;
+    font-size: 30px; letter-spacing: -0.025em; margin-bottom: 6px;
+  }
+
+  .block .when {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+  }
+
+  .block .out {
+    margin-top: 24px; padding: 18px 26px;
+    background: var(--bg-card);
+    border: 1px solid var(--line); border-left: 2px solid var(--gold);
+    border-radius: 0 4px 4px 0; font-size: 15px;
+    box-shadow: -8px 0 32px rgba(255, 184, 77, 0.04);
+  }
+  .block .out strong { color: var(--gold); font-weight: 500; text-shadow: 0 0 10px var(--gold-glow-soft); }
+
+  .formats { margin: 20px 0 0; border-top: 1px solid var(--line); }
+  .format {
+    padding: 18px 0; border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 24px; align-items: start;
+  }
+  .format-name { color: var(--ink-bright); font-weight: 400; font-size: 15px; }
+  .format-name span {
+    display: block; font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 6px;
+  }
+  .format p { font-size: 15px; margin: 0; }
+
+  /* LISTS */
+  ul.refined { list-style: none; padding: 0; margin: 0; }
+  ul.refined li {
+    padding: 18px 0 18px 46px; position: relative;
+    border-bottom: 1px solid var(--line); color: var(--text); font-size: 15.5px;
+  }
+  ul.refined li:last-child { border-bottom: none; }
+  ul.refined li .n {
+    position: absolute; left: 0; top: 18px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold);
+  }
+  ul.refined li strong { color: var(--ink-bright); font-weight: 500; }
+
+  .terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .term { background: var(--bg); padding: 26px 28px; }
+  .term h4 { color: var(--gold); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; font-weight: 400; }
+  .term p { font-size: 15px; margin: 0; }
+
+  .money {
+    text-align: center; padding: 48px 32px; margin-bottom: 48px;
+    background: var(--bg-card); border: 1px solid var(--line-bright); border-radius: 4px;
+  }
+  .money .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .money .value {
+    font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80;
+    font-size: clamp(42px, 7vw, 68px); line-height: 1; color: var(--gold-bright);
+    text-shadow: 0 0 40px var(--gold-glow); margin-bottom: 18px;
+  }
+  .money p { color: var(--text); max-width: 520px; margin: 0 auto; font-size: 15px; }
+
+  .next {
+    text-align: center; max-width: 640px; margin: 0 auto;
+    font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic; font-size: 20px; line-height: 1.55; color: var(--text);
+  }
+  .next strong { color: var(--gold-bright); font-style: normal; font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80; }
+
+  footer { padding: 90px 0 110px; text-align: center; background: var(--bg-deep); border-top: 1px solid var(--line); }
+  footer .sig {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: 26px; color: var(--ink-bright); margin-bottom: 14px;
+  }
+  footer .meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  footer .meta a { color: var(--gold); }
+
+  @media (max-width: 820px) {
+    .container, .container-wide { padding: 0 16px; }
+    section, .intro { padding: 76px 0; }
+    .hero { padding: 80px 0 64px; }
+    .hero-meta { flex-direction: column; gap: 8px; margin-bottom: 36px; }
+    .hero-meta .sep { display: none; }
+    .hero-sub { margin-bottom: 40px; }
+    .hero-kpi { grid-template-columns: repeat(2, 1fr); }
+    .section-header { margin-bottom: 56px; }
+    .block { padding-left: 0; margin-bottom: 64px; }
+    .block-num { position: static; font-size: 48px; margin-bottom: 12px; }
+    .block-num::after { margin-top: 10px; }
+    .format { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .terms { grid-template-columns: minmax(0, 1fr); }
+    .money { padding: 36px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header class="hero">
+  <div class="container-wide">
+    <div class="hero-meta">
+      <span>Каролина Читанава</span>
+      <span class="sep"></span>
+      <span class="accent">План запуска</span>
+      <span class="sep"></span>
+      <span>22 сентября 2026</span>
+    </div>
+
+    <div class="hero-name reveal">План&nbsp;<em>запуска</em></div>
+    <div class="hero-sub reveal reveal-delay-1">От разговора с&nbsp;аудиторией до&nbsp;готового продукта</div>
+
+    <div class="hero-kpi reveal reveal-delay-2">
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">5</div>
+        <div class="hero-kpi-label">этапов</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">3</div>
+        <div class="hero-kpi-label">формата опроса</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">2</div>
+        <div class="hero-kpi-label">круга созвонов</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">5</div>
+        <div class="hero-kpi-label">недель</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="container">
+    <p class="reveal">Продукт не&nbsp;придумываем заранее. Сначала разговариваем с&nbsp;аудиторией, потом считаем, что она сказала, и&nbsp;только после этого собираем то, за&nbsp;что люди готовы платить.</p>
+    <p class="reveal reveal-delay-1">Всё, что можно сделать руками, делаем руками. <strong>Ни ботов, ни рассылок, ни воронок</strong> на&nbsp;первом запуске не&nbsp;заводим: это лишний вес, который только запутывает.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Этапы</span>
+      <h2>Как мы <em>идём</em></h2>
+      <p>Пять этапов. Каждый заканчивается конкретным результатом: он либо есть, либо следующий этап не&nbsp;начинается.</p>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-num">01</div>
+      <h3>Разговор с&nbsp;аудиторией</h3>
+      <div class="when">Недели 1–2</div>
+      <p>Три формата, один за&nbsp;другим. Каждый показывает своё: один&nbsp;— масштаб, другой&nbsp;— структуру, третий&nbsp;— живые слова.</p>
+
+      <div class="formats">
+        <div class="format">
+          <div class="format-name">Опрос в&nbsp;сторис<span>массовый срез</span></div>
+          <p>Короткие вопросы с&nbsp;вариантами ответа. Собираем большие числа: кто эти женщины, чем заняты, что у&nbsp;них болит, чего хотят.</p>
+        </div>
+        <div class="format">
+          <div class="format-name">Анкета<span>структура</span></div>
+          <p>Ссылка в&nbsp;сторис и&nbsp;в&nbsp;шапке профиля: возраст, город, занятость, доход диапазоном, что нравится в&nbsp;блоге, чего не&nbsp;хватает, что хотели&nbsp;бы получить.</p>
+        </div>
+        <div class="format">
+          <div class="format-name">Созвоны<span>глубина</span></div>
+          <p>5–10 разговоров по&nbsp;30–45 минут, с&nbsp;записью. Проводите&nbsp;Вы: с&nbsp;Вами Ваши покупательницы говорят открыто. Расшифровка и&nbsp;обработка&nbsp;— на&nbsp;мне.</p>
+        </div>
+      </div>
+
+      <div class="out"><strong>На выходе:</strong> ответы аудитории в&nbsp;трёх срезах&nbsp;— массовом, структурном и&nbsp;глубинном.</div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-num">02</div>
+      <h3>Аналитика</h3>
+      <div class="when">Недели 2–3</div>
+      <p>Всё сводим в&nbsp;одну таблицу: боли, доходы, желания, запросы, сложности, за&nbsp;что Вас ценят. Дальше ищем взаимосвязи&nbsp;— где одна и&nbsp;та&nbsp;же боль совпадает с&nbsp;одним и&nbsp;тем&nbsp;же желанием и&nbsp;с&nbsp;возможностью платить. Работаем прямыми цитатами, не&nbsp;пересказом: так видно, что люди говорят на&nbsp;самом деле.</p>
+      <div class="out"><strong>На выходе:</strong> портреты аудитории с&nbsp;цитатами и&nbsp;ответ, какой продукт для неё самый актуальный прямо сейчас.</div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-num">03</div>
+      <h3>Гипотезы продукта</h3>
+      <div class="when">Неделя 3</div>
+      <p>Две-три гипотезы: формат, что внутри, сколько длится, какая цена. Одну на&nbsp;свой вкус не&nbsp;выбираем&nbsp;— выносим все на&nbsp;проверку к&nbsp;людям.</p>
+      <div class="out"><strong>На выходе:</strong> гипотезы, готовые к&nbsp;разговору с&nbsp;аудиторией.</div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-num">04</div>
+      <h3>Второй круг созвонов&nbsp;— по&nbsp;продукту</h3>
+      <div class="when">Недели 3–4</div>
+      <p>5–15 разговоров с&nbsp;самыми заинтересованными. Здесь речь уже не&nbsp;о&nbsp;жизни, а&nbsp;о&nbsp;продукте: что откликается из&nbsp;гипотез, чего не&nbsp;хватает, сколько готовы заплатить, каким способом удобно платить, что останавливает от&nbsp;покупки.</p>
+      <div class="out"><strong>На выходе:</strong> формат с&nbsp;наибольшим откликом, цена, удобные способы оплаты и&nbsp;снятые возражения&nbsp;— всё в&nbsp;цифрах, а&nbsp;не&nbsp;в&nbsp;ощущениях.</div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-num">05</div>
+      <h3>Сборка продукта</h3>
+      <div class="when">Недели 4–5</div>
+      <p>Только теперь решаем, как это делать: что внутри, сколько длится, что человек получает на&nbsp;руки, как принимаем оплату. Один продукт, одна цена&nbsp;— без тарифов, потоков и&nbsp;дополнительных линеек. На&nbsp;первом запуске развилки только мешают.</p>
+      <div class="out"><strong>На выходе:</strong> собранный продукт и&nbsp;распределение работы: кто собирает, кто ведёт, кто отвечает людям.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-bg-deep">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Условия</span>
+      <h2>На чём <em>держится</em></h2>
+      <p>Это не&nbsp;формальности, а&nbsp;то, без чего запуск ломается. Каждый пункт стоит здесь из-за конкретных ошибок, которые я&nbsp;видел у&nbsp;других.</p>
+    </div>
+
+    <ul class="refined reveal">
+      <li><span class="n">01</span>Работаем по&nbsp;согласованным этапам. Этап не&nbsp;закрыт&nbsp;— следующий не&nbsp;начинаем.</li>
+      <li><span class="n">02</span>Продукт и&nbsp;цена берутся из&nbsp;ответов аудитории, а&nbsp;не&nbsp;из&nbsp;предположений. <strong>«Мне кажется»</strong> решением не&nbsp;является&nbsp;— ни&nbsp;с&nbsp;Вашей стороны, ни&nbsp;с&nbsp;моей.</li>
+      <li><span class="n">03</span>Два круга разговоров обязательны: первый&nbsp;— про аудиторию, второй&nbsp;— про продукт. Второй не&nbsp;пропускаем, даже если после первого всё кажется понятным.</li>
+      <li><span class="n">04</span>К следующему шагу переходим, когда интерес подтверждён живыми людьми, а&nbsp;не&nbsp;общим ощущением, что тема хорошая.</li>
+      <li><span class="n">05</span>Бесплатно не&nbsp;отдаём то, что собираемся продавать.</li>
+      <li><span class="n">06</span>Созвоны проводите&nbsp;Вы. Расшифровка, сведение и&nbsp;аналитика&nbsp;— на&nbsp;мне.</li>
+      <li><span class="n">07</span>Реклама и&nbsp;интеграции не&nbsp;останавливаются. Запуск не&nbsp;должен съесть текущий доход.</li>
+      <li><span class="n">08</span>Съёмки и&nbsp;выкладки идут по&nbsp;графику. Сорванная съёмка двигает не&nbsp;один пункт, а&nbsp;весь запуск.</li>
+      <li><span class="n">09</span>Спорное решаем до&nbsp;выкладки, а&nbsp;не&nbsp;после.</li>
+      <li><span class="n">10</span>Ничего не&nbsp;усложняем: ни&nbsp;ботов, ни&nbsp;тарифов, ни&nbsp;нескольких продуктов сразу.</li>
+      <li><span class="n">11</span>Если в&nbsp;середине пути принимается решение делать по-своему вопреки согласованному&nbsp;— работу останавливаем.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Договорённости</span>
+      <h2>Деньги и&nbsp;<em>правила</em></h2>
+    </div>
+
+    <div class="money reveal">
+      <div class="label">Доля с&nbsp;запуска</div>
+      <div class="value">50 / 50</div>
+      <p>От суммы оплат за&nbsp;вычетом комиссий за&nbsp;приём платежей и&nbsp;возвратов.</p>
+    </div>
+
+    <div class="terms reveal reveal-delay-1">
+      <div class="term">
+        <h4>Расчёт</h4>
+        <p>После завершения продаж. Возвраты вычитаются из&nbsp;суммы, которую делим.</p>
+      </div>
+      <div class="term">
+        <h4>Прозрачность</h4>
+        <p>Таблица оплат и&nbsp;список участников открыты нам обоим на&nbsp;всём протяжении работы.</p>
+      </div>
+      <div class="term">
+        <h4>Контакты аудитории</h4>
+        <p>Всё, что собрали за&nbsp;время работы,&nbsp;— общий актив проекта.</p>
+      </div>
+      <div class="term">
+        <h4>Форс-мажор</h4>
+        <p>Болезнь или срыв сроков двигает даты по&nbsp;согласованию, но&nbsp;не&nbsp;отменяет обязательств.</p>
+      </div>
+      <div class="term">
+        <h4>Выход из&nbsp;работы</h4>
+        <p>Предупреждение за&nbsp;две недели. Начатый запуск доводим до&nbsp;конца.</p>
+      </div>
+      <div class="term">
+        <h4>Правки</h4>
+        <p>Меняем план письменно и&nbsp;до&nbsp;начала этапа, а&nbsp;не&nbsp;в&nbsp;процессе.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-bg-deep">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Старт</span>
+      <h2>Что нужно <em>от&nbsp;Вас</em></h2>
+      <p>Четыре вещи, без которых первый этап не&nbsp;запускается.</p>
+    </div>
+
+    <ul class="refined reveal">
+      <li><span class="n">01</span><strong>Доступ к&nbsp;статистике</strong> профиля&nbsp;— чтобы видеть, кто сейчас в&nbsp;блоге.</li>
+      <li><span class="n">02</span><strong>8–10 контактов покупательниц</strong> для созвонов. Разные коллекции, разные суммы покупок.</li>
+      <li><span class="n">03</span><strong>Два окна по&nbsp;60–90 минут</strong> на&nbsp;разговор со&nbsp;мной: зафиксировать Ваши смыслы и&nbsp;границы.</li>
+      <li><span class="n">04</span><strong>Съёмочный день в&nbsp;графике</strong>&nbsp;— чтобы контент под запуск не&nbsp;делался в&nbsp;последний момент.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Дальше</span>
+      <h2>После пятого <em>этапа</em></h2>
+    </div>
+    <p class="next reveal">Когда продукт собран, садимся отдельно и&nbsp;раскладываем, как выводим его к&nbsp;людям: как заранее знакомим аудиторию с&nbsp;темой и&nbsp;кому предлагаем первыми. <strong>Это отдельный разговор</strong>&nbsp;— и&nbsp;он имеет смысл только тогда, когда пять этапов пройдены.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="sig">Малик Хашимов</div>
+    <div class="meta">Сентябрь 2026 · <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">@mhashimov_23</a></div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
