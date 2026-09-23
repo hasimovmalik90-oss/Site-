@@ -1,0 +1,517 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>План работы · Катя Крестовская</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;overflow-wrap:break-word;
+background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px} .narrow{max-width:860px;margin-left:auto;margin-right:auto}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(40px,8vw,74px);letter-spacing:.05em}
+h2{font-size:clamp(27px,4.4vw,44px);margin-bottom:8px}
+h3{font-size:clamp(20px,3vw,26px)} h4{font-size:18px;font-weight:400;color:#F2EEE8}
+p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
+strong{color:#F4F0EA;font-weight:600}
+a{color:var(--accent);text-decoration:none}
+.mute{color:var(--mute)}
+section,section.wrap{padding-top:84px;padding-bottom:84px;border-top:1px solid var(--line)}
+.section-head{margin-bottom:40px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px}
+.part-label{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8;display:block;margin-bottom:6px}
+.hero{text-align:center;padding:96px 0 64px;border:none}
+.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.hero h1{text-transform:uppercase;letter-spacing:.09em}
+.hero .pos{max-width:640px;margin:22px auto 0;color:var(--mute);font-size:15px}
+.hdiv{width:56px;height:1px;background:var(--accent);opacity:.5;margin:32px auto 0}
+.toc{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:30px}
+.toc a{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:30px;padding:8px 15px;transition:.16s}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+.btn{display:inline-block;margin-top:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(201,183,155,.4);border-radius:30px;padding:10px 20px;transition:.16s}
+.btn:hover{background:rgba(201,183,155,.1)}
+.lead{font-size:clamp(16px,2vw,18px);color:#E8E4DE;max-width:820px}
+.log{margin-top:6px;margin-bottom:14px}
+.logrow{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.logrow:last-child{border-bottom:none}
+.logrow .d{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--accent);letter-spacing:.05em}
+.logrow .t{font-size:14.5px}
+.logrow .t b{color:#F4F0EA;font-weight:600;display:block;margin-bottom:3px}
+.tbl{width:100%;border-collapse:collapse;margin:32px 0 20px;font-size:14.5px}
+.tbl td{padding:14px 6px;border-bottom:1px solid var(--line)}
+.tbl td:last-child{text-align:right;color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:19px}
+.tbl tr:last-child td{border-bottom:none}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+.layer{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.layer .n{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:8px}
+.layer h4{margin-bottom:8px}
+.layer p{color:var(--mute);font-size:14px}
+.stage{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-top:22px}
+.stage .head{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline;margin-bottom:12px}
+.stage .n{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--accent)}
+.stage .what{font-size:14.8px;margin-bottom:14px}
+.stage .gives{border-top:1px solid var(--line);padding-top:13px;font-size:14.2px;color:var(--mute)}
+.stage .gives b{color:var(--accent);font-weight:600;display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:20px;margin-top:28px}
+.col{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+.col h4{margin-bottom:12px;color:var(--accent)}
+.col ul{list-style:none} .col li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14.2px} .col li:last-child{border-bottom:none}
+.col.off h4{color:var(--mute)}
+.pil8{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:22px}
+.p8{background:var(--soft);padding:18px 20px}
+.p8 .n{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;color:var(--accent);display:block;margin-bottom:5px}
+.p8 .nm{color:#F4F0EA;font-size:15px;margin-bottom:4px}
+.p8 .ds{color:var(--mute);font-size:13.2px}
+.rule{background:var(--soft);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:12px;padding:22px 24px;margin-top:22px}
+.rule h4{margin-bottom:8px}
+.rule p{font-size:14.5px;color:var(--text)} .rule p+p{margin-top:8px}
+.note{max-width:860px;margin:36px auto 0;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.22);border-radius:14px;padding:22px 24px;font-size:14.5px}
+.price{max-width:640px;margin:34px auto 10px;background:linear-gradient(160deg,rgba(201,183,155,.08),rgba(201,183,155,.02));border:1px solid rgba(201,183,155,.28);border-radius:16px;padding:32px;text-align:center}
+.price .old{color:var(--mute);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.price .val{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,60px);color:var(--accent);line-height:1;margin:12px 0 8px}
+.price .sub{color:var(--mute);font-size:14px}
+.qa{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-top:20px}
+.qa h4{margin-bottom:10px;font-size:19px}
+.qa p{font-size:14.5px;color:var(--mute)}
+.fin{text-align:center;padding:72px 0 96px;border-top:1px solid var(--line)}
+.fin .big{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);color:#F4F0EA;max-width:740px;margin:0 auto;line-height:1.2}
+.fin .sign{margin-top:26px;color:var(--mute);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+/* снимок профиля */
+.ps-headcard{display:flex;gap:22px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:24px}
+.ps-ava{width:92px;height:92px;border-radius:50%;object-fit:cover;flex:none;border:1px solid rgba(201,183,155,.35)}
+.ps-name{font-family:'Cormorant Garamond',serif;font-size:26px;color:#F4F0EA;line-height:1.1}
+.ps-handle{color:var(--accent);font-size:14px;margin:2px 0 6px;display:inline-block}
+.ps-cat{color:var(--dim);font-size:12.5px}
+.ps-bio{color:var(--text);font-size:14.5px;margin-top:4px}
+.ps-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:20px}
+.ps-metric{background:var(--soft);padding:16px;text-align:center}
+.ps-metric .v{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);line-height:1}
+.ps-metric .l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.ps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.ps-thumb{position:relative;display:block;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.ps-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:.2s}
+.ps-thumb:hover img{opacity:1}
+.ps-pill{position:absolute;left:8px;bottom:8px;background:rgba(11,11,12,.78);color:#F4F0EA;font-size:11.5px;border-radius:20px;padding:3px 9px}
+.ps-type{position:absolute;right:8px;top:8px;background:rgba(11,11,12,.7);color:var(--accent);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 8px}
+@media(max-width:720px){
+  .wrap{padding:0 18px}
+  .logrow{grid-template-columns:1fr;gap:6px}
+  section,section.wrap{padding-top:64px;padding-bottom:64px}
+  .stage,.col,.layer,.qa,.rule{padding:20px}
+  .ps-headcard{padding:18px;gap:16px}
+  .ps-ava{width:70px;height:70px}
+  .ps-grid{grid-template-columns:repeat(2,1fr)}
+  .ps-metric{padding:14px 6px}
+  .ps-metric .v{font-size:24px}
+  .ps-metric .l{font-size:10px;letter-spacing:.06em}
+}
+</style></head><body>
+
+<header class="hero wrap">
+  <div class="top">Сентябрь 2026</div>
+  <div class="fio">Катя Крестовская · @kkrestovskaya</div>
+  <h1>План работы</h1>
+  <p class="pos">Что входит в работу, как мы начинаем, как проходит каждый месяц, чем он заканчивается и на каких условиях мы работаем.</p>
+  <div class="hdiv"></div>
+  <nav class="toc">
+    <a href="#tochka">Точка отсчёта</a>
+    <a href="#rabota">Что считается работой</a>
+    <a href="#etapy">Этапы</a>
+    <a href="#sostav">Состав работ</a>
+    <a href="#start">Как начинаем</a>
+    <a href="#poryadok">Порядок</a>
+    <a href="#itogi">Чем заканчиваем</a>
+    <a href="#usloviya">Условия</a>
+    <a href="#voprosy">Вопросы</a>
+  </nav>
+</header>
+
+<section id="tochka" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 01</span>
+    <h2>Точка отсчёта</h2>
+    <p>Профиль на 23 сентября 2026. От этих цифр считаем результат работы.</p>
+  </div>
+
+  <div class="narrow">
+    <div class="ps-headcard">
+      <img class="ps-ava" src="assets/avatar.jpg" alt="Катя Крестовская">
+      <div>
+        <div class="ps-name">Катя Крестовская</div>
+        <a class="ps-handle" href="https://www.instagram.com/kkrestovskaya/" target="_blank" rel="noopener">@kkrestovskaya</a>
+        <div class="ps-cat">Автор цифрового контента</div>
+        <div class="ps-bio">Москва · Юмор | lifestyle</div>
+      </div>
+    </div>
+    <div class="ps-metrics">
+      <div class="ps-metric"><div class="v">2 395</div><div class="l">подписчиков</div></div>
+      <div class="ps-metric"><div class="v">8</div><div class="l">публикаций</div></div>
+      <div class="ps-metric"><div class="v">131</div><div class="l">подписка</div></div>
+    </div>
+    <div class="ps-grid">
+      <a class="ps-thumb" href="https://www.instagram.com/p/Dc4cWbPDfBI/" target="_blank" rel="noopener"><img src="assets/Dc4cWbPDfBI.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 159</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DYFTFvKDRGU/" target="_blank" rel="noopener"><img src="assets/DYFTFvKDRGU.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 3</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DXcoteojba0/" target="_blank" rel="noopener"><img src="assets/DXcoteojba0.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 3</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DXZr5NUDdDh/" target="_blank" rel="noopener"><img src="assets/DXZr5NUDdDh.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 204</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWMfiEcDRm2/" target="_blank" rel="noopener"><img src="assets/DWMfiEcDRm2.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 4 309</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWJ2rxejb2Q/" target="_blank" rel="noopener"><img src="assets/DWJ2rxejb2Q.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 49 211</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWA_OinjRvO/" target="_blank" rel="noopener"><img src="assets/DWA_OinjRvO.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 96 388</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DVjEm6TDREF/" target="_blank" rel="noopener"><img src="assets/DVjEm6TDREF.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 10 218</span></a>
+    </div>
+
+    <table class="tbl">
+      <tr><td>Рилсов в ленте</td><td>4, все за март 2026</td></tr>
+      <tr><td>Самый просматриваемый рилс</td><td>96 388</td></tr>
+      <tr><td>После марта</td><td>только карусели</td></tr>
+      <tr><td>Последняя публикация</td><td>5 сентября</td></tr>
+      <tr><td>Альбомов актуальных</td><td>6</td></tr>
+      <tr><td>Ссылка в шапке</td><td>нет</td></tr>
+    </table>
+    <p class="mute" style="font-size:14px">В день старта дополнительно фиксируем статистику из Вашего кабинета за последние 90 дней: охваты, просмотры, прирост, аудиторию. Это точка отсчёта, с которой сравниваем каждый месяц.</p>
+  </div>
+</section>
+
+<section id="rabota" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 02</span>
+    <h2>Что считается работой</h2>
+  </div>
+
+  <div class="narrow">
+    <p class="lead"><strong>Ролик — конечная точка, а не вся работа.</strong> За каждым выпущенным роликом стоит то, что не видно в ленте: разбор блога и цифр, распаковка, стратегия, поиск формата, съёмка, монтаж, обложка, подпись, выбор момента публикации, разбор результата.</p>
+
+    <div class="layers">
+      <div class="layer"><span class="n">Слой 01</span><h4>Подготовка</h4><p>Стратегия, распаковка и её разбор, позиционирование, форматы, темы, планирование съёмок. Происходит до того, как включена камера.</p></div>
+      <div class="layer"><span class="n">Слой 02</span><h4>Сопровождение</h4><p>Ответы на вопросы, решения по текущим ситуациям, разбор Ваших идей, реакция на то, что происходит в блоге. Каждый день в рабочем чате.</p></div>
+      <div class="layer"><span class="n">Слой 03</span><h4>Реализация</h4><p>Съёмка, монтаж, оформление, выпуск, разбор результата и корректировка следующего шага.</p></div>
+    </div>
+
+    <div class="note"><strong>Работа не измеряется количеством роликов.</strong> Месяц, в котором собран фундамент — распаковка, позиционирование, упаковка, форматы, первые тесты, — это полный объём работы, даже если роликов вышло немного. Ролики без фундамента дают просмотры, но не дают подписок.</div>
+  </div>
+</section>
+
+<section id="etapy" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 03</span>
+    <h2>Этапы работы</h2>
+    <p>Каждый этап — слой, без которого следующий не работает. Идём по порядку.</p>
+  </div>
+
+  <div class="narrow">
+    <div class="stage">
+      <div class="head"><span class="n">01</span><h4>Распаковка личности</h4></div>
+      <div class="what">Вопросы по темам, ответы голосовыми в рабочем чате в удобном Вам темпе. Я расшифровываю, разбираю и собираю банк Ваших формулировок, историй, шуток и тем.</div>
+      <div class="gives"><b>Что даёт</b>Свой узнаваемый голос и материал на месяцы контента вперёд. Без распаковки блог собирается на догадках и звучит как у всех.</div>
+    </div>
+
+    <div class="stage">
+      <div class="head"><span class="n">02</span><h4>Анализ блога и аудитории</h4></div>
+      <div class="what">Кто подписан, на что реагируют, что заходило и что нет. Почему мартовские рилсы собрали 96 и 49 тысяч просмотров и что из этого можно повторить.</div>
+      <div class="gives"><b>Что даёт</b>Точку отсчёта в цифрах и понимание, из чего строим.</div>
+    </div>
+
+    <div class="stage">
+      <div class="head"><span class="n">03</span><h4>Позиционирование и упаковка профиля</h4></div>
+      <div class="what">Из ответов распаковки собирается ось блога. Дальше — имя профиля, шапка, закреп, структура актуальных, ссылка в шапке.</div>
+      <div class="gives"><b>Что даёт</b>Человек, попавший на профиль после ролика, за несколько секунд понимает, кто Вы и зачем подписываться.</div>
+    </div>
+
+    <div class="stage">
+      <div class="head"><span class="n">04</span><h4>Карта форматов и темы</h4></div>
+      <div class="what">10–15 форматов на пересечении трёх вещей: что Вам близко, что Вам интересно снимать и что работает в Instagram сейчас. Под форматы — темы на месяц вперёд.</div>
+      <div class="gives"><b>Что даёт</b>Съёмки идут по списку, а не по принципу «снимем что-нибудь и посмотрим».</div>
+    </div>
+
+    <div class="stage">
+      <div class="head"><span class="n">05</span><h4>Съёмки и тест форматов</h4></div>
+      <div class="what">Съёмочные дни и работа с Вами в кадре. Смотрим, что заходит аудитории и что откликается Вам.</div>
+      <div class="gives"><b>Что даёт</b>2–3 главных формата с повторяемым результатом вместо разовых попаданий.</div>
+    </div>
+
+    <div class="stage">
+      <div class="head"><span class="n">06</span><h4>Ритм и банк контента</h4></div>
+      <div class="what">Съёмка раз в одну-две недели. Когда темы готовы, за съёмочный день собирается материал на 7–10 роликов. Со второй-третьей недели, если все этапы пройдены вовремя и в нужном объёме, выходим на 1–2 ролика в день.</div>
+      <div class="gives"><b>Что даёт</b>Контент выходит постоянно, при этом Вы не снимаете каждый день.</div>
+    </div>
+
+
+    <div class="stage">
+      <div class="head"><span class="n">07</span><h4>Серии вместо разовых попаданий</h4></div>
+      <div class="what">Формат сработал — повторяем в новой подаче, пока алгоритм его показывает. Не один удачный ролик, а серия.</div>
+      <div class="gives"><b>Что даёт</b>Основную массу подписчиков собирает серия, а не отдельный ролик.</div>
+    </div>
+  </div>
+
+  <div class="narrow" style="margin-top:38px">
+    <h4 style="margin-bottom:6px">Из чего складывается раскрытие личности</h4>
+    <p class="mute" style="font-size:14.2px">Восемь сторон, которые закрывает контент. Под каждую подбираются темы из распаковки и событие, внутри которого она показывается.</p>
+    <div class="pil8">
+      <div class="p8"><span class="n">01</span><div class="nm">Характер</div><div class="ds">как шутите, как реагируете, какая Вы в моменте</div></div>
+      <div class="p8"><span class="n">02</span><div class="nm">Люди</div><div class="ds">какая Вы с подругами, семьёй, мужчинами</div></div>
+      <div class="p8"><span class="n">03</span><div class="nm">Ценности</div><div class="ds">что важно, во что верите, чего не допускаете</div></div>
+      <div class="p8"><span class="n">04</span><div class="nm">Путь</div><div class="ds">что прошли, что решили, как изменились</div></div>
+      <div class="p8"><span class="n">05</span><div class="nm">Принципы</div><div class="ds">взгляды на работу, отношения, деньги</div></div>
+      <div class="p8"><span class="n">06</span><div class="nm">Тело</div><div class="ds">спорт, еда, внешность, уход за собой</div></div>
+      <div class="p8"><span class="n">07</span><div class="nm">Места</div><div class="ds">Москва, Петербург, рестораны, поездки</div></div>
+      <div class="p8"><span class="n">08</span><div class="nm">Быт</div><div class="ds">дом, распорядок, стиль, вещи вокруг</div></div>
+    </div>
+    <div class="note">Правило простое: у каждого ролика есть сторона, которую он раскрывает, и событие, внутри которого это происходит. Сторона без события превращается в рассуждение на камеру. Событие без стороны даёт просмотры и не даёт подписок.</div>
+  </div>
+</section>
+
+<section id="sostav" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 04</span>
+    <h2>Состав работ</h2>
+  </div>
+
+  <div class="narrow">
+    <div class="split">
+      <div class="col">
+        <h4>Стратегия и смыслы</h4>
+        <ul>
+          <li>Стратегия блога и дорожная карта</li>
+          <li>Разбор распаковки, банк историй и тем</li>
+          <li>Позиционирование и образ</li>
+          <li>Карта форматов</li>
+          <li>Темы, заголовки, подписи, тексты закадра</li>
+          <li>Разбор результатов и корректировка курса</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Продакшн</h4>
+        <ul>
+          <li>Съёмка: камера, свет, стабилизатор</li>
+          <li>Работа с Вами в кадре</li>
+          <li>Монтаж, темп, звук, музыка</li>
+          <li>Титры, обложки, оформление</li>
+          <li>Экспорт под платформу и контроль качества</li>
+          <li>Упаковка профиля: шапка, аватар, актуальные, закреп</li>
+          <li>Выгрузка и обработка статистики</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Организация</h4>
+        <ul>
+          <li>Согласование материала</li>
+          <li>Порядок и план публикаций</li>
+          <li>Рабочий чат, связь в течение дня</li>
+          <li>Созвон раз в неделю</li>
+          <li>Отчёт в конце каждого месяца</li>
+          <li>Хранение и архив всего материала</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="col">
+        <h4>Продакшн в цифрах</h4>
+        <ul>
+          <li>Съёмочный день раз в 1–2 недели</li>
+          <li>Длительность съёмочного дня — 3–4 часа</li>
+          <li>7–10 роликов с дня при готовых темах</li>
+          <li>Со второй-третьей недели — 1–2 ролика в день при выполнении всех этапов вовремя и в нужном объёме</li>
+          <li>Материал из Ваших поездок и текущей жизни тоже идёт в дело</li>
+        </ul>
+      </div>
+      <div class="col off">
+        <h4>Не входит в работу</h4>
+        <ul>
+          <li>Рекламный бюджет: таргет, покупка рекламы у блогеров</li>
+          <li>Аренда локаций, реквизит, визажист, стилист, транспорт</li>
+          <li>Съёмки и ролики сверх согласованного графика</li>
+          <li>Переписка в директе и комментариях от Вашего имени</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 05</span>
+    <h2>Как начинаем</h2>
+    <p>Первый месяц — по шагам.</p>
+  </div>
+
+  <div class="narrow log">
+    <div class="logrow"><div class="d">Шаг 0</div><div class="t"><b>Согласование плана и оплата</b>Вы читаете этот план и подтверждаете в чате, что согласны с составом работ и условиями. После этого — оплата первого месяца. Месяц считается с даты оплаты.</div></div>
+    <div class="logrow"><div class="d">Дни 1–3</div><div class="t"><b>Стратегический созвон</b>Цели на три месяца, что Вам комфортно показывать в кадре и что нет, какие форматы готовы пробовать, удобный график съёмок. Итог созвона пишу в чат — это наша договорённость. Сразу фиксируем статистику из кабинета как точку отсчёта. Открываем рабочий чат и рабочее пространство.</div></div>
+    <div class="logrow"><div class="d">Неделя 1–2</div><div class="t"><b>Распаковка и разбор блога</b>Вы отвечаете на вопросы распаковки голосовыми. Я параллельно разбираю блог и аудиторию.</div></div>
+    <div class="logrow"><div class="d">Неделя 2–3</div><div class="t"><b>Позиционирование, упаковка, темы</b>Собираю позиционирование, обновляю профиль, готовлю карту форматов и темы на месяц. Всё это передаю Вам на согласование письменно.</div></div>
+    <div class="logrow"><div class="d">Неделя 3–4</div><div class="t"><b>Первый съёмочный день и первые ролики</b>Снимаем по согласованным темам, монтирую, выходят первые публикации. При выполнении всех этапов вовремя и в нужном объёме выходим на 1–2 ролика в день. Первый разбор цифр на еженедельном созвоне.</div></div>
+    <div class="logrow"><div class="d">Конец месяца</div><div class="t"><b>Отчёт и план на второй месяц</b>Что сделано, какие цифры, что сработало. План второго месяца на согласование.</div></div>
+  </div>
+</section>
+
+<section id="poryadok" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 06</span>
+    <h2>Порядок работы</h2>
+    <p>Как принимаются решения и как фиксируются договорённости.</p>
+  </div>
+
+  <div class="narrow">
+    <div class="rule">
+      <h4>Этапы идут последовательно</h4>
+      <p>Сначала распаковка, потом темы и форматы, потом съёмки. Без распаковки нет позиционирования, без позиционирования нет форматов, без форматов нет системного контента. Пропуск этапа не ускоряет результат.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Договорённости — письменно</h4>
+      <p>Итог каждого созвона я пишу в рабочий чат. Темы, форматы, график съёмок и план публикаций согласуются там же. Ваше «да» в чате — это согласование. Созвоны записываются, записи хранятся до конца работы.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Съёмочные дни — вместе</h4>
+      <p>Дату, время и место съёмки выбираем вместе, исходя из Вашего графика и тем месяца. Договорённость фиксируем в чате.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Согласованные темы идут в работу</h4>
+      <p>После согласования тема уходит в съёмку. Если после съёмки тема или ролик Вам разонравились — ролик не выходит, это Ваше право. Но работа по нему считается выполненной, и тема заменяется в следующем цикле.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Ответы распаковки — это Ваши слова</h4>
+      <p>Из ответов собираются тексты и темы. Поэтому отвечать нужно честно и про себя. Если ответ получился «не про Вас» — скажите сразу, а не после съёмки.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Ваши идеи идут через план</h4>
+      <p>Приносите идею — разбираем, что она раскрывает и куда встаёт в очередь. Сильная идея двигает очередь, по слабой объясню почему. Внеплановые ролики «нужно сегодня» в состав работ не входят: они ломают порядок.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Кто что решает</h4>
+      <p>Как Вы выглядите в кадре и что Вы готовы показывать — решаете только Вы. Стратегию, форматы, порядок и момент выпуска предлагаю я, потому что за результат отвечаю тоже я. Любое моё решение можно обсудить: спрашивайте, почему так, я объясняю.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Опубликованные ролики</h4>
+      <p>Удаление или архивирование вышедших роликов сначала обсуждаем: это ломает статистику и серию. Удалённые ролики остаются в объёме выполненной работы.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Что нужно от Вас</h4>
+      <p>Ответы на распаковку в первые две недели. Участие в съёмочных днях по графику, перенос — не позднее чем за сутки. Обратная связь по материалу в течение двух дней, чтобы работа не стояла. Доступ к статистике профиля.</p>
+    </div>
+  </div>
+</section>
+
+<section id="itogi" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 07</span>
+    <h2>Чем заканчиваем</h2>
+    <p>Что Вы получаете в конце каждой недели, месяца и первого цикла работы.</p>
+  </div>
+
+  <div class="narrow log">
+    <div class="logrow"><div class="d">Каждая неделя</div><div class="t"><b>Созвон-разбор</b>Цифры недели, что сработало, что нет, план на следующую неделю.</div></div>
+    <div class="logrow"><div class="d">Каждый месяц</div><div class="t"><b>Отчёт план-факт</b>Что сделано по составу работ — списком. Цифры профиля на начало и конец месяца: подписчики, просмотры, охваты. Что сработало. План следующего месяца на согласование.</div></div>
+    <div class="logrow"><div class="d">Через 3 месяца</div><div class="t"><b>Итог первого цикла</b>Сравнение с точкой отсчёта. У Вас на руках распаковка, стратегия, упакованный профиль, карта форматов, банк тем, все ролики. Вместе решаем: продолжаем, меняем фокус или завершаем.</div></div>
+    <div class="logrow"><div class="d">При завершении</div><div class="t"><b>Передача материалов</b>Все документы, готовые ролики и исходники съёмок передаются Вам и остаются у Вас навсегда.</div></div>
+  </div>
+
+  <div class="narrow" style="margin-top:20px">
+    <div class="split" style="margin-top:0">
+      <div class="col">
+        <h4>Фундамент</h4>
+        <ul>
+          <li>Понятно, о чём блог и кто Вы в нём</li>
+          <li>Темы и смыслы, которые транслируем</li>
+          <li>Упакованный профиль</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Система</h4>
+        <ul>
+          <li>2–3 главных формата</li>
+          <li>Банк контента и ритм выпуска</li>
+          <li>Блог звучит Вами</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Рост</h4>
+        <ul>
+          <li>Охваты, подписки, вовлечённость</li>
+          <li>Аудитория, которая приходит за Вами</li>
+          <li>База для рекламы и интеграций</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usloviya" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 08</span>
+    <h2>Условия</h2>
+  </div>
+
+  <div class="narrow">
+    <div class="rule">
+      <h4>Оплата и срок</h4>
+      <p>Оплата помесячно, 100% предоплата до старта каждого месяца. Минимальный срок работы — 3 месяца: первый месяц уходит на фундамент, результат в цифрах виден на дистанции.</p>
+    </div>
+
+
+    <div class="rule">
+      <h4>Что я не обещаю</h4>
+      <p>Конкретную цифру подписчиков к конкретной дате. Рост зависит от алгоритма, регулярности и того, как часто Вы в кадре. Я отвечаю за объём и качество работы и показываю цифры каждую неделю.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Гарантия</h4>
+      <p>Объём работ — это этот план. Если объём месяца не выполнен по моей вине, возвращаю 50% стоимости месяца.</p>
+    </div>
+
+    <div class="rule">
+      <h4>Если Вы решите остановить работу</h4>
+      <p>Остановить работу можно в любой момент, написав в чат. Выполненная часть месяца по составу работ оплачивается полностью, расчёт — по отчёту о сделанном. Все материалы остаются у Вас.</p>
+    </div>
+
+    <div class="price">
+      <div class="old">Личная работа · под ключ</div>
+      <div class="val">130&nbsp;000 ₽</div>
+      <div class="sub">в месяц · от 3 месяцев · 100% предоплата<br>Стратегия, съёмки, монтаж и разбор цифр — на мне. Вы — в кадре.</div>
+    </div>
+  </div>
+</section>
+
+<section id="voprosy" class="wrap">
+  <div class="section-head narrow">
+    <span class="part-label">Раздел 09</span>
+    <h2>Частые вопросы</h2>
+  </div>
+
+  <div class="narrow">
+    <div class="qa">
+      <h4>Когда будут результаты?</h4>
+      <p>Первый месяц — фундамент: распаковка, упаковка, форматы, первые ролики. Результат месяца — не цифра подписчиков, а система и первые ролики, после которых люди остаются. Второй месяц — усиление того, что сработало. Третий — главный формат и серии. Цифры смотрим каждую неделю.</p>
+    </div>
+
+    <div class="qa">
+      <h4>Сколько роликов выйдет в месяц?</h4>
+      <p>7–10 роликов с одного съёмочного дня — это ориентир при готовых темах, а не норма месяца. В первый месяц роликов меньше: идёт фундамент. Со второй-третьей недели, если все этапы пройдены вовремя и в нужном объёме, выходим на 1–2 ролика в день.</p>
+    </div>
+
+    <div class="qa">
+      <h4>А если мне не нравится ролик?</h4>
+      <p>Не нравитесь себе в кадре — ролик не выходит, вопросов нет. Что выходит раньше, а что позже, решаю я, потому что за результат отвечаю тоже я.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="fin wrap">
+  <div class="big">Каждый следующий шаг стоит на предыдущем. Так результат не зависит от случайных всплесков.</div>
+  <div class="sign">Малик · продюсер женских блогов · Сентябрь 2026</div>
+  <a class="btn" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a>
+</footer>
+
+</body></html>
