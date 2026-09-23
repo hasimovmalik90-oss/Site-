@@ -96,7 +96,7 @@ header.hero.wrap{max-width:1044px;margin:28px auto 0;padding:88px 40px 60px;bord
 .ps-thumb{position:relative;display:block;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
 .ps-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:.2s}
 .ps-thumb:hover img{opacity:1}
-.ps-pill{position:absolute;left:8px;bottom:8px;background:rgba(11,11,12,.78);color:#F4F0EA;font-size:11.5px;border-radius:20px;padding:3px 9px}
+.ps-pill{position:absolute;left:8px;bottom:8px;max-width:calc(100% - 16px);line-height:1.35;background:rgba(11,11,12,.78);color:#F4F0EA;font-size:11.5px;border-radius:20px;padding:3px 9px}
 .ps-type{position:absolute;right:8px;top:8px;background:rgba(11,11,12,.7);color:var(--accent);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 8px}
 @media(max-width:720px){
   .wrap{padding:0 18px}
@@ -161,21 +161,25 @@ header.hero.wrap{max-width:1044px;margin:28px auto 0;padding:88px 40px 60px;bord
       <div class="ps-metric"><div class="v">131</div><div class="l">подписка</div></div>
     </div>
     <div class="ps-grid">
-      <a class="ps-thumb" href="https://www.instagram.com/p/Dc4cWbPDfBI/" target="_blank" rel="noopener"><img src="assets/Dc4cWbPDfBI.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 159</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/p/DYFTFvKDRGU/" target="_blank" rel="noopener"><img src="assets/DYFTFvKDRGU.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 3</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/p/DXcoteojba0/" target="_blank" rel="noopener"><img src="assets/DXcoteojba0.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 3</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/p/DXZr5NUDdDh/" target="_blank" rel="noopener"><img src="assets/DXZr5NUDdDh.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 204</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/reel/DWMfiEcDRm2/" target="_blank" rel="noopener"><img src="assets/DWMfiEcDRm2.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 4 309</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/reel/DWJ2rxejb2Q/" target="_blank" rel="noopener"><img src="assets/DWJ2rxejb2Q.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 49 211</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/reel/DWA_OinjRvO/" target="_blank" rel="noopener"><img src="assets/DWA_OinjRvO.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 96 388</span></a>
-      <a class="ps-thumb" href="https://www.instagram.com/reel/DVjEm6TDREF/" target="_blank" rel="noopener"><img src="assets/DVjEm6TDREF.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 10 218</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/Dc4cWbPDfBI/" target="_blank" rel="noopener"><img src="assets/Dc4cWbPDfBI.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 159 · 3 комм.</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DYFTFvKDRGU/" target="_blank" rel="noopener"><img src="assets/DYFTFvKDRGU.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">лайки скрыты · 19 комм.</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DXcoteojba0/" target="_blank" rel="noopener"><img src="assets/DXcoteojba0.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">лайки скрыты · 5 комм.</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/p/DXZr5NUDdDh/" target="_blank" rel="noopener"><img src="assets/DXZr5NUDdDh.jpg" alt="" loading="lazy"><span class="ps-type">карусель</span><span class="ps-pill">♥ 204 · 11 комм.</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWsmWepiHfX/" target="_blank" rel="noopener"><img src="assets/DWsmWepiHfX.jpg" alt="" loading="lazy"><span class="ps-type">только Reels</span><span class="ps-pill">▶ 19 263 · ♥ 250</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWMfiEcDRm2/" target="_blank" rel="noopener"><img src="assets/DWMfiEcDRm2.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 4 309 · ♥ 148</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWMVU86DfxH/" target="_blank" rel="noopener"><img src="assets/DWMVU86DfxH.jpg" alt="" loading="lazy"><span class="ps-type">только Reels</span><span class="ps-pill">▶ 4 816 · ♥ 145</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWJ2rxejb2Q/" target="_blank" rel="noopener"><img src="assets/DWJ2rxejb2Q.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 49 211 · ♥ 2 516</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DWA_OinjRvO/" target="_blank" rel="noopener"><img src="assets/DWA_OinjRvO.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 96 388 · ♥ 3 949</span></a>
+      <a class="ps-thumb" href="https://www.instagram.com/reel/DVjEm6TDREF/" target="_blank" rel="noopener"><img src="assets/DVjEm6TDREF.jpg" alt="" loading="lazy"><span class="ps-type">рилс</span><span class="ps-pill">▶ 10 218 · ♥ 249</span></a>
     </div>
 
     <table class="tbl">
-      <tr><td>Рилсов в ленте</td><td>4, все за март 2026</td></tr>
+      <tr><td>Рилсов</td><td>6: 4 в сетке, 2 только во вкладке Reels</td></tr>
+      <tr><td>Период рилсов</td><td>6 марта — 4 апреля</td></tr>
       <tr><td>Самый просматриваемый рилс</td><td>96 388</td></tr>
-      <tr><td>После марта</td><td>только карусели</td></tr>
+      <tr><td>После 4 апреля</td><td>только карусели</td></tr>
       <tr><td>Последняя публикация</td><td>5 сентября</td></tr>
+      <tr><td>Лайки скрыты</td><td>на 2 каруселях из 4</td></tr>
       <tr><td>Альбомов актуальных</td><td>6</td></tr>
       <tr><td>Ссылка в шапке</td><td>нет</td></tr>
     </table>
