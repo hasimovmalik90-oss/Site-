@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprils — прогрев к клубу</title><meta name="description" content="Семь шагов в сторис: доверие, интерес, клуб Aprils Private."><meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#060606;--bg-2:#0e0e0e;--card:rgba(255,255,255,.025);
+  --ink-bright:#faf9f6;--ink:#ebe9e2;--text:#b5b3aa;--muted:#77756e;--dim:#3a3833;
+  --gold-bright:#ffd17a;--gold:#ffb84d;--gold-deep:#c8893a;
+  --gold-soft:rgba(255,184,77,.18);--gold-faint:rgba(255,184,77,.06);
+  --line:rgba(255,255,255,.07);--line-bright:rgba(255,255,255,.14);--line-gold:rgba(255,184,77,.3);
+  --display:'Fraunces','Times New Roman',serif;--serif:'Instrument Serif','Times New Roman',serif;
+  --sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'Geist Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
+body{font-family:var(--sans);font-size:16.5px;line-height:1.68;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100vw;text-wrap:pretty}
+p,li{text-wrap:pretty}
+h1,h2,h3,h4,.tagline,.lead{text-wrap:balance}
+.eyebrow,.card-tag,.decide-tag,.stat-label,.bio-n,.nl-n,.gift-tag,.byline{white-space:nowrap}
+a{color:var(--gold);text-decoration:none}
+strong{color:var(--ink);font-weight:600}
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 60% 40% at 15% 0%,rgba(255,184,77,.10),transparent 70%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(255,184,77,.06),transparent 70%)}
+header,main,footer,section{position:relative;z-index:2;width:100%;max-width:100vw;overflow-x:hidden}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{padding:96px 0 56px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{margin-bottom:28px}
+h1{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(76px,15vw,150px);line-height:.95;letter-spacing:-.02em;background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px}
+.tagline{font-family:var(--display);font-weight:300;font-size:clamp(24px,4vw,34px);line-height:1.25;color:var(--ink-bright);margin-bottom:22px}
+.byline{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:34px}
+.intro{font-size:17px;color:var(--text);max-width:640px;margin-bottom:34px}
+.toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
+.toc a{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:15px}
+.toc a span{font-family:var(--mono);font-size:11px;color:var(--gold);min-width:22px}
+.toc a:hover{color:var(--gold-bright)}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+section .eyebrow{margin-bottom:16px}
+h2{font-family:var(--display);font-weight:350;font-size:clamp(32px,5.4vw,50px);line-height:1.1;color:var(--ink-bright);letter-spacing:-.01em;margin-bottom:30px}
+h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,3.2vw,27px);line-height:1.25;color:var(--ink-bright);margin:46px 0 16px}
+h4{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--ink);line-height:1.35;margin-bottom:6px}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 18px 0;padding-left:0;list-style:none}
+li{position:relative;padding-left:26px;margin-bottom:10px}
+ul>li::before{content:'';position:absolute;left:4px;top:.72em;width:7px;height:1px;background:var(--gold)}
+ol{counter-reset:n}
+ol>li{counter-increment:n}
+ol>li::before{content:counter(n);position:absolute;left:0;top:.18em;font-family:var(--mono);font-size:12px;color:var(--gold)}
+ol>li[value]::before{content:attr(value)}
+li.check::before{display:none}
+.box{display:inline-block;width:13px;height:13px;border:1px solid var(--gold);border-radius:3px;margin-right:10px;vertical-align:-1px;position:absolute;left:0;top:.42em}
+li .sub{display:block;color:var(--text);margin-top:3px}
+blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 18px;margin:0 0 16px;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--ink)}
+
+.lead{font-family:var(--display);font-weight:300;font-size:clamp(22px,3.4vw,29px);line-height:1.35;color:var(--gold-bright);margin:26px 0 30px;padding-left:20px;border-left:2px solid var(--gold)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 36px}
+.stat{background:var(--bg-2);padding:22px 18px}
+.stat-num{font-family:var(--display);font-size:clamp(28px,4.4vw,40px);font-weight:350;color:var(--gold-bright);line-height:1}
+.stat-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px;white-space:normal}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card p{margin:0;font-size:15.5px}
+.card-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.card h4{font-family:var(--display);font-weight:400;font-size:21px;color:var(--ink-bright);margin-bottom:8px}
+
+.quotes{margin:6px 0 20px}
+
+/* decide */
+.decide{margin:34px 0 6px;border:1px solid var(--line-gold);background:var(--gold-faint);border-radius:14px;padding:22px 24px}
+.decide-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.decide h4{font-family:var(--display);font-weight:400;font-size:22px;color:var(--ink-bright)}
+.decide p{margin:6px 0 0}
+
+/* bios */
+.bios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 24px}
+.bio{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card)}
+.bio-n{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.bio-name{font-weight:600;color:var(--ink-bright);margin-bottom:6px}
+.bio-text span{display:block;font-size:15px;color:var(--ink);line-height:1.5}
+.bio-text span:last-child{color:var(--gold);margin-top:4px}
+
+/* table */
+.tbl{margin:10px 0 24px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;padding:14px 16px;background:var(--bg-2);border-bottom:1px solid var(--line)}
+td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--ink)}
+
+/* two columns */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 24px}
+.col{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card)}
+.col h4{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px}
+.col ul{margin:0}.col li{font-size:15.5px}
+
+/* numbered list */
+.numlist{margin:10px 0 24px;border-top:1px solid var(--line)}
+.nl{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.nl-n{font-family:var(--mono);font-size:12px;color:var(--gold);padding-top:3px}
+.nl p{margin:0;font-size:15.5px}
+
+/* details */
+details{border:1px solid var(--line);border-radius:14px;margin:0 0 10px;background:var(--card)}
+summary{cursor:pointer;list-style:none;padding:17px 22px;color:var(--ink);font-weight:500;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:var(--mono);color:var(--gold);font-size:18px;line-height:1}
+details[open] summary::after{content:'–'}
+.det{padding:4px 22px 12px}
+.det li{font-size:15.5px}
+
+/* gift link */
+.gift{display:block;border:1px solid var(--line-gold);border-radius:16px;padding:22px 24px;margin:6px 0 10px;background:linear-gradient(135deg,rgba(255,184,77,.08),rgba(255,184,77,.02));transition:border-color .3s}
+.gift:hover{border-color:var(--gold)}
+.gift-tag{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.gift-t{display:block;font-family:var(--display);font-size:24px;color:var(--ink-bright);line-height:1.2;margin-bottom:6px}
+.gift-s{display:block;color:var(--text);font-size:15px}
+
+footer{padding:56px 0 70px}
+.foot{margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .hero{padding:64px 0 40px}
+  section{padding:56px 0}
+  .toc,.cards,.bios,.two{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nl{grid-template-columns:34px 1fr}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{padding:12px 16px;border-bottom:1px solid var(--line)}
+  td{padding:3px 0;border:0}
+  td::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+  td:first-child::before{margin-top:0}
+  blockquote{font-size:19px}
+}
+</style></head>
+<body><div class="ambient"></div>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Материал в подарок</div>
+<h1>Прогрев</h1>
+<p class="tagline">К&nbsp;покупке и&nbsp;к&nbsp;клубу Aprils&nbsp;Private</p>
+<div class="byline">Малик&nbsp;Хашимов · продюсер&nbsp;женских&nbsp;блогов</div>
+<p class="intro">Семь шагов в&nbsp;сторис с&nbsp;раскадровками и&nbsp;готовыми текстами. Места, которые решаем на&nbsp;встрече,&nbsp;отмечены.</p>
+
+<nav class="toc"><a href="#s1"><span>01</span>Что&nbsp;такое прогрев и&nbsp;зачем он&nbsp;Вам</a><a href="#s2"><span>02</span>Кто Ваша покупательница и&nbsp;почему прогрев не&nbsp;длинный</a><a href="#s3"><span>03</span>Семь шагов</a><a href="#s4"><span>04</span>Раскадровки</a><a href="#s5"><span>05</span>Какими словами говорить, что&nbsp;покупка&nbsp;— это&nbsp;вход в&nbsp;клуб</a><a href="#s6"><span>06</span>Как&nbsp;понять, что&nbsp;прогрев идёт</a><a href="#s7"><span>07</span>Проверочный лист: что&nbsp;должно прозвучать за&nbsp;семь шагов</a><a href="#s8"><span>08</span>Папка доказательств&nbsp;— начните сегодня</a><a href="#s9"><span>09</span>Чего не&nbsp;делать</a><a href="#s10"><span>10</span>Если решите пригласить тех, кто уже покупал **[решаем на&nbsp;встрече]**</a><a href="#s11"><span>11</span>Закрытые предпродажи до&nbsp;открытия клуба **[решаем на&nbsp;встрече]**</a></nav>
+</div></header>
+<main><section id="s1"><div class="wrap"><div class="eyebrow">01</div><h2>Что&nbsp;такое прогрев и&nbsp;зачем&nbsp;он&nbsp;Вам</h2><p>Прогрев&nbsp;— это&nbsp;несколько шагов в&nbsp;сторис, после которых человек сам приходит к&nbsp;мысли: «хочу купить именно у&nbsp;неё и&nbsp;именно&nbsp;сейчас».</p>
+<p>Если завтра просто написать «я&nbsp;открыла закрытый клуб», реакция будет слабой. Подписчицы пока не&nbsp;знают главного: что&nbsp;Вы&nbsp;отвечаете за&nbsp;каждое украшение, что&nbsp;посылка доходит и&nbsp;открывается красиво, что&nbsp;к&nbsp;Вам&nbsp;возвращаются. Пока этого нет в&nbsp;голове, клуб выглядит как&nbsp;ещё одна&nbsp;скидка.</p>
+<p>Поэтому идём по&nbsp;шагам: сначала доверие, потом интерес, и&nbsp;только потом&nbsp;клуб.</p>
+<p><strong>Главное правило.</strong> В&nbsp;этом материале шаги, а&nbsp;не&nbsp;дни. Сколько дней займёт каждый шаг, решаем по&nbsp;ходу&nbsp;— по&nbsp;Вашей жизни и&nbsp;по&nbsp;реакции подписчиц. Следующий шаг начинаем только тогда, когда на&nbsp;предыдущий есть отклик: отвечают на&nbsp;опросы, пишут в&nbsp;директ. Если тихо&nbsp;— задерживаемся на&nbsp;шаге и&nbsp;добавляем ещё одну&nbsp;историю.</p></div></section>
+<section id="s2"><div class="wrap"><div class="eyebrow">02</div><h2>Кто Ваша покупательница и&nbsp;почему прогрев не&nbsp;длинный</h2><p>Ваша покупательница уже знает, что&nbsp;хочет украшение. Часто&nbsp;— конкретную модель. Она пишет и&nbsp;сразу просит каталог. Она выбирает не&nbsp;«нужно ли&nbsp;мне серебро», а&nbsp;«у&nbsp;кого&nbsp;купить».</p>
+<p>Это&nbsp;видно по&nbsp;Вашим же&nbsp;покупательницам:</p>
+<ul><li>Меруерт пришла за&nbsp;конкретным браслетом и&nbsp;сравнивала цены в&nbsp;других магазинах. Кольцо, которого у&nbsp;Вас&nbsp;не&nbsp;было, купила в&nbsp;другом месте&nbsp;— и&nbsp;вернулась: «я&nbsp;лучше у&nbsp;вас буду заказывать, лучше&nbsp;подожду»</li><li>Преподавательница вокала написала рано утром: нужен подарок,&nbsp;срочно</li><li>Девушка из&nbsp;Кореи выбирает Вас&nbsp;из‑за&nbsp;Вас&nbsp;самой: «вы&nbsp;меня вдохновляете»</li></ul>
+<p>Значит, объяснять, зачем носить серебро, не&nbsp;нужно. Нужно показать две вещи: <strong>почему у&nbsp;Вас</strong> и&nbsp;<strong>почему сейчас</strong>.</p>
+<h3>Где сейчас не&nbsp;хватает&nbsp;доверия</h3>
+<p>Человек покупает, когда доверяет в&nbsp;четырёх местах&nbsp;сразу:</p>
+<div class="tbl"><table><thead><tr><th></th><th>Что&nbsp;это</th><th>Где Вы&nbsp;сейчас</th></tr></thead><tbody><tr><td data-l="">К&nbsp;Вам</td><td data-l="Что это">Кто Вы, какая&nbsp;Вы</td><td data-l="Где Вы сейчас">Начало положено: Ваш голос в&nbsp;роликах с&nbsp;26 августа, и&nbsp;лайков стало&nbsp;больше</td></tr><tr><td data-l="">К&nbsp;теме</td><td data-l="Что это">Нужны ли&nbsp;ей&nbsp;украшения</td><td data-l="Где Вы сейчас">Есть: хотят «быть в&nbsp;теме» и&nbsp;чувствовать себя&nbsp;женственными</td></tr><tr><td data-l="">К&nbsp;знаниям</td><td data-l="Что это">Разбираетесь&nbsp;ли&nbsp;Вы</td><td data-l="Где Вы сейчас">Есть в&nbsp;актуальном «ВАЖНО», усилим после решения по&nbsp;ассортименту <strong>[решаем на&nbsp;встрече]</strong></td></tr><tr><td data-l="">К&nbsp;продукту</td><td data-l="Что это">Почему покупать&nbsp;у&nbsp;Вас</td><td data-l="Где Вы сейчас">Ниже всего: про&nbsp;гарантию и&nbsp;про&nbsp;клуб не&nbsp;знает&nbsp;никто</td></tr></tbody></table></div>
+<p>Прогрев поднимает все&nbsp;четыре сразу. Поэтому в&nbsp;каждом шаге есть и&nbsp;история про&nbsp;дело, и&nbsp;немного про&nbsp;Вас.</p></div></section>
+<section id="s3"><div class="wrap"><div class="eyebrow">03</div><h2>Семь&nbsp;шагов</h2><div class="tbl"><table><thead><tr><th>Этап</th><th>Шаг</th><th>О&nbsp;чём</th><th>Что&nbsp;снимает</th></tr></thead><tbody><tr><td data-l="Этап">Доверие</td><td data-l="Шаг">1</td><td data-l="О чём">Я отвечаю за&nbsp;каждое&nbsp;украшение</td><td data-l="Что снимает">«Точно серебро? Не&nbsp;облезет?»</td></tr><tr><td data-l="Этап">Доверие</td><td data-l="Шаг">2</td><td data-l="О чём">Посылка дойдёт и&nbsp;откроется&nbsp;красиво</td><td data-l="Что снимает">«Дойдёт? Не&nbsp;обманут? Упаковка&nbsp;платная?»</td></tr><tr><td data-l="Этап">Интерес</td><td data-l="Шаг">3</td><td data-l="О чём">Почему ко&nbsp;мне&nbsp;возвращаются</td><td data-l="Что снимает">«А&nbsp;другие&nbsp;довольны?»</td></tr><tr><td data-l="Этап">Интерес</td><td data-l="Шаг">4</td><td data-l="О чём">Я&nbsp;сама</td><td data-l="Что снимает">«Кто&nbsp;она?»</td></tr><tr><td data-l="Этап">Интерес</td><td data-l="Шаг">5</td><td data-l="О чём">Я кое‑что&nbsp;готовлю</td><td data-l="Что снимает">Ожидание</td></tr><tr><td data-l="Этап">Клуб</td><td data-l="Шаг">6</td><td data-l="О чём">Aprils Private: что&nbsp;это&nbsp;и&nbsp;что&nbsp;внутри</td><td data-l="Что снимает">«Зачем мне&nbsp;это?»</td></tr><tr><td data-l="Этап">Клуб</td><td data-l="Шаг">7</td><td data-l="О чём">Клуб открыт: как&nbsp;попасть</td><td data-l="Что снимает">«Как&nbsp;войти?»</td></tr></tbody></table></div>
+<h3>Где дни свободные, а&nbsp;где строго&nbsp;подряд</h3>
+<p><strong>Шаги 1–4&nbsp;— свободно.</strong> Между ними могут быть паузы в&nbsp;день‑два. Идёте дальше по&nbsp;реакции, а&nbsp;не&nbsp;по&nbsp;календарю.</p>
+<p><strong>Внутри одного шага&nbsp;— один день.</strong> Все&nbsp;сторис шага выходят в&nbsp;один день, одной линией. Если растянуть шаг на&nbsp;несколько дней, история рвётся и&nbsp;смысл&nbsp;теряется.</p>
+<p><strong>Шаги 5, 6, 7&nbsp;— строго три дня подряд, без&nbsp;пауз.</strong> Здесь работает ожидание, а&nbsp;оно быстро остывает. Если между «я&nbsp;кое‑что&nbsp;готовлю» и&nbsp;анонсом пройдёт неделя, интерес уйдёт, и&nbsp;анонс придётся греть&nbsp;заново.</p>
+<ul><li>В&nbsp;шаге 5 назовите день: «в&nbsp;пятницу расскажу». Названная дата держит&nbsp;интерес</li><li>Шаг 6&nbsp;— ровно в&nbsp;этот&nbsp;день</li><li>Шаг 7&nbsp;— на&nbsp;следующий&nbsp;день</li></ul>
+<p><strong>Перед шагом 5 проверьте три дня вперёд:</strong> что&nbsp;Вы&nbsp;свободны, можете снимать и&nbsp;отвечать в&nbsp;директ. Ответы на&nbsp;анонс приходят сразу, и&nbsp;если на&nbsp;них не&nbsp;ответить в&nbsp;тот же&nbsp;день, часть людей&nbsp;уходит.</p>
+<p><strong>После шага 7:</strong> первый «Золотой билет»&nbsp;— в&nbsp;конце месяца. Эту дату тоже назовите&nbsp;заранее.</p>
+<p>Рилсы в&nbsp;эти же&nbsp;недели выходят как&nbsp;обычно и&nbsp;ведут в&nbsp;актуальные. Прогрев идёт в&nbsp;сторис&nbsp;— это&nbsp;то, что&nbsp;Вам&nbsp;даётся легче&nbsp;всего.</p>
+<p><strong>До&nbsp;шага 1 должны быть готовы актуальные:</strong> «Гарантия», «Предзаказ и&nbsp;доставка», «Упаковка», «Обо мне». Сторис будут вести&nbsp;в&nbsp;них.</p>
+<p><strong>До&nbsp;шага 5 должны быть на&nbsp;руках:</strong> брендированные подарки для&nbsp;«Золотого билета» и&nbsp;лимитированная коллекция. Анонсировать клуб без&nbsp;них нельзя&nbsp;— показать будет&nbsp;нечего.</p></div></section>
+<section id="s4"><div class="wrap"><div class="eyebrow">04</div><h2>Раскадровки</h2><p>По&nbsp;каждому шагу: что&nbsp;снимаем, текст на&nbsp;экране, примерные слова, стикер. Слова даны как&nbsp;ориентир&nbsp;— говорите своими. Если в&nbsp;какой‑то&nbsp;день говорить не&nbsp;хочется, те же&nbsp;мысли можно дать текстом на&nbsp;экране поверх&nbsp;видео.</p>
+<h3>Шаг 1. Я отвечаю за&nbsp;каждое&nbsp;украшение</h3>
+<p><strong>Смысл:</strong> с&nbsp;украшением ничего не&nbsp;случится, а&nbsp;если случится&nbsp;— Вы&nbsp;не&nbsp;пропадёте.</p>
+<ol><li value="1"><strong>Кадр:</strong> украшение на&nbsp;ладони,&nbsp;крупно.<span class="sub"><strong>Текст:</strong> «Перед каждой отправкой я&nbsp;делаю одно и&nbsp;то&nbsp;же»</span></li><li value="2"><strong>Кадр:</strong> Вы&nbsp;снимаете пробу на&nbsp;телефон,&nbsp;крупно.<span class="sub"><strong>Текст:</strong> «Снимаю пробу на&nbsp;фото и&nbsp;видео. Чтобы Вы&nbsp;могли проверить до&nbsp;того, как&nbsp;откроете&nbsp;посылку»</span></li><li value="3"><strong>Кадр:</strong> скрин переписки, где покупательница спрашивает про&nbsp;пробу, а&nbsp;Вы&nbsp;показываете. Имя&nbsp;закрыть.<span class="sub"><strong>Текст:</strong> «Однажды спросили: а&nbsp;где проба? Показала за&nbsp;минуту»</span></li><li value="4"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре, у&nbsp;столика, с&nbsp;украшением в&nbsp;руках.<span class="sub"><strong>Слова:</strong> «Одной девушке я&nbsp;меняла украшение три раза. На&nbsp;ней всё облазило, и&nbsp;мы&nbsp;не&nbsp;могли понять почему. Оказалось&nbsp;— аллергия на&nbsp;сплав. Я ушла в&nbsp;минус, но&nbsp;не&nbsp;оставила её&nbsp;с&nbsp;этим&nbsp;одну»</span></li><li value="5"><strong>Кадр:</strong> текст на&nbsp;спокойном фоне или&nbsp;на&nbsp;мешочке.<span class="sub"><strong>Текст:</strong> условия гарантии одной фразой. <strong>[решаем на&nbsp;встрече]</strong></span></li><li value="6"><strong>Опрос:</strong> «Вам&nbsp;когда‑нибудь присылали бижутерию вместо серебра?»&nbsp;— «Да, было» /&nbsp;«Нет»</li><li value="7"><strong>Текст:</strong> «Все&nbsp;условия&nbsp;— в&nbsp;актуальном&nbsp;„Гарантия“»</li></ol>
+<p><strong>Формулировки про&nbsp;состав серебра</strong>&nbsp;— после решения по&nbsp;ассортименту. <strong>[решаем на&nbsp;встрече]</strong></p>
+<h3>Шаг 2. Посылка дойдёт и&nbsp;откроется&nbsp;красиво</h3>
+<p><strong>Смысл:</strong> Вы&nbsp;не&nbsp;тянете с&nbsp;отправкой, и&nbsp;упаковка&nbsp;— часть подарка, а&nbsp;не&nbsp;доплата.</p>
+<ol><li value="1"><strong>Кадр:</strong> стол, пустой шёлковый мешочек, лента,&nbsp;украшение.<span class="sub"><strong>Текст:</strong> «Собираю заказ в&nbsp;Костанай» (или&nbsp;куда едет&nbsp;сегодня)</span></li><li value="2"><strong>Кадр:</strong> руки кладут украшение в&nbsp;мешочек, завязывают&nbsp;ленту.<span class="sub"><strong>Слова:</strong> «Упаковка у&nbsp;меня всегда входит в&nbsp;цену. Продавать украшение без&nbsp;упаковки&nbsp;— как&nbsp;конфетку без&nbsp;фантика»</span></li><li value="3"><strong>Кадр:</strong> что&nbsp;ещё кладёте: открытка, шоколадка, сезонный&nbsp;подарок.<span class="sub"><strong>Текст:</strong> «А&nbsp;это&nbsp;— от&nbsp;меня»</span></li><li value="4"><strong>Кадр:</strong> такси или&nbsp;пункт&nbsp;СДЭК.<span class="sub"><strong>Текст:</strong> «Отправлено. Сроки называю заранее и&nbsp;держу&nbsp;их»</span></li><li value="5"><strong>Кадр:</strong> скрин трек‑номера, отправленного покупательнице. Номер и&nbsp;имя&nbsp;закрыть.<span class="sub"><strong>Текст:</strong> «Номер отслеживания&nbsp;— сразу после&nbsp;отправки»</span></li><li value="6"><strong>Опрос:</strong> «Для&nbsp;Вас&nbsp;упаковка важна, если берёте в&nbsp;подарок?»&nbsp;— «Очень» / «Не&nbsp;особо»</li><li value="7"><strong>Текст:</strong> «Как&nbsp;работает предзаказ и&nbsp;доставка&nbsp;— в&nbsp;актуальном „Предзаказ и&nbsp;доставка“»</li></ol>
+<h3>Шаг 3. Почему ко&nbsp;мне&nbsp;возвращаются</h3>
+<p><strong>Смысл:</strong> Вы&nbsp;не&nbsp;одна такая довольная&nbsp;— это&nbsp;видно по&nbsp;другим.</p>
+<ol><li value="1"><strong>Кадр:</strong> скрин отзыва из&nbsp;«отзывов».<span class="sub"><strong>Текст:</strong> «Вот что&nbsp;пишут, когда открывают&nbsp;посылку»</span></li><li value="2"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре.<span class="sub"><strong>Слова:</strong> «Одна моя постоянная покупательница однажды взяла кольцо в&nbsp;другом магазине&nbsp;— у&nbsp;меня его не&nbsp;было. И&nbsp;вернулась. Сказала: лучше у&nbsp;вас подожду. Я спросила почему. Ответ: „вы&nbsp;отвечаете не&nbsp;сухо“»</span></li><li value="3"><strong>Кадр:</strong> скрин отзыва про&nbsp;пряники на&nbsp;8 Марта (преподавательница&nbsp;вокала).<span class="sub"><strong>Текст:</strong> «„Вы&nbsp;прям мой день украсили“&nbsp;— из‑за&nbsp;пряника в&nbsp;посылке»</span></li><li value="4"><strong>Кадр:</strong> распаковка, которую сняла покупательница сама (с&nbsp;её&nbsp;разрешения).<span class="sub"><strong>Текст:</strong> «Эту распаковку сняла сама покупательница. Я не&nbsp;просила»</span></li><li value="5"><strong>Окошко:</strong> «Что&nbsp;Вам&nbsp;важнее всего, когда заказываете&nbsp;украшение?»</li><li value="6"><strong>Текст:</strong> «Больше отзывов&nbsp;— в&nbsp;актуальном&nbsp;„Отзывы“»</li></ol>
+<h3>Шаг 4. Я&nbsp;сама</h3>
+<p><strong>Смысл:</strong> за&nbsp;магазином живой человек&nbsp;— женщина, которая развивает своё дело и&nbsp;остаётся&nbsp;женщиной.</p>
+<ol><li value="1"><strong>Кадр:</strong> вечер, туалетный столик в&nbsp;ванной, свет&nbsp;спотов.<span class="sub"><strong>Текст:</strong> «Девять вечера. Сын спит. Это&nbsp;моё&nbsp;время»</span></li><li value="2"><strong>Кадр:</strong> Вы&nbsp;собираетесь, надеваете украшения&nbsp;— без&nbsp;слов или&nbsp;под&nbsp;музыку.</li><li value="3"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре.<span class="sub"><strong>Слова:</strong> «Когда я&nbsp;была в&nbsp;декрете, я&nbsp;смотрела на&nbsp;себя и&nbsp;думала: а&nbsp;я&nbsp;где? Всё про&nbsp;ребёнка, ничего про&nbsp;меня. Aprils я&nbsp;начала, чтобы вернуть&nbsp;себя»</span></li><li value="4"><strong>Текст:</strong> «Не&nbsp;откладывайте себя на&nbsp;потом. Быть женщиной можно сейчас&nbsp;— неважно, мама Вы&nbsp;или&nbsp;нет»</li><li value="5"><strong>Опрос:</strong> «Когда у&nbsp;Вас&nbsp;последний раз&nbsp;было полчаса только на&nbsp;себя?»&nbsp;— «Сегодня» / «Не&nbsp;помню»</li><li value="6"><strong>Текст:</strong> «Моя история&nbsp;— в&nbsp;актуальном „Обо&nbsp;мне“»</li></ol>
+<h3>Шаг 5. Я кое‑что&nbsp;готовлю</h3>
+<p><strong>Смысл:</strong> ожидание. Клуб ещё не&nbsp;называем.</p>
+<ol><li value="1"><strong>Кадр:</strong> новинка на&nbsp;ладони.<span class="sub"><strong>Слова:</strong> «Каждый раз, когда приходит новая поставка, одно и&nbsp;то&nbsp;же: партия маленькая, разбирают за&nbsp;день, и&nbsp;кто‑то&nbsp;пишет&nbsp;— „я&nbsp;не&nbsp;успела, не&nbsp;увидела&nbsp;сторис“»</span></li><li value="2"><strong>Опрос:</strong> «Бывало, что&nbsp;не&nbsp;успевали на&nbsp;новинку?»&nbsp;— «Да» /&nbsp;«Нет»</li><li value="3"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре,&nbsp;спокойно.<span class="sub"><strong>Слова:</strong> «Я давно думала, как&nbsp;сделать, чтобы мои покупательницы не&nbsp;опаздывали. И&nbsp;сделала. Вложила в&nbsp;это&nbsp;последние деньги&nbsp;— и&nbsp;ни разу не&nbsp;пожалела»</span></li><li value="4"><strong>Кадр:</strong> закрытая коробка с&nbsp;брендированными подарками, без&nbsp;подробностей.<span class="sub"><strong>Текст:</strong> «Скоро&nbsp;расскажу»</span></li><li value="5"><strong>Окошко:</strong> «Как&nbsp;думаете, что&nbsp;это?»</li></ol>
+<p><strong>Ответы из&nbsp;окошка сохраните</strong>&nbsp;— они пригодятся в&nbsp;шаге&nbsp;6.</p>
+<h3>Шаг 6. Aprils Private: что&nbsp;это&nbsp;и&nbsp;что&nbsp;внутри</h3>
+<p><strong>Смысл:</strong> клуб&nbsp;— не&nbsp;скидка, а&nbsp;место только для&nbsp;своих.</p>
+<ol><li value="1"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре.<span class="sub"><strong>Слова:</strong> «Рассказываю. Я сделала закрытый клуб&nbsp;— Aprils Private. Попасть туда можно только одним способом: купить у&nbsp;меня&nbsp;украшение»</span></li><li value="2"><strong>Кадр:</strong> ответы из&nbsp;окошка шага 5 (пара смешных или&nbsp;точных).<span class="sub"><strong>Текст:</strong> «Вы&nbsp;почти&nbsp;угадали»</span></li><li value="3"><strong>Кадр:</strong> экран телефона с&nbsp;ботом.<span class="sub"><strong>Текст:</strong> «Новинки там появляются на&nbsp;5&nbsp;дней раньше, чем здесь. Можно сразу забронировать»</span></li><li value="4"><strong>Кадр:</strong> украшения лимитированной&nbsp;коллекции.<span class="sub"><strong>Текст:</strong> «Эти украшения будут только в&nbsp;клубе. В&nbsp;инстаграм они не&nbsp;попадут»</span></li><li value="5"><strong>Кадр:</strong> анкета&nbsp;в&nbsp;боте.<span class="sub"><strong>Текст:</strong> «Размер кольца указываете один раз&nbsp;— дальше я&nbsp;его помню. А&nbsp;в&nbsp;день рождения клуб сам поздравит Вас&nbsp;скидкой»</span></li><li value="6"><strong>Кадр:</strong> брендированные подарки,&nbsp;крупно.<span class="sub"><strong>Слова:</strong> «Каждый месяц одна участница получает „Золотой билет“: украшение в&nbsp;подарок и&nbsp;вот такой набор от&nbsp;Aprils»</span></li><li value="7"><strong>Текст:</strong> «Вход&nbsp;— минус 10% на&nbsp;первую покупку в&nbsp;клубе. Пригласили подругу&nbsp;— по&nbsp;1000&nbsp;тенге на&nbsp;счёт вам&nbsp;обеим»</li><li value="8"><strong>Текст:</strong> «Всё про&nbsp;клуб&nbsp;— в&nbsp;актуальном&nbsp;„Клуб“»</li></ol>
+<h3>Шаг 7. Клуб открыт: как&nbsp;попасть</h3>
+<p><strong>Смысл:</strong> простой путь без&nbsp;вопросов.</p>
+<ol><li value="1"><strong>Кадр:</strong> Вы&nbsp;в&nbsp;кадре.<span class="sub"><strong>Слова:</strong> «Клуб открыт. Как&nbsp;попасть: выбираете украшение, оформляете заказ&nbsp;— и&nbsp;сразу получаете личный&nbsp;промокод»</span></li><li value="2"><strong>Текст:</strong> «Промокод приходит сообщением сразу после оплаты. И&nbsp;лежит в&nbsp;посылке»</li><li value="3"><strong>Кадр:</strong> первые участницы (скрин из&nbsp;бота, без&nbsp;имён)&nbsp;— если они уже&nbsp;есть.<span class="sub"><strong>Текст:</strong> «Первые девочки уже&nbsp;внутри»</span></li><li value="4"><strong>Текст:</strong> «Лимитированная коллекция&nbsp;— только в&nbsp;клубе. Первый „Золотой билет“ разыграем в&nbsp;конце&nbsp;месяца»</li><li value="5"><strong>Текст:</strong> «Напишите мне „[кодовое слово]“&nbsp;— пришлю каталог» <strong>[решаем на&nbsp;встрече]</strong></li><li value="6"><strong>Ссылка:</strong> на&nbsp;актуальное&nbsp;«Клуб»</li></ol></div></section>
+<section id="s5"><div class="wrap"><div class="eyebrow">05</div><h2>Какими словами говорить, что&nbsp;покупка&nbsp;— это&nbsp;вход&nbsp;в&nbsp;клуб</h2><p>Готовые тексты. Ссылки и&nbsp;промокод подставляете&nbsp;свои.</p>
+<p><strong>В&nbsp;сторис&nbsp;— одной фразой:</strong><br>«Каждая, кто покупает у&nbsp;меня украшение, сразу попадает в&nbsp;Aprils Private&nbsp;— мой закрытый клуб. По‑другому туда не&nbsp;попасть»</p>
+<p><strong>В&nbsp;переписке, когда оформляете заказ:</strong><br>«Кстати, с&nbsp;этой покупкой Вы&nbsp;попадаете в&nbsp;мой закрытый клуб Aprils Private. Промокод пришлю сразу после&nbsp;оплаты»</p>
+<p><strong>Ответ на&nbsp;кодовое слово:</strong><br>«Здравствуйте! Вот каталог: [ссылка]. Когда выберете украшение и&nbsp;оформите заказ, я&nbsp;сразу пришлю Вам&nbsp;промокод в&nbsp;Aprils Private. Там новинки появляются на&nbsp;5&nbsp;дней раньше, чем в&nbsp;инстаграме, и&nbsp;есть украшения, которых здесь не&nbsp;будет. А&nbsp;на&nbsp;первую покупку внутри&nbsp;— минус&nbsp;10%»</p>
+<p><strong>Сообщение после оплаты:</strong><br>«Спасибо за&nbsp;заказ! Добро пожаловать в&nbsp;Aprils Private. Ваш личный промокод: [промокод]. Он одноразовый&nbsp;— по&nbsp;нему можно войти один раз. Бот: [ссылка]. Внутри укажите размер кольца и&nbsp;дату рождения&nbsp;— в&nbsp;день рождения клуб поздравит Вас&nbsp;скидкой. Этот же&nbsp;промокод будет в&nbsp;Вашей&nbsp;посылке»</p>
+<p><strong>Вкладыш в&nbsp;посылку:</strong><br>«Вы&nbsp;в&nbsp;Aprils&nbsp;Private.<br>Ваш промокод:&nbsp;[промокод]<br>Новинки&nbsp;— раньше всех. Украшения&nbsp;— только для&nbsp;своих. «Золотой билет»&nbsp;— каждый&nbsp;месяц.<br>Вход: [QR‑код на&nbsp;бота]»</p></div></section>
+<section id="s6"><div class="wrap"><div class="eyebrow">06</div><h2>Как&nbsp;понять, что&nbsp;прогрев&nbsp;идёт</h2><p><strong>Хорошие сигналы:</strong></p>
+<ul><li>на&nbsp;опросы отвечают больше, чем&nbsp;обычно</li><li>в&nbsp;окошки&nbsp;пишут</li><li>в&nbsp;директ приходят вопросы: «а&nbsp;где посмотреть», «а&nbsp;сколько стоит», «а&nbsp;что&nbsp;за&nbsp;клуб»</li></ul>
+<p><strong>Тревожный сигнал&nbsp;— тишина.</strong> Это&nbsp;не&nbsp;провал, это&nbsp;подсказка: шаг не&nbsp;дожат. Добавьте ещё одну историю на&nbsp;тот же&nbsp;смысл и&nbsp;только потом идите&nbsp;дальше.</p>
+<p><strong>Что&nbsp;записывать после каждого шага:</strong> сколько ответили на&nbsp;опрос, сколько написали в&nbsp;директ, какие вопросы задали. По&nbsp;этим вопросам видно, какой страх ещё не&nbsp;снят.</p></div></section>
+<section id="s7"><div class="wrap"><div class="eyebrow">07</div><h2>Проверочный лист: что&nbsp;должно прозвучать за&nbsp;семь&nbsp;шагов</h2><p>Перед анонсом клуба пройдитесь по&nbsp;списку. Если чего‑то&nbsp;не&nbsp;было&nbsp;—&nbsp;добавьте.</p>
+<ul><li class="check"><span class="box"></span> <strong>История</strong>&nbsp;— Ваша, живая, с&nbsp;подробностями (шаги 1,&nbsp;4)</li><li class="check"><span class="box"></span> <strong>Отзывы и&nbsp;скрины</strong>&nbsp;— не&nbsp;Ваши слова, а&nbsp;слова покупательниц (шаг&nbsp;3)</li><li class="check"><span class="box"></span> <strong>Доказательство</strong>&nbsp;— проба, трек‑номер, упаковка своими глазами (шаги 1,&nbsp;2)</li><li class="check"><span class="box"></span> <strong>Общее с&nbsp;ней</strong>&nbsp;— декрет, «где я», время на&nbsp;себя (шаг&nbsp;4)</li><li class="check"><span class="box"></span> <strong>Свои</strong>&nbsp;— покупательницы, которые возвращаются и&nbsp;приводят подруг (шаг&nbsp;3)</li><li class="check"><span class="box"></span> <strong>Ожидание</strong>&nbsp;— «я&nbsp;кое‑что&nbsp;готовлю» (шаг&nbsp;5)</li><li class="check"><span class="box"></span> <strong>Только для&nbsp;своих</strong>&nbsp;— украшения, которых не&nbsp;будет в&nbsp;инстаграме (шаги 6,&nbsp;7)</li><li class="check"><span class="box"></span> <strong>Чувства</strong>&nbsp;— как&nbsp;Вы&nbsp;себя ощущаете, как&nbsp;выглядит, как&nbsp;открывается&nbsp;посылка</li><li class="check"><span class="box"></span> <strong>Цифры и&nbsp;порядок</strong>&nbsp;— 5&nbsp;дней раньше, минус 10%, 1000&nbsp;тенге, раз&nbsp;в&nbsp;месяц, как&nbsp;войти</li></ul>
+<p>Решение о&nbsp;покупке человек принимает и&nbsp;сердцем, и&nbsp;головой. Сердцу&nbsp;— истории и&nbsp;отзывы. Голове&nbsp;— цифры и&nbsp;понятный порядок входа. В&nbsp;прогреве должно быть и&nbsp;то&nbsp;и&nbsp;другое.</p></div></section>
+<section id="s8"><div class="wrap"><div class="eyebrow">08</div><h2>Папка доказательств&nbsp;— начните&nbsp;сегодня</h2><p>Заведите в&nbsp;телефоне отдельный альбом или&nbsp;чат с&nbsp;собой. Складывайте туда всё, что&nbsp;пишут покупательницы:</p>
+<ul><li>отзывы и&nbsp;благодарности</li><li>скрины переписок, где спрашивали и&nbsp;остались&nbsp;довольны</li><li>распаковки и&nbsp;отметки</li><li>фото украшений на&nbsp;покупательницах</li></ul>
+<p>Когда дойдёте до&nbsp;шага 3, материал будет готов, а&nbsp;не&nbsp;собираться в&nbsp;последний&nbsp;момент.</p></div></section>
+<section id="s9"><div class="wrap"><div class="eyebrow">09</div><h2>Чего не&nbsp;делать</h2><ul><li><strong>Не&nbsp;объявлять клуб, пока нет подарков и&nbsp;лимитированной коллекции.</strong> Показать будет нечего, и&nbsp;анонс прозвучит&nbsp;пусто</li><li><strong>Не&nbsp;пропускать шаги 1–2.</strong> Без доверия клуб читается как&nbsp;очередная&nbsp;скидка</li><li><strong>Не&nbsp;продавать в&nbsp;лоб каждый день.</strong> В&nbsp;шагах 1–4 про&nbsp;клуб ни&nbsp;слова</li><li><strong>Не&nbsp;обещать того, чего нет.</strong> Если пишете «только в&nbsp;клубе»&nbsp;— этих украшений правда не&nbsp;должно быть в&nbsp;инстаграме</li></ul></div></section>
+<section id="s10"><div class="wrap"><div class="eyebrow">10</div><h2>Если решите пригласить тех, кто уже покупал <strong>[решаем на&nbsp;встрече]</strong></h2><p>За&nbsp;год у&nbsp;Вас&nbsp;накопились покупательницы в&nbsp;переписке WhatsApp. Если пригласить их&nbsp;первыми, в&nbsp;клубе с&nbsp;первого дня будут люди, и&nbsp;новым будет не&nbsp;пусто.</p>
+<p>Когда: вечером в&nbsp;день шага 5, до&nbsp;открытого анонса. Между шагами 5 и&nbsp;6 паузы нет, поэтому сообщения лучше подготовить&nbsp;заранее.</p>
+<p><strong>Сообщение:</strong><br>«[Имя], здравствуйте! Это&nbsp;Ясмин, Aprils. Вы&nbsp;у&nbsp;меня покупали, и&nbsp;я&nbsp;хочу, чтобы Вы&nbsp;узнали первой: я&nbsp;открываю закрытый клуб для&nbsp;своих покупательниц&nbsp;— Aprils Private. Новинки там на&nbsp;5&nbsp;дней раньше, есть украшения только для&nbsp;клуба, каждый месяц „Золотой билет“. Вот Ваш промокод: [промокод]. Вход:&nbsp;[ссылка]»</p>
+<p>На&nbsp;встрече решаем: приглашаем ли&nbsp;и&nbsp;может ли&nbsp;бот выдать промокоды тем, кто уже&nbsp;покупал.</p></div></section>
+<section id="s11"><div class="wrap"><div class="eyebrow">11</div><h2>Закрытые предпродажи до&nbsp;открытия клуба <strong>[решаем на&nbsp;встрече]</strong></h2><p>Второй способ сделать так, чтобы в&nbsp;клубе с&nbsp;первого дня были люди. Подходит, если прошлых покупательниц не&nbsp;приглашаем или&nbsp;их&nbsp;мало.</p>
+<p><strong>Как&nbsp;это&nbsp;работает:</strong></p>
+<ol><li value="1">В&nbsp;шаге 5, после «я&nbsp;кое‑что&nbsp;готовлю»,&nbsp;— «напишите „[слово]“, и&nbsp;я&nbsp;расскажу первой». Кто написал, попадает в&nbsp;список</li><li value="2">Накануне анонса этому списку в&nbsp;директ: лимитированная коллекция открыта для&nbsp;них по&nbsp;предзаказу раньше всех&nbsp;— на&nbsp;тех же&nbsp;условиях, что&nbsp;Ваш обычный предзаказ, 50%&nbsp;сразу</li><li value="3">Кто оформил предзаказ, получает промокод и&nbsp;заходит в&nbsp;клуб&nbsp;первым</li><li value="4">В&nbsp;шаге 7: «первые девочки уже внутри»&nbsp;— это&nbsp;правда</li></ol>
+<p><strong>Что&nbsp;это&nbsp;даёт:</strong></p>
+<ul><li>видно спрос до&nbsp;открытия: сколько человек написали&nbsp;слово</li><li>первые продажи лимитированной коллекции ещё до&nbsp;анонса</li><li>в&nbsp;клубе не&nbsp;пусто с&nbsp;первого&nbsp;дня</li></ul>
+<p><strong>Что&nbsp;нужно решить:</strong> какая часть лимитированной коллекции идёт в&nbsp;предпродажу и&nbsp;сколько&nbsp;штук.</p></div></section>
+</main>
+<footer><div class="wrap"><a class="gift" href="../aprils-plan/"><span class="gift-tag">Основной документ</span><span class="gift-t">Консультация Aprils</span><span class="gift-s">Позиционирование, темы, актуальные, клуб →</span></a><div class="foot">Малик&nbsp;Хашимов · <a href="https://t.me/mhashimov_23">Telegram @mhashimov_23</a></div></div></footer>
+</body></html>
