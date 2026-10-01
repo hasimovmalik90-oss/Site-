@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprils — итоги консультации</title><meta name="description" content="Что решили на двух встречах и план на две недели."><meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#060606;--bg-2:#0e0e0e;--card:rgba(255,255,255,.025);
+  --ink-bright:#faf9f6;--ink:#ebe9e2;--text:#b5b3aa;--muted:#77756e;--dim:#3a3833;
+  --gold-bright:#ffd17a;--gold:#ffb84d;--gold-deep:#c8893a;
+  --gold-soft:rgba(255,184,77,.18);--gold-faint:rgba(255,184,77,.06);
+  --line:rgba(255,255,255,.07);--line-bright:rgba(255,255,255,.14);--line-gold:rgba(255,184,77,.3);
+  --display:'Fraunces','Times New Roman',serif;--serif:'Instrument Serif','Times New Roman',serif;
+  --sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'Geist Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
+body{font-family:var(--sans);font-size:16.5px;line-height:1.68;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100vw;text-wrap:pretty}
+p,li{text-wrap:pretty}
+h1,h2,h3,h4,.tagline,.lead{text-wrap:balance}
+.eyebrow,.card-tag,.decide-tag,.stat-label,.bio-n,.nl-n,.gift-tag,.byline{white-space:nowrap}
+a{color:var(--gold);text-decoration:none}
+strong{color:var(--ink);font-weight:600}
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 60% 40% at 15% 0%,rgba(255,184,77,.10),transparent 70%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(255,184,77,.06),transparent 70%)}
+header,main,footer,section{position:relative;z-index:2;width:100%;max-width:100vw;overflow-x:hidden}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{padding:96px 0 56px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{margin-bottom:28px}
+h1{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(76px,15vw,150px);line-height:.95;letter-spacing:-.02em;background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px}
+.tagline{font-family:var(--display);font-weight:300;font-size:clamp(24px,4vw,34px);line-height:1.25;color:var(--ink-bright);margin-bottom:22px}
+.byline{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:34px}
+.intro{font-size:17px;color:var(--text);max-width:640px;margin-bottom:34px}
+.toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
+.toc a{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:15px}
+.toc a span{font-family:var(--mono);font-size:11px;color:var(--gold);min-width:22px}
+.toc a:hover{color:var(--gold-bright)}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+section .eyebrow{margin-bottom:16px}
+h2{font-family:var(--display);font-weight:350;font-size:clamp(32px,5.4vw,50px);line-height:1.1;color:var(--ink-bright);letter-spacing:-.01em;margin-bottom:30px}
+h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,3.2vw,27px);line-height:1.25;color:var(--ink-bright);margin:46px 0 16px}
+h4{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--ink);line-height:1.35;margin-bottom:6px}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 18px 0;padding-left:0;list-style:none}
+li{position:relative;padding-left:26px;margin-bottom:10px}
+ul>li::before{content:'';position:absolute;left:4px;top:.72em;width:7px;height:1px;background:var(--gold)}
+ol{counter-reset:n}
+ol>li{counter-increment:n}
+ol>li::before{content:counter(n);position:absolute;left:0;top:.18em;font-family:var(--mono);font-size:12px;color:var(--gold)}
+ol>li[value]::before{content:attr(value)}
+li.check::before{display:none}
+.box{display:inline-block;width:13px;height:13px;border:1px solid var(--gold);border-radius:3px;margin-right:10px;vertical-align:-1px;position:absolute;left:0;top:.42em}
+li .sub{display:block;color:var(--text);margin-top:3px}
+blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 18px;margin:0 0 16px;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--ink)}
+
+.lead{font-family:var(--display);font-weight:300;font-size:clamp(22px,3.4vw,29px);line-height:1.35;color:var(--gold-bright);margin:26px 0 30px;padding-left:20px;border-left:2px solid var(--gold)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 36px}
+.stat{background:var(--bg-2);padding:22px 18px}
+.stat-num{font-family:var(--display);font-size:clamp(28px,4.4vw,40px);font-weight:350;color:var(--gold-bright);line-height:1}
+.stat-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px;white-space:normal}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card p{margin:0;font-size:15.5px}
+.card-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.card h4{font-family:var(--display);font-weight:400;font-size:21px;color:var(--ink-bright);margin-bottom:8px}
+
+.quotes{margin:6px 0 20px}
+
+/* decide */
+.decide{margin:34px 0 6px;border:1px solid var(--line-gold);background:var(--gold-faint);border-radius:14px;padding:22px 24px}
+.decide-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.decide h4{font-family:var(--display);font-weight:400;font-size:22px;color:var(--ink-bright)}
+.decide p{margin:6px 0 0}
+
+/* bios */
+.bios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 24px}
+.bio{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card)}
+.bio-n{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.bio-name{font-weight:600;color:var(--ink-bright);margin-bottom:6px}
+.bio-text span{display:block;font-size:15px;color:var(--ink);line-height:1.5}
+.bio-text span:last-child{color:var(--gold);margin-top:4px}
+
+/* table */
+.tbl{margin:10px 0 24px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;padding:14px 16px;background:var(--bg-2);border-bottom:1px solid var(--line)}
+td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--ink)}
+
+/* two columns */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0 24px}
+.col{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card)}
+.col h4{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px}
+.col ul{margin:0}.col li{font-size:15.5px}
+
+/* numbered list */
+.numlist{margin:10px 0 24px;border-top:1px solid var(--line)}
+.nl{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.nl-n{font-family:var(--mono);font-size:12px;color:var(--gold);padding-top:3px}
+.nl p{margin:0;font-size:15.5px}
+
+/* details */
+details{border:1px solid var(--line);border-radius:14px;margin:0 0 10px;background:var(--card)}
+summary{cursor:pointer;list-style:none;padding:17px 22px;color:var(--ink);font-weight:500;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:var(--mono);color:var(--gold);font-size:18px;line-height:1}
+details[open] summary::after{content:'–'}
+.det{padding:4px 22px 12px}
+.det li{font-size:15.5px}
+
+/* gift link */
+.gift{display:block;border:1px solid var(--line-gold);border-radius:16px;padding:22px 24px;margin:6px 0 10px;background:linear-gradient(135deg,rgba(255,184,77,.08),rgba(255,184,77,.02));transition:border-color .3s}
+.gift:hover{border-color:var(--gold)}
+.gift-tag{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.gift-t{display:block;font-family:var(--display);font-size:24px;color:var(--ink-bright);line-height:1.2;margin-bottom:6px}
+.gift-s{display:block;color:var(--text);font-size:15px}
+
+footer{padding:56px 0 70px}
+.foot{margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .hero{padding:64px 0 40px}
+  section{padding:56px 0}
+  .toc,.cards,.bios,.two{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nl{grid-template-columns:34px 1fr}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{padding:12px 16px;border-bottom:1px solid var(--line)}
+  td{padding:3px 0;border:0}
+  td::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+  td:first-child::before{margin-top:0}
+  blockquote{font-size:19px}
+}
+</style></head>
+<body><div class="ambient"></div>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Итоги · 29 сентября и 1 октября</div>
+<h1>Итоги</h1>
+<p class="tagline">Что&nbsp;мы&nbsp;решили и&nbsp;что&nbsp;делаем&nbsp;дальше</p>
+<div class="byline">Малик&nbsp;Хашимов · продюсер&nbsp;женских&nbsp;блогов</div>
+<p class="intro">Коротко обо всём, что&nbsp;прозвучало на&nbsp;двух встречах: решения, что&nbsp;ещё в&nbsp;работе, порядок действий на&nbsp;ближайшие две недели и&nbsp;кто что&nbsp;делает.</p>
+
+<nav class="toc"><a href="#vstrechi"><span>01</span>Встречи</a><a href="#resheniya"><span>02</span>Решения</a><a href="#otkryto"><span>03</span>В&nbsp;работе</a><a href="#temy"><span>04</span>Темы</a><a href="#aktualnye"><span>05</span>Актуальные</a><a href="#klub"><span>06</span>Клуб</a><a href="#progrev"><span>07</span>Прогрев</a><a href="#plan"><span>08</span>План</a><a href="#zadachi"><span>09</span>Задачи</a></nav>
+</div></header>
+<main><section id="vstrechi"><div class="wrap"><div class="eyebrow">01 · Встречи</div><h2>Что&nbsp;мы&nbsp;прошли</h2><p>Две встречи по&nbsp;документу консультации: 29&nbsp;сентября и&nbsp;1 октября. Прошли его целиком&nbsp;— от&nbsp;точки А&nbsp;до&nbsp;запуска клуба и&nbsp;прогрева.</p>
+<div class="stats"><div class="stat"><div class="stat-num">2</div><div class="stat-label">встречи</div></div><div class="stat"><div class="stat-num">2&nbsp;ч&nbsp;46&nbsp;мин</div><div class="stat-label">вместе</div></div><div class="stat"><div class="stat-num">11</div><div class="stat-label">разделов&nbsp;консультации</div></div><div class="stat"><div class="stat-num">7</div><div class="stat-label">шагов&nbsp;прогрева</div></div></div>
+
+<div class="two"><div class="col"><h4>29&nbsp;сентября</h4><ul><li>Точка А, кому продаём, позиционирование</li><li>Шапка и&nbsp;имя в&nbsp;профиле</li><li>Линии блога и&nbsp;форматы</li><li>Темы&nbsp;—&nbsp;до&nbsp;55‑й</li></ul></div><div class="col"><h4>1&nbsp;октября</h4><ul><li>Темы&nbsp;— до&nbsp;конца списка, и&nbsp;что&nbsp;внедрять&nbsp;первым</li><li>Актуальные&nbsp;— по&nbsp;каждому&nbsp;альбому</li><li>Клуб и&nbsp;путь к&nbsp;покупке</li><li>Прогрев&nbsp;— все&nbsp;семь&nbsp;шагов</li></ul></div></div>
+</div></section>
+<section id="resheniya"><div class="wrap"><div class="eyebrow">02 · Решения</div><h2>О&nbsp;чём&nbsp;договорились</h2>
+<div class="numlist"><div class="nl"><div class="nl-n">01</div><div><h4>Шапка</h4><p>Сейчас&nbsp;— вариант&nbsp;1. Вариант&nbsp;3, который Вам&nbsp;нравится больше,&nbsp;— позже, когда блог подрастёт. Текст пришлю, Вы&nbsp;меняете</p></div></div><div class="nl"><div class="nl-n">02</div><div><h4>Имя в&nbsp;профиле</h4><p>Обязательно. Чтобы Вас&nbsp;находили в&nbsp;поиске и&nbsp;запоминали</p></div></div><div class="nl"><div class="nl-n">03</div><div><h4>Образ</h4><p>Уходим от&nbsp;образа «магазина копий»&nbsp;— это&nbsp;и&nbsp;Ваше&nbsp;желание</p></div></div><div class="nl"><div class="nl-n">04</div><div><h4>Ассортимент</h4><p>Уходим в&nbsp;чистое серебро. APM&nbsp;— понемногу и&nbsp;только модели, которые хорошо носятся. Кладёте их&nbsp;в&nbsp;свою упаковку, чтобы не&nbsp;путать покупательниц</p></div></div><div class="nl"><div class="nl-n">05</div><div><h4>Темы</h4><p>Утверждены. Сценарные каркасы пишу&nbsp;по&nbsp;ним</p></div></div><div class="nl"><div class="nl-n">06</div><div><h4>Отзывы</h4><p>Без имён клиенток. Имена на&nbsp;скринах&nbsp;закрываем</p></div></div><div class="nl"><div class="nl-n">07</div><div><h4>Актуальное&nbsp;«Размер»</h4><p>Не&nbsp;делаем. Размер кольца запоминает бот клуба&nbsp;— это&nbsp;ценность клуба, не&nbsp;отдельный&nbsp;альбом</p></div></div><div class="nl"><div class="nl-n">08</div><div><h4>Клуб</h4><p>Покупка&nbsp;— и&nbsp;бонусом клуб, а&nbsp;не&nbsp;покупка ради клуба. Доступ один раз&nbsp;и&nbsp;навсегда&nbsp;— пишем об&nbsp;этом&nbsp;прямо</p></div></div><div class="nl"><div class="nl-n">09</div><div><h4>Первые участницы&nbsp;клуба</h4><p>Ваши постоянные покупательницы. Добавляете их&nbsp;сами, им&nbsp;— отдельное сообщение и&nbsp;просьба об&nbsp;обратной&nbsp;связи</p></div></div><div class="nl"><div class="nl-n">10</div><div><h4>Съёмка</h4><p>Сначала актуальные, потом ролики. Актуальное готово раньше, чем выйдет ролик, который в&nbsp;него&nbsp;ведёт</p></div></div><div class="nl"><div class="nl-n">11</div><div><h4>Итоговый&nbsp;документ</h4><p>Через две недели внедрения&nbsp;— с&nbsp;результатом. До&nbsp;этого решаем всё в&nbsp;переписке&nbsp;по&nbsp;ходу</p></div></div></div>
+</div></section>
+<section id="otkryto"><div class="wrap"><div class="eyebrow">03 · В&nbsp;работе</div><h2>Что&nbsp;ещё&nbsp;решаем</h2><p>Это&nbsp;закрываем в&nbsp;переписке, по&nbsp;ходу&nbsp;внедрения.</p>
+<ul><li><strong>Ритм публикаций</strong>&nbsp;— сколько роликов в&nbsp;неделю Вы&nbsp;держите</li><li><strong>Гарантия одной фразой</strong>&nbsp;— для&nbsp;сторис и&nbsp;актуального. Условия из&nbsp;распаковки у&nbsp;меня есть, если появятся вопросы&nbsp;—&nbsp;пришлю</li><li><strong>Кодовое слово</strong> для&nbsp;роликов, которые ведут в&nbsp;директ</li><li><strong>Брендированные подарки и&nbsp;лимитированная коллекция</strong>&nbsp;— без&nbsp;них клуб не&nbsp;анонсируем</li><li><strong>Семейные купоны</strong>&nbsp;— например, скидка на&nbsp;подарок маме или&nbsp;сестре. Подумаем, если много покупок для&nbsp;семьи</li><li><strong>Тема&nbsp;80, чувство вины перед сыном</strong>&nbsp;— подумаем, как&nbsp;подать</li></ul></div></section>
+<section id="temy"><div class="wrap"><div class="eyebrow">04 · Темы</div><h2>С&nbsp;чего&nbsp;начинаем</h2><h3>Порядок</h3>
+<div class="numlist"><div class="nl"><div class="nl-n">01</div><div><h4>Гарантия</h4><p>Темы&nbsp;37, 38, 27, 63. В&nbsp;блоге её&nbsp;нет&nbsp;нигде</p></div></div><div class="nl"><div class="nl-n">02</div><div><h4>История&nbsp;—&nbsp;в&nbsp;ленту</h4><p>Темы&nbsp;3, 5, 6, 8. Она уже есть в&nbsp;актуальных, но&nbsp;новые люди до&nbsp;них не&nbsp;доходят</p></div></div><div class="nl"><div class="nl-n">03</div><div><h4>Ваш голос&nbsp;— через&nbsp;закадр</h4><p>Темы&nbsp;44,&nbsp;17</p></div></div><div class="nl"><div class="nl-n">04</div><div><h4>Дальше&nbsp;— по&nbsp;столбам</h4><p>Принципы → люди → путь → деньги → ценности → характер → быт → тело.&nbsp;Чередуем</p></div></div></div>
+<h3>Что&nbsp;берём из&nbsp;тем&nbsp;63–80</h3>
+<div class="tbl"><table><thead><tr><th>Тема</th><th>Как&nbsp;подаём</th></tr></thead><tbody><tr><td data-l="Тема">69. Деньги&nbsp;— свобода, а&nbsp;не&nbsp;статус</td><td data-l="Как подаём">Первой из&nbsp;блока «Деньги». Через реализацию и&nbsp;независимость</td></tr><tr><td data-l="Тема">63. Замены ушли в&nbsp;минус больше чем на&nbsp;30&nbsp;000</td><td data-l="Как подаём">Как&nbsp;тему про&nbsp;сервис: не&nbsp;оставили человека одного с&nbsp;проблемой</td></tr><tr><td data-l="Тема">67. Из&nbsp;чего складывается&nbsp;цена</td><td data-l="Как подаём">Пока не&nbsp;берём</td></tr><tr><td data-l="Тема">75. Завтрак в&nbsp;тишине</td><td data-l="Как подаём">Время наедине с&nbsp;собой и&nbsp;что&nbsp;оно Вам&nbsp;даёт</td></tr><tr><td data-l="Тема">78. Поездки по&nbsp;Казахстану</td><td data-l="Как подаём">Мини‑влоги из&nbsp;уже снятого: дорога, горы, Кольсай. Можно&nbsp;не&nbsp;один</td></tr><tr><td data-l="Тема">79. Шпиц&nbsp;Принц</td><td data-l="Как подаём">Без отдельного плана&nbsp;— если получится что‑то&nbsp;живое</td></tr></tbody></table></div>
+<h3>Что&nbsp;Вы&nbsp;добавили на&nbsp;встречах</h3>
+<ul><li><strong>Браслет с&nbsp;Хамсой</strong>&nbsp;— с&nbsp;него началась Ваша тяга к&nbsp;серебру. Идёт в&nbsp;тему&nbsp;52&nbsp;и&nbsp;в&nbsp;актуальное&nbsp;«Серебро»</li><li><strong>Голосовые клиенток</strong>&nbsp;— например, от&nbsp;девушки из&nbsp;Кореи. В&nbsp;ролик&nbsp;— 5–20&nbsp;секунд голосового, потом рассказ о&nbsp;ситуации</li><li><strong>Ванна (тема&nbsp;53)</strong>&nbsp;— без&nbsp;лица: пена&nbsp;и&nbsp;рука</li><li><strong>Пряники к&nbsp;Хэллоуину</strong> в&nbsp;посылки&nbsp;— для&nbsp;ролика и&nbsp;для&nbsp;шага&nbsp;3&nbsp;прогрева</li><li><strong>Закадр</strong>&nbsp;— дело практики. Голос привыкает за&nbsp;1–3&nbsp;месяца</li></ul></div></section>
+<section id="aktualnye"><div class="wrap"><div class="eyebrow">05 · Актуальные</div><h2>Порядок и&nbsp;что&nbsp;внутри</h2>
+<div class="numlist"><div class="nl"><div class="nl-n">01</div><div><h4>Гарантия</h4><p>Новое, первым. Сюда ведут все&nbsp;ролики про&nbsp;гарантию и&nbsp;замены</p></div></div><div class="nl"><div class="nl-n">02</div><div><h4>Обо&nbsp;мне</h4><p>Из&nbsp;«начала». Можно назвать «Мой путь». Сюда ведёт большинство&nbsp;роликов</p></div></div><div class="nl"><div class="nl-n">03</div><div><h4>Отзывы</h4><p>Дополняем историями Меруерт, девушки из&nbsp;Кореи, Ани, Алии. Без имён. На&nbsp;одну историю&nbsp;— 2–5&nbsp;сторис</p></div></div><div class="nl"><div class="nl-n">04</div><div><h4>Предзаказ и&nbsp;доставка</h4><p>Расширяем: путь посылки, сроки, отправки в&nbsp;выходные, истории&nbsp;предзаказов</p></div></div><div class="nl"><div class="nl-n">05</div><div><h4>Упаковка</h4><p>Новое. Шёлковые мешочки уже готовы&nbsp;— снимаем&nbsp;с&nbsp;ними</p></div></div><div class="nl"><div class="nl-n">06</div><div><h4>Подарки</h4><p>Новое, с&nbsp;акцентом: зачем дарить и&nbsp;когда&nbsp;— женские праздники, Новый год, дни рождения, в&nbsp;том числе&nbsp;родных</p></div></div><div class="nl"><div class="nl-n">07</div><div><h4>Серебро</h4><p>Вместо «ВАЖНО». Почему серебро и&nbsp;на&nbsp;каких условиях. Плюс история&nbsp;браслета</p></div></div><div class="nl"><div class="nl-n">08</div><div><h4>Наличие</h4><p>Оставляем как&nbsp;есть</p></div></div><div class="nl"><div class="nl-n">09</div><div><h4>Клуб</h4><p>Новое, к&nbsp;запуску клуба. В&nbsp;последней сторис&nbsp;— ссылка на&nbsp;подробную&nbsp;страницу</p></div></div></div>
+<p>Тексты для&nbsp;альбомов пишу я, Вы&nbsp;собираете альбомы по&nbsp;порядку.</p></div></section>
+<section id="klub"><div class="wrap"><div class="eyebrow">06 · Клуб</div><h2>Что&nbsp;настраиваем</h2>
+<div class="two"><div class="col"><h4>Уже&nbsp;есть</h4><ul><li>Бот с&nbsp;бронью: Вам&nbsp;приходит уведомление, кто&nbsp;забронировал</li><li>Дата рождения и&nbsp;размер кольца в&nbsp;анкете&nbsp;— бот сам поздравляет и&nbsp;даёт&nbsp;скидку</li><li>Золотой билет: раз&nbsp;в&nbsp;месяц бот выбирает участницу, подарок Вы&nbsp;выбираете из&nbsp;наличия, объявление в&nbsp;общем&nbsp;чате</li><li>В&nbsp;боте видно, кто уже получал&nbsp;билет</li></ul></div><div class="col"><h4>Нужно&nbsp;сделать</h4><ul><li>Оплатить сервер бота&nbsp;— до&nbsp;анонса&nbsp;клуба</li><li>Автоответ на&nbsp;кодовое слово: слово в&nbsp;комментариях → пара вопросов → каталог и&nbsp;наличие → покупка →&nbsp;клуб</li><li>Сообщение постоянным покупательницам&nbsp;— приглашение&nbsp;в&nbsp;клуб</li><li>Сообщение после покупки&nbsp;— со&nbsp;ссылкой на&nbsp;клуб и&nbsp;промокодом</li></ul></div></div>
+<h3>База покупательниц</h3>
+<p>Сейчас всё держится на&nbsp;рабочем номере. Начинаем собирать&nbsp;базу:</p>
+<ul><li>при&nbsp;покупке&nbsp;—&nbsp;контакты</li><li>после покупки&nbsp;— короткая анкета: дни рождения, кому ещё&nbsp;дарите</li><li>с&nbsp;базой можно сразу написать всем о&nbsp;новой коллекции и&nbsp;делать личные&nbsp;предложения</li></ul></div></section>
+<section id="progrev"><div class="wrap"><div class="eyebrow">07 · Прогрев</div><h2>Что&nbsp;меняем</h2><p>Прежде чем запускать прогрев, узнаём&nbsp;аудиторию:</p>
+<ul><li><strong>Опрос в&nbsp;сторис</strong>&nbsp;— 2–3&nbsp;вопроса в&nbsp;окошках: кто Вы, чем занимаетесь, как&nbsp;и&nbsp;почему покупаете&nbsp;украшения</li><li><strong>Анкета</strong> в&nbsp;Google Форме&nbsp;— разослать тем, кто уже&nbsp;покупал</li></ul>
+<p>Вопросы для&nbsp;опроса и&nbsp;анкету готовлю&nbsp;я.</p>
+<div class="tbl"><table><thead><tr><th>Шаг</th><th>Что&nbsp;меняем</th></tr></thead><tbody><tr><td data-l="Шаг">1. Я отвечаю за&nbsp;каждое&nbsp;украшение</td><td data-l="Что меняем">История про&nbsp;три замены&nbsp;— про&nbsp;то, что&nbsp;Вы&nbsp;не&nbsp;оставили человека одного. Гарантия одной фразой: что&nbsp;бы&nbsp;ни случилось&nbsp;— я&nbsp;рядом. Дописываю про&nbsp;состав&nbsp;серебра</td></tr><tr><td data-l="Шаг">2. Посылка&nbsp;дойдёт</td><td data-l="Что меняем">Подумать, что&nbsp;ещё класть в&nbsp;посылку: шоколадку, записку, маленькую&nbsp;открытку</td></tr><tr><td data-l="Шаг">3. Почему ко&nbsp;мне&nbsp;возвращаются</td><td data-l="Что меняем">Историю Меруерт раскладываем по&nbsp;фактам: почему она решила подождать. Пряники к&nbsp;Хэллоуину. Распаковку покупательницы показываем, лучше с&nbsp;её&nbsp;голосом</td></tr><tr><td data-l="Шаг">4. Я&nbsp;сама</td><td data-l="Что меняем">Переписываю: почему Вы&nbsp;занялись украшениями&nbsp;— через миссию, ценности, женственность. Короче, чем в&nbsp;актуальном</td></tr><tr><td data-l="Шаг">5. Я кое‑что&nbsp;готовлю</td><td data-l="Что меняем">Переписываю: показываем, как&nbsp;готовили клуб. Ваши переписки и&nbsp;кружочки от&nbsp;разработчика бота, без&nbsp;голоса</td></tr><tr><td data-l="Шаг">6. Aprils&nbsp;Private</td><td data-l="Что меняем">Добавляю: доступ один раз&nbsp;и&nbsp;навсегда</td></tr><tr><td data-l="Шаг">7. Клуб&nbsp;открыт</td><td data-l="Что меняем">Первые участницы&nbsp;— Ваши постоянные покупательницы и&nbsp;их&nbsp;отклики</td></tr></tbody></table></div>
+<p>Шаги 1–4&nbsp;— с&nbsp;паузами, по&nbsp;реакции. Шаги 5–6–7&nbsp;— три дня подряд, контент к&nbsp;ним готовим&nbsp;заранее.</p>
+<p><strong>Папка доказательств</strong>&nbsp;— начните собирать сейчас: отзывы, благодарности, скрины переписок, распаковки, отметки, фото украшений на&nbsp;покупательницах.</p></div></section>
+<section id="plan"><div class="wrap"><div class="eyebrow">08 · План</div><h2>Две недели по&nbsp;шагам</h2><p>Идём строго по&nbsp;порядку: следующий шаг&nbsp;— когда закрыт&nbsp;предыдущий.</p>
+<div class="numlist"><div class="nl"><div class="nl-n">01</div><div><h4>Шапка</h4><p>Присылаю текст варианта&nbsp;1&nbsp;— Вы&nbsp;меняете шапку и&nbsp;имя в&nbsp;профиле</p></div></div><div class="nl"><div class="nl-n">02</div><div><h4>Опрос и&nbsp;анкета</h4><p>Присылаю вопросы&nbsp;— Вы&nbsp;ставите опрос в&nbsp;сторис и&nbsp;рассылаете анкету покупательницам</p></div></div><div class="nl"><div class="nl-n">03</div><div><h4>Актуальные</h4><p>Присылаю тексты по&nbsp;одному альбому&nbsp;— Вы&nbsp;собираете: Гарантия, Обо мне, Отзывы, Предзаказ и&nbsp;доставка, Упаковка, Подарки,&nbsp;Серебро</p></div></div><div class="nl"><div class="nl-n">04</div><div><h4>Первые&nbsp;ролики</h4><p>Присылаю каркасы по&nbsp;порядку тем&nbsp;— Вы&nbsp;снимаете. Первыми&nbsp;— гарантия, история в&nbsp;ленту,&nbsp;закадр</p></div></div><div class="nl"><div class="nl-n">05</div><div><h4>Подготовка&nbsp;клуба</h4><p>Оплата сервера, автоответ на&nbsp;кодовое слово, сообщения постоянным покупательницам и&nbsp;после покупки, папка доказательств, подарки и&nbsp;лимитированная коллекция на&nbsp;руках</p></div></div><div class="nl"><div class="nl-n">06</div><div><h4>Прогрев</h4><p>Присылаю обновлённые шаги&nbsp;— Вы&nbsp;ведёте сторис: шаги 1–4&nbsp;по&nbsp;реакции, 5–6–7&nbsp;три дня&nbsp;подряд</p></div></div><div class="nl"><div class="nl-n">07</div><div><h4>Итог</h4><p>Через две недели&nbsp;— итоговый документ с&nbsp;результатом и&nbsp;разбором вышедших&nbsp;роликов</p></div></div></div>
+<p>Всё время рядом: смотрю черновики, правлю формулировки, разбираю вышедшие&nbsp;ролики.</p></div></section>
+<section id="zadachi"><div class="wrap"><div class="eyebrow">09 · Задачи</div><h2>Кто что&nbsp;делает</h2>
+<div class="two"><div class="col"><h4>Ваши</h4><ul><li class="check"><span class="box"></span> Поменять шапку и&nbsp;имя, когда пришлю&nbsp;текст</li><li class="check"><span class="box"></span> Прислать фото и&nbsp;видео того, что&nbsp;вокруг,&nbsp;— выберем место для&nbsp;роликов&nbsp;в&nbsp;кадре</li><li class="check"><span class="box"></span> Поставить опрос и&nbsp;разослать&nbsp;анкету</li><li class="check"><span class="box"></span> Собрать актуальные по&nbsp;порядку</li><li class="check"><span class="box"></span> Собрать папку доказательств</li><li class="check"><span class="box"></span> Найти переписки и&nbsp;кружочки разработчика бота&nbsp;— для&nbsp;шага&nbsp;5</li><li class="check"><span class="box"></span> Оплатить сервер бота до&nbsp;анонса&nbsp;клуба</li><li class="check"><span class="box"></span> Добавить постоянных покупательниц&nbsp;в&nbsp;клуб</li></ul></div><div class="col"><h4>Мои</h4><ul><li class="check"><span class="box"></span> Текст&nbsp;шапки</li><li class="check"><span class="box"></span> Вопросы опроса и&nbsp;анкета</li><li class="check"><span class="box"></span> Тексты&nbsp;актуальных</li><li class="check"><span class="box"></span> Каркасы роликов по&nbsp;темам</li><li class="check"><span class="box"></span> Схема автоответа на&nbsp;кодовое&nbsp;слово</li><li class="check"><span class="box"></span> Сообщение постоянным покупательницам и&nbsp;сообщение после&nbsp;покупки</li><li class="check"><span class="box"></span> Обновлённые шаги&nbsp;прогрева</li><li class="check"><span class="box"></span> Итоговый документ через две&nbsp;недели</li></ul></div></div></div></section>
+</main>
+<footer><div class="wrap"><a class="gift" href="../aprils-plan/"><span class="gift-tag">Основной документ</span><span class="gift-t">Консультация Aprils</span><span class="gift-s">Позиционирование, темы, актуальные, клуб →</span></a><div class="foot">Малик&nbsp;Хашимов · <a href="https://t.me/mhashimov_23">Telegram @mhashimov_23</a></div></div></footer>
+</body></html>
