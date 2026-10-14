@@ -46,6 +46,19 @@ figcaption b{font-weight:600;font-size:14.5px;color:#F2EEE8}
 figcaption span{font-size:13px;color:var(--mute)}
 figcaption i{font-style:normal;align-self:flex-start;margin-top:8px;font-size:11px;letter-spacing:.06em;color:var(--accent);border:1px solid var(--edge);border-radius:20px;padding:2px 9px}
 .hide{display:none}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;padding:10px 0 20px}
+.tile{display:block;text-decoration:none;color:inherit;border:1px solid var(--edge);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 22px 50px -30px rgba(201,183,155,.35);transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-3px);border-color:rgba(201,183,155,.45)}
+.cov{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;aspect-ratio:3/2;background:#000}
+.cov.n1{grid-template-columns:1fr}.cov.n2{grid-template-columns:1fr 1fr}
+.cov img{width:100%;height:100%;object-fit:cover;display:block}
+.tt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:16px 18px 18px}
+.tt h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:#F2EEE8;line-height:1.15}
+.tt span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.niche{display:none;padding-top:10px}
+.niche.on{display:block}
+body.open #home,body.open .hero{display:none}
+.back{display:inline-block;margin:28px 0 18px;color:var(--accent);text-decoration:none;font-size:14px;padding:8px 16px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05)}
 footer{text-align:center;padding:60px 0 70px}
 footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
 .contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:880px;margin:0 auto}
@@ -53,6 +66,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
 .contacts .t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
 .contacts .v{color:#F2EEE8;font-size:15px}
 @media(max-width:700px){
+ .tiles{grid-template-columns:1fr;gap:14px}
+ .tt h3{font-size:23px}
  .wrap{padding:0 16px}
  .hero{padding:48px 0 24px}
  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -68,8 +83,9 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <p class="sub">Ролики для&nbsp;экспертов, предпринимателей, блогеров и&nbsp;мероприятий</p>
   <div class="stats"><div><b>66</b><span>роликов</span></div><div><b>7</b><span>ниш</span></div></div>
 </div></header>
-<div class="bar"><div class="wrap"><nav class="nav"><a href="#biz">Бизнес и предприниматели<span>14</span></a><a href="#psy">Психология и саморазвитие<span>10</span></a><a href="#life">Lifestyle, fashion, бьюти<span>9</span></a><a href="#vlog">Влоги<span>4</span></a><a href="#event">Мероприятия<span>21</span></a><a href="#service">Сфера услуг<span>6</span></a><a href="#sport">Спорт и авто<span>2</span></a></nav><div class="chips"><button class="chip on" data-f="*">Все форматы</button><button class="chip" data-f="Говорящая голова">Говорящая голова</button><button class="chip" data-f="Репортаж">Репортаж</button><button class="chip" data-f="Влог">Влог</button><button class="chip" data-f="Динамичный монтаж">Динамичный монтаж</button><button class="chip" data-f="Обзор">Обзор</button><button class="chip" data-f="Процесс">Процесс</button><button class="chip" data-f="Эстетика">Эстетика</button><button class="chip" data-f="Интервью">Интервью</button><button class="chip" data-f="Выступление">Выступление</button></div></div></div>
-<section id="biz"><div class="wrap">
+<main id="home"><div class="wrap"><div class="tiles"><a class="tile" href="#biz"><div class="cov n3"><img src="p/01.jpg" alt="" loading="lazy"><img src="p/04.jpg" alt="" loading="lazy"><img src="p/05.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Бизнес и&nbsp;предприниматели</h3><span>14 роликов</span></div></a><a class="tile" href="#psy"><div class="cov n3"><img src="p/15.jpg" alt="" loading="lazy"><img src="p/16.jpg" alt="" loading="lazy"><img src="p/19.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Психология и&nbsp;саморазвитие</h3><span>10 роликов</span></div></a><a class="tile" href="#life"><div class="cov n3"><img src="p/25.jpg" alt="" loading="lazy"><img src="p/28.jpg" alt="" loading="lazy"><img src="p/29.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Lifestyle, fashion, бьюти</h3><span>9 роликов</span></div></a><a class="tile" href="#vlog"><div class="cov n3"><img src="p/34.jpg" alt="" loading="lazy"><img src="p/35.jpg" alt="" loading="lazy"><img src="p/36.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Влоги</h3><span>4 ролика</span></div></a><a class="tile" href="#event"><div class="cov n3"><img src="p/38.jpg" alt="" loading="lazy"><img src="p/39.jpg" alt="" loading="lazy"><img src="p/41.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Мероприятия</h3><span>21 ролик</span></div></a><a class="tile" href="#service"><div class="cov n3"><img src="p/59.jpg" alt="" loading="lazy"><img src="p/62.jpg" alt="" loading="lazy"><img src="p/63.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Сфера услуг</h3><span>6 роликов</span></div></a><a class="tile" href="#sport"><div class="cov n2"><img src="p/65.jpg" alt="" loading="lazy"><img src="p/66.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Спорт и&nbsp;авто</h3><span>2 ролика</span></div></a></div></div></main>
+<section id="biz" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Бизнес и&nbsp;предприниматели</h2><span class="cnt">14 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Сторителлинг">
   <div class="media"><video src="v/01.mp4" poster="p/01.jpg" preload="none" playsinline controls></video><span class="dur">1:12</span></div>
@@ -114,7 +130,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/14.mp4" poster="p/14.jpg" preload="none" playsinline controls></video><span class="dur">0:39</span></div>
   <figcaption><b>izibuy</b><span>Авторынок, пригон авто</span><i>Рекламный ролик</i></figcaption>
 </figure></div>
-</div></section><section id="psy"><div class="wrap">
+</div></section><section id="psy" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Психология и&nbsp;саморазвитие</h2><span class="cnt">10 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Говорящая голова">
   <div class="media"><video src="v/15.mp4" poster="p/15.jpg" preload="none" playsinline controls></video><span class="dur">0:51</span></div>
@@ -147,7 +164,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/24.mp4" poster="p/24.jpg" preload="none" playsinline controls></video><span class="dur">0:43</span></div>
   <figcaption><b>Даниел Амонт</b><span>Знакомства и&nbsp;отношения</span><i>Говорящая голова</i></figcaption>
 </figure></div>
-</div></section><section id="life"><div class="wrap">
+</div></section><section id="life" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Lifestyle, fashion, бьюти</h2><span class="cnt">9 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Эстетика">
   <div class="media"><video src="v/25.mp4" poster="p/25.jpg" preload="none" playsinline controls></video><span class="dur">0:09</span></div>
@@ -177,7 +195,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/33.mp4" poster="p/33.jpg" preload="none" playsinline controls></video><span class="dur">0:11</span></div>
   <figcaption><b>Косметика Авир</b><span>Косметика</span><i>Обзор</i></figcaption>
 </figure></div>
-</div></section><section id="vlog"><div class="wrap">
+</div></section><section id="vlog" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Влоги</h2><span class="cnt">4 ролика</span></div>
   <div class="grid"><figure class="card" data-f="Влог">
   <div class="media"><video src="v/34.mp4" poster="p/34.jpg" preload="none" playsinline controls></video><span class="dur">2:11</span></div>
@@ -192,7 +211,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/37.mp4" poster="p/37.jpg" preload="none" playsinline controls></video><span class="dur">2:47</span></div>
   <figcaption><b>Каролина Читанава</b><span>Утро дома</span><i>Влог</i></figcaption>
 </figure></div>
-</div></section><section id="event"><div class="wrap">
+</div></section><section id="event" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Мероприятия</h2><span class="cnt">21 ролик</span></div>
   <div class="grid"><figure class="card" data-f="Репортаж">
   <div class="media"><video src="v/38.mp4" poster="p/38.jpg" preload="none" playsinline controls></video><span class="dur">0:37</span></div>
@@ -258,7 +278,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/58.mp4" poster="p/58.jpg" preload="none" playsinline controls></video><span class="dur">2:34</span></div>
   <figcaption><b>День рождения</b><span>Детский праздник</span><i>Репортаж</i></figcaption>
 </figure></div>
-</div></section><section id="service"><div class="wrap">
+</div></section><section id="service" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Сфера услуг</h2><span class="cnt">6 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Процесс">
   <div class="media"><video src="v/59.mp4" poster="p/59.jpg" preload="none" playsinline controls></video><span class="dur">1:06</span></div>
@@ -279,7 +300,8 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <div class="media"><video src="v/64.mp4" poster="p/64.jpg" preload="none" playsinline controls></video><span class="dur">0:12</span></div>
   <figcaption><b>Недвижимость</b><span>Загородные дома</span><i>Обзор</i></figcaption>
 </figure></div>
-</div></section><section id="sport"><div class="wrap">
+</div></section><section id="sport" class="niche"><div class="wrap">
+  <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Спорт и&nbsp;авто</h2><span class="cnt">2 ролика</span></div>
   <div class="grid"><figure class="card" data-f="Процесс">
   <div class="media"><video src="v/65.mp4" poster="p/65.jpg" preload="none" playsinline controls></video><span class="dur">1:50</span></div>
@@ -300,11 +322,14 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
 </div></footer>
 <script>
 document.addEventListener('play',function(e){document.querySelectorAll('video').forEach(function(v){if(v!==e.target)v.pause()})},true);
-var chips=document.querySelectorAll('.chip');
-chips.forEach(function(c){c.addEventListener('click',function(){
-  chips.forEach(function(x){x.classList.remove('on')});c.classList.add('on');var f=c.dataset.f;
-  document.querySelectorAll('.card').forEach(function(k){k.classList.toggle('hide',f!=='*'&&k.dataset.f!==f)});
-  document.querySelectorAll('section').forEach(function(s){s.classList.toggle('hide',!s.querySelector('.card:not(.hide)'))});
-})});
+function route(){
+  var k=location.hash.slice(1), sec=k&&document.getElementById(k);
+  document.querySelectorAll('video').forEach(function(v){v.pause()});
+  document.querySelectorAll('.niche').forEach(function(x){x.classList.toggle('on',x===sec)});
+  document.body.classList.toggle('open',!!(sec&&sec.classList.contains('niche')));
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);route();
+document.querySelectorAll('.back').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.pushState('',document.title,location.pathname+location.search);route()})});
 </script>
 </body></html>
