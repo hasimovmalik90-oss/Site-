@@ -1,0 +1,662 @@
+[
+ {
+  "id": "01",
+  "niche": "biz",
+  "who": "Георгий",
+  "about": "Строительство, группа компаний",
+  "fmt": "Сторителлинг",
+  "vertical": true,
+  "dur": 72,
+  "src": "2026.08.06_Malik_v.1.mov"
+ },
+ {
+  "id": "02",
+  "niche": "biz",
+  "who": "Георгий",
+  "about": "Строительство, группа компаний",
+  "fmt": "Лайфстайл предпринимателя",
+  "vertical": true,
+  "dur": 34,
+  "src": "Тайкан 2.MP4"
+ },
+ {
+  "id": "03",
+  "niche": "biz",
+  "who": "Георгий",
+  "about": "Строительство, группа компаний",
+  "fmt": "Лайфстайл предпринимателя",
+  "vertical": true,
+  "dur": 30,
+  "src": "конец рабочего дня блюр.mov"
+ },
+ {
+  "id": "04",
+  "niche": "biz",
+  "who": "Алексей Ермилов",
+  "about": "Инвестиции",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 36,
+  "src": "-8339629508494705379.MP4"
+ },
+ {
+  "id": "05",
+  "niche": "biz",
+  "who": "Ден Мильштейн",
+  "about": "Спортивное агентство",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 43,
+  "src": "lv_0_20241225223308.MP4"
+ },
+ {
+  "id": "06",
+  "niche": "biz",
+  "who": "Александр Бобруев",
+  "about": "Товарный бизнес",
+  "fmt": "Интервью",
+  "vertical": true,
+  "dur": 34,
+  "src": "IMG_1489.MOV"
+ },
+ {
+  "id": "07",
+  "niche": "biz",
+  "who": "Анатолий Сульянов",
+  "about": "Бренды",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 15,
+  "src": "video_2026-10-14_16-45-02.mp4"
+ },
+ {
+  "id": "08",
+  "niche": "biz",
+  "who": "Ибрагим Алиев",
+  "about": "Бизнес-клуб",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 54,
+  "src": "copy_B9AA5EC4-325F-4628-B925-651A47E31BB9.MOV"
+ },
+ {
+  "id": "09",
+  "niche": "biz",
+  "who": "Саид",
+  "about": "Маркетинг",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 97,
+  "src": "copy_E8973108-B83B-418C-9F02-B2CA7C8E3F7B.MOV"
+ },
+ {
+  "id": "10",
+  "niche": "biz",
+  "who": "Сара",
+  "about": "Маркетплейсы",
+  "fmt": "Диалог",
+  "vertical": true,
+  "dur": 37,
+  "src": "0519 (Готовый).MP4"
+ },
+ {
+  "id": "11",
+  "niche": "biz",
+  "who": "Татьяна Пономарева",
+  "about": "Найм и продажи",
+  "fmt": "Выступление",
+  "vertical": true,
+  "dur": 21,
+  "src": "copy_32402E04-100A-4A37-B68C-4ABCF0374B2C.MOV"
+ },
+ {
+  "id": "12",
+  "niche": "biz",
+  "who": "Макс Люшер",
+  "about": "Предприниматель",
+  "fmt": "Нарезка подкаста",
+  "vertical": true,
+  "dur": 23,
+  "src": "4463094372626513505.MP4"
+ },
+ {
+  "id": "13",
+  "niche": "biz",
+  "who": "Cardealer",
+  "about": "Авто с пробегом",
+  "fmt": "Экспертный",
+  "vertical": true,
+  "dur": 30,
+  "src": "0510 (испарвленныйй(.MP4"
+ },
+ {
+  "id": "14",
+  "niche": "biz",
+  "who": "izibuy",
+  "about": "Авторынок, пригон авто",
+  "fmt": "Рекламный ролик",
+  "vertical": false,
+  "dur": 39,
+  "src": "copy_AF3DFF5D-E711-4092-B892-BF8ED12F27F1.MOV"
+ },
+ {
+  "id": "15",
+  "niche": "psy",
+  "who": "Психолог",
+  "about": "Отношения в паре",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 51,
+  "src": "4973965199867200314.MP4"
+ },
+ {
+  "id": "16",
+  "niche": "psy",
+  "who": "Дарья Сиберякова",
+  "about": "Астрология",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 36,
+  "src": "copy_02B2BC92-206A-4371-A1F7-499C67C4204B.MOV"
+ },
+ {
+  "id": "17",
+  "niche": "psy",
+  "who": "Дарья Сиберякова",
+  "about": "Астрология",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 59,
+  "src": "copy_2EE806C3-2167-4504-8A5A-4F5373765D98.MOV"
+ },
+ {
+  "id": "18",
+  "niche": "psy",
+  "who": "Дарья Сиберякова",
+  "about": "Астрология",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 40,
+  "src": "lv_0_20241221220720.MP4"
+ },
+ {
+  "id": "19",
+  "niche": "psy",
+  "who": "Раян Ахмедянов",
+  "about": "Саморазвитие",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 27,
+  "src": "0704 (4).MP4"
+ },
+ {
+  "id": "20",
+  "niche": "psy",
+  "who": "Раян Ахмедянов",
+  "about": "Саморазвитие",
+  "fmt": "Говорящая голова",
+  "vertical": false,
+  "dur": 226,
+  "src": "copy_98CC6BDA-374F-4818-8D83-2B24C73B923A.MOV"
+ },
+ {
+  "id": "21",
+  "niche": "psy",
+  "who": "Юра Мурадян",
+  "about": "Медитации",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 72,
+  "src": "медитация,_что_она_дает_на_самом_деле.MP4"
+ },
+ {
+  "id": "22",
+  "niche": "psy",
+  "who": "Юра Мурадян",
+  "about": "Медитации",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 74,
+  "src": "что_происходит_с_телом,_когда_медитируешь.MP4"
+ },
+ {
+  "id": "23",
+  "niche": "psy",
+  "who": "Юра Мурадян",
+  "about": "Медитации",
+  "fmt": "Короткий формат",
+  "vertical": true,
+  "dur": 9,
+  "src": "a6951a7bf35c4251a57d2ca58be0ec89.MOV"
+ },
+ {
+  "id": "24",
+  "niche": "psy",
+  "who": "Даниел Амонт",
+  "about": "Знакомства и отношения",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 43,
+  "src": "89C1A587-A535-407F-9B70-6C72618B135C.MOV"
+ },
+ {
+  "id": "25",
+  "niche": "life",
+  "who": "Александра Гончарова",
+  "about": "Lifestyle",
+  "fmt": "Эстетика",
+  "vertical": true,
+  "dur": 9,
+  "src": "copy_1624543A-6ED0-491C-98DF-96D189CD7094.MOV"
+ },
+ {
+  "id": "26",
+  "niche": "life",
+  "who": "Александра Гончарова",
+  "about": "Lifestyle",
+  "fmt": "Сюжет",
+  "vertical": true,
+  "dur": 13,
+  "src": "copy_B52596AA-8E9C-4BB5-BA7F-03E4FB9EAD5A.MOV"
+ },
+ {
+  "id": "27",
+  "niche": "life",
+  "who": "Александра Гончарова",
+  "about": "Lifestyle",
+  "fmt": "Эстетика",
+  "vertical": true,
+  "dur": 8,
+  "src": "copy_F58D0254-2BCC-4DE9-96F4-A85EBF9FA658.MOV"
+ },
+ {
+  "id": "28",
+  "niche": "life",
+  "who": "Мари Градская",
+  "about": "Fashion",
+  "fmt": "Эстетика",
+  "vertical": true,
+  "dur": 17,
+  "src": "copy_DD61706E-6A37-43E7-8A61-FD87A5910D3E.MOV"
+ },
+ {
+  "id": "29",
+  "niche": "life",
+  "who": "Марина Феданова",
+  "about": "Падел",
+  "fmt": "Обзор",
+  "vertical": true,
+  "dur": 62,
+  "src": "persona-video (1).MOV"
+ },
+ {
+  "id": "30",
+  "niche": "life",
+  "who": "Марина Феданова",
+  "about": "Падел",
+  "fmt": "Обзор",
+  "vertical": true,
+  "dur": 84,
+  "src": "persona-video (2).MOV"
+ },
+ {
+  "id": "31",
+  "niche": "life",
+  "who": "Марина Феданова",
+  "about": "Lifestyle",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 42,
+  "src": "IMG_1901.MOV"
+ },
+ {
+  "id": "32",
+  "niche": "life",
+  "who": "Марина Феданова",
+  "about": "Lifestyle",
+  "fmt": "Говорящая голова",
+  "vertical": true,
+  "dur": 22,
+  "src": "persona-video.MOV"
+ },
+ {
+  "id": "33",
+  "niche": "life",
+  "who": "Косметика Авир",
+  "about": "Косметика",
+  "fmt": "Распаковка",
+  "vertical": true,
+  "dur": 11,
+  "src": "0510 (1).MP4"
+ },
+ {
+  "id": "34",
+  "niche": "vlog",
+  "who": "Георгий",
+  "about": "День предпринимателя",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 131,
+  "src": "Офис.mov"
+ },
+ {
+  "id": "35",
+  "niche": "vlog",
+  "who": "Каролина Читанава",
+  "about": "Шопинг с дочками",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 153,
+  "src": "Влог 3.mp4"
+ },
+ {
+  "id": "36",
+  "niche": "vlog",
+  "who": "Каролина Читанава",
+  "about": "Детский сад",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 102,
+  "src": "Детский садик 3.mp4"
+ },
+ {
+  "id": "37",
+  "niche": "vlog",
+  "who": "Каролина Читанава",
+  "about": "Утро дома",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 167,
+  "src": "влог 6.0.mov"
+ },
+ {
+  "id": "38",
+  "niche": "event",
+  "who": "Аномалия",
+  "about": "Бизнес-мероприятие",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 37,
+  "src": "Аномалия общий ролик.MP4"
+ },
+ {
+  "id": "39",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Ужин",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 26,
+  "src": "0304(1).MP4"
+ },
+ {
+  "id": "40",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Ассоциация, ужин",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 63,
+  "src": "0424.MP4"
+ },
+ {
+  "id": "41",
+  "niche": "event",
+  "who": "Пейнтбол",
+  "about": "Командное мероприятие",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 39,
+  "src": "0523(1).MP4"
+ },
+ {
+  "id": "42",
+  "niche": "event",
+  "who": "Пейнтбол",
+  "about": "Сообщество, день рождения",
+  "fmt": "Репортаж с отзывами",
+  "vertical": true,
+  "dur": 58,
+  "src": "пейнтбол+отзывы.MP4"
+ },
+ {
+  "id": "43",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Женский форум",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 45,
+  "src": "1218 (2).MP4"
+ },
+ {
+  "id": "44",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Конференция",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 21,
+  "src": "copy_651C62DF-10D1-45CB-B56A-D08A32A59B00.MOV"
+ },
+ {
+  "id": "45",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Лекция",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 20,
+  "src": "copy_B1F9B7AB-38F5-450E-A9F7-3243566EB67F.MOV"
+ },
+ {
+  "id": "46",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Конференция",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 45,
+  "src": "EF337CE0-8226-4F24-BC62-4C09BE6A650F.MOV"
+ },
+ {
+  "id": "47",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Нетворкинг",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 41,
+  "src": "F7707A18-18B4-4FC8-994B-6609A6F37CE0.MOV"
+ },
+ {
+  "id": "48",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Конференция",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 50,
+  "src": "IMG_4394.MOV"
+ },
+ {
+  "id": "49",
+  "niche": "event",
+  "who": "Мероприятие",
+  "about": "Лекция о Reels",
+  "fmt": "Динамичный монтаж",
+  "vertical": true,
+  "dur": 25,
+  "src": "IMG_5508.MOV"
+ },
+ {
+  "id": "50",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Премия Woman Who Matters",
+  "fmt": "Обращение",
+  "vertical": true,
+  "dur": 38,
+  "src": "Миссия.MP4"
+ },
+ {
+  "id": "51",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Форум",
+  "fmt": "Интервью",
+  "vertical": true,
+  "dur": 34,
+  "src": "0504 (1).MP4"
+ },
+ {
+  "id": "52",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Форум",
+  "fmt": "Интервью гостей",
+  "vertical": true,
+  "dur": 59,
+  "src": "0504 (2)(1).MP4"
+ },
+ {
+  "id": "53",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Вечер для женщин",
+  "fmt": "Выступление",
+  "vertical": true,
+  "dur": 39,
+  "src": "1103 (1).mp4"
+ },
+ {
+  "id": "54",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Вечер для женщин",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 59,
+  "src": "1103(1).mp4"
+ },
+ {
+  "id": "55",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Подготовка события",
+  "fmt": "Бэкстейдж",
+  "vertical": true,
+  "dur": 19,
+  "src": "1106(2).mp4"
+ },
+ {
+  "id": "56",
+  "niche": "event",
+  "who": "Анна Рудакова",
+  "about": "Подготовка события",
+  "fmt": "Бэкстейдж",
+  "vertical": true,
+  "dur": 59,
+  "src": "1107(1).mp4"
+ },
+ {
+  "id": "57",
+  "niche": "event",
+  "who": "Юра Мурадян",
+  "about": "Вечеринка",
+  "fmt": "Репортаж",
+  "vertical": true,
+  "dur": 48,
+  "src": "3.0.MP4"
+ },
+ {
+  "id": "58",
+  "niche": "event",
+  "who": "День рождения",
+  "about": "Детский праздник",
+  "fmt": "Репортаж",
+  "vertical": false,
+  "dur": 154,
+  "src": "0515(2).MP4"
+ },
+ {
+  "id": "59",
+  "niche": "service",
+  "who": "Барбершоп",
+  "about": "Мужские стрижки",
+  "fmt": "История + процесс",
+  "vertical": true,
+  "dur": 66,
+  "src": "Гаишники 2.mp4"
+ },
+ {
+  "id": "60",
+  "niche": "service",
+  "who": "Барбершоп",
+  "about": "Мужские стрижки",
+  "fmt": "Процесс",
+  "vertical": true,
+  "dur": 61,
+  "src": "Длиноволосый 2.mp4"
+ },
+ {
+  "id": "61",
+  "niche": "service",
+  "who": "Барбершоп",
+  "about": "Мужские стрижки",
+  "fmt": "Процесс",
+  "vertical": true,
+  "dur": 61,
+  "src": "Стрижка борода 2.mp4"
+ },
+ {
+  "id": "62",
+  "niche": "service",
+  "who": "Перманентный макияж",
+  "about": "Брови",
+  "fmt": "Процесс",
+  "vertical": true,
+  "dur": 22,
+  "src": "0531.MP4"
+ },
+ {
+  "id": "63",
+  "niche": "service",
+  "who": "Недвижимость",
+  "about": "Загородные дома",
+  "fmt": "Обзор объекта",
+  "vertical": true,
+  "dur": 14,
+  "src": "0225(1).MOV"
+ },
+ {
+  "id": "64",
+  "niche": "service",
+  "who": "Недвижимость",
+  "about": "Загородные дома",
+  "fmt": "Обзор объекта",
+  "vertical": true,
+  "dur": 12,
+  "src": "Недвижимость 2.MP4"
+ },
+ {
+  "id": "65",
+  "niche": "sport",
+  "who": "Тренировка",
+  "about": "Бокс",
+  "fmt": "Тренировка",
+  "vertical": true,
+  "dur": 110,
+  "src": "Мир тренировка.mp4"
+ },
+ {
+  "id": "66",
+  "niche": "sport",
+  "who": "Гоночный трек",
+  "about": "Заезд на треке",
+  "fmt": "Влог",
+  "vertical": true,
+  "dur": 58,
+  "src": "video_2026-10-14_16-44-21.mp4"
+ }
+]
