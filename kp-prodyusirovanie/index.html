@@ -4,14 +4,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFF8FA;--card:#FFFFFF;--card2:#FFFBFC;--line:rgba(214,110,145,.12);--edge:rgba(214,110,145,.22);--text:#3A2C32;--mute:#86717A;--dim:#B49AA4;--accent:#D4648B;--accent-d:#B84A72;--head:#2E2228;--glow:rgba(226,120,158,.22)}
+:root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C;--rasp:#B8416E}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden;width:100%;max-width:100%}
 body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(240,150,180,.28),transparent 70%),
-radial-gradient(ellipse 50% 35% at 100% 45%,rgba(240,150,180,.12),transparent 70%),
-radial-gradient(ellipse 50% 35% at 0% 80%,rgba(240,150,180,.12),transparent 70%)}
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,255,255,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(214,90,135,.22),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(214,90,135,.22),transparent 70%)}
 body>*{position:relative;z-index:1}
 ::selection{background:var(--accent);color:#fff}
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
@@ -22,20 +22,21 @@ h3{font-size:clamp(20px,2.2vw,23px)}
 p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
 em{color:var(--accent);font-style:italic}
 a{color:var(--accent-d);text-decoration:none}
-.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-d);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(226,120,158,.07)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-d);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:#fff}
 section{padding:44px 0}
 .section-head{margin-bottom:22px}
 .section-head p{color:var(--mute);margin-top:12px;font-size:14.5px}
-.card,.mblock,.obl,.rcard,.price,.author,.part-head,.next{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;box-shadow:0 18px 50px -30px rgba(214,100,140,.45),0 2px 6px -2px rgba(214,100,140,.08)}
+.card,.mblock,.obl,.rcard,.price,.author,.part-head,.next,.terms{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;box-shadow:0 22px 50px -28px rgba(140,30,75,.45),0 2px 6px -2px rgba(140,30,75,.10)}
 /* hero */
 .hero{text-align:center;padding:80px 0 40px}
-.hero-card{padding:46px 28px 40px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(240,150,180,.20),transparent 70%),#fff;box-shadow:0 30px 80px -30px rgba(214,100,140,.5)}
-.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:600}
-.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;font-weight:600}
-.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--accent);margin:12px 0 0}
-.hero .pos{max-width:540px;margin:20px auto 0;color:var(--mute);font-size:14.5px}
+.hero-card{padding:46px 28px 40px;border-radius:24px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,255,255,.18),transparent 70%),linear-gradient(160deg,#C94F7C,#9E3460);box-shadow:0 30px 80px -30px rgba(120,20,60,.7);color:#fff}
+.hero-card h1{color:#fff}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:18px;font-weight:600}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:#FFE3EC;margin:12px 0 0}
+.hero .pos{max-width:540px;margin:20px auto 0;color:rgba(255,255,255,.88);font-size:14.5px}
 /* part header */
-.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(240,150,180,.18),transparent 65%),#fff}
+.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(240,150,180,.22),transparent 65%),#fff}
 .part-head h2{font-size:clamp(24px,3.2vw,32px)}
 /* stage cards */
 .mblock{padding:24px 26px;margin-bottom:14px}
@@ -64,22 +65,27 @@ section{padding:44px 0}
 /* price */
 .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .price{padding:28px 18px;text-align:center}
-.price.best{background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(240,150,180,.25),transparent 70%),#fff;border-color:rgba(212,100,139,.45);box-shadow:0 24px 60px -26px rgba(212,100,139,.6)}
+.price.best{background:linear-gradient(160deg,#C94F7C,#9E3460);border-color:transparent;box-shadow:0 24px 60px -24px rgba(120,20,60,.75)}
+.price.best .pe,.price.best .pv,.price.best .pp,.price.best .pv span{color:#fff}.price.best .tag{background:#fff;color:var(--accent-d)}
 .price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:12px;font-weight:700}
 .price .pv{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:500;color:var(--head);line-height:1;white-space:nowrap}
 .price .pv span{font-size:20px;color:var(--mute)}
 .price .pp{color:var(--mute);font-size:13.5px;margin-top:10px}
 .price .tag{display:inline-block;margin-top:12px;padding:4px 12px;border-radius:30px;font-size:11.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,#E98AAB,#D4648B)}
-.pfoot{text-align:center;color:var(--mute);font-size:13.5px;margin-top:16px}
+.terms{margin-top:16px;padding:22px 24px}
+.terms h4{color:var(--accent-d);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.terms ul{list-style:none}.terms li{padding:9px 0 9px 18px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}.terms li:last-child{border-bottom:none;padding-bottom:0}
+.terms li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.terms b{font-weight:700;color:var(--head)}
 /* footer */
 .closing{text-align:center;padding:24px 0 64px}
-.ornament{color:var(--accent);letter-spacing:.5em;margin:0 0 26px;opacity:.7;font-size:11px}
+.ornament{color:var(--accent-d);letter-spacing:.5em;margin:0 0 26px;opacity:.7;font-size:11px}
 .author{padding:28px 22px;max-width:420px;margin:0 auto}
 .author .nm{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--head);margin-bottom:2px}
 .author .rl{color:var(--accent-d);font-size:13.5px;margin-bottom:18px}
 .btns a{display:inline-block;padding:12px 22px;border-radius:30px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(135deg,#E98AAB,#D4648B);box-shadow:0 10px 24px -10px rgba(212,100,139,.8);transition:.18s}
 .btns a:hover{transform:translateY(-1px);box-shadow:0 14px 28px -10px rgba(212,100,139,.9)}
-.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mute);margin-top:26px}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--head);margin-top:26px}
 @media(max-width:700px){.prices{grid-template-columns:1fr}}
 @media(max-width:600px){
   body{font-size:14.5px}
@@ -155,7 +161,7 @@ section{padding:44px 0}
     <div class="price"><div class="pe">3&nbsp;месяца</div><div class="pv">459&nbsp;000 <span>₽</span></div><p class="pp">153&nbsp;000&nbsp;₽ в&nbsp;месяц</p><span class="tag">−10%</span></div>
     <div class="price best"><div class="pe">6&nbsp;месяцев</div><div class="pv">867&nbsp;000 <span>₽</span></div><p class="pp">144&nbsp;500&nbsp;₽ в&nbsp;месяц</p><span class="tag">−15%</span></div>
   </div>
-  <p class="pfoot">При&nbsp;оплате за&nbsp;3&nbsp;или&nbsp;6&nbsp;месяцев сумма вносится&nbsp;разом</p>
+  <div class="terms"><h4>Условия оплаты</h4><ul><li><b>100% предоплата до&nbsp;начала работы</b>&nbsp;— при&nbsp;любом формате оплаты</li><li>При&nbsp;помесячной оплате каждый следующий месяц оплачивается до&nbsp;его&nbsp;начала</li><li>При&nbsp;оплате за&nbsp;3&nbsp;или&nbsp;6&nbsp;месяцев сумма вносится&nbsp;разом</li><li><b>Работаю только в&nbsp;долгосрочном формате.</b> Блог даёт результат на&nbsp;дистанции: первый месяц закладывает фундамент, рост и&nbsp;отдача приходят в&nbsp;следующие&nbsp;месяцы</li></ul></div>
 </div></section>
 
 <footer class="closing"><div class="wrap">
