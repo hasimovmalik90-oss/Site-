@@ -40,6 +40,12 @@ section{padding:46px 0 10px;scroll-margin-top:110px}
 .media{position:relative;aspect-ratio:9/16;background:#000}
 .wide .media{aspect-ratio:16/9}
 .media video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.media{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);pointer-events:none;transition:opacity .15s}
+.play::after{content:'';position:absolute;left:23px;top:18px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff}
+.media.playing .play{opacity:0}
+.prog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18);pointer-events:none}
+.prog i{display:block;height:100%;width:0;background:var(--accent)}
 .dur{position:absolute;top:10px;right:10px;font-size:11px;padding:2px 8px;border-radius:20px;background:rgba(0,0,0,.6);color:#fff;pointer-events:none}
 figcaption{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px}
 figcaption b{font-weight:600;font-size:14.5px;color:#F2EEE8}
@@ -87,211 +93,211 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Бизнес и&nbsp;предприниматели</h2><span class="cnt">14 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Сторителлинг">
-  <div class="media"><video src="v/01.mp4" poster="p/01.jpg" preload="none" playsinline controls></video><span class="dur">1:12</span></div>
+  <div class="media"><video src="v/01.mp4" poster="p/01.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:12</span></div>
   <figcaption><b>Георгий</b><span>Строительство, группа компаний</span><i>Сторителлинг</i></figcaption>
 </figure><figure class="card" data-f="Лайфстайл предпринимателя">
-  <div class="media"><video src="v/02.mp4" poster="p/02.jpg" preload="none" playsinline controls></video><span class="dur">0:34</span></div>
+  <div class="media"><video src="v/02.mp4" poster="p/02.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:34</span></div>
   <figcaption><b>Георгий</b><span>Строительство, группа компаний</span><i>Лайфстайл предпринимателя</i></figcaption>
 </figure><figure class="card" data-f="Лайфстайл предпринимателя">
-  <div class="media"><video src="v/03.mp4" poster="p/03.jpg" preload="none" playsinline controls></video><span class="dur">0:30</span></div>
+  <div class="media"><video src="v/03.mp4" poster="p/03.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:30</span></div>
   <figcaption><b>Георгий</b><span>Строительство, группа компаний</span><i>Лайфстайл предпринимателя</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/04.mp4" poster="p/04.jpg" preload="none" playsinline controls></video><span class="dur">0:36</span></div>
+  <div class="media"><video src="v/04.mp4" poster="p/04.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:36</span></div>
   <figcaption><b>Алексей Ермилов</b><span>Инвестиции</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/05.mp4" poster="p/05.jpg" preload="none" playsinline controls></video><span class="dur">0:43</span></div>
+  <div class="media"><video src="v/05.mp4" poster="p/05.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:43</span></div>
   <figcaption><b>Ден Мильштейн</b><span>Спортивное агентство</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Интервью">
-  <div class="media"><video src="v/06.mp4" poster="p/06.jpg" preload="none" playsinline controls></video><span class="dur">0:34</span></div>
+  <div class="media"><video src="v/06.mp4" poster="p/06.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:34</span></div>
   <figcaption><b>Александр Бобруев</b><span>Товарный бизнес</span><i>Интервью</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/07.mp4" poster="p/07.jpg" preload="none" playsinline controls></video><span class="dur">0:15</span></div>
+  <div class="media"><video src="v/07.mp4" poster="p/07.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:15</span></div>
   <figcaption><b>Анатолий Сульянов</b><span>Бренды</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/08.mp4" poster="p/08.jpg" preload="none" playsinline controls></video><span class="dur">0:54</span></div>
+  <div class="media"><video src="v/08.mp4" poster="p/08.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:54</span></div>
   <figcaption><b>Ибрагим Алиев</b><span>Бизнес-клуб</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/09.mp4" poster="p/09.jpg" preload="none" playsinline controls></video><span class="dur">1:37</span></div>
+  <div class="media"><video src="v/09.mp4" poster="p/09.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:37</span></div>
   <figcaption><b>Саид</b><span>Маркетинг</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Сюжет">
-  <div class="media"><video src="v/10.mp4" poster="p/10.jpg" preload="none" playsinline controls></video><span class="dur">0:37</span></div>
+  <div class="media"><video src="v/10.mp4" poster="p/10.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:37</span></div>
   <figcaption><b>Сара</b><span>Маркетплейсы</span><i>Сюжет</i></figcaption>
 </figure><figure class="card" data-f="Выступление">
-  <div class="media"><video src="v/11.mp4" poster="p/11.jpg" preload="none" playsinline controls></video><span class="dur">0:21</span></div>
+  <div class="media"><video src="v/11.mp4" poster="p/11.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:21</span></div>
   <figcaption><b>Татьяна Пономарева</b><span>Найм и&nbsp;продажи</span><i>Выступление</i></figcaption>
 </figure><figure class="card" data-f="Нарезка подкаста">
-  <div class="media"><video src="v/12.mp4" poster="p/12.jpg" preload="none" playsinline controls></video><span class="dur">0:23</span></div>
+  <div class="media"><video src="v/12.mp4" poster="p/12.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:23</span></div>
   <figcaption><b>Макс Люшер</b><span>Предприниматель</span><i>Нарезка подкаста</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/13.mp4" poster="p/13.jpg" preload="none" playsinline controls></video><span class="dur">0:30</span></div>
+  <div class="media"><video src="v/13.mp4" poster="p/13.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:30</span></div>
   <figcaption><b>Cardealer</b><span>Авто с&nbsp;пробегом</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card wide" data-f="Рекламный ролик">
-  <div class="media"><video src="v/14.mp4" poster="p/14.jpg" preload="none" playsinline controls></video><span class="dur">0:39</span></div>
+  <div class="media"><video src="v/14.mp4" poster="p/14.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:39</span></div>
   <figcaption><b>izibuy</b><span>Авторынок, пригон авто</span><i>Рекламный ролик</i></figcaption>
 </figure></div>
 </div></section><section id="psy" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Психология и&nbsp;саморазвитие</h2><span class="cnt">6 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/15.mp4" poster="p/15.jpg" preload="none" playsinline controls></video><span class="dur">0:51</span></div>
+  <div class="media"><video src="v/15.mp4" poster="p/15.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:51</span></div>
   <figcaption><b>Психолог</b><span>Отношения в&nbsp;паре</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/18.mp4" poster="p/18.jpg" preload="none" playsinline controls></video><span class="dur">0:40</span></div>
+  <div class="media"><video src="v/18.mp4" poster="p/18.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:40</span></div>
   <figcaption><b>Дарья Сиберякова</b><span>Астрология</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/19.mp4" poster="p/19.jpg" preload="none" playsinline controls></video><span class="dur">0:27</span></div>
+  <div class="media"><video src="v/19.mp4" poster="p/19.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:27</span></div>
   <figcaption><b>Раян Ахмедянов</b><span>Саморазвитие</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card wide" data-f="Говорящая голова">
-  <div class="media"><video src="v/20.mp4" poster="p/20.jpg" preload="none" playsinline controls></video><span class="dur">3:46</span></div>
+  <div class="media"><video src="v/20.mp4" poster="p/20.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">3:46</span></div>
   <figcaption><b>Раян Ахмедянов</b><span>Саморазвитие</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/21.mp4" poster="p/21.jpg" preload="none" playsinline controls></video><span class="dur">1:12</span></div>
+  <div class="media"><video src="v/21.mp4" poster="p/21.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:12</span></div>
   <figcaption><b>Юра Мурадян</b><span>Медитации</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/24.mp4" poster="p/24.jpg" preload="none" playsinline controls></video><span class="dur">0:43</span></div>
+  <div class="media"><video src="v/24.mp4" poster="p/24.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:43</span></div>
   <figcaption><b>Даниел Амонт</b><span>Знакомства и&nbsp;отношения</span><i>Говорящая голова</i></figcaption>
 </figure></div>
 </div></section><section id="life" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Lifestyle, fashion, бьюти</h2><span class="cnt">9 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Эстетика">
-  <div class="media"><video src="v/25.mp4" poster="p/25.jpg" preload="none" playsinline controls></video><span class="dur">0:09</span></div>
+  <div class="media"><video src="v/25.mp4" poster="p/25.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:09</span></div>
   <figcaption><b>Александра Гончарова</b><span>Lifestyle</span><i>Эстетика</i></figcaption>
 </figure><figure class="card" data-f="Сюжет">
-  <div class="media"><video src="v/26.mp4" poster="p/26.jpg" preload="none" playsinline controls></video><span class="dur">0:13</span></div>
+  <div class="media"><video src="v/26.mp4" poster="p/26.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:13</span></div>
   <figcaption><b>Александра Гончарова</b><span>Lifestyle</span><i>Сюжет</i></figcaption>
 </figure><figure class="card" data-f="Эстетика">
-  <div class="media"><video src="v/27.mp4" poster="p/27.jpg" preload="none" playsinline controls></video><span class="dur">0:08</span></div>
+  <div class="media"><video src="v/27.mp4" poster="p/27.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:08</span></div>
   <figcaption><b>Александра Гончарова</b><span>Lifestyle</span><i>Эстетика</i></figcaption>
 </figure><figure class="card" data-f="Эстетика">
-  <div class="media"><video src="v/28.mp4" poster="p/28.jpg" preload="none" playsinline controls></video><span class="dur">0:17</span></div>
+  <div class="media"><video src="v/28.mp4" poster="p/28.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:17</span></div>
   <figcaption><b>Мари Градская</b><span>Fashion</span><i>Эстетика</i></figcaption>
 </figure><figure class="card" data-f="Обзор">
-  <div class="media"><video src="v/29.mp4" poster="p/29.jpg" preload="none" playsinline controls></video><span class="dur">1:02</span></div>
+  <div class="media"><video src="v/29.mp4" poster="p/29.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:02</span></div>
   <figcaption><b>Марина Феданова</b><span>Падел</span><i>Обзор</i></figcaption>
 </figure><figure class="card" data-f="Обзор">
-  <div class="media"><video src="v/30.mp4" poster="p/30.jpg" preload="none" playsinline controls></video><span class="dur">1:24</span></div>
+  <div class="media"><video src="v/30.mp4" poster="p/30.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:24</span></div>
   <figcaption><b>Марина Феданова</b><span>Падел</span><i>Обзор</i></figcaption>
 </figure><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/31.mp4" poster="p/31.jpg" preload="none" playsinline controls></video><span class="dur">0:42</span></div>
+  <div class="media"><video src="v/31.mp4" poster="p/31.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:42</span></div>
   <figcaption><b>Марина Феданова</b><span>Lifestyle</span><i>Влог</i></figcaption>
 </figure><figure class="card" data-f="Говорящая голова">
-  <div class="media"><video src="v/32.mp4" poster="p/32.jpg" preload="none" playsinline controls></video><span class="dur">0:22</span></div>
+  <div class="media"><video src="v/32.mp4" poster="p/32.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:22</span></div>
   <figcaption><b>Марина Феданова</b><span>Lifestyle</span><i>Говорящая голова</i></figcaption>
 </figure><figure class="card" data-f="Обзор">
-  <div class="media"><video src="v/33.mp4" poster="p/33.jpg" preload="none" playsinline controls></video><span class="dur">0:11</span></div>
+  <div class="media"><video src="v/33.mp4" poster="p/33.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:11</span></div>
   <figcaption><b>Косметика Авир</b><span>Косметика</span><i>Обзор</i></figcaption>
 </figure></div>
 </div></section><section id="vlog" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Влоги</h2><span class="cnt">4 ролика</span></div>
   <div class="grid"><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/34.mp4" poster="p/34.jpg" preload="none" playsinline controls></video><span class="dur">2:11</span></div>
+  <div class="media"><video src="v/34.mp4" poster="p/34.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">2:11</span></div>
   <figcaption><b>Георгий</b><span>День предпринимателя</span><i>Влог</i></figcaption>
 </figure><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/35.mp4" poster="p/35.jpg" preload="none" playsinline controls></video><span class="dur">2:33</span></div>
+  <div class="media"><video src="v/35.mp4" poster="p/35.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">2:33</span></div>
   <figcaption><b>Каролина Читанава</b><span>Шопинг с&nbsp;дочками</span><i>Влог</i></figcaption>
 </figure><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/36.mp4" poster="p/36.jpg" preload="none" playsinline controls></video><span class="dur">1:42</span></div>
+  <div class="media"><video src="v/36.mp4" poster="p/36.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:42</span></div>
   <figcaption><b>Каролина Читанава</b><span>Детский сад</span><i>Влог</i></figcaption>
 </figure><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/37.mp4" poster="p/37.jpg" preload="none" playsinline controls></video><span class="dur">2:47</span></div>
+  <div class="media"><video src="v/37.mp4" poster="p/37.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">2:47</span></div>
   <figcaption><b>Каролина Читанава</b><span>Утро дома</span><i>Влог</i></figcaption>
 </figure></div>
 </div></section><section id="event" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Мероприятия</h2><span class="cnt">20 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/38.mp4" poster="p/38.jpg" preload="none" playsinline controls></video><span class="dur">0:37</span></div>
+  <div class="media"><video src="v/38.mp4" poster="p/38.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:37</span></div>
   <figcaption><b>Аномалия</b><span>Бизнес-мероприятие</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/39.mp4" poster="p/39.jpg" preload="none" playsinline controls></video><span class="dur">0:26</span></div>
+  <div class="media"><video src="v/39.mp4" poster="p/39.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:26</span></div>
   <figcaption><b>Мероприятие</b><span>Ужин</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/40.mp4" poster="p/40.jpg" preload="none" playsinline controls></video><span class="dur">1:03</span></div>
+  <div class="media"><video src="v/40.mp4" poster="p/40.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:03</span></div>
   <figcaption><b>Мероприятие</b><span>Ассоциация, ужин</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/41.mp4" poster="p/41.jpg" preload="none" playsinline controls></video><span class="dur">0:39</span></div>
+  <div class="media"><video src="v/41.mp4" poster="p/41.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:39</span></div>
   <figcaption><b>Пейнтбол</b><span>Командное мероприятие</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/42.mp4" poster="p/42.jpg" preload="none" playsinline controls></video><span class="dur">0:58</span></div>
+  <div class="media"><video src="v/42.mp4" poster="p/42.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:58</span></div>
   <figcaption><b>Пейнтбол</b><span>Сообщество, день рождения</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/43.mp4" poster="p/43.jpg" preload="none" playsinline controls></video><span class="dur">0:45</span></div>
+  <div class="media"><video src="v/43.mp4" poster="p/43.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:45</span></div>
   <figcaption><b>Мероприятие</b><span>Женский форум</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Динамичный монтаж">
-  <div class="media"><video src="v/44.mp4" poster="p/44.jpg" preload="none" playsinline controls></video><span class="dur">0:21</span></div>
+  <div class="media"><video src="v/44.mp4" poster="p/44.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:21</span></div>
   <figcaption><b>Мероприятие</b><span>Конференция</span><i>Динамичный монтаж</i></figcaption>
 </figure><figure class="card" data-f="Динамичный монтаж">
-  <div class="media"><video src="v/45.mp4" poster="p/45.jpg" preload="none" playsinline controls></video><span class="dur">0:20</span></div>
+  <div class="media"><video src="v/45.mp4" poster="p/45.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:20</span></div>
   <figcaption><b>Мероприятие</b><span>Лекция</span><i>Динамичный монтаж</i></figcaption>
 </figure><figure class="card" data-f="Динамичный монтаж">
-  <div class="media"><video src="v/46.mp4" poster="p/46.jpg" preload="none" playsinline controls></video><span class="dur">0:45</span></div>
+  <div class="media"><video src="v/46.mp4" poster="p/46.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:45</span></div>
   <figcaption><b>Мероприятие</b><span>Конференция</span><i>Динамичный монтаж</i></figcaption>
 </figure><figure class="card" data-f="Динамичный монтаж">
-  <div class="media"><video src="v/48.mp4" poster="p/48.jpg" preload="none" playsinline controls></video><span class="dur">0:50</span></div>
+  <div class="media"><video src="v/48.mp4" poster="p/48.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:50</span></div>
   <figcaption><b>Мероприятие</b><span>Конференция</span><i>Динамичный монтаж</i></figcaption>
 </figure><figure class="card" data-f="Динамичный монтаж">
-  <div class="media"><video src="v/49.mp4" poster="p/49.jpg" preload="none" playsinline controls></video><span class="dur">0:25</span></div>
+  <div class="media"><video src="v/49.mp4" poster="p/49.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:25</span></div>
   <figcaption><b>Мероприятие</b><span>Лекция о Reels</span><i>Динамичный монтаж</i></figcaption>
 </figure><figure class="card" data-f="Выступление">
-  <div class="media"><video src="v/50.mp4" poster="p/50.jpg" preload="none" playsinline controls></video><span class="dur">0:38</span></div>
+  <div class="media"><video src="v/50.mp4" poster="p/50.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:38</span></div>
   <figcaption><b>Анна Рудакова</b><span>Премия Woman Who Matters</span><i>Выступление</i></figcaption>
 </figure><figure class="card" data-f="Интервью">
-  <div class="media"><video src="v/51.mp4" poster="p/51.jpg" preload="none" playsinline controls></video><span class="dur">0:34</span></div>
+  <div class="media"><video src="v/51.mp4" poster="p/51.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:34</span></div>
   <figcaption><b>Анна Рудакова</b><span>Форум</span><i>Интервью</i></figcaption>
 </figure><figure class="card" data-f="Интервью">
-  <div class="media"><video src="v/52.mp4" poster="p/52.jpg" preload="none" playsinline controls></video><span class="dur">0:59</span></div>
+  <div class="media"><video src="v/52.mp4" poster="p/52.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:59</span></div>
   <figcaption><b>Анна Рудакова</b><span>Форум</span><i>Интервью</i></figcaption>
 </figure><figure class="card" data-f="Выступление">
-  <div class="media"><video src="v/53.mp4" poster="p/53.jpg" preload="none" playsinline controls></video><span class="dur">0:39</span></div>
+  <div class="media"><video src="v/53.mp4" poster="p/53.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:39</span></div>
   <figcaption><b>Анна Рудакова</b><span>Вечер для женщин</span><i>Выступление</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/54.mp4" poster="p/54.jpg" preload="none" playsinline controls></video><span class="dur">0:59</span></div>
+  <div class="media"><video src="v/54.mp4" poster="p/54.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:59</span></div>
   <figcaption><b>Анна Рудакова</b><span>Вечер для женщин</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/55.mp4" poster="p/55.jpg" preload="none" playsinline controls></video><span class="dur">0:19</span></div>
+  <div class="media"><video src="v/55.mp4" poster="p/55.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:19</span></div>
   <figcaption><b>Анна Рудакова</b><span>Подготовка события</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/56.mp4" poster="p/56.jpg" preload="none" playsinline controls></video><span class="dur">0:59</span></div>
+  <div class="media"><video src="v/56.mp4" poster="p/56.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:59</span></div>
   <figcaption><b>Анна Рудакова</b><span>Подготовка события</span><i>Репортаж</i></figcaption>
 </figure><figure class="card" data-f="Репортаж">
-  <div class="media"><video src="v/57.mp4" poster="p/57.jpg" preload="none" playsinline controls></video><span class="dur">0:48</span></div>
+  <div class="media"><video src="v/57.mp4" poster="p/57.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:48</span></div>
   <figcaption><b>Юра Мурадян</b><span>Вечеринка</span><i>Репортаж</i></figcaption>
 </figure><figure class="card wide" data-f="Репортаж">
-  <div class="media"><video src="v/58.mp4" poster="p/58.jpg" preload="none" playsinline controls></video><span class="dur">2:34</span></div>
+  <div class="media"><video src="v/58.mp4" poster="p/58.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">2:34</span></div>
   <figcaption><b>День рождения</b><span>Детский праздник</span><i>Репортаж</i></figcaption>
 </figure></div>
 </div></section><section id="service" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Сфера услуг</h2><span class="cnt">6 роликов</span></div>
   <div class="grid"><figure class="card" data-f="Процесс">
-  <div class="media"><video src="v/59.mp4" poster="p/59.jpg" preload="none" playsinline controls></video><span class="dur">1:06</span></div>
+  <div class="media"><video src="v/59.mp4" poster="p/59.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:06</span></div>
   <figcaption><b>Барбершоп</b><span>Мужские стрижки</span><i>Процесс</i></figcaption>
 </figure><figure class="card" data-f="Процесс">
-  <div class="media"><video src="v/60.mp4" poster="p/60.jpg" preload="none" playsinline controls></video><span class="dur">1:01</span></div>
+  <div class="media"><video src="v/60.mp4" poster="p/60.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:01</span></div>
   <figcaption><b>Барбершоп</b><span>Мужские стрижки</span><i>Процесс</i></figcaption>
 </figure><figure class="card" data-f="Процесс">
-  <div class="media"><video src="v/61.mp4" poster="p/61.jpg" preload="none" playsinline controls></video><span class="dur">1:01</span></div>
+  <div class="media"><video src="v/61.mp4" poster="p/61.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:01</span></div>
   <figcaption><b>Барбершоп</b><span>Мужские стрижки</span><i>Процесс</i></figcaption>
 </figure><figure class="card" data-f="Процесс">
-  <div class="media"><video src="v/62.mp4" poster="p/62.jpg" preload="none" playsinline controls></video><span class="dur">0:22</span></div>
+  <div class="media"><video src="v/62.mp4" poster="p/62.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:22</span></div>
   <figcaption><b>Перманентный макияж</b><span>Брови</span><i>Процесс</i></figcaption>
 </figure><figure class="card" data-f="Обзор">
-  <div class="media"><video src="v/63.mp4" poster="p/63.jpg" preload="none" playsinline controls></video><span class="dur">0:14</span></div>
+  <div class="media"><video src="v/63.mp4" poster="p/63.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:14</span></div>
   <figcaption><b>Недвижимость</b><span>Загородные дома</span><i>Обзор</i></figcaption>
 </figure><figure class="card" data-f="Обзор">
-  <div class="media"><video src="v/64.mp4" poster="p/64.jpg" preload="none" playsinline controls></video><span class="dur">0:12</span></div>
+  <div class="media"><video src="v/64.mp4" poster="p/64.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:12</span></div>
   <figcaption><b>Недвижимость</b><span>Загородные дома</span><i>Обзор</i></figcaption>
 </figure></div>
 </div></section><section id="sport" class="niche"><div class="wrap">
   <a class="back" href="#">← Все ниши</a>
   <div class="shead"><h2>Спорт и&nbsp;авто</h2><span class="cnt">2 ролика</span></div>
   <div class="grid"><figure class="card" data-f="Процесс">
-  <div class="media"><video src="v/65.mp4" poster="p/65.jpg" preload="none" playsinline controls></video><span class="dur">1:50</span></div>
+  <div class="media"><video src="v/65.mp4" poster="p/65.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">1:50</span></div>
   <figcaption><b>Тренировка</b><span>Бокс</span><i>Процесс</i></figcaption>
 </figure><figure class="card" data-f="Влог">
-  <div class="media"><video src="v/66.mp4" poster="p/66.jpg" preload="none" playsinline controls></video><span class="dur">0:58</span></div>
+  <div class="media"><video src="v/66.mp4" poster="p/66.jpg" preload="none" playsinline></video><span class="play"></span><span class="prog"><i></i></span><span class="dur">0:58</span></div>
   <figcaption><b>Гоночный трек</b><span>Заезд на треке</span><i>Влог</i></figcaption>
 </figure></div>
 </div></section>
@@ -305,7 +311,16 @@ footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
   </div>
 </div></footer>
 <script>
-document.addEventListener('play',function(e){document.querySelectorAll('video').forEach(function(v){if(v!==e.target)v.pause()})},true);
+document.querySelectorAll('.media').forEach(function(m){
+  var v=m.querySelector('video'), bar=m.querySelector('.prog i');
+  m.addEventListener('click',function(){
+    if(v.paused){document.querySelectorAll('video').forEach(function(o){if(o!==v)o.pause()});v.play();}else v.pause();
+  });
+  v.addEventListener('play',function(){m.classList.add('playing')});
+  v.addEventListener('pause',function(){m.classList.remove('playing')});
+  v.addEventListener('ended',function(){m.classList.remove('playing');v.currentTime=0});
+  v.addEventListener('timeupdate',function(){if(v.duration)bar.style.width=(v.currentTime/v.duration*100)+'%'});
+});
 function route(){
   var k=location.hash.slice(1), sec=k&&document.getElementById(k);
   document.querySelectorAll('video').forEach(function(v){v.pause()});
