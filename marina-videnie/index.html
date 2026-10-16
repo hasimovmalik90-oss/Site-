@@ -132,11 +132,33 @@ section{padding:44px 0}
 .gal figcaption span{display:block;color:var(--dim);font-weight:400}
 .galh{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-top:22px}
 @media(max-width:600px){.gal,.gal.v{grid-template-columns:repeat(2,1fr);gap:10px}}
-.now{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}
+.now{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:start}
 .now .prof img{width:100%;display:block;border-radius:18px;border:1px solid var(--edge);box-shadow:0 22px 50px -28px rgba(140,30,75,.55)}
 .now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
 .now .stats{grid-template-columns:1fr 1fr}
-@media(max-width:700px){.now{grid-template-columns:1fr}.now .prof{max-width:300px;margin:0 auto}}
+@media(max-width:700px){.now{grid-template-columns:1fr}.now .prof{max-width:420px;margin:0 auto}}
+.ig{background:#fff;border:1px solid var(--edge);border-radius:18px;padding:16px 16px 18px;box-shadow:0 22px 50px -28px rgba(140,30,75,.55);font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#000;line-height:1.35}
+.ig .un{font-weight:700;font-size:15px;text-align:center;margin-bottom:14px}
+.ig .row{display:flex;align-items:center;gap:16px}
+.ig .av{flex:none;width:82px;height:82px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig .av img{width:100%;height:100%;border-radius:50%;border:3px solid #fff;display:block;object-fit:cover}
+.ig .cnt{display:flex;flex:1;justify-content:space-between;gap:6px;text-align:center}
+.ig .cnt b{display:block;font-size:15px;font-weight:700}
+.ig .cnt span{font-size:12px;color:#000;display:block}
+.ig .hl div{flex:1;min-width:0}
+@media(max-width:600px){.ig .cnt span{font-size:11px}.ig .av{width:74px;height:74px}.ig .row{gap:12px}}
+.ig .nm{font-weight:700;font-size:13.5px;margin-top:12px}
+.ig .cat{color:#737373;font-size:13px}
+.ig .bio{font-size:13.5px;margin-top:2px}
+.ig .bio a,.ig .lnk{color:#00376b}
+.ig .lnk{font-weight:600;font-size:13.5px;display:block;margin-top:2px}
+.ig .bt{display:flex;gap:6px;margin-top:12px}
+.ig .bt span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:8px;background:#efefef}
+.ig .bt span.f{background:#0095f6;color:#fff}
+.ig .hl{display:flex;gap:10px;margin-top:16px;justify-content:space-between}
+.ig .hl div{text-align:center;width:58px;font-size:11.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ig .hl img{width:58px;height:58px;border-radius:50%;border:1px solid #dbdbdb;padding:2px;background:#fff;display:block;margin-bottom:4px}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
 @media(max-width:700px){.lines{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case figure{max-width:260px;margin:0 auto}}
 @media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
 </style></head><body>
@@ -152,7 +174,17 @@ section{padding:44px 0}
 <section><div class="wrap">
   <div class="section-head part-head"><span class="eyebrow">Где блог сейчас · 01</span><h2>Охваты есть, <em>подписок&nbsp;нет</em></h2>
     <p>Выгрузили и&nbsp;разобрали весь Ваш Instagram: каждый ролик, подписи, речь и&nbsp;текст на&nbsp;экране.</p></div>
-  <div class="now"><figure class="prof"><img src="img/marina-profile.jpg" alt="Профиль @fedanova"><figcaption>Ваш профиль, 16&nbsp;октября 2026</figcaption></figure><div>
+  <div class="now"><figure class="prof"><div class="ig">
+      <div class="un">fedanova</div>
+      <div class="row"><div class="av"><img src="img/avatar.jpg" alt="Аватар @fedanova"></div>
+        <div class="cnt"><div><b>2&nbsp;068</b><span>публикаций</span></div><div><b>25,9&nbsp;тыс.</b><span>подписчиков</span></div><div><b>578</b><span>подписок</span></div></div></div>
+      <div class="nm">Marina Fedanova</div>
+      <div class="cat">Деятель искусств</div>
+      <div class="bio">Имею зависимость от&nbsp;игры в&nbsp;Padel<br>Pr <a>@fedanova_pr</a><br>+7&nbsp;909&nbsp;999-77-05 Екатерина</div>
+      <a class="lnk">t.me/pervaya_raketca</a>
+      <div class="bt"><span class="f">Подписаться</span><span>Сообщение</span></div>
+      <div class="hl"><div><img src="img/hl-1.jpg" alt="">Padel</div><div><img src="img/hl-2.jpg" alt="">Fix Camp</div><div><img src="img/hl-3.jpg" alt="">Моя страсть</div><div><img src="img/hl-4.jpg" alt="">OUTFITS</div><div><img src="img/hl-5.jpg" alt="">06.09.25</div></div>
+    </div><figcaption>Шапка профиля, 16&nbsp;октября 2026</figcaption></figure><div>
   <div class="stats">
     <div class="stat"><div class="sv">25&nbsp;986</div><div class="sl">подписчиков</div></div>
     <div class="stat"><div class="sv">15–25&nbsp;тыс</div><div class="sl">просмотров у&nbsp;обычного ролика почти три&nbsp;года</div></div>
