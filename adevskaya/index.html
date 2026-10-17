@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мария Адевская — модель</title>
+<meta name="description" content="Мария Адевская — модель. Портфолио, параметры, связь.">
+<meta property="og:title" content="Мария Адевская — модель">
+<meta property="og:description" content="Портфолио, параметры, связь">
+<meta property="og:image" content="img/43.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0e; --card:#121217; --line:rgba(201,169,110,.22);
+  --gold:#c9a96e; --gold-lt:#e8d0a0; --gold-dim:#8a7040;
+  --cream:#f5f0e8; --cream-mid:#d8d0c4; --cream-dim:#b0a898;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+  --w:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream-mid);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(600px 420px at 12% 8%,rgba(201,169,110,.10),transparent 70%),
+             radial-gradient(520px 420px at 92% 60%,rgba(201,169,110,.07),transparent 70%)}
+main{position:relative;z-index:1}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+p,li{text-wrap:pretty}
+h1,h2,h3,.lead{text-wrap:balance}
+.nw{white-space:nowrap}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+section{padding:64px 0}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:18px;white-space:nowrap;
+  box-shadow:0 0 18px rgba(201,169,110,.12)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.1;color:var(--cream);margin-bottom:14px}
+h2 em{font-style:italic;color:var(--gold-lt)}
+.sub{color:var(--cream-dim);max-width:560px;margin-bottom:30px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--bg) 100%)}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:64px 48px 64px 24px}
+.hero-role{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(54px,7.4vw,104px);line-height:.92;color:var(--cream);
+  text-shadow:0 0 40px rgba(201,169,110,.18)}
+.hero h1 span{display:block;font-style:italic;color:var(--gold-lt)}
+.hero .lead{font-family:var(--serif);font-size:clamp(20px,2.1vw,25px);line-height:1.35;color:var(--cream-mid);margin:28px 0 30px;max-width:440px}
+.params{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:30px;max-width:480px}
+.param{border:1px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center;background:rgba(18,18,23,.6)}
+.param b{display:block;font-family:var(--serif);font-weight:500;font-size:26px;color:var(--cream);line-height:1.1}
+.param small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);white-space:nowrap}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:.25s}
+.btn-gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:#18140c;font-weight:500;box-shadow:0 0 30px rgba(201,169,110,.28)}
+.btn-gold:hover{box-shadow:0 0 44px rgba(201,169,110,.45)}
+.btn-line{border:1px solid var(--line);color:var(--cream)}
+.btn-line:hover{border-color:var(--gold)}
+
+/* ---------- FRESH ---------- */
+.fresh-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:10px}
+.fresh-grid .t{grid-row:span 2}
+.fresh-grid .big{grid-column:span 2;grid-row:span 3}
+.fresh-grid .vid{grid-row:span 2}
+.tile{position:relative;overflow:hidden;border-radius:14px;background:var(--card);cursor:zoom-in}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile.vid{cursor:default}
+.tag{position:absolute;left:12px;bottom:12px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);
+  background:rgba(10,10,14,.6);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap;pointer-events:none}
+
+/* ---------- CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 28px 26px;
+  box-shadow:0 0 40px rgba(201,169,110,.05)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--cream);margin-bottom:12px}
+.card ul{list-style:none}
+.card li{position:relative;padding-left:20px;margin:7px 0}
+.card li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.spec div{border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+.spec b{display:block;font-family:var(--serif);font-weight:500;font-size:28px;color:var(--cream);line-height:1.1}
+.spec small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);white-space:nowrap}
+
+/* ---------- PORTFOLIO ---------- */
+.masonry{columns:4 220px;column-gap:10px}
+.masonry .tile{margin-bottom:10px;break-inside:avoid}
+.masonry .tile img{height:auto}
+
+/* ---------- VIDEO ---------- */
+.videos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.videos .tile{aspect-ratio:9/16}
+.videos .wide{grid-column:span 1}
+.vk{margin-top:18px}
+
+/* ---------- BRANDS ---------- */
+.brands{display:flex;flex-wrap:wrap;gap:10px}
+.brand{border:1px solid var(--line);border-radius:999px;padding:10px 18px;color:var(--cream);font-family:var(--serif);font-size:19px;white-space:nowrap;background:rgba(18,18,23,.6)}
+.brand small{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);margin-left:8px}
+
+/* ---------- CONTACT ---------- */
+.contact{text-align:center;padding:84px 0 96px}
+.contact .card{max-width:640px;margin:0 auto;padding:44px 32px;box-shadow:0 0 70px rgba(201,169,110,.10)}
+.contact h2{margin-bottom:10px}
+.contact p{color:var(--cream-dim);margin-bottom:26px}
+.contact .btns{justify-content:center}
+.mail{display:inline-block;margin-top:20px;color:var(--cream-dim);border-bottom:1px solid var(--line)}
+footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);padding:0 0 40px}
+
+/* ---------- LIGHTBOX ---------- */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(5,5,8,.95);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:90vh;border-radius:8px}
+.lb button{position:absolute;background:none;border:0;color:var(--cream);font-size:34px;cursor:pointer;padding:16px;font-family:var(--serif)}
+.lb .x{top:6px;right:10px}.lb .p{left:4px;top:50%;transform:translateY(-50%)}.lb .n{right:4px;top:50%;transform:translateY(-50%)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-photo{height:78svh}
+  .hero-photo::after{background:linear-gradient(180deg,transparent 55%,var(--bg) 100%)}
+  .hero-text{padding:0 16px 44px;margin-top:-90px;position:relative}
+  .fresh-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:8px}
+  .fresh-grid .big{grid-column:span 2;grid-row:span 3}
+  .cards{grid-template-columns:1fr}
+  .videos{grid-template-columns:repeat(2,1fr);gap:8px}
+  .masonry{columns:2;column-gap:8px}.masonry .tile{margin-bottom:8px}
+}
+@media (max-width:520px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:44px 0}
+  .params,.spec{grid-template-columns:repeat(2,1fr)}
+  .card{padding:22px 18px}
+  .btn{padding:14px 20px;font-size:12px}
+  .brand{font-size:17px}
+}
+</style>
+</head>
+<body>
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-photo"><img src="img/43.jpg" alt="Мария Адевская" fetchpriority="high"></div>
+  <div class="hero-text">
+    <div class="hero-role">Модель</div>
+    <h1>Мария<span>Адевская</span></h1>
+    <p class="lead">Яркая, запоминающаяся внешность. Держу позу, быстро вхожу в&nbsp;образ, делаю проходки.</p>
+    <div class="params">
+      <div class="param"><b>174</b><small>рост</small></div>
+      <div class="param"><b>44</b><small>размер</small></div>
+      <div class="param"><b>40</b><small>обувь</small></div>
+      <div class="param"><b>6&nbsp;лет</b><small>в&nbsp;съёмках</small></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-gold" href="https://t.me/adevskaya" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+      <a class="btn btn-line" href="#fresh">Смотреть фото</a>
+    </div>
+  </div>
+</header>
+
+<!-- FRESH -->
+<section id="fresh">
+  <div class="wrap">
+    <span class="eyebrow">Новая съёмка</span>
+    <h2>Последние <em>фотосессии</em></h2>
+    <p class="sub">Октябрь 2026. Новый образ&nbsp;— брюнетка.</p>
+    <div class="fresh-grid">
+      <div class="tile big"><img src="img/41.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/46.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/44.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/49.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/42.jpg" alt="" loading="lazy"></div>
+      <div class="tile vid"><video src="video/img_2872.mp4" poster="video/img_2872.jpg" muted loop playsinline autoplay preload="metadata"></video><span class="tag">Бэкстейдж</span></div>
+      <div class="tile t"><img src="img/50.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/45.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/47.jpg" alt="" loading="lazy"></div>
+      <div class="tile big"><img src="img/53.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/52.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/48.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/51.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/40.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/54.jpg" alt="" loading="lazy"></div>
+      <div class="tile t"><img src="img/43.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARAMS + WHAT -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Обо мне</span>
+    <h2>Параметры и <em>съёмки</em></h2>
+    <p class="sub">В&nbsp;кадре с&nbsp;2020 года. Начинала со&nbsp;съёмок для бренда «Смотри на&nbsp;меня».</p>
+    <div class="card" style="margin-bottom:14px">
+      <div class="spec">
+        <div><b>174</b><small>рост, см</small></div>
+        <div><b>87·67·98</b><small>объёмы</small></div>
+        <div><b>44&nbsp;/&nbsp;40</b><small>одежда / обувь</small></div>
+        <div><b>26</b><small>лет</small></div>
+      </div>
+      <p style="margin-top:16px;text-align:center;color:var(--cream-dim)">Глаза голубые, волосы тёмные</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>В&nbsp;чём снимаюсь</h3>
+        <ul>
+          <li>Рекламные обзоры: автосалоны, детейлинг-салоны, компании по&nbsp;ремонту квартир</li>
+          <li>Съёмки для брендов одежды и&nbsp;ателье</li>
+          <li>Творческие съёмки с&nbsp;фотографами и&nbsp;стилистами</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Что умею на&nbsp;съёмке</h3>
+        <ul>
+          <li>Держать позу</li>
+          <li>Быстро входить в&nbsp;образ</li>
+          <li>Проходки</li>
+          <li>Отвечаю на&nbsp;заявки быстро</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <span class="eyebrow">Портфолио</span>
+    <h2>Работы с&nbsp;<em>брендами</em> и&nbsp;фотографами</h2>
+    <p class="sub">Творческие съёмки, коллаборации с&nbsp;ателье и&nbsp;брендами одежды.</p>
+    <div class="masonry">
+      <div class="tile"><img src="img/11.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/14.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/08.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/12.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/35.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/07.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/13.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/34.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/10.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/09.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/22.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/18.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/19.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/23.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/20.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/21.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/24.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/25.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/29.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/30.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/31.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/33.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/32.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/38.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/39.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/36.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/37.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/06.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/05.jpg" alt="" loading="lazy"></div>
+      <div class="tile"><img src="img/28.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="wrap">
+    <span class="eyebrow">Видео</span>
+    <h2>Со&nbsp;<em>съёмок</em></h2>
+    <p class="sub">Бэкстейдж и&nbsp;рабочие моменты. Нажмите, чтобы включить звук.</p>
+    <div class="videos">
+      <div class="tile vid"><video src="video/img_3896.mp4" poster="video/img_3896.jpg" controls playsinline preload="none"></video><span class="tag">Съёмка для автосалона</span></div>
+      <div class="tile vid"><video src="video/img_0838.mp4" poster="video/img_0838.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_0739.mp4" poster="video/img_0739.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_0707.mp4" poster="video/img_0707.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_0691.mp4" poster="video/img_0691.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_0708.mp4" poster="video/img_0708.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_3420.mp4" poster="video/img_3420.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="tile vid"><video src="video/img_2872.mp4" poster="video/img_2872.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+    </div>
+    <div class="vk"><a class="btn btn-line" href="https://m.vk.ru/wall163434189_1125" target="_blank" rel="noopener">Проходка с&nbsp;вечера QR&nbsp;→</a></div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Работала с</span>
+    <h2>Бренды и&nbsp;<em>команды</em></h2>
+    <p class="sub">Съёмки для брендов, ателье и&nbsp;компаний, работа с&nbsp;фотографами и&nbsp;стилистами.</p>
+    <div class="brands">
+      <span class="brand">Смотри на&nbsp;меня<small>бельё</small></span>
+      <span class="brand">KASAN atelier<small>одежда</small></span>
+      <span class="brand">La Brûlure<small>ателье</small></span>
+      <span class="brand">Lagrans<small>ремонт и&nbsp;дизайн</small></span>
+      <span class="brand">Диана Ардашева<small>фотограф</small></span>
+      <span class="brand">Лиана Ли<small>фотограф</small></span>
+      <span class="brand">Альбина Даминова<small>стилист</small></span>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Условия</span>
+    <h2>Формат <em>работы</em></h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Стоимость по&nbsp;запросу</h3>
+        <ul>
+          <li>Почасовая оплата съёмки</li>
+          <li>Бартер&nbsp;— по&nbsp;договорённости</li>
+          <li>Отвечаю на&nbsp;заявку быстро</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Что не&nbsp;беру</h3>
+        <ul>
+          <li>Съёмки белья</li>
+          <li>Рекламу интим-товаров</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="card">
+      <span class="eyebrow">Связь</span>
+      <h2>Обсудим <em>съёмку</em></h2>
+      <p>Напишите, что за&nbsp;проект и&nbsp;когда съёмка,&nbsp;— отвечу быстро.</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="https://t.me/adevskaya" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+      </div>
+      <a class="mail" href="mailto:karlagina.mari22@mail.ru">karlagina.mari22@mail.ru</a>
+    </div>
+  </div>
+</section>
+
+<footer>Мария Адевская · модель</footer>
+</main>
+
+<div class="lb" id="lb"><button class="x" aria-label="Закрыть">×</button><button class="p" aria-label="Назад">‹</button><img alt=""><button class="n" aria-label="Вперёд">›</button></div>
+<script>
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('.tile img'));
+  var lb=document.getElementById('lb'),big=lb.querySelector('img'),i=0;
+  function show(k){i=(k+imgs.length)%imgs.length;big.src=imgs[i].getAttribute('src');lb.classList.add('on')}
+  imgs.forEach(function(im,k){im.parentNode.addEventListener('click',function(){show(k)})});
+  lb.querySelector('.x').onclick=function(){lb.classList.remove('on')};
+  lb.querySelector('.p').onclick=function(e){e.stopPropagation();show(i-1)};
+  lb.querySelector('.n').onclick=function(e){e.stopPropagation();show(i+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+})();
+</script>
+</body>
+</html>
