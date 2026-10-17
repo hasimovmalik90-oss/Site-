@@ -94,7 +94,7 @@ h2 em{font-style:italic;color:var(--gold-lt)}
 .masonry .tile img{height:auto}
 
 /* ---------- VIDEO ---------- */
-.videos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:820px}
 .videos .tile{aspect-ratio:9/16}
 .videos .wide{grid-column:span 1}
 .vk{margin-top:18px}
@@ -103,6 +103,14 @@ h2 em{font-style:italic;color:var(--gold-lt)}
 .brands{display:flex;flex-wrap:wrap;gap:10px}
 .brand{border:1px solid var(--line);border-radius:999px;padding:10px 18px;color:var(--cream);font-family:var(--serif);font-size:19px;white-space:nowrap;background:rgba(18,18,23,.6)}
 .brand small{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);margin-left:8px}
+
+.group{font-family:var(--serif);font-weight:500;font-size:22px;color:var(--cream);margin:8px 0 14px}
+.profiles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start;margin-bottom:30px}
+.prof{display:block;background:#000;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.25s;box-shadow:0 0 30px rgba(201,169,110,.05)}
+.prof:hover{border-color:var(--gold);box-shadow:0 0 36px rgba(201,169,110,.18)}
+.prof img{width:100%;height:auto}
+.prof span{display:flex;justify-content:space-between;gap:10px;padding:13px 18px;border-top:1px solid var(--line);background:var(--card);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lt)}
+.prof i{font-style:normal}
 
 /* ---------- CONTACT ---------- */
 .contact{text-align:center;padding:84px 0 96px}
@@ -127,7 +135,7 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
   .hero-text{padding:0 16px 44px;margin-top:-90px;position:relative}
   .fresh-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:8px}
   .fresh-grid .big{grid-column:span 2;grid-row:span 3}
-  .cards{grid-template-columns:1fr}
+  .cards,.profiles{grid-template-columns:1fr}
   .videos{grid-template-columns:repeat(2,1fr);gap:8px}
   .masonry{columns:2;column-gap:8px}.masonry .tile{margin-bottom:8px}
 }
@@ -275,16 +283,14 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
   <div class="wrap">
     <span class="eyebrow">Видео</span>
     <h2>Со&nbsp;<em>съёмок</em></h2>
-    <p class="sub">Бэкстейдж и&nbsp;рабочие моменты. Нажмите, чтобы включить звук.</p>
+    <p class="sub">Бэкстейдж и&nbsp;рабочие моменты.</p>
     <div class="videos">
-      <div class="tile vid"><video src="video/img_3896.mp4" poster="video/img_3896.jpg" controls playsinline preload="none"></video><span class="tag">Съёмка для автосалона</span></div>
       <div class="tile vid"><video src="video/img_0838.mp4" poster="video/img_0838.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
       <div class="tile vid"><video src="video/img_0739.mp4" poster="video/img_0739.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
       <div class="tile vid"><video src="video/img_0707.mp4" poster="video/img_0707.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
       <div class="tile vid"><video src="video/img_0691.mp4" poster="video/img_0691.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
       <div class="tile vid"><video src="video/img_0708.mp4" poster="video/img_0708.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
       <div class="tile vid"><video src="video/img_3420.mp4" poster="video/img_3420.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
-      <div class="tile vid"><video src="video/img_2872.mp4" poster="video/img_2872.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
     </div>
     <div class="vk"><a class="btn btn-line" href="https://m.vk.ru/wall163434189_1125" target="_blank" rel="noopener">Проходка с&nbsp;вечера QR&nbsp;→</a></div>
   </div>
@@ -296,14 +302,18 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
     <span class="eyebrow">Работала с</span>
     <h2>Бренды и&nbsp;<em>команды</em></h2>
     <p class="sub">Съёмки для брендов, ателье и&nbsp;компаний, работа с&nbsp;фотографами и&nbsp;стилистами.</p>
-    <div class="brands">
-      <span class="brand">Смотри на&nbsp;меня<small>бельё</small></span>
-      <span class="brand">KASAN atelier<small>одежда</small></span>
-      <span class="brand">La Brûlure<small>ателье</small></span>
-      <span class="brand">Lagrans<small>ремонт и&nbsp;дизайн</small></span>
-      <span class="brand">Диана Ардашева<small>фотограф</small></span>
-      <span class="brand">Лиана Ли<small>фотограф</small></span>
-      <span class="brand">Альбина Даминова<small>стилист</small></span>
+    <h3 class="group">Бренды</h3>
+    <div class="profiles">
+      <a class="prof" href="https://www.instagram.com/smotri_lingerie/" target="_blank" rel="noopener"><img src="profiles/smotri_lingerie.jpg" alt="smotri_lingerie" loading="lazy"><span>Смотри на&nbsp;меня · бельё <i>→</i></span></a>
+      <a class="prof" href="https://www.instagram.com/kasanatelier.ru/" target="_blank" rel="noopener"><img src="profiles/kasanatelier.ru.jpg" alt="kasanatelier.ru" loading="lazy"><span>KASAN atelier · одежда <i>→</i></span></a>
+      <a class="prof" href="https://www.instagram.com/la.brulure/" target="_blank" rel="noopener"><img src="profiles/la.brulure.jpg" alt="la.brulure" loading="lazy"><span>La&nbsp;Brûlure · ателье <i>→</i></span></a>
+      <a class="prof" href="https://www.instagram.com/lagrans_design/" target="_blank" rel="noopener"><img src="profiles/lagrans_design.jpg" alt="lagrans_design" loading="lazy"><span>Lagrans · ремонт и&nbsp;дизайн <i>→</i></span></a>
+    </div>
+    <h3 class="group">Фотографы и&nbsp;стилист</h3>
+    <div class="profiles">
+      <a class="prof" href="https://www.instagram.com/liana_li_photo/" target="_blank" rel="noopener"><img src="profiles/liana_li_photo.jpg" alt="liana_li_photo" loading="lazy"><span>Лиана Ли · фотограф <i>→</i></span></a>
+      <a class="prof" href="https://www.instagram.com/sheisaldi/" target="_blank" rel="noopener"><img src="profiles/sheisaldi.jpg" alt="sheisaldi" loading="lazy"><span>Альбина Даминова · стилист <i>→</i></span></a>
+      <a class="prof" href="https://www.instagram.com/artdasheva.ph/" target="_blank" rel="noopener"><img src="profiles/artdasheva.ph.jpg" alt="artdasheva.ph" loading="lazy"><span>Диана Ардашева · фотограф <i>→</i></span></a>
     </div>
   </div>
 </section>
