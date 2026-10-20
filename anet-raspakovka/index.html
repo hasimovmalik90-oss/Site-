@@ -1,0 +1,394 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Распаковка · Анет</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* палитра из ленты @anet_alari: чёрный, графит, шоколад, серо-бежевый, молочный, карамель */
+:root{--bg:#0B0909;--bg2:#171313;--card:#F3EFEA;--card2:#ECE6DF;--line:rgba(74,59,51,.14);--edge:rgba(187,142,112,.28);--text:#262222;--mute:#6B625B;--dim:#8F857C;--accent:#BB8E70;--accent-d:#8B6146;--head:#0B0909;--milk:#F1EEEA;--taupe:#A39F99}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(187,142,112,.20),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(74,59,51,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 85%,rgba(139,97,70,.22),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(52px,9vw,84px);font-weight:300;letter-spacing:.04em}
+h2{font-size:clamp(26px,3.6vw,36px)}
+p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent-d);font-style:italic}
+a{color:var(--accent-d);text-decoration:none}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-d);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:#fff}
+section{padding:40px 0}
+.section-head{margin-bottom:22px}
+.section-head h2{color:var(--milk)}
+.section-head h2 em{color:var(--accent)}
+.section-head .eyebrow{background:transparent;color:var(--accent);border-color:rgba(187,142,112,.4)}
+.card,.part-head,.author{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;box-shadow:0 26px 60px -30px rgba(0,0,0,.9),0 0 40px -18px rgba(187,142,112,.35)}
+/* hero */
+.hero{text-align:center;padding:84px 0 40px}
+.hero-card{padding:52px 28px 44px;border-radius:24px;border:1px solid rgba(187,142,112,.35);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(187,142,112,.18),transparent 70%),var(--bg2);box-shadow:0 30px 70px -30px rgba(0,0,0,.95),0 0 60px -20px rgba(187,142,112,.35);border-top:4px solid var(--accent)}
+.hero h1{color:var(--milk)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px;font-weight:600}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:540px;margin:20px auto 0;color:var(--taupe);font-size:14.5px}
+.swatch{display:flex;justify-content:center;gap:8px;margin-top:26px}
+.swatch i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(241,238,234,.18)}
+/* part header */
+.part-head{padding:26px 26px;margin-bottom:14px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(187,142,112,.18),transparent 65%),var(--card)}
+.part-head h2{font-size:clamp(24px,3.2vw,32px)}
+.part-head p{color:var(--mute);margin-top:10px;font-size:14.5px}
+/* how-to */
+.howto{padding:24px 26px}
+.howto ol{list-style:none;counter-reset:h}
+.howto ol li{counter-increment:h;position:relative;padding:10px 0 10px 40px;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.howto ol li:last-child{border-bottom:none;padding-bottom:0}
+.howto ol li::before{content:counter(h,decimal-leading-zero);position:absolute;left:0;top:8px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent-d);line-height:1.2}
+.bmap{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.bmap li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.bmap li b{font-weight:500;color:var(--head)}
+.bmap li span{color:var(--dim);font-size:12px}
+/* вопросы */
+.qcard{padding:6px 26px}
+.q{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.qn{flex:none;min-width:30px;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--accent-d)}
+.qt{margin:0;font-size:15px;text-wrap:pretty}
+/* footer */
+.closing{text-align:center;padding:24px 0 64px}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:0 0 26px;opacity:.7;font-size:11px}
+.author{padding:28px 22px;max-width:420px;margin:0 auto}
+.author .nm{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--head);margin-bottom:2px}
+.author .rl{color:var(--accent-d);font-size:13.5px;margin-bottom:18px}
+.btns a{display:inline-block;padding:12px 22px;border-radius:30px;font-size:13.5px;font-weight:600;color:var(--milk);background:linear-gradient(135deg,#262222,#0B0909);border:1px solid rgba(187,142,112,.5);box-shadow:0 10px 24px -10px rgba(0,0,0,.7);transition:.18s}
+.btns a:hover{transform:translateY(-1px);border-color:var(--accent)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--taupe);margin-top:26px}
+@media(max-width:600px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:28px 0}
+  .hero{padding:40px 0 20px}
+  .hero-card{padding:38px 18px 32px;border-radius:20px}
+  h1{font-size:clamp(46px,14vw,60px)}
+  .hero .top,.hero .fio{letter-spacing:.14em;font-size:10px}
+  .part-head{padding:22px 18px}
+  .author{padding:20px 18px}
+  .bmap{grid-template-columns:1fr}.qcard{padding:4px 18px}.howto{padding:20px 18px}.qt{font-size:14.5px}
+}
+</style></head><body>
+
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Октябрь 2026 · Распаковка</div>
+  <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
+  <h1>Анет</h1>
+  <p class="slogan">14 блоков · 164 вопросов</p>
+  <p class="pos">С этого начинается наша работа. Из&nbsp;Ваших ответов мы соберём темы, форматы и&nbsp;линии блога и&nbsp;бренда.</p>
+  <div class="swatch"><i style="background:#0A0809"></i><i style="background:#262222"></i><i style="background:#4A3B33"></i><i style="background:#8B6146"></i><i style="background:#BB8E70"></i><i style="background:#A39F99"></i><i style="background:#F1EEEA"></i></div>
+</div></div></header>
+
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Как отвечать</span><h2>Перед <em>стартом</em></h2></div>
+  <div class="card howto"><ol>
+    <li>Отвечайте голосовыми в&nbsp;нашем чате.</li>
+    <li>Перед ответом называйте номер вопроса.</li>
+    <li>Отвечайте подробно и&nbsp;с&nbsp;примерами: случаи, имена, места, цифры.</li>
+    <li>Можно частями, по&nbsp;10–15 вопросов за&nbsp;раз.</li>
+    <li>Не&nbsp;хотите отвечать&nbsp;— скажите «пропускаю» и&nbsp;идите дальше.</li>
+    <li>Ответы остаются между нами. В&nbsp;блог идёт только то, что Вы разрешите.</li>
+  </ol></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Блоки</span><h2>Что <em>внутри</em></h2></div>
+  <div class="card howto"><ul class="bmap"><li><b>О Вас</b><span>12</span></li><li><b>Семья и близкие</b><span>6</span></li><li><b>Папа, мама и брат</b><span>10</span></li><li><b>Основная работа</b><span>7</span></li><li><b>Стилист</b><span>17</span></li><li><b>Zari Alari</b><span>23</span></li><li><b>Блог в Instagram</b><span>16</span></li><li><b>Канал «На моде при любой погоде»</b><span>7</span></li><li><b>Ваши подписчицы</b><span>5</span></li><li><b>Повседневность</b><span>9</span></li><li><b>Быт и интересы</b><span>28</span></li><li><b>Взгляды и характер</b><span>11</span></li><li><b>Границы</b><span>5</span></li><li><b>Цели и ресурсы</b><span>8</span></li></ul></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Начало · вопросы 1–12</span><h2>О <em>Вас</em></h2>
+    <p>Кто Вы, откуда и&nbsp;какая Вы.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">1</span><p class="qt">Как Вас зовут полностью? Анет — это настоящее имя или сокращение?</p></div>
+    <div class="q"><span class="qn">2</span><p class="qt">Сколько Вам лет?</p></div>
+    <div class="q"><span class="qn">3</span><p class="qt">Где Вы&nbsp;родились и&nbsp;выросли?</p></div>
+    <div class="q"><span class="qn">4</span><p class="qt">Как давно Вы&nbsp;живёте в&nbsp;Москве и&nbsp;почему переехали?</p></div>
+    <div class="q"><span class="qn">5</span><p class="qt">Что Вас связывает с&nbsp;Баку?</p></div>
+    <div class="q"><span class="qn">6</span><p class="qt">Откуда Вы&nbsp;знаете турецкий?</p></div>
+    <div class="q"><span class="qn">7</span><p class="qt">Какое у&nbsp;Вас образование?</p></div>
+    <div class="q"><span class="qn">8</span><p class="qt">Кем Вы&nbsp;мечтали стать в&nbsp;детстве?</p></div>
+    <div class="q"><span class="qn">9</span><p class="qt">Какой Вы&nbsp;были в&nbsp;школе?</p></div>
+    <div class="q"><span class="qn">10</span><p class="qt">Как бы&nbsp;Вы&nbsp;описали себя тремя словами?</p></div>
+    <div class="q"><span class="qn">11</span><p class="qt">Как Вас описывают близкие друзья?</p></div>
+    <div class="q"><span class="qn">12</span><p class="qt">Что в&nbsp;Вас чаще всего понимают неправильно?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Близкие · вопросы 13–18</span><h2>Семья и <em>близкие</em></h2>
+    <p>Кто рядом с&nbsp;Вами сейчас.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">13</span><p class="qt">Кто сейчас Ваша семья?</p></div>
+    <div class="q"><span class="qn">14</span><p class="qt">Расскажите о&nbsp;сестре: где она живёт, чем занимается, какие у&nbsp;вас отношения?</p></div>
+    <div class="q"><span class="qn">15</span><p class="qt">Сколько у&nbsp;Вас племянников? Как часто вы&nbsp;видитесь?</p></div>
+    <div class="q"><span class="qn">16</span><p class="qt">Кто из&nbsp;близких поддерживает Вас в&nbsp;блоге и&nbsp;в&nbsp;бренде?</p></div>
+    <div class="q"><span class="qn">17</span><p class="qt">Кто из&nbsp;близких относится к&nbsp;этому скептически?</p></div>
+    <div class="q"><span class="qn">18</span><p class="qt">Есть ли&nbsp;люди, которых Вы&nbsp;считаете семьёй, хотя вы&nbsp;не&nbsp;родственники?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Можно пропустить · вопросы 19–28</span><h2>Папа, мама и <em>брат</em></h2>
+    <p>Этот блок можно пропустить целиком или ответить только на&nbsp;часть вопросов. Всё, что Вы&nbsp;расскажете, остаётся между нами, пока Вы&nbsp;сами не&nbsp;решите иначе.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">19</span><p class="qt">Готовы ли&nbsp;Вы&nbsp;говорить об&nbsp;этом в&nbsp;блоге?</p></div>
+    <div class="q"><span class="qn">20</span><p class="qt">Если да, в&nbsp;каком формате Вам комфортно: текст, голос, видео?</p></div>
+    <div class="q"><span class="qn">21</span><p class="qt">Какими были Ваши папа, мама и&nbsp;брат?</p></div>
+    <div class="q"><span class="qn">22</span><p class="qt">Что Вы&nbsp;взяли от&nbsp;каждого из&nbsp;них?</p></div>
+    <div class="q"><span class="qn">23</span><p class="qt">Как те&nbsp;годы изменили Вас?</p></div>
+    <div class="q"><span class="qn">24</span><p class="qt">Что помогло Вам выстоять?</p></div>
+    <div class="q"><span class="qn">25</span><p class="qt">Как Вы&nbsp;прожили первые годы после?</p></div>
+    <div class="q"><span class="qn">26</span><p class="qt">Что Вы&nbsp;хотели бы&nbsp;сказать людям, которые сейчас проходят через потерю?</p></div>
+    <div class="q"><span class="qn">27</span><p class="qt">После январского ролика Вам писали люди? Что писали?</p></div>
+    <div class="q"><span class="qn">28</span><p class="qt">Есть ли&nbsp;в&nbsp;этой теме что-то, что Вы&nbsp;точно не&nbsp;хотите показывать?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Работа · вопросы 29–35</span><h2>Основная <em>работа</em></h2>
+    <p>Чем Вы&nbsp;заняты в&nbsp;течение недели.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">29</span><p class="qt">Где и&nbsp;кем Вы&nbsp;сейчас работаете?</p></div>
+    <div class="q"><span class="qn">30</span><p class="qt">Какой у&nbsp;Вас график?</p></div>
+    <div class="q"><span class="qn">31</span><p class="qt">Как давно Вы&nbsp;там работаете?</p></div>
+    <div class="q"><span class="qn">32</span><p class="qt">Нравится ли&nbsp;Вам эта работа?</p></div>
+    <div class="q"><span class="qn">33</span><p class="qt">Планируете ли&nbsp;Вы&nbsp;уйти, если бренд и&nbsp;блог начнут приносить доход?</p></div>
+    <div class="q"><span class="qn">34</span><p class="qt">Можно ли&nbsp;показывать работу в&nbsp;блоге?</p></div>
+    <div class="q"><span class="qn">35</span><p class="qt">В&nbsp;мае Вы&nbsp;написали, что ушли из&nbsp;проекта, который забирал много сил. Что это был за&nbsp;проект?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Путь · вопросы 36–52</span><h2><em>Стилист</em></h2>
+    <p>Ваша работа с&nbsp;клиентками.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">36</span><p class="qt">Как Вы&nbsp;пришли в&nbsp;стилистику?</p></div>
+    <div class="q"><span class="qn">37</span><p class="qt">Где Вы&nbsp;учились?</p></div>
+    <div class="q"><span class="qn">38</span><p class="qt">С&nbsp;какого года Вы&nbsp;работаете с&nbsp;клиентами?</p></div>
+    <div class="q"><span class="qn">39</span><p class="qt">Сколько примерно клиентов у&nbsp;Вас было?</p></div>
+    <div class="q"><span class="qn">40</span><p class="qt">Какие услуги Вы&nbsp;делали: разбор гардероба, шопинг, прешопинг, съёмки?</p></div>
+    <div class="q"><span class="qn">41</span><p class="qt">Сколько стоили Ваши услуги?</p></div>
+    <div class="q"><span class="qn">42</span><p class="qt">Кто были Ваши клиенты: возраст, профессии, запросы?</p></div>
+    <div class="q"><span class="qn">43</span><p class="qt">Какой случай с&nbsp;клиенткой запомнился Вам больше всего?</p></div>
+    <div class="q"><span class="qn">44</span><p class="qt">Какие результаты были у&nbsp;клиентов: что изменилось в&nbsp;гардеробе, в&nbsp;жизни?</p></div>
+    <div class="q"><span class="qn">45</span><p class="qt">Остались ли&nbsp;у&nbsp;Вас фото «до&nbsp;и&nbsp;после» и&nbsp;отзывы? Можно ли&nbsp;их&nbsp;показывать?</p></div>
+    <div class="q"><span class="qn">46</span><p class="qt">Работаете ли&nbsp;Вы&nbsp;стилистом сейчас?</p></div>
+    <div class="q"><span class="qn">47</span><p class="qt">Хотите ли&nbsp;Вы&nbsp;продолжать как стилист или это закрытый этап?</p></div>
+    <div class="q"><span class="qn">48</span><p class="qt">Почему Вы&nbsp;не&nbsp;показывали свои работы в&nbsp;блоге?</p></div>
+    <div class="q"><span class="qn">49</span><p class="qt">Какие ошибки в&nbsp;одежде Вы&nbsp;видите чаще всего?</p></div>
+    <div class="q"><span class="qn">50</span><p class="qt">Какие у&nbsp;Вас любимые приёмы стилизации?</p></div>
+    <div class="q"><span class="qn">51</span><p class="qt">Какие бренды Вы&nbsp;любите и&nbsp;почему?</p></div>
+    <div class="q"><span class="qn">52</span><p class="qt">Как Вы&nbsp;определяете, что вещь стоит своих денег?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Бренд · вопросы 53–75</span><h2>Zari <em>Alari</em></h2>
+    <p>Как устроен бренд и&nbsp;что с&nbsp;ним дальше. Цифры остаются между нами.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">53</span><p class="qt">Как появилась идея своего бренда?</p></div>
+    <div class="q"><span class="qn">54</span><p class="qt">Что означает название Zari Alari?</p></div>
+    <div class="q"><span class="qn">55</span><p class="qt">Когда Вы&nbsp;начали делать бренд?</p></div>
+    <div class="q"><span class="qn">56</span><p class="qt">Почему первая коллекция именно такая: легинсы, топы, нарукавники, топ-сумка?</p></div>
+    <div class="q"><span class="qn">57</span><p class="qt">Почему только чёрный и&nbsp;молочный?</p></div>
+    <div class="q"><span class="qn">58</span><p class="qt">Для кого эта одежда: возраст, образ жизни, как она одевается?</p></div>
+    <div class="q"><span class="qn">59</span><p class="qt">Чем Ваши вещи отличаются от&nbsp;того, что уже есть на&nbsp;рынке?</p></div>
+    <div class="q"><span class="qn">60</span><p class="qt">Кто шьёт: своё производство или фабрика? Где оно?</p></div>
+    <div class="q"><span class="qn">61</span><p class="qt">Сколько стоят вещи коллекции Fluid?</p></div>
+    <div class="q"><span class="qn">62</span><p class="qt">Сколько заказов было с&nbsp;момента открытия предзаказа?</p></div>
+    <div class="q"><span class="qn">63</span><p class="qt">Откуда пришли покупательницы: Instagram, Telegram, знакомые?</p></div>
+    <div class="q"><span class="qn">64</span><p class="qt">Что говорят покупательницы? Есть ли&nbsp;отзывы и&nbsp;фото в&nbsp;Ваших вещах?</p></div>
+    <div class="q"><span class="qn">65</span><p class="qt">Какие вещи покупают лучше всего?</p></div>
+    <div class="q"><span class="qn">66</span><p class="qt">Что пошло не&nbsp;так при запуске?</p></div>
+    <div class="q"><span class="qn">67</span><p class="qt">Сколько денег Вы&nbsp;вложили в&nbsp;бренд?</p></div>
+    <div class="q"><span class="qn">68</span><p class="qt">Окупился ли&nbsp;бренд?</p></div>
+    <div class="q"><span class="qn">69</span><p class="qt">Кто помогает Вам с&nbsp;брендом?</p></div>
+    <div class="q"><span class="qn">70</span><p class="qt">Какая следующая коллекция и&nbsp;когда?</p></div>
+    <div class="q"><span class="qn">71</span><p class="qt">Где Вы&nbsp;хотите видеть бренд через год?</p></div>
+    <div class="q"><span class="qn">72</span><p class="qt">Будете ли&nbsp;Вы&nbsp;снимать одежду на&nbsp;себе, как Вам советовали?</p></div>
+    <div class="q"><span class="qn">73</span><p class="qt">Почему бренд почти не&nbsp;появляется в&nbsp;Вашем Instagram?</p></div>
+    <div class="q"><span class="qn">74</span><p class="qt">Что Вы&nbsp;готовы показывать о&nbsp;бренде: производство, ткани, примерки, упаковку, цифры?</p></div>
+    <div class="q"><span class="qn">75</span><p class="qt">Раньше Вы&nbsp;продавали легинсы, топ и&nbsp;гели для стирки. Что это было и&nbsp;чем закончилось?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Instagram · вопросы 76–91</span><h2>Блог в <em>Instagram</em></h2>
+    <p>Что было, что получается сейчас и&nbsp;как Вам с&nbsp;камерой.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">76</span><p class="qt">Когда Вы&nbsp;впервые решили вести блог и&nbsp;зачем?</p></div>
+    <div class="q"><span class="qn">77</span><p class="qt">Почему раньше Вы&nbsp;прятались от&nbsp;камеры?</p></div>
+    <div class="q"><span class="qn">78</span><p class="qt">Что заставило Вас в&nbsp;октябре начать говорить на&nbsp;камеру?</p></div>
+    <div class="q"><span class="qn">79</span><p class="qt">Что Вы&nbsp;почувствовали, когда ролики набрали 78 и&nbsp;88 тысяч просмотров?</p></div>
+    <div class="q"><span class="qn">80</span><p class="qt">Что Вам писали в&nbsp;комментариях и&nbsp;в&nbsp;директ после этих роликов?</p></div>
+    <div class="q"><span class="qn">81</span><p class="qt">Сколько времени уходит на&nbsp;один ролик?</p></div>
+    <div class="q"><span class="qn">82</span><p class="qt">Кто снимает и&nbsp;монтирует?</p></div>
+    <div class="q"><span class="qn">83</span><p class="qt">Почему с&nbsp;весны Вы&nbsp;перешли на&nbsp;мемы с&nbsp;текстом?</p></div>
+    <div class="q"><span class="qn">84</span><p class="qt">Какие свои ролики Вам нравятся больше всего и&nbsp;почему?</p></div>
+    <div class="q"><span class="qn">85</span><p class="qt">Какие ролики Вы&nbsp;бы&nbsp;удалили?</p></div>
+    <div class="q"><span class="qn">86</span><p class="qt">Чьи блоги Вы&nbsp;смотрите и&nbsp;что в&nbsp;них нравится?</p></div>
+    <div class="q"><span class="qn">87</span><p class="qt">Что Вас раздражает в&nbsp;чужих блогах?</p></div>
+    <div class="q"><span class="qn">88</span><p class="qt">Какие темы Вам интересно обсуждать в&nbsp;блоге?</p></div>
+    <div class="q"><span class="qn">89</span><p class="qt">На&nbsp;какие темы Вы&nbsp;можете говорить часами?</p></div>
+    <div class="q"><span class="qn">90</span><p class="qt">Розыгрыши в&nbsp;начале 2025 года что-то&nbsp;дали: подписчиков, клиентов?</p></div>
+    <div class="q"><span class="qn">91</span><p class="qt">В&nbsp;апреле Вы&nbsp;писали, что хотите 5 000 подписчиков к&nbsp;лету. Какая цель сейчас?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Telegram · вопросы 92–98</span><h2>Канал «На моде при любой <em>погоде</em>»</h2>
+    <p>Для чего канал сейчас и&nbsp;кто его читает.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">92</span><p class="qt">Сколько сейчас подписчиков в&nbsp;канале?</p></div>
+    <div class="q"><span class="qn">93</span><p class="qt">Кто там сидит: знакомые, клиентки, подписчицы из&nbsp;Instagram?</p></div>
+    <div class="q"><span class="qn">94</span><p class="qt">Почему канал называется «На&nbsp;моде при любой погоде»?</p></div>
+    <div class="q"><span class="qn">95</span><p class="qt">Для чего Вам канал сейчас: дневник, бренд, общение?</p></div>
+    <div class="q"><span class="qn">96</span><p class="qt">Почему Вы&nbsp;ушли от&nbsp;подборок к&nbsp;личным постам?</p></div>
+    <div class="q"><span class="qn">97</span><p class="qt">Что пишут Вам подписчики канала?</p></div>
+    <div class="q"><span class="qn">98</span><p class="qt">Хотите ли&nbsp;Вы&nbsp;оставить канал личным или сделать его частью бренда?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Аудитория · вопросы 99–103</span><h2>Ваши <em>подписчицы</em></h2>
+    <p>Кто Вас смотрит и&nbsp;что они просят.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">99</span><p class="qt">Кто, по-Вашему, Вас сейчас смотрит?</p></div>
+    <div class="q"><span class="qn">100</span><p class="qt">Кого Вы&nbsp;хотите видеть среди подписчиков?</p></div>
+    <div class="q"><span class="qn">101</span><p class="qt">Какие вопросы Вам задают чаще всего?</p></div>
+    <div class="q"><span class="qn">102</span><p class="qt">Что подписчицы просят показать или рассказать?</p></div>
+    <div class="q"><span class="qn">103</span><p class="qt">Есть ли&nbsp;подписчицы, которые купили бренд или Ваши услуги?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Будни · вопросы 104–112</span><h2><em>Повседневность</em></h2>
+    <p>Ваш обычный день, спорт, Айли.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">104</span><p class="qt">Опишите Ваш обычный будний день.</p></div>
+    <div class="q"><span class="qn">105</span><p class="qt">Как проходит Ваш выходной?</p></div>
+    <div class="q"><span class="qn">106</span><p class="qt">Как Вы&nbsp;тренируетесь: где, сколько раз в&nbsp;неделю, какие программы?</p></div>
+    <div class="q"><span class="qn">107</span><p class="qt">Как Вы&nbsp;питаетесь? Что едите почти каждый день?</p></div>
+    <div class="q"><span class="qn">108</span><p class="qt">Как Айли появилась у&nbsp;Вас?</p></div>
+    <div class="q"><span class="qn">109</span><p class="qt">Как Вы&nbsp;ухаживаете за&nbsp;Айли и&nbsp;что с&nbsp;её&nbsp;здоровьем сейчас?</p></div>
+    <div class="q"><span class="qn">110</span><p class="qt">Какую музыку Вы&nbsp;слушаете и&nbsp;где берёте треки?</p></div>
+    <div class="q"><span class="qn">111</span><p class="qt">Какие фильмы и&nbsp;сериалы Вы&nbsp;пересматриваете?</p></div>
+    <div class="q"><span class="qn">112</span><p class="qt">Как Вы&nbsp;обустроили свою квартиру?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Быт и интересы · вопросы 113–140</span><h2>Быт и <em>интересы</em></h2>
+    <p>Места, привычки, уход, покупки — всё, из&nbsp;чего складывается Ваша жизнь.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">113</span><p class="qt">Какие кофейни в&nbsp;Москве Вы&nbsp;любите? Что обычно заказываете?</p></div>
+    <div class="q"><span class="qn">114</span><p class="qt">Какой кофе Вы&nbsp;пьёте дома и&nbsp;как его готовите?</p></div>
+    <div class="q"><span class="qn">115</span><p class="qt">Какие рестораны и&nbsp;места для завтраков Вы&nbsp;любите?</p></div>
+    <div class="q"><span class="qn">116</span><p class="qt">Где Вы&nbsp;любите гулять в&nbsp;Москве?</p></div>
+    <div class="q"><span class="qn">117</span><p class="qt">Как Вы&nbsp;проводите время с&nbsp;подругами?</p></div>
+    <div class="q"><span class="qn">118</span><p class="qt">Какие музеи, выставки и&nbsp;концерты Вам нравятся?</p></div>
+    <div class="q"><span class="qn">119</span><p class="qt">Куда Вы&nbsp;ходите на&nbsp;свидания?</p></div>
+    <div class="q"><span class="qn">120</span><p class="qt">Как Вы&nbsp;ходите за&nbsp;покупками: онлайн или в&nbsp;магазины, одна или с&nbsp;кем-то?</p></div>
+    <div class="q"><span class="qn">121</span><p class="qt">Что лежит в&nbsp;Вашей сумке каждый день?</p></div>
+    <div class="q"><span class="qn">122</span><p class="qt">Какой у&nbsp;Вас макияж на&nbsp;каждый день?</p></div>
+    <div class="q"><span class="qn">123</span><p class="qt">К&nbsp;каким мастерам Вы&nbsp;ходите: маникюр, брови, волосы, косметолог?</p></div>
+    <div class="q"><span class="qn">124</span><p class="qt">Какие процедуры Вы&nbsp;делаете регулярно?</p></div>
+    <div class="q"><span class="qn">125</span><p class="qt">Какой у&nbsp;Вас уход за&nbsp;кожей, волосами и&nbsp;телом?</p></div>
+    <div class="q"><span class="qn">126</span><p class="qt">Какие ароматы Вы&nbsp;носите?</p></div>
+    <div class="q"><span class="qn">127</span><p class="qt">Вы&nbsp;писали, что хотите убрать полимер из&nbsp;губ. Это ещё актуально?</p></div>
+    <div class="q"><span class="qn">128</span><p class="qt">Как Вы&nbsp;храните одежду и&nbsp;как устроен Ваш шкаф?</p></div>
+    <div class="q"><span class="qn">129</span><p class="qt">Как Вы&nbsp;убираете дом?</p></div>
+    <div class="q"><span class="qn">130</span><p class="qt">Вы&nbsp;готовите? Что чаще всего?</p></div>
+    <div class="q"><span class="qn">131</span><p class="qt">Какие цветы Вы&nbsp;любите и&nbsp;как за&nbsp;ними ухаживаете?</p></div>
+    <div class="q"><span class="qn">132</span><p class="qt">Чем Вы&nbsp;занимаетесь вечером дома?</p></div>
+    <div class="q"><span class="qn">133</span><p class="qt">Что Вы&nbsp;читаете?</p></div>
+    <div class="q"><span class="qn">134</span><p class="qt">Где и&nbsp;с&nbsp;кем Вы&nbsp;играете в&nbsp;бильярд?</p></div>
+    <div class="q"><span class="qn">135</span><p class="qt">Чем ещё Вы&nbsp;занимаетесь для души?</p></div>
+    <div class="q"><span class="qn">136</span><p class="qt">Что сейчас в&nbsp;Вашем вишлисте?</p></div>
+    <div class="q"><span class="qn">137</span><p class="qt">Какие подарки Вам нравится получать?</p></div>
+    <div class="q"><span class="qn">138</span><p class="qt">Какие покупки за&nbsp;последний год Вы&nbsp;считаете самыми удачными?</p></div>
+    <div class="q"><span class="qn">139</span><p class="qt">Как Вы&nbsp;отдыхаете в&nbsp;отпуске?</p></div>
+    <div class="q"><span class="qn">140</span><p class="qt">Куда Вы&nbsp;хотите поехать в&nbsp;ближайший год?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Характер · вопросы 141–151</span><h2>Взгляды и <em>характер</em></h2>
+    <p>Во&nbsp;что Вы&nbsp;верите и&nbsp;какая Вы&nbsp;с&nbsp;людьми.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">141</span><p class="qt">Какие у&nbsp;Вас принципы, которые Вы&nbsp;не&nbsp;нарушаете?</p></div>
+    <div class="q"><span class="qn">142</span><p class="qt">Что для Вас женская сила?</p></div>
+    <div class="q"><span class="qn">143</span><p class="qt">Какие у&nbsp;Вас взгляды на&nbsp;отношения?</p></div>
+    <div class="q"><span class="qn">144</span><p class="qt">Какой мужчина Вам нравится?</p></div>
+    <div class="q"><span class="qn">145</span><p class="qt">Как Вы&nbsp;относитесь к&nbsp;деньгам?</p></div>
+    <div class="q"><span class="qn">146</span><p class="qt">Что Вас злит в&nbsp;людях?</p></div>
+    <div class="q"><span class="qn">147</span><p class="qt">Что Вас радует в&nbsp;людях?</p></div>
+    <div class="q"><span class="qn">148</span><p class="qt">Чего Вы&nbsp;боитесь?</p></div>
+    <div class="q"><span class="qn">149</span><p class="qt">Чем Вы&nbsp;гордитесь?</p></div>
+    <div class="q"><span class="qn">150</span><p class="qt">Какое решение в&nbsp;жизни Вы&nbsp;считаете самым важным?</p></div>
+    <div class="q"><span class="qn">151</span><p class="qt">Что Вы&nbsp;бы&nbsp;изменили в&nbsp;своём прошлом?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Границы · вопросы 152–156</span><h2><em>Границы</em></h2>
+    <p>Что можно показывать, а&nbsp;что нет.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">152</span><p class="qt">Что точно нельзя показывать в&nbsp;блоге?</p></div>
+    <div class="q"><span class="qn">153</span><p class="qt">Каких тем Вы&nbsp;не&nbsp;хотите касаться?</p></div>
+    <div class="q"><span class="qn">154</span><p class="qt">Можно ли&nbsp;показывать сестру, племянников, друзей?</p></div>
+    <div class="q"><span class="qn">155</span><p class="qt">Можно ли&nbsp;показывать квартиру и&nbsp;район, где Вы&nbsp;живёте?</p></div>
+    <div class="q"><span class="qn">156</span><p class="qt">Можно ли&nbsp;использовать мат в&nbsp;роликах?</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Цели · вопросы 157–164</span><h2>Цели и <em>ресурсы</em></h2>
+    <p>Чего Вы&nbsp;хотите и&nbsp;сколько сил готовы вложить.</p>
+  </div>
+  <div class="card qcard">
+    <div class="q"><span class="qn">157</span><p class="qt">Чего Вы&nbsp;хотите от&nbsp;блога через полгода?</p></div>
+    <div class="q"><span class="qn">158</span><p class="qt">Чего Вы&nbsp;хотите от&nbsp;бренда через полгода?</p></div>
+    <div class="q"><span class="qn">159</span><p class="qt">Сколько времени в&nbsp;неделю Вы&nbsp;готовы отдавать съёмкам?</p></div>
+    <div class="q"><span class="qn">160</span><p class="qt">В&nbsp;какие дни и&nbsp;часы Вам удобно снимать?</p></div>
+    <div class="q"><span class="qn">161</span><p class="qt">Какая у&nbsp;Вас техника: телефон, штатив, свет, микрофон?</p></div>
+    <div class="q"><span class="qn">162</span><p class="qt">Готовы ли&nbsp;Вы&nbsp;снимать на&nbsp;улице и&nbsp;в&nbsp;людных местах?</p></div>
+    <div class="q"><span class="qn">163</span><p class="qt">Есть ли&nbsp;бюджет на&nbsp;продвижение и&nbsp;съёмки?</p></div>
+    <div class="q"><span class="qn">164</span><p class="qt">Как Вы&nbsp;поймёте, что наша работа принесла результат?</p></div>
+  </div>
+</div></section>
+
+<footer class="closing"><div class="wrap">
+  <div class="ornament">◆ ◆&nbsp;◆</div>
+  <div class="author"><div class="nm">Малик Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div><p style="color:var(--mute);font-size:14px;margin-bottom:16px">Я&nbsp;расшифрую ответы дословно и&nbsp;соберу из&nbsp;них линии блога, темы для&nbsp;роликов и&nbsp;подачу бренда.</p><div class="btns"><a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
+  <p class="sign">Октябрь&nbsp;2026</p>
+</div></footer>
+
+</body></html>
