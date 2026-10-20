@@ -2945,6 +2945,9 @@
   @media (max-width: 720px) { .proof-shots.headers .proof-shot { max-width: calc(100vw - 32px); } .proof-shots.headers .proof-shot img { max-width: 100%; } }
   .table-hint { display: none; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
   @media (max-width: 720px) { .table-hint { display: block; } }
+  .proof-shot.feed img { max-width: 440px; max-height: 520px; }
+  .proof-shot.tall img[src$="now-top.jpg"] { max-height: 520px; max-width: 290px; }
+  @media (max-width: 720px) { .proof-shot.feed { max-width: calc(100vw - 32px); } .proof-shot.feed img { max-width: 100%; max-height: none; } }
 </style>
 </head>
 <body class="splash-active">
@@ -3649,12 +3652,16 @@
       <div class="proof-shot"><img src="i/reel-8.jpg" alt="Африка, завтрак с животными: 359 просмотров" loading="lazy"><div class="proof-shot-caption">африка · <strong>359</strong></div></div>
     </div>
 
-    <h3 style="text-align: center; margin-top: 80px;" class="reveal">Лента профиля</h3>
-    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px;" class="reveal">просмотры на&nbsp;плитках · 26 и&nbsp;28 июля</p>
+    <h3 style="text-align: center; margin-top: 80px;" class="reveal">Лента профиля сейчас</h3>
+    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px;" class="reveal">ролики продолжают набирать · октябрь 2026</p>
 
     <div class="proof-shots reveal">
-      <div class="proof-shot wide"><img src="i/grid-views.jpg" alt="Вкладка Reels 26 июля: 2 633, 7 126, 211 тыс. просмотров" loading="lazy"><div class="proof-shot-caption">26 июля · <strong>211&nbsp;тыс.</strong> на&nbsp;элвисе</div></div>
-      <div class="proof-shot wide"><img src="i/grid-views-2.jpg" alt="Лента 28 июля: 4 601, 7 458, 6 260 просмотров" loading="lazy"><div class="proof-shot-caption">28 июля · новые ролики</div></div>
+      <div class="proof-shot tall"><img src="i/now-top.jpg" alt="Ролик «Не страшно держать такого большого кота?»: 331 тыс. просмотров" loading="lazy"><div class="proof-shot-caption">топ-ролик · <strong>331&nbsp;тыс.</strong></div></div>
+      <div class="proof-shot feed"><img src="i/now-grid.jpg" alt="Вкладка Reels: 12,4 тыс., 8 331, 9 235, 6 794, 1 770, 1 952 просмотра" loading="lazy"><div class="proof-shot-caption">вкладка reels · просмотры на&nbsp;плитках</div></div>
+    </div>
+
+    <div class="proof-shots headers reveal" style="margin-top: 28px;">
+      <div class="proof-shot"><img src="i/now-profile.jpg" alt="Профиль Aiza Ray: 7 публикаций, 622 подписчика" loading="lazy"><div class="proof-shot-caption">профиль · <strong>622</strong> подписчика</div></div>
     </div>
   </div>
 </section>
