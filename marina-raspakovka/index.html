@@ -1,132 +1,155 @@
 <!doctype html><html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Распаковка · Марина Феданова</title>
-<meta name="description" content="Распаковка личности: 13 блоков, 140 вопросов.">
 <meta name="robots" content="noindex">
+<title>Распаковка · Марина Феданова</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0B0B0C;--soft:#121214;--card:#141416;--line:#1F1E1D;--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+:root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C;--rasp:#B8416E}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden;width:100%;max-width:100%}
-body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;line-height:1.65;hyphens:none;-webkit-hyphens:none;
-background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,183,155,.06),transparent 70%);background-attachment:fixed}
-::selection{background:var(--accent);color:#0B0B0C}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px} .narrow{max-width:860px}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EEE8;line-height:1.12;text-wrap:balance}
-h1{font-size:clamp(44px,9vw,78px);letter-spacing:.05em}
-h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:8px}
-h3{font-size:clamp(20px,3vw,27px)} h4{font-size:18px;font-weight:400}
-p{margin:0 0 1em;text-wrap:pretty} p:last-child{margin:0}
-em{color:var(--accent);font-style:normal} strong{color:#F4F0EA;font-weight:600}
-a{color:var(--accent);text-decoration:none}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
-.dim{color:var(--dim)}.mute{color:var(--mute)}
-section{padding:62px 0;border-top:1px solid var(--line)}
-.section-head{margin-bottom:34px} .section-head p{color:var(--mute);max-width:760px;margin-top:10px}
-.hero{text-align:center;padding:108px 0 76px;border:none}
-.hero .fio{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
-.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
-.hero h1{text-transform:uppercase;letter-spacing:.14em}
-.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,26px);color:var(--accent);margin:16px 0 14px}
-.hero .path{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--mute);margin-bottom:8px}
-.hero .path .ac{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic}
-.hero .pos{max-width:680px;margin:18px auto 0;color:var(--mute);font-size:15px}
-.hdiv{width:60px;height:1px;background:var(--accent);opacity:.5;margin:34px auto 0}
-.hero .handle{margin-top:26px;font-size:14px}
-.lead{font-size:clamp(17px,2vw,20px);color:#E8E4DE;max-width:820px}
-.lead.drop::first-letter{font-family:'Cormorant Garamond',serif;font-size:3.4em;float:left;line-height:.8;padding:6px 14px 0 0;color:var(--accent)}
-.sits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:38px}
-.sit{background:var(--soft);padding:24px;display:flex;gap:16px;align-items:flex-start}
-.sit-n{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--accent);flex:none;line-height:1}
-.sit-t{color:var(--text);font-size:15px;text-wrap:pretty}
-.map{margin-top:38px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.map-col{background:var(--soft);padding:26px}
-.map-col h4{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:4px}
-.map-col .mc{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:16px;display:block}
-.map-col ul{list-style:none}
-.map-col li{font-size:14.5px;color:var(--mute);padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;align-items:baseline}
-.map-col li:last-child{border-bottom:none} .map-col li b{color:var(--text);font-weight:400}
-.map-col li span{color:var(--dim);font-size:11px;letter-spacing:.14em;flex:none}
-.map-col li b i{font-family:'Cormorant Garamond',serif;font-style:normal;color:var(--accent);font-size:13px;letter-spacing:.1em;margin-right:8px;opacity:.85}
-.pillars{margin-top:38px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.pillars-h{background:var(--soft);padding:22px 26px;border-bottom:1px solid var(--line)}
-.pillars-h h4{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:23px;margin-bottom:6px}
-.pillars-h p{color:var(--mute);font-size:14.5px}
-.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
-.pcell{background:var(--soft);padding:20px 18px}
-.pcell .pi{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);opacity:.8;display:block;line-height:1}
-.pcell b{display:block;font-weight:400;font-size:16px;color:var(--text);margin:8px 0 6px}
-.pcell small{color:var(--dim);font-size:12.5px;line-height:1.5;display:block}
-.phalf{background:#0F0F10;padding:11px 26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
-@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){.pgrid{grid-template-columns:1fr}}
-.part{padding:84px 0 34px;border-top:1px solid var(--line);text-align:center}
-.part .pn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.part h2{margin-bottom:12px} .part p{color:var(--mute);max-width:680px;margin:0 auto;font-size:15px}
-.part .hdiv{margin-top:28px}
-.qlist{margin-top:8px;border-top:1px solid var(--line)}
-.q{display:flex;gap:20px;padding:17px 4px;border-bottom:1px solid var(--line);align-items:baseline;transition:.16s}
-.q:hover{background:rgba(201,183,155,.035);padding-left:14px;padding-right:14px}
-.qn{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--accent);min-width:52px;flex:none;line-height:1.1;text-align:right;opacity:.85}
-.qt{flex:1;min-width:0;color:var(--text);font-size:16px;line-height:1.6;text-wrap:pretty}
-.diamond{width:8px;height:8px;background:var(--accent);transform:rotate(45deg);margin:34px auto;opacity:.7}
-.closing{text-align:center;padding:80px 0 90px}
-.closing p{max-width:680px;margin:0 auto 1em;color:var(--text)}
-.ornament{color:var(--accent);letter-spacing:.5em;margin:36px 0;opacity:.6}
-.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text);margin-top:40px}
-.sign small{display:block;font-family:Mulish,sans-serif;font-style:normal;color:var(--mute);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px}
-@media(max-width:720px){
-  .sits{grid-template-columns:1fr} .map{grid-template-columns:1fr}
-  h1{font-size:clamp(34px,7.4vw,58px)}
-  .hero h1{text-transform:none;letter-spacing:.04em}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,255,255,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(214,90,135,.22),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(214,90,135,.22),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(42px,7vw,68px);font-weight:400;letter-spacing:.01em}
+h2{font-size:clamp(26px,3.6vw,36px)}
+h3{font-size:clamp(20px,2.2vw,23px)}
+p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:italic}
+a{color:var(--accent-d);text-decoration:none}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-d);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:#fff}
+section{padding:44px 0}
+.section-head{margin-bottom:22px}
+.section-head p{color:var(--mute);margin-top:12px;font-size:14.5px}
+.card,.mblock,.obl,.rcard,.price,.author,.part-head,.next,.terms{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;box-shadow:0 22px 50px -28px rgba(140,30,75,.45),0 2px 6px -2px rgba(140,30,75,.10)}
+/* hero */
+.hero{text-align:center;padding:80px 0 40px}
+.hero-card{padding:46px 28px 40px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(240,170,195,.22),transparent 70%),#fff;box-shadow:0 26px 60px -30px rgba(140,30,75,.45)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:600}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:540px;margin:20px auto 0;color:var(--mute);font-size:14.5px}
+/* part header */
+.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(240,150,180,.22),transparent 65%),#fff}
+.part-head h2{font-size:clamp(24px,3.2vw,32px)}
+/* stage cards */
+.mblock{padding:24px 26px;margin-bottom:14px}
+.mnum{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:.12em;color:#fff;background:linear-gradient(135deg,#E98AAB,#D4648B);box-shadow:0 6px 16px -6px rgba(212,100,139,.7);margin-bottom:12px}
+.mbody h3{margin-bottom:12px}
+.pts{list-style:none}
+.pts li{position:relative;padding:6px 0 6px 20px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(226,120,158,.15)}
+.gives{margin-top:14px;padding:14px 16px;background:rgba(240,150,180,.09);border:1px solid rgba(214,110,145,.16);border-left:3px solid var(--accent);border-radius:12px;color:var(--text);font-size:14px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-bottom:5px;font-weight:700}
+/* lists */
+.obls{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.obl{padding:24px}
+.obl h4{color:var(--accent-d);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.obl ul{list-style:none}
+.obl li{padding:9px 0 9px 18px;position:relative;font-size:14px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.obl li:last-child{border-bottom:none;padding-bottom:0}
+.obl li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+/* next months */
+.next{padding:26px;margin-bottom:14px}
+.next .when{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+.next h3{margin-bottom:10px}
+.next>p{color:var(--mute);font-size:14.5px;margin-bottom:10px}
+.next.alt{background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(240,150,180,.16),transparent 65%),#fff}
+.note{margin-top:14px;padding:14px 16px;border-radius:12px;background:#FFF1F5;border:1px dashed rgba(214,110,145,.4);color:var(--text);font-size:14px}
+/* price */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.price{padding:28px 18px;text-align:center}
+.price.best{background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(240,170,195,.25),transparent 70%),#fff;border:1.5px solid rgba(184,74,114,.4)}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:12px;font-weight:700}
+.price .pv{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:500;color:var(--head);line-height:1;white-space:nowrap}
+.price .pv span{font-size:20px;color:var(--mute)}
+.price .pp{color:var(--mute);font-size:13.5px;margin-top:10px}
+.price .tag{display:inline-block;margin-top:12px;padding:4px 12px;border-radius:30px;font-size:11.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,#E98AAB,#D4648B)}
+.terms{margin-top:16px;padding:22px 24px}
+.terms h4{color:var(--accent-d);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.terms ul{list-style:none}.terms li{padding:9px 0 9px 18px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}.terms li:last-child{border-bottom:none;padding-bottom:0}
+.terms li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.terms b{font-weight:700;color:var(--head)}
+/* footer */
+.closing{text-align:center;padding:24px 0 64px}
+.ornament{color:var(--accent-d);letter-spacing:.5em;margin:0 0 26px;opacity:.7;font-size:11px}
+.author{padding:28px 22px;max-width:420px;margin:0 auto}
+.author .nm{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--head);margin-bottom:2px}
+.author .rl{color:var(--accent-d);font-size:13.5px;margin-bottom:18px}
+.btns a{display:inline-block;padding:12px 22px;border-radius:30px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(135deg,#E98AAB,#D4648B);box-shadow:0 10px 24px -10px rgba(212,100,139,.8);transition:.18s}
+.btns a:hover{transform:translateY(-1px);box-shadow:0 14px 28px -10px rgba(212,100,139,.9)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--head);margin-top:26px}
+.hero-card,.price.best{border-top:5px solid #D97A9C}
+@media(max-width:700px){.prices{grid-template-columns:1fr}}
+@media(max-width:600px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:30px 0}
+  .hero{padding:40px 0 20px}
+  .hero-card{padding:34px 18px 30px;border-radius:20px}
+  h1{font-size:clamp(36px,11vw,46px)}
+  .hero .top,.hero .fio{letter-spacing:.14em;font-size:10px}
+  .part-head{padding:22px 18px}
+  .mblock,.next{padding:20px 18px}
+  .obl,.author{padding:20px 18px}
+  .pts li{font-size:14px}
 }
-@media(max-width:480px){
-  .wrap{padding:0 18px} body{font-size:16px}
-  h1{font-size:clamp(34px,9vw,52px);letter-spacing:.02em}
-  .hero h1{letter-spacing:.04em;text-transform:none}
-  .hero{padding:74px 0 48px} .hero .slogan{font-size:16px}
-  h2{font-size:clamp(25px,7vw,33px)}
-  .part{padding:64px 0 26px}
-  .q{gap:14px} .qn{min-width:40px;font-size:20px} .qt{font-size:15.5px}
-}
-body{word-break:normal;overflow-wrap:normal}
+
+/* распаковка */
+.howto{padding:24px 26px}
+.howto ol{list-style:none;counter-reset:h}
+.howto ol li{counter-increment:h;position:relative;padding:10px 0 10px 40px;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.howto ol li:last-child{border-bottom:none;padding-bottom:0}
+.howto ol li::before{content:counter(h,decimal-leading-zero);position:absolute;left:0;top:8px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);line-height:1.2}
+.bmap{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.bmap li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.bmap li b{font-weight:500;color:var(--head)}
+.bmap li span{color:var(--dim);font-size:12px}
+.qcard{padding:6px 26px}
+.q{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.qn{flex:none;min-width:30px;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--accent)}
+.qt{margin:0;font-size:15px;text-wrap:pretty}
+.part-head p{color:var(--mute);margin-top:10px;font-size:14.5px}
+@media(max-width:600px){.bmap{grid-template-columns:1fr}.qcard{padding:4px 18px}.howto{padding:20px 18px}.qt{font-size:14.5px}}
 </style></head><body>
 
-<header class="hero"><div class="wrap">
-  <div class="top">Октябрь 2026 · Распаковка личности</div>
-  <p class="fio">Марина Феданова · @fedanova</p>
-  <h1>Распаковка</h1>
-  <div class="path"><span>13 блоков</span><span class="ac">·</span><span>140 вопросов</span></div>
-  <p class="pos">С этого начинается наша работа. Из твоих ответов мы соберём темы, форматы и линии блога.</p>
-  <div class="hdiv"></div>
-  <div class="handle"><a href="https://www.instagram.com/fedanova/" target="_blank" rel="noopener">@fedanova</a></div>
-</div></header>
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Октябрь 2026 · Распаковка</div>
+  <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
+  <h1>Марина Феданова</h1>
+  <p class="slogan">13 блоков · 140 вопросов</p>
+  <p class="pos">С этого начинается наша работа. Из&nbsp;твоих ответов мы соберём темы, форматы и&nbsp;линии блога.</p>
+</div></div></header>
 
-<section><div class="wrap narrow">
+<section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Как отвечать</span><h2>Перед <em>стартом</em></h2></div>
-  <div class="sits">
-    <div class="sit"><div class="sit-n">01</div><div class="sit-t">Отвечай голосовыми в нашем рабочем чате.</div></div>
-    <div class="sit"><div class="sit-n">02</div><div class="sit-t">Перед ответом называй номер вопроса.</div></div>
-    <div class="sit"><div class="sit-n">03</div><div class="sit-t">Отвечай подробно и с примерами: случаи, имена, цифры.</div></div>
-    <div class="sit"><div class="sit-n">04</div><div class="sit-t">Можно частями, по 10–15 вопросов за раз. Удобно в дороге и в полёте.</div></div>
-    <div class="sit"><div class="sit-n">05</div><div class="sit-t">Не хочешь отвечать — скажи «пропускаю» и иди дальше.</div></div>
-    <div class="sit"><div class="sit-n">06</div><div class="sit-t">Ответы остаются между нами. В блог идёт только то, что ты разрешишь.</div></div>
-  </div>
-
-  <div class="map" style="grid-template-columns:1fr">
-    <div class="map-col">
-      <h4>Блоки</h4><span class="mc">140 вопросов</span>
-      <ul><li><b>Сейчас</b><span>10</span></li><li><b>Семья и детство</b><span>11</span></li><li><b>Ценности</b><span>10</span></li><li><b>Люди</b><span>15</span></li><li><b>Путь</b><span>15</span></li><li><b>Принципы</b><span>8</span></li><li><b>Характер</b><span>11</span></li><li><b>Тело</b><span>9</span></li><li><b>Деньги</b><span>11</span></li><li><b>Дом и дети</b><span>16</span></li><li><b>Падел</b><span>11</span></li><li><b>Вкусы</b><span>8</span></li><li><b>Блог</b><span>5</span></li></ul>
-    </div>
-  </div>
+  <div class="card howto"><ol>
+    <li>Отвечай голосовыми в&nbsp;нашем рабочем чате.</li>
+    <li>Перед ответом называй номер вопроса.</li>
+    <li>Отвечай подробно и&nbsp;с&nbsp;примерами: случаи, имена, цифры.</li>
+    <li>Можно частями, по&nbsp;10–15 вопросов за&nbsp;раз. Удобно в&nbsp;дороге и&nbsp;в&nbsp;полёте.</li>
+    <li>Не&nbsp;хочешь отвечать&nbsp;— скажи «пропускаю» и&nbsp;иди дальше.</li>
+    <li>Ответы остаются между нами. В&nbsp;блог идёт только то, что ты разрешишь.</li>
+  </ol></div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Начало · Вопросы 1–10</span><h2>Ты <em>сейчас</em></h2>
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Блоки</span><h2>Что <em>внутри</em></h2></div>
+  <div class="card howto"><ul class="bmap"><li><b>Сейчас</b><span>10</span></li><li><b>Семья и детство</b><span>11</span></li><li><b>Ценности</b><span>10</span></li><li><b>Люди</b><span>15</span></li><li><b>Путь</b><span>15</span></li><li><b>Принципы</b><span>8</span></li><li><b>Характер</b><span>11</span></li><li><b>Тело</b><span>9</span></li><li><b>Деньги</b><span>11</span></li><li><b>Дом и дети</b><span>16</span></li><li><b>Падел</b><span>11</span></li><li><b>Вкусы</b><span>8</span></li><li><b>Блог</b><span>5</span></li></ul></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Начало · вопросы 1–10</span><h2>Ты <em>сейчас</em></h2>
     <p>С чего начинаем: чем ты живёшь сегодня и чего ждёшь от блога.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">1</span><p class="qt">Расскажи о себе: кто ты, чем занимаешься, как устроена твоя жизнь сейчас.</p></div>
     <div class="q"><span class="qn">2</span><p class="qt">Что главное происходит у тебя в последние месяцы?</p></div>
     <div class="q"><span class="qn">3</span><p class="qt">Чем ты зарабатываешь и чем занята в течение недели?</p></div>
@@ -140,11 +163,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Корни · Вопросы 11–21</span><h2>Семья и <em>детство</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Корни · вопросы 11–21</span><h2>Семья и <em>детство</em></h2>
     <p>Откуда ты и кто тебя вырастил.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">11</span><p class="qt">Где ты родилась и выросла? Каким был Богородицк в твоём детстве?</p></div>
     <div class="q"><span class="qn">12</span><p class="qt">Кто твои родители, чем занимались?</p></div>
     <div class="q"><span class="qn">13</span><p class="qt">Какие у тебя отношения с мамой?</p></div>
@@ -159,11 +182,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 01 · Вопросы 22–31</span><h2><em>Ценности</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 01 · вопросы 22–31</span><h2><em>Ценности</em></h2>
     <p>Что для тебя важно и во что ты веришь.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">22</span><p class="qt">Что для тебя важнее всего в жизни?</p></div>
     <div class="q"><span class="qn">23</span><p class="qt">В чём твоё мнение расходится с мнением большинства?</p></div>
     <div class="q"><span class="qn">24</span><p class="qt">Какое твоё убеждение изменилось за последние годы?</p></div>
@@ -177,11 +200,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 02 · Вопросы 32–46</span><h2>Люди и <em>отношения</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 02 · вопросы 32–46</span><h2>Люди и <em>отношения</em></h2>
     <p>Близкие, друзья, отношения и границы.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">32</span><p class="qt">Кто твои самые близкие люди сейчас?</p></div>
     <div class="q"><span class="qn">33</span><p class="qt">Расскажи про лучшую подругу: как вы познакомились, сколько лет дружите?</p></div>
     <div class="q"><span class="qn">34</span><p class="qt">Как ты относишься к женской дружбе?</p></div>
@@ -200,11 +223,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 03 · Вопросы 47–61</span><h2>Твой <em>путь</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 03 · вопросы 47–61</span><h2>Твой <em>путь</em></h2>
     <p>Самый большой блок: вся история по порядку.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">47</span><p class="qt">Расскажи свою жизнь по порядку: учёба, работа, переезды, проекты&nbsp;— с самого начала до сегодня.</p></div>
     <div class="q"><span class="qn">48</span><p class="qt">Где и на кого ты училась?</p></div>
     <div class="q"><span class="qn">49</span><p class="qt">Какой была твоя первая работа?</p></div>
@@ -223,11 +246,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 04 · Вопросы 62–69</span><h2><em>Принципы</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 04 · вопросы 62–69</span><h2><em>Принципы</em></h2>
     <p>Твои правила в жизни, в семье и на корте.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">62</span><p class="qt">Какие у тебя правила в жизни?</p></div>
     <div class="q"><span class="qn">63</span><p class="qt">Чего ты не сделаешь ни при каких условиях?</p></div>
     <div class="q"><span class="qn">64</span><p class="qt">Как ты воспитываешь детей? Что разрешаешь, что запрещаешь?</p></div>
@@ -239,11 +262,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 05 · Вопросы 70–80</span><h2><em>Характер</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 05 · вопросы 70–80</span><h2><em>Характер</em></h2>
     <p>Какая ты с людьми и в разных ситуациях.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">70</span><p class="qt">Откуда взялось прозвище «Маришка Опасность»?</p></div>
     <div class="q"><span class="qn">71</span><p class="qt">Какое у тебя чувство юмора? Над чем ты смеёшься?</p></div>
     <div class="q"><span class="qn">72</span><p class="qt">Что тебя раздражает?</p></div>
@@ -258,11 +281,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 06 · Вопросы 81–89</span><h2>Тело и <em>внешность</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 06 · вопросы 81–89</span><h2>Тело и <em>внешность</em></h2>
     <p>Спорт, питание, уход и стиль.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">81</span><p class="qt">Как устроены твои тренировки на неделе?</p></div>
     <div class="q"><span class="qn">82</span><p class="qt">Как ты питаешься?</p></div>
     <div class="q"><span class="qn">83</span><p class="qt">Как ты относишься к своему телу? Что изменилось после трёх детей и спорта?</p></div>
@@ -275,11 +298,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 07 · Вопросы 90–100</span><h2><em>Деньги</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 07 · вопросы 90–100</span><h2><em>Деньги</em></h2>
     <p>Доход, траты, цели и проекты. Цифры остаются между нами.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">90</span><p class="qt">Откуда у тебя сейчас доход?</p></div>
     <div class="q"><span class="qn">91</span><p class="qt">В ролике ты сказала, что зарабатывать у тебя не получается. Почему ты так считаешь?</p></div>
     <div class="q"><span class="qn">92</span><p class="qt">Какой проект принёс тебе больше всего денег?</p></div>
@@ -294,11 +317,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Столб 08 · Вопросы 101–116</span><h2>Дом и <em>дети</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Столб 08 · вопросы 101–116</span><h2>Дом и <em>дети</em></h2>
     <p>Обычная жизнь: дети, дом, распорядок, любимые места.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">101</span><p class="qt">Расскажи про Даниила: какой он, чем увлекается?</p></div>
     <div class="q"><span class="qn">102</span><p class="qt">Расскажи про Сергея.</p></div>
     <div class="q"><span class="qn">103</span><p class="qt">Расскажи про Катю.</p></div>
@@ -318,11 +341,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Падел · Вопросы 117–127</span><h2><em>Падел</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Падел · вопросы 117–127</span><h2><em>Падел</em></h2>
     <p>Игра, турниры, люди вокруг корта.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">117</span><p class="qt">Как бы ты объяснила, что такое падел, тому, кто никогда не играл?</p></div>
     <div class="q"><span class="qn">118</span><p class="qt">Какой у тебя уровень, с кем ты играешь, где тренируешься?</p></div>
     <div class="q"><span class="qn">119</span><p class="qt">Кто твой тренер?</p></div>
@@ -337,11 +360,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Вкусы · Вопросы 128–135</span><h2><em>Вкусы</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Вкусы · вопросы 128–135</span><h2><em>Вкусы</em></h2>
     <p>Стиль, покупки, музыка, поездки.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">128</span><p class="qt">Как ты описала бы свой стиль?</p></div>
     <div class="q"><span class="qn">129</span><p class="qt">Какие бренды одежды, косметики и ароматов ты любишь?</p></div>
     <div class="q"><span class="qn">130</span><p class="qt">Как ты ходишь за покупками?</p></div>
@@ -353,11 +376,11 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section><div class="wrap narrow">
-  <div class="section-head"><span class="eyebrow">Блог · Вопросы 136–140</span><h2><em>Блог</em></h2>
+<section><div class="wrap">
+  <div class="part-head"><span class="eyebrow">Блог · вопросы 136–140</span><h2><em>Блог</em></h2>
     <p>Что получается, что нет, и где границы.</p>
   </div>
-  <div class="qlist">
+  <div class="card qcard">
     <div class="q"><span class="qn">136</span><p class="qt">Какие свои ролики ты считаешь удачными?</p></div>
     <div class="q"><span class="qn">137</span><p class="qt">Каких блогеров ты смотришь сама и почему?</p></div>
     <div class="q"><span class="qn">138</span><p class="qt">Что тебе легко снимать, а что тяжело?</p></div>
@@ -366,12 +389,10 @@ body{word-break:normal;overflow-wrap:normal}
   </div>
 </div></section>
 
-<section class="closing"><div class="wrap">
-  <span class="eyebrow">Дальше</span>
-  <h2>Что будет с ответами</h2>
-  <p>Я расшифрую всё дословно и соберу из этого линии блога и темы для съёмок к твоему возвращению.</p>
-  <div class="ornament">· · ·</div>
-  <p class="sign">Малик<small>Продюсер · Октябрь 2026</small></p>
-</div></section>
+<footer class="closing"><div class="wrap">
+  <div class="ornament">◆ ◆&nbsp;◆</div>
+  <div class="author"><div class="nm">Малик Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div><p style="color:var(--mute);font-size:14px;margin-bottom:16px">Я&nbsp;расшифрую ответы дословно и&nbsp;соберу из&nbsp;них линии блога и&nbsp;темы для съёмок к&nbsp;твоему возвращению.</p><div class="btns"><a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
+  <p class="sign">Октябрь&nbsp;2026</p>
+</div></footer>
 
 </body></html>
