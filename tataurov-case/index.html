@@ -3000,6 +3000,24 @@
   .apply p { color: var(--muted); max-width: 520px; margin: 0 auto 22px; }
   .apply-btn { display: inline-block; padding: 18px 34px; border-radius: 999px; background: linear-gradient(135deg, var(--gold-bright), #c98a2e); color: #14100a; font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; font-weight: 600; box-shadow: 0 0 38px rgba(255, 184, 77, 0.28); transition: transform .2s, box-shadow .2s; }
   .apply-btn:hover { transform: translateY(-2px); box-shadow: 0 0 52px rgba(255, 184, 77, 0.42); }
+  .hero-sub-big { font-family: inherit !important; font-size: clamp(15px, 2vw, 19px) !important; letter-spacing: .02em !important; text-transform: none !important; color: var(--text, #e8e2d6) !important; opacity: .9; }
+  .hero-name { white-space: nowrap; font-size: clamp(44px, 9vw, 96px) !important; }
+
+  /* телефон: скрины крупно — пары друг под другом во всю ширину, ряды листаются вбок */
+  @media (max-width: 720px) {
+    .proof-shots.pair { flex-direction: column; align-items: center; }
+    .proof-shots.pair .proof-shot { max-width: calc(100vw - 32px); width: 100%; }
+    .proof-shots.pair .proof-shot img { max-width: 100% !important; max-height: none !important; width: 100%; }
+    .proof-shots.works-row, .proof-shots.works-row.w3 { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px; gap: 12px; padding: 0 16px 10px; margin-left: -16px !important; margin-right: -16px !important; width: auto !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .proof-shots.works-row::-webkit-scrollbar { display: none; }
+    .proof-shots:not(.works-row):not(.pair) > .proof-shot { max-width: calc(100vw - 32px) !important; width: 100%; }
+    .proof-shots:not(.works-row):not(.pair) > .proof-shot img { max-width: 100% !important; max-height: none !important; width: 100%; }
+    .proof-shots.works-row > .proof-shot.work { flex: 0 0 78%; scroll-snap-align: start; max-width: none; }
+    .proof-shots.works-row > .proof-shot.work img { max-height: none !important; }
+    .proof-shots.works-row::after { content: ''; flex: 0 0 4px; }
+    .swipe-hint { display: block !important; }
+  }
+  .swipe-hint { display: none; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 10px 0 0; }
 </style>
 </head>
 <body>
@@ -3054,22 +3072,18 @@
   </div>
 
   <div class="container hero-content">
-    <div class="hero-name reveal">Денис</div>
+    <div class="hero-name reveal">Денис Татауров</div>
 
     <div class="hero-number-wrap reveal reveal-delay-1">
-      <div class="hero-number">1,2&nbsp;млн</div>
+      <div class="hero-number">1,2&nbsp;млн&nbsp;₽</div>
     </div>
 
-    <div class="hero-subtitle reveal reveal-delay-2">
-      <span>рублей</span>
-      <span class="arrow">·</span>
-      <span class="accent">запуск</span>
-      <span class="arrow">·</span>
-      <span>заявки и&nbsp;предоплаты</span>
+    <div class="hero-subtitle hero-sub-big reveal reveal-delay-2">
+      запуск обучения по&nbsp;заявкам и&nbsp;предоплатам
     </div>
 
     <p class="hero-tagline reveal reveal-delay-3">
-      Денис Татауров&nbsp;— владелец строительной компании 101&nbsp;GROUP в&nbsp;Сочи, <em style="white-space: nowrap;">обучает строителей.</em><br>
+      Денис Татауров&nbsp;— <em style="white-space: nowrap;">наставник строителей.</em><br>
       Упаковали блог с&nbsp;нуля и&nbsp;довели до&nbsp;запуска обучения: стратегия, визуал, рилсы, сторис, прогрев.
     </p>
 
@@ -3150,6 +3164,7 @@
       <div class="proof-shot work"><img src="i/subs-241.jpg" alt="11 декабря — 9 января: 241 подписка" loading="lazy"><div class="proof-shot-caption">подписки · <strong>+241</strong></div></div>
       <div class="proof-shot work"><img src="i/profile-actions.jpg" alt="Действия в профиле 3 593, посещения 3 524" loading="lazy"><div class="proof-shot-caption">посещения · <strong>3&nbsp;524</strong></div></div>
     </div>
+    <p class="swipe-hint">листайте →</p>
   </div>
 </section>
 
@@ -3166,10 +3181,10 @@
 
       <div class="reveal reveal-delay-1">
         <ul class="client-bullets">
-          <li><strong>101&nbsp;GROUP</strong>&nbsp;— строительная компания в&nbsp;Сочи: строительство, отделка, дизайн, комплектация</li>
+          <li>Эксперт в&nbsp;строительстве, отделке и&nbsp;дизайне интерьера</li>
           <li>Больше <strong>160&nbsp;проектов</strong>, прошёл путь от&nbsp;мастера до&nbsp;прораба и&nbsp;от&nbsp;прораба до&nbsp;собственника</li>
           <li>Обучает строителей и&nbsp;дизайнеров: продажи, маркетинг, команда, система в&nbsp;бизнесе</li>
-          <li>Instagram <strong>@101.group.tataurov</strong>, YouTube, TikTok</li>
+          <li>Блог в&nbsp;Instagram, YouTube и&nbsp;TikTok</li>
         </ul>
 
         <div class="client-meta">
@@ -3309,6 +3324,7 @@
       <div class="proof-shot work"><img src="i/story-5.jpg" alt="Сторис: у меня только про бабки и систему" loading="lazy"></div>
       <div class="proof-shot work"><img src="i/story-6.jpg" alt="Сторис: со мной вы научитесь" loading="lazy"></div>
     </div>
+    <p class="swipe-hint">листайте →</p>
   </div>
 
   <div class="container">
@@ -3347,6 +3363,7 @@
       <div class="proof-shot work"><img src="i/reel-15713.jpg" alt="Безопасность в детской: 15 713 просмотров" loading="lazy"><div class="proof-shot-caption">детская · <strong>15&nbsp;713</strong></div></div>
       <div class="proof-shot work"><img src="i/reel-14404.jpg" alt="Работа с керамогранитом: 14 404 просмотра" loading="lazy"><div class="proof-shot-caption">керамогранит · <strong>14&nbsp;404</strong></div></div>
     </div>
+    <p class="swipe-hint">листайте →</p>
   </div>
 
   <div class="container">
