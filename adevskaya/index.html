@@ -66,6 +66,7 @@ h2 em{font-style:italic;color:var(--gold-lt)}
 /* ---------- FRESH ---------- */
 .fresh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .fresh-grid .tile{aspect-ratio:3/4}
+.fresh-grid .big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
 .tile{position:relative;overflow:hidden;border-radius:14px;background:var(--card);cursor:zoom-in}
 .tile img,.tile video{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .tile:hover img{transform:scale(1.04)}
@@ -176,18 +177,16 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
     <h2>Последние <em>фотосессии</em></h2>
     <p class="sub">Октябрь 2026. Новый образ&nbsp;— брюнетка.</p>
     <div class="fresh-grid">
-      <div class="tile t"><img src="img/46.jpg" alt="" loading="lazy"></div>
-      <div class="tile t"><img src="img/49.jpg" alt="" loading="lazy"></div>
+      <div class="tile big"><img src="img/46.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/42.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/50.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/45.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/47.jpg" alt="" loading="lazy"></div>
-      <div class="tile big"><img src="img/53.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/52.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/48.jpg" alt="" loading="lazy"></div>
+      <div class="tile big"><img src="img/53.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/51.jpg" alt="" loading="lazy"></div>
       <div class="tile t"><img src="img/40.jpg" alt="" loading="lazy"></div>
-      <div class="tile t"><img src="img/43.jpg" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
