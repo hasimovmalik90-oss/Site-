@@ -1,0 +1,133 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Анет · Распаковка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* палитра из ленты @anet_alari — общая для anet, anet-stolby, anet-temy, anet-doslovno */
+:root{--bg:#0B0909;--bg2:#171313;--card:#F3EFEA;--card2:#ECE6DF;--soft:#FAF7F3;--line:rgba(74,59,51,.14);--edge:rgba(187,142,112,.28);--text:#262222;--mute:#6B625B;--dim:#8F857C;--accent:#BB8E70;--accent-d:#8B6146;--head:#0B0909;--milk:#F1EEEA;--taupe:#A39F99}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-size:15px;line-height:1.65;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(187,142,112,.20),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(74,59,51,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 85%,rgba(139,97,70,.22),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(56px,10vw,92px);font-weight:300;letter-spacing:.04em;color:var(--milk)}
+h2{font-size:clamp(30px,4vw,40px)}
+h3{font-size:clamp(22px,2.6vw,26px)}
+a{color:var(--accent-d);text-decoration:none}
+p{text-wrap:pretty}
+.subnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:16px 16px 0}
+.subnav a{font-size:12px;letter-spacing:.04em;padding:6px 13px;border-radius:30px;border:1px solid rgba(187,142,112,.35);color:var(--taupe);background:rgba(241,238,234,.04)}
+.subnav a:hover{color:var(--milk);border-color:var(--accent)}
+.subnav a.on{color:var(--bg);background:var(--accent);border-color:var(--accent);font-weight:600}
+.hero{text-align:center;padding:60px 0 20px}
+.hero-card{padding:54px 28px 40px;border-radius:24px;border:1px solid rgba(187,142,112,.35);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(187,142,112,.18),transparent 70%),var(--bg2);box-shadow:0 30px 70px -30px rgba(0,0,0,.95),0 0 60px -20px rgba(187,142,112,.35);border-top:4px solid var(--accent)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.3vw,23px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:580px;margin:18px auto 0;color:var(--taupe);font-size:14.5px}
+.swatch{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.swatch i{width:20px;height:20px;border-radius:50%;border:1px solid rgba(241,238,234,.18)}
+.blk{padding:16px 0}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:20px;padding:30px 28px 24px;box-shadow:0 26px 60px -30px rgba(0,0,0,.9),0 0 40px -18px rgba(187,142,112,.35)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+.lead{font-size:16px;line-height:1.75;margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+.facts b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:1.1;color:var(--head)}
+.facts span{font-size:12px;color:var(--mute)}
+.pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+.pg{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;padding:24px 22px 20px;color:var(--text);box-shadow:0 26px 60px -30px rgba(0,0,0,.9);transition:.18s}
+.pg:hover{transform:translateY(-2px);border-color:var(--accent)}
+.pg.wide{grid-column:1/-1}
+.pg.main{grid-column:1/-1;background:radial-gradient(ellipse 80% 90% at 0% 0%,rgba(187,142,112,.22),transparent 65%),var(--card)}
+.pg .num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;line-height:1;color:var(--accent)}
+.pg .tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.pg h3{margin-top:4px}
+.pg p{font-size:14px;color:var(--mute);margin-top:8px;flex:1}
+.pg .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--accent-d)}
+.sec-head{margin:10px 0 14px}
+.sec-head h2{color:var(--milk)}
+.sec-head .eyebrow{color:var(--accent)}
+.top5{list-style:none;counter-reset:t;margin-top:12px}
+.top5 li{counter-increment:t;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line)}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(t);position:absolute;left:4px;top:8px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent-d)}
+.top5 .tp{display:block;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.top5 a{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--head);line-height:1.25}
+.top5 p{font-size:14px;color:var(--mute);margin-top:2px}
+.offl{list-style:none;margin-top:12px}
+.offl li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.offl li:last-child{border-bottom:none}
+.offl li::before{content:'—';position:absolute;left:0;color:var(--accent-d)}
+footer{text-align:center;padding:30px 0 64px;color:var(--taupe);font-size:13px}
+footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:8px}
+@media(max-width:700px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.pages{grid-template-columns:1fr}}
+@media(max-width:600px){
+  body{font-size:14.5px}.wrap{padding:0 16px}
+  .hero{padding:30px 0 12px}.hero-card{padding:38px 16px 28px;border-radius:20px}
+  h1{font-size:clamp(50px,15vw,64px)}
+  .card{padding:22px 16px 18px;border-radius:16px}.pg{padding:20px 16px 16px}
+  .lead{font-size:15px}.facts b{font-size:26px}
+}
+</style></head><body>
+<nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/anet/" class="on">Главная</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-temy/">Темник</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/">Ответы дословно</a></nav>
+
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">@anet_alari · октябрь 2026</div>
+  <h1>Анет</h1>
+  <p class="slogan">Распаковка · всё в&nbsp;одном месте</p>
+  <p class="pos">Всё, что мы собрали по&nbsp;итогам распаковки: какая Вы, о&nbsp;чём блог и&nbsp;с&nbsp;чего начинаем. Отсюда&nbsp;— переходы на&nbsp;подробные страницы.</p>
+  <div class="swatch"><i style="background:#0A0809"></i><i style="background:#262222"></i><i style="background:#4A3B33"></i><i style="background:#8B6146"></i><i style="background:#BB8E70"></i><i style="background:#A39F99"></i><i style="background:#F1EEEA"></i></div>
+</div></div></header>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Коротко</span><h2>Кто Вы</h2>
+  <p class="lead">Анет, 32&nbsp;года. Родились в&nbsp;Азербайджане, с&nbsp;восьми месяцев в&nbsp;Москве. Год жили в&nbsp;Турции. С&nbsp;18&nbsp;лет работали бухгалтером, потом в&nbsp;цветочном бутике, шесть лет&nbsp;— стилистом. В&nbsp;октябре ушли из&nbsp;найма, чтобы вести блог. Делаете бренд Zari Alari, названный в&nbsp;честь мамы. Рядом&nbsp;— кошка Айли. Этой осенью начали говорить на&nbsp;камеру, и&nbsp;эти ролики собрали больше всего просмотров за&nbsp;всё время.</p>
+  <div class="facts">
+    <div><b>1 562</b><span>подписчика на&nbsp;20.10</span></div>
+    <div><b>88 тыс.</b><span>лучший ролик, 16.10</span></div>
+    <div><b>74</b><span>голосовых ответа</span></div>
+    <div><b>10 000</b><span>цель через полгода</span></div>
+  </div>
+</div></div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Страницы</span><h2>Что внутри</h2></div>
+  <div class="pages">
+    <a class="pg main" href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/"><span class="num">01</span><span class="tag">Главный документ · 43 темы</span><h3>Восемь столбов</h3><p>Какая Вы по&nbsp;восьми сторонам личного бренда: ценности, люди, путь, принципы, характер, тело, деньги, быт. В&nbsp;каждом столбе темы по&nbsp;приоритету, у&nbsp;каждой&nbsp;— Ваша история и&nbsp;Ваша цитата.</p><span class="go">Открыть →</span></a>
+    <a class="pg" href="https://hasimovmalik90-oss.github.io/Site-/anet-temy/"><span class="num">02</span><span class="tag">42 темы · 7 групп</span><h3>Темник</h3><p>Широкая тема, знакомая всем,&nbsp;— и&nbsp;Ваша история, через которую она становится Вашей. С&nbsp;формулировкой темы для ролика.</p><span class="go">Открыть →</span></a>
+    <a class="pg" href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/"><span class="num">03</span><span class="tag">74 голосовых · 74 минуты</span><h3>Ответы дословно</h3><p>Все Ваши голосовые в&nbsp;тексте, разложенные по&nbsp;столбам. Сюда ведут ссылки со&nbsp;страниц столбов и&nbsp;темника.</p><span class="go">Открыть →</span></a>
+    <a class="pg wide" href="https://hasimovmalik90-oss.github.io/Site-/anet-raspakovka/"><span class="num">04</span><span class="tag">161 вопрос</span><h3>Вопросы распаковки</h3><p>Анкета, на&nbsp;которую Вы отвечали.</p><span class="go">Открыть →</span></a>
+  </div>
+</div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">С чего начинаем</span><h2>Пять главных тем</h2>
+  <ol class="top5">
+    <li><span class="tp">Тело</span><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/#s0">Камера и&nbsp;страх камеры&nbsp;— как Вы его проходите</a><p>Ролики об&nbsp;этом набрали 88 и&nbsp;78&nbsp;тысяч просмотров.</p></li>
+    <li><span class="tp">Ценности</span><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/#s1">Бренд, названный в&nbsp;честь мамы</a><p>«Чтобы никогда ни&nbsp;в&nbsp;ком не&nbsp;нуждаться».</p></li>
+    <li><span class="tp">Деньги</span><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/#s2">Ушли из&nbsp;найма, чтобы вести блог</a><p>Переход, который происходит прямо сейчас.</p></li>
+    <li><span class="tp">Характер</span><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/#s3">Внешность считывают не&nbsp;так, как есть на&nbsp;самом деле</a><p>По&nbsp;фото&nbsp;— высокомерная, в&nbsp;жизни&nbsp;— простая.</p></li>
+    <li><span class="tp">Принципы</span><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/#s4">Не&nbsp;терпеть: игнор или уход</a><p>Главное правило в&nbsp;любом общении.</p></li>
+  </ol>
+</div></div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Вне кадра</span><h2>Что не&nbsp;показываем</h2>
+  <ul class="offl">
+    <li>Семья&nbsp;— пока Вы сами не&nbsp;решите иначе.</li>
+    <li>Личная жизнь&nbsp;— только «есть» или «нет», без подробностей и&nbsp;без пошлого.</li>
+    <li>Имена клиенток&nbsp;— у&nbsp;Вас с&nbsp;ними договорённость.</li>
+    <li>Паспортное имя.</li>
+  </ul>
+</div></div></section>
+
+<footer><div class="wrap">Малик Хашимов · продюсер женских&nbsp;блогов<div class="sign">Октябрь&nbsp;2026</div></div></footer>
+</body></html>
