@@ -1,0 +1,242 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Анет · Восемь столбов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* палитра из ленты @anet_alari — как на anet-raspakovka и anet-doslovno */
+:root{--bg:#0B0909;--bg2:#171313;--card:#F3EFEA;--card2:#ECE6DF;--soft:#FAF7F3;--line:rgba(74,59,51,.14);--edge:rgba(187,142,112,.28);--text:#262222;--mute:#6B625B;--dim:#8F857C;--accent:#BB8E70;--accent-d:#8B6146;--head:#0B0909;--milk:#F1EEEA;--taupe:#A39F99}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-size:15px;line-height:1.65;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(187,142,112,.20),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(74,59,51,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 85%,rgba(139,97,70,.22),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(52px,9vw,84px);font-weight:300;letter-spacing:.04em;color:var(--milk)}
+h2{font-size:clamp(30px,4vw,40px)}
+h3{font-size:clamp(20px,2.4vw,23px)}
+a{color:var(--accent-d);text-decoration:none}
+p{text-wrap:pretty}
+/* hero */
+.hero{text-align:center;padding:84px 0 24px}
+.hero-card{padding:50px 28px 36px;border-radius:24px;border:1px solid rgba(187,142,112,.35);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(187,142,112,.18),transparent 70%),var(--bg2);box-shadow:0 30px 70px -30px rgba(0,0,0,.95),0 0 60px -20px rgba(187,142,112,.35);border-top:4px solid var(--accent)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.3vw,23px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:600px;margin:18px auto 0;color:var(--taupe);font-size:14.5px}
+.navbox{margin:26px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.navbox a{display:flex;align-items:center;gap:8px;justify-content:center;min-height:44px;padding:8px 10px;border:1px solid rgba(187,142,112,.3);border-radius:10px;font-size:13px;color:var(--milk);background:rgba(241,238,234,.04)}
+.navbox a b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--accent)}
+.navbox a:hover{border-color:var(--accent)}
+/* how + top */
+.blk{padding:16px 0}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:20px;padding:30px 28px 22px;box-shadow:0 26px 60px -30px rgba(0,0,0,.9),0 0 40px -18px rgba(187,142,112,.35)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+.how{list-style:none;margin-top:14px}
+.how li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.how li:last-child{border-bottom:none}
+.how li::before{content:'';position:absolute;left:2px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.top5{list-style:none;counter-reset:t;margin-top:14px}
+.top5 li{counter-increment:t;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 0 12px 46px;position:relative;border-bottom:1px solid var(--line)}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(t);position:absolute;left:4px;top:6px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent-d)}
+.top5 a{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--head);line-height:1.25}
+.top5 .tp{order:-1;width:100%;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+/* pillar */
+.ph{display:flex;gap:18px;align-items:center}
+.pnum{flex:none;font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;line-height:.9;color:var(--accent)}
+.line{margin:14px 0 6px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:15px;color:var(--text)}
+.th{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px 14px;margin-top:12px;scroll-margin-top:16px}
+.th:target{border-color:var(--accent)}
+.thh{display:flex;gap:14px;align-items:flex-start}
+.tn{flex:none;min-width:24px;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent-d)}
+.star{display:inline-block;vertical-align:middle;margin-left:10px;font-family:Mulish,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent-d);border-radius:20px;padding:3px 9px}
+.what{font-size:14px;color:var(--mute);margin-top:4px}
+.tb{margin:10px 0 0 38px}
+.carrier{font-size:15px}
+.carrier b{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-bottom:3px}
+blockquote{margin:10px 0 0;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.35;color:var(--head)}
+.note{margin-top:10px;padding:9px 12px;border-radius:10px;border:1px dashed rgba(139,97,70,.4);font-size:13px;color:var(--mute)}
+.src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.src a{font-size:11.5px;border:1px solid var(--edge);border-radius:14px;padding:3px 10px;color:var(--mute);background:#fff}
+.src a:hover{border-color:var(--accent-d);color:var(--text)}
+.offl{list-style:none;margin-top:12px}
+.offl li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.offl li:last-child{border-bottom:none}
+.offl li::before{content:'—';position:absolute;left:0;color:var(--accent-d)}
+footer{text-align:center;padding:30px 0 64px;color:var(--taupe);font-size:13px}
+footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:8px}
+@media(max-width:600px){
+  body{font-size:14.5px}.wrap{padding:0 16px}
+  .hero{padding:40px 0 14px}.hero-card{padding:36px 16px 26px;border-radius:20px}
+  h1{font-size:clamp(46px,14vw,60px)}
+  .navbox{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.navbox a{font-size:12.5px}
+  .card{padding:22px 16px 16px;border-radius:16px}
+  .pnum{font-size:46px}.ph{gap:12px}
+  .th{padding:14px 13px 12px}.tb{margin-left:0}.tn{font-size:22px;min-width:20px}
+  blockquote{font-size:17.5px}.star{margin-left:0;margin-top:4px}
+}
+</style></head><body>
+
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">@anet_alari · октябрь 2026</div>
+  <h1>Анет</h1>
+  <p class="slogan">Восемь столбов · темы для блога по&nbsp;приоритету</p>
+  <p class="pos">Собрано из&nbsp;Ваших ответов на&nbsp;распаковку, Вашего Instagram и&nbsp;канала. 43 тем, и&nbsp;за&nbsp;каждой стоит Ваша реальная история.</p>
+  <nav class="navbox"><a href="#p01"><b>01</b>Ценности</a><a href="#p02"><b>02</b>Люди</a><a href="#p03"><b>03</b>Путь</a><a href="#p04"><b>04</b>Принципы</a><a href="#p05"><b>05</b>Характер</a><a href="#p06"><b>06</b>Тело</a><a href="#p07"><b>07</b>Деньги</a><a href="#p08"><b>08</b>Быт и&nbsp;среда</a><a href="#off" class="off"><b>·</b>Вне кадра</a></nav>
+</div></div></header>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Как читать</span><h2>Что здесь</h2>
+  <ul class="how">
+    <li>Восемь столбов&nbsp;— восемь сторон, по&nbsp;которым зритель понимает, какая Вы: ценности, люди, путь, принципы, характер, тело, деньги, быт.</li>
+    <li>Внутри столба темы стоят по&nbsp;приоритету: первая&nbsp;— та, с&nbsp;которой начинаем.</li>
+    <li>У&nbsp;каждой темы есть история&nbsp;— через неё тему и&nbsp;показываем. Цитаты&nbsp;— Ваши слова из&nbsp;голосовых.</li>
+    <li>Под темой ссылки: голосовое на&nbsp;странице с&nbsp;ответами или&nbsp;публикация в&nbsp;Instagram.</li>
+    <li>Сверьтесь: всё ли&nbsp;так, что убрать, что добавить.</li>
+  </ul>
+</div></div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">С чего начинаем</span><h2>Пять главных тем</h2>
+  <ol class="top5"><li><span class="tp">Тело</span><a href="#s0">Камера и&nbsp;страх камеры — как Вы&nbsp;его проходите</a></li><li><span class="tp">Ценности</span><a href="#s1">Бренд, названный в&nbsp;честь мамы</a></li><li><span class="tp">Деньги</span><a href="#s2">Ушли из&nbsp;найма, чтобы вести блог</a></li><li><span class="tp">Характер</span><a href="#s3">Внешность считывают не&nbsp;так, как есть на&nbsp;самом деле</a></li><li><span class="tp">Принципы</span><a href="#s4">Не&nbsp;терпеть: игнор или уход</a></li></ol>
+</div></div></section>
+
+<section class="blk" id="p01"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">01</span><div><span class="eyebrow">Столб 01 · Во&nbsp;что Вы&nbsp;верите</span><h2>Ценности</h2></div></div>
+  <p class="line">Свой бизнес — чтобы ни&nbsp;в&nbsp;ком не&nbsp;нуждаться. Близким нужно говорить, что они важны, пока они рядом. Деньги нужны, чтобы помогать.</p>
+    <div class="th" id="s1"><div class="thh"><span class="tn">1</span><div><h3>Бренд, названный в&nbsp;честь мамы<span class="star">главное</span></h3><p class="what">Zari Alari — не&nbsp;просто название. Это то, ради чего Вы&nbsp;строите своё дело.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Зари — имя мамы, Алари — её&nbsp;фамилия, её&nbsp;же&nbsp;фамилия у&nbsp;Вас в&nbsp;Instagram. Последние полтора года с&nbsp;мамой были самыми тёплыми, и&nbsp;ей&nbsp;Вы&nbsp;говорили, что у&nbsp;Вас будет своё дело.</p><blockquote>«чтобы у&nbsp;меня был свой бизнес и&nbsp;чтобы никогда ни&nbsp;в&nbsp;ком не&nbsp;нуждаться»</blockquote><p class="note">Семью Вы&nbsp;пока не&nbsp;затрагиваете. Эту тему берём, только если Вы&nbsp;согласны рассказывать её&nbsp;через бренд.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v15" target="_blank" rel="noopener">голосовое #15</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Говорить своим, что они важны</h3><p class="what">Вы&nbsp;не&nbsp;умеете показывать чувства и&nbsp;учитесь этому сейчас.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;жалеете, что мало говорили тёплых слов родным. Теперь ловите себя на&nbsp;этом с&nbsp;подругами и&nbsp;говорите прямо в&nbsp;моменте — они пугаются и&nbsp;спрашивают, всё ли&nbsp;хорошо.</p><blockquote>«Я&nbsp;говорю: «Просто хотелось признаться»»</blockquote><p class="note">Родных касаемся, только если Вы&nbsp;готовы. Можно показывать через подруг.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v64" target="_blank" rel="noopener">голосовое #64</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Помогать тем, кому хуже</h3><p class="what">Деньги для Вас — способ помогать.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Мечта — поддерживать друзей с&nbsp;маленьким доходом, приюты, дома престарелых. Уже было: котёнок Мия из&nbsp;Баку — нашли на&nbsp;улице, прятали в&nbsp;отеле, привезли в&nbsp;Москву, вылечили и&nbsp;пристроили.</p><blockquote>«Мечта Всем приютам помогать всем бездомным животным»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v60" target="_blank" rel="noopener">голосовое #60</a><a href="https://www.instagram.com/p/DQExLUKCKZz/" target="_blank" rel="noopener">рилс о&nbsp;Мие, 21.10.2025</a><a href="https://www.instagram.com/p/DboUNoxISqP/" target="_blank" rel="noopener">рилс о&nbsp;Мие, 04.08.2026</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Жизнь для себя после шести лет услуживания</h3><p class="what">Вы&nbsp;больше не&nbsp;хотите подстраиваться под чужие капризы — хотите, чтобы теперь стилизовали Вас.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Шесть лет Вы&nbsp;одевали клиенток. Сейчас оставили двух постоянных и&nbsp;говорите прямо: в&nbsp;роли стилиста быть больше не&nbsp;хочется.</p><blockquote>«не&nbsp;хочу быть в&nbsp;роли стилиста, я&nbsp;хочу быть, чтобы меня стилизовали»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v14" target="_blank" rel="noopener">голосовое #14</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p02"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">02</span><div><span class="eyebrow">Столб 02 · Какая Вы&nbsp;с&nbsp;людьми</span><h2>Люди</h2></div></div>
+  <p class="line">Спокойная, неконфликтная, всегда поможет. Близко подпускаете немногих и&nbsp;уходите сразу, если нет честности и&nbsp;уважения.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Псевдоподруга</h3><p class="what">Как Вы&nbsp;поступаете, когда узнаёте о&nbsp;двуличии.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Подруга улыбалась Вам в&nbsp;лицо, а&nbsp;за&nbsp;спиной говорила гадости Вашим же&nbsp;друзьям. Вы&nbsp;сказали ей&nbsp;это в&nbsp;лицо и&nbsp;ушли из&nbsp;её&nbsp;жизни.</p><blockquote>«не&nbsp;остаюсь там, где нет доброты, нет уважения»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v58" target="_blank" rel="noopener">голосовое #58</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Разрыв, после которого Вы&nbsp;восстанавливались пять лет</h3><p class="what">Вы&nbsp;умеете отпускать людей, даже когда это больно.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;прекращали общение с&nbsp;людьми, которые были рядом всю жизнь. Страдали долго, но&nbsp;восстановились — и&nbsp;теперь боитесь только одного: потерять своих.</p><blockquote>«Мне, наверное, лет пять потребовалось для того, чтобы я&nbsp;как-то&nbsp;восстановилась»</blockquote><p class="note">Кто эти люди, Вы&nbsp;не&nbsp;называли. Рассказываем без имён и&nbsp;подробностей, если Вы&nbsp;готовы.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v61" target="_blank" rel="noopener">голосовое #61</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Подруги</h3><p class="what">С&nbsp;кем Вы&nbsp;настоящая.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>С&nbsp;близкими подругами много смеётесь, место неважно. С&nbsp;подругой спонтанно переехали в&nbsp;Турцию, к&nbsp;другой можете рвануть в&nbsp;Казань, с&nbsp;третьей играете в&nbsp;бильярд.</p><blockquote>«мы&nbsp;очень много смеёмся»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v32" target="_blank" rel="noopener">голосовое #32</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v5" target="_blank" rel="noopener">голосовое #5</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Свидания</h3><p class="what">Почему Вы&nbsp;почти не&nbsp;ходите на&nbsp;свидания.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Первая встреча — только прогулка с&nbsp;кофе: можно посмотреть на&nbsp;человека и&nbsp;уйти. В&nbsp;ресторане, говорите Вы, совесть не&nbsp;даст встать и&nbsp;уйти. Тема мужчин уже есть в&nbsp;Ваших роликах с&nbsp;текстом.</p><blockquote>«я&nbsp;предпочитаю прогулку с&nbsp;кофе»</blockquote><p class="note">Личную жизнь Вы&nbsp;не&nbsp;обсуждаете — только как общая тема, без конкретных людей.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v34" target="_blank" rel="noopener">голосовое #34</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Подписчики как друзья</h3><p class="what">Какую аудиторию Вы&nbsp;собираете вокруг себя.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;стараетесь отвечать на&nbsp;каждый комментарий и&nbsp;хотите с&nbsp;подписчиками дружеских отношений. В&nbsp;канале 19 октября: «Удивительно, какая теплая аудитория собирается вокруг меня».</p><blockquote>«мне хочется с&nbsp;аудиторией поддержать достаточно дружеские отношения»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v70" target="_blank" rel="noopener">голосовое #70</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p03"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">03</span><div><span class="eyebrow">Столб 03 · Через что Вы&nbsp;прошли</span><h2>Путь</h2></div></div>
+  <p class="line">Из&nbsp;строгой семьи и&nbsp;бухгалтерии — к&nbsp;своей квартире, своему бренду и&nbsp;блогу. Всё сами.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Переезд в&nbsp;свою квартиру</h3><p class="what">Главное решение в&nbsp;Вашей жизни.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;переехали из&nbsp;квартиры, где жили с&nbsp;семьёй, в&nbsp;отдельную. После этого жизнь поменялась и&nbsp;внутренне, и&nbsp;внешне.</p><blockquote>«моя жизнь колоссально поменялась в&nbsp;лучшую сторону»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v63" target="_blank" rel="noopener">голосовое #63</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Две недели назад — уход из&nbsp;найма ради блога</h3><p class="what">Вы&nbsp;сейчас в&nbsp;точке перехода, и&nbsp;это можно показывать в&nbsp;моменте.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>На&nbsp;работе сил не&nbsp;оставалось: после работы душ и&nbsp;сон, выходные на&nbsp;восстановление. Вы&nbsp;уволились, чтобы снимать.</p><blockquote>«я&nbsp;прихожу с&nbsp;работы, душ и&nbsp;спать»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v13" target="_blank" rel="noopener">голосовое #13</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Эмо в&nbsp;строгой семье</h3><p class="what">Яркость и&nbsp;желание выделяться были с&nbsp;детства.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>В&nbsp;седьмом-восьмом классе Вы&nbsp;стали эмо: шипы, начёсы, рок — в&nbsp;мусульманской семье. Мечтали стать яркой личностью, «про которую все будут говорить». Фото того времени Вы&nbsp;обещали поискать.</p><blockquote>«я&nbsp;точно стану какой-нибудь такой личностью, про которую все будут говорить»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v7" target="_blank" rel="noopener">голосовое #7</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v8" target="_blank" rel="noopener">голосовое #8</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Год в&nbsp;Турции</h3><p class="what">Спонтанное решение, которое дало язык и&nbsp;любимую музыку.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>В&nbsp;2020 году с&nbsp;подругой переехали в&nbsp;Турцию, работали на&nbsp;удалёнке, в&nbsp;2021-м&nbsp;вернулись. Отсюда турецкий и&nbsp;турецкие песни, которые Вы&nbsp;выкладываете в&nbsp;канал.</p><blockquote>«я&nbsp;прожила год в&nbsp;Турции»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v5" target="_blank" rel="noopener">голосовое #5</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>От&nbsp;бухгалтера до&nbsp;своего бренда</h3><p class="what">Вы&nbsp;много раз начинали заново.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Программист-экономист по&nbsp;образованию, с&nbsp;18 лет бухгалтер. Потом цветочный бутик, шесть лет стилистом, теперь бренд и&nbsp;блог.</p><blockquote>«пошла работать бухгалтером»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v6" target="_blank" rel="noopener">голосовое #6</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v46" target="_blank" rel="noopener">голосовое #46</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Стержень</h3><p class="what">Вы&nbsp;выбрались сами, без психолога.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Был период, когда можно было остаться ни&nbsp;с&nbsp;чем и&nbsp;уйти в&nbsp;депрессию. Вы&nbsp;не&nbsp;ушли и&nbsp;этим гордитесь.</p><blockquote>«я&nbsp;сама себе психолог»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v62" target="_blank" rel="noopener">голосовое #62</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p04"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">04</span><div><span class="eyebrow">Столб 04 · Ваши правила</span><h2>Принципы</h2></div></div>
+  <p class="line">Не&nbsp;терпеть плохого отношения, уважать всех, держать границы.</p>
+    <div class="th" id="s4"><div class="thh"><span class="tn">1</span><div><h3>Не&nbsp;терпеть: игнор или уход<span class="star">главное</span></h3><p class="what">Главное правило в&nbsp;любом общении.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Плохое отношение, плохая энергетика, псевдодрузья — Вы&nbsp;не&nbsp;терпите. Либо игнор, либо прекращаете общение, и&nbsp;это по&nbsp;Вам сразу видно.</p><blockquote>«никогда в&nbsp;жизни не&nbsp;будет терпеть к&nbsp;себе плохое отношение»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v55" target="_blank" rel="noopener">голосовое #55</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Уважать всех</h3><p class="what">Вы&nbsp;считаете, что уважение меняет людей.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Даже если человек нахамил, со&nbsp;временем он, видя Ваше отношение, начинает отвечать тем же.</p><blockquote>«как ты&nbsp;относишься к&nbsp;человеку, так и&nbsp;человек будет относиться к&nbsp;тебе»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v55" target="_blank" rel="noopener">голосовое #55</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Личные границы</h3><p class="what">Чего Вы&nbsp;о&nbsp;себе не&nbsp;рассказываете.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Не&nbsp;досказали — значит, человеку не&nbsp;нужно знать. Личное знаете Вы&nbsp;и&nbsp;пара подруг. Вы&nbsp;не&nbsp;тактильная: в&nbsp;канале 18 августа — «Вы&nbsp;можете со&nbsp;мной говорить, но&nbsp;не&nbsp;трогать».</p><blockquote>«если я&nbsp;человеку недорассказала или не&nbsp;досказала, значит, я&nbsp;не&nbsp;хочу, чтобы человек знал больше»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v56" target="_blank" rel="noopener">голосовое #56</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Мужчина должен хотеть и&nbsp;мочь зарабатывать</h3><p class="what">Ваш взгляд на&nbsp;отношения.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;тоже будете работать, но&nbsp;жадный мужчина и&nbsp;мужчина, который ищет, кто его обеспечит, — не&nbsp;Ваша история.</p><blockquote>«Мне важно, чтобы мужчина хотел работать и&nbsp;мог работать»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v57" target="_blank" rel="noopener">голосовое #57</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Чистота</h3><p class="what">Правило, которое Вам привила мама.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Пятнадцать минут уборки каждый день, генеральная — досконально. В&nbsp;грязной квартире Вы&nbsp;находиться не&nbsp;можете.</p><blockquote>«для меня чистая квартира — это очень важно»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v44" target="_blank" rel="noopener">голосовое #44</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p05"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">05</span><div><span class="eyebrow">Столб 05 · Какая Вы</span><h2>Характер</h2></div></div>
+  <p class="line">Снаружи кажетесь холодной и&nbsp;недоступной, внутри — простая, добрая, с&nbsp;самоиронией.</p>
+    <div class="th" id="s3"><div class="thh"><span class="tn">1</span><div><h3>Внешность считывают не&nbsp;так, как есть на&nbsp;самом деле<span class="star">главное</span></h3><p class="what">Разрыв между тем, что думают, и&nbsp;тем, какая Вы.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>По&nbsp;внешности Вас принимают за&nbsp;высокомерную и&nbsp;приписывают то, чего нет. Раньше задевало и&nbsp;мешало вести Instagram, теперь всё равно.</p><blockquote>«они понимают, что я&nbsp;максимально простой человек»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v11" target="_blank" rel="noopener">голосовое #11</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Самоирония</h3><p class="what">То, что уже работает в&nbsp;канале.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Мысли вслух, «Дорогой дневник», носок, который снова пропал после стирки, сломанный штатив, «кто сглазил». Короткие честные наблюдения о&nbsp;себе.</p><div class="src"><a href="https://t.me/namodeplp" target="_blank" rel="noopener">канал t.me/namodeplp</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Одна — хорошо</h3><p class="what">Вы&nbsp;свободолюбивая и&nbsp;не&nbsp;тактильная.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Чаще проводите время одна, потому что с&nbsp;собой Вам хорошо. Язык любви — подарки: если человек думает о&nbsp;подарке, значит, заботится.</p><blockquote>«мне с&nbsp;самой с&nbsp;собой очень хорошо»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v51" target="_blank" rel="noopener">голосовое #51</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Ни&nbsp;разу в&nbsp;джинсах</h3><p class="what">Мелочь, по&nbsp;которой Вас узнают.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Джинсы Вы&nbsp;не&nbsp;носите — друзья, увидев Вас в&nbsp;джинсах, спрашивают, всё ли&nbsp;в&nbsp;порядке. Отсюда и&nbsp;легинсы в&nbsp;бренде.</p><blockquote>«Я&nbsp;ненавижу джинсы»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v10" target="_blank" rel="noopener">голосовое #10</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v15" target="_blank" rel="noopener">голосовое #15</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Кино, в&nbsp;котором надо думать</h3><p class="what">Что Вы&nbsp;смотрите и&nbsp;почему.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>«Пила» — все части, «Пункт назначения», «Американская история ужасов», «Остров проклятых». Артхаус — когда хочется искать смысл.</p><blockquote>«мне нравятся какие-то&nbsp;смыслы находить»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v26" target="_blank" rel="noopener">голосовое #26</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p06"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">06</span><div><span class="eyebrow">Столб 06 · Вы&nbsp;и&nbsp;Ваше тело</span><h2>Тело</h2></div></div>
+  <p class="line">Режим, спорт каждый день, простой уход — и&nbsp;не&nbsp;всегда нравитесь себе на&nbsp;камере.</p>
+    <div class="th" id="s0"><div class="thh"><span class="tn">1</span><div><h3>Камера и&nbsp;страх камеры — как Вы&nbsp;его проходите<span class="star">главное</span></h3><p class="what">Самая сильная тема прямо сейчас.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;часами сидите перед камерой, ищете ракурс, в&nbsp;отёкший день не&nbsp;снимаете. Именно ролики об&nbsp;этом набрали 88 и&nbsp;78 тысяч просмотров — больше, чем весь год до&nbsp;этого.</p><blockquote>«я&nbsp;не&nbsp;всегда себе нравлюсь на&nbsp;камере»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v72" target="_blank" rel="noopener">голосовое #72</a><a href="https://www.instagram.com/p/DekOzbGICxA/" target="_blank" rel="noopener">рилс 16.10 — 88 тыс.</a><a href="https://www.instagram.com/p/DefcRCGIqWx/" target="_blank" rel="noopener">рилс 15.10 — 78 тыс.</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Режим и&nbsp;спорт дома</h3><p class="what">Как Вы&nbsp;держите себя в&nbsp;форме.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Сон до&nbsp;двенадцати, подъём в&nbsp;восемь, растяжка, белковый завтрак, почти без сахара. Тренировки дома — в&nbsp;зале мешают знакомства. Двадцать-тридцать тысяч шагов, контрастный душ уже год.</p><blockquote>«я&nbsp;решила, что я&nbsp;дома потреню»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v24" target="_blank" rel="noopener">голосовое #24</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Уход и&nbsp;макияж без тона</h3><p class="what">Ответы на&nbsp;то, о&nbsp;чём Вас спрашивают в&nbsp;директ.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Девушки пишут: какая краска, что на&nbsp;губах, где делали нос, нарощены ли&nbsp;волосы. Тона Вы&nbsp;не&nbsp;носите, маникюр японский без покрытия, волосы тонируете в&nbsp;свой цвет, ботокс раз в&nbsp;три месяца.</p><blockquote>«у&nbsp;меня нет никогда не&nbsp;бывает тона на&nbsp;лице»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v23" target="_blank" rel="noopener">голосовое #23</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v37" target="_blank" rel="noopener">голосовое #37</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v39" target="_blank" rel="noopener">голосовое #39</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Полимер в&nbsp;губах</h3><p class="what">Честная тема, которую Вы&nbsp;уже поднимали.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Хотите удалить: есть асимметрия, и&nbsp;это вредно для здоровья. Ищете хорошего хирурга и&nbsp;копите. В&nbsp;канале просили рекомендации ещё год назад.</p><blockquote>«нужно просто накопить хорошую сумму»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v42" target="_blank" rel="noopener">голосовое #42</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Простая еда</h3><p class="what">Что Вы&nbsp;едите на&nbsp;самом деле.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Сырный куриный суп, который могли бы&nbsp;есть каждый день, курица в&nbsp;духовке со&nbsp;специями без соусов, салат с&nbsp;морковью, огурцом и&nbsp;семечками.</p><blockquote>«максимально просто»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v45" target="_blank" rel="noopener">голосовое #45</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p07"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">07</span><div><span class="eyebrow">Столб 07 · Вы&nbsp;и&nbsp;деньги</span><h2>Деньги</h2></div></div>
+  <p class="line">Деньги — ресурс, который зарабатывают сами и&nbsp;которым помогают.</p>
+    <div class="th" id="s2"><div class="thh"><span class="tn">1</span><div><h3>Ушли из&nbsp;найма, чтобы вести блог<span class="star">главное</span></h3><p class="what">Честный переход: на&nbsp;что Вы&nbsp;живёте сейчас.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Две недели назад уволились. Доход — две постоянные клиентки, которых одеваете два-три года. Цель — чтобы блог приносил доход и&nbsp;в&nbsp;найм не&nbsp;возвращаться.</p><blockquote>«у&nbsp;меня как бы&nbsp;с&nbsp;них определённый доход»</blockquote><p class="note">Имена клиенток не&nbsp;называем — у&nbsp;Вас с&nbsp;ними договорённость.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v13" target="_blank" rel="noopener">голосовое #13</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v70" target="_blank" rel="noopener">голосовое #70</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Деньги — ресурс</h3><p class="what">Как изменилось Ваше отношение.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>До&nbsp;двадцати пяти казалось, что деньги неважны. Теперь — ресурс, который может заработать любой. Были периоды, когда Вы&nbsp;работали без выходных.</p><blockquote>«деньги для меня — это всё-таки, ну, какой-то&nbsp;ресурс»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v59" target="_blank" rel="noopener">голосовое #59</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Новый уровень</h3><p class="what">Чего Вам хочется теперь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Масс-маркета было слишком много. Хочется брендовых вещей, хорошей косметики, другой одежды — оставаясь собой.</p><blockquote>«уже хочется чуть на&nbsp;другой уровень перешагнуть»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v50" target="_blank" rel="noopener">голосовое #50</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Бренд под заказ</h3><p class="what">Экономика своего дела.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Шить в&nbsp;Москве дорого, поэтому дальше — только по&nbsp;предзаказу: оплата, ткань, пошив за&nbsp;три-пять дней, отправка. Когда вырастет — партия и&nbsp;шоурум, где можно примерить.</p><blockquote>«я&nbsp;хочу бренд сделать по&nbsp;предзаказу»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v71" target="_blank" rel="noopener">голосовое #71</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Дарить, а&nbsp;не&nbsp;продавать</h3><p class="what">Почему розыгрыши, а&nbsp;не&nbsp;распродажа.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Продавать Вы&nbsp;не&nbsp;любите. Вещей в&nbsp;шкафу много — хотите разыгрывать их&nbsp;за&nbsp;подписку. Розыгрыши уже приводили подписчиков, и&nbsp;они остались.</p><blockquote>«продавать я&nbsp;не&nbsp;люблю»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v19" target="_blank" rel="noopener">голосовое #19</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v43" target="_blank" rel="noopener">голосовое #43</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="p08"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">08</span><div><span class="eyebrow">Столб 08 · Как Вы&nbsp;живёте</span><h2>Быт и&nbsp;среда</h2></div></div>
+  <p class="line">Айли, пешая Москва, чистый дом, свои запахи и&nbsp;привычки.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Айли</h3><p class="what">Главная героиня Ваших кружков.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Самая любимая и&nbsp;близкая. У&nbsp;неё почечная недостаточность, особый корм. Из-за&nbsp;неё пришлось отдать Мию.</p><blockquote>«самая любимая, наверное, и&nbsp;самая близкая»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v25" target="_blank" rel="noopener">голосовое #25</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Москва пешком</h3><p class="what">Ваши маршруты.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>От&nbsp;Никитской через Арбат до&nbsp;Киевской, от&nbsp;Пятницкой через мост к&nbsp;Кремлю, от&nbsp;Павелецкой до&nbsp;Кремля по&nbsp;улочкам. Двадцать-тридцать тысяч шагов — вместо такси.</p><blockquote>«это мой любимый маршрут»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v31" target="_blank" rel="noopener">голосовое #31</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Дом</h3><p class="what">Съёмная студия, в&nbsp;которой ощущение дома.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Выбирали долго, чтобы не&nbsp;было похоже на&nbsp;отель. Не&nbsp;любите сплошной бежевый минимализм — нужны яркие детали. Район так полюбили, что хотите купить квартиру здесь.</p><blockquote>«Не&nbsp;люблю сильный прямо минимализм»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v27" target="_blank" rel="noopener">голосовое #27</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v68" target="_blank" rel="noopener">голосовое #68</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Ароматы</h3><p class="what">Вас всегда спрашивают, чем от&nbsp;Вас пахнет.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Один аромат шесть лет, четвёртый флакон. Byredo, «Султан» с&nbsp;кремом для тела — «чувствую себя какой-то&nbsp;Шахерезадой».</p><blockquote>«у&nbsp;меня всегда все спрашивают, чем от&nbsp;меня пахнет»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v41" target="_blank" rel="noopener">голосовое #41</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Кофе</h3><p class="what">Ваш ритуал.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Дома — молотый кофе, залитый кипятком. В&nbsp;кофейне — карамельный фраппе летом, капучино с&nbsp;сырной пенкой зимой.</p><blockquote>«можно просто заливать кипятком»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v28" target="_blank" rel="noopener">голосовое #28</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v29" target="_blank" rel="noopener">голосовое #29</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Бильярд</h3><p class="what">Новое увлечение, в&nbsp;котором у&nbsp;Вас получается.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Американский пул с&nbsp;подругой, рядом с&nbsp;домом или в&nbsp;«Депо». Хотите попасть в&nbsp;бильярдную, куда бронируют заранее.</p><blockquote>«полюбила бильярд»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v49" target="_blank" rel="noopener">голосовое #49</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v24" target="_blank" rel="noopener">голосовое #24</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">7</span><div><h3>Музеи и&nbsp;Дом Бурганова</h3><p class="what">Место, где Вы&nbsp;чувствовали себя своей.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>В&nbsp;Доме Бурганова бывали часто и&nbsp;разговаривали с&nbsp;самим скульптором — он&nbsp;тоже вырос в&nbsp;Баку. Третьяковка, Исторический музей, выставки.</p><blockquote>«даже с&nbsp;Бургановым удалось лично познакомиться»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v33" target="_blank" rel="noopener">голосовое #33</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">8</span><div><h3>Что в&nbsp;сумке</h3><p class="what">Мелочи, по&nbsp;которым Вас узнают.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Всё для губ, спиртовые салфетки для экрана, крем для рук, пауэрбанк, двое наушников и&nbsp;жвачка без сахара — «можно ко&nbsp;мне обратиться».</p><blockquote>«спиртовые салфетки»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/#v36" target="_blank" rel="noopener">голосовое #36</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="off"><div class="wrap"><div class="card">
+  <span class="eyebrow">Вне кадра</span><h2>Что не&nbsp;показываем</h2>
+  <ul class="offl"><li>Семья — пока Вы&nbsp;сами не&nbsp;решите иначе. Блоки о&nbsp;семье в&nbsp;распаковке Вы&nbsp;пропустили.</li><li>Личная жизнь — только «есть» или «нет», без подробностей и&nbsp;без пошлого.</li><li>Имена клиенток — у&nbsp;Вас с&nbsp;ними договорённость.</li><li>Паспортное имя.</li></ul>
+</div></div></section>
+
+<footer><div class="wrap">Малик Хашимов · продюсер женских&nbsp;блогов<div class="sign">Октябрь&nbsp;2026</div></div></footer>
+</body></html>
