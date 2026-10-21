@@ -2954,6 +2954,12 @@
   @supports (overflow: clip) { html, body { overflow-x: clip; } }
   .chart-dot, .chart-peak-ring, .chart-peak-dot { transform-box: fill-box; transform-origin: center; }
   .chart-wrap { overflow: hidden; }
+  @media (max-width: 720px) {
+    .chart-annotation { font-size: 30px; }
+    .chart-x-label { font-size: 24px; letter-spacing: 0.05em; }
+    .chart-y-label { display: none; }
+    .chart-pause-label { font-size: 22px; }
+  }
 
   /* ---------- без висячих строк ---------- */
   h1, h2, h3, h4, .timeline-title, .timeline-date, .proof-shot-caption, .sprint-meta-label, .ab-label,
