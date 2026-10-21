@@ -1,0 +1,3997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артур Раджабов × Малик Хашимов — кейс</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-1: #0a0a0a;
+    --bg-2: #101010;
+    --bg-card: rgba(255, 255, 255, 0.022);
+    --bg-deep: #030303;
+
+    --ink-bright: #faf9f6;
+    --ink: #ebe9e2;
+    --text: #b5b3aa;
+    --muted: #6a6862;
+    --dim: #3a3833;
+    --faded: #252420;
+
+    --gold-bright: #ffd17a;
+    --gold: #ffb84d;
+    --gold-deep: #c8893a;
+    --gold-glow-strong: rgba(255, 184, 77, 0.65);
+    --gold-glow: rgba(255, 184, 77, 0.4);
+    --gold-glow-soft: rgba(255, 184, 77, 0.18);
+    --gold-glow-faint: rgba(255, 184, 77, 0.06);
+
+    --line: rgba(255, 255, 255, 0.06);
+    --line-bright: rgba(255, 255, 255, 0.14);
+    --line-glow: rgba(255, 184, 77, 0.3);
+
+    /* TYPOGRAPHY */
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+
+    --container: 760px;
+    --container-wide: 1080px;
+
+    --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --mx: 50%;
+    --my: 50%;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Lock scroll while splash is visible */
+  body.splash-active { overflow: hidden; height: 100vh; }
+
+  /* ============================================================ */
+  /* SPLASH SCREEN                                                */
+  /* ============================================================ */
+
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s var(--ease-out);
+  }
+
+  .splash.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .splash::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 50% 30% at top, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+
+  .splash-monogram {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.1s forwards;
+  }
+
+  .splash-monogram svg {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 24px var(--gold-glow));
+  }
+
+  .splash-monogram .ring {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: drawRing 1.4s var(--ease-out) 0.3s forwards;
+  }
+
+  @keyframes drawRing {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .splash-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.5s forwards;
+  }
+
+  .splash-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    font-size: clamp(64px, 12vw, 144px);
+    line-height: 1;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.7s forwards;
+    text-shadow: 0 0 40px rgba(255, 184, 77, 0.2);
+    background: linear-gradient(180deg, var(--ink-bright) 0%, var(--gold-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .splash-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 0;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: splashFadeIn 0.7s var(--ease-out) 0.9s forwards;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .splash-loader {
+    width: 200px;
+    height: 1px;
+    background: var(--line);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 0.4s forwards;
+  }
+
+  .splash-loader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+    animation: loaderSweep 2s var(--ease) 0.5s forwards;
+    transform: translateX(-100%);
+  }
+
+  @keyframes loaderSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes splashFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .splash-skip {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    z-index: 2;
+    background: none;
+    border: 1px solid var(--line-bright);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    opacity: 0;
+    animation: splashFadeIn 0.4s var(--ease-out) 1.2s forwards;
+  }
+
+  .splash-skip:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* ATMOSPHERIC LAYERS                                           */
+  /* ============================================================ */
+
+  .ambient {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+
+  .ambient::before, .ambient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+  }
+
+  .ambient::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.18), transparent 70%);
+    top: -200px; left: -100px;
+    animation: drift1 22s ease-in-out infinite;
+  }
+
+  .ambient::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 184, 77, 0.12), transparent 70%);
+    bottom: -150px; right: -100px;
+    animation: drift2 28s ease-in-out infinite;
+  }
+
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, 60px) scale(1.1); }
+    66% { transform: translate(-40px, 100px) scale(0.95); }
+  }
+
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-100px, -60px) scale(1.15); }
+  }
+
+  .spotlight {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(circle 600px at var(--mx) var(--my), rgba(255, 184, 77, 0.05), transparent 50%);
+    transition: background 0.1s linear;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    z-index: 1000;
+    mix-blend-mode: overlay;
+  }
+
+  main, header, section, footer { position: relative; z-index: 2; }
+
+  /* ============================================================ */
+  /* PROGRESS BAR                                                 */
+  /* ============================================================ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: var(--scroll, 0%);
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), var(--gold-bright));
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+    z-index: 998;
+    transition: width 0.05s linear;
+  }
+
+  /* ============================================================ */
+  /* STICKY DOT NAVIGATION                                        */
+  /* ============================================================ */
+
+  .nav-dots {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 14px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease) 0.4s, transform 0.6s var(--ease) 0.4s;
+    transform: translateY(-50%) translateX(20px);
+  }
+
+  .nav-dots.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--muted);
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    padding: 0;
+  }
+
+  .nav-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    right: calc(100% + 16px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-dot:hover {
+    border-color: var(--gold);
+    background: var(--gold-glow-soft);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .nav-dot:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .nav-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+
+  @media (max-width: 1100px) {
+    .nav-dots { display: none; }
+  }
+
+  /* ============================================================ */
+  /* TYPOGRAPHY                                                   */
+  /* ============================================================ */
+
+  h1, h2, h3, h4 {
+    color: var(--ink-bright);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  /* Display headings - Fraunces */
+  h2 {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    line-height: 0.95;
+  }
+
+  h2 em {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px var(--gold-glow);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--ink-bright);
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  p { margin-bottom: 18px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+
+  a {
+    color: var(--gold-bright);
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+  }
+  a:hover { color: var(--gold); text-shadow: 0 0 20px var(--gold-glow); }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .container-wide {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ============================================================ */
+  /* COMMON                                                       */
+  /* ============================================================ */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 8px var(--gold-glow);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 96px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+  .reveal-delay-5 { transition-delay: 0.7s; }
+
+  /* ============================================================ */
+  /* HERO — DRAMATIC                                              */
+  /* ============================================================ */
+
+  .hero {
+    min-height: 100vh;
+    padding: 96px 0 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+
+  /* Decorative side rails with year */
+  .hero-rail {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .hero-rail.left { left: 32px; }
+  .hero-rail.right { right: 32px; transform: translateY(-50%) rotate(180deg); }
+
+  .hero-rail::before, .hero-rail::after {
+    content: '';
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold-deep), transparent);
+  }
+
+  @media (max-width: 1100px) {
+    .hero-rail { display: none; }
+  }
+
+  .hero-tape {
+    position: absolute;
+    top: 32px;
+    left: 0; right: 0;
+    z-index: 3;
+  }
+
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-meta .accent { color: var(--gold); }
+
+  .hero-meta .pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .hero-meta .sep {
+    width: 24px;
+    height: 1px;
+    background: var(--line-bright);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--gold), 0 0 8px var(--gold-glow-soft); }
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Big italic name overlay */
+  .hero-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 120px);
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    margin-bottom: 40px;
+    text-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* The hero number — Fraunces variable, characterful */
+  .hero-number-wrap {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .hero-number {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(120px, 22vw, 280px);
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: var(--ink-bright);
+    background: linear-gradient(180deg,
+      var(--ink-bright) 0%,
+      var(--ink) 50%,
+      var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 80px rgba(255, 184, 77, 0.18));
+    position: relative;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero-number-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 400px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 56px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-subtitle .arrow {
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  .hero-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: normal;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.45;
+    color: var(--text);
+    max-width: 660px;
+    margin: 0 auto 80px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-tagline em {
+    font-style: italic;
+    color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .hero-tagline strong {
+    color: var(--ink-bright);
+    font-weight: 400;
+  }
+
+  /* KPI strip */
+  .hero-kpi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .hero-kpi-cell {
+    background: var(--bg);
+    padding: 36px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s var(--ease);
+  }
+
+  .hero-kpi-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+  }
+
+  .hero-kpi-cell:hover { background: var(--bg-1); }
+  .hero-kpi-cell:hover::before { opacity: 1; }
+
+  .hero-kpi-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(40px, 5.5vw, 56px);
+    line-height: 1;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+
+  .hero-kpi-value sup {
+    font-size: 0.4em;
+    color: var(--gold);
+    font-variation-settings: "opsz" 9, "wght" 400, "SOFT" 0;
+    margin-left: 4px;
+    vertical-align: super;
+    text-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .hero-kpi-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    position: relative;
+  }
+
+  .hero-handles {
+    margin-top: 56px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-handles a {
+    margin: 0 12px;
+    border-bottom: 1px dotted var(--gold-glow);
+    padding-bottom: 2px;
+  }
+
+  .scroll-hint {
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    opacity: 0.7;
+    z-index: 3;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 12px auto 0;
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: translateY(-8px) scaleY(0.5); opacity: 0; }
+    50% { transform: translateY(0) scaleY(1); opacity: 1; }
+    100% { transform: translateY(8px) scaleY(0.5); opacity: 0; }
+  }
+
+  /* ============================================================ */
+  /* MARQUEE                                                      */
+  /* ============================================================ */
+
+  .marquee {
+    padding: 24px 0;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee::before, .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee::before { left: 0; background: linear-gradient(to right, var(--bg-deep), transparent); }
+  .marquee::after { right: 0; background: linear-gradient(to left, var(--bg-deep), transparent); }
+
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .marquee-item .num {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-size: 24px;
+    color: var(--gold-bright);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .marquee-item .star {
+    color: var(--gold);
+    font-size: 16px;
+    margin: 0 8px;
+  }
+
+  /* ============================================================ */
+  /* INTRO                                                        */
+  /* ============================================================ */
+
+  .intro {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 60px; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .intro p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 780px;
+    margin: 0 auto 22px;
+    text-wrap: balance;
+    -webkit-hyphens: none;
+    hyphens: none;
+  }
+
+  .intro p:last-of-type { margin-bottom: 0; }
+  .intro p strong, .intro p em {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* SECTION                                                      */
+  /* ============================================================ */
+
+  section { padding: 140px 0; position: relative; }
+  .section-bg-deep { background: var(--bg-deep); }
+
+  /* ============================================================ */
+  /* AB TABLE                                                     */
+  /* ============================================================ */
+
+  .ab-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 56px 0;
+  }
+
+  .ab-cell {
+    background: var(--bg);
+    padding: 56px 40px;
+    position: relative;
+  }
+
+  .ab-cell.before { background: var(--bg-deep); }
+  .ab-cell.after {
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 70%),
+      var(--bg);
+  }
+
+  .ab-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ab-cell.before .ab-label { color: var(--muted); }
+  .ab-cell.after .ab-label { color: var(--gold); }
+
+  .ab-cell.before .ab-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+  }
+
+  .ab-cell.after .ab-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold-glow);
+  }
+
+  .ab-row {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ab-row:last-child { border-bottom: none; }
+
+  .ab-row-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ab-row-value {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.005em;
+  }
+
+  .ab-cell.before .ab-row-value { color: var(--text); font-weight: 300; }
+  .ab-cell.after .ab-row-value {
+    color: var(--ink-bright);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50;
+    font-size: 22px;
+  }
+
+  .ab-row-value .multiplier {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 16px;
+    color: var(--gold);
+    margin-left: 8px;
+    text-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* CLIENT BLOCK                                                 */
+  /* ============================================================ */
+
+  .client-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .client-block .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .client-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 400;
+    line-height: 0.95;
+    color: var(--ink-bright);
+    letter-spacing: -0.025em;
+  }
+
+  .client-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .client-bullets li {
+    padding: 16px 0;
+    padding-left: 32px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+  }
+
+  .client-bullets li:last-child { border-bottom: none; }
+
+  .client-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 16px; height: 1px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  .client-bullets strong { color: var(--ink-bright); font-weight: 500; }
+
+  .client-meta {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .client-meta-item .ab-row-label { margin-bottom: 12px; }
+  .client-meta-item p {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ============================================================ */
+  /* GROWTH CHART                                                 */
+  /* ============================================================ */
+
+  .chart-section {
+    padding: 140px 0;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .chart-wrap {
+    margin: 64px auto 0;
+    max-width: 920px;
+    padding: 48px 32px 32px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .chart-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+
+  .chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .chart-y-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .chart-x-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .chart-grid {
+    stroke: var(--line);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+  }
+
+  .chart-path {
+    fill: none;
+    stroke: url(#goldGradient);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    filter: drop-shadow(0 0 6px var(--gold-glow));
+  }
+
+  .chart-section .chart-path {
+    animation: drawPath 3.4s var(--ease-out) 0.3s forwards;
+  }
+
+  @keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .chart-area {
+    fill: url(#areaGradient);
+    opacity: 0;
+  }
+
+  .chart-section .chart-area {
+    animation: fadeArea 1.5s var(--ease-out) 2s forwards;
+  }
+
+  @keyframes fadeArea {
+    to { opacity: 0.6; }
+  }
+
+  .chart-dot {
+    fill: var(--bg);
+    stroke: var(--gold);
+    stroke-width: 2;
+    opacity: 0;
+  }
+
+  .chart-section .chart-dot {
+    animation: popDot 0.5s var(--ease-out) forwards;
+  }
+
+  .chart-dot.delay-1 { animation-delay: 1.0s; }
+  .chart-dot.delay-2 { animation-delay: 1.3s; }
+  .chart-dot.delay-3 { animation-delay: 1.6s; }
+  .chart-dot.delay-4 { animation-delay: 1.9s; }
+  .chart-dot.delay-5 { animation-delay: 2.2s; }
+  .chart-dot.delay-6 { animation-delay: 2.5s; }
+
+  @keyframes popDot {
+    from { opacity: 0; transform: scale(0); transform-origin: center; }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .chart-peak-ring {
+    fill: var(--gold);
+    opacity: 0;
+    transform-origin: center;
+  }
+
+  .chart-section .chart-peak-ring {
+    animation: peakPulse 2s ease-in-out 3.1s infinite;
+  }
+
+  @keyframes peakPulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0; transform: scale(2.5); }
+    100% { opacity: 0; transform: scale(2.5); }
+  }
+
+  .chart-peak-dot {
+    fill: var(--gold);
+    filter: drop-shadow(0 0 10px var(--gold)) drop-shadow(0 0 20px var(--gold-glow));
+    opacity: 0;
+  }
+
+  .chart-section .chart-peak-dot {
+    animation: popDot 0.6s var(--ease-out) 2.4s forwards;
+  }
+
+  .chart-annotation {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    fill: var(--gold);
+    opacity: 0;
+  }
+
+  .chart-section .chart-annotation {
+    animation: fadeIn 0.6s var(--ease-out) 3.1s forwards;
+  }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .chart-pause-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    fill: var(--muted);
+    text-transform: uppercase;
+    opacity: 0;
+  }
+
+  .chart-section .chart-pause-label {
+    animation: fadeIn 0.6s var(--ease-out) 2.6s forwards;
+  }
+
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chart-legend-item .marker {
+    width: 12px; height: 1.5px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  .chart-legend-item .marker.peak {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+  }
+
+  .chart-legend-item .marker.dashed {
+    width: 16px; height: 1.5px;
+    background: repeating-linear-gradient(to right, var(--muted) 0 4px, transparent 4px 8px);
+    box-shadow: none;
+  }
+
+  /* ============================================================ */
+  /* METHODOLOGY                                                  */
+  /* ============================================================ */
+
+  .method-intro {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 96px;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .method-intro em {
+    color: var(--gold-bright);
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85em;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .block {
+    margin-bottom: 88px;
+    position: relative;
+    padding-left: 96px;
+  }
+
+  .block-num {
+    position: absolute;
+    left: 0; top: -8px;
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+
+  .block-num::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-top: 16px;
+    box-shadow: 0 0 8px var(--gold-glow-soft);
+  }
+
+  .block h3 {
+    margin-bottom: 16px;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50;
+    font-size: 32px;
+    letter-spacing: -0.025em;
+    color: var(--ink-bright);
+  }
+
+  .block .why {
+    margin-top: 24px;
+    padding: 20px 28px;
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    color: var(--text);
+    font-size: 15px;
+    box-shadow: -8px 0 32px rgba(255, 184, 77, 0.04);
+    position: relative;
+  }
+
+  .block .why strong {
+    color: var(--gold);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* LIST                                                         */
+  /* ============================================================ */
+
+  ul.refined { list-style: none; padding: 0; margin: 16px 0; }
+
+  ul.refined li {
+    padding: 16px 0;
+    padding-left: 32px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  ul.refined li:last-child { border-bottom: none; }
+
+  ul.refined li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 16px; height: 1px;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+  }
+
+  ul.refined strong { color: var(--ink-bright); font-weight: 500; }
+
+  /* ============================================================ */
+  /* FORMULA                                                      */
+  /* ============================================================ */
+
+  .formula {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 64px 48px;
+    margin: 32px 0;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  .formula::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-glow), transparent);
+  }
+
+  .formula .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .formula .quote {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(24px, 2.8vw, 32px);
+    line-height: 1.5;
+    color: var(--ink-bright);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .formula .quote em {
+    font-style: normal;
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* ============================================================ */
+  /* DATA TABLE                                                   */
+  /* ============================================================ */
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-family: var(--sans);
+  }
+
+  .data-table thead tr { border-bottom: 1px solid var(--line-bright); }
+  .data-table tbody tr { border-bottom: 1px solid var(--line); transition: all 0.3s var(--ease); }
+  .data-table tbody tr:hover {
+    background: linear-gradient(to right, transparent 5%, var(--gold-glow-faint), transparent 95%);
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 16px 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .data-table td {
+    padding: 18px 10px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .data-table td.viral {
+    color: var(--gold-bright);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .data-table td.num {
+    text-align: right;
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-weight: 400;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .data-table tfoot tr {
+    border-top: 1px solid var(--line-bright);
+    background: var(--bg-card);
+  }
+
+  .data-table tfoot td {
+    font-weight: 500;
+    color: var(--ink-bright);
+    padding-top: 22px; padding-bottom: 22px;
+  }
+
+  /* ============================================================ */
+  /* TIMELINE                                                     */
+  /* ============================================================ */
+
+  .timeline {
+    margin: 64px 0;
+    position: relative;
+    padding-left: 56px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px; top: 12px; bottom: 12px;
+    width: 1px;
+    background: linear-gradient(to bottom,
+      var(--gold-glow-soft) 0%,
+      var(--line) 20%,
+      var(--line) 80%,
+      var(--gold-glow-soft) 100%);
+  }
+
+  .timeline-item {
+    margin-bottom: 72px;
+    position: relative;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -56px; top: 12px;
+    width: 11px; height: 11px;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 12px var(--gold-glow),
+      0 0 24px var(--gold-glow-soft);
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -52px; top: 16px;
+    width: 3px; height: 3px;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-glow);
+  }
+
+  .timeline-item.peak::before {
+    width: 13px; height: 13px;
+    left: -57px; top: 11px;
+    background: var(--gold);
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 16px var(--gold),
+      0 0 32px var(--gold-glow),
+      0 0 64px var(--gold-glow-soft);
+  }
+
+  .timeline-item.peak::after {
+    background: var(--bg);
+    width: 4px; height: 4px;
+    left: -52px; top: 16px;
+    box-shadow: none;
+  }
+
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .timeline-title {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 50;
+    font-size: clamp(36px, 4.5vw, 52px);
+    color: var(--ink-bright);
+    margin-bottom: 24px;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .timeline-title .multiplier {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 0.4em;
+    color: var(--gold);
+    margin-left: 12px;
+    letter-spacing: 0;
+    text-shadow: 0 0 12px var(--gold-glow);
+    vertical-align: middle;
+  }
+
+  .timeline-stats { list-style: none; padding: 0; }
+
+  .timeline-stats li {
+    padding: 8px 0 8px 24px;
+    color: var(--text);
+    font-size: 15px;
+    position: relative;
+  }
+
+  .timeline-stats li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 16px;
+    width: 12px; height: 1px;
+    background: var(--gold-deep);
+  }
+
+  .timeline-stats li.highlight { color: var(--ink); }
+  .timeline-stats strong {
+    color: var(--gold-bright);
+    font-weight: 400;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  /* ============================================================ */
+  /* VIRAL CARDS WITH 3D TILT                                     */
+  /* ============================================================ */
+
+  .viral-grid {
+    display: grid;
+    gap: 32px;
+    margin-top: 56px;
+    perspective: 1500px;
+  }
+
+  .viral-card {
+    padding: 48px;
+    background:
+      radial-gradient(circle at top right, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .viral-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .viral-card:hover {
+    border-color: transparent;
+    box-shadow:
+      0 32px 80px rgba(0, 0, 0, 0.6),
+      0 0 80px var(--gold-glow-faint);
+  }
+
+  .viral-card:hover::before { opacity: 1; }
+
+  .viral-card-inner {
+    position: relative;
+    transform: translateZ(40px);
+  }
+
+  .viral-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .viral-card-rank {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 96px;
+    line-height: 0.85;
+    color: var(--gold);
+    text-shadow: 0 0 24px var(--gold-glow), 0 0 48px var(--gold-glow-soft);
+  }
+
+  .viral-card-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 12px;
+    border: 1px solid var(--line-bright);
+    border-radius: 100px;
+  }
+
+  .viral-card-tag.peak {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: var(--gold-glow-faint);
+    box-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .viral-card-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--ink-bright);
+    margin-bottom: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+
+  .viral-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .viral-stat-block .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 50;
+    font-size: clamp(32px, 4vw, 44px);
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px var(--gold-glow-soft);
+  }
+
+  .viral-stat-block .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .viral-card-note {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .viral-extra {
+    margin-top: 56px;
+    padding: 32px 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .viral-extra-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .viral-extra-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .viral-extra-row:last-child { border-bottom: none; }
+
+  .viral-extra-row .title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .viral-extra-row .stats {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 16px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+    white-space: nowrap;
+  }
+
+  /* ============================================================ */
+  /* SPRINT BLOCK (May 2026)                                      */
+  /* ============================================================ */
+
+  .sprint-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin: 56px 0;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .sprint-meta-cell {
+    background: var(--bg);
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .sprint-meta-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 250, "SOFT" 80;
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .sprint-meta-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .sprint-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+  .evolution-table {
+    margin-top: 32px;
+  }
+
+  .evolution-table th {
+    text-align: right;
+  }
+
+  .evolution-table th:first-child {
+    text-align: left;
+  }
+
+  .evolution-table td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .evolution-table td:first-child {
+    text-align: left;
+    color: var(--text);
+    font-size: 13px;
+    font-family: var(--mono);
+  }
+
+  .evolution-table td.peak-col {
+    color: var(--gold-bright);
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+    background: var(--gold-glow-faint);
+  }
+
+  /* Stories block */
+  .stories-block {
+    margin-top: 56px;
+  }
+
+  .stories-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 32px;
+  }
+
+  .stories-list li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stories-list li:last-child { border-bottom: none; }
+
+  .stories-list .num-cell {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    width: 24px;
+  }
+
+  .stories-list .theme {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .stories-list .views {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    font-size: 17px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .stories-total {
+    background: linear-gradient(to right, var(--gold-glow-faint), transparent);
+    padding: 18px 24px;
+    border-top: 1px solid var(--gold-glow);
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: baseline;
+  }
+
+  .stories-total .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .stories-total .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: 26px;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* Client tease quote */
+  .client-tease {
+    margin: 56px 0 0;
+    padding: 48px 40px;
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+  }
+
+  .client-tease::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .client-tease-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .client-tease-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--ink-bright);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-shadow: 0 0 24px var(--gold-glow-soft);
+  }
+
+  .client-tease-author {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .client-tease-result {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 80;
+    font-size: 22px;
+    color: var(--gold-bright);
+    text-shadow: 0 0 16px var(--gold-glow);
+  }
+
+  /* ============================================================ */
+  /* BUSINESS                                                     */
+  /* ============================================================ */
+
+  .business-grid { display: grid; gap: 80px; margin-top: 56px; }
+
+  .business-list { list-style: none; padding: 0; margin-top: 20px; }
+
+  .business-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .business-list li:last-child { border-bottom: none; }
+
+  .business-list li .label {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .business-list li .value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 30;
+    color: var(--ink-bright);
+    font-variant-numeric: tabular-nums;
+    font-size: 18px;
+  }
+
+  .business-list li .value.glow {
+    color: var(--gold-bright);
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+    font-size: 22px;
+  }
+
+  /* ============================================================ */
+  /* INFLUENCER                                                   */
+  /* ============================================================ */
+
+  .influencer-quote {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 60%),
+      var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 56px 48px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .influencer-quote::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 14px var(--gold-glow);
+  }
+
+  .influencer-author {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink-bright);
+    margin-bottom: 6px;
+  }
+
+  .influencer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .influencer-meta .dot {
+    width: 3px; height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .influencer-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .influencer-text::before, .influencer-text::after {
+    color: var(--gold);
+    font-style: normal;
+    font-family: var(--display);
+  }
+  .influencer-text::before { content: '"'; margin-right: 4px; }
+  .influencer-text::after { content: '"'; margin-left: 4px; }
+
+  /* ============================================================ */
+  /* TESTIMONIAL HERO — MASSIVE                                   */
+  /* ============================================================ */
+
+  .testimonial-hero {
+    padding: 220px 0;
+    text-align: center;
+    position: relative;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .testimonial-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at center, var(--gold-glow-soft), transparent 70%),
+      radial-gradient(ellipse 60% 40% at top, var(--gold-glow-faint), transparent 60%),
+      radial-gradient(ellipse 60% 40% at bottom, var(--gold-glow-faint), transparent 60%);
+    pointer-events: none;
+  }
+
+  .testimonial-ornament {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    color: var(--gold);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 16px var(--gold-glow));
+  }
+
+  .testimonial-ornament.left { left: 8%; }
+  .testimonial-ornament.right { right: 8%; transform: translateY(-50%) scaleX(-1); }
+
+  @media (max-width: 900px) {
+    .testimonial-ornament { display: none; }
+  }
+
+  .testimonial-mark {
+    position: absolute;
+    top: 80px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100;
+    font-size: 320px;
+    color: var(--gold);
+    opacity: 0.18;
+    line-height: 0.8;
+    text-shadow: 0 0 100px var(--gold-glow);
+    z-index: 1;
+  }
+
+  .testimonial-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .testimonial-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 56px;
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .testimonial-eyebrow::before, .testimonial-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .testimonial-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: clamp(44px, 7vw, 88px);
+    line-height: 1.1;
+    color: var(--ink-bright);
+    max-width: 920px;
+    margin: 0 auto 56px;
+    letter-spacing: -0.025em;
+    text-shadow: 0 0 60px rgba(255, 184, 77, 0.15);
+  }
+
+  .testimonial-mega {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 200, "SOFT" 80;
+    font-style: italic;
+    font-size: 1.5em;
+    color: var(--gold-bright);
+    text-shadow:
+      0 0 32px var(--gold),
+      0 0 64px var(--gold-glow),
+      0 0 120px var(--gold-glow-soft);
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    transform: translateY(0.05em);
+  }
+
+  .testimonial-author {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-shadow: 0 0 12px var(--gold-glow-soft);
+  }
+
+  .testimonial-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================================ */
+  /* REACTIONS BLOCK                                              */
+  /* ============================================================ */
+
+  .reactions-block {
+    text-align: center;
+  }
+
+  .reactions-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .reactions-title {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--ink-bright);
+    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+  }
+
+  .reactions-subtitle {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 80;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 56px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reaction-quotes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 720px) {
+    .reaction-quotes { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  .reaction-quote {
+    background:
+      radial-gradient(ellipse at top, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s var(--ease);
+  }
+
+  .reaction-quote::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 64px;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    text-shadow: 0 0 20px var(--gold-glow);
+  }
+
+  .reaction-quote:hover {
+    border-color: var(--gold-glow);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
+    transform: translateY(-2px);
+  }
+
+  .reaction-quote .quote-text {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--ink-bright);
+    margin-bottom: 16px;
+    margin-top: 24px;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .reaction-quote .quote-text-soft {
+    font-size: 14px;
+    color: var(--text);
+    text-shadow: none;
+    font-weight: 300;
+  }
+
+  .reaction-quote .quote-meta {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ============================================================ */
+  /* FOOTER                                                       */
+  /* ============================================================ */
+
+  .footer {
+    padding: 160px 0 80px;
+    text-align: center;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    box-shadow: 0 0 20px var(--gold-glow);
+  }
+
+  .footer h2 { color: var(--ink-bright); margin-bottom: 16px; }
+
+  .footer-tagline {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--muted);
+    margin-bottom: 80px;
+  }
+
+  .contacts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto 96px;
+    perspective: 1000px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: transform 0.15s ease-out, border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+    color: var(--text);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .contact-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, var(--gold), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: radial-gradient(ellipse at center, var(--gold-glow-faint), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .contact-link:hover {
+    border-color: transparent;
+    box-shadow:
+      0 12px 40px rgba(255, 184, 77, 0.12),
+      0 0 0 1px var(--gold-glow);
+  }
+  .contact-link:hover::before { opacity: 1; }
+  .contact-link:hover::after { opacity: 1; }
+  .contact-link:hover .contact-icon {
+    color: var(--gold);
+    filter: drop-shadow(0 0 12px var(--gold-glow));
+  }
+  .contact-link:hover .contact-handle { color: var(--gold-bright); }
+
+  .contact-link-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    transform: translateZ(20px);
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    color: var(--muted);
+    transition: all 0.4s var(--ease);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .contact-handle {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -0.005em;
+  }
+
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    line-height: 2;
+  }
+
+  /* ============================================================ */
+  /* ECONOMICS BLOCK                                              */
+  /* ============================================================ */
+
+  .economics-block {
+    margin: 32px 0 0;
+    background:
+      radial-gradient(ellipse at top right, var(--gold-glow-faint), transparent 70%),
+      var(--bg-deep);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .economics-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  .econ-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr;
+    align-items: baseline;
+    gap: 24px;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.3s var(--ease);
+  }
+
+  .econ-row:last-child { border-bottom: none; }
+
+  .econ-row:hover {
+    background: var(--gold-glow-faint);
+  }
+
+  .econ-row.total {
+    background: linear-gradient(to right, var(--gold-glow-faint), transparent);
+    border-top: 1px solid var(--gold-glow);
+  }
+
+  .econ-row.total::before {
+    content: '';
+    position: absolute;
+    left: 32px; right: 32px;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-glow), transparent);
+    margin-top: -22px;
+  }
+
+  .econ-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .econ-row.total .econ-label {
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold-glow-soft);
+  }
+
+  .econ-value {
+    font-family: var(--display);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-size: 22px;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .econ-value .hl {
+    color: var(--gold-bright);
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 60;
+    text-shadow: 0 0 16px var(--gold-glow-soft);
+  }
+
+  .econ-row.total .econ-value {
+    font-size: 28px;
+  }
+
+  .econ-row.total .econ-value .hl {
+    text-shadow: 0 0 20px var(--gold-glow), 0 0 40px var(--gold-glow-soft);
+  }
+
+  .econ-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .econ-row.total .econ-meta {
+    color: var(--gold);
+  }
+
+  @media (max-width: 720px) {
+    .econ-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 20px 24px;
+    }
+
+    .econ-meta { text-align: left; }
+
+    .econ-value { font-size: 24px; }
+    .econ-row.total .econ-value { font-size: 28px; }
+  }
+
+  /* ============================================================ */
+  /* RESPONSIVE                                                   */
+  /* ============================================================ */
+
+  @media (max-width: 720px) {
+    body { font-size: 15px; }
+
+    section { padding: 96px 0; }
+    .hero { padding: 96px 0 64px; min-height: auto; }
+    .intro { padding: 96px 0; }
+    .testimonial-hero { padding: 120px 0; }
+    .footer { padding: 96px 0 64px; }
+
+    .container { padding: 0 24px; }
+
+    .hero-meta { flex-direction: column; gap: 8px; }
+    .hero-meta .sep { display: none; }
+    .hero-kpi { grid-template-columns: 1fr; gap: 1px; }
+
+    /* первый экран на мобилке: чтобы ничего не вылезало и не рвалось криво */
+    .hero-name { font-size: clamp(42px, 12vw, 66px); margin-bottom: 24px; }
+    .hero-number { font-size: clamp(50px, 17vw, 84px); letter-spacing: -0.03em; }
+    .hero-number-wrap { margin-bottom: 40px; }
+    .hero-subtitle { flex-wrap: wrap; justify-content: center; gap: 8px 12px; font-size: 10px; letter-spacing: 0.22em; margin-bottom: 40px; padding: 0 12px; }
+    .hero-tagline { font-size: 17px; line-height: 1.55; margin-bottom: 56px; max-width: 100%; }
+    .hero-tagline br { display: none; }
+    .hero-kpi-cell { padding: 22px 16px; }
+    .hero-kpi-value { font-size: clamp(32px, 9vw, 44px); }
+
+    .ab-wrap { grid-template-columns: 1fr; }
+
+    .client-block { grid-template-columns: 1fr; gap: 32px; }
+    .client-meta { grid-template-columns: 1fr; }
+
+    .block { padding-left: 0; }
+    .block-num { position: relative; display: inline-block; margin-bottom: 16px; font-size: 56px; }
+
+    .timeline { padding-left: 32px; }
+    .timeline::before { left: 5px; }
+    .timeline-item::before { left: -32px; }
+    .timeline-item::after { left: -28px; }
+    .timeline-item.peak::before { left: -33px; }
+    .timeline-item.peak::after { left: -28px; }
+
+    .ab-cell { padding: 32px 24px; }
+
+    .data-table th, .data-table td { padding: 12px 4px; font-size: 12px; }
+
+    .viral-card { padding: 32px 24px; }
+    .viral-card-rank { font-size: 64px; }
+    .viral-card-stats { grid-template-columns: 1fr; gap: 16px; }
+
+    .viral-extra-row { grid-template-columns: 1fr; gap: 6px; }
+
+    .formula { padding: 40px 24px; }
+    .testimonial-mark { font-size: 200px; top: 40px; }
+    .influencer-quote { padding: 36px 24px; }
+
+    .business-list li { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+    .contacts { grid-template-columns: 1fr; gap: 12px; }
+
+    .chart-wrap { padding: 32px 16px; }
+
+    .stories-list li { grid-template-columns: 1fr; gap: 4px; }
+    .stories-list .num-cell { display: none; }
+  }
+
+  /* ============================================================ */
+  /* PROOF SCREENSHOTS — frame hugs each image's natural size      */
+  /* ============================================================ */
+
+  .proof-shots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .proof-shot {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    background: rgba(255, 255, 255, 0.018);
+    border: 1px solid rgba(255, 184, 77, 0.12);
+    border-radius: 18px;
+    padding: 14px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .proof-shot:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 77, 0.32);
+    box-shadow: 0 24px 60px -20px rgba(255, 184, 77, 0.18);
+  }
+
+  .proof-shot img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 340px;
+    max-height: 460px;
+    border-radius: 10px;
+    background: #0d0d0f;
+  }
+
+  /* Tall phone-style screenshots: tighter width cap */
+  .proof-shot.tall img { max-width: 240px; max-height: 480px; }
+  /* Thin horizontal stat slices: wider but short */
+  .proof-shot.thin img { max-width: 420px; max-height: 140px; }
+
+  /* мобилка: обжимаем плитки под ширину экрана. ВАЖНО: у .proof-shot ЖЁСТКИЙ max-width в px (не 100%!) — иначе картинка раздувается до натуральных 900px и тянет страницу вширь */
+  @media (max-width: 720px) {
+    .proof-shot { max-width: 300px; box-sizing: border-box; }
+    .proof-shot img,
+    .proof-shot.tall img,
+    .proof-shot.thin img { max-width: 100%; max-height: 440px; height: auto; }
+    .proof-shot-caption { white-space: normal !important; }   /* иначе длинная подпись в одну строку тянет страницу вширь */
+    .viral-extra-row .stats { white-space: normal; }
+    .data-table { table-layout: fixed; }
+    .data-table th, .data-table td { overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
+  }
+
+  .proof-shot-caption {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .proof-shot-caption strong {
+    color: var(--gold-bright);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+
+  .proof-shots.pair .proof-shot img { max-width: 300px; max-height: 520px; }
+  @media (max-width: 720px) {
+    .proof-shots.pair .proof-shot img { max-width: 276px; max-height: 520px; }
+  }
+  @media (max-width: 720px) {
+    .data-table.p3-table { table-layout: auto; }
+    .data-table.p3-table th { font-size: 9px; letter-spacing: 0.06em; padding-left: 4px; padding-right: 4px; }
+    .data-table.p3-table th, .data-table.p3-table td { word-break: normal; overflow-wrap: normal; hyphens: none; }
+    .data-table.p3-table td { font-size: 13px; padding-left: 4px; padding-right: 4px; }
+    .data-table.p3-table td.num { white-space: nowrap; }
+  }
+  /* ---------- AUDIENCE (phase 3) ---------- */
+  .aud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+  .aud-card { background: var(--bg-card); border: 1px solid rgba(255, 184, 77, 0.12); border-radius: 18px; padding: 22px 20px; }
+  .aud-card h4 { margin: 0 0 18px; font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .aud-row { margin-bottom: 14px; }
+  .aud-row:last-child { margin-bottom: 0; }
+  .aud-row-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; color: var(--text); margin-bottom: 6px; }
+  .aud-row-top b { font-family: var(--mono); font-weight: 500; color: var(--gold-bright); }
+  .aud-bar { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+  .aud-bar span { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
+  .aud-note { margin-top: 28px; text-align: center; color: var(--text); font-size: 15px; line-height: 1.6; text-wrap: balance; }
+  .aud-note strong { color: var(--gold-bright); font-weight: 500; }
+  @media (max-width: 900px) { .aud-grid { grid-template-columns: 1fr; } }
+
+  .proof-shot-single {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 720px) {
+    .proof-shots { gap: 16px; }
+    .proof-shot { padding: 10px; }
+    .proof-shot img {
+      max-width: calc(50vw - 28px);
+      max-height: 360px;
+    }
+    .proof-shot.tall img { max-width: 180px; max-height: 360px; }
+    .proof-shot.thin img { max-width: calc(100vw - 56px); max-height: 110px; }
+    .proof-shot-caption { font-size: 10px; margin-top: 10px; }
+  }
+
+  /* ---------- OFFER: тарифы + аудит ---------- */
+  .offer-tariffs { border-top: 1px solid var(--line); margin-bottom: 28px; }
+  .offer-row { display: grid; grid-template-columns: 1fr auto; gap: 8px 32px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .offer-name { font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50; font-size: 28px; line-height: 1.15; color: var(--ink-bright); }
+  .offer-desc { grid-column: 1; font-size: 15px; color: var(--text); }
+  .offer-price { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--mono); font-size: 15px; color: var(--gold-bright); white-space: nowrap; text-align: right; }
+  .offer-price.soft { color: var(--muted); }
+  .offer-note { text-align: center; font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 100; font-style: italic; font-size: 21px; color: var(--muted); margin: 48px 0 72px; text-wrap: balance; }
+  .audit-card { background: var(--bg-card); border: 1px solid var(--line-glow); border-radius: 18px; padding: 48px 44px; box-shadow: 0 0 60px var(--gold-glow-faint); }
+  .audit-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+  .audit-head h3 { font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 350, "SOFT" 50; font-size: 36px; font-weight: 300; line-height: 1.1; color: var(--ink-bright); margin: 0; }
+  .audit-price { font-family: var(--mono); font-size: 22px; color: var(--gold-bright); white-space: nowrap; }
+  .audit-credit { font-size: 14px; color: var(--muted); margin-bottom: 32px; text-wrap: balance; }
+  .audit-list { list-style: none; padding: 0; margin: 0 0 32px; }
+  .audit-list li { position: relative; padding: 0 0 14px 28px; color: var(--ink); font-size: 16px; line-height: 1.55; }
+  .audit-list li::before { content: ''; position: absolute; left: 0; top: 11px; width: 14px; height: 1px; background: var(--gold); box-shadow: 0 0 8px var(--gold-glow); }
+  .audit-meta { border-top: 1px solid var(--line); padding-top: 24px; display: grid; gap: 14px; margin-bottom: 36px; }
+  .audit-meta div { font-size: 15px; color: var(--text); }
+  .audit-meta span { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .audit-btn { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 20px 24px; border-radius: 4px; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); color: #140d02; font-family: var(--mono); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: box-shadow 0.4s var(--ease), transform 0.2s ease-out; }
+  .audit-btn:hover { box-shadow: 0 0 40px var(--gold-glow); transform: translateY(-1px); }
+  .audit-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  #offer h2, #offer h3, #offer p, #offer li { hyphens: none; }
+  @media (max-width: 720px) {
+    .offer-row { grid-template-columns: 1fr; padding: 22px 0; }
+    .offer-price { grid-column: 1; grid-row: auto; text-align: left; margin-top: 6px; }
+    .offer-name { font-size: 24px; }
+    .offer-note { font-size: 18px; margin: 40px 0 56px; }
+    .audit-card { padding: 32px 22px; }
+    .audit-head h3 { font-size: 30px; }
+    .audit-btn { font-size: 12px; letter-spacing: 0.12em; }
+  }
+  /* ---------- AIZA: таблица роликов, широкие скрины ---------- */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .data-table.reels-table { min-width: 640px; table-layout: auto; }
+  .data-table.reels-table th, .data-table.reels-table td.num { white-space: nowrap; }
+  .proof-shot.wide img { max-width: 520px; max-height: 360px; }
+  @media (max-width: 720px) {
+    .data-table.reels-table { table-layout: auto; }
+    .data-table.reels-table th, .data-table.reels-table td { overflow-wrap: normal; word-break: normal; }
+    .data-table.reels-table td:first-child { white-space: normal; min-width: 180px; }
+    .proof-shot.wide { max-width: calc(100vw - 32px); }
+    .proof-shot.wide img { max-width: 100%; max-height: none; }
+  }
+  .hero-number { white-space: nowrap; font-size: clamp(84px, 15vw, 210px); }
+  @media (max-width: 720px) { .hero-name { margin-top: 36px; } }
+  .proof-shots.headers .proof-shot img { max-width: 360px; max-height: none; }
+  @media (max-width: 720px) { .proof-shots.headers .proof-shot { max-width: calc(100vw - 32px); } .proof-shots.headers .proof-shot img { max-width: 100%; } }
+  .table-hint { display: none; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  @media (max-width: 720px) { .table-hint { display: block; } }
+  .proof-shot.feed img { max-width: 440px; max-height: 520px; }
+  .proof-shot.tall img[src$="now-top.jpg"] { max-height: 520px; max-width: 290px; }
+  @media (max-width: 720px) { .proof-shot.feed { max-width: calc(100vw - 32px); } .proof-shot.feed img { max-width: 100%; max-height: none; } }
+  .proof-shots.works-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: start; max-width: 1120px; margin-left: auto; margin-right: auto; }
+  .proof-shots.works-row.w3 { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 860px; }
+  .proof-shots.works-row.w2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
+  .proof-shot.work { display: flex; width: 100%; box-sizing: border-box; }
+  .proof-shot.work img { width: 100%; max-width: none; max-height: 620px; object-fit: contain; object-position: top; }
+  @media (max-width: 720px) {
+    .proof-shots.works-row, .proof-shots.works-row.w3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .proof-shots.works-row.w2 { grid-template-columns: 1fr; }
+    .proof-shot.work { max-width: none; padding: 6px; }
+    .proof-shot.work img { max-height: 480px; }
+    .proof-shot.work .proof-shot-caption { font-size: 9px; letter-spacing: 0.06em; }
+  }
+  .proof-shot.bothelp img { max-width: 440px; max-height: 900px; width: 100%; height: auto; }
+  @media (max-width: 720px) { .proof-shots.works-row.yt-covers { grid-template-columns: 1fr; max-width: 420px; } }
+  /* ---------- REPOSTS WALL ---------- */
+  .rp-wrap { position: relative; margin-top: 40px; max-height: 760px; overflow: hidden; border-radius: 14px; transition: max-height .6s ease; }
+  .rp-wrap.open { max-height: none; }
+  .rp-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background: linear-gradient(to bottom, rgba(6, 6, 6, 0), var(--bg) 92%); pointer-events: none; }
+  .rp-wrap.open::after { display: none; }
+  .rp-grid { display: grid; grid-template-columns: repeat(18, 1fr); gap: 3px; }
+  .rp-grid img { display: block; width: 100%; aspect-ratio: 180 / 352; object-fit: cover; border-radius: 3px; background: #15110c; }
+  .rp-more { display: block; margin: 20px auto 0; padding: 12px 26px; border-radius: 999px; border: 1px solid rgba(255, 184, 77, 0.35); background: transparent; color: var(--gold-bright); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; }
+  .rp-count { text-align: center; margin-top: 8px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  @media (max-width: 1000px) { .rp-grid { grid-template-columns: repeat(12, 1fr); } }
+  @media (max-width: 720px) { .rp-grid { grid-template-columns: repeat(8, 1fr); gap: 2px; } .rp-wrap { max-height: 520px; } }
+
+  /* ---------- без горизонтального сдвига на телефоне ---------- */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  @supports (overflow: clip) { html, body { overflow-x: clip; } }
+  .chart-dot, .chart-peak-ring, .chart-peak-dot { transform-box: fill-box; transform-origin: center; }
+  .chart-wrap { overflow: hidden; }
+
+  /* ---------- без висячих строк ---------- */
+  h1, h2, h3, h4, .timeline-title, .timeline-date, .proof-shot-caption, .sprint-meta-label, .ab-label,
+  .eyebrow, .quote, .quote-meta, .label, td, th, .section-header p, p.reveal { text-wrap: balance; }
+  p, li, .why, .quote-text, .testimonial-text, .method-intro, .aud-note { text-wrap: pretty; }
+  @media (max-width: 380px) { .testimonial-text { font-size: 34px; } }
+  @media (max-width: 720px) { #youtube .section-header h2 { font-size: 38px; } }
+  @media (max-width: 380px) { #youtube .section-header h2 { font-size: 34px; } }
+  .quote.profile-quote span { display: block; white-space: nowrap; }
+  .quote.profile-quote { font-size: clamp(15px, 2vw, 27px) !important; }
+  @media (max-width: 600px) { .quote.profile-quote { font-size: 4.1vw !important; } }
+  @media (max-width: 480px) { .section-header h2 { font-size: min(48px, 10.8vw) !important; } }
+  .eyebrow-case { white-space: nowrap; }
+  @media (max-width: 400px) { .eyebrow-case { letter-spacing: 0.12em; } }
+  @media (max-width: 720px) { .proof-shots.works-row.w2.subs-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body class="splash-active">
+
+<!-- ============================================================ -->
+<!-- SPLASH SCREEN                                                -->
+<!-- ============================================================ -->
+<div class="splash" id="splash">
+  <div class="splash-monogram">
+    <svg viewBox="0 0 80 80" fill="none">
+      <circle class="ring" cx="40" cy="40" r="35" stroke="var(--gold)" stroke-width="1"/>
+      <text x="40" y="50" font-family="Fraunces, serif" font-size="32" font-style="italic" font-weight="300" fill="var(--gold)" text-anchor="middle" letter-spacing="-2">MH</text>
+    </svg>
+  </div>
+
+  <div class="splash-label">Кейс · Артур Раджабов</div>
+
+  <div class="splash-number" id="splashCounter">0</div>
+
+  <div class="splash-name">— просмотров за&nbsp;30&nbsp;дней</div>
+
+  <div class="splash-loader"></div>
+
+  <button class="splash-skip" onclick="skipSplash()">Пропустить</button>
+</div>
+
+<!-- Atmospheric layers -->
+<div class="ambient"></div>
+<div class="spotlight"></div>
+<div class="progress-bar"></div>
+
+<!-- ============================================================ -->
+<!-- STICKY DOT NAVIGATION                                        -->
+<!-- ============================================================ -->
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-target="hero" data-label="Начало"></button>
+  <button class="nav-dot" data-target="result" data-label="Результат"></button>
+  <button class="nav-dot" data-target="client" data-label="Клиент"></button>
+  <button class="nav-dot" data-target="method" data-label="Что сделали"></button>
+  <button class="nav-dot" data-target="timeline" data-label="Хронология"></button>
+  <button class="nav-dot" data-target="viral" data-label="Хит"></button>
+  <button class="nav-dot" data-target="testimonial" data-label="Отзыв"></button>
+  <button class="nav-dot" data-target="reels" data-label="Лучшие рилсы"></button>
+  <button class="nav-dot" data-target="contacts" data-label="Контакты"></button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- HERO                                                         -->
+<!-- ============================================================ -->
+<header class="hero" id="hero">
+
+  <div class="hero-rail left">12 апреля 2026</div>
+  <div class="hero-rail right">7 июня 2026</div>
+
+  <div class="hero-tape">
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="pulse"></span>
+        <span class="eyebrow-case">Кейс · спортсмен и&nbsp;предприниматель</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="sep"></span>
+        <span class="accent">2 месяца</span>
+        <span class="sep"></span>
+      </div>
+      <div class="hero-meta-item">
+        <span>Малик Хашимов</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-name reveal">Артур</div>
+
+    <div class="hero-number-wrap reveal reveal-delay-1">
+      <div class="hero-number" data-counter="688584">688&#8239;584</div>
+    </div>
+
+    <div class="hero-subtitle reveal reveal-delay-2">
+      <span>просмотров</span>
+      <span class="arrow">·</span>
+      <span class="accent">30&nbsp;дней</span>
+      <span class="arrow">·</span>
+      <span>Instagram</span>
+    </div>
+
+    <p class="hero-tagline reveal reveal-delay-3">
+      Чемпион России по&nbsp;борьбе и&nbsp;блог <em style="white-space: nowrap;">на&nbsp;349 подписчиков.</em><br>
+      Через пять недель&nbsp;— <strong>688&nbsp;584</strong> просмотра за&nbsp;месяц.<br>
+      Один ролик&nbsp;— <strong>301&nbsp;952</strong> просмотра за&nbsp;полтора суток и&nbsp;<strong>96</strong> подписчиков.
+    </p>
+
+    <div class="hero-kpi reveal reveal-delay-4">
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">×167<sup>↑</sup></div>
+        <div class="hero-kpi-label">Просмотры</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">×451</div>
+        <div class="hero-kpi-label">Охват</div>
+      </div>
+      <div class="hero-kpi-cell">
+        <div class="hero-kpi-value">×243</div>
+        <div class="hero-kpi-label">Взаимодействия</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint reveal reveal-delay-5">Прокрутить</div>
+</header>
+
+<!-- ============================================================ -->
+<!-- MARQUEE                                                      -->
+<!-- ============================================================ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="num">688&nbsp;584</span> просмотров</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">301&nbsp;952</span> топ-рилс</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">25&nbsp;050</span> взаимодействий</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×451</span> охват</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">738&nbsp;тыс.</span> просмотров Reels</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">2,3&nbsp;тыс.</span> отправок в&nbsp;личку</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">688&nbsp;584</span> просмотров</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">301&nbsp;952</span> топ-рилс</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">25&nbsp;050</span> взаимодействий</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">×451</span> охват</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">738&nbsp;тыс.</span> просмотров Reels</span>
+    <span class="star">✦</span>
+    <span class="marquee-item"><span class="num">2,3&nbsp;тыс.</span> отправок в&nbsp;личку</span>
+    <span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- INTRO                                                        -->
+<!-- ============================================================ -->
+<section class="intro">
+  <div class="container">
+    <p class="reveal">
+      Я&nbsp;<strong>Малик&nbsp;Хашимов</strong>&nbsp;— <em>продюсер блогов</em>, проектирую личные бренды.
+    </p>
+    <p class="reveal reveal-delay-1">
+      С&nbsp;Артуром работали два месяца: распаковка, позиционирование, стратегия, сценарии и&nbsp;ежедневный контент в&nbsp;Instagram. Оператора и&nbsp;съёмочных дней не&nbsp;было&nbsp;— Артур снимал сам по&nbsp;сценариям.
+    </p>
+    <p class="reveal reveal-delay-2">
+      За&nbsp;30&nbsp;дней с&nbsp;19&nbsp;апреля по&nbsp;17&nbsp;мая&nbsp;— <strong>688&#8239;584 просмотра</strong> аккаунта и&nbsp;охват <strong>426&#8239;227</strong>. До&nbsp;начала работы за&nbsp;такой&nbsp;же срок было <strong>4&#8239;116</strong> просмотров и&nbsp;охват <strong>945</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- POINT A → POINT B                                            -->
+<!-- ============================================================ -->
+<section id="result">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Точка А&nbsp;→ Точка Б</span>
+      <h2>Результат <em>в&nbsp;одной таблице</em></h2>
+    </div>
+
+    <div class="ab-wrap reveal reveal-delay-1">
+      <div class="ab-cell before">
+        <div class="ab-label">До работы · 12 мар&nbsp;— 10 апр</div>
+        <div class="ab-row"><div class="ab-row-label">Просмотры за&nbsp;30 дней</div><div class="ab-row-value">4&#8239;116</div></div>
+        <div class="ab-row"><div class="ab-row-label">Охват</div><div class="ab-row-value">945</div></div>
+        <div class="ab-row"><div class="ab-row-label">Взаимодействия</div><div class="ab-row-value">103</div></div>
+        <div class="ab-row"><div class="ab-row-label">Посещения профиля</div><div class="ab-row-value">242</div></div>
+        <div class="ab-row"><div class="ab-row-label">Лучшая публикация</div><div class="ab-row-value">360</div></div>
+        <div class="ab-row"><div class="ab-row-label">Подписчики</div><div class="ab-row-value">349</div></div>
+      </div>
+
+      <div class="ab-cell after">
+        <div class="ab-label">Пик · 19 апр&nbsp;— 17 мая</div>
+        <div class="ab-row"><div class="ab-row-label">Просмотры за&nbsp;30 дней</div><div class="ab-row-value">688&#8239;584 <span class="multiplier">×167</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Охват</div><div class="ab-row-value">426&#8239;227 <span class="multiplier">×451</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Взаимодействия · 9 апр&nbsp;— 8 мая</div><div class="ab-row-value">25&#8239;050 <span class="multiplier">×243</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Посещения профиля</div><div class="ab-row-value">2&#8239;748 <span class="multiplier">×11</span></div></div>
+        <div class="ab-row"><div class="ab-row-label">Лучший рилс</div><div class="ab-row-value">301&#8239;952</div></div>
+        <div class="ab-row"><div class="ab-row-label">Подписчики · 6 июня</div><div class="ab-row-value">553</div></div>
+      </div>
+    </div>
+
+    <div class="proof-shots pair reveal reveal-delay-1" style="margin-top: 64px;">
+      <div class="proof-shot"><img src="i/before-views.jpg" alt="12 марта — 10 апреля: 4 116 просмотров, охват 945" loading="lazy"><div class="proof-shot-caption">до&nbsp;работы · <strong>4&nbsp;116</strong></div></div>
+      <div class="proof-shot"><img src="i/v30-688k.jpg" alt="19 апреля — 17 мая: 688 584 просмотра, +155 подписчиков" loading="lazy"><div class="proof-shot-caption">30 дней · <strong>688&nbsp;584</strong></div></div>
+    </div>
+    <div class="proof-shots reveal" style="margin-top: 24px;">
+      <div class="proof-shot" style="max-width: 520px; margin: 0 auto;"><img src="i/panel-688k.jpg" alt="Профессиональная панель: 688,6 тыс. просмотров, 426,2 тыс. охваченных аккаунтов" loading="lazy"><div class="proof-shot-caption">панель · <strong>688,6&nbsp;тыс.</strong></div></div>
+    </div>
+
+    <h3 style="text-align: center; margin-top: 80px;" class="reveal">Рост по&nbsp;срезам</h3>
+    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px;" class="reveal">статистика Instagram · апрель&nbsp;— май 2026</p>
+    <div class="proof-shots works-row reveal">
+      <div class="proof-shot work"><img src="i/v14-70k.jpg" alt="12–25 апреля, 14 дней: 70 250 просмотров" loading="lazy"><div class="proof-shot-caption">14 дней · <strong>70&nbsp;250</strong></div></div>
+      <div class="proof-shot work"><img src="i/v30-170k.jpg" alt="3 апреля — 2 мая: 170 279 просмотров" loading="lazy"><div class="proof-shot-caption">30 дней · <strong>170&nbsp;279</strong></div></div>
+      <div class="proof-shot work"><img src="i/v30-569k.jpg" alt="9 апреля — 8 мая: 569 133 просмотра, охват 358 725" loading="lazy"><div class="proof-shot-caption">30 дней · <strong>569&nbsp;133</strong></div></div>
+      <div class="proof-shot work"><img src="i/inter-25050.jpg" alt="9 апреля — 8 мая: 25 050 взаимодействий" loading="lazy"><div class="proof-shot-caption">реакции · <strong>25&nbsp;050</strong></div></div>
+    </div>
+
+    <h3 style="text-align: center; margin-top: 80px;" class="reveal">Рилсы за&nbsp;месяц</h3>
+    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px;" class="reveal">Edits · 23 апреля&nbsp;— 23 мая 2026</p>
+    <div class="sprint-meta reveal">
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">738&nbsp;тыс.</div>
+        <div class="sprint-meta-label">просмотров Reels</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">461&nbsp;тыс.</div>
+        <div class="sprint-meta-label">охват</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">7,3&nbsp;тыс.</div>
+        <div class="sprint-meta-label">отправок в&nbsp;личку</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">18&nbsp;тыс.</div>
+        <div class="sprint-meta-label">лайков</div>
+      </div>
+    </div>
+
+    <div class="proof-shots pair reveal reveal-delay-1" style="margin-top: 48px;">
+      <div class="proof-shot"><img src="i/edits-738k.jpg" alt="Edits, 23 апреля — 23 мая: 738 тыс. просмотров Reels, охват 461 тыс." loading="lazy"><div class="proof-shot-caption">edits · <strong>738&nbsp;тыс.</strong></div></div>
+      <div class="proof-shot"><img src="i/top-content.jpg" alt="Топ роликов за 30 дней: 300 тыс., 56 тыс., 47 тыс., 38 тыс.; действия в профиле 2 739" loading="lazy"><div class="proof-shot-caption">топ · <strong>300 / 56 / 47 / 38&nbsp;тыс.</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CLIENT                                                       -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="client">
+  <div class="container-wide">
+    <div class="client-block">
+      <div class="reveal">
+        <span class="eyebrow">Клиент</span>
+        <div class="client-name">Артур Раджабов</div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <ul class="client-bullets">
+          <li><strong>Многократный чемпион России</strong>, серебряный призёр Европы по&nbsp;борьбе</li>
+          <li>Предприниматель, семьянин. Борьба, бокс, фитнес</li>
+          <li>Москва, Казань, Набережные Челны</li>
+        </ul>
+
+        <div class="client-meta">
+          <div class="client-meta-item">
+            <div class="ab-row-label">Точка А&nbsp;· 11 апреля 2026</div>
+            <p>Блог на&nbsp;<em style="color: var(--gold-bright);">349 подписчиков</em>: 4&nbsp;116 просмотров за&nbsp;месяц, публикации по&nbsp;300 просмотров. Шапка наполовину на&nbsp;английском, про всё сразу.</p>
+          </div>
+          <div class="client-meta-item">
+            <div class="ab-row-label">Запрос</div>
+            <p>Личный бренд: про спорт, бизнес и&nbsp;мужскую реализацию. Контент, который смотрят не&nbsp;только знакомые.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-shots pair reveal reveal-delay-2" style="margin-top: 64px;">
+      <div class="proof-shot"><img src="i/before-inter.jpg" alt="12 марта — 10 апреля: 103 взаимодействия" loading="lazy"><div class="proof-shot-caption">до&nbsp;работы · <strong>103</strong> взаимодействия</div></div>
+      <div class="proof-shot"><img src="i/before-grid.jpg" alt="Лента до работы: публикации по 227–343 просмотра" loading="lazy"><div class="proof-shot-caption">лента · <strong>на&nbsp;старте</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- METHODOLOGY                                                  -->
+<!-- ============================================================ -->
+<section id="method">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Метод · 7 блоков</span>
+      <h2>Что&nbsp;мы <em>сделали</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      Первые две недели&nbsp;— фундамент: кто такой Артур, о&nbsp;чём ему говорить и&nbsp;как это снимать без оператора. Дальше&nbsp;— ежедневные рилсы и&nbsp;сторис, разбор цифр каждую неделю.
+    </p>
+
+    <div class="block reveal">
+      <span class="block-num">01</span>
+      <h3>Распаковали личность</h3>
+      <p>Анкета на&nbsp;<strong>152 вопроса</strong> в&nbsp;10 блоках: детство, спорт, кома, путь в&nbsp;бизнес, отношения, хобби. Артур отвечал текстом и&nbsp;голосовыми.</p>
+      <div class="why">
+        <strong>Зачем:</strong> из&nbsp;распаковки берутся темы роликов и&nbsp;факты для&nbsp;сценариев. И&nbsp;понятно, о&nbsp;чём в&nbsp;блоге не&nbsp;говорим.
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">02</span>
+      <h3>Позиционирование и&nbsp;шапка</h3>
+      <div class="formula">
+        <div class="label">Шапка профиля · было</div>
+        <div class="quote profile-quote"><span>Multiple-time Russian Champion. Europe.</span><span>Борьба | Бокс | Фитнес | Дисциплина</span><span>Помогаю стать сильнее за&nbsp;30&nbsp;дней</span></div>
+      </div>
+      <div class="formula">
+        <div class="label">Шапка профиля · стало</div>
+        <div class="quote profile-quote"><span>Чемпион России · Серебро Европы</span><span>Предприниматель | Семьянин</span><span>Из&nbsp;комы&nbsp;— к&nbsp;медалям.</span><span>Из&nbsp;найма&nbsp;— к&nbsp;своему&nbsp;делу</span><span>Про спорт, бизнес и&nbsp;мужскую реализацию</span></div>
+      </div>
+      <p>Пять вариантов шапки, выбрали один. Вместо списка дисциплин&nbsp;— история человека в&nbsp;две строки.</p>
+      <div class="proof-shots headers" style="margin-top: 32px;">
+      <div class="proof-shot"><img src="i/before-profile.jpg" alt="Шапка до работы: Multiple-time Russian Champion" loading="lazy"><div class="proof-shot-caption">до&nbsp;работы · <strong>было</strong></div></div>
+      <div class="proof-shot"><img src="i/after-profile-2.jpg" alt="Новая шапка: Чемпион России, Серебро Европы, из комы — к медалям" loading="lazy"><div class="proof-shot-caption"><strong>стало</strong> · 390 подписчиков</div></div>
+      <div class="proof-shot"><img src="i/after-profile.jpg" alt="Новая шапка, 400 подписчиков" loading="lazy"><div class="proof-shot-caption"><strong>стало</strong> · 400 подписчиков</div></div>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">03</span>
+      <h3>Стратегия и&nbsp;актуальные</h3>
+      <ul class="refined">
+        <li><strong>8 направлений</strong> контента: социальные сценки, мотивация, мужская реализация, принципы, благотворительность, путешествия, лайфстайл, люди вокруг</li>
+        <li><strong>5 актуальных:</strong> Мой путь, Кома, Борьба, Спорт, Хобби</li>
+        <li><strong>25 тем</strong> для рилсов «Мужская реализация»&nbsp;— в&nbsp;машине, без подготовки</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">04</span>
+      <h3>Сценарии под съёмку без оператора</h3>
+      <p>Съёмочных дней не&nbsp;было: Артур снимал сам на&nbsp;телефон, по&nbsp;раскадровке, где расписано, кто держит камеру.</p>
+      <ul class="refined">
+        <li><strong>6 форматов:</strong> сценки с&nbsp;тренером, реакции, мысли за&nbsp;рулём, озвучка под видеоряд, тренды, говорящая голова</li>
+        <li><strong>До&nbsp;10 рилсов</strong> в&nbsp;неделю по&nbsp;плану</li>
+        <li>Манифест «Кто я?» под озвучку&nbsp;— каждый факт сверен с&nbsp;распаковкой</li>
+        <li>Описание к&nbsp;каждому ролику</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">05</span>
+      <h3>Нашли формат, который выстрелил</h3>
+      <p>Юмор через узнаваемые ситуации и&nbsp;сильный первый кадр: «От&nbsp;борьбы нет никаких последствий», «Ты&nbsp;чё такой здоровый?», тренер, тёща, бензин. Заголовок на&nbsp;экране, второй заголовок&nbsp;— в&nbsp;описании.</p>
+
+      <div class="formula" style="margin: 32px 0;">
+        <div class="label">«Реакция Армана на&nbsp;слова Шона Стрикленда»</div>
+        <div class="quote" style="font-family: var(--display); font-style: normal; font-variation-settings: 'opsz' 144, 'wght' 250, 'SOFT' 80; font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.03em; line-height: 1.1;">
+          <em>301&nbsp;952</em> просмотра.<br>
+          <em>96</em> подписчиков.
+        </div>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">06</span>
+      <h3>Сторис каждый день</h3>
+      <ul class="refined">
+        <li>План сторис на&nbsp;день по&nbsp;методу Миши Тимочко</li>
+        <li><strong>Конструктор ежедневных сторис:</strong> чем наполнить день, как проверить баланс</li>
+        <li>От&nbsp;<strong>14 до&nbsp;21 сторис</strong> в&nbsp;неделю</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <span class="block-num">07</span>
+      <h3>Разбор цифр каждую неделю</h3>
+      <ul class="refined">
+        <li><strong>7 отчётов</strong> за&nbsp;8 недель: каждый ролик с&nbsp;цифрами, что сработало и&nbsp;почему</li>
+        <li>Месячный разбор 11 удачных роликов: что у&nbsp;них общего</li>
+        <li>Созвоны-разборы и&nbsp;план на&nbsp;следующую неделю</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TIMELINE                                                     -->
+<!-- ============================================================ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Хронология</span>
+      <h2>Пять&nbsp;недель <em>роста</em></h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">11 апреля · старт</div>
+        <div class="timeline-title">4&#8239;116<span class="multiplier">просмотров за&nbsp;месяц до&nbsp;нас</span></div>
+        <ul class="timeline-stats">
+          <li>Срез аккаунта, задачи на&nbsp;первую неделю</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">12–21 апреля · фундамент</div>
+        <div class="timeline-title">152<span class="multiplier">вопроса распаковки</span></div>
+        <ul class="timeline-stats">
+          <li>Новая шапка, 5 актуальных, стратегия на&nbsp;8 направлений, первые сценарии</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">23 апреля · первый хит</div>
+        <div class="timeline-title">29&#8239;771<span class="multiplier">просмотр рилса</span></div>
+        <ul class="timeline-stats">
+          <li>«От&nbsp;борьбы нет никаких последствий»: 783 лайка, 588 отправок. Через пару недель&nbsp;— 47&nbsp;тыс.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">12–25 апреля · две недели</div>
+        <div class="timeline-title">70&#8239;250<span class="multiplier">просмотров за&nbsp;14 дней</span></div>
+        <ul class="timeline-stats">
+          <li>Охват 40&nbsp;378, взаимодействий 2&nbsp;848, посещения профиля 838</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">1 мая · тренер</div>
+        <div class="timeline-title">37&#8239;344<span class="multiplier">просмотра</span></div>
+        <ul class="timeline-stats">
+          <li>«Тренер: да&nbsp;у&nbsp;тебя соперники слабые…»&nbsp;— дальше 56&nbsp;тыс.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">8 мая · вирусный рилс</div>
+        <div class="timeline-title">301&#8239;952<span class="multiplier">просмотра за&nbsp;полтора суток</span></div>
+        <ul class="timeline-stats">
+          <li>«Реакция Армана на&nbsp;слова Шона Стрикленда в&nbsp;адрес Чимаева»: 8,5&nbsp;тыс. лайков, 2,3&nbsp;тыс. отправок, 96 подписок</li>
+          <li>Ролик выкладывают к&nbsp;себе в&nbsp;сторис другие аккаунты</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">8 мая · итог 30 дней</div>
+        <div class="timeline-title">569&#8239;133<span class="multiplier">просмотра аккаунта</span></div>
+        <ul class="timeline-stats">
+          <li>Охват <strong>358&nbsp;725</strong> · взаимодействий <strong>25&nbsp;050</strong> · посещений профиля <strong>2&nbsp;739</strong></li>
+        </ul>
+      </div>
+
+      <div class="timeline-item peak reveal">
+        <div class="timeline-date">17 мая · пик</div>
+        <div class="timeline-title">688&#8239;584<span class="multiplier">просмотра за&nbsp;30 дней</span></div>
+        <ul class="timeline-stats">
+          <li>Охват <strong>426&nbsp;227</strong>. Через неделю в&nbsp;Edits&nbsp;— <strong>738&nbsp;тыс.</strong> просмотров Reels за&nbsp;месяц</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VIRAL                                                        -->
+<!-- ============================================================ -->
+<section class="section-bg-deep" id="viral">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Хит</span>
+      <h2>Рилс <em>на&nbsp;300 тысяч</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      «Реакция Армана на&nbsp;слова Шона Стрикленда в&nbsp;адрес Чимаева»&nbsp;— вышел 8 мая. В&nbsp;первый вечер&nbsp;— <em>14&nbsp;912</em> просмотров, за&nbsp;полтора суток&nbsp;— <em>301&nbsp;952</em>.
+    </p>
+
+    <div class="proof-shots works-row w3 reveal reveal-delay-1" style="margin-bottom: 64px;">
+      <div class="proof-shot work"><img src="i/viral-start.jpg" alt="Первый вечер: 14 912 просмотров, 177 лайков, 9 подписок" loading="lazy"><div class="proof-shot-caption">8 мая · <strong>14&nbsp;912</strong></div></div>
+      <div class="proof-shot work"><img src="i/viral-graph.jpg" alt="График просмотров: рост до 300 тысяч за полтора суток" loading="lazy"><div class="proof-shot-caption">рост · <strong>300&nbsp;тыс.</strong></div></div>
+      <div class="proof-shot work"><img src="i/viral-301k.jpg" alt="301 952 просмотра, охват 211 811, 96 подписок" loading="lazy"><div class="proof-shot-caption">10 мая · <strong>301&nbsp;952</strong></div></div>
+    </div>
+
+    <div class="sprint-meta reveal">
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">8,5&nbsp;тыс.</div>
+        <div class="sprint-meta-label">лайков</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">2,3&nbsp;тыс.</div>
+        <div class="sprint-meta-label">отправок в&nbsp;личку</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">715</div>
+        <div class="sprint-meta-label">сохранений</div>
+      </div>
+      <div class="sprint-meta-cell">
+        <div class="sprint-meta-value">96</div>
+        <div class="sprint-meta-label">подписок с&nbsp;ролика</div>
+      </div>
+    </div>
+
+    <p class="aud-note reveal">Ещё <strong>69</strong> комментариев, <strong>108</strong> репостов и&nbsp;охват <strong>211&nbsp;811</strong>. Ролик выкладывали к&nbsp;себе в&nbsp;сторис чужие аккаунты&nbsp;— ники скрыты.</p>
+
+    <div class="proof-shots works-row reveal reveal-delay-1" style="margin-top: 48px;">
+      <div class="proof-shot work"><img src="i/repost-1.jpg" alt="Рилс Артура в сторис другого аккаунта" loading="lazy"><div class="proof-shot-caption">репост в&nbsp;сторис</div></div>
+      <div class="proof-shot work"><img src="i/repost-2.jpg" alt="Рилс Артура в сторис другого аккаунта" loading="lazy"><div class="proof-shot-caption">репост в&nbsp;сторис</div></div>
+      <div class="proof-shot work"><img src="i/repost-4.jpg" alt="Рилс Артура в сторис другого аккаунта" loading="lazy"><div class="proof-shot-caption">репост в&nbsp;сторис</div></div>
+      <div class="proof-shot work"><img src="i/repost-5.jpg" alt="Рилс Артура в сторис другого аккаунта" loading="lazy"><div class="proof-shot-caption">репост в&nbsp;сторис</div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================================ -->
+<!-- TESTIMONIAL HERO                                             -->
+<!-- ============================================================ -->
+<section class="testimonial-hero" id="testimonial">
+
+  <svg class="testimonial-ornament left" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <svg class="testimonial-ornament right" width="80" height="200" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 10 Q 30 50, 40 100 Q 50 150, 40 190" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5"/>
+    <circle cx="40" cy="10" r="2" fill="currentColor"/>
+    <circle cx="40" cy="100" r="3" fill="currentColor"/>
+    <circle cx="40" cy="190" r="2" fill="currentColor"/>
+    <path d="M30 100 L 50 100" stroke="currentColor" stroke-width="0.5"/>
+    <path d="M25 60 Q 40 70, 55 60" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    <path d="M25 140 Q 40 130, 55 140" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <div class="testimonial-mark">"</div>
+  <div class="container testimonial-content">
+    <div class="testimonial-eyebrow reveal">Отзыв клиента</div>
+    <div class="testimonial-text reveal reveal-delay-1">
+      <span class="testimonial-mega">Чётко</span> вообще
+    </div>
+    <div class="testimonial-author reveal reveal-delay-2">— Артур Раджабов</div>
+    <div class="testimonial-date reveal reveal-delay-3">рабочий чат</div>
+  </div>
+</section>
+
+<section style="padding: 96px 0 0;">
+  <div class="container-wide">
+    <div class="proof-shots reveal">
+      <div class="proof-shot thin"><img src="i/review-1.jpg" alt="Сообщение Артура: Чётко вообще" loading="lazy"><div class="proof-shot-caption">чат · ответ на&nbsp;ролик</div></div>
+      <div class="proof-shot thin"><img src="i/review-2.jpg" alt="Сообщение Артура: Чётко вообще" loading="lazy"><div class="proof-shot-caption">чат</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TOP REELS                                                    -->
+<!-- ============================================================ -->
+<section id="reels">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Просмотры и&nbsp;подписки</span>
+      <h2>Лучшие <em>рилсы</em></h2>
+    </div>
+
+    <p class="method-intro reveal reveal-delay-1">
+      Живые скрины статистики Instagram: сколько просмотров и&nbsp;подписок принёс каждый ролик. Больше всех подписчиков после хита с&nbsp;Арманом привели «Кто&nbsp;я?» и&nbsp;«Ты&nbsp;чё такой здоровый?».
+    </p>
+
+    <div class="proof-shots reveal reveal-delay-1" style="margin-bottom: 48px;">
+      <div class="proof-shot wide"><img src="i/subs-top.jpg" alt="Instagram, 3 апреля — 2 мая: самый результативный контент по числу подписок — «Кто я?» 9, «Ты чё такой здоровый?» 9, «Сколько должен зарабатывать мужчина» 4, «От борьбы нет никаких последствий» 2" loading="lazy"><div class="proof-shot-caption"><strong>лучшие ролики по&nbsp;подпискам</strong></div></div>
+    </div>
+
+    <div class="proof-shots reveal reveal-delay-1">
+      <div class="proof-shot" style="max-width: 420px; margin: 0 auto 32px;"><img src="i/viral-301k.jpg" alt="Рилс «Реакция Армана на слова Шона Стрикленда в адрес Чимаева»: 301 952 просмотра, 96 подписок" loading="lazy"><div class="proof-shot-caption"><strong>301&nbsp;952</strong> · 96&nbsp;подписок</div></div>
+    </div>
+
+    <div class="proof-shots works-row reveal reveal-delay-1">
+      <div class="proof-shot work"><img src="i/r-3088.jpg" alt="Рилс «Кто я?»: 3 088 просмотров, 8 подписок" loading="lazy"><div class="proof-shot-caption"><strong>3&nbsp;088</strong> · 8&nbsp;подписок</div></div>
+      <div class="proof-shot work"><img src="i/r-17735.jpg" alt="Рилс «Ты чё такой здоровый?»: 17 735 просмотров, 3 подписки" loading="lazy"><div class="proof-shot-caption"><strong>17&nbsp;735</strong> · 3&nbsp;подписки</div></div>
+      <div class="proof-shot work"><img src="i/r-18798.jpg" alt="Рилс про бензин: 18 798 просмотров, 3 подписки" loading="lazy"><div class="proof-shot-caption"><strong>18&nbsp;798</strong> · 3&nbsp;подписки</div></div>
+      <div class="proof-shot work"><img src="i/r-15288.jpg" alt="Рилс «Что видит семья»: 15 288 просмотров, 3 подписки" loading="lazy"><div class="proof-shot-caption"><strong>15&nbsp;288</strong> · 3&nbsp;подписки</div></div>
+    </div>
+
+    <h3 style="text-align: center; margin-top: 80px;" class="reveal">Рост подписчиков</h3>
+    <p class="aud-note reveal">Большая часть подписчиков приходит через профиль: человек смотрит ролик, заходит на&nbsp;страницу и&nbsp;подписывается уже там. Поэтому рост виден по&nbsp;всему аккаунту.</p>
+    <div class="proof-shots works-row w2 subs-row reveal reveal-delay-1" style="margin-top: 32px;">
+      <div class="proof-shot work"><img src="i/subs-49.jpg" alt="3 апреля — 2 мая: 385 подписчиков, 49 подписок, 15 отписок" loading="lazy"><div class="proof-shot-caption">апрель · <strong>49&nbsp;подписок</strong></div></div>
+      <div class="proof-shot work"><img src="i/subs-60.jpg" alt="9 апреля — 8 мая: 476 подписчиков, 60 подписок, 26 отписок" loading="lazy"><div class="proof-shot-caption">май · <strong>60&nbsp;подписок</strong></div></div>
+    </div>
+
+    <p style="text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin: 72px 0 24px;" class="reveal">цифры со&nbsp;скринов<br>апрель&nbsp;— май&nbsp;2026</p>
+
+    <p class="table-hint">таблица листается вбок →</p>
+    <div class="table-scroll reveal">
+    <table class="data-table reels-table">
+      <thead>
+        <tr>
+          <th>Рилс</th>
+          <th style="text-align:right;">Просмотры</th>
+          <th style="text-align:right;">Лайки</th>
+          <th style="text-align:right;">Отправки</th>
+          <th style="text-align:right;">Сохр.</th>
+          <th style="text-align:right;">Подписки</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: var(--gold-bright);">★</strong> «Реакция Армана на&nbsp;слова Шона Стрикленда в&nbsp;адрес Чимаева»</td>
+          <td class="num viral"><strong>301&nbsp;952</strong></td>
+          <td class="num viral">8,5K</td>
+          <td class="num viral">2,3K</td>
+          <td class="num viral">715</td>
+          <td class="num viral"><strong>96</strong></td>
+        </tr>
+        <tr>
+          <td>«Тренер: да&nbsp;у&nbsp;тебя соперники слабые…»</td>
+          <td class="num"><strong>37&nbsp;344</strong></td>
+          <td class="num">468</td>
+          <td class="num">195</td>
+          <td class="num">17</td>
+          <td class="num"><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td>«От&nbsp;борьбы нет никаких последствий»</td>
+          <td class="num"><strong>29&nbsp;771</strong></td>
+          <td class="num">783</td>
+          <td class="num">588</td>
+          <td class="num">53</td>
+          <td class="num"><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td>«Когда тёща сказала зятю…»</td>
+          <td class="num"><strong>23&nbsp;631</strong></td>
+          <td class="num">165</td>
+          <td class="num">280</td>
+          <td class="num">14</td>
+          <td class="num"><strong>1</strong></td>
+        </tr>
+        <tr>
+          <td>«Что будешь делать, когда бензин ещё подорожает?»</td>
+          <td class="num"><strong>18&nbsp;798</strong></td>
+          <td class="num">189</td>
+          <td class="num">187</td>
+          <td class="num">4</td>
+          <td class="num"><strong>3</strong></td>
+        </tr>
+        <tr>
+          <td>«Ты&nbsp;чё такой здоровый?»</td>
+          <td class="num"><strong>17&nbsp;735</strong></td>
+          <td class="num">345</td>
+          <td class="num">283</td>
+          <td class="num">39</td>
+          <td class="num"><strong>3</strong></td>
+        </tr>
+        <tr>
+          <td>«Что видит семья»</td>
+          <td class="num"><strong>15&nbsp;288</strong></td>
+          <td class="num">93</td>
+          <td class="num">143</td>
+          <td class="num">21</td>
+          <td class="num"><strong>3</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Итого · 7&nbsp;роликов</strong></td>
+          <td class="num viral"><strong>444&nbsp;519</strong></td>
+          <td class="num"></td>
+          <td class="num"></td>
+          <td class="num"></td>
+          <td class="num viral"><strong>109</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="aud-note reveal">Цифры&nbsp;— на&nbsp;день скрина. Ролики продолжали набирать: по&nbsp;ленте за&nbsp;30 дней «Тренер»&nbsp;— <strong>56&nbsp;тыс.</strong>, «От&nbsp;борьбы»&nbsp;— <strong>47&nbsp;тыс.</strong>, «Ты&nbsp;чё такой здоровый?»&nbsp;— <strong>38&nbsp;тыс.</strong></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer class="footer" id="contacts">
+  <div class="container">
+    <span class="eyebrow reveal">Контакты</span>
+    <h2 class="reveal reveal-delay-1">Связаться</h2>
+    <p class="footer-tagline reveal reveal-delay-2">По&nbsp;вопросам сотрудничества</p>
+
+    <div class="contacts reveal reveal-delay-3">
+
+      <a href="https://t.me/mhashimov_23" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.643.135-.953l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Telegram</span>
+            <span class="contact-handle">@mhashimov_23</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/mhashimov_" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-handle">@mhashimov_</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://youtube.com/@mhashimov_23" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a2.998 2.998 0 0 0-2.108-2.117C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.390.523A2.998 2.998 0 0 0 .502 6.186C0 8.070 0 12 0 12s0 3.930.502 5.814a2.998 2.998 0 0 0 2.108 2.117C4.495 20.454 12 20.454 12 20.454s7.505 0 9.390-.523a2.998 2.998 0 0 0 2.108-2.117C24 15.930 24 12 24 12s0-3.930-.502-5.814zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">YouTube</span>
+            <span class="contact-handle">Малик Хашимов</span>
+          </span>
+        </span>
+      </a>
+
+      <a href="https://t.me/mhashimov_69" target="_blank" class="contact-link tilt">
+        <span class="contact-link-inner">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+          <span class="contact-info">
+            <span class="contact-label">Telegram-канал</span>
+            <span class="contact-handle">@mhashimov_69</span>
+          </span>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="footer-meta reveal reveal-delay-4">
+      Кейс: Артур Раджабов × Малик Хашимов<br>
+      Период работы: 12&nbsp;апреля&nbsp;— 7&nbsp;июня&nbsp;2026<br>
+      Данные Instagram: 12&nbsp;марта&nbsp;— 23&nbsp;мая&nbsp;2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  const splash = document.getElementById('splash');
+  const splashCounter = document.getElementById('splashCounter');
+
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.floor(target * eased);
+      el.textContent = current.toLocaleString('ru-RU').replace(/\s/g, ' ');
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = target.toLocaleString('ru-RU').replace(/\s/g, ' ');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.remove('splash-active');
+    setTimeout(() => {
+      splash.style.display = 'none';
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in-view'), 100 + i * 100);
+      });
+    }, 800);
+  }
+
+  function skipSplash() {
+    hideSplash();
+  }
+
+  setTimeout(() => animateCounter(splashCounter, 688584, 1800), 700);
+  setTimeout(hideSplash, 3200);
+
+  document.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = (scrolled / total) * 100;
+    document.documentElement.style.setProperty('--scroll', percent + '%');
+  }
+  let progressTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!progressTicking) { requestAnimationFrame(() => { updateProgress(); progressTicking = false; }); progressTicking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  reveals.forEach(el => observer.observe(el));
+
+  const chartSection = document.querySelector('.chart-section');
+  if (chartSection) {
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartSection);
+  }
+
+  const heroNumber = document.querySelector('.hero-number[data-counter]');
+  if (heroNumber) {
+    const target = parseInt(heroNumber.getAttribute('data-counter'));
+    setTimeout(() => animateCounter(heroNumber, target, 2400), 3500);
+  }
+
+  const navDots = document.getElementById('navDots');
+  const dots = document.querySelectorAll('.nav-dot');
+  setTimeout(() => navDots.classList.add('visible'), 3400);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.getAttribute('data-target'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  const sections = ['hero', 'result', 'client', 'method', 'timeline', 'viral', 'reels', 'testimonial', 'contacts'];
+
+  function updateActiveDot() {
+    const scrollPos = window.scrollY + window.innerHeight / 3;
+    let activeId = sections[0];
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos) {
+        activeId = id;
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.classList.toggle('active', dot.getAttribute('data-target') === activeId);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveDot, { passive: true });
+  updateActiveDot();
+
+  const tiltElements = document.querySelectorAll('.tilt');
+
+  tiltElements.forEach(el => {
+    let rect = null;
+
+    el.addEventListener('mouseenter', () => {
+      rect = el.getBoundingClientRect();
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      if (!rect) rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+
+      const rotateY = ((x - cx) / cx) * 8;
+      const rotateX = -((y - cy) / cy) * 8;
+
+      el.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) translateY(0)';
+      rect = null;
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    tiltElements.forEach(el => {
+      el.style.transform = '';
+    });
+  });
+  (function () {
+    var w = document.getElementById('rpWrap'), b = document.getElementById('rpMore');
+    if (!w || !b) return;
+    b.addEventListener('click', function () {
+      var open = w.classList.toggle('open');
+      b.textContent = open ? 'свернуть' : 'показать все 234';
+      if (!open) w.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script>
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
+(function () {
+  var SEL = 'p, li, .why, .quote-text, .label, td, .timeline-date, .proof-shot-caption, .sprint-meta-label';
+  var NBSP = '\u00a0';
+  function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .timeline-title, .hero')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    /* сколько слов на последней строке */
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br') || el.closest('.timeline-title, .marquee')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
+      for (var step = 0; step < 4 && lastLine(el) <= 2; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        if (overflows(el)) { undo(); break; }
+        lastLine(el);
+        if (lastLine.prev <= 1) { undo(); break; }  /* не оставлять одно слово строкой выше */
+      }
+    });
+  }
+  function heads() {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function run() { numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+</script>
+</body>
+</html>
