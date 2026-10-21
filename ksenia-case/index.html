@@ -2973,6 +2973,20 @@
   .rp-count { text-align: center; margin-top: 8px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
   @media (max-width: 1000px) { .rp-grid { grid-template-columns: repeat(12, 1fr); } }
   @media (max-width: 720px) { .rp-grid { grid-template-columns: repeat(8, 1fr); gap: 2px; } .rp-wrap { max-height: 520px; } }
+
+  /* ---------- без горизонтального сдвига на телефоне ---------- */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  @supports (overflow: clip) { html, body { overflow-x: clip; } }
+  .chart-dot, .chart-peak-ring, .chart-peak-dot { transform-box: fill-box; transform-origin: center; }
+  .chart-wrap { overflow: hidden; }
+
+  /* ---------- без висячих строк ---------- */
+  h1, h2, h3, h4, .timeline-title, .timeline-date, .proof-shot-caption, .sprint-meta-label, .ab-label,
+  .eyebrow, .quote, .quote-meta, .label, td, th, .section-header p, p.reveal { text-wrap: balance; }
+  p, li, .why, .quote-text, .testimonial-text, .method-intro, .aud-note { text-wrap: pretty; }
+  @media (max-width: 380px) { .testimonial-text { font-size: 34px; } }
+  @media (max-width: 720px) { #youtube .section-header h2 { font-size: 38px; } }
+  @media (max-width: 380px) { #youtube .section-header h2 { font-size: 34px; } }
 </style>
 </head>
 <body class="splash-active">
@@ -3324,11 +3338,11 @@
       <h3>Позиционирование и&nbsp;упаковка</h3>
       <div class="formula">
         <div class="label">Шапка профиля · было</div>
-        <div class="quote">Квантовый ментор женской силы, родолог<br>Помогаю женщинам за&nbsp;4 недели выйти из&nbsp;выживания</div>
+        <div class="quote">Квантовый ментор женской силы,&nbsp;родолог<br>Помогаю женщинам за&nbsp;4 недели выйти&nbsp;из&nbsp;выживания</div>
       </div>
       <div class="formula">
         <div class="label">Шапка профиля · стало</div>
-        <div class="quote">Женский ментор для предпринимательниц<br>Убираю конкуренцию с&nbsp;партнёром за&nbsp;8 недель<br>Успех в&nbsp;бизнесе + женственность дома</div>
+        <div class="quote">Женский ментор для&nbsp;предпринимательниц<br>Убираю конкуренцию с&nbsp;партнёром за&nbsp;8&nbsp;недель<br>Успех в&nbsp;бизнесе + женственность&nbsp;дома</div>
       </div>
       <p>Новая шапка, актуальные, переупакованный Telegram-канал: название, описание, навигация.</p>
       <div class="proof-shots headers" style="margin-top: 32px;">
@@ -3796,7 +3810,7 @@
       </div>
       <div class="sprint-meta-cell">
         <div class="sprint-meta-value">203,6&nbsp;тыс.</div>
-        <div class="sprint-meta-label">просмотров за&nbsp;28 дней</div>
+        <div class="sprint-meta-label">просмотров · 28&nbsp;дней</div>
       </div>
       <div class="sprint-meta-cell">
         <div class="sprint-meta-value">105,5&nbsp;тыс.</div>
@@ -4413,5 +4427,95 @@
   })();
 </script>
 
+<script>
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
+(function () {
+  var SEL = 'p, li, .why, .quote-text, .label, td, .timeline-date, .proof-shot-caption, .sprint-meta-label';
+  var NBSP = '\u00a0';
+  function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .timeline-title, .hero')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    /* сколько слов на последней строке */
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br') || el.closest('.timeline-title, .marquee')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
+      for (var step = 0; step < 4 && lastLine(el) <= 2; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        if (overflows(el)) { undo(); break; }
+        lastLine(el);
+        if (lastLine.prev <= 1) { undo(); break; }  /* не оставлять одно слово строкой выше */
+      }
+    });
+  }
+  function heads() {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function run() { numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+</script>
 </body>
 </html>
