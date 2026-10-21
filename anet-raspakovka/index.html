@@ -8,7 +8,7 @@
 /* палитра из ленты @anet_alari: чёрный, графит, шоколад, серо-бежевый, молочный, карамель */
 :root{--bg:#0B0909;--bg2:#171313;--card:#F3EFEA;--card2:#ECE6DF;--line:rgba(74,59,51,.14);--edge:rgba(187,142,112,.28);--text:#262222;--mute:#6B625B;--dim:#8F857C;--accent:#BB8E70;--accent-d:#8B6146;--head:#0B0909;--milk:#F1EEEA;--taupe:#A39F99}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden;width:100%;max-width:100%}
+html,body{overflow-x:clip;width:100%;max-width:100%}
 body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(187,142,112,.20),transparent 70%),
@@ -81,7 +81,10 @@ section{padding:40px 0}
   .author{padding:20px 18px}
   .bmap{grid-template-columns:1fr}.qcard{padding:4px 18px}.howto{padding:20px 18px}.qt{font-size:14.5px}
 }
+
+.subnav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:10px 12px;background:rgba(11,9,9,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(187,142,112,.22)}.subnav a{font-family:Mulish,sans-serif;font-size:12.5px;letter-spacing:.03em;line-height:1.2;padding:7px 14px;border-radius:30px;border:1px solid rgba(187,142,112,.4);color:#D9D2CA;background:rgba(241,238,234,.05);text-decoration:none;transition:.15s}.subnav a:hover{color:#fff;border-color:#BB8E70;background:rgba(187,142,112,.18)}.subnav a.on{color:#0B0909;background:#BB8E70;border-color:#BB8E70;font-weight:700}@media(max-width:600px){.subnav{gap:5px;padding:8px 8px}.subnav a{font-size:11.5px;padding:6px 10px}}html{scroll-padding-top:64px}
 </style></head><body>
+<nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/anet/">Главная</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-temy/">Темник</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/anet-raspakovka/" class="on">Вопросы</a></nav>
 
 <header class="hero"><div class="wrap"><div class="hero-card">
   <div class="top">Октябрь 2026 · Распаковка</div>
