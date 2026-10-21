@@ -116,6 +116,9 @@ a.person:hover{transform:translateY(-3px);border-color:rgba(201,183,155,.45)}
 .box li{position:relative;padding:0 0 12px 18px;font-size:14.5px;color:var(--mute)}
 .box li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
 .box li b{font-weight:600;color:#F2EEE8}
+.mid-cta{text-align:center;margin:18px 0 10px}
+.mid-cta p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--accent)}
+.mid-cta .cta{margin-top:14px}
 /* финал */
 footer{text-align:center;padding:80px 0 70px}
 footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:10px}
@@ -136,7 +139,11 @@ footer .lead{margin:0 auto 6px;text-align:center}
  .niches .tt{flex-direction:column;gap:2px!important;padding:10px 12px 12px!important}
  .niches .tt h3{font-size:18px}
  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
- .people{grid-template-columns:repeat(2,1fr);gap:10px}
+ .people{grid-template-columns:1fr;gap:12px}
+ .ph,.person.top .ph{aspect-ratio:2.1/1}
+ .pb{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;padding:11px 14px 12px}
+ .pb b{grid-row:1/4;font-size:30px}
+ .pb .n{margin-top:0}
  .pb{padding:10px 11px 12px}
  .person b{font-size:24px}
  .shots{columns:2;column-gap:10px}
@@ -224,11 +231,12 @@ footer .lead{margin:0 auto 6px;text-align:center}
     <a class="tile half" href="https://hasimovmalik90-oss.github.io/Site-/kirill-case/">
       <div class="cov n1"><img src="i/c-kirill.jpg" alt="Профиль в Instagram" loading="lazy"></div>
       <div class="tb"><span class="k">Обучение съёмке · 3&nbsp;недели</span><h3>Кирилл Голдовский</h3>
-        <div class="num">2<small>выездных урока</small></div>
-        <p>Чемпион мира CISM по&nbsp;триатлону. Техника, четыре формата и&nbsp;съёмка без оператора.</p>
+        <div class="num">Снимает сам<small>без оператора</small></div>
+        <p>Чемпион мира CISM по&nbsp;триатлону. Техника, четыре формата и&nbsp;два выездных урока.</p>
         <span class="go">Смотреть кейс →</span></div>
     </a>
   </div>
+  <div class="mid-cta"><p>Хотите разобрать ваш блог?</p><a class="cta" href="https://thin-erica-531.notion.site/0bbc8b667bf041afb057a8e3321027ea" target="_blank" rel="noopener">Заявка на&nbsp;личную работу</a></div>
 </div></section>
 
 <!-- РОЛИКИ -->
