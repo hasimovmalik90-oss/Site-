@@ -1,0 +1,400 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Работы · Малик Хашимов</title>
+<meta name="description" content="Кейсы, ролики и проекты Малика Хашимова — продюсера блогов">
+<meta property="og:title" content="Работы · Малик Хашимов">
+<meta property="og:description" content="Кейсы, ролики, с кем работал и как проходит личная работа">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090A;--card:#131315;--card2:#17171A;--line:rgba(255,255,255,.07);--edge:rgba(201,183,155,.16);--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,183,155,.13),transparent 70%)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F2EEE8;line-height:1.1;text-wrap:balance}
+p{text-wrap:pretty}
+.hero{text-align:center;padding:84px 0 40px}
+.hero .top{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.hero h1{font-size:clamp(44px,7vw,76px);font-weight:300;text-shadow:0 0 40px rgba(201,183,155,.25)}
+.role{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-top:14px;font-weight:600}
+.hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.4vw,24px);color:var(--accent);margin:10px auto 0;max-width:640px}
+.motto{display:inline-block;margin-top:18px;padding:8px 20px;border:1px solid var(--edge);border-radius:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F2EEE8;background:rgba(201,183,155,.06);box-shadow:0 0 22px -6px rgba(201,183,155,.4)}
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.stats div{padding:12px 22px;border:1px solid var(--edge);border-radius:16px;background:linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 18px 40px -28px rgba(201,183,155,.35);min-width:150px}
+.stats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;color:#F4F0EA;line-height:1.1}
+.stats span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.cta{display:inline-block;margin-top:30px;padding:15px 30px;border-radius:40px;background:var(--accent);color:#0B0B0C;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 0 34px -4px rgba(201,183,155,.55);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 0 46px -2px rgba(201,183,155,.7)}
+.bar{position:sticky;top:0;z-index:20;background:rgba(9,9,10,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;color:var(--text);text-decoration:none;font-size:13.5px;padding:7px 14px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.04)}
+.nav a span{color:var(--accent);margin-left:7px;font-size:12px}
+.nav a:hover{border-color:rgba(201,183,155,.4)}
+section{padding:56px 0 10px;scroll-margin-top:70px}
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{font-size:clamp(28px,3.6vw,40px)}
+.cnt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.lead{color:var(--mute);max-width:720px;margin:0 0 22px;font-size:15px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:16px;overflow:hidden;box-shadow:0 18px 50px -30px rgba(201,183,155,.3)}
+/* кейсы */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding:10px 0 20px}
+.tiles .tile{grid-column:span 2}
+.tiles .tile.big,.tiles .tile.half{grid-column:span 3}
+.tile{display:flex;flex-direction:column;text-decoration:none;color:inherit;border:1px solid var(--edge);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 22px 50px -30px rgba(201,183,155,.35);transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-3px);border-color:rgba(201,183,155,.45)}
+.cov{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;aspect-ratio:3/2;background:#000}
+.cov{grid-template-rows:100%;overflow:hidden}
+.cov img{min-height:0}
+.cov.n1{display:block;position:relative;background:#0e0e10}
+.cov.n1 img{position:absolute;inset:0}
+.cov.n1.fit img{object-fit:contain;padding:14px}
+.cov img{width:100%;height:100%;object-fit:cover;display:block}
+.cov.n1 img{object-fit:cover;object-position:top}
+.tile.big .cov,.tile.half .cov{aspect-ratio:2/1.15}
+.tb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tb .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tb h3{font-size:28px;line-height:1.1}
+.tb .num{font-family:'Cormorant Garamond',serif;font-size:34px;color:#F4F0EA;line-height:1.1;margin-top:4px}
+.tb .num small{font-family:Mulish,sans-serif;font-size:13px;color:var(--mute);margin-left:6px}
+.tb p{font-size:14px;color:var(--mute)}
+.tb .go{margin-top:auto;padding-top:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+/* ниши */
+.niches{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.niches .tile .tt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 16px 16px}
+.niches .tt h3{font-size:22px}
+.niches .tt span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.more{display:inline-block;margin-top:18px;color:var(--accent);text-decoration:none;font-size:14px;padding:9px 18px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05)}
+/* ролики с просмотрами */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.media{aspect-ratio:9/16;background:#000}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+figcaption{padding:10px 12px 12px;display:flex;flex-direction:column;gap:1px}
+figcaption b{font-weight:600;font-size:14px;color:#F2EEE8}
+figcaption span{font-size:12.5px;color:var(--mute)}
+/* люди */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.person{display:block;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s}
+a.person:hover{transform:translateY(-3px);border-color:rgba(201,183,155,.45)}
+.ph{aspect-ratio:2/1;background:#0e0e10;overflow:hidden;border-bottom:1px solid var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.ph.wide img{object-fit:contain;object-position:center}
+.pb{padding:12px 14px 14px}
+.person b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:#F4F0EA;line-height:1.05}
+.person .n{display:block;margin-top:4px;font-weight:600;font-size:14.5px;color:#F2EEE8}
+.person .h{display:block;font-size:12.5px;color:var(--accent);word-break:break-all}
+.person .a{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
+.person.top{border-color:rgba(201,183,155,.32);box-shadow:0 0 30px -12px rgba(201,183,155,.45)}
+/* съёмки */
+.shots{columns:4 220px;column-gap:12px}
+.shots img{width:100%;display:block;margin:0 0 12px;border-radius:14px;border:1px solid var(--edge);break-inside:avoid}
+.shots.rev{columns:4 230px}
+.shots.rev img{border-radius:12px;background:#0e0e10}
+/* отзывы */
+.quotes{columns:3 280px;column-gap:14px}
+.quote{break-inside:avoid;margin:0 0 14px;padding:20px 20px 18px}
+.quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;line-height:1.25;color:#F2EEE8}
+.quote p::before{content:'«';color:var(--accent)}
+.quote p::after{content:'»';color:var(--accent)}
+.quote span{display:block;margin-top:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+/* этапы */
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;counter-reset:s}
+.step{padding:20px 20px 18px;position:relative}
+.step i{font-style:normal;font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;color:var(--accent);opacity:.9}
+.step h3{font-size:25px;margin:8px 0 8px}
+.step p{font-size:14px;color:var(--mute)}
+.note{margin-top:18px;color:var(--mute);font-size:14px}
+.adapt{padding:20px 24px;margin:6px 0 18px;border-color:rgba(201,183,155,.4);box-shadow:0 0 34px -12px rgba(201,183,155,.5);font-size:16px;color:#E8E4DE;max-width:860px}
+.adapt b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;color:#F4F0EA;display:block;margin-bottom:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.box{padding:22px 24px}
+.box h3{font-size:28px;margin-bottom:12px}
+.box ul{list-style:none}
+.box li{position:relative;padding:0 0 12px 18px;font-size:14.5px;color:var(--mute)}
+.box li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+.box li b{font-weight:600;color:#F2EEE8}
+/* финал */
+footer{text-align:center;padding:80px 0 70px}
+footer h2{font-size:clamp(30px,4vw,42px);margin-bottom:10px}
+footer .lead{margin:0 auto 6px;text-align:center}
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:880px;margin:40px auto 0}
+.contacts a{display:block;padding:18px;border:1px solid var(--edge);border-radius:14px;background:linear-gradient(180deg,var(--card2),var(--card));text-decoration:none}
+.contacts .t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.contacts .v{color:#F2EEE8;font-size:15px}
+@media(max-width:700px){
+ .wrap{padding:0 16px}
+ .hero{padding:48px 0 28px}
+ .stats div{min-width:0;flex:1 1 40%;padding:10px 12px}
+ .tiles{grid-template-columns:1fr;gap:14px}
+ .tiles .tile,.tiles .tile.big,.tiles .tile.half{grid-column:auto}
+ .tile.big .cov,.tile.half .cov{aspect-ratio:3/2}
+ .tb h3{font-size:25px}
+ .niches{grid-template-columns:repeat(2,1fr);gap:10px}
+ .niches .tt{flex-direction:column;gap:2px!important;padding:10px 12px 12px!important}
+ .niches .tt h3{font-size:18px}
+ .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+ .people{grid-template-columns:repeat(2,1fr);gap:10px}
+ .pb{padding:10px 11px 12px}
+ .person b{font-size:24px}
+ .shots{columns:2;column-gap:10px}
+ .shots img{margin-bottom:10px}
+ .quote p{font-size:21px}
+ .contacts{grid-template-columns:repeat(2,1fr)}
+ .two{grid-template-columns:1fr}
+ .box{padding:18px 18px}
+ .box h3{font-size:25px}
+ section{padding-top:44px}
+}
+</style></head><body>
+
+<header class="hero"><div class="wrap">
+  <div class="top">Работы · кейсы, ролики, проекты</div>
+  <h1>Малик Хашимов</h1>
+  <p class="role">Продюсер блогов</p>
+  <p class="sub">Проектирую личные бренды предпринимателей, блогеров, экспертов и&nbsp;бизнесов</p>
+  <p class="motto">Долго, дорого, ахуенно</p>
+  <div class="stats">
+    <div><b>7</b><span>кейсов</span></div>
+    <div><b>66</b><span>роликов в&nbsp;портфолио</span></div>
+    <div><b>30+</b><span>медийных людей</span></div>
+  </div>
+  <a class="cta" href="https://thin-erica-531.notion.site/0bbc8b667bf041afb057a8e3321027ea" target="_blank" rel="noopener">Заявка на&nbsp;личную работу</a>
+</div></header>
+
+<div class="bar"><div class="wrap"><nav class="nav">
+  <a href="#cases">Кейсы<span>7</span></a>
+  <a href="#reels">Ролики<span>66</span></a>
+  <a href="#people">С&nbsp;кем работал</a>
+  <a href="#backstage">Съёмки</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#process">Как проходит работа</a>
+  <a href="#contacts">Связаться</a>
+</nav></div></div>
+
+<!-- КЕЙСЫ -->
+<section id="cases"><div class="wrap">
+  <div class="shead"><h2>Кейсы</h2><span class="cnt">7 проектов</span></div>
+  <p class="lead">Каждый кейс&nbsp;— отдельная страница: точка А, что сделали, цифры со&nbsp;скриншотами статистики.</p>
+  <div class="tiles">
+    <a class="tile big" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">
+      <div class="cov n1"><img src="i/c-karolina.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Личный блог и&nbsp;бренд · 18&nbsp;месяцев</span><h3>Каролина Читанава</h3>
+        <div class="num">600&nbsp;→ 185&nbsp;000<small>подписчиков</small></div>
+        <p>100+ миллионов органических охватов, ролики на&nbsp;12&nbsp;млн и&nbsp;4,7&nbsp;млн, sold&nbsp;out каждой коллекции бренда.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile big" href="https://hasimovmalik90-oss.github.io/georgi-case/" target="_blank" rel="noopener">
+      <div class="cov n1 fit"><img src="i/c-georgi.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Предприниматель, стройка · 3&nbsp;месяца</span><h3>Георгий</h3>
+        <div class="num">0&nbsp;→ 2&nbsp;345<small>подписчиков с&nbsp;нуля</small></div>
+        <p>714&nbsp;712 просмотров за&nbsp;90&nbsp;дней, запросы на&nbsp;подряды, поставки и&nbsp;партнёрство в&nbsp;директ.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/aiza-case/" target="_blank" rel="noopener">
+      <div class="cov n1 fit"><img src="i/c-aziza.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Блог с&nbsp;нуля · 5&nbsp;недель</span><h3>Азиза</h3>
+        <div class="num">466&nbsp;454<small>просмотров за&nbsp;10&nbsp;дней</small></div>
+        <p>Новый аккаунт без рекламы. Ролик на&nbsp;234&nbsp;тыс. на&nbsp;второй день публикаций.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/artur-case/" target="_blank" rel="noopener">
+      <div class="cov n1"><img src="i/c-artur.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Спортсмен и&nbsp;предприниматель · 2&nbsp;месяца</span><h3>Артур Раджабов</h3>
+        <div class="num">688&nbsp;584<small>просмотров за&nbsp;30&nbsp;дней</small></div>
+        <p>Блог на&nbsp;349 подписчиков. Через пять недель&nbsp;— просмотры ×167, рилс на&nbsp;301&nbsp;952.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/ksenia-case/" target="_blank" rel="noopener">
+      <div class="cov n1"><img src="i/c-ksenia.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Эксперт и&nbsp;запуск · 3&nbsp;месяца</span><h3>Ксения Микаелян</h3>
+        <div class="num">701&nbsp;280<small>просмотров за&nbsp;30&nbsp;дней</small></div>
+        <p>Аккаунт в&nbsp;спящем режиме. Через полтора месяца&nbsp;— рилс на&nbsp;500&nbsp;881, YouTube с&nbsp;14 до&nbsp;100 подписчиков.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile half" href="https://hasimovmalik90-oss.github.io/Site-/tataurov-case/" target="_blank" rel="noopener">
+      <div class="cov n1"><img src="i/c-tataurov.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Наставник строителей · полное ведение</span><h3>Денис Татауров</h3>
+        <div class="num">1,2&nbsp;млн&nbsp;₽<small>запуск обучения</small></div>
+        <p>Упаковка блога с&nbsp;нуля, охват с&nbsp;13,8&nbsp;тыс. до&nbsp;100&nbsp;тыс. за&nbsp;30&nbsp;дней, запуск по&nbsp;заявкам и&nbsp;предоплатам.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+    <a class="tile half" href="https://hasimovmalik90-oss.github.io/Site-/kirill-case/" target="_blank" rel="noopener">
+      <div class="cov n1"><img src="i/c-kirill.jpg" alt="Профиль в Instagram" loading="lazy"></div>
+      <div class="tb"><span class="k">Обучение съёмке · 3&nbsp;недели</span><h3>Кирилл Голдовский</h3>
+        <div class="num">2<small>выездных урока</small></div>
+        <p>Чемпион мира CISM по&nbsp;триатлону. Техника, четыре формата и&nbsp;съёмка без оператора.</p>
+        <span class="go">Смотреть кейс →</span></div>
+    </a>
+  </div>
+</div></section>
+
+<!-- РОЛИКИ -->
+<section id="reels"><div class="wrap">
+  <div class="shead"><h2>Ролики по&nbsp;нишам</h2><span class="cnt">66 роликов</span></div>
+  <p class="lead">Reels и&nbsp;вертикальное видео: съёмка, монтаж, сценарии. Внутри каждой ниши&nbsp;— ролики со&nbsp;звуком.</p>
+  <div class="niches">
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#biz" target="_blank" rel="noopener"><div class="cov"><img src="i/p01.jpg" alt="" loading="lazy"><img src="i/p04.jpg" alt="" loading="lazy"><img src="i/p05.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Бизнес и&nbsp;предприниматели</h3><span>14 роликов</span></div></a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#psy" target="_blank" rel="noopener"><div class="cov"><img src="i/p15.jpg" alt="" loading="lazy"><img src="i/p18.jpg" alt="" loading="lazy"><img src="i/p19.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Психология и&nbsp;саморазвитие</h3><span>6 роликов</span></div></a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#life" target="_blank" rel="noopener"><div class="cov"><img src="i/p25.jpg" alt="" loading="lazy"><img src="i/p28.jpg" alt="" loading="lazy"><img src="i/p29.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Lifestyle, fashion, бьюти</h3><span>9 роликов</span></div></a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#vlog" target="_blank" rel="noopener"><div class="cov"><img src="i/p34.jpg" alt="" loading="lazy"><img src="i/p35.jpg" alt="" loading="lazy"><img src="i/p36.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Влоги</h3><span>4 ролика</span></div></a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#event" target="_blank" rel="noopener"><div class="cov"><img src="i/p38.jpg" alt="" loading="lazy"><img src="i/p39.jpg" alt="" loading="lazy"><img src="i/p41.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Мероприятия</h3><span>20 роликов</span></div></a>
+    <a class="tile" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/#service" target="_blank" rel="noopener"><div class="cov"><img src="i/p59.jpg" alt="" loading="lazy"><img src="i/p62.jpg" alt="" loading="lazy"><img src="i/p63.jpg" alt="" loading="lazy"></div><div class="tt"><h3>Сфера услуг</h3><span>6 роликов</span></div></a>
+  </div>
+  <a class="more" href="https://hasimovmalik90-oss.github.io/Site-/portfolio/" target="_blank" rel="noopener">Всё портфолио роликов →</a>
+
+  <h3 style="font-size:30px;margin:56px 0 6px">Ролики с&nbsp;просмотрами</h3>
+  <p class="lead">Рилсы, над&nbsp;которыми работал: съёмка, монтаж или сценарий.</p>
+  <div class="grid">
+    <figure class="card"><div class="media"><img src="i/r35.jpg" alt="Рилс, 1,7 млн просмотров" loading="lazy"></div><figcaption><b>1,7&nbsp;млн</b><span>Артур · спорт</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r82.jpg" alt="Рилс Виктории Бони, 1,5 млн просмотров" loading="lazy"></div><figcaption><b>1,5&nbsp;млн</b><span>Виктория Боня</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r17.jpg" alt="Рилс Саши Гончаровой, 426 тыс. просмотров" loading="lazy"></div><figcaption><b>426&nbsp;тыс.</b><span>Саша Гончарова</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r80.jpg" alt="Рилс Павла Ракова, 401 тыс. просмотров" loading="lazy"></div><figcaption><b>401&nbsp;тыс.</b><span>Павел Раков</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r79.jpg" alt="Рилс Павла Ракова, 367 тыс. просмотров" loading="lazy"></div><figcaption><b>367&nbsp;тыс.</b><span>Павел Раков</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r32.jpg" alt="Рилс Адлера Коцбы, 148 тыс. просмотров" loading="lazy"></div><figcaption><b>148&nbsp;тыс.</b><span>Адлер Коцба</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r81.jpg" alt="Подкаст Макса Люшера, 137 тыс. просмотров" loading="lazy"></div><figcaption><b>137&nbsp;тыс.</b><span>Макс Люшер</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r31.jpg" alt="Рилс Анны Рудаковой, 76,1 тыс. просмотров" loading="lazy"></div><figcaption><b>76,1&nbsp;тыс.</b><span>Анна Рудакова</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r30.jpg" alt="Woman Who Matters, 47,9 тыс. просмотров" loading="lazy"></div><figcaption><b>47,9&nbsp;тыс.</b><span>Анна Рудакова</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r14.jpg" alt="Рилс Анастасии Филипповой, 46,5 тыс. просмотров" loading="lazy"></div><figcaption><b>46,5&nbsp;тыс.</b><span>Анастасия Филиппова</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r7.jpg" alt="Рилс Евгения Дьяконова, 37,3 тыс. просмотров" loading="lazy"></div><figcaption><b>37,3&nbsp;тыс.</b><span>Евгений Дьяконов</span></figcaption></figure>
+    <figure class="card"><div class="media"><img src="i/r11.jpg" alt="Рилс LAFAMILY, 23,8 тыс. просмотров" loading="lazy"></div><figcaption><b>23,8&nbsp;тыс.</b><span>LAFAMILY</span></figcaption></figure>
+  </div>
+</div></section>
+
+<!-- С КЕМ РАБОТАЛ -->
+<section id="people"><div class="wrap">
+  <div class="shead"><h2>С&nbsp;кем работал</h2><span class="cnt">31 проект</span></div>
+  <p class="lead">Медийные люди, эксперты и&nbsp;бренды. Скрины профилей, по&nbsp;нику&nbsp;— переход в&nbsp;Instagram.</p>
+  <div class="people">
+    <a class="card person top" href="https://www.instagram.com/victoriabonya/" target="_blank" rel="noopener"><div class="ph"><img src="i/u01.jpg" alt="Профиль Виктория Боня в Instagram" loading="lazy"></div><div class="pb"><b>13,6&nbsp;млн</b><span class="n">Виктория Боня</span><span class="h">@victoriabonya</span><span class="a">публичная личность</span></div></a>
+    <a class="card person top" href="https://www.instagram.com/tolya_sulyanov/" target="_blank" rel="noopener"><div class="ph"><img src="i/u02.jpg" alt="Профиль Толя Сульянов в Instagram" loading="lazy"></div><div class="pb"><b>1,7&nbsp;млн</b><span class="n">Толя Сульянов</span><span class="h">@tolya_sulyanov</span><span class="a">бренды и контент</span></div></a>
+    <a class="card person top" href="https://www.instagram.com/achekhova/" target="_blank" rel="noopener"><div class="ph"><img src="i/u03.jpg" alt="Профиль Анфиса Чехова в Instagram" loading="lazy"></div><div class="pb"><b>1,5&nbsp;млн</b><span class="n">Анфиса Чехова</span><span class="h">@achekhova</span><span class="a">телеведущая</span></div></a>
+    <a class="card person top" href="https://www.instagram.com/_mrsworld_/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u04.jpg" alt="Профиль Мари Градская в Instagram" loading="lazy"></div><div class="pb"><b>1&nbsp;млн</b><span class="n">Мари Градская</span><span class="h">@_mrsworld_</span><span class="a">fashion</span></div></a>
+    <a class="card person" href="https://www.instagram.com/pavelrakov/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u05.jpg" alt="Профиль Павел Раков в Instagram" loading="lazy"></div><div class="pb"><b>932&nbsp;тыс.</b><span class="n">Павел Раков</span><span class="h">@pavelrakov</span><span class="a">психолог</span></div></a>
+    <a class="card person" href="https://www.instagram.com/a.grigorets/" target="_blank" rel="noopener"><div class="ph"><img src="i/u06.jpg" alt="Профиль Тёма Григорец в Instagram" loading="lazy"></div><div class="pb"><b>560&nbsp;тыс.</b><span class="n">Тёма Григорец</span><span class="h">@a.grigorets</span><span class="a">бизнес-блог</span></div></a>
+    <a class="card person" href="https://www.instagram.com/roudakova.anna/" target="_blank" rel="noopener"><div class="ph"><img src="i/u07.jpg" alt="Профиль Анна Рудакова в Instagram" loading="lazy"></div><div class="pb"><b>548&nbsp;тыс.</b><span class="n">Анна Рудакова</span><span class="h">@roudakova.anna</span><span class="a">женское лидерство</span></div></a>
+    <a class="card person" href="https://www.instagram.com/tsoi.official/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u08.jpg" alt="Профиль Марго Зейналова в Instagram" loading="lazy"></div><div class="pb"><b>544&nbsp;тыс.</b><span class="n">Марго Зейналова</span><span class="h">@tsoi.official</span><span class="a">блогер</span></div></a>
+    <a class="card person" href="https://www.instagram.com/yura.muradyan/" target="_blank" rel="noopener"><div class="ph"><img src="i/u09.jpg" alt="Профиль Юрий Мурадян в Instagram" loading="lazy"></div><div class="pb"><b>431&nbsp;тыс.</b><span class="n">Юрий Мурадян</span><span class="h">@yura.muradyan</span><span class="a">коуч</span></div></a>
+    <a class="card person" href="https://www.instagram.com/viktoria_yanchevskaya/" target="_blank" rel="noopener"><div class="ph"><img src="i/u10.jpg" alt="Профиль Виктория Янчевская в Instagram" loading="lazy"></div><div class="pb"><b>264&nbsp;тыс.</b><span class="n">Виктория Янчевская</span><span class="h">@viktoria_yanchevskaya</span><span class="a">личный бренд</span></div></a>
+    <div class="card person"><div class="ph wide" style="background:#ffffff"><img src="i/u11.jpg" alt="Профиль Елена Каркукли в Instagram" loading="lazy"></div><div class="pb"><b>261&nbsp;тыс.</b><span class="n">Елена Каркукли</span><span class="a">фейсфитнес</span></div></div>
+    <a class="card person" href="https://www.instagram.com/kenny.vers/" target="_blank" rel="noopener"><div class="ph"><img src="i/u12.jpg" alt="Профиль Кирилл Артамонов в Instagram" loading="lazy"></div><div class="pb"><b>247&nbsp;тыс.</b><span class="n">Кирилл Артамонов</span><span class="h">@kenny.vers</span><span class="a">Reels и ИИ</span></div></a>
+    <a class="card person" href="https://www.instagram.com/adlerkotsba/" target="_blank" rel="noopener"><div class="ph"><img src="i/u13.jpg" alt="Профиль Адлер Коцба в Instagram" loading="lazy"></div><div class="pb"><b>191&nbsp;тыс.</b><span class="n">Адлер Коцба</span><span class="h">@adlerkotsba</span><span class="a">артист</span></div></a>
+    <a class="card person" href="https://www.instagram.com/ksenia_teleshova/" target="_blank" rel="noopener"><div class="ph"><img src="i/u14.jpg" alt="Профиль Ксения Телешова в Instagram" loading="lazy"></div><div class="pb"><b>150&nbsp;тыс.</b><span class="n">Ксения Телешова</span><span class="h">@ksenia_teleshova</span><span class="a">ведущая мероприятий</span></div></a>
+    <a class="card person" href="https://www.instagram.com/sergeartemyev/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u15.jpg" alt="Профиль Сергей Артемьев в Instagram" loading="lazy"></div><div class="pb"><b>135&nbsp;тыс.</b><span class="n">Сергей Артемьев</span><span class="h">@sergeartemyev</span><span class="a">эксперт</span></div></a>
+    <a class="card person" href="https://www.instagram.com/lafamily.ru/" target="_blank" rel="noopener"><div class="ph"><img src="i/u16.jpg" alt="Профиль LAFAMILY в Instagram" loading="lazy"></div><div class="pb"><b>125&nbsp;тыс.</b><span class="n">LAFAMILY</span><span class="h">@lafamily.ru</span><span class="a">детская одежда</span></div></a>
+    <a class="card person" href="https://www.instagram.com/xenia___official/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u17.jpg" alt="Профиль Xenia в Instagram" loading="lazy"></div><div class="pb"><b>124&nbsp;тыс.</b><span class="n">Xenia</span><span class="h">@xenia___official</span><span class="a">блогер</span></div></a>
+    <a class="card person" href="https://www.instagram.com/miss_versaviya/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u18.jpg" alt="Профиль Светлана Гааг в Instagram" loading="lazy"></div><div class="pb"><b>117&nbsp;тыс.</b><span class="n">Светлана Гааг</span><span class="h">@miss_versaviya</span><span class="a">биохакер</span></div></a>
+    <a class="card person" href="https://www.instagram.com/sashasence/" target="_blank" rel="noopener"><div class="ph"><img src="i/u19.jpg" alt="Профиль Саша Гончарова в Instagram" loading="lazy"></div><div class="pb"><b>93&nbsp;тыс.</b><span class="n">Саша Гончарова</span><span class="h">@sashasence</span><span class="a">маркетинг</span></div></a>
+    <a class="card person" href="https://www.instagram.com/dmilstein75/" target="_blank" rel="noopener"><div class="ph"><img src="i/u20.jpg" alt="Профиль Ден Мильштейн в Instagram" loading="lazy"></div><div class="pb"><b>80,9&nbsp;тыс.</b><span class="n">Ден Мильштейн</span><span class="h">@dmilstein75</span><span class="a">спортивное агентство</span></div></a>
+    <a class="card person" href="https://www.instagram.com/dashasibiryakova/" target="_blank" rel="noopener"><div class="ph"><img src="i/u21.jpg" alt="Профиль Даша Сибирякова в Instagram" loading="lazy"></div><div class="pb"><b>68&nbsp;тыс.</b><span class="n">Даша Сибирякова</span><span class="h">@dashasibiryakova</span><span class="a">школа астрологии</span></div></a>
+    <a class="card person" href="https://www.instagram.com/sasha_shankara/" target="_blank" rel="noopener"><div class="ph"><img src="i/u22.jpg" alt="Профиль Саша Шанкара в Instagram" loading="lazy"></div><div class="pb"><b>65&nbsp;тыс.</b><span class="n">Саша Шанкара</span><span class="h">@sasha_shankara</span><span class="a">предназначение</span></div></a>
+    <a class="card person" href="https://www.instagram.com/morana_tattoo/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u23.jpg" alt="Профиль Анастасия Филиппова в Instagram" loading="lazy"></div><div class="pb"><b>54,8&nbsp;тыс.</b><span class="n">Анастасия Филиппова</span><span class="h">@morana_tattoo</span><span class="a">тату-мастер</span></div></a>
+    <a class="card person" href="https://www.instagram.com/anet.swan/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u24.jpg" alt="Профиль Anet Swan в Instagram" loading="lazy"></div><div class="pb"><b>50&nbsp;тыс.</b><span class="n">Anet Swan</span><span class="h">@anet.swan</span><span class="a">предприниматель</span></div></a>
+    <a class="card person" href="https://www.instagram.com/rzaharova/" target="_blank" rel="noopener"><div class="ph"><img src="i/u25.jpg" alt="Профиль Рита Захарова в Instagram" loading="lazy"></div><div class="pb"><b>45,8&nbsp;тыс.</b><span class="n">Рита Захарова</span><span class="h">@rzaharova</span><span class="a">бьюти</span></div></a>
+    <div class="card person"><div class="ph wide" style="background:#ffffff"><img src="i/u26.jpg" alt="Профиль Frezzi Baba в Instagram" loading="lazy"></div><div class="pb"><b>29,1&nbsp;тыс.</b><span class="n">Frezzi Baba</span><span class="a">блогер</span></div></div>
+    <a class="card person" href="https://www.instagram.com/sara.megre/" target="_blank" rel="noopener"><div class="ph"><img src="i/u27.jpg" alt="Профиль Сара Мегре в Instagram" loading="lazy"></div><div class="pb"><b>19,1&nbsp;тыс.</b><span class="n">Сара Мегре</span><span class="h">@sara.megre</span><span class="a">маркетплейсы</span></div></a>
+    <div class="card person"><div class="ph wide" style="background:#ffffff"><img src="i/u28.jpg" alt="Профиль Hair & Skin в Instagram" loading="lazy"></div><div class="pb"><b>17,3&nbsp;тыс.</b><span class="n">Hair&nbsp;&amp;&nbsp;Skin</span><span class="a">пересадка волос</span></div></div>
+    <a class="card person" href="https://www.instagram.com/dyakonow/" target="_blank" rel="noopener"><div class="ph"><img src="i/u29.jpg" alt="Профиль Евгений Дьяконов в Instagram" loading="lazy"></div><div class="pb"><b>13,5&nbsp;тыс.</b><span class="n">Евгений Дьяконов</span><span class="h">@dyakonow</span><span class="a">риелтор</span></div></a>
+    <a class="card person" href="https://www.instagram.com/liza.kolesovaa/" target="_blank" rel="noopener"><div class="ph wide" style="background:#ffffff"><img src="i/u30.jpg" alt="Профиль Лиза Колесова в Instagram" loading="lazy"></div><div class="pb"><b>13,2&nbsp;тыс.</b><span class="n">Лиза Колесова</span><span class="h">@liza.kolesovaa</span><span class="a">эксперт</span></div></a>
+    <div class="card person"><div class="ph wide" style="background:#ffffff"><img src="i/u31.jpg" alt="Профиль ТД Медси в Instagram" loading="lazy"></div><div class="pb"><b>12,1&nbsp;тыс.</b><span class="n">ТД Медси</span><span class="a">аппараты холодной плазмы</span></div></div>
+  </div>
+</div></section>
+
+<!-- СЪЁМКИ -->
+<section id="backstage"><div class="wrap">
+  <div class="shead"><h2>Съёмки</h2><span class="cnt">бэкстейдж</span></div>
+  <p class="lead">Студии, офисы, улица, мероприятия&nbsp;— кадры со&nbsp;съёмочных дней.</p>
+  <div class="shots">
+    <img src="i/b38.jpg" alt="Съёмка" loading="lazy"><img src="i/b40.jpg" alt="Съёмка в офисе" loading="lazy"><img src="i/b55.jpg" alt="Съёмка в студии" loading="lazy">
+    <img src="i/b61.jpg" alt="Съёмка интервью" loading="lazy"><img src="i/b57.jpg" alt="Съёмка с автомобилем" loading="lazy"><img src="i/b83.jpg" alt="Съёмка на хромакее" loading="lazy">
+    <img src="i/b41.jpg" alt="Студийный свет" loading="lazy"><img src="i/b64.jpg" alt="Съёмка эксперта" loading="lazy"><img src="i/b87.jpg" alt="Съёмка подкаста" loading="lazy">
+    <img src="i/b56.jpg" alt="Съёмочная площадка" loading="lazy"><img src="i/b85.jpg" alt="Съёмка на улице" loading="lazy"><img src="i/b62.jpg" alt="Съёмка интервью" loading="lazy">
+  </div>
+</div></section>
+
+<!-- ОТЗЫВЫ -->
+<section id="reviews"><div class="wrap">
+  <div class="shead"><h2>Отзывы</h2><span class="cnt">24 скрина</span></div>
+  <p class="lead">Сообщения из&nbsp;рабочих чатовСообщения из&nbsp;рабочих чатов&nbsp;— как есть.nbsp;— как есть, без правок.</p>
+  <div class="shots rev">
+    <img src="i/rv27.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv25.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv66.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv28.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv42.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rvk1.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv29.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rva1.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv18.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv21.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rvx1.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv24.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv1.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv19.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rvk2.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv3.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv36.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv43.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv22.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rvx2.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv44.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv20.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv2.jpg" alt="Отзыв в переписке" loading="lazy">
+    <img src="i/rv23.jpg" alt="Отзыв в переписке" loading="lazy">
+  </div>
+</div></section>
+
+<!-- КАК ПРОХОДИТ РАБОТА -->
+<section id="process"><div class="wrap">
+  <div class="shead"><h2>Как проходит личная работа</h2><span class="cnt">8 этапов</span></div>
+  <div class="card adapt"><b>Личная работа не&nbsp;идёт по&nbsp;шаблону.</b> Каждый этап адаптируем под&nbsp;ваш блог, вашу ситуацию, нишу и&nbsp;цели: что-то проходим глубже, что-то быстрее, порядок и&nbsp;формат подстраиваем под&nbsp;вас.</div>
+  <p class="lead">Продукт и&nbsp;контент строим на&nbsp;словах аудитории и&nbsp;тестах, а&nbsp;не&nbsp;на&nbsp;догадках. Каждый этап заканчивается результатом, который можно проверить.</p>
+  <div class="steps">
+    <div class="card step"><i>01</i><h3>Заявка</h3><p>Вы оставляете заявку через форму. Я&nbsp;читаю её сам и&nbsp;отвечаю лично.</p></div>
+    <div class="card step"><i>02</i><h3>Знакомство</h3><p>Созвон: где блог сейчас, куда хотим прийти и&nbsp;подходим&nbsp;ли мы друг другу.</p></div>
+    <div class="card step"><i>03</i><h3>Точка А</h3><p>Разбираем цифры, что заходит у&nbsp;аудитории, все ваши продукты и&nbsp;где теряются люди.</p></div>
+    <div class="card step"><i>04</i><h3>Распаковка</h3><p>100–150 вопросов голосом. На&nbsp;выходе документ о&nbsp;вас: история, ценности, смыслы, темы.</p></div>
+    <div class="card step"><i>05</i><h3>Позиционирование</h3><p>Одна линия и&nbsp;отстройка от&nbsp;конкурентов. Шапка профиля, актуальные, закреп.</p></div>
+    <div class="card step"><i>06</i><h3>Контент-система</h3><p>10–15 форматов под&nbsp;ваши смыслы, темы и&nbsp;сценарии. Понятно, что снимать каждую неделю.</p></div>
+    <div class="card step"><i>07</i><h3>Съёмка и&nbsp;ролики</h3><p>Снимаем и&nbsp;монтируем вместе, или вы&nbsp;снимаете сами, а&nbsp;я&nbsp;разбираю каждый рилс.</p></div>
+    <div class="card step"><i>08</i><h3>Сопровождение и&nbsp;рост</h3><p>Еженедельный разбор цифр, чат и&nbsp;отчёты. Когда блог готов&nbsp;— продукт, предпродажи и&nbsp;воронка.</p></div>
+  </div>
+
+  <div class="two">
+    <div class="card box">
+      <h3>Что входит в&nbsp;работу</h3>
+      <ul>
+        <li><b>Глубокая стратсессия на&nbsp;входе.</b> Понятная дорожная карта развития блога и&nbsp;проекта.</li>
+        <li><b>Регулярные встречи с&nbsp;разборами.</b> Вы&nbsp;всегда в&nbsp;фокусе на&nbsp;главном, без откатов назад и&nbsp;лишних действий.</li>
+        <li><b>Трекинг каждого этапа.</b> Вы&nbsp;точно знаете, что делать после каждого&nbsp;разбора.</li>
+        <li><b>Личный чат в&nbsp;Telegram.</b> Связь по&nbsp;ходу работы, вопросы не&nbsp;копятся до&nbsp;созвона.</li>
+        <li><b>База знаний и&nbsp;инструментов.</b> Шаблоны, материалы, разборы&nbsp;— всё в&nbsp;одном месте.</li>
+      </ul>
+    </div>
+    <div class="card box">
+      <h3>По&nbsp;итогу работы мы&nbsp;с&nbsp;вами</h3>
+      <ul>
+        <li><b>Выстроим стратегию и&nbsp;контент-модель,</b> которая даёт рост и&nbsp;при&nbsp;этом комфортна именно вам.</li>
+        <li><b>Наведём порядок в&nbsp;процессах.</b> Уберём хаос и&nbsp;рутину из&nbsp;ведения&nbsp;блога.</li>
+        <li><b>Сделаем рост в&nbsp;охватах, просмотрах и&nbsp;вовлечённости.</b> Без надрыва и&nbsp;выгорания.</li>
+        <li><b>Соберём продуктовую линейку.</b> Главный продукт, который продаётся через&nbsp;остальные.</li>
+        <li><b>Заложим фундамент для&nbsp;стабильного роста.</b> Каждую неделю разбор цифр и&nbsp;каждого рилса, темы на&nbsp;неделю вперёд, отчёт по&nbsp;итогам месяца. Рост становится системой, а&nbsp;не&nbsp;случайностью.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contacts"><div class="wrap">
+  <h2>Обсудим ваш блог</h2>
+  <p class="lead">Оставьте заявку на&nbsp;личную работу&nbsp;— отвечу лично.</p>
+  <a class="cta" href="https://thin-erica-531.notion.site/0bbc8b667bf041afb057a8e3321027ea" target="_blank" rel="noopener">Заявка на&nbsp;личную работу</a>
+  <div class="contacts">
+    <a href="https://t.me/mhashimov_23" target="_blank" rel="noopener"><div class="t">Telegram</div><div class="v">@mhashimov_23</div></a>
+    <a href="https://instagram.com/mhashimov_" target="_blank" rel="noopener"><div class="t">Instagram</div><div class="v">@mhashimov_</div></a>
+    <a href="https://t.me/mhashimov_69" target="_blank" rel="noopener"><div class="t">Telegram-канал</div><div class="v">@mhashimov_69</div></a>
+    <a href="https://www.youtube.com/@mhashimov" target="_blank" rel="noopener"><div class="t">YouTube</div><div class="v">Малик Хашимов</div></a>
+  </div>
+</div></footer>
+</body></html>
