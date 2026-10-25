@@ -1,0 +1,254 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Марина Феданова · Восемь столбов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--soft:#FFF6F9;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-size:15px;line-height:1.65;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,255,255,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(214,90,135,.22),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(214,90,135,.22),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(42px,7vw,68px);font-weight:400;letter-spacing:.01em}
+h2{font-size:clamp(26px,3.6vw,36px)}
+h3{font-size:clamp(19px,2.3vw,22px)}
+p{text-wrap:pretty}
+a{color:var(--accent-d);text-decoration:none}
+.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:rgba(255,250,252,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+.subnav a{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;color:var(--mute);border:1px solid transparent}
+.subnav a.on{color:#fff;background:var(--accent)}
+.subnav a:not(.on):hover{border-color:var(--edge)}
+.hero{text-align:center;padding:56px 0 20px}
+.hero-card{padding:44px 28px 34px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(240,170,195,.22),transparent 70%),#fff;box-shadow:0 26px 60px -30px rgba(140,30,75,.45)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:600}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:580px;margin:18px auto 0;color:var(--mute);font-size:14.5px}
+.navbox{margin:24px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.navbox a{display:flex;align-items:center;gap:8px;justify-content:center;min-height:44px;padding:8px 10px;border:1px solid var(--edge);border-radius:10px;font-size:13px;color:var(--text);background:var(--soft);text-align:center}
+.navbox a b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--accent)}
+.navbox a:hover{border-color:var(--accent)}
+.blk{padding:14px 0}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:20px;padding:30px 28px 22px;box-shadow:0 22px 50px -28px rgba(140,30,75,.45),0 2px 6px -2px rgba(140,30,75,.10)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:10px;padding:5px 12px;border:1px solid var(--edge);border-radius:30px;background:#fff}
+.bm{color:var(--mute);font-size:14px;margin-top:8px}
+.how{list-style:none;margin-top:12px}
+.how li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.how li:last-child{border-bottom:none}
+.how li::before{content:'';position:absolute;left:2px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+/* дословно */
+.tl{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.tl span{width:100%;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.tl a{font-size:12px;border:1px solid var(--edge);border-radius:14px;padding:3px 10px;color:var(--mute);background:#fff}
+.qa{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 20px 14px;margin-top:12px;scroll-margin-top:60px}
+.qa:target{border-color:var(--accent)}
+.qh{display:flex;gap:14px;align-items:flex-start}
+.qn{flex:none;min-width:30px;font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.05;color:var(--accent)}
+.qh h3{font-size:clamp(18px,2.2vw,20px)}
+.ans{margin:10px 0 0 44px}
+.ans p{font-size:15px}
+.ans p+p{margin-top:8px}
+.meta{font-size:11px;letter-spacing:.06em;color:var(--dim);margin-bottom:4px}
+.tx{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-d);margin-right:6px}
+/* столбы */
+.top5{list-style:none;counter-reset:t;margin-top:12px}
+.top5 li{counter-increment:t;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 0 12px 46px;position:relative;border-bottom:1px solid var(--line)}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(t);position:absolute;left:4px;top:6px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent)}
+.top5 a{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--head);line-height:1.25}
+.top5 .tp{order:-1;width:100%;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.ph{display:flex;gap:18px;align-items:center}
+.pnum{flex:none;font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;line-height:.9;color:var(--accent)}
+.ph .eyebrow{margin-bottom:6px}
+.line{margin:14px 0 6px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:15px}
+.th{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px 14px;margin-top:12px;scroll-margin-top:60px}
+.th:target{border-color:var(--accent)}
+.thh{display:flex;gap:14px;align-items:flex-start}
+.tn{flex:none;min-width:24px;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent)}
+.star{display:inline-block;vertical-align:middle;margin-left:10px;font-family:Mulish,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:20px;padding:3px 9px}
+.what{font-size:14px;color:var(--mute);margin-top:4px}
+.tb{margin:10px 0 0 38px}
+.carrier{font-size:15px}
+.carrier b{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-bottom:3px}
+blockquote{margin:10px 0 0;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.35;color:var(--head)}
+.note{margin-top:10px;padding:9px 12px;border-radius:10px;border:1px dashed rgba(214,110,145,.5);background:#FFF1F5;font-size:13px;color:var(--mute)}
+.src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.src a{font-size:11.5px;border:1px solid var(--edge);border-radius:14px;padding:3px 10px;color:var(--mute);background:#fff}
+.src a:hover{border-color:var(--accent-d);color:var(--text)}
+.rl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.rl>div{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px}
+.rl h3{font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.rl .yes h3{color:#3D7A55}.rl .ask h3{color:#A2741F}.rl .no h3{color:#B23A48}
+.rl .no{background:#FFF1F3;border-color:rgba(178,58,72,.22)}
+.rl ul{list-style:none}
+.rl li{padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.5}
+.rl li:last-child{border-bottom:none}
+.rl li small{display:block;color:var(--dim);font-size:11.5px;margin-top:2px}
+footer{text-align:center;padding:30px 0 64px;color:var(--mute);font-size:13px}
+footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:6px}
+@media(max-width:700px){.rl{grid-template-columns:1fr}}
+@media(max-width:600px){
+  body{font-size:14.5px}.wrap{padding:0 16px}
+  .hero{padding:30px 0 12px}.hero-card{padding:34px 16px 24px;border-radius:20px}
+  .navbox{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.navbox a{font-size:12.5px}
+  .card{padding:22px 16px 16px;border-radius:16px}
+  .qa,.th{padding:14px 14px 12px}.ans{margin-left:0}.tb{margin-left:0}
+  .pnum{font-size:46px}.ph{gap:12px}
+  .subnav{gap:4px;padding:8px}.subnav a{font-size:11.5px;padding:5px 9px}
+}
+</style></head><body><nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/" class="on">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/">Вопросы</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/">Видение блога</a></nav>
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Октябрь 2026 · Распаковка</div>
+  <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
+  <h1>Марина Феданова</h1>
+  <p class="slogan">Восемь столбов</p>
+  <p class="pos">49 тем из&nbsp;твоих ответов, по&nbsp;восьми столбам. У&nbsp;каждой&nbsp;— история, твоя цитата и&nbsp;ссылка на&nbsp;ответ. Внизу&nbsp;— красные линии: что берём в&nbsp;блог, что только с&nbsp;твоего согласия и&nbsp;что не&nbsp;берём.</p>
+  <div class="navbox"><a href="#p01"><b>01</b>Ценности</a><a href="#p02"><b>02</b>Люди</a><a href="#p03"><b>03</b>Путь</a><a href="#p04"><b>04</b>Принципы</a><a href="#p05"><b>05</b>Характер</a><a href="#p06"><b>06</b>Тело и&nbsp;спорт</a><a href="#p07"><b>07</b>Деньги</a><a href="#p08"><b>08</b>Дом и&nbsp;дети</a><a href="#red"><b>·</b>Красные линии</a></div>
+</div></div></header>
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">С чего начинаем</span><h2>Пять главных тем</h2>
+  <ol class="top5"><li><span class="tp">Путь</span><a href="#s0">Падел вернул тебе себя</a></li><li><span class="tp">Дом и&nbsp;дети</span><a href="#s1">«Мам, ты&nbsp;девятисотая ракетка мира»</a></li><li><span class="tp">Путь</span><a href="#s2">Благотворительный турнир 28 ноября</a></li><li><span class="tp">Принципы</span><a href="#s3">«Ради меня всё изменится» — не&nbsp;изменится</a></li><li><span class="tp">Характер</span><a href="#s4">Маришка-вечеринка</a></li></ol>
+</div></div></section>
+<section class="blk" id="p01"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">01</span><div><span class="eyebrow">Столб 01</span><h2>Ценности</h2></div></div>
+  <p class="line">Любовь, доброта к&nbsp;людям и&nbsp;«нет ничего невозможного». Ты&nbsp;счастлива, когда спокойно внутри, и&nbsp;кайфуешь, когда отдаёшь.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Веришь в&nbsp;людей, хотя так считают не&nbsp;все</h3><p class="what">Твоё мнение, которое расходится с&nbsp;большинством.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;искренне веришь в&nbsp;доброту людей и&nbsp;хочешь видеть в&nbsp;них только хорошее. Даже подруга, по&nbsp;твоим словам, напоминает, что не&nbsp;все такие.</p><blockquote>«я&nbsp;очень верю в&nbsp;доброту людей»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v22">ответ на&nbsp;вопрос 22</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Счастье — когда спокойно внутри</h3><p class="what">Ты&nbsp;счастлива даже в&nbsp;непростые периоды.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Что бы&nbsp;ни&nbsp;происходило, ты&nbsp;чувствуешь себя счастливой, потому что в&nbsp;любую точку пришла сама. Счастье — когда спокойно внутри и&nbsp;все близкие здоровы.</p><blockquote>«счастье — это когда тебе спокойно внутри»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v24">ответ на&nbsp;вопрос 24</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Отдавать проще, чем зарабатывать</h3><p class="what">Почему ты&nbsp;занимаешься благотворительностью.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Помогать людям — огромное удовольствие. В&nbsp;Волжском ты&nbsp;устраивала благотворительные вечеринки для детей с&nbsp;ДЦП, сейчас готовишь благотворительный турнир по&nbsp;паделу.</p><blockquote>«я&nbsp;прямо от&nbsp;этого очень кайфую»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v28">ответ на&nbsp;вопрос 28</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v47">ответ на&nbsp;вопрос 46</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v126">ответ на&nbsp;вопрос 123</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>«Нет ничего невозможного» — детям</h3><p class="what">Что ты&nbsp;передаёшь Дане, Сергею и&nbsp;Кате.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Если есть желание и&nbsp;упорство, можно достичь всего. Этому же&nbsp;ты&nbsp;учишь в&nbsp;воспитании: спорт, доброта, самостоятельность.</p><blockquote>«нет ничего невозможного»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v30">ответ на&nbsp;вопрос 30</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v64">ответ на&nbsp;вопрос 63</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Мне ничего не&nbsp;страшно</h3><p class="what">Чем ты&nbsp;гордишься.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;гордишься своей жизнью, тремя детьми и&nbsp;тем, что тебе ничего не&nbsp;страшно.</p><blockquote>«мне вообще ничего не&nbsp;страшно»</blockquote><p class="note">В&nbsp;этом же&nbsp;ответе — развод. Его не&nbsp;берём, берём «ничего не&nbsp;страшно» и&nbsp;детей.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v29">ответ на&nbsp;вопрос 29</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Любовь — главное</h3><p class="what">Что для тебя важнее всего.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Любовь. Всё остальное приложится.</p><blockquote>«Для меня важнее всего любовь»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v21">ответ на&nbsp;вопрос 21</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p02"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">02</span><div><span class="eyebrow">Столб 02</span><h2>Люди</h2></div></div>
+  <p class="line">Подруги по&nbsp;15–18 лет, пятница с&nbsp;ними — святое. Ты&nbsp;не&nbsp;ссоришься, а&nbsp;споришь. Учишься говорить «нет».</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Подруги, с&nbsp;которыми больше 15 лет</h3><p class="what">Женская дружба, в&nbsp;которую ты&nbsp;веришь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Аня Худоян и&nbsp;Яна — больше 18 лет, Нина — больше 15. Настя Манцурова — около шести лет, с&nbsp;ней и&nbsp;падел, и&nbsp;тусовки, и&nbsp;путешествия. Вдвоём вы&nbsp;ездили в&nbsp;Мадрид, Лондон и&nbsp;Париж на&nbsp;Premier Padel.</p><blockquote>«Мы&nbsp;все дружим больше пятнадцати лет»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v31">ответ на&nbsp;вопрос 32</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v32">ответ на&nbsp;вопрос 33</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v134">ответ на&nbsp;вопрос 130</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Пятница с&nbsp;подружками — святое</h3><p class="what">Твой ритуал отдыха.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;много тренируешься, а&nbsp;пятница с&nbsp;подругами — самое любимое и&nbsp;неприкосновенное.</p><blockquote>«пятница с&nbsp;подружками — это святое»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v69">ответ на&nbsp;вопрос 67</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Не&nbsp;ссора, а&nbsp;разговор</h3><p class="what">Как ты&nbsp;ведёшь себя в&nbsp;споре.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ссориться ты&nbsp;терпеть не&nbsp;можешь, но&nbsp;любишь дискутировать. Ссора для тебя — повышенные тона и&nbsp;«отвали». Обо всём можно договориться, если люди умеют разговаривать.</p><blockquote>«обо всём можно договориться, если люди умеют разговаривать»</blockquote><p class="note">В&nbsp;ответе есть бывший парень. Берём как общую тему, без него.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v40">ответ на&nbsp;вопрос 41</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Учусь говорить «нет»</h3><p class="what">То, над чем ты&nbsp;работаешь сейчас.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Отказывать людям тебе тяжело, но&nbsp;ты&nbsp;учишься. Ты&nbsp;стала сильнее и&nbsp;не&nbsp;делаешь того, чего не&nbsp;хочешь.</p><blockquote>«мне нелегко отказать людям, но&nbsp;я&nbsp;учусь сейчас»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v43">ответ на&nbsp;вопрос 44</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#t71">ответ на&nbsp;вопрос 60</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Подругу простить могу</h3><p class="what">Где твоя граница прощения.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Про тебя распускали слухи в&nbsp;компании, ты&nbsp;перестала общаться, потом вы&nbsp;поговорили. Подругу, если видишь искренность, ты&nbsp;простишь, мужчине предательство — нет.</p><blockquote>«если я&nbsp;вижу искренность, то&nbsp;я&nbsp;могу простить»</blockquote><p class="note">Без имён.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v41">ответ на&nbsp;вопрос 42</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v25">ответ на&nbsp;вопрос 25</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Мой круг из&nbsp;падела</h3><p class="what">Люди вокруг корта.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Благодаря паделу круг общения очень расширился: все дружат и&nbsp;общаются. Всех топовых тренеров ты&nbsp;знаешь лично и&nbsp;можешь позвать любого. Из&nbsp;падела близка Маша Саух.</p><blockquote>«всех топовых тренеров знаю лично»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v121">ответ на&nbsp;вопрос 118</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v122">ответ на&nbsp;вопрос 119</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v42">ответ на&nbsp;вопрос 43</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p03"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">03</span><div><span class="eyebrow">Столб 03</span><h2>Путь</h2></div></div>
+  <p class="line">С&nbsp;18 лет всё сама: Москва, хостес и&nbsp;модель, Волжский, марафоны и&nbsp;магазины, Дубай, падел и&nbsp;блог.</p>
+    <div class="th" id="s0"><div class="thh"><span class="tn">1</span><div><h3>Падел вернул тебе себя<span class="star">главное</span></h3><p class="what">Как падел изменил твою жизнь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Два года ты&nbsp;играла в&nbsp;теннис ради кардио. В&nbsp;паделе сразу стала играть с&nbsp;мужчинами и&nbsp;поняла, что ты&nbsp;классная девчонка — поднялась самооценка. Потом пошли турниры и&nbsp;победы, даже российские. «Не&nbsp;представляю свою жизнь без падела».</p><blockquote>«поняла, что я&nbsp;классная девчонка»</blockquote><p class="note">В&nbsp;ответе есть «хотела развестись». Без развода — только как падел вернул самооценку.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v52">ответ на&nbsp;вопрос 52</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v53">ответ на&nbsp;вопрос 53</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v125">ответ на&nbsp;вопрос 122</a></div></div></div>
+    <div class="th" id="s2"><div class="thh"><span class="tn">2</span><div><h3>Благотворительный турнир 28 ноября<span class="star">главное</span></h3><p class="what">Большая история с&nbsp;развитием: подготовка, люди, сам день.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Buenos даёт клуб бесплатно. Две группы: медийные люди и&nbsp;профи твоего уровня. Профи-игроки согласились играть бесплатно, ты&nbsp;зовёшь известных футболистов и&nbsp;медийных людей.</p><blockquote>«проф-игроки согласились бесплатно играть»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v126">ответ на&nbsp;вопрос 123</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v2">ответ на&nbsp;вопрос 1</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Катар: хотела отменить и&nbsp;поехала</h3><p class="what">Самый смелый поступок.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>На&nbsp;FIP в&nbsp;Катар поехала вслед за&nbsp;сборной России. Очень нервничала и&nbsp;хотела отменить турнир. Сыграли так же, как первая ракетка России, — и&nbsp;ты&nbsp;собой довольна.</p><blockquote>«Я&nbsp;хотела отменить реально турнир»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v79">ответ на&nbsp;вопрос 77</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v54">ответ на&nbsp;вопрос 54</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Из&nbsp;Богородицка в&nbsp;Москву в&nbsp;18</h3><p class="what">Ты&nbsp;всё делаешь сама с&nbsp;18 лет.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Маленький душевный Богородицк, суперактивное детство и&nbsp;спорт. В&nbsp;18 уехала в&nbsp;Москву, чтобы ни&nbsp;от&nbsp;кого не&nbsp;зависеть: официантка в&nbsp;16, хостес в&nbsp;White Rabbit, модель на&nbsp;выставках, агент по&nbsp;недвижимости.</p><blockquote>«Я&nbsp;с&nbsp;восемнадцати лет ушла из&nbsp;дома и&nbsp;всё сама делала»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v18">ответ на&nbsp;вопрос 18</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v11">ответ на&nbsp;вопрос 10</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v15">ответ на&nbsp;вопрос 15</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v48">ответ на&nbsp;вопрос 47</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Хотела стать стилистом</h3><p class="what">Мечта детства, к&nbsp;которой ты&nbsp;вернулась по-своему.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Родители решили, что стилист никому не&nbsp;нужен, и&nbsp;ты&nbsp;стала экономистом, ни&nbsp;дня не&nbsp;проработав по&nbsp;профессии. Сейчас к&nbsp;тебе раз в&nbsp;неделю приходит свой стилист.</p><blockquote>«Я&nbsp;хотела стать стилистом»</blockquote><p class="note">Родители здесь — бережно: сейчас у&nbsp;вас прекрасные отношения.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v17">ответ на&nbsp;вопрос 17</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v131">ответ на&nbsp;вопрос 127</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>«Давай завтра на&nbsp;Садовод»</h3><p class="what">Сколько раз ты&nbsp;начинала заново.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Фотограф, нутрициолог, фитнес-туры и&nbsp;марафоны в&nbsp;Волжском, два магазина вещей. Беременная третьим ребёнком, с&nbsp;подругой на&nbsp;кухне решили делать магазин на&nbsp;ВБ&nbsp;— назавтра поехали на&nbsp;Садовод, потом закупались в&nbsp;Турции.</p><blockquote>«Давай прямо завтра поедем на&nbsp;Садовод»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v46">ответ на&nbsp;вопрос 46</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">7</span><div><h3>Вокал два месяца — и&nbsp;не&nbsp;бросаю</h3><p class="what">Работа над собой, которую видно.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;всегда мечтала петь и&nbsp;много раз бросала. Сейчас два месяца не&nbsp;бросаешь. Тебе не&nbsp;нравится, как ты&nbsp;поёшь, ты&nbsp;идеалист, и&nbsp;принять, что пока получается плохо, — твоя терапия. Хочешь записать свою песню.</p><blockquote>«такая терапия, можно так сказать»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v49">ответ на&nbsp;вопрос 49</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v133">ответ на&nbsp;вопрос 129</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">8</span><div><h3>Научилась быть собой</h3><p class="what">Что тебе дал психолог.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;научилась быть самой собой, успокоилась и&nbsp;не&nbsp;хочешь «влетать» в&nbsp;непонятные отношения. Раньше на&nbsp;скорости влетала и&nbsp;обжигалась, теперь подходишь с&nbsp;головой.</p><blockquote>«я&nbsp;научилась быть самой собой»</blockquote><p class="note">Про психолога ты&nbsp;готова говорить. Расставания и&nbsp;людей — не&nbsp;называем.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v39">ответ на&nbsp;вопрос 40</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v23">ответ на&nbsp;вопрос 23</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v61">ответ на&nbsp;вопрос 60</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p04"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">04</span><div><span class="eyebrow">Столб 04</span><h2>Принципы</h2></div></div>
+  <p class="line">Спорт каждый день, доброта, не&nbsp;по&nbsp;головам. Не&nbsp;заходить туда, где понятно, что финала не&nbsp;будет.</p>
+    <div class="th" id="s3"><div class="thh"><span class="tn">1</span><div><h3>«Ради меня всё изменится» — не&nbsp;изменится<span class="star">главное</span></h3><p class="what">Главный вывод последних лет.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;всегда думала: «Сейчас я&nbsp;зайду, и&nbsp;ради меня всё изменится». Не&nbsp;меняется. Если с&nbsp;самого начала понятно, что хорошего финала не&nbsp;будет, в&nbsp;отношениях и&nbsp;в&nbsp;делах — не&nbsp;надо туда заходить.</p><blockquote>«Сейчас я&nbsp;зайду, вот ради меня всё изменится»</blockquote><p class="note">Без конкретных отношений — как правило жизни.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v60">ответ на&nbsp;вопрос 59</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v59">ответ на&nbsp;вопрос 59</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#t68">ответ на&nbsp;вопрос 59</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Спорт — как почистить зубы</h3><p class="what">Правило, которое ты&nbsp;не&nbsp;нарушаешь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Спорт минимум пять раз в&nbsp;неделю, а&nbsp;по&nbsp;факту каждый день и&nbsp;по&nbsp;два раза.</p><blockquote>«как почистить зубы»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v62">ответ на&nbsp;вопрос 61</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v81">ответ на&nbsp;вопрос 79</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Всё, что ни&nbsp;делается, — к&nbsp;лучшему</h3><p class="what">Совет, который ты&nbsp;повторяешь чаще всего.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Любая ситуация, от&nbsp;которой сначала в&nbsp;шоке, всегда приводит к&nbsp;твоей точке роста.</p><blockquote>«всегда приводит к&nbsp;твоей точке роста»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v70">ответ на&nbsp;вопрос 68</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v76">ответ на&nbsp;вопрос 74</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Не&nbsp;биться в&nbsp;дверь</h3><p class="what">Что ты&nbsp;делаешь, когда не&nbsp;получается.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Отступить, выдохнуть, расслабиться — и&nbsp;решение приходит.</p><blockquote>«На&nbsp;расслабоне всегда приходит своё решение»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v68">ответ на&nbsp;вопрос 66</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>На&nbsp;агрессию — улыбкой</h3><p class="what">Как ты&nbsp;ведёшь себя на&nbsp;корте.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вывести тебя трудно. На&nbsp;агрессию соперника отвечаешь добротой и&nbsp;улыбкой, это их&nbsp;бесит ещё больше. Партнёров всегда подбадриваешь и&nbsp;делаешь комплименты.</p><blockquote>«я&nbsp;на&nbsp;всю агрессию добротой и&nbsp;улыбкой отвечаю»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v66">ответ на&nbsp;вопрос 64</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Не&nbsp;по&nbsp;головам</h3><p class="what">Чего ты&nbsp;не&nbsp;сделаешь никогда.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Никогда не&nbsp;сделаешь того, что причинит кому-то&nbsp;боль, даже ради выгоды.</p><blockquote>«Не&nbsp;пошла бы&nbsp;по&nbsp;головам»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v63">ответ на&nbsp;вопрос 62</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p05"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">05</span><div><span class="eyebrow">Столб 05</span><h2>Характер</h2></div></div>
+  <p class="line">Весёлая, открытая, душа компании. Смеёшься над всем и&nbsp;над собой. Решаешь быстро.</p>
+    <div class="th" id="s4"><div class="thh"><span class="tn">1</span><div><h3>Маришка-вечеринка<span class="star">главное</span></h3><p class="what">Откуда прозвище.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;можешь потусоваться ночью, а&nbsp;в&nbsp;9 утра встать и&nbsp;пойти на&nbsp;спорт.</p><blockquote>«потом в&nbsp;9:00 утра встать спортом заниматься»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v71">ответ на&nbsp;вопрос 69</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Смеюсь над собой</h3><p class="what">Твоё чувство юмора — и&nbsp;чего ты&nbsp;хочешь от&nbsp;роликов.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Юмор для тебя главное, смеёшься над всем и&nbsp;над собой. Хочешь снимать через юмор, из&nbsp;блогеров нравятся юморные и&nbsp;стильные.</p><blockquote>«Я&nbsp;над всем могу смеяться, над всем, над собой»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v72">ответ на&nbsp;вопрос 70</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v137">ответ на&nbsp;вопрос 133</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v138">ответ на&nbsp;вопрос 134</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Душа компании</h3><p class="what">Какая ты&nbsp;среди людей.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Весёлая, открытая, «зажигалка». С&nbsp;любым найдёшь общий язык и&nbsp;поддержишь любую тему.</p><blockquote>«душа компании»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v75">ответ на&nbsp;вопрос 73</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Подумать — это не&nbsp;ко&nbsp;мне</h3><p class="what">Как ты&nbsp;принимаешь решения.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;очень быстрый человек: сразу да&nbsp;или нет. Сейчас учишься хотя бы&nbsp;немного размышлять.</p><blockquote>«Вот это вот подумать — это не&nbsp;ко&nbsp;мне»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v67">ответ на&nbsp;вопрос 65</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Всегда такая, какая есть</h3><p class="what">С&nbsp;кем тебе легко.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;не&nbsp;общаешься с&nbsp;теми, под кого надо подстраиваться. Не&nbsp;заходит человек по&nbsp;вайбу — не&nbsp;общаешься.</p><blockquote>«я&nbsp;всегда со&nbsp;всеми такая, какая я&nbsp;есть»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v78">ответ на&nbsp;вопрос 76</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Что не&nbsp;так с&nbsp;московским паделом</h3><p class="what">Твоё мнение изнутри.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Много теннисистов, которые только пришли и&nbsp;уже считают себя паделистами. Корт не&nbsp;забронировать, тренировки с&nbsp;хорошим тренером очень дорогие.</p><blockquote>«очень много теннисистов»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v123">ответ на&nbsp;вопрос 120</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p06"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">06</span><div><span class="eyebrow">Столб 06</span><h2>Тело и&nbsp;спорт</h2></div></div>
+  <p class="line">Тренировки каждый день, без диет и&nbsp;голодовок. Тело в&nbsp;форме благодаря паделу.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Голодала по&nbsp;40 часов — теперь падел</h3><p class="what">Как ты&nbsp;ушла от&nbsp;диет.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Раньше каждую неделю голодала по&nbsp;40 часов. С&nbsp;паделом перестала сидеть на&nbsp;диетах. Склонна к&nbsp;полноте — и&nbsp;скорректировала это спортом.</p><blockquote>«голодала по&nbsp;40 часов каждую неделю»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v53">ответ на&nbsp;вопрос 53</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v86">ответ на&nbsp;вопрос 84</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v87">ответ на&nbsp;вопрос 84</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Тренировка, игра, качалка</h3><p class="what">Как устроена твоя неделя.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Каждый день и&nbsp;по&nbsp;два раза: тренировка, потом игра или качалка. Групповые тренировки, часто с&nbsp;испанцами.</p><blockquote>«Каждый день я&nbsp;тренируюсь и&nbsp;два раза в&nbsp;день»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v81">ответ на&nbsp;вопрос 79</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v119">ответ на&nbsp;вопрос 115</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Тело после трёх детей</h3><p class="what">Как ты&nbsp;к&nbsp;себе относишься.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Тело, по&nbsp;твоим словам, сейчас в&nbsp;идеальной форме. Живот после детей не&nbsp;идеальный, но&nbsp;в&nbsp;целом нормально.</p><blockquote>«живот как бы&nbsp;после детей там не&nbsp;очень»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v83">ответ на&nbsp;вопрос 81</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Мяч в&nbsp;глаз и&nbsp;синяки от&nbsp;смэшей</h3><p class="what">Истории с&nbsp;корта.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Недавно прилетел мяч в&nbsp;глаз — поехала к&nbsp;врачу. Смэш в&nbsp;ногу оставляет гематому. Мужики, которые не&nbsp;заплатили за&nbsp;корт или вели себя агрессивно.</p><blockquote>«мне в&nbsp;глаз недавно прилетел мяч»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v124">ответ на&nbsp;вопрос 121</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>Не&nbsp;завтракаю</h3><p class="what">Как ты&nbsp;ешь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Завтрака нет, ужин лёгкий, в&nbsp;обед — всё что хочешь.</p><blockquote>«Я&nbsp;не&nbsp;завтракаю»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v82">ответ на&nbsp;вопрос 80</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Стилист приходит раз в&nbsp;неделю</h3><p class="what">Образы без магазинов.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Магазины ненавидишь. Раз в&nbsp;неделю приходит стилист, вы&nbsp;фотографируетесь, что-то&nbsp;оставляешь себе. Спортивную одежду выбираешь сама и&nbsp;обожаешь.</p><blockquote>«Ко&nbsp;мне приходит раз в&nbsp;неделю стилист»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v131">ответ на&nbsp;вопрос 127</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v89">ответ на&nbsp;вопрос 86</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v128">ответ на&nbsp;вопрос 125</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p07"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">07</span><div><span class="eyebrow">Столб 07</span><h2>Деньги</h2></div></div>
+  <p class="line">Хочешь начать зарабатывать сама. Проекты, которые были, — честно, как есть.</p>
+    <div class="th"><div class="thh"><span class="tn">1</span><div><h3>Турниры и&nbsp;кэмпы — почти в&nbsp;ноль</h3><p class="what">Обратная сторона проектов в&nbsp;паделе.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Ты&nbsp;начинала много проектов, турниры и&nbsp;кэмпы почти всегда выходят в&nbsp;ноль. Кэмп в&nbsp;Мадриде на&nbsp;12 человек собрать было очень сложно из-за&nbsp;испанских виз.</p><blockquote>«это всегда почти в&nbsp;ноль»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v91">ответ на&nbsp;вопрос 88</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v55">ответ на&nbsp;вопрос 55</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#t66">ответ на&nbsp;вопрос 58</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Бренд одежды, который не&nbsp;запустили</h3><p class="what">Почему передумали.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Хотели запустить бренд одежды, но&nbsp;все отговорили, нормальных поставщиков не&nbsp;нашлось, с&nbsp;товаркой в&nbsp;России сейчас плохо.</p><blockquote>«В&nbsp;России сейчас с&nbsp;товаркой очень плохо»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v97">ответ на&nbsp;вопрос 94</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Хочу зарабатывать сама</h3><p class="what">Цель, которую ты&nbsp;назвала сама.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Цель на&nbsp;год — начать зарабатывать. Больше всего когда-то&nbsp;приносили марафоны и&nbsp;фитнес-туры.</p><blockquote>«хочу ещё зарабатывать, начать сама»</blockquote><p class="note">Источник нынешнего дохода не&nbsp;называем.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v142">ответ на&nbsp;вопрос 137</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v95">ответ на&nbsp;вопрос 92</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v92">ответ на&nbsp;вопрос 89</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Какую рекламу не&nbsp;беру</h3><p class="what">Твоя граница в&nbsp;рекламе.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Не&nbsp;берёшь «зашквар» и&nbsp;непроверенное.</p><blockquote>«зашквар не&nbsp;готова брать рекламу»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v98">ответ на&nbsp;вопрос 95</a></div></div></div>
+</div></div></section>
+<section class="blk" id="p08"><div class="wrap"><div class="card">
+  <div class="ph"><span class="pnum">08</span><div><span class="eyebrow">Столб 08</span><h2>Дом и&nbsp;дети</h2></div></div>
+  <p class="line">Даня, Сергей и&nbsp;Катя — самостоятельные. Ты&nbsp;не&nbsp;наседка, а&nbsp;мама примером. С&nbsp;детьми — смешное, не&nbsp;мамский контент.</p>
+    <div class="th" id="s1"><div class="thh"><span class="tn">1</span><div><h3>«Мам, ты&nbsp;девятисотая ракетка мира»<span class="star">главное</span></h3><p class="what">Как дети в&nbsp;тебя верят.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Вы&nbsp;с&nbsp;Даней ехали на&nbsp;FIP, против вас девочка с&nbsp;крутым испанским тренером. Ты&nbsp;говоришь: «Сложно нам будет». Даня: «Мам, ты&nbsp;чего? Это просто тренер, а&nbsp;ты&nbsp;девятисотая ракетка мира».</p><blockquote>«Мам, ты&nbsp;чего?»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v110">ответ на&nbsp;вопрос 107</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">2</span><div><h3>Три хорошего и&nbsp;три плохого</h3><p class="what">Ваша традиция перед сном.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Перед сном каждый рассказывает за&nbsp;день три хорошего и&nbsp;три плохого.</p><blockquote>«три хорошего и&nbsp;три плохого»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v106">ответ на&nbsp;вопрос 103</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">3</span><div><h3>Не&nbsp;наседка</h3><p class="what">Какая ты&nbsp;мама.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Дети самостоятельные, ты&nbsp;ничего не&nbsp;контролируешь, показываешь своим примером. Строгая, но&nbsp;многое разрешаешь. Гаджеты почти под запретом.</p><blockquote>«я&nbsp;не&nbsp;наседка»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v109">ответ на&nbsp;вопрос 106</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v64">ответ на&nbsp;вопрос 63</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v65">ответ на&nbsp;вопрос 63</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">4</span><div><h3>Даня, Сергей, Катя</h3><p class="what">Кто они.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Даня — английский в&nbsp;совершенстве, учит китайский, бокс, падел и&nbsp;фанатичная рыбалка. Сергей — любвеобильный и&nbsp;нежный, бокс и&nbsp;футбол, в&nbsp;следующем году в&nbsp;первый класс. Катя — долгожданная, «королева-принцесса», харизма, в&nbsp;следующем году — большой теннис.</p><blockquote>«наша королева-принцесса»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v101">ответ на&nbsp;вопрос 98</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v102">ответ на&nbsp;вопрос 99</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v103">ответ на&nbsp;вопрос 100</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v107">ответ на&nbsp;вопрос 104</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">5</span><div><h3>«Папа тоже бизнесом летает»</h3><p class="what">Смешное от&nbsp;Сергея.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Сергей вернулся от&nbsp;друзей: «У&nbsp;них папа такой богатый, крутой бизнесмен». — «У&nbsp;тебя папа тоже крутой бизнесмен». — «А, точно, он&nbsp;же&nbsp;бизнесом летает».</p><blockquote>«он&nbsp;же&nbsp;бизнесом летает»</blockquote><p class="note">Здесь упоминается бывший муж. Только с&nbsp;твоего согласия.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v111">ответ на&nbsp;вопрос 107</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">6</span><div><h3>Выходные с&nbsp;детьми</h3><p class="what">Что ты&nbsp;придумываешь.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Театры, кино, цирк — каждые выходные ты&nbsp;что-то&nbsp;придумываешь. Вечером, когда дети спят, читаешь мотивационные книги или придумываешь блог.</p><blockquote>«и&nbsp;в&nbsp;театры ходим, и&nbsp;в&nbsp;кино ходим, и&nbsp;в&nbsp;цирки ходим»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v114">ответ на&nbsp;вопрос 110</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v117">ответ на&nbsp;вопрос 113</a></div></div></div>
+    <div class="th"><div class="thh"><span class="tn">7</span><div><h3>Китай с&nbsp;детьми</h3><p class="what">Ближайшая поездка.</p></div></div>
+      <div class="tb"><p class="carrier"><b>История</b>Путешествие, шопинг, дети — и&nbsp;ты&nbsp;будешь снимать. Дальше хочешь на&nbsp;Бали этой зимой.</p><blockquote>«да, я&nbsp;буду снимать»</blockquote><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v135">ответ на&nbsp;вопрос 131</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/#v136">ответ на&nbsp;вопрос 132</a></div></div></div>
+</div></div></section><section class="blk" id="red"><div class="wrap"><div class="card">
+  <span class="eyebrow">Красные линии</span><h2>Что берём, а&nbsp;что&nbsp;нет</h2>
+  <p class="bm">По твоим ответам. «С согласия»&nbsp;— каждый раз спрашиваем тебя перед съёмкой.</p>
+  <div class="rl"><div class="yes"><h3>Берём</h3><ul><li>Дети — «всю жизнь детей можно показывать», смешные ролики с&nbsp;ними<small>вопрос 105</small></li><li>Психолог и&nbsp;то, как ты&nbsp;научилась быть собой<small>вопрос 40</small></li><li>Падел: тренировки, турниры, тренеры, люди вокруг корта<small>вопрос 115, вопрос 118, вопрос 119</small></li><li>Подруги, пятница с&nbsp;подружками, поездки на&nbsp;Premier Padel<small>вопрос 32, вопрос 67, вопрос 130</small></li><li>Стилист и&nbsp;образы<small>вопрос 127</small></li><li>Спорт, тело, питание<small>вопрос 79, вопрос 80, вопрос 81</small></li><li>Китай: путешествие, шопинг, дети<small>вопрос 131</small></li><li>Благотворительный турнир 28 ноября<small>вопрос 123</small></li></ul></div><div class="ask"><h3>Только с твоего согласия</h3><ul><li>Сторис, что вы&nbsp;с&nbsp;бывшим мужем хорошо общаетесь, — ты&nbsp;сама спрашивала<small>вопрос 37</small></li><li>«Первый раз в&nbsp;жизни без отношений» — без людей и&nbsp;подробностей<small>вопрос 38</small></li><li>Август и&nbsp;как ты&nbsp;из&nbsp;него вышла — только через психолога, без человека<small>вопрос 51</small></li><li>Родители: строгое детство, «стилист никому не&nbsp;нужен» — бережно, сейчас всё наладилось<small>вопрос 12, вопрос 17, вопрос 20</small></li><li>Проекты, которые вышли в&nbsp;ноль<small>вопрос 88</small></li><li>Как ты&nbsp;поёшь — тебе самой пока не&nbsp;нравится<small>вопрос 49</small></li><li>Няня и&nbsp;домработница — «чуть-чуть, иногда»<small>вопрос 111</small></li><li>Смешное от&nbsp;детей, где упоминается папа<small>вопрос 107</small></li></ul></div><div class="no"><h3>Не берём</h3><ul><li>Развод и&nbsp;бывший муж<small>вопрос 136</small></li><li>Алименты и&nbsp;откуда сейчас доход<small>вопрос 3, вопрос 87</small></li><li>Бывшие мужчины, история с&nbsp;мошенником<small>вопрос 51, вопрос 136</small></li><li>Троюродный брат и&nbsp;ДЦП<small>вопрос 14</small></li><li>Buenos и&nbsp;история с&nbsp;командой, открывавшей корты<small>вопрос 57</small></li><li>Продюсеры, с&nbsp;которыми не&nbsp;получилось<small>вопрос 97</small></li><li>Сколько нужно в&nbsp;месяц — это для нас<small>вопрос 91</small></li><li>Мамский контент как формат<small>вопрос 105</small></li></ul></div></div>
+</div></div></section><footer><div class="wrap"><p>Октябрь 2026</p><p class="sign">Малик Хашимов · продюсер женских блогов</p></div></footer>
+</body></html>
