@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C;--rasp:#B8416E}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden;width:100%;max-width:100%}
+html,body{overflow-x:clip;width:100%;max-width:100%}
 body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,255,255,.45),transparent 70%),
@@ -164,7 +164,16 @@ section{padding:44px 0}
 .obls.fit{align-items:start}
 @media(max-width:700px){.lines{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case figure{max-width:260px;margin:0 auto}}
 @media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
-</style></head><body>
+
+/* навигация между страницами Марины */
+.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:rgba(255,250,252,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+.subnav a{font-family:Mulish,system-ui,sans-serif;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;color:var(--mute);border:1px solid transparent;text-decoration:none}
+.subnav a.on{color:#fff;background:var(--accent)}
+.subnav a:not(.on):hover{border-color:var(--edge)}
+.totop{position:fixed;right:16px;bottom:16px;z-index:30;padding:10px 16px;border-radius:24px;background:var(--accent);color:#fff;font-family:Mulish,system-ui,sans-serif;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px -8px rgba(140,30,75,.6)}
+.totop:hover{background:var(--accent-d)}
+@media(max-width:600px){.subnav{gap:4px;padding:8px}.subnav a{font-size:11.5px;padding:5px 9px}}
+</style></head><body><nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/">Темы для роликов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/">Вопросы</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/" class="on">Видение блога</a></nav><a id="top"></a>
 
 <header class="hero"><div class="wrap"><div class="hero-card">
   <div class="top">Октябрь 2026 · Видение&nbsp;блога</div>

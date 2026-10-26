@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C;--rasp:#B8416E}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden;width:100%;max-width:100%}
+html,body{overflow-x:clip;width:100%;max-width:100%}
 body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(255,255,255,.45),transparent 70%),
@@ -108,7 +108,9 @@ section{padding:44px 0}
 .howto ol li:last-child{border-bottom:none;padding-bottom:0}
 .howto ol li::before{content:counter(h,decimal-leading-zero);position:absolute;left:0;top:8px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);line-height:1.2}
 .bmap{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
-.bmap li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.bmap li{border-bottom:1px solid var(--line);font-size:14.5px}
+.bmap li a{display:flex;justify-content:space-between;gap:12px;padding:9px 0;text-decoration:none}
+.bmap li a:hover b{color:var(--accent-d)}
 .bmap li b{font-weight:500;color:var(--head)}
 .bmap li span{color:var(--dim);font-size:12px}
 .qcard{padding:6px 26px}
@@ -118,7 +120,16 @@ section{padding:44px 0}
 .qt{margin:0;font-size:15px;text-wrap:pretty}
 .part-head p{color:var(--mute);margin-top:10px;font-size:14.5px}
 @media(max-width:600px){.bmap{grid-template-columns:1fr}.qcard{padding:4px 18px}.howto{padding:20px 18px}.qt{font-size:14.5px}}
-</style></head><body>
+
+/* навигация между страницами Марины */
+.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:rgba(255,250,252,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+.subnav a{font-family:Mulish,system-ui,sans-serif;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;color:var(--mute);border:1px solid transparent;text-decoration:none}
+.subnav a.on{color:#fff;background:var(--accent)}
+.subnav a:not(.on):hover{border-color:var(--edge)}
+.totop{position:fixed;right:16px;bottom:16px;z-index:30;padding:10px 16px;border-radius:24px;background:var(--accent);color:#fff;font-family:Mulish,system-ui,sans-serif;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px -8px rgba(140,30,75,.6)}
+.totop:hover{background:var(--accent-d)}
+@media(max-width:600px){.subnav{gap:4px;padding:8px}.subnav a{font-size:11.5px;padding:5px 9px}}
+</style></head><body><nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/">Темы для роликов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/" class="on">Вопросы</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/">Видение блога</a></nav><a id="top"></a>
 
 <header class="hero"><div class="wrap"><div class="hero-card">
   <div class="top">Октябрь 2026 · Распаковка</div>
@@ -142,10 +153,10 @@ section{padding:44px 0}
 
 <section><div class="wrap">
   <div class="section-head"><span class="eyebrow">Блоки</span><h2>Что <em>внутри</em></h2></div>
-  <div class="card howto"><ul class="bmap"><li><b>Сейчас</b><span>9</span></li><li><b>Семья и детство</b><span>11</span></li><li><b>Ценности</b><span>10</span></li><li><b>Люди</b><span>15</span></li><li><b>Путь</b><span>15</span></li><li><b>Принципы</b><span>8</span></li><li><b>Характер</b><span>10</span></li><li><b>Тело</b><span>8</span></li><li><b>Деньги</b><span>11</span></li><li><b>Дом и дети</b><span>16</span></li><li><b>Падел</b><span>11</span></li><li><b>Вкусы</b><span>8</span></li><li><b>Блог</b><span>5</span></li></ul></div>
+  <div class="card howto"><ul class="bmap"><li><a href="#b0"><b>Сейчас</b><span>9</span></a></li><li><a href="#b1"><b>Семья и детство</b><span>11</span></a></li><li><a href="#b2"><b>Ценности</b><span>10</span></a></li><li><a href="#b3"><b>Люди</b><span>15</span></a></li><li><a href="#b4"><b>Путь</b><span>15</span></a></li><li><a href="#b5"><b>Принципы</b><span>8</span></a></li><li><a href="#b6"><b>Характер</b><span>10</span></a></li><li><a href="#b7"><b>Тело</b><span>8</span></a></li><li><a href="#b8"><b>Деньги</b><span>11</span></a></li><li><a href="#b9"><b>Дом и дети</b><span>16</span></a></li><li><a href="#b10"><b>Падел</b><span>11</span></a></li><li><a href="#b11"><b>Вкусы</b><span>8</span></a></li><li><a href="#b12"><b>Блог</b><span>5</span></a></li></ul></div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b0" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Начало · вопросы 1–9</span><h2>Ты <em>сейчас</em></h2>
     <p>С чего начинаем: чем ты живёшь сегодня и чего ждёшь от блога.</p>
   </div>
@@ -162,7 +173,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b1" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Корни · вопросы 10–20</span><h2>Семья и <em>детство</em></h2>
     <p>Откуда ты и кто тебя вырастил.</p>
   </div>
@@ -181,7 +192,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b2" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 01 · вопросы 21–30</span><h2><em>Ценности</em></h2>
     <p>Что для тебя важно и во что ты веришь.</p>
   </div>
@@ -199,7 +210,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b3" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 02 · вопросы 31–45</span><h2>Люди и <em>отношения</em></h2>
     <p>Близкие, друзья, отношения и границы.</p>
   </div>
@@ -222,7 +233,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b4" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 03 · вопросы 46–60</span><h2>Твой <em>путь</em></h2>
     <p>Самый большой блок: вся история по порядку.</p>
   </div>
@@ -245,7 +256,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b5" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 04 · вопросы 61–68</span><h2><em>Принципы</em></h2>
     <p>Твои правила в жизни, в семье и на корте.</p>
   </div>
@@ -261,7 +272,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b6" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 05 · вопросы 69–78</span><h2><em>Характер</em></h2>
     <p>Какая ты с людьми и в разных ситуациях.</p>
   </div>
@@ -279,7 +290,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b7" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 06 · вопросы 79–86</span><h2>Тело и <em>внешность</em></h2>
     <p>Спорт, питание, уход и стиль.</p>
   </div>
@@ -295,7 +306,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b8" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 07 · вопросы 87–97</span><h2><em>Деньги</em></h2>
     <p>Доход, траты, цели и проекты. Цифры остаются между нами.</p>
   </div>
@@ -314,7 +325,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b9" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Столб 08 · вопросы 98–113</span><h2>Дом и <em>дети</em></h2>
     <p>Обычная жизнь: дети, дом, распорядок, любимые места.</p>
   </div>
@@ -338,7 +349,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b10" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Падел · вопросы 114–124</span><h2><em>Падел</em></h2>
     <p>Игра, турниры, люди вокруг корта.</p>
   </div>
@@ -357,7 +368,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b11" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Вкусы · вопросы 125–132</span><h2><em>Вкусы</em></h2>
     <p>Стиль, покупки, музыка, поездки.</p>
   </div>
@@ -373,7 +384,7 @@ section{padding:44px 0}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section id="b12" style="scroll-margin-top:50px"><div class="wrap">
   <div class="part-head"><span class="eyebrow">Блог · вопросы 133–137</span><h2><em>Блог</em></h2>
     <p>Что получается, что нет, и где границы.</p>
   </div>
@@ -392,4 +403,5 @@ section{padding:44px 0}
   <p class="sign">Октябрь&nbsp;2026</p>
 </div></footer>
 
+<a class="totop" href="#top">↑ Разделы</a>
 </body></html>
