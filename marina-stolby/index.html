@@ -1,5 +1,5 @@
 <!doctype html><html lang="ru" style="background:#F2C2D1"><!--fast--><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F2C2D1"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/?r=10261910"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/?r=10261910"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/?r=10261910"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/?r=10261910">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F2C2D1"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/?r=10261919"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/?r=10261919"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/?r=10261919"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/?r=10261919">
 <meta name="robots" content="noindex">
 <title>Марина Феданова · Восемь столбов</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +22,10 @@ h2{font-size:clamp(26px,3.6vw,36px)}
 h3{font-size:clamp(19px,2.3vw,22px)}
 p{text-wrap:pretty}
 a{color:var(--accent-d);text-decoration:none}
-.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:#FFF8FB;border-bottom:1px solid var(--edge)}
-.subnav a{font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:20px;color:#fff;background:var(--accent);border:1px solid var(--accent)}
-.subnav a.on{background:var(--accent-d);border-color:var(--accent-d);box-shadow:0 0 0 2px #FFF8FB,0 0 0 3.5px var(--accent-d)}
-.subnav a:not(.on):hover{background:var(--accent-d)}
+
+
+
+
 .hero{text-align:center;padding:56px 0 20px}
 .hero-card{padding:44px 28px 34px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(240,170,195,.22),transparent 70%),#fff;box-shadow:0 26px 60px -30px rgba(140,30,75,.45)}
 .hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:600}
@@ -117,16 +117,24 @@ footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:
   .card{padding:22px 16px 16px;border-radius:16px}
   .qa,.th{padding:14px 14px 12px}.ans{margin-left:0}.tb{margin-left:0}
   .pnum{font-size:46px}.ph{gap:12px}
-  .subnav{gap:4px;padding:8px}.subnav a{font-size:11.5px;padding:5px 9px}
+  
 }
+
+/* вкладки сверху: тёмный текст, у текущей — розовая полоска снизу */
+.subnav{position:sticky;top:0;z-index:20;display:flex;gap:0 22px;justify-content:center;padding:0 16px;background:#FFF8FB;border-bottom:1px solid var(--edge)}
+.subnav a{font-family:Mulish,system-ui,sans-serif;font-size:13px;font-weight:600;padding:14px 2px 11px;color:var(--mute);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+.subnav a.on{color:var(--head);font-weight:700;border-bottom-color:var(--accent)}
+.subnav a:not(.on):hover,.subnav a:active{color:var(--accent-d)}
+.subnav .s{display:none}
+@media(max-width:600px){.subnav{gap:0 14px;padding:0 10px}.subnav a{font-size:12.5px;padding:13px 1px 10px}.subnav .f{display:none}.subnav .s{display:inline}}
 
 /* скорость: слой фона на видеокарте, полоса без размытия, мгновенный отклик кнопок */
 body::before{will-change:transform;transform:translateZ(0)}
-.subnav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#FFF8FB!important}
+
 a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .navbox a,.totop,.bmap a,.src a{transition:background-color .1s,color .1s,transform .1s}
-.subnav a:active,.navbox a:active,.totop:active,.bmap a:active,.src a:active{background:var(--accent)!important;color:#fff!important;transform:scale(.97)}
-</style></head><body><nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/?r=10261910">Темы для роликов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/?r=10261910" class="on">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/?r=10261910">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/?r=10261910">Вопросы</a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/?r=10261910">Видение блога</a></nav><a id="top"></a>
+.navbox a:active,.totop:active,.bmap a:active,.src a:active{background:var(--accent)!important;color:#fff!important;transform:scale(.97)}
+</style></head><body><nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/?r=10261919"><span class="f">Темы для роликов</span><span class="s">Темы</span></a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/?r=10261919" class="on"><span class="f">Восемь столбов</span><span class="s">Столбы</span></a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/?r=10261919"><span class="f">Ответы дословно</span><span class="s">Дословно</span></a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/?r=10261919"><span class="f">Вопросы</span><span class="s">Вопросы</span></a><a href="https://hasimovmalik90-oss.github.io/Site-/marina-videnie/?r=10261919"><span class="f">Видение блога</span><span class="s">Видение</span></a></nav><a id="top"></a>
 <header class="hero"><div class="wrap"><div class="hero-card">
   <div class="top">Октябрь 2026 · Распаковка</div>
   <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
