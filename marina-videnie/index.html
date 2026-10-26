@@ -1,9 +1,9 @@
-<!doctype html><html lang="ru"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html lang="ru" style="background:#F2C2D1"><!--fast--><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F2C2D1"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-temy/"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-stolby/"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-doslovno/"><link rel="prefetch" href="https://hasimovmalik90-oss.github.io/Site-/marina-raspakovka/">
 <meta name="robots" content="noindex">
 <title>Марина Феданова · Видение блога</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap"></noscript>
 <style>
 :root{--bg:#F2C2D1;--card:#FFFFFF;--card2:#FFFAFC;--line:rgba(184,74,114,.14);--edge:rgba(184,74,114,.22);--text:#2A1D23;--mute:#6E5560;--dim:#9A7F8A;--accent:#C94F7C;--accent-d:#A93B66;--head:#22161C;--rasp:#B8416E}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -100,6 +100,13 @@ section{padding:44px 0}
   .obl,.author{padding:20px 18px}
   .pts li{font-size:14px}
 }
+
+/* скорость: слой фона на видеокарте, полоса без размытия, мгновенный отклик кнопок */
+body::before{will-change:transform;transform:translateZ(0)}
+.subnav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#FFF8FB!important}
+a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.subnav a,.navbox a,.totop,.bmap a,.src a{transition:background-color .1s,color .1s,transform .1s}
+.subnav a:active,.navbox a:active,.totop:active,.bmap a:active,.src a:active{background:var(--accent)!important;color:#fff!important;transform:scale(.97)}
 </style>
 <style>
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
@@ -166,7 +173,7 @@ section{padding:44px 0}
 @media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
 
 /* навигация между страницами Марины */
-.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:rgba(255,250,252,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+.subnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;background:#FFF8FB;border-bottom:1px solid var(--edge)}
 .subnav a{font-family:Mulish,system-ui,sans-serif;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;color:var(--mute);border:1px solid transparent;text-decoration:none}
 .subnav a.on{color:#fff;background:var(--accent)}
 .subnav a:not(.on):hover{border-color:var(--edge)}
@@ -194,7 +201,7 @@ section{padding:44px 0}
       <div class="bio">Имею зависимость от&nbsp;игры в&nbsp;Padel<br>Pr <a>@fedanova_pr</a><br>+7&nbsp;909&nbsp;999-77-05 Екатерина</div>
       <a class="lnk">t.me/pervaya_raketca</a>
       <div class="bt"><span class="f">Подписаться</span><span>Сообщение</span></div>
-      <div class="hl"><div><img src="img/hl-1.jpg" alt="">Padel</div><div><img src="img/hl-2.jpg" alt="">Fix Camp</div><div><img src="img/hl-3.jpg" alt="">Моя страсть</div><div><img src="img/hl-4.jpg" alt="">OUTFITS</div><div><img src="img/hl-5.jpg" alt="">06.09.25</div></div>
+      <div class="hl"><div><img loading="lazy" decoding="async" src="img/hl-1.jpg" alt="">Padel</div><div><img loading="lazy" decoding="async" src="img/hl-2.jpg" alt="">Fix Camp</div><div><img loading="lazy" decoding="async" src="img/hl-3.jpg" alt="">Моя страсть</div><div><img loading="lazy" decoding="async" src="img/hl-4.jpg" alt="">OUTFITS</div><div><img loading="lazy" decoding="async" src="img/hl-5.jpg" alt="">06.09.25</div></div>
     </div></figure><div>
   <div class="stats">
     <div class="stat"><div class="sv">25&nbsp;986</div><div class="sl">подписчиков</div></div>
@@ -267,7 +274,7 @@ section{padding:44px 0}
     <p>Предпринимательница, владелица бренда JAMALI, мама двух девочек. Начинали с&nbsp;600&nbsp;подписчиков.</p>
     <div class="kv"><span><b>185&nbsp;000</b> подписчиков</span><span><b>100+&nbsp;млн</b> просмотров</span><span>топ-ролик <b>12&nbsp;млн</b></span><span>без&nbsp;рекламы</span></div>
     <p style="margin-top:12px">Главное в&nbsp;этом кейсе&nbsp;— серии. Одна серия из&nbsp;пяти роликов дала около <b>14&nbsp;млн просмотров и&nbsp;72,7% всех новых подписчиков</b> за&nbsp;первую фазу. Формат зашёл&nbsp;— повторяли его, пока он не&nbsp;попал в&nbsp;массовую&nbsp;раздачу.</p>
-    <div class="galh">Подписки с&nbsp;одного ролика</div><div class="gal"><figure><img src="img/k-subs-1.jpg" alt="Статистика ролика"><figcaption>+20&nbsp;833<span>4,1&nbsp;млн просмотров</span></figcaption></figure><figure><img src="img/k-subs-2.jpg" alt="Статистика ролика"><figcaption>+10&nbsp;994<span>2,1&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-3.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;944<span>2,3&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-4.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;697<span>1,1&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-5.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;894<span>1,9&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-6.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;044<span>1,6&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-7.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;751<span>366&nbsp;тыс</span></figcaption></figure><figure><img src="img/k-subs-8.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;386<span>462&nbsp;тыс</span></figcaption></figure></div><div class="galh">Просмотры</div><div class="gal v"><figure><img src="img/k-views-2.jpg" alt="Статистика просмотров"><figcaption>20,6&nbsp;млн<span>за&nbsp;месяц, +46,8&nbsp;тыс подписчиков</span></figcaption></figure><figure><img src="img/k-views-3.jpg" alt="Статистика просмотров"><figcaption>12,2&nbsp;млн<span>за&nbsp;30&nbsp;дней, +14&nbsp;470 подписчиков</span></figcaption></figure><figure><img src="img/k-views-4.jpg" alt="Статистика просмотров"><figcaption>12&nbsp;млн<span>за&nbsp;месяц, +14,9&nbsp;тыс подписчиков</span></figcaption></figure></div>
+    <div class="galh">Подписки с&nbsp;одного ролика</div><div class="gal"><figure><img loading="lazy" decoding="async" src="img/k-subs-1.jpg" alt="Статистика ролика"><figcaption>+20&nbsp;833<span>4,1&nbsp;млн просмотров</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-2.jpg" alt="Статистика ролика"><figcaption>+10&nbsp;994<span>2,1&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-3.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;944<span>2,3&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-4.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;697<span>1,1&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-5.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;894<span>1,9&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-6.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;044<span>1,6&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-7.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;751<span>366&nbsp;тыс</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-8.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;386<span>462&nbsp;тыс</span></figcaption></figure></div><div class="galh">Просмотры</div><div class="gal v"><figure><img loading="lazy" decoding="async" src="img/k-views-2.jpg" alt="Статистика просмотров"><figcaption>20,6&nbsp;млн<span>за&nbsp;месяц, +46,8&nbsp;тыс подписчиков</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-views-3.jpg" alt="Статистика просмотров"><figcaption>12,2&nbsp;млн<span>за&nbsp;30&nbsp;дней, +14&nbsp;470 подписчиков</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-views-4.jpg" alt="Статистика просмотров"><figcaption>12&nbsp;млн<span>за&nbsp;месяц, +14,9&nbsp;тыс подписчиков</span></figcaption></figure></div>
     <a class="btn-inline" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Весь кейс</a>
   </div></div>
 
@@ -275,8 +282,8 @@ section{padding:44px 0}
     <p>Блог с&nbsp;нуля: новый аккаунт, до&nbsp;этого блог не&nbsp;вела. Первые 10&nbsp;дней публикаций.</p>
     <div class="kv"><span><b>466&nbsp;454</b> просмотра</span><span><b>99,6%</b> зрителей&nbsp;— новые люди</span><span>ролик <b>234&nbsp;386</b> просмотров</span><span><b>+317</b> подписок с&nbsp;одного ролика</span></div>
     <div class="shots">
-      <figure class="shot"><img src="img/aziza-30d.jpg" alt="Статистика аккаунта Азизы за 30 дней"><figcaption>Аккаунт за&nbsp;30&nbsp;дней</figcaption></figure>
-      <figure class="shot"><img src="img/aziza-reel.jpg" alt="Статистика ролика Азизы"><figcaption>Топ-ролик</figcaption></figure>
+      <figure class="shot"><img loading="lazy" decoding="async" src="img/aziza-30d.jpg" alt="Статистика аккаунта Азизы за 30 дней"><figcaption>Аккаунт за&nbsp;30&nbsp;дней</figcaption></figure>
+      <figure class="shot"><img loading="lazy" decoding="async" src="img/aziza-reel.jpg" alt="Статистика ролика Азизы"><figcaption>Топ-ролик</figcaption></figure>
     </div>
   </div></div>
 
@@ -285,7 +292,7 @@ section{padding:44px 0}
       <p>Клиентка, личный блог. Разговорный формат: живая речь в&nbsp;кадр, без&nbsp;трендов.</p>
       <div class="kv"><span><b>123&nbsp;486</b> просмотров</span><span><b>+297</b> подписок</span><span><b>320</b> пересылок</span><span><b>163</b> сохранения</span><span>среднее время просмотра <b>32&nbsp;с</b></span></div>
       <p style="margin-top:12px">Живая речь держит зрителя. Ролики, где ты&nbsp;говоришь в&nbsp;кадр, тоже приводят подписчиков.</p></div>
-    <figure><img src="img/anna-reel.jpg" alt="Статистика ролика"><figcaption>Статистика ролика</figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="img/anna-reel.jpg" alt="Статистика ролика"><figcaption>Статистика ролика</figcaption></figure>
   </div></div></div>
 </div></section>
 
