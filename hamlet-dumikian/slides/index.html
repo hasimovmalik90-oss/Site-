@@ -1,0 +1,471 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hamlet Dumikian · Долина 5165 · презентация</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root{--bg:#09090A;--card:#131315;--card2:#17171A;--line:rgba(255,255,255,.06);--edge:rgba(201,183,155,.16);--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B;--gold:#D9C29A;--glow:rgba(201,183,155,.18)}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,183,155,.13),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(201,183,155,.05),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(201,183,155,.05),transparent 70%)}
+main,nav,.progress{position:relative;z-index:1}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F2EEE8;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,5.4vw,54px);font-weight:300;letter-spacing:.01em;text-shadow:0 0 40px rgba(201,183,155,.25)}
+h2{font-size:clamp(26px,3.6vw,38px)}
+h3{font-size:clamp(20px,2.4vw,24px)}
+p{text-wrap:pretty}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;color:var(--accent);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05);box-shadow:0 0 18px -4px var(--glow)}
+section{padding:46px 0}
+.section-head{margin-bottom:22px}
+.slead{color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,21px);margin-top:12px;text-wrap:balance}
+.card,.mblock,.rcard,.price,.goal,.chip{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28),inset 0 1px 0 rgba(255,255,255,.03)}
+.card{padding:26px 28px;margin-bottom:14px}
+.card p+p{margin-top:.8em}
+.concept p{color:var(--text);font-size:15px}
+.quote{margin-top:18px!important;padding:16px 18px;border-left:2px solid var(--accent);background:rgba(201,183,155,.05);border-radius:0 12px 12px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.3vw,22px);line-height:1.35;color:#F2EEE8}
+.after{color:var(--mute);font-size:14.5px;margin:18px 2px 0}
+.lab{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px}
+.card>.lab:first-child,.card>.months:first-child{margin-top:0}
+.sub{font-family:'Cormorant Garamond',serif;font-size:19px;color:#F2EEE8;margin:18px 0 4px}
+.para{color:var(--text);font-size:14.5px;margin-top:8px}
+.note{color:var(--dim);font-size:13px;margin-top:10px;font-style:italic}
+.task{margin:2px 0 6px}.task .lab{margin-top:0}
+.lead{color:var(--mute);font-size:14.5px}
+/* hero */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60}
+.progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,transparent,var(--accent),#F4E3BF);box-shadow:0 0 12px var(--accent)}
+.tabs{position:sticky;top:0;z-index:50;background:rgba(9,9,10,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:26px;height:52px;align-items:stretch}
+.tabs a{display:flex;align-items:center;color:var(--mute);text-decoration:none;font-size:13px;letter-spacing:.06em;border-bottom:2px solid transparent;transition:color .3s,border-color .3s;white-space:nowrap}
+.tabs a.on{color:#F2EEE8;font-weight:500;border-color:var(--accent)}
+.hero{text-align:center;padding:56px 0 30px}
+.hero-card{position:relative;overflow:hidden;padding:56px 30px 40px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,183,155,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 80px -20px rgba(201,183,155,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.halo{position:absolute;left:50%;top:-180px;width:520px;height:520px;margin-left:-260px;border-radius:50%;border:1px solid rgba(201,183,155,.14);pointer-events:none;animation:spin 40s linear infinite}
+.halo::before,.halo::after{content:'';position:absolute;border-radius:50%;border:1px dashed rgba(201,183,155,.12);inset:40px}
+.halo::after{inset:90px;border-style:solid;border-color:rgba(201,183,155,.08)}
+.halo{background:conic-gradient(from 0deg,transparent 0 80%,rgba(201,183,155,.18) 92%,transparent 100%);-webkit-mask:radial-gradient(circle,transparent 69%,#000 70%);mask:radial-gradient(circle,transparent 69%,#000 70%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .top{position:relative;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:22px;text-wrap:balance}
+.hero .fio{position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,28px);color:var(--accent);margin-bottom:12px;text-shadow:0 0 30px rgba(201,183,155,.35)}
+.hero h1{position:relative;max-width:700px;margin:0 auto}
+.hstats{position:relative;display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hstats div{min-width:120px;padding:14px 16px;border:1px solid var(--edge);border-radius:16px;background:rgba(201,183,155,.04)}
+.hstats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:36px;line-height:1;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.4)}
+.hstats span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.goal{padding:20px 22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .4s,box-shadow .4s}
+.goal:hover,.rcard:hover,.chip:hover{border-color:rgba(201,183,155,.4);box-shadow:0 0 40px -14px rgba(201,183,155,.4)}
+.gn{flex:none;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent);text-shadow:0 0 18px rgba(201,183,155,.4)}
+.goal p{font-size:14.5px;flex:1;min-width:0}
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rcard{padding:22px 24px;transition:border-color .4s,box-shadow .4s}
+.rcard h3{margin-bottom:8px}.rcard p{color:var(--mute);font-size:14px}
+/* timeline */
+.tl{position:relative;margin-top:30px;padding-left:34px}
+.tl-line{position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:rgba(201,183,155,.1);border-radius:2px}
+.tl-line i{display:block;width:100%;height:100%;transform-origin:50% 0;transform:scaleY(var(--p,0));background:linear-gradient(180deg,var(--accent),#F4E3BF);box-shadow:0 0 14px var(--accent);border-radius:2px}
+.mblock{position:relative;padding:26px 28px;margin-bottom:16px}
+.tl-dot{position:absolute;left:-30px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid rgba(201,183,155,.35);transition:background .5s,border-color .5s,box-shadow .5s}
+.mblock.lit .tl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 16px var(--accent)}
+.mnum{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:30px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--edge);background:rgba(201,183,155,.06);box-shadow:0 0 16px -4px var(--glow);margin-bottom:12px;white-space:nowrap}
+.mblock h3{margin-bottom:14px}
+.pts{list-style:none}
+.pts li{position:relative;padding:5px 0 5px 20px;font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+.gives{margin-top:16px;padding:14px 16px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.12);border-left:2px solid var(--accent);border-radius:12px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:600}
+/* charts */
+.rchart{margin:10px 0 12px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.18)}
+.rrow+.rrow{margin-top:14px}
+.rcap{display:flex;align-items:baseline;gap:10px;margin-bottom:7px}
+.rcap b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;line-height:1;color:#F4F0EA;min-width:62px;text-shadow:0 0 20px rgba(201,183,155,.35);white-space:nowrap}
+.rcap span{color:var(--mute);font-size:13.5px}
+.rtrack{position:relative;height:8px;border-radius:8px;background:rgba(201,183,155,.08);overflow:hidden}
+.rtrack i{position:absolute;top:0;bottom:0;left:var(--a);width:calc(var(--b) - var(--a));border-radius:8px;background:linear-gradient(90deg,rgba(201,183,155,.5),#F4E3BF);box-shadow:0 0 14px rgba(201,183,155,.6);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1) .2s}
+.rtrack::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(9,9,10,.6) calc(10% - 1px) 10%)}
+.rchart.in .rtrack i{transform:scaleX(1)}
+.rchart.in .rrow:nth-child(2) .rtrack i{transition-delay:.45s}.rchart.in .rrow:nth-child(3) .rtrack i{transition-delay:.7s}
+.viz{margin:6px auto 18px;max-width:520px}
+.viz svg{display:block;width:100%;height:auto;overflow:visible}
+.ring{fill:none;stroke:rgba(201,183,155,.25);stroke-width:1}
+.ring.in2{stroke-dasharray:3 5}
+.sp{stroke:rgba(201,183,155,.28);stroke-width:1;stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1s ease calc(var(--k)*.08s)}
+.fillp{fill:rgba(201,183,155,.07);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:1200;stroke-dashoffset:1200;filter:drop-shadow(0 0 8px rgba(201,183,155,.5));transition:stroke-dashoffset 2.2s ease .3s}
+.od{fill:var(--accent);opacity:0;filter:drop-shadow(0 0 6px var(--accent));transition:opacity .5s ease calc(.6s + var(--k)*.12s)}
+.ol{fill:#E8E4DE;font-family:Mulish,sans-serif;font-size:15px;font-weight:400;opacity:0;transition:opacity .6s ease calc(.7s + var(--k)*.12s)}
+.core{fill:#F4E3BF;filter:drop-shadow(0 0 10px var(--accent))}
+.viz.in .sp{stroke-dashoffset:0}.viz.in .fillp{stroke-dashoffset:0}.viz.in .od,.viz.in .ol{opacity:1}
+.vc{fill:rgba(201,183,155,.05);stroke:var(--accent);stroke-width:1.2;stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.8s ease}
+.v2{transition-delay:.3s}
+.viz.in .vc{stroke-dashoffset:0}
+.vt{fill:#F2EEE8;font-family:'Cormorant Garamond',serif;font-size:18px;text-anchor:middle;opacity:0;transition:opacity .8s ease 1s}
+.vm{fill:var(--accent);font-family:Mulish,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-anchor:middle;opacity:0;transition:opacity .8s ease 1.5s}
+.viz.in .vt,.viz.in .vm{opacity:1}
+.orbit{fill:none;stroke:rgba(201,183,155,.2);stroke-dasharray:4 6;animation:spin 60s linear infinite;transform-origin:260px 190px}
+.hn{opacity:0;transition:opacity .6s ease calc(.5s + var(--k)*.18s)}.viz.in .hn{opacity:1}
+.hn .od{opacity:1}
+.hc{fill:rgba(201,183,155,.08);stroke:var(--accent);stroke-width:1.2;filter:drop-shadow(0 0 16px rgba(201,183,155,.45));animation:pulse 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hct{fill:#F4F0EA;font-family:'Cormorant Garamond',serif;font-size:17px}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.ro{fill:none;stroke:rgba(201,183,155,.25);stroke-width:30;opacity:.35}
+.ro2{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:810;stroke-dashoffset:810;transition:stroke-dashoffset 2s ease .4s;filter:drop-shadow(0 0 8px rgba(201,183,155,.6))}
+.ri{fill:rgba(201,183,155,.06);stroke:rgba(201,183,155,.35);stroke-width:1}
+.rit{fill:#E8E4DE;font-family:'Cormorant Garamond',serif;font-size:17px}
+.rot{fill:var(--accent);font-family:Mulish,sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .8s ease 1.4s}
+.viz.in .ro2{stroke-dashoffset:0}.viz.in .rot{opacity:1}
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.chip{padding:16px 18px;font-size:14px;border-radius:14px;transition:border-color .4s,box-shadow .4s}
+/* results */
+.res{display:block}
+.resring{position:sticky;top:90px;width:140px;height:140px}
+.resring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.rr0{fill:none;stroke:rgba(201,183,155,.1);stroke-width:5}
+.rr1{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset 2.2s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 8px var(--accent))}
+.resring.in .rr1{stroke-dashoffset:0}
+.resring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:48px;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.5)}
+.rlist{list-style:none;display:grid;gap:10px}
+.rlist li span{flex:1;min-width:0}
+.rlist li{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border:1px solid var(--edge);border-radius:14px;background:linear-gradient(180deg,var(--card2),var(--card));font-size:14.5px}
+.rlist li i{flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;border:1px solid var(--accent);position:relative;box-shadow:0 0 12px -2px var(--glow)}
+.rlist li i::after{content:'';position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid var(--accent);border-width:0 1.5px 1.5px 0;transform:rotate(45deg) scale(0);transition:transform .4s ease .5s}
+.rlist li.in i::after{transform:rotate(45deg) scale(1)}
+/* months */
+.months{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 14px}
+.mo{height:56px;border-radius:12px;border:1px solid var(--edge);background:rgba(201,183,155,.04);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.mo::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(201,183,155,.22),rgba(244,227,191,.08));transform-origin:0 50%;transform:scaleX(0);transition:transform .8s ease calc(var(--k)*.35s)}
+.months.in .mo::before{transform:scaleX(1)}
+.mo span{position:relative;font-family:'Cormorant Garamond',serif;font-size:26px;color:#F4F0EA}
+.mcap{grid-column:1/-1;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:6px}
+/* price */
+.price{padding:38px 24px;text-align:center;margin:0 auto 14px;max-width:560px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(201,183,155,.14),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 70px -20px rgba(201,183,155,.45),inset 0 1px 0 rgba(255,255,255,.04)}
+.price::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(244,227,191,.12),transparent);transform:skewX(-20deg);animation:shine 5s ease-in-out infinite 1s}
+@keyframes shine{0%{left:-60%}35%,100%{left:130%}}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;text-wrap:balance}
+.price .pz{color:var(--mute);font-size:14px;margin-top:10px}
+.price .pv b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:56px;color:#F4F0EA;line-height:1;text-shadow:0 0 30px rgba(201,183,155,.4);white-space:nowrap}
+/* pilot */
+.pilot{display:flex;align-items:center;justify-content:center;gap:18px;margin:4px 0 22px}
+.pl{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pl span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.pl.one i{width:22px;height:22px;border-radius:50%;background:var(--accent);box-shadow:0 0 22px var(--accent);animation:pulse 2.6s ease-in-out infinite}
+.pl.net{display:grid;grid-template-columns:repeat(5,14px);gap:8px;justify-items:center}
+.pl.net span{grid-column:1/-1;margin-top:2px}
+.pl.net i{width:14px;height:14px;border-radius:50%;border:1px solid var(--accent);opacity:.25;transition:opacity .6s,background .6s,box-shadow .6s}
+.pilot.in .pl.net i{opacity:1;background:rgba(201,183,155,.5);box-shadow:0 0 10px var(--accent)}
+.pilot.in .pl.net i:nth-child(1){transition-delay:1s}.pilot.in .pl.net i:nth-child(2){transition-delay:1.2s}.pilot.in .pl.net i:nth-child(3){transition-delay:1.4s}.pilot.in .pl.net i:nth-child(4){transition-delay:1.6s}.pilot.in .pl.net i:nth-child(5){transition-delay:1.8s}
+.parrow{width:120px;height:2px;background:rgba(201,183,155,.12);position:relative;overflow:hidden}
+.parrow i{position:absolute;inset:0;background:linear-gradient(90deg,var(--accent),#F4E3BF);transform-origin:0 50%;transform:scaleX(0);transition:transform 1s ease .3s}
+.pilot.in .parrow i{transform:scaleX(1)}
+/* divider */
+.divider{display:flex;align-items:center;gap:18px;max-width:880px;margin:30px auto 0;padding:0 24px}
+.divider span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.divider b{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:20px;color:var(--accent);white-space:nowrap}
+.closing{text-align:center;padding:30px 0 70px}
+.ornament{color:var(--accent);letter-spacing:.5em;opacity:.6;font-size:11px}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease;transition-delay:calc(var(--d,0)*.1s)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}.halo,.orbit,.hc,.price::after{animation:none}}
+@media(max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:32px 0}
+  .hero{padding:28px 0 14px}
+  .hero-card{padding:40px 18px 28px;border-radius:20px}
+  .hstats div{min-width:0;flex:1;padding:12px 8px}
+  .hstats b{font-size:30px}.hstats span{font-size:9.5px;letter-spacing:.1em}
+  .goals,.rgrid{grid-template-columns:1fr}
+  .chips{grid-template-columns:1fr}
+  .card,.mblock{padding:20px 18px}
+  .tl{padding-left:24px}.tl-line{left:4px}.tl-dot{left:-25px}
+  .res{grid-template-columns:1fr}.resring{position:relative;top:0;margin:0 auto;width:120px;height:120px}
+  .price .pz{color:var(--mute);font-size:14px;margin-top:10px}
+.price .pv b{font-size:44px}
+  .tabs .wrap{gap:22px}
+  .divider b{font-size:17px}
+  .ol{font-size:17px}
+  .viz.oct{margin-left:-6px;margin-right:-6px}
+}
+
+/* октагон: живая анимация */
+.sweep{transform-origin:200px 200px;animation:spin 7s linear infinite;opacity:0;transition:opacity 1s ease 2s}
+.viz.in .sweep{opacity:1}
+.swp{fill:url(#none);fill:rgba(201,183,155,.10)}
+.oct .fillp{transform-box:fill-box;transform-origin:center}
+.viz.oct.in .fillp{animation:breathe 4s ease-in-out 2.6s infinite}
+@keyframes breathe{50%{transform:scale(1.06);fill:rgba(201,183,155,.14)}}
+.viz.oct.in .od{animation:twinkle 2.8s ease-in-out infinite;animation-delay:calc(2s + var(--k)*.35s)}
+@keyframes twinkle{0%,100%{r:4;opacity:.8}40%{r:7;opacity:1}}
+.viz.oct.in .ol{animation:glowt 2.8s ease-in-out infinite;animation-delay:calc(2s + var(--k)*.35s)}
+@keyframes glowt{0%,100%{fill:#E8E4DE}40%{fill:#F4E3BF;filter:drop-shadow(0 0 6px rgba(201,183,155,.9))}}
+
+.nw{white-space:nowrap}
+@media(min-width:641px) and (max-width:900px){.chips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){
+  .card,.mblock{padding:18px 14px}
+  .tl{padding-left:18px}.tl-line{left:2px}.tl-dot{left:-21px;width:10px;height:10px}
+  h1{font-size:31px}
+  .pts li{font-size:14px}
+}
+
+/* ===== презентация ===== */
+html{scroll-snap-type:y proximity}
+.deck main{counter-reset:sl}
+.slide{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:84px 0 96px;scroll-snap-align:start;border-bottom:1px solid rgba(201,183,155,.06)}
+.slide>.wrap{width:100%;max-width:1120px}
+.slide::after{counter-increment:sl;content:counter(sl,decimal-leading-zero);position:absolute;right:28px;top:70px;font-size:11px;letter-spacing:.2em;color:var(--dim)}
+.slide h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:6px}
+.slide h2.small{font-size:clamp(22px,2.6vw,30px);margin-bottom:16px}
+.slide .section-head{margin-bottom:26px}
+.cover .hero-card{text-align:center;padding:70px 40px 60px;max-width:900px;margin:0 auto}
+.cover h1{font-size:clamp(36px,5.2vw,62px);max-width:820px;margin:0 auto}
+.cover .top{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:24px;text-wrap:balance}
+.cover .fio{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--accent);margin-bottom:14px;text-shadow:0 0 30px rgba(201,183,155,.35)}
+.cover .part{margin-top:34px;display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);padding:7px 14px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.two.va{align-items:center}
+.two .card{margin-bottom:0}
+.solo-col{max-width:760px}
+.stage .mnum{margin-bottom:14px}
+.stage h2{margin-bottom:18px}
+.cols .pts{columns:2;column-gap:34px}
+.cols .pts li{break-inside:avoid}
+.cols .sub:first-child,.cols .lab:first-child{margin-top:0}
+.goals.g4{grid-template-columns:repeat(4,1fr)}
+.goals.g4 .goal{flex-direction:column;gap:8px}
+.rlist.g2{grid-template-columns:1fr 1fr}
+.term{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,34px);color:#F4F0EA;margin:6px 0 14px;text-shadow:0 0 24px rgba(201,183,155,.35)}
+.pricewrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+.pricewrap .price{margin:0;max-width:none}
+.pricewrap .card{margin:0}
+.conf{max-width:760px;margin:0 auto}
+.slide .viz{margin:0 auto}
+/* навигация */
+.dnav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:14px;padding:6px 8px;border:1px solid var(--edge);border-radius:40px;background:rgba(9,9,10,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 30px -10px rgba(201,183,155,.4)}
+.dnav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--edge);background:rgba(201,183,155,.06);color:var(--accent);font-size:16px;cursor:pointer;transition:background .2s}
+.dnav button:hover{background:rgba(201,183,155,.16)}
+.dcount{font-size:12px;letter-spacing:.14em;color:var(--mute);min-width:64px;text-align:center}
+.dcount b{color:#F2EEE8;font-weight:500}
+@media(max-width:900px){
+  .two,.pricewrap{grid-template-columns:1fr}
+  .goals.g4{grid-template-columns:1fr 1fr}
+  .cols .pts{columns:1}
+}
+@media(max-width:640px){
+  .slide{padding:70px 0 90px;align-items:flex-start}
+  .slide::after{right:16px;top:62px}
+  .cover{align-items:center}
+  .cover .hero-card{padding:44px 18px 36px}
+  .goals.g4,.rlist.g2{grid-template-columns:1fr}
+  .goals.g4 .goal{flex-direction:row}
+  .dnav{bottom:12px}
+}
+.two .viz{width:100%;max-width:520px;margin:0 auto;justify-self:center}
+.two>*,.pricewrap>*{min-width:0}
+</style></head><body class="deck">
+<div class="progress"><i></i></div>
+<nav class="tabs"><div class="wrap"><a href="#brand" data-t="brand" class="on">Личный бренд</a><a href="#dolina" data-t="dolina">Долина&nbsp;5165</a></div></nav>
+<main><section class="slide cover" id="brand"><div class="wrap"><div class="hero-card"><div class="top">Стратегия&nbsp;· Контент-продюсирование&nbsp;· PR&nbsp;· Партнёрства&nbsp;· Развитие публичности</div>
+<div class="fio">Hamlet&nbsp;Dumikian</div><h1>Комплексное развитие личного бренда собственника ресторанной сети</h1><div class="part">Личный бренд</div></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">01</span><h2 class="rv">Концепция проекта</h2><p class="slead rv">Личный бренд как инструмент развития предпринимателя и бизнеса</p></div><div class="card concept"><p class=" rv">Мы рассматриваем личный бренд собственника как самостоятельное стратегическое направление, которое одновременно усиливает его публичность, расширяет деловые возможности и способствует росту узнаваемости принадлежащих ему ресторанных проектов.</p><p class=" rv">Через личность предпринимателя, его ценности, управленческий подход, профессиональный путь и повседневную деятельность мы формируем дополнительную точку контакта с аудиторией.</p><p class=" rv">Люди получают возможность познакомиться не только с заведениями, но и с человеком, который стоит за бизнесом: его взглядами, принципами, решениями, подходом к созданию проектов и развитию команды.</p><p class=" rv">Параллельно личный бренд становится платформой для развития новых деловых связей, партнёрств, коллабораций и участия в предпринимательской среде.</p><p class="quote rv">Наша задача — выстроить целостную систему, в которой личность предпринимателя, его публичность и ресторанный бизнес усиливают друг друга.</p></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">02</span><h2 class="rv">Цели сотрудничества</h2></div><div class="goals g4"><div class="goal rv" style="--d:0"><span class="gn">01</span><p>Сформировать узнаваемый и последовательный публичный образ собственника как предпринимателя и создателя ресторанных проектов.</p></div><div class="goal rv" style="--d:1"><span class="gn">02</span><p>Определить позиционирование, ключевые смыслы и направления развития личного бренда.</p></div><div class="goal rv" style="--d:2"><span class="gn">03</span><p>Выстроить системную работу над контентом и регулярным присутствием в социальных сетях.</p></div><div class="goal rv" style="--d:3"><span class="gn">04</span><p>Раскрыть личность собственника за пределами его профессиональной деятельности, сохранив связь с предпринимательским опытом и бизнесом.</p></div><div class="goal rv" style="--d:0"><span class="gn">05</span><p>Создать дополнительный канал узнаваемости ресторанной сети через личный бренд владельца.</p></div><div class="goal rv" style="--d:1"><span class="gn">06</span><p>Развивать PR-направление, партнёрства и коллаборации с предпринимателями, блогерами и брендами.</p></div><div class="goal rv" style="--d:2"><span class="gn">07</span><p>Расширять присутствие собственника в релевантной предпринимательской среде и на подходящих публичных площадках.</p></div><div class="goal rv" style="--d:3"><span class="gn">08</span><p>Сформировать долгосрочную систему управления развитием личного бренда, основанную на стратегии, контенте и последовательной реализации инициатив.</p></div></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">03</span><h2 class="rv">Система работы</h2><p class="slead rv">Проект включает два взаимосвязанных направления:</p></div><div class="two va"><div class="viz venn rv"><svg viewBox="0 0 520 280" role="img" aria-label="Стратегическое развитие + Контент- продюсирование"><circle cx="185" cy="122" r="118" class="vc v1"/><circle cx="335" cy="122" r="118" class="vc v2"/><text x="140" y="116" class="vt">Стратегическое</text><text x="140" y="138" class="vt">развитие</text><text x="380" y="116" class="vt">Контент-</text><text x="380" y="138" class="vt">продюсирование</text><circle cx="260" cy="122" r="6" class="core"/><text x="260" y="268" class="vm">единая система</text></svg></div><div><div class="rcard rv" style="--d:0"><h3>Стратегическое развитие личного бренда</h3><p>позиционирование предпринимателя, определение вектора развития, управление приоритетами, PR, партнёрства и новые возможности для бизнеса.</p></div><div class="rcard rv" style="--d:1"><h3>Контент-продюсирование под ключ</h3><p>распаковка для контента, формирование смысловой базы, разработка форматов, подготовка текстов и сценариев, съёмка, монтаж, публикация и аналитика.</p></div><p class="after rv">Оба направления реализуются в единой системе: стратегия определяет, куда развивается личный бренд, а контент и внешние коммуникации последовательно воплощают это направление в жизнь.</p></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 01</span><h2 class="rv">Стратегическое погружение и формирование видения</h2><div class="two"><div><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Определить, какое место личный бренд должен занимать в жизни и бизнесе собственника, какие цели он решает и какие направления развития являются приоритетными.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Стратегическое видение развития личного бренда, понимание его роли в бизнес-системе, приоритетных аудиторий и направлений, на которых будет строиться дальнейшая работа.</div></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Изучение предпринимательского контекста, текущих проектов и бизнес-целей.</li><li class="rv">Определение целей развития личного бренда и ожидаемой роли публичности в развитии бизнеса.</li><li class="rv">Выявление ключевых аудиторий: предприниматели, потенциальные партнёры, бренды, аудитория ресторанных проектов и другие релевантные группы.</li><li class="rv">Формирование стратегического видения личного бренда как самостоятельного направления.</li><li class="rv">Определение взаимосвязи личного бренда с ресторанным бизнесом и другими предпринимательскими интересами.</li><li class="rv">Выявление потенциальных точек роста через публичность, партнёрства и внешние коммуникации.</li><li class="rv">Определение приоритетов первого этапа работы.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 02</span><h2 class="rv">Распаковка и смысловая основа</h2><div class="two va"><div><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Собрать фактический и смысловой материал, который позволит раскрыть личность собственника в контенте и сформировать основу для дальнейшего позиционирования.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Индивидуальный документ распаковки и структурированный банк историй, смыслов и тем, который используется при разработке контента и сохраняется в личной базе проекта.</div></div><div class="viz oct rv"><svg viewBox="-40 0 480 400" role="img" aria-label="характер, люди, ценности, путь, принципы, тело, места, быт"><polygon points="200.0,72.0 290.5,109.5 328.0,200.0 290.5,290.5 200.0,328.0 109.5,290.5 72.0,200.0 109.5,109.5" class="ring"/><polygon points="200.0,129.6 249.8,150.2 270.4,200.0 249.8,249.8 200.0,270.4 150.2,249.8 129.6,200.0 150.2,150.2" class="ring in2"/><line x1="200" y1="200" x2="200.0" y2="72.0" class="sp" style="--k:0"/><line x1="200" y1="200" x2="290.5" y2="109.5" class="sp" style="--k:1"/><line x1="200" y1="200" x2="328.0" y2="200.0" class="sp" style="--k:2"/><line x1="200" y1="200" x2="290.5" y2="290.5" class="sp" style="--k:3"/><line x1="200" y1="200" x2="200.0" y2="328.0" class="sp" style="--k:4"/><line x1="200" y1="200" x2="109.5" y2="290.5" class="sp" style="--k:5"/><line x1="200" y1="200" x2="72.0" y2="200.0" class="sp" style="--k:6"/><line x1="200" y1="200" x2="109.5" y2="109.5" class="sp" style="--k:7"/><polygon points="200.0,72.0 290.5,109.5 328.0,200.0 290.5,290.5 200.0,328.0 109.5,290.5 72.0,200.0 109.5,109.5" class="fillp"/><text x="200.0" y="43.0" text-anchor="middle" class="ol" style="--k:0">характер</text><circle cx="200.0" cy="72.0" r="4" class="od" style="--k:0"/><text x="314.6" y="90.4" text-anchor="start" class="ol" style="--k:1">люди</text><circle cx="290.5" cy="109.5" r="4" class="od" style="--k:1"/><text x="362.0" y="205.0" text-anchor="start" class="ol" style="--k:2">ценности</text><circle cx="328.0" cy="200.0" r="4" class="od" style="--k:2"/><text x="314.6" y="319.6" text-anchor="start" class="ol" style="--k:3">путь</text><circle cx="290.5" cy="290.5" r="4" class="od" style="--k:3"/><text x="200.0" y="367.0" text-anchor="middle" class="ol" style="--k:4">принципы</text><circle cx="200.0" cy="328.0" r="4" class="od" style="--k:4"/><text x="85.4" y="319.6" text-anchor="end" class="ol" style="--k:5">тело</text><circle cx="109.5" cy="290.5" r="4" class="od" style="--k:5"/><text x="38.0" y="205.0" text-anchor="end" class="ol" style="--k:6">места</text><circle cx="72.0" cy="200.0" r="4" class="od" style="--k:6"/><text x="85.4" y="90.4" text-anchor="end" class="ol" style="--k:7">быт</text><circle cx="109.5" cy="109.5" r="4" class="od" style="--k:7"/><g class="sweep"><path d="M200,200 L200,72 A128,128 0 0 1 290.5,109.5 Z" class="swp"/></g><circle cx="200" cy="200" r="5" class="core"/></svg></div></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 02 · Состав работ</span><h2 class="rv small">Распаковка и смысловая основа</h2><div class="card cols"><ul class="pts"><li class="rv">Подготовка вопросов для контентной распаковки.</li><li class="rv">Сбор ответов собственника в удобном асинхронном формате (голосовыми сообщениями в рабочем чате).</li><li class="rv">Расшифровка и анализ ответов.</li><li class="rv">Выделение ключевых историй, формулировок, наблюдений, принципов и примеров из личного и предпринимательского опыта.</li><li class="rv">Формирование банка историй и тем для будущих публикаций.</li><li class="rv">Раскрытие личности через восемь направлений: характер, люди, ценности, путь, принципы, тело, места и быт.</li><li class="rv">Выделение тем, которые позволяют показать собственника не только как владельца ресторанов, но и как человека со своим взглядом, опытом и образом жизни.</li></ul></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 03</span><h2 class="rv">Позиционирование и ролевая модель предпринимателя</h2><div class="two"><div><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Сформировать целостный публичный образ собственника и определить, как он должен проявляться в контенте, предпринимательской среде и внешних коммуникациях.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Понятная модель публичного образа: каким он представлен аудитории, какие смыслы транслирует, с какими темами ассоциируется и в каких направлениях развивает свою публичность.</div></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Определение ключевой роли собственника в публичном пространстве.</li><li class="rv">Формирование позиционирования с учётом его предпринимательского опыта, ценностей, интересов и долгосрочных целей.</li><li class="rv">Выделение ключевых смыслов и тем, которые необходимо последовательно транслировать.</li><li class="rv">Определение баланса между личностью, предпринимательской деятельностью, ресторанным бизнесом и повседневной жизнью.</li><li class="rv">Формирование ролевой модели публичного присутствия: какие темы, форматы, мероприятия и партнёрства соответствуют образу собственника.</li><li class="rv">Определение направлений, в которых целесообразно развивать его экспертность, публичность и деловые связи.</li><li class="rv">Синхронизация стратегического позиционирования с контентной концепцией.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 04</span><h2 class="rv">Контентная стратегия и система производства</h2><div class="solo-col"><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Перевести позиционирование и смыслы личного бренда в регулярную систему контента, которая раскрывает личность предпринимателя и усиливает узнаваемость его бизнеса.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Сформированная контентная система, согласованные форматы и темы, организованный процесс съёмок и монтажа, готовые материалы и регулярное присутствие в социальных сетях.</div></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 04 · Состав работ</span><h2 class="rv small">Контентная стратегия и система производства</h2><div class="card cols"><div class="sub rv">4.1. Концепция блога</div><ul class="pts"><li class="rv">Формирование основной идеи и содержания блога.</li><li class="rv">Определение ключевых тематических направлений.</li><li class="rv">Разработка принципов коммуникации и подачи материала.</li><li class="rv">Интеграция предпринимательской деятельности и ресторанных проектов в контент без сведения всего блога исключительно к бизнесу.</li></ul><div class="sub rv">4.2. Карта форматов и тем</div><ul class="pts"><li class="rv">Разработка 10–15 контентных форматов с учётом личности собственника и специфики его деятельности.</li><li class="rv">Подготовка тем и идей для роликов.</li><li class="rv">Разработка направлений раскрытия личности, предпринимательского пути, управленческого опыта, ресторанного бизнеса и повседневной жизни.</li><li class="rv">Согласование тем и форматов с собственником в письменном виде.</li><li class="rv">Формирование графика производства и выхода контента.</li></ul><div class="sub rv">4.3. Организация производства</div><ul class="pts"><li class="rv">Планирование съёмочных дней.</li><li class="rv">Подготовка тем и материалов к съёмкам.</li><li class="rv">Съёмка и монтаж коротких вертикальных видео.</li><li class="rv">Использование материалов из рабочих будней: посещения ресторанов, взаимодействия с командой, встреч, событий и других релевантных ситуаций.</li><li class="rv">Подготовка текстов к публикациям.</li><li class="rv">Формирование графика выхода роликов и согласование порядка публикаций.</li></ul><div class="lab rv">Плановый объём</div><div class="rchart rv"><div class="rrow"><div class="rcap"><b class="cnt" data-v="10–15">10–15</b><span>контентных форматов в карте</span></div><div class="rtrack"><i style="--a:66.7%;--b:100.0%"></i></div></div><div class="rrow"><div class="rcap"><b class="cnt" data-v="2–3">2–3</b><span>съёмочных дня в месяц</span></div><div class="rtrack"><i style="--a:13.3%;--b:20.0%"></i></div></div><div class="rrow"><div class="rcap"><b class="cnt" data-v="7–10">7–10</b><span>роликов с одного съёмочного дня</span></div><div class="rtrack"><i style="--a:46.7%;--b:66.7%"></i></div></div></div><ul class="pts"><li class="rv">10–15 контентных форматов в карте.</li><li class="rv">2–3 съёмочных дня в месяц.</li><li class="rv">Ориентир: 7–10 роликов с одного съёмочного дня при условии готовности и согласования тем.</li><li class="rv">Регулярный выпуск контента в соответствии с согласованным производственным планом.</li></ul><p class="para rv">Фактическое количество готовых роликов зависит от продолжительности и содержания съёмок, сложности материала и согласованного графика.</p></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 05</span><h2 class="rv">Стратегическое управление и развитие личного бренда</h2><div class="two"><div><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Обеспечить последовательное развитие личного бренда и связать контент, предпринимательские цели, публичность и внешние коммуникации в единую систему.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Системное управление развитием личного бренда, прозрачный план действий и согласованная работа над стратегией, контентом и внешними коммуникациями.</div></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Формирование ежемесячных приоритетов развития личного бренда.</li><li class="rv">Планирование стратегических инициатив и контроль их реализации.</li><li class="rv">Синхронизация контентного направления с бизнес-целями собственника.</li><li class="rv">Выявление актуальных инфоповодов, событий и возможностей для публичного присутствия.</li><li class="rv">Формирование рекомендаций по развитию публичного образа и направлений коммуникации.</li><li class="rv">Координация взаимодействия между стратегическим и контентным направлениями.</li><li class="rv">Интеграция согласованных инфоповодов, мероприятий и партнёрств в контентный план.</li><li class="rv">Регулярная оценка выполненных задач и корректировка приоритетов.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 06</span><h2 class="rv">PR, коллаборации и партнёрства</h2><div class="solo-col"><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Использовать личный бренд как платформу для расширения деловых связей, повышения узнаваемости и формирования новых возможностей для сотрудничества.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Сформированная база потенциальных партнёров и площадок, проработанные идеи коллабораций, подготовленные предложения и системная работа над развитием деловых связей.</div><p class="note rv">Фактическое участие в мероприятиях, согласование партнёрств и публикация материалов зависят от решений собственника и внешних участников.</p></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 06 · Состав работ</span><h2 class="rv small">PR, коллаборации и партнёрства</h2><div class="card cols"><div class="sub rv">6.1. Работа с потенциальными партнёрами</div><ul class="pts"><li class="rv">Формирование критериев отбора релевантных партнёров.</li><li class="rv">Поиск блогеров, предпринимателей, брендов и других потенциальных участников совместных проектов.</li><li class="rv">Формирование индивидуальной базы потенциальных партнёров.</li><li class="rv">Оценка соответствия партнёров позиционированию и целям собственника.</li><li class="rv">Разработка идей совместных проектов и коллабораций.</li></ul><div class="sub rv">6.2. Подготовка и сопровождение коллабораций</div><ul class="pts"><li class="rv">Формирование предложений для потенциальных партнёров.</li><li class="rv">Подготовка концепций совместных активностей и интеграций.</li><li class="rv">Организация коммуникации и сопровождение согласованных договорённостей.</li><li class="rv">Координация сроков, форматов и содержания совместных активностей.</li><li class="rv">Интеграция реализуемых партнёрств в контент и коммуникационную стратегию.</li></ul><div class="sub rv">6.3. Предпринимательская среда</div><ul class="pts"><li class="rv">Исследование релевантных предпринимательских клубов и сообществ.</li><li class="rv">Подбор мероприятий, деловых встреч и площадок для участия.</li><li class="rv">Выявление возможностей для знакомств, партнёрств и расширения деловых связей.</li><li class="rv">Подготовка рекомендаций по участию в выбранных инициативах.</li><li class="rv">Сопровождение согласованных активностей в рамках утверждённого плана.</li></ul><div class="sub rv">6.4. PR-развитие</div><ul class="pts"><li class="rv">Выявление потенциальных информационных поводов.</li><li class="rv">Подбор релевантных площадок для публичного присутствия.</li><li class="rv">Формирование идей для внешних коммуникаций.</li><li class="rv">Развитие возможностей для участия в мероприятиях, интервью, предпринимательских дискуссиях и других форматах, соответствующих позиционированию собственника.</li></ul></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 07</span><h2 class="rv">Личный бренд как дополнительный канал роста ресторанного бизнеса</h2><div class="two"><div><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Выстроить взаимосвязь между развитием публичности собственника и узнаваемостью принадлежащих ему ресторанных проектов.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Дополнительный канал коммуникации с аудиторией, более глубокое раскрытие ресторанного бизнеса через личность его владельца, новые возможности для PR и укрепления узнаваемости заведений.</div><p class="note rv">Личный бренд дополняет действующую маркетинговую систему ресторанов, но не заменяет её и не дублирует её операционные функции.</p></div><div class="card"><p class="para rv">Личный бренд становится дополнительной точкой контакта с аудиторией, а ресторанный бизнес — важной частью предпринимательской истории и содержания блога.</p><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Интеграция ресторанных проектов в контент личного бренда.</li><li class="rv">Подготовка тем о создании и развитии заведений, управленческих решениях, команде и предпринимательском опыте.</li><li class="rv">Использование рабочих будней и событий в ресторанах как основы для контента.</li><li class="rv">Выявление совместных инфоповодов для личного бренда и ресторанов.</li><li class="rv">Разработка идей коллабораций, которые могут усиливать узнаваемость собственника и заведений.</li><li class="rv">Синхронизация согласованных активностей с действующей маркетинговой командой ресторанной сети.</li><li class="rv">Поиск возможностей для перекрёстного усиления коммуникаций и привлечения внимания к ресторанным проектам.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 08</span><h2 class="rv">Аналитика и корректировка стратегии</h2><div class="solo-col"><div class="task rv"><span class="lab">Задача этапа</span><p class="lead">Оценивать динамику развития личного бренда, определять эффективные форматы и корректировать дальнейшую работу на основании полученных данных.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Понимание динамики развития личного бренда, накопление данных для принятия решений и последовательная корректировка стратегии.</div></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 08 · Состав работ</span><h2 class="rv small">Аналитика и корректировка стратегии</h2><div class="card cols"><div class="lab rv">Контентная аналитика</div><ul class="pts"><li class="rv">Анализ каждого опубликованного Reels по просмотрам, охватам, подпискам и вовлечённости.</li><li class="rv">Выявление наиболее эффективных тем и форматов.</li><li class="rv">Определение направлений, требующих корректировки.</li><li class="rv">Подготовка рекомендаций по дальнейшему производству контента.</li></ul><div class="lab rv">Стратегическая аналитика</div><ul class="pts"><li class="rv">Контроль реализации согласованных задач и инициатив.</li><li class="rv">Анализ статусов партнёрств и внешних активностей.</li><li class="rv">Оценка динамики развития публичного присутствия и достигнутых промежуточных результатов.</li><li class="rv">Формирование приоритетов на следующий период.</li></ul><div class="lab rv">Отчётность</div><ul class="pts"><li class="rv">Ежемесячный отчёт по принципу «план — факт».</li><li class="rv">Фиксация выполненных задач и ключевых показателей.</li><li class="rv">Формирование плана развития на следующий месяц или квартал.</li></ul></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">04</span><h2 class="rv">Формат взаимодействия</h2><p class="slead rv">Для обеспечения системной работы формируется единый рабочий контур:</p></div><div class="card"><ul class="pts"><li class="rv">Общий рабочий чат с собственником и командой проекта.</li><li class="rv">Еженедельный созвон с собственником для разбора контента, результатов и согласования приоритетов.</li><li class="rv">Еженедельная синхронизация стратегического и контентного направлений.</li><li class="rv">Согласование контентных тем, съёмочных планов и ключевых инициатив.</li><li class="rv">Письменная фиксация задач, договорённостей и сроков.</li><li class="rv">Ежемесячный отчёт по выполненным работам и результатам.</li><li class="rv">Регулярное обновление базы потенциальных партнёров и статусов внешних активностей.</li></ul></div><p class="after rv">Вопросы, требующие отдельного стратегического обсуждения, выносятся на согласованный созвон / встречу с собственником.</p></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">05</span><h2 class="rv">Индивидуальная база личного бренда</h2><p class="slead rv">В рамках сотрудничества формируется и системно ведётся индивидуальная база проекта собственника.</p></div><p class="after rv" style="margin-top:0">В ней хранятся:</p><div class="chips"><div class="chip rv" style="--d:0">Стратегические документы и материалы по позиционированию.</div><div class="chip rv" style="--d:1">Документ распаковки и банк историй.</div><div class="chip rv" style="--d:2">Контентная стратегия, форматы, темы, сценарии и тексты.</div><div class="chip rv" style="--d:0">График съёмок и публикаций.</div><div class="chip rv" style="--d:1">Готовые материалы, фото- и видеоролики, исходники съёмок.</div><div class="chip rv" style="--d:2">Контентная аналитика и ежемесячные отчёты.</div><div class="chip rv" style="--d:0">База потенциальных партнёров и предпринимательских площадок.</div><div class="chip rv" style="--d:1">Предложения по коллаборациям и история согласованных инициатив.</div><div class="chip rv" style="--d:2">Рабочие документы и зафиксированные решения.</div></div><p class="after rv">Все материалы, созданные в рамках проекта, систематизируются и сохраняются в индивидуальном пространстве собственника. Это обеспечивает прозрачность работы, сохранность накопленных наработок и возможность дальнейшего развития личного бренда на основе сформированной базы знаний и материалов.</p></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">06</span><h2 class="rv">Результат первого месяца</h2><p class="slead rv">Первый месяц направлен на формирование основы личного бренда, организацию контентного производства и запуск регулярной работы.</p></div><p class="after rv" style="margin-top:0">По итогам первого месяца собственник получает:</p><ol class="rlist g2"><li class="rv" style="--d:0"><i></i><span>Стратегическое видение развития личного бренда и его взаимосвязи с ресторанным бизнесом.</span></li><li class="rv" style="--d:1"><i></i><span>Сформированную ролевую модель публичного позиционирования.</span></li><li class="rv" style="--d:0"><i></i><span>Документ распаковки и индивидуальный банк историй, смыслов и тем.</span></li><li class="rv" style="--d:1"><i></i><span>Карту из 10–15 контентных форматов и согласованные темы для роликов.</span></li><li class="rv" style="--d:0"><i></i><span>Организованный процесс производства контента и график публикаций.</span></li><li class="rv" style="--d:1"><i></i><span>Проведённые съёмки, смонтированные и опубликованные ролики в рамках согласованного производственного плана.</span></li><li class="rv" style="--d:0"><i></i><span>Первичную аналитику контента и рекомендации по развитию эффективных форматов.</span></li><li class="rv" style="--d:1"><i></i><span>Первичную базу потенциальных партнёров, брендов, предпринимательских сообществ и площадок.</span></li><li class="rv" style="--d:0"><i></i><span>Приоритетный план развития PR, коллабораций и внешних коммуникаций.</span></li><li class="rv" style="--d:1"><i></i><span>Индивидуальную базу проекта с систематизированными материалами и рабочими документами.</span></li><li class="rv" style="--d:0"><i></i><span>План работ и развития личного бренда на следующий месяц или квартал.</span></li></ol></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">07</span><h2 class="rv">Сроки сотрудничества и стоимость</h2></div><div class="card"><div class="lab rv">Период сотрудничества</div><div class="term rv">Минимальный срок: 3 месяца.</div><p class="para rv">Такой период необходим для формирования стратегической основы личного бренда, выстраивания контентной системы, запуска регулярного производства материалов, тестирования форматов и оценки первых результатов.</p><p class="para rv">Работа строится поэтапно: от формирования позиционирования и запуска контента до анализа полученных данных, развития приоритетных направлений и реализации дальнейших задач.</p></div></div></section><section class="slide pricing"><div class="wrap"><div class="pricewrap"><div class="price solo rv"><div class="pe">Стоимость первого месяца</div><div class="pv"><b class="count" data-to="250000">250 000 руб.</b></div></div><div class="card"><p class="para rv">В стоимость входят два взаимосвязанных направления:</p><ul class="pts"><li class="rv">Стратегическое развитие личного бренда, PR и партнёрства</li><li class="rv">Контент-продюсирование под ключ</li></ul></div></div></div></section><section class="slide "><div class="wrap"><div class="card"><div class="lab rv">Стоимость последующих месяцев</div><p class="para rv">Стоимость каждого последующего месяца определяется и согласовывается заранее, до начала соответствующего периода работы.</p><p class="para rv">Формируется на основании результатов первого этапа, актуализированной стратегии развития, дальнейших целей и задач, а также согласованного объёма работ.</p><p class="para rv">Такой подход позволяет последовательно развивать личный бренд, адаптировать стратегию к полученным результатам и определять приоритеты на каждом следующем этапе сотрудничества.</p><p class="note rv">Дополнительные расходы на платные размещения, участие в мероприятиях, услуги внешних подрядчиков, поездки, аренду площадок и другие расходы, не включённые в согласованный объём, оплачиваются отдельно после предварительного согласования.</p></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">08</span><h2 class="rv">Итоговое видение</h2></div><div class="two va"><div class="viz hub rv"><svg viewBox="-70 0 660 380" role="img" aria-label="Личный бренд"><circle cx="260" cy="190" r="150" class="orbit"/><line x1="260" y1="190" x2="260.0" y2="40.0" class="sp" style="--k:0"/><g class="hn" style="--k:0"><circle cx="260.0" cy="40.0" r="9" class="od"/><text x="260.0" y="22.0" text-anchor="middle" class="ol">Стратегия</text></g><line x1="260" y1="190" x2="410.0" y2="190.0" class="sp" style="--k:1"/><g class="hn" style="--k:1"><circle cx="410.0" cy="190.0" r="9" class="od"/><text x="428.0" y="195.0" text-anchor="start" class="ol">Контент</text></g><line x1="260" y1="190" x2="260.0" y2="340.0" class="sp" style="--k:2"/><g class="hn" style="--k:2"><circle cx="260.0" cy="340.0" r="9" class="od"/><text x="260.0" y="370.0" text-anchor="middle" class="ol">PR и партнёрства</text></g><line x1="260" y1="190" x2="110.0" y2="190.0" class="sp" style="--k:3"/><g class="hn" style="--k:3"><circle cx="110.0" cy="190.0" r="9" class="od"/><text x="92.0" y="195.0" text-anchor="end" class="ol">Ресторанный бизнес</text></g><circle cx="260" cy="190" r="60" class="hc"/><text x="260" y="187" text-anchor="middle" class="hct">Личный</text><text x="260" y="207" text-anchor="middle" class="hct">бренд</text></svg></div><div class="card concept"><p class=" rv">Мы создаём не просто блог и не отдельный контентный проект, а системное направление развития предпринимателя.</p><p class=" rv">Стратегия определяет роль и вектор развития личного бренда. Контент раскрывает личность, ценности и предпринимательский опыт. PR и партнёрства расширяют круг деловых связей и создают новые возможности. Взаимосвязь с ресторанным бизнесом формирует дополнительный канал узнаваемости заведений и помогает раскрывать их через личность собственника.</p><p class="quote rv">Результат — единая система, в которой личный бренд развивается последовательно, усиливает предпринимательскую репутацию собственника и создаёт дополнительные возможности для роста его бизнеса.</p></div></div></div></section><section class="slide "><div class="wrap"><div class="card conf"><div class="lab rv">Конфиденциальность</div><p class="para rv">При необходимости и по желанию собственника стороны могут заключить соглашение о неразглашении (NDA), регулирующее порядок работы с конфиденциальной информацией, включая личные сведения, внутренние материалы, бизнес-данные и другую информацию, полученную в ходе сотрудничества.</p><p class="para rv">Мы уделяем особое внимание сохранности рабочих материалов и соблюдению конфиденциальности на всех этапах взаимодействия!</p></div></div></section><section class="slide cover" id="dolina"><div class="wrap"><div class="hero-card"><div class="top">Контент-продюсирование&nbsp;· Инфлюенс-маркетинг&nbsp;· Стратегическое управление</div>
+<div class="fio">Долина&nbsp;5165 |&nbsp;Аминьевская</div><h1>Стратегическое развитие и усиление продвижения ресторанной локации</h1><div class="part">Долина&nbsp;5165 |&nbsp;Аминьевская</div></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">01</span><h2 class="rv">Концепция проекта</h2></div><div class="two va"><div class="viz rings rv"><svg viewBox="0 0 520 300" role="img" aria-label="Действующая маркетинговая система; Контент · Блогеры · Внешние коммуникации"><circle cx="260" cy="135" r="118" class="ro"/><circle cx="260" cy="135" r="118" class="ro2"/><circle cx="260" cy="135" r="72" class="ri"/><text x="260" y="131" text-anchor="middle" class="rit">Действующая</text><text x="260" y="151" text-anchor="middle" class="rit">маркетинговая система</text><text x="260" y="292" text-anchor="middle" class="rot">Контент · Блогеры · Внешние коммуникации</text></svg></div><div class="card concept"><p class=" rv">Мы предлагаем усилить продвижение выбранной ресторанной локации через дополнительное контентное направление и системную работу с блогерами и внешними коммуникациями.</p><p class=" rv">Основная задача — повысить узнаваемость заведения, сформировать дополнительные точки контакта с потенциальными гостями и расширить присутствие ресторана в информационном поле.</p><p class=" rv">Работа выстраивается в дополнение к действующей маркетинговой системе сети. Существующая команда продолжает отвечать за свои направления, включая текущий SMM, рекламные активности, привлечение гостей и аналитику. Наша задача — создать дополнительные возможности роста через производство контента, инфлюенс-маркетинг и стратегическую координацию.</p><p class="quote rv">На первом этапе работа сосредоточена на одной выбранной локации. По результатам первого месяца можно оценить эффективность подхода и определить возможности его дальнейшего развития по сети.</p></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 01</span><h2 class="rv">Погружение и определение приоритетов</h2><div class="two"><div><div class="task rv"><span class="lab">Задача</span><p class="lead">Изучить текущую ситуацию ресторана, определить ключевые задачи продвижения и согласовать направления, которые необходимо усилить в первую очередь.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Согласованное понимание задач локации, определённые приоритеты продвижения и план дополнительных активностей, которые дополняют текущую маркетинговую работу.</div></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Знакомство с концепцией, позиционированием и особенностями локации.</li><li class="rv">Изучение текущих маркетинговых активностей и запланированных мероприятий.</li><li class="rv">Определение ключевых аудиторий и особенностей коммуникации с ними.</li><li class="rv">Анализ существующего контента и текущих инфоповодов.</li><li class="rv">Синхронизация с действующей маркетинговой командой.</li><li class="rv">Определение задач дополнительного контентного направления и инфлюенс-маркетинга.</li><li class="rv">Формирование приоритетов и плана работ на первый месяц.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 02</span><h2 class="rv">Контентная стратегия и производство видео</h2><div class="solo-col"><div class="task rv"><span class="lab">Задача</span><p class="lead">Создать дополнительный пул качественного видеоконтента, который раскрывает атмосферу, концепцию и особенности ресторана, формирует интерес к локации и поддерживает её продвижение.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Готовый пул видеоконтента, который дополняет существующую контентную систему ресторана и может использоваться для регулярных публикаций и согласованных рекламных и PR-активностей.</div></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 02 · Состав работ</span><h2 class="rv small">Контентная стратегия и производство видео</h2><div class="card cols"><div class="lab rv">Стратегическая подготовка</div><ul class="pts"><li class="rv">Определение приоритетных тем и направлений контента.</li><li class="rv">Разработка контентных рубрик и идей для видеороликов.</li><li class="rv">Формирование концепций съёмок с учётом особенностей ресторана.</li><li class="rv">Согласование идей с собственником и действующей маркетинговой командой.</li><li class="rv">Формирование графика съёмок и производства материалов.</li></ul><div class="lab rv">Производство контента под ключ</div><ul class="pts"><li class="rv">Организация съёмочного процесса.</li><li class="rv">Подготовка сценариев и технических заданий.</li><li class="rv">Координация съёмок на локации.</li><li class="rv">Видеопроизводство и монтаж.</li><li class="rv">Подготовка текстов и материалов к публикации.</li><li class="rv">Формирование графика выхода готовых роликов.</li><li class="rv">Передача материалов действующей команде для согласованного использования в социальных сетях.</li></ul><div class="lab rv">Плановый объём</div><div class="rchart rv"><div class="rrow"><div class="rcap"><b class="cnt" data-v="10–15">10–15</b><span>вертикальных видеороликов за первый месяц</span></div><div class="rtrack"><i style="--a:66.7%;--b:100.0%"></i></div></div></div><p class="para rv">10–15 вертикальных видеороликов за первый месяц. Итоговый объём определяется согласованным планом производства, сложностью концепций и съёмок.</p></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 03</span><h2 class="rv">Инфлюенс-маркетинг и привлечение блогеров</h2><div class="solo-col"><div class="task rv"><span class="lab">Задача</span><p class="lead">Организовать системную работу с блогерами, которые соответствуют концепции ресторана и помогают расширять охват потенциальной аудитории.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Организованная система работы с блогерами, согласованный пул участников, календарь интеграций, подготовленные задания и контроль реализации публикаций.</div><p class="note rv">Расходы на платные размещения, вознаграждения блогеров, бартер, продукцию и другие внешние затраты не входят в стоимость сопровождения и согласовываются отдельно.</p></div></div></section><section class="slide stage more"><div class="wrap"><span class="mnum rv">Этап 03 · Состав работ</span><h2 class="rv small">Инфлюенс-маркетинг и привлечение блогеров</h2><div class="card cols"><div class="sub rv">3.1. Подбор блогеров</div><ul class="pts"><li class="rv">Определение критериев отбора с учётом концепции ресторана, географии и целевой аудитории.</li><li class="rv">Поиск и отбор релевантных блогеров.</li><li class="rv">Анализ соответствия аудитории, формата контента и позиционирования заведения.</li><li class="rv">Формирование списка потенциальных участников интеграций.</li><li class="rv">Согласование кандидатов с собственником и при необходимости с действующей маркетинговой командой.</li></ul><div class="sub rv">3.2. Организация сотрудничества</div><ul class="pts"><li class="rv">Первичная коммуникация и приглашение блогеров.</li><li class="rv">Согласование форматов взаимодействия и условий.</li><li class="rv">Подготовка технических заданий и рекомендаций по контенту.</li><li class="rv">Разработка сценарных ориентиров с учётом концепции ресторана.</li><li class="rv">Организация графика визитов, съёмок и публикаций.</li><li class="rv">Координация взаимодействия с рестораном и блогерами.</li><li class="rv">Контроль соблюдения согласованных сроков и условий размещения.</li></ul><div class="sub rv">3.3. Сопровождение интеграций</div><ul class="pts"><li class="rv">Ведение календаря публикаций.</li><li class="rv">Контроль выхода согласованных материалов.</li><li class="rv">Сбор ссылок на публикации и доступной статистики.</li><li class="rv">Формирование итогового реестра реализованных интеграций.</li></ul><div class="lab rv">Плановый объём</div><div class="rchart rv"><div class="rrow"><div class="rcap"><b class="cnt" data-v="до 10">до 10</b><span>интеграций с блогерами в течение первого месяца</span></div><div class="rtrack"><i style="--a:0.0%;--b:100.0%"></i></div></div></div><p class="para rv">До 10 интеграций с блогерами в течение первого месяца в рамках согласованного плана и доступного бюджета.</p><p class="para rv">Фактическое количество реализованных интеграций зависит от подтверждения участия блогеров, согласования условий и выбранных форматов сотрудничества.</p></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 04</span><h2 class="rv">Стратегическое управление и координация</h2><div class="two"><div><div class="task rv"><span class="lab">Задача</span><p class="lead">Обеспечить согласованность контентного производства, инфлюенс-маркетинга и действующих маркетинговых процессов ресторана.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Единая система управления дополнительными активностями ресторана, в которой контент, блогеры и внешние коммуникации согласованы между собой и дополняют работу действующей маркетинговой команды.</div></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Формирование общего плана дополнительных активностей на месяц.</li><li class="rv">Управление приоритетами и координация выполнения задач.</li><li class="rv">Организация взаимодействия с действующей маркетинговой командой.</li><li class="rv">Согласование идей, рубрик и инфоповодов, чтобы избежать дублирования контента.</li><li class="rv">Координация съёмочных процессов и интеграций блогеров.</li><li class="rv">Синхронизация графиков производства и выхода материалов.</li><li class="rv">Контроль согласованных сроков и текущих задач.</li><li class="rv">Поиск возможностей для дополнительных коллабораций и внешних коммуникаций.</li><li class="rv">Регулярная коммуникация с собственником по ходу реализации проекта.</li></ul></div></div></div></section><section class="slide stage"><div class="wrap"><span class="mnum rv">Этап 05</span><h2 class="rv">Аналитика и планирование дальнейших действий</h2><div class="two"><div><div class="task rv"><span class="lab">Задача</span><p class="lead">Оценить выполненный объём работ, результаты контентных и инфлюенс-активностей и определить дальнейшие приоритеты.</p></div><div class="gives rv"><strong>Результат для собственника</strong>Прозрачный отчёт о выполненных работах, систематизированные материалы и рекомендации по дальнейшему усилению продвижения локации.</div><p class="note rv">При наличии необходимых данных от действующей команды дополнительно оцениваются доступные показатели интереса аудитории к ресторану.</p></div><div class="card"><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Сводка произведённого и опубликованного контента.</li><li class="rv">Сбор доступной статистики по видеороликам.</li><li class="rv">Сбор ссылок и доступных показателей по интеграциям блогеров.</li><li class="rv">Фиксация выполненных задач по принципу «план — факт».</li><li class="rv">Выявление наиболее перспективных форматов и направлений.</li><li class="rv">Подготовка рекомендаций по дальнейшему развитию контентного и инфлюенс-направлений.</li><li class="rv">Формирование предварительного плана следующего периода.</li></ul></div></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">02</span><h2 class="rv">Формат взаимодействия</h2></div><div class="card"><ul class="pts"><li class="rv">Единый рабочий чат для коммуникации и согласования задач.</li><li class="rv">Согласование контентных идей и графика производства.</li><li class="rv">Координация с действующей маркетинговой командой.</li><li class="rv">Письменная фиксация задач, сроков и договорённостей.</li><li class="rv">Регулярная синхронизация с собственником по приоритетам и результатам.</li><li class="rv">Хранение произведённых материалов, исходников и рабочих документов в согласованной базе проекта.</li><li class="rv">Итоговая сводка выполненных работ по завершении месяца.</li></ul></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">03</span><h2 class="rv">Результат первого месяца</h2><p class="slead rv">По итогам первого месяца собственник получает:</p></div><ol class="rlist g2"><li class="rv" style="--d:0"><i></i><span>Согласованный план дополнительных активностей для выбранной локации.</span></li><li class="rv" style="--d:1"><i></i><span>Подготовленные контентные рубрики, идеи и сценарии.</span></li><li class="rv" style="--d:0"><i></i><span>Пул из 10–15 произведённых вертикальных видеороликов в рамках согласованного плана.</span></li><li class="rv" style="--d:1"><i></i><span>Организованный процесс съёмок и производства контента.</span></li><li class="rv" style="--d:0"><i></i><span>Сформированный список блогеров и план инфлюенс-активностей.</span></li><li class="rv" style="--d:1"><i></i><span>Организационное сопровождение до 10 интеграций в рамках согласованных условий.</span></li><li class="rv" style="--d:0"><i></i><span>Календарь визитов и публикаций блогеров.</span></li><li class="rv" style="--d:1"><i></i><span>Системную координацию с действующей маркетинговой командой.</span></li><li class="rv" style="--d:0"><i></i><span>Сводку выполненных задач и доступных результатов.</span></li><li class="rv" style="--d:1"><i></i><span>Рекомендации по дальнейшему развитию выбранной локации.</span></li></ol></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">04</span><h2 class="rv">Сроки и стоимость сопровождения</h2></div><div class="card"><div class="term rv">Минимальный срок: 3 месяца.</div><p class="para rv">Первый месяц — этап запуска и выстраивания системы работы по выбранной точке: формирование контентной стратегии, производство видео, организация инфлюенс-интеграций и синхронизация с действующей маркетинговой командой.</p></div></div></section><section class="slide pricing"><div class="wrap"><div class="pricewrap"><div class="price solo rv"><div class="pe">Комплексный пакет по развитию одной ресторанной локации</div><div class="pv"><b class="count" data-to="200000">200 000 руб.</b></div><div class="pz">за первый месяц.</div></div><div class="card"><p class="para rv">Отдельно оплачиваются: вознаграждения блогеров, платные размещения, дополнительные расходы на производство, нестандартные съёмки, поездки, аренда площадок и другие затраты, не включённые в согласованный объём. Все дополнительные расходы предварительно согласовываются с собственником.</p><p class="para rv">Последующие месяцы — развитие выбранных направлений на основе полученных результатов, корректировка стратегии и дальнейшее продвижение ресторана.</p><div class="lab rv">Формат дальнейшей работы</div><p class="para rv">По завершении первого месяца анализируются выполненные задачи, доступные результаты и дальнейшие приоритеты. Объём и стоимость следующего этапа согласовываются отдельно до начала работ.</p></div></div></div></section><section class="slide "><div class="wrap"><div class="section-head"><span class="eyebrow rv">05</span><h2 class="rv">Итоговое видение</h2></div><div class="pilot rv"><div class="pl one"><i></i><span>выбранная локация</span></div><div class="parrow"><i></i></div><div class="pl net"><i></i><i></i><i></i><i></i><i></i><span>вся сеть</span></div></div><div class="card concept"><p class=" rv">Мы не заменяем действующую маркетинговую систему ресторана, а создаём дополнительный контур развития через контент, блогеров и внешние коммуникации.</p><p class=" rv">Это позволяет усилить присутствие выбранной локации в информационном поле, систематизировать взаимодействие с блогерами и сформировать дополнительный пул материалов для продвижения.</p><p class="quote rv">Первый месяц становится пилотным этапом, по итогам которого можно оценить качество реализации, доступные результаты и перспективы дальнейшего развития модели по всей сети.</p></div></div></section></main>
+<div class="dnav"><button class="dprev" aria-label="Назад">←</button><span class="dcount"><b>01</b> / 38</span><button class="dnext" aria-label="Вперёд">→</button></div>
+<script>(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* появление блоков по мере прокрутки */
+  var targets = document.querySelectorAll('.rv, .viz, .rchart, .months, .resring, .pilot, .rlist li');
+  if (!('IntersectionObserver' in window) || reduce) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+        var c = en.target.querySelector && en.target.querySelector('.count');
+        if (en.target.classList.contains('price') && c) countUp(c);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+  /* бегущая сумма */
+  function countUp(el) {
+    var to = +el.dataset.to, txt = el.textContent, suf = txt.replace(/[\d\s ]/g, '').trim(), t0 = null;
+    function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / 1600), v = Math.round(to * (1 - Math.pow(1 - p, 3)) / 1000) * 1000;
+      el.textContent = fmt(v) + ' ' + suf;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = txt.replace(/ /g, ' ');
+    }
+    if (reduce) return;
+    requestAnimationFrame(step);
+  }
+  /* линия этапов, прогресс, вкладки */
+  var bar = document.querySelector('.progress i'), tls = document.querySelectorAll('.tl'), tabs = document.querySelectorAll('.tabs a');
+  var parts = [document.getElementById('brand'), document.getElementById('dolina')];
+  function onScroll() {
+    var h = document.documentElement, y = window.scrollY, vh = window.innerHeight;
+    bar.style.transform = 'scaleX(' + (y / Math.max(1, h.scrollHeight - vh)) + ')';
+    tls.forEach(function (tl) {
+      var r = tl.getBoundingClientRect(), p = (vh * 0.6 - r.top) / r.height;
+      tl.querySelector('.tl-line i').style.setProperty('--p', Math.max(0, Math.min(1, p)));
+      tl.querySelectorAll('.stage').forEach(function (s) {
+        s.classList.toggle('lit', s.getBoundingClientRect().top < vh * 0.6);
+      });
+    });
+    var cur = parts[1].getBoundingClientRect().top < vh * 0.4 ? 'dolina' : 'brand';
+    tabs.forEach(function (a) { a.classList.toggle('on', a.dataset.t === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
+(function () {
+  var SEL = 'p, li, .gives, .chip, .rcard p, .sub, .lab, .slead, .pe, .pz';
+  var NBSP = '\u00a0';
+  function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .hero, svg')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    /* сколько слов на последней строке */
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    /* последняя и предпоследняя строки — не меньше двух слов */
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br') || el.closest('svg')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
+      var undos = [], last = lastLine(el), prev = lastLine.prev;
+      for (var step = 0; step < 5 && (last < 2 || prev < 2) && last !== 99; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        undos.push(undo);
+        if (overflows(el)) { break; }
+        last = lastLine(el); prev = lastLine.prev;
+      }
+      if (overflows(el) || (last !== 99 && (last < 2 || prev < 2))) {
+        while (undos.length) undos.pop()();
+        /* склейка не помогла — выравниваем строки по длине */
+        el.style.textWrap = 'balance';
+        if (lastLine(el) < 2) el.style.textWrap = '';
+      }
+    });
+  }
+  function heads() {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function hyph() {
+    /* слова через дефис не рвутся по дефису: «инфлюенс-маркетинг», «бизнес-целями» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, list = [];
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('svg, .nw')) continue;
+      if (/[0-9A-Za-zА-Яа-яЁё]-[0-9A-Za-zА-Яа-яЁё]/.test(n.nodeValue)) list.push(n);
+    }
+    list.forEach(function (n) {
+      var parts = n.nodeValue.split(/([^\s ]*[0-9A-Za-zА-Яа-яЁё]-[0-9A-Za-zА-Яа-яЁё][^\s ]*)/), f = document.createDocumentFragment();
+      parts.forEach(function (p, i) {
+        if (!p) return;
+        if (i % 2) { var s = document.createElement('span'); s.className = 'nw'; s.textContent = p; f.appendChild(s); }
+        else f.appendChild(document.createTextNode(p));
+      });
+      n.parentNode.replaceChild(f, n);
+    });
+  }
+  function run() { hyph(); numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+
+/* листание слайдов: стрелки внизу, клавиатура, счётчик */
+(function () {
+  var sl = [].slice.call(document.querySelectorAll('.slide')), cnt = document.querySelector('.dcount b');
+  function cur() {
+    var y = window.scrollY + window.innerHeight * 0.35, k = 0;
+    sl.forEach(function (s, i) { if (s.offsetTop <= y) k = i; });
+    return k;
+  }
+  function go(d) {
+    var k = Math.max(0, Math.min(sl.length - 1, cur() + d));
+    window.scrollTo({ top: sl[k].offsetTop, behavior: 'smooth' });
+  }
+  document.querySelector('.dprev').addEventListener('click', function () { go(-1); });
+  document.querySelector('.dnext').addEventListener('click', function () { go(1); });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowRight' || ev.key === 'ArrowDown' || ev.key === 'PageDown' || ev.key === ' ') { ev.preventDefault(); go(1); }
+    if (ev.key === 'ArrowLeft' || ev.key === 'ArrowUp' || ev.key === 'PageUp') { ev.preventDefault(); go(-1); }
+  });
+  function upd() { var k = cur() + 1; cnt.textContent = (k < 10 ? '0' : '') + k; }
+  window.addEventListener('scroll', upd, { passive: true });
+  upd();
+})();
+</script>
+</body></html>
