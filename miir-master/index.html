@@ -230,6 +230,15 @@ section{padding:46px 0}
 .model .s{color:var(--mute);font-size:13.5px;margin-top:6px}
 .btn{display:inline-block;margin-top:22px;padding:15px 34px;border-radius:40px;background:linear-gradient(135deg,#E6C98E,#B8955A);color:#1a150e;font-weight:600;font-size:14px;letter-spacing:.08em;text-decoration:none;box-shadow:0 12px 40px -10px rgba(230,201,142,.5)}
 .closing p.lead{max-width:440px;margin:14px auto 0;text-wrap:balance!important}
+.steps{max-width:560px;margin:8px auto 0;display:grid;gap:12px;text-align:left}
+.step{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border:1px solid var(--edge);border-radius:16px;background:linear-gradient(180deg,var(--card2),var(--card))}
+.step .sn{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font:600 13px Mulish,sans-serif;color:var(--accent);box-shadow:0 0 14px -2px var(--glow)}
+.step b{display:block;font-weight:500;color:#F2EEE8;font-size:15.5px;line-height:1.4;margin-top:3px}
+.req{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.rq-n{font-family:'Cormorant Garamond',serif;font-size:27px;letter-spacing:.06em;color:#F4F0EA;white-space:nowrap}
+.rq-s{color:var(--mute);font-size:14px;margin-top:6px}
+.copy{font:600 12px Mulish,sans-serif;letter-spacing:.08em;color:var(--accent);background:rgba(201,183,155,.06);border:1px solid var(--edge);border-radius:30px;padding:8px 14px;cursor:pointer}
+.copy.ok{color:#1a150e;background:var(--accent)}
 @media(max-width:640px){.models{grid-template-columns:1fr}.row{font-size:14.5px}}
 </style>
 </head><body>
@@ -239,7 +248,7 @@ section{padding:46px 0}
 <div class="top">Мастер-класс для&nbsp;барберов · Москва</div>
 <div class="fio">Миир</div>
 <h1>Две модели на&nbsp;показе и&nbsp;мышление, которое растит мастера в&nbsp;деньгах</h1>
-<div class="hstats"><div><b>2</b><span>модели</span></div><div><b>6–7</b><span>часов</span></div><div><b>25</b><span>человек</span></div></div>
+<div class="hstats"><div><b>1</b><span>день</span></div><div><b>2</b><span>модели</span></div><div><b>6–7</b><span>часов</span></div></div>
 </div></div></header>
 
 <section><div class="wrap"><div class="section-head"><span class="eyebrow rv">01</span><h2 class="rv">О&nbsp;мастер-классе</h2></div>
@@ -275,21 +284,29 @@ section{padding:46px 0}
 
 <section><div class="wrap"><div class="section-head"><span class="eyebrow rv">03</span><h2 class="rv">Окружение</h2><p class="slead rv">Рост начинается с&nbsp;людей рядом</p></div>
 <div class="card concept">
-<p class="rv">Один день в&nbsp;зале с&nbsp;25 барберами, которые хотят расти, а&nbsp;не&nbsp;стоять на&nbsp;месте. Вы&nbsp;видите, как работают и&nbsp;думают другие мастера, задаёте вопросы, разбираете чужие ошибки и&nbsp;свои.</p>
+<p class="rv">Один день в&nbsp;зале с&nbsp;барберами, которые хотят расти, а&nbsp;не&nbsp;стоять на&nbsp;месте. Вы&nbsp;видите, как работают и&nbsp;думают другие мастера, задаёте вопросы, разбираете чужие ошибки и&nbsp;свои.</p>
 <p class="rv">Когда вокруг люди с&nbsp;той&nbsp;же целью, расти проще, чем одному у&nbsp;кресла.</p>
 </div></div></section>
 
 <section><div class="wrap">
-<div class="price rv"><div class="pe">Стоимость участия</div><div class="pv"><b class="count" data-to="25000">25 000 ₽</b></div></div>
+<div class="price rv"><div class="pe">Стоимость участия</div><div class="pv"><b class="count" data-to="25000">25 000 ₽</b></div><div class="pz">Предоплата 50%: 12&nbsp;500&nbsp;₽</div><div class="pz" style="margin-top:4px">Количество мест ограничено</div></div>
 </div></section>
 
 <div class="divider"><span></span><b>Записаться</b><span></span></div>
 <section class="closing"><div class="wrap">
-<p class="lead rv">Напишите мне в&nbsp;директ, <span class="nw">внесите предоплату,</span> и&nbsp;я&nbsp;забронирую за&nbsp;вами место.</p>
-<a class="btn rv" href="https://ig.me/m/mens.style__">Написать в директ</a>
+<div class="steps">
+<div class="step rv"><span class="sn">1</span><div><b>Внесите предоплату 50%: 12&nbsp;500&nbsp;₽</b>
+<div class="req"><div class="rq-n" id="card">2202 2085 9540 8585</div><button class="copy" type="button" data-copy="2202208595408585">Скопировать</button></div>
+<div class="rq-s">Сбербанк · Махмудова М.</div></div></div>
+<div class="step rv"><span class="sn">2</span><div><b>Отправьте скриншот перевода в&nbsp;Telegram</b><div class="rq-s">@Addmiin_1</div></div></div>
+<div class="step rv"><span class="sn">3</span><div><b>Мы подтвердим ваше участие в&nbsp;мастер-классе</b></div></div>
+</div>
+<a class="btn rv" href="https://t.me/Addmiin_1">Отправить скриншот</a>
 <p class="ornament" style="margin-top:40px">◆ ◆ ◆</p>
 </div></section>
 </main>
+
+<script>document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var v=b.dataset.copy;function done(){b.textContent='Скопировано';b.classList.add('ok');setTimeout(function(){b.textContent='Скопировать';b.classList.remove('ok')},1800)}if(navigator.clipboard){navigator.clipboard.writeText(v).then(done,function(){})}else{var i=document.createElement('textarea');i.value=v;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();done()}})});</script>
 <script>(function () {
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* появление блоков по мере прокрутки */
