@@ -89,7 +89,9 @@ h2 em{font-style:italic;color:var(--gold-lt)}
 
 /* ---------- PORTFOLIO ---------- */
 .masonry{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.masonry{grid-auto-flow:dense}
 .masonry .tile{aspect-ratio:3/4}
+.masonry .wide{grid-column:span 2;aspect-ratio:3/2}
 
 /* ---------- VIDEO ---------- */
 .videos{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
@@ -240,7 +242,7 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
       <div class="tile"><img src="img/23.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/20.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/21.jpg" alt="" loading="lazy"></div>
-      <div class="tile"><img src="img/24.jpg" alt="" loading="lazy"></div>
+      <div class="tile wide"><img src="img/24.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/25.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/29.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/30.jpg" alt="" loading="lazy"></div>
@@ -251,7 +253,6 @@ footer{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:upper
       <div class="tile"><img src="img/39.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/36.jpg" alt="" loading="lazy"></div>
       <div class="tile"><img src="img/37.jpg" alt="" loading="lazy"></div>
-      <div class="tile"><img src="img/06.jpg" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
