@@ -229,6 +229,9 @@ section{padding:46px 0}
 .model .t{font-family:'Cormorant Garamond',serif;font-size:21px;color:#F2EEE8;margin-top:6px;line-height:1.2}
 .model .s{color:var(--mute);font-size:13.5px;margin-top:6px}
 .btn{display:inline-block;margin-top:22px;padding:15px 34px;border-radius:40px;background:linear-gradient(135deg,#E6C98E,#B8955A);color:#1a150e;font-weight:600;font-size:14px;letter-spacing:.08em;text-decoration:none;box-shadow:0 12px 40px -10px rgba(230,201,142,.5)}
+.hero-card.ph{padding-top:0}
+.hphoto{position:relative;margin:0 -30px 34px;height:min(118vw,760px);background:url(img/miir.jpg) center top/cover no-repeat;-webkit-mask:linear-gradient(180deg,#000 70%,transparent);mask:linear-gradient(180deg,#000 70%,transparent)}
+@media(min-width:641px){.hphoto{width:500px;height:680px;margin:30px auto 30px;border-radius:18px}}
 .closing p.lead{max-width:440px;margin:14px auto 0;text-wrap:balance!important}
 .steps{max-width:560px;margin:8px auto 0;display:grid;gap:12px;text-align:left}
 .step{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border:1px solid var(--edge);border-radius:16px;background:linear-gradient(180deg,var(--card2),var(--card))}
@@ -239,12 +242,13 @@ section{padding:46px 0}
 .rq-s{color:var(--mute);font-size:14px;margin-top:6px}
 .copy{font:600 12px Mulish,sans-serif;letter-spacing:.08em;color:var(--accent);background:rgba(201,183,155,.06);border:1px solid var(--edge);border-radius:30px;padding:8px 14px;cursor:pointer}
 .copy.ok{color:#1a150e;background:var(--accent)}
-@media(max-width:640px){.models{grid-template-columns:1fr}.row{font-size:14.5px}}
+@media(max-width:640px){.hphoto{margin:0 -18px 26px}.models{grid-template-columns:1fr}.row{font-size:14.5px}}
 </style>
 </head><body>
 <div class="progress"><i></i></div>
 <main>
-<header class="hero"><div class="wrap"><div class="hero-card">
+<header class="hero"><div class="wrap"><div class="hero-card ph">
+<div class="hphoto" role="img" aria-label="Миир"></div>
 <div class="top">Мастер-класс для&nbsp;барберов<br>Москва · 1&nbsp;декабря</div>
 <div class="fio">Миир</div>
 <h1>Две модели на&nbsp;показе и&nbsp;мышление, которое растит мастера в&nbsp;деньгах</h1>
