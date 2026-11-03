@@ -117,115 +117,162 @@ section{padding:44px 0}
 .price.solo{max-width:560px;margin:0 auto;padding:38px 24px}.price.solo .pv{font-size:56px}
 @media(max-width:600px){.price.solo .pv{font-size:46px}}
 
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:14px}
-.stat{padding:22px 24px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28)}
-.stat b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;line-height:1.1;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.35);margin-bottom:6px;white-space:nowrap}
-.stat span{color:var(--mute);font-size:13.5px}
-.prices{grid-template-columns:repeat(3,1fr)}
-.price{display:flex;flex-direction:column}
-.price .pv{font-size:40px;white-space:nowrap} .price .pv span{font-family:Mulish,sans-serif;font-size:20px} .price .pp{margin-bottom:16px}
-.price .pts{text-align:left} .price .pts li{font-size:13.5px}
-.price.main{border-color:rgba(201,183,155,.45)}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:16px;padding:20px 18px;box-shadow:0 18px 40px -28px rgba(0,0,0,.6)}
+.stat .sv{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,40px);font-weight:500;color:#F4F0EA;line-height:1;white-space:nowrap}
+.stat .sl{color:var(--mute);font-size:13.5px;margin-top:8px;text-wrap:pretty}
+.verdict{padding:18px 20px;border-radius:14px;background:var(--card2);border:1px solid var(--edge);border-left:4px solid var(--accent);font-size:15px;color:#F4F0EA;font-weight:600;text-wrap:pretty}
+.hits{list-style:none;margin-top:6px}
+.hits li{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.hits li:last-child{border-bottom:none}
+.hits .hv{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);min-width:92px;white-space:nowrap;font-weight:500}
+.lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.case{display:grid;grid-template-columns:1fr 220px;gap:22px;align-items:start}
+.case.two{grid-template-columns:1fr}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;max-width:480px}
+.shot img,.case img{width:100%;display:block;border-radius:14px;border:1px solid var(--edge);box-shadow:0 14px 30px -20px rgba(0,0,0,.6)}
+.shot figcaption,.case figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.kv{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.kv span{padding:6px 12px;border-radius:30px;background:rgba(201,183,155,.07);border:1px solid var(--edge);font-size:13px;color:#F4F0EA}
+.kv b{color:var(--accent)}
+.steps{counter-reset:s;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line);font-size:14.5px;text-wrap:pretty}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0B0B0C;background:var(--accent)}
+.btn-inline{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:30px;font-size:13px;font-weight:600;color:#0B0B0C!important;background:var(--accent)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;align-items:start}
+.gal.v{grid-template-columns:repeat(3,1fr)}
+.gal figure img{width:100%;display:block;border-radius:12px;border:1px solid var(--edge);box-shadow:0 12px 26px -18px rgba(0,0,0,.6)}
+.gal figcaption{font-size:12.5px;color:#F4F0EA;margin-top:6px;text-align:center;font-weight:600}
+.gal figcaption span{display:block;color:var(--dim);font-weight:400}
+.galh{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:22px}
+@media(max-width:600px){.gal{grid-template-columns:repeat(2,1fr);gap:10px}.gal.v{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto}}
+.now{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:start}
+.now .prof img{width:100%;display:block;border-radius:18px;border:1px solid var(--edge);box-shadow:0 22px 50px -28px rgba(0,0,0,.6)}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.now .stats{grid-template-columns:1fr 1fr}
+@media(max-width:700px){.now{grid-template-columns:1fr}.now .prof{max-width:420px;margin:0 auto}}
+.ig{background:#000;border:1px solid var(--edge);border-radius:18px;padding:16px 16px 18px;box-shadow:0 22px 50px -28px rgba(0,0,0,.6);font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#F5F5F5;line-height:1.35}
+.ig .un{font-weight:700;font-size:15px;text-align:center;margin-bottom:14px}
+.ig .row{display:flex;align-items:center;gap:16px}
+.ig .av{flex:none;width:82px;height:82px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig .av img{width:100%;height:100%;border-radius:50%;border:3px solid #000;display:block;object-fit:cover}
+.ig .cnt{display:flex;flex:1;justify-content:space-between;gap:6px;text-align:center}
+.ig .cnt b{display:block;font-size:15px;font-weight:700}
+.ig .cnt span{font-size:12px;color:#F5F5F5;display:block}
+.ig .hl div{flex:1;min-width:0}
+@media(max-width:600px){.ig .cnt span{font-size:11px}.ig .av{width:74px;height:74px}.ig .row{gap:12px}}
+.ig .nm{font-weight:700;font-size:13.5px;margin-top:12px}
+.ig .cat{color:#A8A8A8;font-size:13px}
+.ig .bio{font-size:13.5px;margin-top:2px}
+.ig .bio a,.ig .lnk{color:#E0F1FF}
+.ig .lnk{font-weight:600;font-size:13.5px;display:block;margin-top:2px}
+.ig .bt{display:flex;gap:6px;margin-top:12px}
+.ig .bt span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:8px;background:#363636}
+.ig .bt span.f{background:#0095f6;color:#fff}
+.ig .hl{display:flex;gap:10px;margin-top:16px;justify-content:space-between}
+.ig .hl div{text-align:center;width:58px;font-size:11.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ig .hl img{width:58px;height:58px;border-radius:50%;border:1px solid #dbdbdb;padding:2px;background:#fff;display:block;margin-bottom:4px}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
 .obls.two{grid-template-columns:repeat(2,1fr)}
-.mnum.wk{width:auto;padding:0 12px;border-radius:999px;white-space:nowrap}
-.mtag{display:inline-block;margin-left:8px;font-size:11px;color:var(--mute);letter-spacing:.04em;white-space:nowrap}
-.btns{gap:10px;flex-wrap:wrap;margin-top:6px}
-.btns a.gold{background:var(--accent);color:#0B0B0C;font-weight:600}
-.btns a.gold:hover{background:#D9C8AD}
-@media(max-width:760px){.prices{grid-template-columns:1fr}}
-@media(max-width:600px){.obls.two{grid-template-columns:1fr}.stat{padding:18px}.stat b{font-size:32px}}
+@media(max-width:700px){.obls.two{grid-template-columns:1fr}}
+.obls.fit{align-items:start}
+@media(max-width:700px){.lines{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case figure{max-width:260px;margin:0 auto}}
+@media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
+
+
+
+
+
+
+.next,.terms{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28)}
+.next{padding:24px;margin-bottom:14px}
+.next .when{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.next h3{margin-bottom:10px}
+.next>p{color:var(--mute);font-size:14.5px;margin-bottom:10px}
+.next.alt{background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(201,183,155,.10),transparent 65%),var(--card)}
+.note{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(201,183,155,.06);border:1px dashed rgba(201,183,155,.35);color:var(--text);font-size:14px}
+.price.best{border-color:rgba(201,183,155,.45)}
+.terms{margin-top:16px;padding:22px 24px}
+.terms h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.terms ul{list-style:none}
+.terms li{padding:9px 0 9px 18px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.terms li:last-child{border-bottom:none;padding-bottom:0}
+.terms li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.terms b{font-weight:700;color:#F4F0EA}
+.prices{grid-template-columns:repeat(3,1fr)} @media(max-width:760px){.prices{grid-template-columns:1fr}}
+
+.prices.mt{margin-bottom:14px} .price{display:flex;flex-direction:column} .price .pts{text-align:left;margin-top:14px} .price .pts li{font-size:13.5px} .price .pv span{font-family:Mulish,sans-serif;font-size:20px}
+.obls{margin-top:14px}
 </style></head><body>
 <header class="hero"><div class="wrap"><div class="hero-card">
   <div class="top">Ноябрь 2026 · Коммерческое&nbsp;предложение</div>
-  <p class="fio">Мария&nbsp;Тимошенко · @yamahidze</p>
-  <h1>От политики к&nbsp;бизнес-аудитории</h1>
-  <p class="slogan">Как собрать вокруг блога предпринимателей и прийти к амбассадорству или своему делу</p>
-  <p class="pos">Что делаем, в каком порядке и в каком формате можем работать.</p>
+  <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
+  <h1>Мария Тимошенко</h1>
+  <p class="slogan">От политики к&nbsp;бизнес-аудитории</p>
+  <p class="pos">Разбор Вашего Instagram: что уже работает, куда идём и по какому методу.</p>
 </div></div></header>
 
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Точка А · 01</span><h2>Где Вы&nbsp;<em>сейчас</em></h2></div>
-  <div class="stats"><div class="stat"><b>20,2 млн</b><span>просмотров всех роликов в&nbsp;Instagram</span></div><div class="stat"><b>94%</b><span>из&nbsp;них пришлись на&nbsp;период с&nbsp;декабря 2025 по&nbsp;февраль 2026</span></div><div class="stat"><b>8 585</b><span>медиана просмотров ролика в&nbsp;октябре 2026</span></div><div class="stat"><b>38%</b><span>аудитории в&nbsp;России</span></div></div>
-  <div class="obls two">
-    <div class="obl"><h4>Что есть</h4><ul><li>31 643 подписчика в&nbsp;Instagram и&nbsp;14 600 на&nbsp;YouTube</li><li>Умение разговорить незнакомого человека на&nbsp;камеру</li><li>Узнаваемый формат и&nbsp;качественная упаковка роликов</li><li>Таргетолог и&nbsp;монтажёр в&nbsp;команде</li></ul></div>
-    <div class="obl"><h4>Чего нет</h4><ul><li>Денег с&nbsp;рекламы: интеграции пока по&nbsp;бартеру</li><li>Медиакита и&nbsp;понятных цен на&nbsp;рекламу</li><li>Своего продукта для аудитории</li><li>Telegram-канала и&nbsp;актуальных</li><li>Понимания, кто из&nbsp;предпринимателей уже смотрит блог</li><li>Регулярности: 4&nbsp;месяца паузы после блокировки весной</li></ul></div>
-  </div>
+<div class="section-head part-head"><span class="eyebrow">Где блог сейчас · 01</span><h2>Охваты были, <em>денег&nbsp;нет</em></h2></div>
+  <div class="now"><figure class="prof"><div class="ig">
+      <div class="un">yamahidze</div>
+      <div class="row"><div class="av"><img src="img/avatar.jpg" alt="Аватар @yamahidze"></div>
+        <div class="cnt"><div><b>151</b><span>публикация</span></div><div><b>31,6&nbsp;тыс.</b><span>подписчиков</span></div><div><b>321</b><span>подписка</span></div></div></div>
+      <div class="nm">Мария Тимошенко</div>
+      <div class="cat">Блогер</div>
+      <div class="bio">Based in Tbilisi<br>Сотрудничество: <a>@mariatymoshenko_pr</a></div>
+      <a class="lnk">Обзор, новости, политика</a>
+      <div class="bt"><span class="f">Подписаться</span><span>Сообщение</span></div>
+    </div></figure><div>
+  <div class="stats"><div class="stat"><div class="sv">20,2&nbsp;млн</div><div class="sl">просмотров всех роликов в Instagram</div></div><div class="stat"><div class="sv">94%</div><div class="sl">из них за три месяца: с декабря 2025 по февраль 2026</div></div><div class="stat"><div class="sv">8&nbsp;585</div><div class="sl">медиана просмотров ролика в октябре 2026</div></div><div class="stat"><div class="sv">0&nbsp;$</div><div class="sl">с рекламы: интеграции пока по бартеру</div></div></div>
+  <div class="verdict">Внимание к блогу уже было: 20 млн просмотров. Следующий шаг: вернуть охваты и превратить их в бизнес-аудиторию и доход.</div>
+</div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Цель · 02</span><h2>Что&nbsp;<em>получаем</em></h2></div>
-  <div class="obls two">
-    <div class="obl"><h4>Блог</h4><ul><li>Политика остаётся на&nbsp;<span style="white-space:nowrap">20-30</span>%, остальное бизнес и&nbsp;личное</li><li>Позиция как то, что Вы&nbsp;транслируете, а&nbsp;не&nbsp;политическое мнение</li><li>Вокруг блога собирается бизнес-аудитория</li></ul></div>
-    <div class="obl"><h4>Деньги</h4><ul><li>Первые платные рекламодатели из&nbsp;Грузии, Азербайджана и&nbsp;Казахстана вместо бартера</li><li>Свой продукт</li><li>Дальше амбассадорство или своё дело</li></ul></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Почему так · 02</span><h2>Охват держался <em>на&nbsp;одном&nbsp;формате</em></h2></div><div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Один формат, одна тема</h3><p>Опросы прохожих про политику и войну дают 99,5% всех просмотров блога. Другие ролики почти не набирают.</p></div></div><div class="mblock"><span class="mnum">02</span><div class="mbody"><h3>Звезда ролика прохожий, а не Вы</h3><ul class="pts"><li>В комментариях хвалят собеседника, Вас отмечают единицы</li><li>Когда говорит прохожий, смотрят миллионы. Когда говорите Вы, сотни и тысячи: авторский ролик про Ганди набрал 8 873 просмотра</li><li>Вашего пути, производства и жизни в блоге нет</li></ul><p style="margin-top:10px">Подписываются на спор, а не на Вас.</p></div></div><div class="mblock"><span class="mnum">03</span><div class="mbody"><h3>Блокировка и пауза</h3><p>Весной аккаунт сносили, публикаций не было почти 5 месяцев. После паузы медиана просмотров упала с 379 тыс. до 8,6 тыс.</p></div></div><div class="mblock"><span class="mnum">04</span><div class="mbody"><h3>Нет пути к деньгам</h3><ul class="pts"><li>Один призыв в роликах: «подпишись»</li><li>Нет актуальных и Telegram-канала в шапке</li><li>Нет своего продукта</li><li>Интеграции только по бартеру</li></ul></div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Разбор · 03</span><h2>Наталья <em>Колиева</em></h2><p>Блог, который Вы&nbsp;назвали образцом. Разобрали 1&nbsp;547 публикаций, 1&nbsp;364 видео, актуальные и&nbsp;Telegram.</p></div>
-  <div class="stats"><div class="stat"><b>440 тыс.</b><span>подписчиков сейчас. Старт в&nbsp;сентябре 2024 с&nbsp;роликов про бизнес в&nbsp;Турции: 10-180 лайков</span></div><div class="stat"><b>3 824</b><span>лайка в&nbsp;среднем у&nbsp;роликов про отношения и&nbsp;мужчин: на&nbsp;этой теме пришёл рост</span></div><div class="stat"><b>580</b><span>лайков в&nbsp;среднем у&nbsp;роликов про её&nbsp;бизнес. При этом таких роликов 127 за&nbsp;полтора года</span></div><div class="stat"><b>2 продукта</b><span>закрытый канал для женщин за&nbsp;2&nbsp;999&nbsp;₽ в&nbsp;месяц и&nbsp;вложения в&nbsp;скутеры через менеджера</span></div></div>
-  <div class="obls two">
-    <div class="obl"><h4>Что берём для Вас</h4><ul><li>Охват держится на&nbsp;главной теме, бизнес идёт отдельной линией внутри блога</li><li>Два продукта для двух частей аудитории: недорогая подписка для всех и&nbsp;дорогой продукт для узкой части</li><li>Призыв словом в&nbsp;комментариях, дальше менеджер</li><li>Отзывы и&nbsp;результаты в&nbsp;актуальных</li><li>Продукт, который продолжает главную тему блога</li></ul></div>
-    <div class="obl"><h4>Чего не&nbsp;берём</h4><ul><li>Доходность её&nbsp;вложений в&nbsp;скутеры мы&nbsp;не&nbsp;проверяли и&nbsp;как модель не&nbsp;предлагаем</li><li>Берём механику продаж через блог, а&nbsp;не&nbsp;сам бизнес</li><li>Мерч и&nbsp;курсы: у&nbsp;неё они не&nbsp;пошли</li></ul></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Опора · 03</span><h2>Что <em>уже&nbsp;работает</em></h2><p>Это основа, на которой строим дальше.</p></div><div class="obls fit"><div class="obl"><h4>Умение разговорить человека</h4><ul><li>Останавливаете незнакомого человека и за минуту получаете сильный ответ</li><li>Хит на 6,67 млн просмотров и ещё 6 роликов от 723 тыс. до 1,76 млн</li></ul></div><div class="obl"><h4>Узнаваемая упаковка</h4><ul><li>Заголовок, выделенные ключевые слова, сильный первый кадр</li><li>Вы всегда в кадре рядом с собеседником</li></ul></div><div class="obl"><h4>Свой костяк</h4><ul><li>Одни и те же люди смотрят сторис, комментируют и спрашивают «где ролики?»</li><li>Подписываются и пишут предприниматели довольно немаленького уровня</li><li>Юмор в сторис заходит</li></ul></div><div class="obl"><h4>Команда</h4><ul><li>Монтажёр и таргетолог уже есть</li><li>Контент-план на ближайшие недели уже собран</li></ul></div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Этапы · 04</span><h2>Метод: <em>6&nbsp;этапов</em></h2><p>Каждый этап адаптируем под Ваш блог и&nbsp;то, что покажут первые результаты. У&nbsp;каждого этапа указано, с&nbsp;какого он формата.</p></div>
-  <div class="mblock"><span class="mnum">01</span><span class="mtag">Все форматы</span><div class="mbody"><h3>Распаковка личности</h3><ul class="pts"><li><span style="white-space:nowrap">150-200</span> вопросов о&nbsp;Вашем пути, интересах, семье и&nbsp;опыте</li><li>Производство за&nbsp;6&nbsp;лет как период жизни, а&nbsp;не&nbsp;позиционирование</li><li>Истории, которые можно рассказывать в&nbsp;блоге</li></ul><div class="gives"><strong>Результат</strong>Понятно, кто Вы&nbsp;для зрителя и&nbsp;о&nbsp;чём рассказывать.</div></div></div><div class="mblock"><span class="mnum">02</span><span class="mtag">Все форматы</span><div class="mbody"><h3>Новая линия блога</h3><ul class="pts"><li>Позиция как то, что Вы&nbsp;транслируете, а&nbsp;не&nbsp;политическое мнение</li><li>Доля политики: <span style="white-space:nowrap">20-30</span>%, остальное бизнес и&nbsp;личное</li><li>Тексты шапки и&nbsp;закрепа</li><li>Новые актуальные и&nbsp;Telegram-канал</li></ul><div class="gives"><strong>Результат</strong>Instagram, который ведёт к&nbsp;бизнес-аудитории.</div></div></div><div class="mblock"><span class="mnum">03</span><span class="mtag">От стратегии</span><div class="mbody"><h3>Кастдев и&nbsp;предприниматели</h3><ul class="pts"><li>Опрос аудитории: кто смотрит, чем занимается, что болит</li><li>Список предпринимателей из&nbsp;директа и&nbsp;комментариев</li><li>Порядок, как им&nbsp;написать</li></ul><div class="gives"><strong>Результат</strong>Знаете, кто Вас смотрит и&nbsp;кому из&nbsp;них можно предложить сотрудничество.</div></div></div><div class="mblock"><span class="mnum">04</span><span class="mtag">От стратегии</span><div class="mbody"><h3>Медиакит и&nbsp;план на&nbsp;месяц</h3><ul class="pts"><li>Медиакит с&nbsp;Вашими цифрами</li><li>Варианты интеграций под разные типы бизнеса</li><li>На&nbsp;что ориентироваться в&nbsp;цене</li><li>Темы и&nbsp;форматы на&nbsp;1&nbsp;месяц</li></ul><div class="gives"><strong>Результат</strong>Готовые материалы для разговора с&nbsp;рекламодателем и&nbsp;понятный план.</div></div></div><div class="mblock"><span class="mnum">05</span><span class="mtag">Продюсирование</span><div class="mbody"><h3>Запуск: темы, рекламодатели, партнёры</h3><ul class="pts"><li>Интервью и&nbsp;серии с&nbsp;владельцами бизнеса</li><li>Разбор вышедших роликов</li><li>Поиск рекламодателей из&nbsp;Грузии, Азербайджана и&nbsp;Казахстана</li><li>Поиск бизнес-партнёров, которым Вы&nbsp;приводите аудиторию</li></ul><div class="gives"><strong>Результат</strong>Новый контент вышел, первые рекламодатели и&nbsp;партнёры найдены.</div></div></div><div class="mblock"><span class="mnum">06</span><span class="mtag">Продюсирование</span><div class="mbody"><h3>Создание и&nbsp;запуск продукта</h3><ul class="pts"><li>Со&nbsp;второго месяца, условия под запуск пересматриваем</li><li>Выбираем продукт по&nbsp;итогам первого месяца</li><li>Концепция, упаковка и&nbsp;запуск</li><li>Дальше путь к&nbsp;амбассадорству или своему делу</li></ul><div class="gives"><strong>Результат</strong>Первые деньги с&nbsp;аудитории, кроме рекламы.</div></div></div>
+<div class="section-head part-head"><span class="eyebrow">Видение · 04</span><h2>Обозреватель <em>с&nbsp;бизнес-аудиторией</em></h2><p>Блог, в котором Вы сами ведёте разговор: обозреватель без пропаганды и бывшая предпринимательница с шестью годами производства за плечами. Политика остаётся на <span style="white-space:nowrap">20-25</span>%, остальное бизнес и Ваша жизнь. Дальше амбассадорство или своё дело.</p></div><div class="note">Главный принцип: позиция не про политику, а про то, как Вы себя ощущаете и что транслируете.</div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">План · 05</span><h2>Первый&nbsp;<em>месяц</em></h2></div>
-  <div class="mblock"><span class="mnum wk">Неделя 1</span><div class="mbody"><h3>Распаковка</h3><ul class="pts"><li>Готовлю <span style="white-space:nowrap">150-200</span> вопросов о&nbsp;Вашем пути, производстве, семье и&nbsp;интересах</li><li>Проводим созвон-распаковку на&nbsp;2&nbsp;часа, остальные ответы Вы&nbsp;присылаете голосовыми</li><li>Разбираю ответы вместе с&nbsp;профилем и&nbsp;аудиторией, собираю документ распаковки</li></ul></div></div><div class="mblock"><span class="mnum wk">Неделя 2</span><div class="mbody"><h3>Позиционирование, форматы и&nbsp;темы</h3><ul class="pts"><li>Формулирую позицию и&nbsp;долю политики в&nbsp;контенте</li><li>Составляю карту из&nbsp;<span style="white-space:nowrap">10-15</span> форматов под Вас</li><li>Собираю банк тем из&nbsp;распаковки: не&nbsp;меньше 20 тем под ролики</li><li>Пишу тексты шапки и&nbsp;закрепа, структуру актуальных и&nbsp;Telegram-канала</li><li>Утверждаем позицию и&nbsp;выбираем <span style="white-space:nowrap">2-3</span> главных формата для теста</li></ul></div></div><div class="mblock"><span class="mnum wk">Неделя 3</span><div class="mbody"><h3>Кастдев и&nbsp;партнёрства</h3><ul class="pts"><li>Готовим вопросы кастдева, проводите его Вы</li><li>Разбираю итоги кастдева: кто смотрит, чем занимается, что готов купить</li><li>Составляем список предпринимателей из&nbsp;директа и&nbsp;комментариев</li><li>Выявляем потенциальные партнёрства по&nbsp;приоритету, ценностям и&nbsp;пользе для блога</li><li>Собираю медиакит, варианты интеграций и&nbsp;ориентир цены</li></ul></div></div><div class="mblock"><span class="mnum wk">Недели 3-4</span><div class="mbody"><h3>Контент</h3><ul class="pts"><li>Пишу сценарий под каждый ролик: о&nbsp;чём говорим, как заходим, чем держим, чем закрываем</li><li>Даю заголовки, подписи, обложки и&nbsp;визуальные хуки</li><li>Даю подсказки к&nbsp;съёмке: локация, образ, ракурс, эмоция, темп</li><li>Пишу сценарии сторис и&nbsp;сторителлингов</li><li>Согласовываем ролики перед публикацией</li><li>Расставляю порядок и&nbsp;время выхода, разбираю каждый вышедший ролик</li></ul></div></div><div class="mblock"><span class="mnum wk">Неделя 4</span><div class="mbody"><h3>Итоги месяца и&nbsp;стратегия</h3><ul class="pts"><li>Выгружаю статистику: охваты, просмотры, подписки, вовлечённость</li><li>Корректирую темы и&nbsp;форматы, зашедшие форматы превращаю в&nbsp;серии</li><li>Составляю стратегию на&nbsp;второй и&nbsp;третий месяц</li><li>Утверждаем стратегию на&nbsp;итоговом созвоне</li></ul></div></div>
-  <div class="mblock"><span class="mnum wk">Со&nbsp;2&nbsp;месяца</span><div class="mbody"><h3>Запуск</h3><p>Когда мы определились с аудиторией, продуктом и тем, что запускаем, пересматриваем условия работы: дальше это уже формат запуска.</p></div></div>
-  <div class="obls two" style="margin-top:14px">
-    <div class="obl"><h4>По&nbsp;итогу месяца</h4><ul><li>Понимание «себя как личности, себя как блогера»</li><li>Позиция: «как я&nbsp;себя вообще ощущаю, и&nbsp;что я&nbsp;транслирую»</li><li>Блог переходит «в&nbsp;бизнесовую, но&nbsp;уже с&nbsp;медийностью»</li><li>Свой «костяк» и&nbsp;список предпринимателей, которые Вас смотрят</li><li>Путь, как «выехать на&nbsp;рекламах, и&nbsp;дальше подкладывать попадание контента уже в&nbsp;перевод лида в&nbsp;бизнес»</li><li>Стратегия на&nbsp;второй и&nbsp;третий месяц</li></ul></div>
-    <div class="obl"><h4>Что нужно от&nbsp;Вас в&nbsp;первый месяц</h4><ul><li>Ответы на&nbsp;вопросы распаковки за&nbsp;3&nbsp;дня</li><li>Доступ к&nbsp;директу или скрины переписок</li><li>Проведение кастдева</li><li>Съёмка по&nbsp;темам плана</li></ul></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Что даст рост блога · 05</span><h2>Блог, который <em>работает на&nbsp;Вас</em></h2></div><div class="lines"><div class="obl"><h4>Реклама и интеграции</h4><ul><li>Рекламодатели из Грузии, Азербайджана, Казахстана</li><li>Медиакит и понятные цены вместо бартера</li><li>Интеграции в формате, который Вам даётся легко: разговор и обзор</li></ul></div><div class="obl"><h4>Партнёрства с бизнесами</h4><ul><li>Предприниматели, которые уже смотрят блог</li><li>Бизнесы, которым Вы приводите аудиторию</li><li>Интервью и серии с владельцами бизнеса</li></ul></div><div class="obl"><h4>Своё дело</h4><ul><li>Свой продукт на готовую аудиторию, а не с нуля</li><li>Амбассадорство</li><li>Бизнес с медийностью: то, о чём Вы говорили на созвоне</li></ul></div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Как работаем · 06</span><h2>Кто&nbsp;за&nbsp;что&nbsp;<em>отвечает</em></h2><p>Работаем дистанционно.</p></div>
-  <div class="rgrid">
-    <div class="rcard"><h4>Вы</h4><h3>Съёмка</h3><p>Снимаете ролики сами, в заведениях и на выезде. Ведёте переговоры с бизнесами.</p></div>
-    <div class="rcard"><h4>Ваша команда</h4><h3>Монтаж и&nbsp;трафик</h3><p>Монтажёр собирает ролики, таргетолог ведёт рекламу на нужные страны.</p></div>
-    <div class="rcard"><h4>Малик</h4><h3>Стратегия и&nbsp;контроль</h3><p>Распаковка, новая линия блога, медиакит, темы, разборы цифр и роликов. Объём зависит от формата.</p></div>
-    <div class="rcard"><h4>Вместе</h4><h3>Решения</h3><p>Итоги созвонов и договорённости фиксируем письменно в чате.</p></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Разбор · 06</span><h2>Наталья <em>Колиева</em></h2><p>Блог, который Вы назвали образцом. Разобрали 1 547 публикаций, 1 364 видео, актуальные и Telegram.</p></div><div class="stats"><div class="stat"><div class="sv">440&nbsp;тыс.</div><div class="sl">подписчиков сейчас. Старт в сентябре 2024 с роликов про бизнес в Турции: <span style="white-space:nowrap">10-180</span> лайков</div></div><div class="stat"><div class="sv">3&nbsp;824</div><div class="sl">лайка в среднем у роликов про отношения и мужчин: на этой теме пришёл рост</div></div><div class="stat"><div class="sv">580</div><div class="sl">лайков в среднем у роликов про её бизнес. При этом таких роликов 127 за полтора года</div></div><div class="stat"><div class="sv">2</div><div class="sl">продукта: закрытый канал для женщин за 2 999 ₽ в месяц и вложения в скутеры через менеджера</div></div></div><div class="obls" style="margin-top:14px"><div class="obl"><h4>Что берём для Вас</h4><ul><li>Охват держится на главной теме, бизнес идёт отдельной линией внутри блога</li><li>Два продукта для двух частей аудитории: недорогой для всех и дорогой для узкой части</li><li>Призыв словом в комментариях, дальше менеджер</li><li>Отзывы и результаты в актуальных</li><li>Продукт, который продолжает главную тему блога</li></ul></div><div class="obl"><h4>Чего не берём</h4><ul><li>Доходность её вложений в скутеры мы не проверяли и как модель не предлагаем</li><li>Берём механику продаж через блог, а не сам бизнес</li><li>Мерч и курсы: у неё они не пошли</li></ul></div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Кейс · 07</span><h2><em>Каролина</em> Читанава</h2><p>С Каролиной с&nbsp;нуля сделали 185&nbsp;000 подписчиков и&nbsp;100+&nbsp;млн охватов.</p></div>
-  <div class="btns" style="justify-content:flex-start"><a class="ghost" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Смотреть кейс Каролины</a></div>
+<div class="section-head"><span class="eyebrow">Метод · 07</span><h2>Три линии <em>блога</em></h2><p>В каждой линии повторяемость и живое взаимодействие с людьми.</p></div><div class="lines"><div class="obl"><h4>Обзор и политика</h4><ul><li><span style="white-space:nowrap">20-25</span>% контента</li><li>Опросы прохожих, которые Вы умеете делать</li><li>Ваш взгляд обозревателя без пропаганды</li></ul></div><div class="obl"><h4>Бизнес</h4><ul><li>Интервью и серии с владельцами бизнеса</li><li>Как политика влияет на бизнес, экономику и спрос</li><li>Опыт бывшей предпринимательницы</li></ul></div><div class="obl"><h4>Вы</h4><ul><li>Ваш путь, производство как период жизни</li><li>Интересы, близкие, жизнь в Тбилиси</li><li>Юмор</li></ul></div></div><div class="next alt" style="margin-top:14px"><div class="when">Плюс</div><h3>Большие истории с&nbsp;развитием</h3><p>Поиск партнёров, новый проект, запуск своего дела: как сериал, у которого есть начало, путь и финал. За таким следят и ждут следующую серию.</p></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Условия · 08</span><h2>Что&nbsp;<em>гарантируем</em></h2></div>
-  <div class="obls two">
-    <div class="obl"><h4>Гарантия</h4><ul><li>Всё, что входит в&nbsp;выбранный формат, будет сделано</li><li>Материалы остаются у&nbsp;Вас навсегда</li><li>Цифры дохода и&nbsp;просмотров не&nbsp;обещаем: они зависят и&nbsp;от&nbsp;рынка</li></ul></div>
-    <div class="obl"><h4>С Вашей стороны</h4><ul><li>Голосовые ответы и&nbsp;согласования вовремя</li><li>Ответы на&nbsp;вопросы распаковки</li><li>Съёмки и&nbsp;переговоры с&nbsp;бизнесами по&nbsp;плану</li><li>Своевременная оплата и&nbsp;работа Вашей команды</li></ul></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Как находим формат · 08</span><h2>Находим форматы, которые растят блог, и&nbsp;<em>оттачиваем собственную контент-модель</em></h2></div><div class="mblock"><div class="mbody"><ol class="steps"><li>Снимаем разные форматы по трём линиям</li><li>Смотрим цифры каждого ролика: просмотры, подписки, комментарии, пересылки</li><li>То, что зашло, повторяем сериями в новой подаче, пока ролики попадают в рекомендации</li><li>Так находится Ваша контент-модель, и блог растёт органически</li></ol></div></div>
 </div></section>
-
 <section><div class="wrap">
-  <div class="section-head" style="text-align:center"><span class="eyebrow">Стоимость · 09</span><h2>Три <em>формата</em></h2></div>
-  <div class="prices">
-    <div class="price"><div class="pe">Распаковка</div><div class="pv"><span>$</span>600</div><p class="pp">разово</p><ul class="pts"><li>Распаковка личности: <span style="white-space:nowrap">150-200</span> вопросов</li><li>Новая линия блога и&nbsp;доля политики</li><li>Карта форматов и&nbsp;банк тем</li><li>Тексты шапки и&nbsp;закрепа</li><li>Новые актуальные и&nbsp;Telegram-канал</li></ul></div>
-    <div class="price"><div class="pe">Стратегия запуска</div><div class="pv"><span>$</span>1&nbsp;000</div><p class="pp">разово</p><ul class="pts"><li>Всё из&nbsp;распаковки</li><li>Кастдев аудитории</li><li>Список предпринимателей из&nbsp;директа</li><li>Потенциальные партнёрства по&nbsp;приоритету</li><li>Медиакит и&nbsp;варианты интеграций</li><li>План на&nbsp;1&nbsp;месяц</li><li><span style="white-space:nowrap">2-3</span> недели обратной связи в&nbsp;чате</li></ul></div>
-    <div class="price main"><div class="pe">Продюсирование</div><div class="pv"><span>$</span>2&nbsp;000</div><p class="pp">в&nbsp;месяц, минимум 3&nbsp;месяца</p><ul class="pts"><li>Всё из&nbsp;стратегии</li><li>Созвон раз в&nbsp;неделю</li><li>Сценарий под каждый ролик, подсказки к&nbsp;съёмке</li><li>Разбор каждого вышедшего ролика</li><li>Стратегия на&nbsp;второй и&nbsp;третий месяц</li><li>Личный чат в&nbsp;Telegram</li><li>Отчёт за&nbsp;месяц</li></ul></div>
-  </div>
+<div class="section-head"><span class="eyebrow">Кейсы · 09</span><h2>Как это работает <em>на&nbsp;практике</em></h2></div><div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Каролина Читанава</h3><p>Предпринимательница, владелица бренда JAMALI, мама двух девочек. Начинали с 600 подписчиков.</p><div class="kv"><span><b>185&nbsp;000</b> подписчиков</span><span><b>100+&nbsp;млн</b> просмотров</span><span>топ-ролик <b>12&nbsp;млн</b></span><span>без&nbsp;рекламы</span></div><p style="margin-top:12px">Главное в этом кейсе: серии. Одна серия из пяти роликов дала около <b>14 млн просмотров и 72,7% всех новых подписчиков</b> за первую фазу. Формат зашёл, и мы повторяли его, пока он не попал в массовую раздачу.</p><div class="galh">Подписки с&nbsp;одного ролика</div><div class="gal"><figure><img loading="lazy" decoding="async" src="img/k-subs-1.jpg" alt="Статистика ролика"><figcaption>+20&nbsp;833<span>4,1&nbsp;млн просмотров</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-2.jpg" alt="Статистика ролика"><figcaption>+10&nbsp;994<span>2,1&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-3.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;944<span>2,3&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-4.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;697<span>1,1&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-5.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;894<span>1,9&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-6.jpg" alt="Статистика ролика"><figcaption>+4&nbsp;044<span>1,6&nbsp;млн</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-7.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;751<span>366&nbsp;тыс</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-subs-8.jpg" alt="Статистика ролика"><figcaption>+1&nbsp;386<span>462&nbsp;тыс</span></figcaption></figure></div><div class="galh">Просмотры</div><div class="gal v"><figure><img loading="lazy" decoding="async" src="img/k-views-2.jpg" alt="Статистика просмотров"><figcaption>20,6&nbsp;млн<span>за&nbsp;месяц, +46,8&nbsp;тыс подписчиков</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-views-3.jpg" alt="Статистика просмотров"><figcaption>12,2&nbsp;млн<span>за&nbsp;30&nbsp;дней, +14&nbsp;470 подписчиков</span></figcaption></figure><figure><img loading="lazy" decoding="async" src="img/k-views-4.jpg" alt="Статистика просмотров"><figcaption>12&nbsp;млн<span>за&nbsp;месяц, +14,9&nbsp;тыс подписчиков</span></figcaption></figure></div><a class="btn-inline" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Весь кейс</a></div></div><div class="mblock"><span class="mnum">02</span><div class="mbody"><h3>Азиза</h3><p>Блог с нуля: новый аккаунт, до этого блог не вела. Первые 10 дней публикаций.</p><div class="kv"><span><b>466&nbsp;454</b> просмотра</span><span><b>99,6%</b> зрителей: новые люди</span><span>ролик <b>234&nbsp;386</b> просмотров</span><span><b>+317</b> подписок с&nbsp;одного ролика</span></div><div class="shots"><figure class="shot"><img loading="lazy" decoding="async" src="img/aziza-30d.jpg" alt="Статистика аккаунта за 30 дней"><figcaption>Аккаунт за&nbsp;30&nbsp;дней</figcaption></figure><figure class="shot"><img loading="lazy" decoding="async" src="img/aziza-reel.jpg" alt="Статистика ролика"><figcaption>Топ-ролик</figcaption></figure></div></div></div><div class="mblock"><span class="mnum">03</span><div class="mbody"><div class="case"><div><h3>Говорящий ролик в&nbsp;машине</h3><p>Клиентка, личный блог. Разговорный формат: живая речь в кадр, без трендов.</p><div class="kv"><span><b>123&nbsp;486</b> просмотров</span><span><b>+297</b> подписок</span><span><b>320</b> пересылок</span><span><b>163</b> сохранения</span><span>среднее время просмотра <b>32&nbsp;с</b></span></div><p style="margin-top:12px">Живая речь держит зрителя. Ролики, где Вы говорите в кадр сами, тоже приводят подписчиков.</p></div><figure><img loading="lazy" decoding="async" src="img/anna-reel.jpg" alt="Статистика ролика"><figcaption>Статистика ролика</figcaption></figure></div></div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Первый месяц · 10</span><h2>Фундамент <em>и&nbsp;первые ролики</em></h2></div><div class="mblock"><span class="mnum" style="width:auto;padding:0 12px;white-space:nowrap">Неделя 1</span><div class="mbody"><h3>Распаковка</h3><ul class="pts"><li>Готовлю <span style="white-space:nowrap">150-200</span> вопросов о Вашем пути, производстве, семье и интересах</li><li>Проводим созвон-распаковку на 2 часа, остальные ответы Вы присылаете голосовыми</li><li>Разбираю ответы вместе с профилем и аудиторией, собираю документ распаковки</li></ul></div></div><div class="mblock"><span class="mnum" style="width:auto;padding:0 12px;white-space:nowrap">Неделя 2</span><div class="mbody"><h3>Позиционирование, форматы и темы</h3><ul class="pts"><li>Формулирую позицию и долю политики в контенте</li><li>Составляю карту из <span style="white-space:nowrap">10-15</span> форматов под Вас</li><li>Собираю банк тем из распаковки: не меньше 20 тем под ролики</li><li>Пишу тексты шапки и закрепа, структуру актуальных и Telegram-канала</li><li>Утверждаем позицию и выбираем <span style="white-space:nowrap">2-3</span> главных формата для теста</li></ul></div></div><div class="mblock"><span class="mnum" style="width:auto;padding:0 12px;white-space:nowrap">Неделя 3</span><div class="mbody"><h3>Кастдев и партнёрства</h3><ul class="pts"><li>Готовим вопросы кастдева, проводите его Вы</li><li>Разбираю итоги кастдева: кто смотрит, чем занимается, что готов купить</li><li>Составляем список предпринимателей из директа и комментариев</li><li>Выявляем потенциальные партнёрства по приоритету, ценностям и пользе для блога</li><li>Собираю медиакит, варианты интеграций и ориентир цены</li></ul></div></div><div class="mblock"><span class="mnum" style="width:auto;padding:0 12px;white-space:nowrap">Недели 3-4</span><div class="mbody"><h3>Контент</h3><ul class="pts"><li>Пишу сценарий под каждый ролик: о чём говорим, как заходим, чем держим, чем закрываем</li><li>Даю заголовки, подписи, обложки и визуальные хуки</li><li>Даю подсказки к съёмке: локация, образ, ракурс, эмоция, темп</li><li>Пишу сценарии сторис и сторителлингов</li><li>Согласовываем ролики перед публикацией</li><li>Расставляю порядок и время выхода, разбираю каждый вышедший ролик</li></ul></div></div><div class="mblock"><span class="mnum" style="width:auto;padding:0 12px;white-space:nowrap">Неделя 4</span><div class="mbody"><h3>Итоги месяца и стратегия</h3><ul class="pts"><li>Выгружаю статистику: охваты, просмотры, подписки, вовлечённость</li><li>Корректирую темы и форматы, зашедшие форматы превращаю в серии</li><li>Составляю стратегию на второй и третий месяц</li><li>Утверждаем стратегию на итоговом созвоне</li></ul></div></div><div class="obls"><div class="obl"><h4>Итог первого месяца</h4><ul><li>Понимание «себя как личности, себя как блогера»</li><li>Позиция: «как я себя вообще ощущаю, и что я транслирую»</li><li>Блог переходит «в бизнесовую, но уже с медийностью»</li><li>Свой «костяк» и список предпринимателей, которые Вас смотрят</li><li>Путь, как «выехать на рекламах, и дальше подкладывать попадание контента уже в перевод лида в бизнес»</li><li>Стратегия на второй и третий месяц</li></ul></div><div class="obl"><h4>Формат взаимодействия</h4><ul><li>Созвон-разбор раз в неделю</li><li>Рабочий чат в Telegram, ответ в течение рабочего дня</li><li>Договорённости, темы и решения фиксируем письменно в чате</li><li>Отчёт в конце месяца: что сделано, цифры, план следующего</li><li>Все материалы остаются у Вас</li></ul></div><div class="obl"><h4>Что нужно от Вас</h4><ul><li>Ответы на вопросы распаковки за 3 дня</li><li>Доступ к директу или скрины переписок</li><li>Проведение кастдева</li><li>Съёмка по темам плана, монтаж и трафик силами Вашей команды</li></ul></div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Дальше · 11</span><h2>Что происходит после <em>первого&nbsp;месяца</em></h2></div><div class="next alt"><div class="when">Со&nbsp;второго месяца</div><h3>Запуск</h3><p>Когда мы определились с аудиторией, продуктом и тем, что запускаем, переходим в формат запуска.</p><ul class="pts"><li>Выбираем продукт по итогам первого месяца</li><li>Концепция, упаковка и запуск</li><li>Рекламодатели и партнёры по стратегии</li></ul><p style="margin-top:10px">Под этот этап пересматриваем задачи, объём работы и условия сотрудничества.</p></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head" style="text-align:center"><span class="eyebrow">Стоимость · 12</span><h2>Три <em>формата</em></h2></div><div class="prices mt"><div class="price"><div class="pe">Распаковка</div><div class="pv"><span>$</span>600</div><p class="pp">разово</p><ul class="pts"><li>Распаковка личности: <span style="white-space:nowrap">150-200</span> вопросов</li><li>Новая линия блога и доля политики</li><li>Карта форматов и банк тем</li><li>Тексты шапки и закрепа</li><li>Новые актуальные и Telegram-канал</li></ul></div><div class="price"><div class="pe">Стратегия запуска</div><div class="pv"><span>$</span>1&nbsp;000</div><p class="pp">разово</p><ul class="pts"><li>Всё из распаковки</li><li>Кастдев аудитории</li><li>Список предпринимателей из директа</li><li>Потенциальные партнёрства по приоритету</li><li>Медиакит и варианты интеграций</li><li>План на 1 месяц</li><li><span style="white-space:nowrap">2-3</span> недели обратной связи в чате</li></ul></div><div class="price best"><div class="pe">Продюсирование</div><div class="pv"><span>$</span>2&nbsp;000</div><p class="pp">в месяц, минимум 3 месяца</p><ul class="pts"><li>Весь план первого месяца</li><li>Созвон раз в неделю</li><li>Сценарий под каждый ролик, подсказки к съёмке</li><li>Разбор каждого вышедшего ролика</li><li>Стратегия на второй и третий месяц</li><li>Личный чат в Telegram</li><li>Отчёт за месяц</li></ul></div></div><div class="terms"><h4>Условия оплаты</h4><ul><li><b>100% предоплата до начала любой работы</b></li><li>Оплата криптовалютой или на международную карту</li><li>В продюсировании каждый следующий месяц оплачивается до его начала</li><li>Начатый этап доводим до конца, работа не приостанавливается</li><li>Цифры просмотров и дохода не обещаем: они зависят и от рынка</li></ul></div>
 </div></section>
 
 <footer class="closing"><div class="wrap">
   <div class="ornament">◆ ◆&nbsp;◆</div>
-  <div class="author"><div class="lab">Продюсер</div><div class="nm">Малик&nbsp;Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div>
-  <div class="btns"><a class="gold" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a><a class="ghost" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Кейс Каролины</a></div></div>
+  <div class="author"><div class="nm">Малик Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div><div class="btns"><a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
   <p class="sign">Ноябрь&nbsp;2026</p>
 </div></footer>
 <script>
 /* без висячих строк: на последней строке абзаца — не меньше трёх слов */
 (function () {
-  var SEL = 'p, li, .gives';
+  var SEL = 'p, li, .gives, .verdict, .note, .sl';
   var NBSP = '\u00a0';
   function numbers() {
     /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
