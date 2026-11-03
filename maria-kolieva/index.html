@@ -1,0 +1,363 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Наталья Колиева · Разбор блога</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090A;--soft:#111113;--card:#131315;--card2:#17171A;--line:rgba(255,255,255,.06);--edge:rgba(201,183,155,.16);--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B;--glow:rgba(201,183,155,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,183,155,.13),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(201,183,155,.05),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(201,183,155,.05),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F2EEE8;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(42px,7vw,68px);font-weight:300;letter-spacing:.02em;text-shadow:0 0 40px rgba(201,183,155,.25)}
+h2{font-size:clamp(26px,3.6vw,36px)}
+h3{font-size:clamp(19px,2.2vw,22px)}
+p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05);box-shadow:0 0 18px -4px var(--glow)}
+section{padding:44px 0}
+.section-head{margin-bottom:22px}
+.section-head p{color:var(--mute);margin-top:12px;font-size:14.5px}
+/* card base */
+.card,.mblock,.outc,.obl,.rcard,.price,.total,.author,.part-head{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28),inset 0 1px 0 rgba(255,255,255,.03)}
+/* hero */
+.hero{text-align:center;padding:80px 0 40px}
+
+.hero-card{padding:44px 28px 38px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,183,155,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 80px -20px rgba(201,183,155,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--accent);margin:12px 0 18px}
+.hero .path{display:inline-flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mute);padding:8px 18px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.04)}
+.hero .path .ac{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic}
+.hero .pos{max-width:520px;margin:20px auto 0;color:var(--mute);font-size:14px}
+.hdiv{display:none}
+/* team cards */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.outc{padding:24px}
+.outc-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);margin-bottom:6px;text-shadow:0 0 24px rgba(201,183,155,.35)}
+.outc h3{margin-bottom:10px} .outc p{color:var(--mute);font-size:14px}
+/* part header */
+.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(201,183,155,.12),transparent 65%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 70px -24px rgba(201,183,155,.3),inset 0 1px 0 rgba(255,255,255,.04)}
+.part-head h2{font-size:clamp(24px,3.2vw,32px)}
+/* stage cards */
+.mblock{padding:24px 26px;margin-bottom:14px}
+.mnum{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--accent);border:1px solid var(--edge);background:rgba(201,183,155,.06);box-shadow:0 0 16px -4px var(--glow);margin-bottom:12px}
+.mbody h3{margin-bottom:12px}
+.pts{list-style:none}
+.pts li{position:relative;padding:6px 0 6px 20px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+.gives{margin-top:14px;padding:14px 16px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.12);border-left:2px solid var(--accent);border-radius:12px;color:var(--mute);font-size:14px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;font-weight:600}
+/* lists in cards */
+.obls{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:0!important}
+.obl{padding:24px}
+.obl h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.obl ul{list-style:none}
+.obl li{padding:9px 0 9px 18px;position:relative;font-size:14px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.obl li:last-child{border-bottom:none;padding-bottom:0}
+.obl li::before{content:'';position:absolute;left:1px;top:18px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+/* together */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.rcard{padding:22px 24px}
+.rcard h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.rcard h3{margin-bottom:8px} .rcard p{color:var(--mute);font-size:14px}
+/* price */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.price{padding:30px 22px;text-align:center;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(201,183,155,.12),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 60px -22px rgba(201,183,155,.35),inset 0 1px 0 rgba(255,255,255,.04)}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.price .pv{font-family:'Cormorant Garamond',serif;font-size:46px;color:#F4F0EA;line-height:1;text-shadow:0 0 30px rgba(201,183,155,.3)}
+.price .pv span{font-size:22px;color:var(--mute)}
+.price .pp{color:var(--mute);font-size:13.5px;margin-top:10px}
+.total{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 24px;border-color:rgba(201,183,155,.35);box-shadow:0 0 50px -18px rgba(201,183,155,.4),inset 0 1px 0 rgba(255,255,255,.04)}
+.total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.total b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.35)}
+/* footer */
+.closing{text-align:center;padding:24px 0 64px}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:0 0 26px;opacity:.6;font-size:11px}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.author{padding:26px 22px}
+.author .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.author .nm{font-family:'Cormorant Garamond',serif;font-size:30px;color:#F4F0EA;margin-bottom:2px}
+.author .rl{color:var(--accent);font-size:13px;margin-bottom:16px}
+.btns{display:flex;justify-content:center}
+.btns a{padding:11px 20px;border-radius:30px;font-size:13px;font-weight:500;border:1px solid rgba(201,183,155,.4);background:rgba(201,183,155,.06);box-shadow:0 0 22px -6px rgba(201,183,155,.4);transition:.18s}
+.btns a:hover{background:rgba(201,183,155,.14);box-shadow:0 0 28px -4px rgba(201,183,155,.55)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mute);margin-top:28px}
+@media(max-width:600px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:30px 0}
+  .hero{padding:40px 0 20px}
+  .hero-card{padding:32px 18px 28px;border-radius:20px}
+  h1{font-size:clamp(36px,11vw,46px)}
+  .hero .path{font-size:12px;padding:7px 14px;gap:8px}
+  .hero .path .ac{font-size:16px}
+  .part-head{padding:22px 18px}
+  .mblock{padding:20px 18px}
+  .outc,.obl,.rcard,.author{padding:20px 18px}
+  .pts li{font-size:14px}
+  .price{padding:26px 18px} .price .pv{font-size:40px}
+  .total{padding:18px}
+  .total b{font-size:28px}
+  .section-head{margin-bottom:18px}
+}
+.hero .wrap{max-width:880px}
+.closing .sign{margin-top:26px}
+.rgrid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:600px){.rgrid{grid-template-columns:1fr}.hero .top,.hero .fio{letter-spacing:.14em;font-size:10px}}
+.price.solo{max-width:560px;margin:0 auto;padding:38px 24px}.price.solo .pv{font-size:56px}
+@media(max-width:600px){.price.solo .pv{font-size:46px}}
+
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:16px;padding:20px 18px;box-shadow:0 18px 40px -28px rgba(0,0,0,.6)}
+.stat .sv{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,40px);font-weight:500;color:#F4F0EA;line-height:1;white-space:nowrap}
+.stat .sl{color:var(--mute);font-size:13.5px;margin-top:8px;text-wrap:pretty}
+.verdict{padding:18px 20px;border-radius:14px;background:var(--card2);border:1px solid var(--edge);border-left:4px solid var(--accent);font-size:15px;color:#F4F0EA;font-weight:600;text-wrap:pretty}
+.hits{list-style:none;margin-top:6px}
+.hits li{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.hits li:last-child{border-bottom:none}
+.hits .hv{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);min-width:92px;white-space:nowrap;font-weight:500}
+.lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.case{display:grid;grid-template-columns:1fr 220px;gap:22px;align-items:start}
+.case.two{grid-template-columns:1fr}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;max-width:480px}
+.shot img,.case img{width:100%;display:block;border-radius:14px;border:1px solid var(--edge);box-shadow:0 14px 30px -20px rgba(0,0,0,.6)}
+.shot figcaption,.case figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.kv{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.kv span{padding:6px 12px;border-radius:30px;background:rgba(201,183,155,.07);border:1px solid var(--edge);font-size:13px;color:#F4F0EA}
+.kv b{color:var(--accent)}
+.steps{counter-reset:s;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line);font-size:14.5px;text-wrap:pretty}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0B0B0C;background:var(--accent)}
+.btn-inline{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:30px;font-size:13px;font-weight:600;color:#0B0B0C!important;background:var(--accent)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;align-items:start}
+.gal.v{grid-template-columns:repeat(3,1fr)}
+.gal figure img{width:100%;display:block;border-radius:12px;border:1px solid var(--edge);box-shadow:0 12px 26px -18px rgba(0,0,0,.6)}
+.gal figcaption{font-size:12.5px;color:#F4F0EA;margin-top:6px;text-align:center;font-weight:600}
+.gal figcaption span{display:block;color:var(--dim);font-weight:400}
+.galh{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:22px}
+@media(max-width:600px){.gal{grid-template-columns:repeat(2,1fr);gap:10px}.gal.v{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto}}
+.now{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:start}
+.now .prof img{width:100%;display:block;border-radius:18px;border:1px solid var(--edge);box-shadow:0 22px 50px -28px rgba(0,0,0,.6)}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.now .stats{grid-template-columns:1fr 1fr}
+@media(max-width:700px){.now{grid-template-columns:1fr}.now .prof{max-width:420px;margin:0 auto}}
+.ig{background:#000;border:1px solid var(--edge);border-radius:18px;padding:16px 16px 18px;box-shadow:0 22px 50px -28px rgba(0,0,0,.6);font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#F5F5F5;line-height:1.35}
+.ig .un{font-weight:700;font-size:15px;text-align:center;margin-bottom:14px}
+.ig .row{display:flex;align-items:center;gap:16px}
+.ig .av{flex:none;width:82px;height:82px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig .av img{width:100%;height:100%;border-radius:50%;border:3px solid #000;display:block;object-fit:cover}
+.ig .cnt{display:flex;flex:1;justify-content:space-between;gap:6px;text-align:center}
+.ig .cnt b{display:block;font-size:15px;font-weight:700}
+.ig .cnt span{font-size:12px;color:#F5F5F5;display:block}
+.ig .hl div{flex:1;min-width:0}
+@media(max-width:600px){.ig .cnt span{font-size:11px}.ig .av{width:74px;height:74px}.ig .row{gap:12px}}
+.ig .nm{font-weight:700;font-size:13.5px;margin-top:12px}
+.ig .cat{color:#A8A8A8;font-size:13px}
+.ig .bio{font-size:13.5px;margin-top:2px}
+.ig .bio a,.ig .lnk{color:#E0F1FF}
+.ig .lnk{font-weight:600;font-size:13.5px;display:block;margin-top:2px}
+.ig .bt{display:flex;gap:6px;margin-top:12px}
+.ig .bt span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:8px;background:#363636}
+.ig .bt span.f{background:#0095f6;color:#fff}
+.ig .hl{display:flex;gap:10px;margin-top:16px;justify-content:space-between}
+.ig .hl div{text-align:center;width:58px;font-size:11.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ig .hl img{width:58px;height:58px;border-radius:50%;border:1px solid #dbdbdb;padding:2px;background:#fff;display:block;margin-bottom:4px}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.obls.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.obls.two{grid-template-columns:1fr}}
+.obls.fit{align-items:start}
+@media(max-width:700px){.lines{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case figure{max-width:260px;margin:0 auto}}
+@media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
+
+
+
+
+
+
+.next,.terms{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28)}
+.next{padding:24px;margin-bottom:14px}
+.next .when{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.next h3{margin-bottom:10px}
+.next>p{color:var(--mute);font-size:14.5px;margin-bottom:10px}
+.next.alt{background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(201,183,155,.10),transparent 65%),var(--card)}
+.note{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(201,183,155,.06);border:1px dashed rgba(201,183,155,.35);color:var(--text);font-size:14px}
+.price.best{border-color:rgba(201,183,155,.45)}
+.terms{margin-top:16px;padding:22px 24px}
+.terms h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.terms ul{list-style:none}
+.terms li{padding:9px 0 9px 18px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.terms li:last-child{border-bottom:none;padding-bottom:0}
+.terms li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.terms b{font-weight:700;color:#F4F0EA}
+.prices{grid-template-columns:repeat(3,1fr)} @media(max-width:760px){.prices{grid-template-columns:1fr}}
+
+.prices.mt{margin-bottom:14px} .price{display:flex;flex-direction:column} .price .pts{text-align:left;margin-top:14px} .price .pts li{font-size:13.5px} .price .pv span{font-family:Mulish,sans-serif;font-size:20px}
+.obls{margin-top:14px}
+.price .tag{display:inline-block;align-self:center;margin-top:12px;padding:4px 12px;border-radius:30px;font-size:11.5px;font-weight:700;color:#0B0B0C;background:var(--accent)}
+.prices.term .price{justify-content:flex-start}
+
+.hl.hlt{flex-wrap:wrap;justify-content:flex-start;gap:6px} .hl.hlt div{flex:none;width:auto;min-width:0;overflow:visible;white-space:nowrap;text-overflow:clip;padding:4px 10px;border:1px solid #363636;border-radius:20px;font-size:11px}
+.bars{display:grid;gap:5px} .bar{display:grid;grid-template-columns:56px 1fr 62px;align-items:center;gap:10px;font-size:12.5px}
+.bar .bl{color:var(--mute)} .bar .bt{height:12px;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden} .bar .bt i{display:block;height:100%;background:var(--accent);border-radius:6px} .bar .bv{text-align:right;color:#F4F0EA;font-weight:600}
+.hits small{color:var(--mute);font-size:12px}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px} .tgrid.three{grid-template-columns:repeat(3,1fr);max-width:720px}
+.tc{display:block;text-decoration:none;color:inherit;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:14px;overflow:hidden}
+.tc img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block} .tc .tm{padding:10px 12px 0;font-size:12.5px;color:var(--mute)} .tc .tm b{font-family:'Cormorant Garamond',serif;font-size:22px;color:#F4F0EA;font-weight:500} .tc .tm span{display:block;font-size:11.5px;margin-top:2px}
+.tc p{padding:6px 12px 12px;font-size:13px;color:var(--text);text-wrap:pretty}
+@media(max-width:760px){.tgrid{grid-template-columns:repeat(2,1fr);gap:10px}.tgrid.three{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Ноябрь 2026 · Разбор&nbsp;блога</div>
+  <p class="fio">@kolieva.nataliia · подготовлено для Марии&nbsp;Тимошенко</p>
+  <h1>Наталья Колиева</h1>
+  <p class="slogan">Что у&nbsp;неё есть: темы, ролики, продукты</p>
+  <p class="pos">Разобраны 1 547 публикаций, расшифровки 1 364 видео, 7 альбомов актуальных и 936 постов Telegram.</p>
+</div></div></header>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Профиль · 01</span><h2>Где блог <em>сейчас</em></h2></div>
+  <div class="now"><figure class="prof"><div class="ig">
+      <div class="un">kolieva.nataliia</div>
+      <div class="row"><div class="av"><img src="img/avatar.jpg" alt="Аватар @kolieva.nataliia"></div>
+        <div class="cnt"><div><b>1 839</b><span>публикаций</span></div><div><b>440&nbsp;тыс.</b><span>подписчиков</span></div><div><b>479</b><span>подписок</span></div></div></div>
+      <div class="nm">Kolieva Natalia</div><div class="cat">Автор видео Reels</div>
+      <div class="bio">ПОДКАСТ С&nbsp;ЛУКОЙ ЕБКОВЫМ</div>
+      <a class="lnk">t.me/lavanta_ride и&nbsp;ещё 4</a>
+      <div class="bt"><span class="f">Подписаться</span><span>Сообщение</span></div>
+      <div class="hl hlt"><div>Инвесторы</div><div>Закрытый канал</div><div>Вертолёты</div><div>Успешный проект</div><div>Bell</div><div>Airbus</div><div>Моя семья</div></div>
+    </div></figure><div>
+  <div class="stats">
+    <div class="stat"><div class="sv">440&nbsp;556</div><div class="sl">подписчиков</div></div>
+    <div class="stat"><div class="sv">1&nbsp;547</div><div class="sl">публикаций разобрано, с сентября 2024 по ноябрь 2026</div></div>
+    <div class="stat"><div class="sv">1&nbsp;364</div><div class="sl">видео расшифровано целиком</div></div>
+    <div class="stat"><div class="sv">936</div><div class="sl">постов в открытом Telegram @Kolieva_Life</div></div>
+  </div>
+  <div class="verdict">Блог рос на темах отношений и её опыта. Бизнес и продукты показаны в том же блоге отдельной линией.</div>
+</div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Рост · 02</span><h2>Как рос <em>блог</em></h2><p>Медиана лайков у публикаций по месяцам. Просмотры в выгрузке ленты не отдаются, поэтому рост показан по лайкам.</p></div><div class="mblock"><div class="mbody"><div class="bars"><div class="bar"><span class="bl">сен 24</span><span class="bt"><i style="width:1.5%"></i></span><span class="bv">44</span></div><div class="bar"><span class="bl">окт 24</span><span class="bt"><i style="width:1.5%"></i></span><span class="bv">62</span></div><div class="bar"><span class="bl">ноя 24</span><span class="bt"><i style="width:1.5%"></i></span><span class="bv">77</span></div><div class="bar"><span class="bl">дек 24</span><span class="bt"><i style="width:1.5%"></i></span><span class="bv">106</span></div><div class="bar"><span class="bl">янв 25</span><span class="bt"><i style="width:2.2%"></i></span><span class="bv">240</span></div><div class="bar"><span class="bl">фев 25</span><span class="bt"><i style="width:1.5%"></i></span><span class="bv">169</span></div><div class="bar"><span class="bl">мар 25</span><span class="bt"><i style="width:2.9%"></i></span><span class="bv">317</span></div><div class="bar"><span class="bl">апр 25</span><span class="bt"><i style="width:3.6%"></i></span><span class="bv">400</span></div><div class="bar"><span class="bl">май 25</span><span class="bt"><i style="width:4.1%"></i></span><span class="bv">451</span></div><div class="bar"><span class="bl">июн 25</span><span class="bt"><i style="width:6.4%"></i></span><span class="bv">709</span></div><div class="bar"><span class="bl">июл 25</span><span class="bt"><i style="width:15.2%"></i></span><span class="bv">1 677</span></div><div class="bar"><span class="bl">авг 25</span><span class="bt"><i style="width:27.2%"></i></span><span class="bv">2 998</span></div><div class="bar"><span class="bl">сен 25</span><span class="bt"><i style="width:12.1%"></i></span><span class="bv">1 336</span></div><div class="bar"><span class="bl">окт 25</span><span class="bt"><i style="width:18.2%"></i></span><span class="bv">2 006</span></div><div class="bar"><span class="bl">ноя 25</span><span class="bt"><i style="width:13.8%"></i></span><span class="bv">1 519</span></div><div class="bar"><span class="bl">дек 25</span><span class="bt"><i style="width:23.7%"></i></span><span class="bv">2 611</span></div><div class="bar"><span class="bl">янв 26</span><span class="bt"><i style="width:75.2%"></i></span><span class="bv">8 286</span></div><div class="bar"><span class="bl">фев 26</span><span class="bt"><i style="width:100.0%"></i></span><span class="bv">11 023</span></div><div class="bar"><span class="bl">мар 26</span><span class="bt"><i style="width:92.2%"></i></span><span class="bv">10 166</span></div><div class="bar"><span class="bl">апр 26</span><span class="bt"><i style="width:58.1%"></i></span><span class="bv">6 403</span></div><div class="bar"><span class="bl">май 26</span><span class="bt"><i style="width:55.3%"></i></span><span class="bv">6 096</span></div><div class="bar"><span class="bl">июн 26</span><span class="bt"><i style="width:51.5%"></i></span><span class="bv">5 675</span></div><div class="bar"><span class="bl">июл 26</span><span class="bt"><i style="width:56.9%"></i></span><span class="bv">6 270</span></div><div class="bar"><span class="bl">авг 26</span><span class="bt"><i style="width:40.3%"></i></span><span class="bv">4 442</span></div><div class="bar"><span class="bl">сен 26</span><span class="bt"><i style="width:43.4%"></i></span><span class="bv">4 789</span></div><div class="bar"><span class="bl">окт 26</span><span class="bt"><i style="width:44.9%"></i></span><span class="bv">4 953</span></div></div></div></div><div class="obls"><div class="obl"><h4>Старт</h4><ul><li>Сентябрь 2024: ролики про бизнес в Турции: свободные экономические зоны, релокация производства, логистика</li><li><span style="white-space:nowrap">10-180</span> лайков на ролик, медиана месяца 44</li></ul></div><div class="obl"><h4>Пик</h4><ul><li>Февраль 2026: медиана 11 023 лайка</li><li>Ролики про отношения, мужчин, семью и её шесть браков</li></ul></div><div class="obl"><h4>Сейчас</h4><ul><li>Октябрь 2026: медиана 4 953 лайка</li><li>Около 35 публикаций в месяц</li></ul></div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Темы · 03</span><h2>Какие темы <em>заходят</em></h2><p>Медиана лайков у видео, в которых тема звучит в речи. Медиана по всем видео: 860.</p></div><div class="mblock"><div class="mbody"><ul class="hits"><li><span class="hv">3 824</span><span>Мужчины, брак, развод<br><small>413 роликов</small></span></li><li><span class="hv">3 219</span><span>Закрытый канал<br><small>23 роликов</small></span></li><li><span class="hv">1 110</span><span>Эфиры<br><small>15 роликов</small></span></li><li><span class="hv">1 063</span><span>Подкаст<br><small>14 роликов</small></span></li><li><span class="hv">1 059</span><span>Вертолёты<br><small>29 роликов</small></span></li><li><span class="hv">827</span><span>Консультации, разборы<br><small>18 роликов</small></span></li><li><span class="hv">600</span><span>Деньги, доход<br><small>172 роликов</small></span></li><li><span class="hv">581</span><span>Договор<br><small>64 роликов</small></span></li><li><span class="hv">580</span><span>Скутеры<br><small>127 роликов</small></span></li><li><span class="hv">421</span><span>Инвестиции<br><small>110 роликов</small></span></li><li><span class="hv">252</span><span>Мерч<br><small>10 роликов</small></span></li><li><span class="hv">166</span><span>Курсы, обучение<br><small>14 роликов</small></span></li></ul></div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Топ · 04</span><h2>Ролики с&nbsp;наибольшими <em>просмотрами</em></h2><p>Просмотры, лайки и комментарии сверены на странице каждого ролика 03.11.2026. Закреплённые ролики ниже, отдельно.</p></div><div class="tgrid"><a class="tc" href="https://www.instagram.com/reel/DfG0XVEAf1u/" target="_blank" rel="noopener"><img loading="lazy" src="img/DfG0XVEAf1u.jpg" alt=""><div class="tm"><b>3,8&nbsp;млн</b> просмотров<span>176&nbsp;тыс. ♥ · 8&nbsp;тыс. комм. · 30.10.2026</span></div><p>До конца!</p></a><a class="tc" href="https://www.instagram.com/reel/DRBWqvMjVWu/" target="_blank" rel="noopener"><img loading="lazy" src="img/DRBWqvMjVWu.jpg" alt=""><div class="tm"><b>3,8&nbsp;млн</b> просмотров<span>205&nbsp;тыс. ♥ · 8&nbsp;тыс. комм. · 14.11.2025</span></div><p>Мужчина, который тянет тебя вниз, называется не «мой», а «мешок».</p></a><a class="tc" href="https://www.instagram.com/reel/DOm2VCWDXX1/" target="_blank" rel="noopener"><img loading="lazy" src="img/DOm2VCWDXX1.jpg" alt=""><div class="tm"><b>1,9&nbsp;млн</b> просмотров<span>82&nbsp;тыс. ♥ · 1&nbsp;тыс. комм. · 15.09.2025</span></div><p>Это все п…чистой воды.</p></a><a class="tc" href="https://www.instagram.com/reel/Da0VaRwN68g/" target="_blank" rel="noopener"><img loading="lazy" src="img/Da0VaRwN68g.jpg" alt=""><div class="tm"><b>1,8&nbsp;млн</b> просмотров<span>50&nbsp;тыс. ♥ · 2&nbsp;тыс. комм. · 15.07.2026</span></div><p>Я была замужем 6 раз, и знаете, хорошее дело браком не назовут!</p></a><a class="tc" href="https://www.instagram.com/reel/DL_lhxjM6v9/" target="_blank" rel="noopener"><img loading="lazy" src="img/DL_lhxjM6v9.jpg" alt=""><div class="tm"><b>1,7&nbsp;млн</b> просмотров<span>49&nbsp;тыс. ♥ · 3&nbsp;тыс. комм. · 12.07.2025</span></div><p>Про гостевой брак.</p></a><a class="tc" href="https://www.instagram.com/reel/DJgDLKVMbyx/" target="_blank" rel="noopener"><img loading="lazy" src="img/DJgDLKVMbyx.jpg" alt=""><div class="tm"><b>1,6&nbsp;млн</b> просмотров<span>82&nbsp;тыс. ♥ · 1&nbsp;тыс. комм. · 11.05.2025</span></div><p>Вы за подругу или за её мужа?</p></a><a class="tc" href="https://www.instagram.com/reel/DRGhUfVDomT/" target="_blank" rel="noopener"><img loading="lazy" src="img/DRGhUfVDomT.jpg" alt=""><div class="tm"><b>1,5&nbsp;млн</b> просмотров<span>73&nbsp;тыс. ♥ · 3&nbsp;тыс. комм. · 16.11.2025</span></div><p>Представляете, бывает такое чудо природы, взрослая женщина, которая не лезет в чужую семью.</p></a><a class="tc" href="https://www.instagram.com/reel/DNw4f1aWqL3/" target="_blank" rel="noopener"><img loading="lazy" src="img/DNw4f1aWqL3.jpg" alt=""><div class="tm"><b>1,4&nbsp;млн</b> просмотров<span>73&nbsp;тыс. ♥ · 4&nbsp;тыс. комм. · 25.08.2025</span></div><p>Надулся и сидит…</p></a><a class="tc" href="https://www.instagram.com/reel/DRYhR-KDSmP/" target="_blank" rel="noopener"><img loading="lazy" src="img/DRYhR-KDSmP.jpg" alt=""><div class="tm"><b>1,4&nbsp;млн</b> просмотров<span>61&nbsp;тыс. ♥ · 766 комм. · 23.11.2025</span></div><p>Отмечай ту самую подружку</p></a><a class="tc" href="https://www.instagram.com/reel/DQQbj6ijaZF/" target="_blank" rel="noopener"><img loading="lazy" src="img/DQQbj6ijaZF.jpg" alt=""><div class="tm"><b>1,3&nbsp;млн</b> просмотров<span>78&nbsp;тыс. ♥ · 2&nbsp;тыс. комм. · 26.10.2025</span></div><p>Просто послание для дочки.</p></a><a class="tc" href="https://www.instagram.com/reel/DWqytzPDSHw/" target="_blank" rel="noopener"><img loading="lazy" src="img/DWqytzPDSHw.jpg" alt=""><div class="tm"><b>1,2&nbsp;млн</b> просмотров<span>69&nbsp;тыс. ♥ · 2&nbsp;тыс. комм. · 09.05.2026</span></div><p>Дорогая дочка…</p></a><a class="tc" href="https://www.instagram.com/reel/DP0G050DUTt/" target="_blank" rel="noopener"><img loading="lazy" src="img/DP0G050DUTt.jpg" alt=""><div class="tm"><b>1,2&nbsp;млн</b> просмотров<span>45&nbsp;тыс. ♥ · 1&nbsp;тыс. комм. · 15.10.2025</span></div><p>Мужчина не бегает за тобой?</p></a></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Закреп · 05</span><h2>Три закреплённых <em>ролика</em></h2><p>Все три ведут к продуктам.</p></div><div class="tgrid three"><a class="tc" href="https://www.instagram.com/reel/DdVhWd1AhmP/" target="_blank" rel="noopener"><img loading="lazy" src="img/DdVhWd1AhmP.jpg" alt=""><div class="tm"><b>191&nbsp;тыс.</b> просмотров<span>9&nbsp;тыс. ♥ · 1&nbsp;тыс. комм.</span></div><p>Ссылка на канал в шапке профиля @kolieva.nataliia «ты сильнее всего»</p></a><a class="tc" href="https://www.instagram.com/reel/DddQPkpgu8y/" target="_blank" rel="noopener"><img loading="lazy" src="img/DddQPkpgu8y.jpg" alt=""><div class="tm"><b>106&nbsp;тыс.</b> просмотров<span>1&nbsp;тыс. ♥ · 391 комм.</span></div><p>Пиши «СКУТЕР», отправим навигацию, как попасть к менеджеру!</p></a><a class="tc" href="https://www.instagram.com/reel/DZbp5mmgOwn/" target="_blank" rel="noopener"><img loading="lazy" src="img/DZbp5mmgOwn.jpg" alt=""><div class="tm"><b>85&nbsp;тыс.</b> просмотров<span>861 ♥ · 346 комм.</span></div><p>За каждым договором закрепляется работа двух скутеров…</p></a></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Продукты · 06</span><h2>Что она <em>продаёт</em></h2><p>Условия по её роликам, постам и актуальным, как она их называет.</p></div><div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Закрытый канал «Ты&nbsp;сильнее всего»</h3><ul class="pts"><li>Только для женщин. Вход через бота @kolievalife_bot</li><li>2 999 ₽ (пост от 19.08.2026)</li><li>Канал открыт 24.11.2025 под названием «Приватный канал «ТЫ СИЛЬНЕЕ ВСЕГО»»</li></ul><div class="galh">Что внутри бота</div><ul class="pts"><li>«Прихожая»: тест на адекватность перед входом</li><li>«Уровни силы»: видео-монологи Натальи</li><li>«Карьерный квест»: видео-монологи по бизнесу от Натальи и приглашённых экспертов, участницы предлагают темы встреч</li><li>«Тет-а-тет»: запись на личную консультацию</li><li>«Дом для Дам»: превью того, что внутри, канал с отзывами и оформление подписки</li></ul><div class="galh">Что внутри канала</div><ul class="pts"><li>Прямые эфиры: с 20.01.2026 проходят в основном в закрытом канале</li><li>Дни консультаций: разбор кейса каждой участницы, её ситуации, бизнеса, продвижения</li><li>Закрытые подкасты</li></ul><div class="kv"><span>роликов про канал <b>23</b></span><span>медиана <b>3&nbsp;219</b> ♥</span><span>закреп <b>191&nbsp;тыс.</b> просмотров</span></div></div></div><div class="mblock"><span class="mnum">02</span><div class="mbody"><h3>Личная консультация «Тет-а-тет»</h3><ul class="pts"><li>45 минут один на один</li><li>$300 (пост от 19.08.2026)</li><li>Запись через бота: пара строк о запросе, свободная дата, оплата. На оплату 60 минут, потом бронь снимается</li><li>Свободные слоты публикуются каждую неделю</li></ul></div></div><div class="mblock"><span class="mnum">03</span><div class="mbody"><h3>Lavanta Ride: вложения в&nbsp;скутеры в&nbsp;Анталии</h3><ul class="pts"><li>Наталья: совладелица скутершеринга Lavanta Ride в Анталии</li><li>Схема: человек покупает скутер, компания сдаёт его в аренду, обслуживает и отвечает за клиентов, владелец получает доход</li><li>Цена скутера: $2 500, с 1 ноября 2025 $3 000, с апреля 2026 $3 500</li><li>Доход по её словам: около $7,5 в день с одного скутера. Есть вариант с фиксированной суммой и вариант с делением прибыли между инвестором и компанией</li><li>Срок договора: 4 года, с 1 июля 2026 сокращён до 2,5 лет</li><li>За приведённого друга 10%, в апреле 2025 это было $200</li><li>«За каждым договором закрепляется работа двух скутеров» (закреп)</li></ul><div class="galh">Как попасть</div><ul class="pts"><li>Пишешь «СКУТЕР» в комментариях, приходит навигация к менеджеру @Lavanta_Ride</li><li>Можно приехать в Анталию, посмотреть и заключить договор на месте</li><li>Чат инвесторов, скрины из него в актуальных «Инвесторы» (13) и «Успешный проект» (27)</li></ul><div class="kv"><span>роликов про скутеры <b>127</b> с февраля 2025</span><span>медиана <b>580</b> ♥</span><span>про инвестиции <b>110</b> роликов</span></div></div></div><div class="mblock"><span class="mnum">04</span><div class="mbody"><h3>Вертолёты и&nbsp;авиа</h3><ul class="pts"><li>Через Lavanta Ride и ic.consulting369: «Подписали договор с Airbus», «Lavanta Ride заказала у Airbus три вертолёта»</li><li>«Торгуем вертолётами по всему миру»: Bell, Robinson, напрямую с заводов</li><li>Офис и школа пилотов</li><li>Актуальные «Вертолёты» (3), «Airbus» (5), «Bell» (1)</li></ul><div class="kv"><span>роликов про вертолёты <b>29</b></span><span>медиана <b>1&nbsp;059</b> ♥</span></div></div></div><div class="mblock"><span class="mnum">05</span><div class="mbody"><h3>Медиа и&nbsp;остальное</h3><ul class="pts"><li>Подкаст с Лукой Ебковым: первая строка шапки, ссылка на YouTube</li><li>Прямые эфиры, в том числе в бизнес-аккаунте kolieva_life</li><li>Мерч: 11.01.2026 анонсировала спортивные костюмы «с крылатыми фразами»</li><li>Курсы почти не упоминает: 14 роликов, медиана 166 лайков</li></ul></div></div>
+</div></section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Путь к продуктам · 07</span><h2>Как устроены <em>ссылки и&nbsp;призывы</em></h2></div><div class="obls"><div class="obl"><h4>Ссылки в шапке, по порядку</h4><ul><li>«СТАТЬ ПАРТНЕРОМ»: t.me/lavanta_ride, скутеры</li><li>«ТЫ СИЛЬНЕЕ ВСЕГО закрытый канал»: бот @kolievalife_bot</li><li>«ПОДКАСТ С ЛУКОЙ»: YouTube</li><li>«ОТКРЫТЫЙ КАНАЛ»: Telegram @Kolieva_Life</li><li>«По всем вопросам (реклама/сотрудничество)»: t.me/ladiossa222</li></ul></div><div class="obl"><h4>Закреп</h4><ul><li>Ролик со ссылкой на закрытый канал</li><li>«Пиши СКУТЕР»: призыв словом в комментариях</li><li>Ролик про договор на скутеры</li></ul></div><div class="obl"><h4>Актуальные, 7 альбомов</h4><ul><li>Инвесторы (13)</li><li>Закрытый канал (5)</li><li>Вертолёты (3)</li><li>Успешный проект (27)</li><li>Bell (1)</li><li>Airbus (5)</li><li>Моя семья (4)</li></ul></div></div>
+</div></section>
+
+<footer class="closing"><div class="wrap">
+  <div class="ornament">◆ ◆&nbsp;◆</div>
+  <div class="author"><div class="nm">Малик Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div><div class="btns" style="display:flex;flex-direction:column;gap:10px;align-items:center"><a href="https://hasimovmalik90-oss.github.io/Site-/maria-timoshenko/" target="_blank" rel="noopener">Коммерческое предложение</a><a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
+  <p class="sign">Ноябрь&nbsp;2026</p>
+</div></footer>
+<script>
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
+(function () {
+  var SEL = 'p, li, .gives, .verdict, .note, .sl';
+  var NBSP = '\u00a0';
+  function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .timeline-title, .hero')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    /* сколько слов на последней строке */
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br') || el.closest('.timeline-title, .marquee')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
+      for (var step = 0; step < 4 && lastLine(el) <= 2; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        if (overflows(el)) { undo(); break; }
+        lastLine(el);
+        if (lastLine.prev <= 1) { undo(); break; }  /* не оставлять одно слово строкой выше */
+      }
+    });
+  }
+  function heads() {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function run() { numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+</script>
+</body></html>
