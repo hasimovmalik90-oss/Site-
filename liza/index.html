@@ -1,399 +1,301 @@
-<!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Елизавета · партнёрство</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#2a211b; --olive:#33301f; --deep:#1f1813;
-  --cream:#efe6d6; --text:#ddd2bf; --muted:#a89d88;
-  --gold:#c8a15f; --line:rgba(200,161,95,.28);
-}
-*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none}
-html,body{overflow-x:clip}
-body{background:var(--bg);color:var(--text);font:300 17px/1.65 Lato,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-p,li{text-wrap:pretty}
-h1,h2,h3,.lead,.quote{text-wrap:balance}
-.eyebrow,.sig,.num,.label{white-space:nowrap}
-.wrap{max-width:980px;margin:0 auto;padding:0 28px}
-section{padding:96px 0;border-top:1px solid var(--line)}
-section.olive{background:var(--olive)}
-section.deep{background:var(--deep)}
-.eyebrow{font:700 12px/1 Lato,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;justify-content:space-between;gap:16px;margin-bottom:28px}
-.eyebrow span:last-child{color:var(--muted);letter-spacing:.12em}
-h1,h2,h3{font-family:Lora,Georgia,serif;color:var(--cream);font-weight:500}
-h2{font-size:clamp(30px,4.6vw,44px);line-height:1.18;margin-bottom:22px}
-h3{font-size:22px;line-height:1.3;margin-bottom:14px}
-.lead{font-family:Lora,serif;font-size:20px;line-height:1.6;color:var(--text);max-width:760px}
-em,.gold{font-family:Lora,serif;font-style:italic;color:var(--gold)}
-.rule{width:80px;height:1px;background:var(--gold);margin:28px 0}
-.sig{font:400 12px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-
+:root{--bg:#1C1612;--soft:#241C16;--card:#2A221B;--card2:#33301F;--line:rgba(239,230,214,.07);--edge:rgba(200,161,95,.22);--text:#EFE6D6;--mute:#AFA28A;--dim:#857860;--accent:#C8A15F;--glow:rgba(200,161,95,.2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(200,161,95,.13),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(200,161,95,.05),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(200,161,95,.05),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#1C1612}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F5EEE0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(42px,7vw,68px);font-weight:300;letter-spacing:.02em;text-shadow:0 0 40px rgba(200,161,95,.25)}
+h2{font-size:clamp(26px,3.6vw,36px)}
+h3{font-size:clamp(19px,2.2vw,22px)}
+p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(200,161,95,.05);box-shadow:0 0 18px -4px var(--glow)}
+section{padding:44px 0}
+.section-head{margin-bottom:22px}
+.section-head p{color:var(--mute);margin-top:12px;font-size:14.5px}
+/* card base */
+.card,.mblock,.outc,.obl,.rcard,.price,.total,.author,.part-head{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(200,161,95,.28),inset 0 1px 0 rgba(255,255,255,.03)}
 /* hero */
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;border-top:0;padding:0;background:#120e0b}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 60%;opacity:.95}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,11,.45) 0%,rgba(18,14,11,0) 30%,rgba(18,14,11,.15) 50%,rgba(18,14,11,.85) 82%,#120e0b 100%)}
-.hero .wrap{position:relative;z-index:1;padding-top:120px;padding-bottom:72px;width:100%}
-.hero .top{position:absolute;top:36px;left:28px;right:28px;z-index:1;display:flex;justify-content:space-between;max-width:924px;margin:0 auto}
-.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.06;letter-spacing:.01em;margin-bottom:18px}
-.hero h1 .gold{display:block;font-size:.62em;margin-top:10px}
-.hero p{font-family:Lora,serif;font-size:19px;color:var(--text);max-width:620px}
+.hero{text-align:center;padding:80px 0 40px}
 
-/* profile */
-.profile{display:flex;gap:22px;align-items:center;margin:8px 0 40px}
-.profile img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
-.profile b{display:block;font:500 20px/1.3 Lora,serif;color:var(--cream)}
-.profile small{color:var(--muted);font-size:15px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.stat{background:var(--bg);padding:26px 20px}
-.stat .num{display:block;font:500 34px/1.1 Lora,serif;color:var(--cream);margin-bottom:10px}
-.stat p{font-size:14px;line-height:1.45;color:var(--muted)}
-.note{margin-top:34px;font-family:Lora,serif;font-size:19px;color:var(--cream)}
-
-/* quotes */
-.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:10px}
-.q{border-left:1px solid var(--gold);padding:6px 0 6px 22px}
-.q .label{font:700 11px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:block}
-.q .quote{font:italic 400 20px/1.5 Lora,serif;color:var(--gold)}
-
-/* steps */
-.steps{display:grid;gap:22px;margin-top:40px}
-.step{border:1px solid var(--line);background:rgba(0,0,0,.14);padding:34px 34px 30px}
-.step .head{display:flex;gap:18px;align-items:baseline;margin-bottom:18px}
-.step .head .num{font:400 15px/1 Lora,serif;color:var(--gold)}
-.step .head h3{margin:0}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.cols .label,.mini{font:700 11px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
-ul.dash{list-style:none}
-ul.dash li{position:relative;padding-left:22px;margin-bottom:10px;font-size:16px}
-ul.dash li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
-.accent{margin-top:22px;padding:18px 22px;border:1px solid var(--gold);font:italic 400 18px/1.55 Lora,serif;color:var(--cream)}
-.why{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.box{border-top:1px solid var(--gold);padding-top:22px}
-.box p{font-size:16px}
-.result{margin-top:40px;padding:30px 34px;background:var(--deep);border:1px solid var(--line)}
-.result ul{columns:2;column-gap:30px}
-
-/* includes */
-.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:36px}
-.inc ul.dash li{font-size:15.5px}
-
-/* case */
-.case{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
-.case-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.case-stats .stat{background:var(--olive)}
-.btn{display:inline-block;margin-top:26px;padding:15px 30px;border:1px solid var(--gold);color:var(--cream);text-decoration:none;font:700 12px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:background .2s}
-.btn:hover{background:rgba(200,161,95,.15)}
-.btn.fill{background:var(--gold);color:#1f1813}
-.btn.fill:hover{background:#d6b276}
-
-/* terms */
-.terms{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
-.term{background:var(--deep);padding:26px 30px;display:grid;grid-template-columns:200px 1fr;gap:24px}
-.term .label{font:700 11px/1.5 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:normal}
-.term p{font-family:Lora,serif;font-size:18px;color:var(--cream)}
-footer{padding:80px 0 70px;text-align:center;border-top:1px solid var(--line)}
-footer .name{font:500 28px/1.2 Lora,serif;color:var(--cream);margin:18px 0 8px}
-footer .rule{margin:0 auto}
-
-@media (max-width:780px){
-  body{font-size:16px}
-  .wrap{padding:0 18px}
-  section{padding:68px 0}
-  .hero .top{left:18px;right:18px}
-  .hero img{object-position:40% 60%}
-  .stats{grid-template-columns:1fr 1fr}
-  .stat{padding:20px 16px}
-  .stat .num{font-size:28px}
-  .quotes,.cols,.why,.inc,.case{grid-template-columns:1fr}
-  .step{padding:26px 20px 22px}
-  .result{padding:24px 20px}
-  .result ul{columns:1}
-  .term{grid-template-columns:1fr;gap:8px;padding:22px 20px}
-  .lead{font-size:18px}
+.hero-card{padding:44px 28px 38px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,161,95,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 80px -20px rgba(200,161,95,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--accent);margin:12px 0 18px}
+.hero .path{display:inline-flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mute);padding:8px 18px;border:1px solid var(--edge);border-radius:30px;background:rgba(200,161,95,.04)}
+.hero .path .ac{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic}
+.hero .pos{max-width:520px;margin:20px auto 0;color:var(--mute);font-size:14px}
+.hdiv{display:none}
+/* team cards */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.outc{padding:24px}
+.outc-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);margin-bottom:6px;text-shadow:0 0 24px rgba(200,161,95,.35)}
+.outc h3{margin-bottom:10px} .outc p{color:var(--mute);font-size:14px}
+/* part header */
+.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(200,161,95,.12),transparent 65%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 70px -24px rgba(200,161,95,.3),inset 0 1px 0 rgba(255,255,255,.04)}
+.part-head h2{font-size:clamp(24px,3.2vw,32px)}
+/* stage cards */
+.mblock{padding:24px 26px;margin-bottom:14px}
+.mnum{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--accent);border:1px solid var(--edge);background:rgba(200,161,95,.06);box-shadow:0 0 16px -4px var(--glow);margin-bottom:12px}
+.mbody h3{margin-bottom:12px}
+.pts{list-style:none}
+.pts li{position:relative;padding:6px 0 6px 20px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(200,161,95,.7)}
+.gives{margin-top:14px;padding:14px 16px;background:rgba(200,161,95,.05);border:1px solid rgba(200,161,95,.12);border-left:2px solid var(--accent);border-radius:12px;color:var(--mute);font-size:14px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;font-weight:600}
+/* lists in cards */
+.obls{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:0!important}
+.obl{padding:24px}
+.obl h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.obl ul{list-style:none}
+.obl li{padding:9px 0 9px 18px;position:relative;font-size:14px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.obl li:last-child{border-bottom:none;padding-bottom:0}
+.obl li::before{content:'';position:absolute;left:1px;top:18px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(200,161,95,.7)}
+/* together */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.rcard{padding:22px 24px}
+.rcard h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.rcard h3{margin-bottom:8px} .rcard p{color:var(--mute);font-size:14px}
+/* price */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.price{padding:30px 22px;text-align:center;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(200,161,95,.12),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 60px -22px rgba(200,161,95,.35),inset 0 1px 0 rgba(255,255,255,.04)}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.price .pv{font-family:'Cormorant Garamond',serif;font-size:46px;color:#F5EEE0;line-height:1;text-shadow:0 0 30px rgba(200,161,95,.3)}
+.price .pv span{font-size:22px;color:var(--mute)}
+.price .pp{color:var(--mute);font-size:13.5px;margin-top:10px}
+.total{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 24px;border-color:rgba(200,161,95,.35);box-shadow:0 0 50px -18px rgba(200,161,95,.4),inset 0 1px 0 rgba(255,255,255,.04)}
+.total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.total b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;color:#F5EEE0;text-shadow:0 0 24px rgba(200,161,95,.35)}
+/* footer */
+.closing{text-align:center;padding:24px 0 64px}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:0 0 26px;opacity:.6;font-size:11px}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.author{padding:26px 22px}
+.author .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.author .nm{font-family:'Cormorant Garamond',serif;font-size:30px;color:#F5EEE0;margin-bottom:2px}
+.author .rl{color:var(--accent);font-size:13px;margin-bottom:16px}
+.btns{display:flex;justify-content:center}
+.btns a{padding:11px 20px;border-radius:30px;font-size:13px;font-weight:500;border:1px solid rgba(200,161,95,.4);background:rgba(200,161,95,.06);box-shadow:0 0 22px -6px rgba(200,161,95,.4);transition:.18s}
+.btns a:hover{background:rgba(200,161,95,.14);box-shadow:0 0 28px -4px rgba(200,161,95,.55)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mute);margin-top:28px}
+@media(max-width:600px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:30px 0}
+  .hero{padding:40px 0 20px}
+  .hero-card{padding:32px 18px 28px;border-radius:20px}
+  h1{font-size:clamp(36px,11vw,46px)}
+  .hero .path{font-size:12px;padding:7px 14px;gap:8px}
+  .hero .path .ac{font-size:16px}
+  .part-head{padding:22px 18px}
+  .mblock{padding:20px 18px}
+  .outc,.obl,.rcard,.author{padding:20px 18px}
+  .pts li{font-size:14px}
+  .price{padding:26px 18px} .price .pv{font-size:40px}
+  .total{padding:18px}
+  .total b{font-size:28px}
+  .section-head{margin-bottom:18px}
 }
-</style>
-</head>
-<body>
+.hero .wrap{max-width:880px}
+.closing .sign{margin-top:26px}
+.rgrid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:600px){.rgrid{grid-template-columns:1fr}.hero .top,.hero .fio{letter-spacing:.14em;font-size:10px}}
+.price.solo{max-width:560px;margin:0 auto;padding:38px 24px}.price.solo .pv{font-size:56px}
+@media(max-width:600px){.price.solo .pv{font-size:46px}}
 
-<section class="hero">
-  <img src="img/hero.jpg" alt="Елизавета">
-  <div class="top"><span class="sig">Ноябрь 2026</span><span class="sig">Для обсуждения</span></div>
-  <div class="wrap">
-    <div class="sig" style="color:var(--gold);margin-bottom:22px">Елизавета&nbsp;·&nbsp;Малик&nbsp;Хашимов</div>
-    <h1>Партнёрство<span class="gold">от блога к системе продаж</span></h1>
-    <p>Как мы вместе выстраиваем путь от подписчика до клиента. Начинаем с людей, которые уже есть в Вашем блоге.</p>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow"><span>Где блог сейчас</span><span>01</span></div>
-    <h2>Внимание к блогу уже есть</h2>
-    <div class="profile">
-      <img src="img/avatar.jpg" alt="">
-      <div><b>@eliz__sergeevna</b><small>Елизавета | Проводник в любовь к себе | Бали</small></div>
-    </div>
-    <div class="stats">
-      <div class="stat"><span class="num">10,4 тыс.</span><p>подписчиков в Instagram</p></div>
-      <div class="stat"><span class="num">5 млн</span><p>просмотров роликов с сентября 2025</p></div>
-      <div class="stat"><span class="num">936 тыс.</span><p>просмотров у самого большого ролика</p></div>
-      <div class="stat"><span class="num">6 866</span><p>медиана просмотров ролика в сентябре 2026, год назад было 1 835</p></div>
-      <div class="stat"><span class="num">1 033</span><p>подписчика в Telegram</p></div>
-      <div class="stat"><span class="num">10</span><p>человек на интенсиве</p></div>
-      <div class="stat"><span class="num">10</span><p>продаж мини-курса</p></div>
-      <div class="stat"><span class="num">4</span><p>кейса клиенток и альбом отзывов</p></div>
-    </div>
-    <p class="note">Аудитория и первые продажи уже есть. Следующий шаг: понять, кто эти люди, и собрать продукт под них.</p>
-  </div>
-</section>
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:16px;padding:20px 18px;box-shadow:0 18px 40px -28px rgba(0,0,0,.6)}
+.stat .sv{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,40px);font-weight:500;color:#F5EEE0;line-height:1;white-space:nowrap}
+.stat .sl{color:var(--mute);font-size:13.5px;margin-top:8px;text-wrap:pretty}
+.verdict{padding:18px 20px;border-radius:14px;background:var(--card2);border:1px solid var(--edge);border-left:4px solid var(--accent);font-size:15px;color:#F5EEE0;font-weight:600;text-wrap:pretty}
+.hits{list-style:none;margin-top:6px}
+.hits li{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.hits li:last-child{border-bottom:none}
+.hits .hv{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);min-width:92px;white-space:nowrap;font-weight:500}
+.lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.case{display:grid;grid-template-columns:1fr 220px;gap:22px;align-items:start}
+.case.two{grid-template-columns:1fr}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;max-width:480px}
+.shot img,.case img{width:100%;display:block;border-radius:14px;border:1px solid var(--edge);box-shadow:0 14px 30px -20px rgba(0,0,0,.6)}
+.shot figcaption,.case figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.kv{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.kv span{padding:6px 12px;border-radius:30px;background:rgba(200,161,95,.07);border:1px solid var(--edge);font-size:13px;color:#F5EEE0}
+.kv b{color:var(--accent)}
+.steps{counter-reset:s;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line);font-size:14.5px;text-wrap:pretty}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#1C1612;background:var(--accent)}
+.btn-inline{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:30px;font-size:13px;font-weight:600;color:#1C1612!important;background:var(--accent)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;align-items:start}
+.gal.v{grid-template-columns:repeat(3,1fr)}
+.gal figure img{width:100%;display:block;border-radius:12px;border:1px solid var(--edge);box-shadow:0 12px 26px -18px rgba(0,0,0,.6)}
+.gal figcaption{font-size:12.5px;color:#F5EEE0;margin-top:6px;text-align:center;font-weight:600}
+.gal figcaption span{display:block;color:var(--dim);font-weight:400}
+.galh{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:22px}
+@media(max-width:600px){.gal{grid-template-columns:repeat(2,1fr);gap:10px}.gal.v{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto}}
+.now{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:start}
+.now .prof img{width:100%;display:block;border-radius:18px;border:1px solid var(--edge);box-shadow:0 22px 50px -28px rgba(0,0,0,.6)}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.now .stats{grid-template-columns:1fr 1fr}
+@media(max-width:700px){.now{grid-template-columns:1fr}.now .prof{max-width:420px;margin:0 auto}}
+.ig{background:#000;border:1px solid var(--edge);border-radius:18px;padding:16px 16px 18px;box-shadow:0 22px 50px -28px rgba(0,0,0,.6);font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#F5F5F5;line-height:1.35}
+.ig .un{font-weight:700;font-size:15px;text-align:center;margin-bottom:14px}
+.ig .row{display:flex;align-items:center;gap:16px}
+.ig .av{flex:none;width:82px;height:82px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig .av img{width:100%;height:100%;border-radius:50%;border:3px solid #000;display:block;object-fit:cover}
+.ig .cnt{display:flex;flex:1;justify-content:space-between;gap:6px;text-align:center}
+.ig .cnt b{display:block;font-size:15px;font-weight:700}
+.ig .cnt span{font-size:12px;color:#F5F5F5;display:block}
+.ig .hl div{flex:1;min-width:0}
+@media(max-width:600px){.ig .cnt span{font-size:11px}.ig .av{width:74px;height:74px}.ig .row{gap:12px}}
+.ig .nm{font-weight:700;font-size:13.5px;margin-top:12px}
+.ig .cat{color:#A8A8A8;font-size:13px}
+.ig .bio{font-size:13.5px;margin-top:2px}
+.ig .bio a,.ig .lnk{color:#E0F1FF}
+.ig .lnk{font-weight:600;font-size:13.5px;display:block;margin-top:2px}
+.ig .bt{display:flex;gap:6px;margin-top:12px}
+.ig .bt span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:8px;background:#363636}
+.ig .bt span.f{background:#0095f6;color:#fff}
+.ig .hl{display:flex;gap:10px;margin-top:16px;justify-content:space-between}
+.ig .hl div{text-align:center;width:58px;font-size:11.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ig .hl img{width:58px;height:58px;border-radius:50%;border:1px solid #dbdbdb;padding:2px;background:#fff;display:block;margin-bottom:4px}
+.now .prof figcaption{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center}
+.obls.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.obls.two{grid-template-columns:1fr}}
+.obls.fit{align-items:start}
+@media(max-width:700px){.lines{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case figure{max-width:260px;margin:0 auto}}
+@media(max-width:600px){.stats{gap:10px}.stat{padding:16px 14px}.hits .hv{min-width:76px;font-size:21px}}
 
-<section class="olive">
-  <div class="wrap">
-    <div class="eyebrow"><span>К чему идём</span><span>02</span></div>
-    <h2>Ваши слова о том, к чему ведёт работа</h2>
-    <div class="quotes">
-      <div class="q"><span class="label">Доход</span><p class="quote">«Я хочу выйти на доходность от миллиона рублей»</p></div>
-      <div class="q"><span class="label">Система</span><p class="quote">«Мне нужна система. Я хочу видеть, как клиент проходит все этапы, то есть подписчик становится клиентом»</p></div>
-      <div class="q"><span class="label">Продукт</span><p class="quote">«Покупает любой продукт на любой кошелёк»</p></div>
-      <div class="q"><span class="label">Воронки</span><p class="quote">«Пассивный доход через правильно выстроенные воронки»</p></div>
-      <div class="q"><span class="label">Партнёр</span><p class="quote">«Найти продюсера, партнёра, с которым мы можем пойти развивать это всё и зарабатывать»</p></div>
-      <div class="q"><span class="label">Блог</span><p class="quote">«Не сжимать себя только в экспертность»</p></div>
-    </div>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow"><span>Шаг 0 · первый месяц</span><span>03</span></div>
-    <h2>Фундамент на том, что уже есть</h2>
-    <p class="lead">Прежде чем менять профиль, позиционирование и рилсы, разговариваем с людьми, которые уже в блоге. Так продукт, смыслы и продажи строятся на их словах, а не на догадках.</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="head"><span class="num">01</span><h3>Кастдев аудитории</h3></div>
-        <div class="cols">
-          <div>
-            <span class="label">Что делаем</span>
-            <ul class="dash">
-              <li>Кастдев в Telegram и в Instagram</li>
-              <li>Созвоны с 5-15 людьми: записываем и расшифровываем</li>
-              <li>Анкеты всех прошлых и текущих клиентов</li>
-              <li>Делим людей на группы по боли, проблеме и уровню дохода</li>
-            </ul>
-          </div>
-          <div>
-            <span class="label">Что это даёт</span>
-            <ul class="dash">
-              <li>Что у людей болит на самом деле</li>
-              <li>Где наши представления расходятся с тем, что думают люди</li>
-              <li>Сколько люди готовы платить в каждой группе</li>
-              <li>Язык, на котором с ними говорить в контенте и продажах</li>
-            </ul>
-          </div>
-        </div>
-        <p class="accent">Именно на самую большую группу людей в первую очередь направляем 90% усилий. Под неё делаем первый запуск: быстрый, комфортный, с первыми деньгами.</p>
-      </div>
 
-      <div class="step">
-        <div class="head"><span class="num">02</span><h3>Гипотезы продуктов и кастдев по ним</h3></div>
-        <div class="cols">
-          <div>
-            <span class="label">Что делаем</span>
-            <ul class="dash">
-              <li>Под каждую группу выписываем гипотезу продукта с учётом её покупательской способности</li>
-              <li>Ещё на первом кастдеве отмечаем самых заинтересованных: кто пишет в директ, кто комментирует</li>
-              <li>Выходим с ними на созвоны уже по продукту</li>
-            </ul>
-          </div>
-          <div>
-            <span class="label">Что проверяем</span>
-            <ul class="dash">
-              <li>Подходит ли продукт по деньгам</li>
-              <li>Насколько он актуален</li>
-              <li>Подтверждаются ли наши гипотезы</li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <div class="step">
-        <div class="head"><span class="num">03</span><h3>Закрытые предпродажи и прогревы</h3></div>
-        <div class="cols">
-          <div>
-            <span class="label">Что делаем</span>
-            <ul class="dash">
-              <li>После созвонов доформировываем продукт под определённое количество людей и формат</li>
-              <li>Закрытые предпродажи и первые продажи</li>
-            </ul>
-          </div>
-          <div>
-            <span class="label">Дальше</span>
-            <ul class="dash">
-              <li>Прогревы в сторис и в рилсах по лестнице Бена Ханта</li>
-              <li>Начинаем с продукта для самой большой группы</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="why">
-      <div class="box">
-        <span class="mini">Почему сначала так</span>
-        <p>Если менять профиль и рилсы до разговора с людьми, легко привлечь не тех людей, транслировать не те смыслы и промахнуться с продуктом. Продажи тогда идут тяжелее. Поэтому в первый месяц делаем кастдевы, а то, что уже получается, продолжаем и усиливаем.</p>
-      </div>
-      <div class="box">
-        <span class="mini">Про пассивный доход</span>
-        <p>Воронки, которые продают сами, строим на продукте, который люди уже покупают. Поэтому сначала живые разговоры и первые продажи, потом автоматизация.</p>
-      </div>
-    </div>
+.next,.terms{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(200,161,95,.28)}
+.next{padding:24px;margin-bottom:14px}
+.next .when{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.next h3{margin-bottom:10px}
+.next>p{color:var(--mute);font-size:14.5px;margin-bottom:10px}
+.next.alt{background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(200,161,95,.10),transparent 65%),var(--card)}
+.note{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(200,161,95,.06);border:1px dashed rgba(200,161,95,.35);color:var(--text);font-size:14px}
+.price.best{border-color:rgba(200,161,95,.45)}
+.terms{margin-top:16px;padding:22px 24px}
+.terms h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.terms ul{list-style:none}
+.terms li{padding:9px 0 9px 18px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.terms li:last-child{border-bottom:none;padding-bottom:0}
+.terms li::before{content:'';position:absolute;left:1px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.terms b{font-weight:700;color:#F5EEE0}
+.prices{grid-template-columns:repeat(3,1fr)} @media(max-width:760px){.prices{grid-template-columns:1fr}}
 
-    <div class="result">
-      <span class="mini">Итог первого месяца</span>
-      <ul class="dash">
-        <li>Группы аудитории и самая большая из них</li>
-        <li>Боли и язык людей из их собственных слов</li>
-        <li>Продукт, проверенный на созвонах</li>
-        <li>Закрытые предпродажи и первые деньги</li>
-      </ul>
-    </div>
-  </div>
-</section>
+.prices.mt{margin-bottom:14px} .price{display:flex;flex-direction:column} .price .pts{text-align:left;margin-top:14px} .price .pts li{font-size:13.5px} .price .pv span{font-family:Mulish,sans-serif;font-size:20px}
+.obls{margin-top:14px}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}@supports (overflow:clip){html{overflow-x:clip}}html,body{width:100%;max-width:100%}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important} .stat,.obl,.goal,.mblock,.next,.terms,.price,.tc{min-width:0} .stat .sv{white-space:normal;font-size:clamp(26px,8vw,40px)} .obls,.lines,.goals,.prices,.tgrid{min-width:0} .obls>*,.lines>*,.goals>*,.prices>*{min-width:0} .kv span,.tl a,.obl li,.pts li{overflow-wrap:anywhere} .now,.now>*,.prof,.ig{min-width:0;max-width:100%} .ig .cnt{min-width:0}
+.goals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px} .goal{padding:20px 22px;border-radius:16px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge)} .goal span{display:block;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px} .goal p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.3;color:#F5EEE0;text-wrap:pretty}
+@media(max-width:700px){.goals{grid-template-columns:1fr}}
+.price .tag{display:inline-block;align-self:center;margin-top:12px;padding:4px 12px;border-radius:30px;font-size:11.5px;font-weight:700;color:#1C1612;background:var(--accent)}
+.prices.term .price{justify-content:flex-start}
 
-<section class="olive">
-  <div class="wrap">
-    <div class="eyebrow"><span>Шаг 1 · что дальше</span><span>04</span></div>
-    <h2>Бизнес-модель к миллиону и план роста</h2>
-    <div class="cols" style="margin-top:30px">
-      <div>
-        <span class="label">Бизнес-модель к 1 млн ₽ в месяц</span>
-        <ul class="dash">
-          <li>Сколько нужно клиентов</li>
-          <li>Какие продукты актуальны</li>
-          <li>Какие форматы и на какие уровни их делим</li>
-          <li>Какие силы и затраты для этого нужны</li>
-        </ul>
-      </div>
-      <div>
-        <span class="label">План роста</span>
-        <ul class="dash">
-          <li>Рост аудитории и привлечение клиентов</li>
-          <li>Работа с базой</li>
-        </ul>
-      </div>
-    </div>
-    <p class="accent">Прогноз дохода на старте не даю. Его даю, когда продукт проверен на людях и есть первые цифры продаж.</p>
-  </div>
-</section>
+.hero-photo{border-radius:18px;overflow:hidden;margin:26px auto 0;max-width:640px;border:1px solid var(--edge);box-shadow:0 22px 60px -30px rgba(0,0,0,.7)}
+.hero-photo img{width:100%;display:block}
+.fifty{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:1;color:#F5EEE0;text-shadow:0 0 30px rgba(200,161,95,.35)}
+@media(max-width:600px){.fifty{font-size:60px}}
+.kv span,.obl li,.pts li{overflow-wrap:normal!important}
+</style></head><body>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow"><span>Продюсирование</span><span>05</span></div>
-    <h2>Что входит в мою работу</h2>
-    <div class="inc">
-      <div>
-        <span class="mini">Стратегия и продукт</span>
-        <ul class="dash">
-          <li>Вопросы и анкеты кастдева, разбор созвонов и ответов</li>
-          <li>Группы аудитории по боли, проблеме и доходу</li>
-          <li>Гипотезы продуктов под каждую группу</li>
-          <li>Кастдев по продуктам</li>
-          <li>Концепция и упаковка продукта, закрытые предпродажи</li>
-          <li>Бизнес-модель к 1 млн ₽</li>
-          <li>План роста аудитории, привлечения клиентов и работы с базой</li>
-          <li>Стратегия на каждый следующий месяц, утверждаем на итоговом созвоне</li>
-        </ul>
-      </div>
-      <div>
-        <span class="mini">Блог и контент</span>
-        <ul class="dash">
-          <li>Распаковка: 150-200 вопросов, Вы отвечаете голосовыми</li>
-          <li>Карта из 10-15 форматов и банк тем</li>
-          <li>Темы под каждый ролик: о чём говорим, как заходим, чем держим, как снимаем</li>
-          <li>Заголовки, подписи, обложки</li>
-          <li>Прогревы в сторис и рилсах по лестнице Бена Ханта, сторителлинги к актуальным</li>
-          <li>Согласование роликов, порядок и время выхода, разбор каждого ролика</li>
-          <li>Аналитика: охваты, просмотры, подписки. Зашедшие форматы превращаем в серии</li>
-          <li>Шапка, закреп и актуальные: в первый месяц не меняем, после кастдевов дорабатываем при необходимости</li>
-          <li>Съёмки и монтаж на Вашей стороне, я направляю</li>
-        </ul>
-      </div>
-      <div>
-        <span class="mini">Формат работы</span>
-        <ul class="dash">
-          <li>Созвон-разбор раз в неделю</li>
-          <li>Рабочий чат в Telegram, ответ в течение рабочего дня</li>
-          <li>Договорённости, темы и решения фиксируем письменно в чате</li>
-          <li>Отчёт в конце месяца: что сделано, цифры, план следующего</li>
-          <li>Все материалы остаются у Вас</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Ноябрь 2026 · Предложение о&nbsp;партнёрстве</div>
+  <p class="fio">Малик Хашимов · продюсер женских&nbsp;блогов</p>
+  <h1>Елизавета</h1>
+  <p class="slogan">От блога к&nbsp;системе продаж</p>
+  <p class="pos">Как мы вместе выстраиваем путь от подписчика до клиента. Начинаем с людей, которые уже есть в Вашем блоге.</p>
+  <div class="hero-photo"><img src="img/hero.jpg" alt="Елизавета"></div>
+</div></div></header>
 
-<section class="deep">
-  <div class="wrap">
-    <div class="eyebrow"><span>Кейс</span><span>06</span></div>
-    <div class="case">
-      <div>
-        <h2>Каролина Читанава</h2>
-        <p class="lead">Предпринимательница, владелица бренда JAMALI. Начинали с 600 подписчиков.</p>
-        <a class="btn" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Весь кейс</a>
-      </div>
-      <div class="case-stats">
-        <div class="stat"><span class="num">185 000</span><p>подписчиков</p></div>
-        <div class="stat"><span class="num">100+ млн</span><p>просмотров</p></div>
-        <div class="stat"><span class="num">12 млн</span><p>топ-ролик</p></div>
-        <div class="stat"><span class="num">×285</span><p>рост базы, без рекламы</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section><div class="wrap">
+<div class="section-head part-head"><span class="eyebrow">Где блог сейчас · 01</span><h2>Внимание к&nbsp;блогу <em>уже&nbsp;есть</em></h2></div>
+  <div class="now"><figure class="prof"><div class="ig">
+      <div class="un">eliz__sergeevna</div>
+      <div class="row"><div class="av"><img src="img/avatar.jpg" alt="Аватар @eliz__sergeevna"></div>
+        <div class="cnt"><div><b>167</b><span>публикаций</span></div><div><b>10,4&nbsp;тыс.</b><span>подписчиков</span></div><div><b>250</b><span>подписок</span></div></div></div>
+      <div class="nm">Елизавета | Проводник в любовь к себе | Бали</div>
+      <div class="cat">Бизнес</div>
+      <div class="bio">Как перестать заслуживать любовь и почувствовать свою ценность?<br>Мои молитвы помогают раскрыть любовь к себе</div>
+      <div class="bt"><span class="f">Подписаться</span><span>Сообщение</span></div>
+    </div></figure><div>
+  <div class="stats"><div class="stat"><div class="sv">5&nbsp;млн</div><div class="sl">просмотров роликов с сентября 2025</div></div><div class="stat"><div class="sv">936&nbsp;тыс.</div><div class="sl">просмотров у самого большого ролика</div></div><div class="stat"><div class="sv">6&nbsp;866</div><div class="sl">медиана просмотров ролика в сентябре 2026, год назад было 1 835</div></div><div class="stat"><div class="sv">1&nbsp;033</div><div class="sl">подписчика в Telegram</div></div></div>
+  <div class="verdict">Аудитория и первые продажи уже есть. Следующий шаг: понять, кто эти люди, и собрать продукт под них.</div>
+</div></div>
+</div></section>
 
-<section class="olive">
-  <div class="wrap">
-    <div class="eyebrow"><span>Условия</span><span>07</span></div>
-    <h2>Условия партнёрства</h2>
-    <div class="terms">
-      <div class="term"><span class="label">Оплата</span><p>Партнёрство без фиксированной оплаты.</p></div>
-      <div class="term"><span class="label">Доход</span><p>Делим 50 на 50 чистую прибыль со всех продаж с начала совместной работы.</p></div>
-      <div class="term"><span class="label">Затраты</span><p>Затраты на контент, съёмки и монтаж на Вашей стороне.</p></div>
-      <div class="term"><span class="label">Выход</span><p>Предупреждаем друг друга за 30 дней. Начатый поток доводим до конца. Материалы остаются у Вас.</p></div>
-    </div>
-    <p class="note">Детали расчёта обсуждаем на созвоне.</p>
-  </div>
-</section>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Опора · 02</span><h2>Что <em>уже&nbsp;работает</em></h2><p>Это основа, на которой строим дальше.</p></div><div class="obls two fit"><div class="obl"><h4>Продажи</h4><ul><li>10 человек на интенсиве</li><li>10 продаж мини-курса</li><li>Личная работа и сопровождение</li></ul></div><div class="obl"><h4>Воронка</h4><ul><li>Кодовое слово в ролике, бесплатная молитва, переход в Telegram</li><li>Запись на разбор</li></ul></div><div class="obl"><h4>Рост</h4><ul><li>С мая 2026 медиана просмотров выросла с <span style="white-space:nowrap">1&nbsp;200</span> до <span style="white-space:nowrap">5-7&nbsp;тыс.</span></li><li>Молитвы голосом собирают тысячи комментариев</li></ul></div><div class="obl"><h4>Доверие</h4><ul><li>4 кейса клиенток в закреплённой карусели</li><li>Альбом отзывов в актуальных</li></ul></div></div>
+</div></section>
 
-<footer>
-  <div class="wrap">
-    <div class="rule"></div>
-    <div class="name">Малик&nbsp;Хашимов</div>
-    <div class="sig">продюсер&nbsp;женских&nbsp;блогов</div>
-    <a class="btn fill" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a>
-  </div>
-</footer>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">К чему идём · 03</span><h2>Итоговый <em>результат</em></h2><p>Ваши слова о том, к чему ведёт работа.</p></div><div class="goals"><div class="goal"><span>Доход</span><p>«Я хочу выйти на доходность от миллиона рублей»</p></div><div class="goal"><span>Система</span><p>«Мне нужна система. Я хочу видеть, как клиент проходит все этапы»</p></div><div class="goal"><span>Продукт</span><p>«Покупает любой продукт на любой кошелёк»</p></div><div class="goal"><span>Воронки</span><p>«Пассивный доход через правильно выстроенные воронки»</p></div><div class="goal"><span>Партнёр</span><p>«Найти продюсера, партнёра, с которым мы можем пойти развивать это всё и зарабатывать»</p></div><div class="goal"><span>Блог</span><p>«Не сжимать себя только в экспертность»</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head part-head"><span class="eyebrow">Шаг 0 · первый месяц · 04</span><h2>Фундамент <em>на&nbsp;том, что уже есть</em></h2><p>Прежде чем менять профиль, позиционирование и рилсы, разговариваем с людьми, которые уже в блоге. Так продукт, смыслы и продажи строятся на их словах, а не на догадках.</p></div>
+<div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Кастдев аудитории</h3><ul class="pts"><li>Кастдев в Telegram и в Instagram</li><li>Созвоны с <span style="white-space:nowrap">5-15</span> людьми: записываем и расшифровываем</li><li>Анкеты всех прошлых и текущих клиентов</li><li>Делим людей на группы по боли, проблеме и уровню дохода</li></ul><div class="gives"><strong>Что это даёт</strong>Что у людей болит на самом деле, сколько они готовы платить и на каком языке с ними говорить. Где наши представления расходятся с тем, что думают люди.</div></div></div>
+<div class="note">Именно на самую большую группу людей в первую очередь направляем 90% усилий. Под неё делаем первый запуск: быстрый, комфортный, с первыми деньгами.</div>
+<div class="mblock" style="margin-top:14px"><span class="mnum">02</span><div class="mbody"><h3>Гипотезы продуктов и&nbsp;кастдев по&nbsp;ним</h3><ul class="pts"><li>Под каждую группу выписываем гипотезу продукта с учётом её покупательской способности</li><li>Ещё на первом кастдеве отмечаем самых заинтересованных: кто пишет в директ, кто комментирует</li><li>Выходим с ними на созвоны уже по продукту</li></ul><div class="gives"><strong>Что проверяем</strong>Подходит ли продукт по деньгам, насколько он актуален и подтверждаются ли наши гипотезы.</div></div></div>
+<div class="mblock"><span class="mnum">03</span><div class="mbody"><h3>Закрытые предпродажи и&nbsp;прогревы</h3><ul class="pts"><li>После созвонов доформировываем продукт под определённое количество людей и формат</li><li>Закрытые предпродажи и первые продажи</li><li>Прогревы в сторис и в рилсах по лестнице Бена Ханта, начиная с самой большой группы</li></ul></div></div>
+<div class="obls two"><div class="obl"><h4>Почему сначала так</h4><ul><li>Если менять профиль и рилсы до разговора с людьми, легко привлечь не тех людей</li><li>Смыслы уходят не тем людям, продажи идут тяжелее</li><li>Легко промахнуться с продуктом</li><li>Поэтому в первый месяц делаем кастдевы, а то, что уже получается, продолжаем и усиливаем</li></ul></div><div class="obl"><h4>Итог первого месяца</h4><ul><li>Группы аудитории и самая большая из них</li><li>Боли и язык людей из их собственных слов</li><li>Продукт, проверенный на созвонах</li><li>Закрытые предпродажи и первые деньги</li></ul></div></div>
+<div class="next alt" style="margin-top:14px"><div class="when">Про пассивный доход</div><p>Воронки, которые продают сами, строим на продукте, который люди уже покупают. Поэтому сначала живые разговоры и первые продажи, потом автоматизация.</p></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Шаг 1 · дальше · 05</span><h2>Бизнес-модель к&nbsp;миллиону <em>и&nbsp;план роста</em></h2></div><div class="obls two"><div class="obl"><h4>Бизнес-модель к 1 млн ₽ в месяц</h4><ul><li>Сколько нужно клиентов</li><li>Какие продукты актуальны</li><li>Какие форматы и на какие уровни их делим</li><li>Какие силы и затраты для этого нужны</li></ul></div><div class="obl"><h4>План роста</h4><ul><li>Рост аудитории и привлечение клиентов</li><li>Работа с базой</li></ul></div></div><div class="note">Прогноз дохода на старте не даю. Его даю, когда продукт проверен на людях и есть первые цифры продаж.</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Продюсирование · 06</span><h2>Что входит <em>в&nbsp;мою работу</em></h2></div><div class="lines"><div class="obl"><h4>Стратегия и продукт</h4><ul><li>Вопросы и анкеты кастдева, разбор созвонов и ответов</li><li>Группы аудитории по боли, проблеме и доходу</li><li>Гипотезы продуктов под каждую группу</li><li>Кастдев по продуктам</li><li>Концепция и упаковка продукта, закрытые предпродажи</li><li>Бизнес-модель к 1 млн ₽</li><li>План роста аудитории, привлечения клиентов и работы с базой</li><li>Стратегия на каждый следующий месяц, утверждаем на итоговом созвоне</li></ul></div><div class="obl"><h4>Блог и контент</h4><ul><li>Распаковка: <span style="white-space:nowrap">150-200</span> вопросов, Вы отвечаете голосовыми</li><li>Карта из <span style="white-space:nowrap">10-15</span> форматов и банк тем</li><li>Темы под каждый ролик: о чём говорим, как заходим, чем держим, как снимаем</li><li>Заголовки, подписи, обложки</li><li>Прогревы в сторис и рилсах по лестнице Бена Ханта, сторителлинги к актуальным</li><li>Согласование роликов, порядок и время выхода, разбор каждого ролика</li><li>Аналитика: охваты, просмотры, подписки. Зашедшие форматы превращаем в серии</li><li>Шапка, закреп и актуальные: в первый месяц не меняем, после кастдевов дорабатываем при необходимости</li><li>Съёмки и монтаж на Вашей стороне, я направляю</li></ul></div><div class="obl"><h4>Формат работы</h4><ul><li>Созвон-разбор раз в неделю</li><li>Рабочий чат в Telegram, ответ в течение рабочего дня</li><li>Договорённости, темы и решения фиксируем письменно в чате</li><li>Отчёт в конце месяца: что сделано, цифры, план следующего</li><li>Все материалы остаются у Вас</li></ul></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Кейс · 07</span><h2>Как это работает <em>на&nbsp;практике</em></h2></div><div class="mblock"><div class="mbody"><h3>Каролина Читанава</h3><p>Предпринимательница, владелица бренда JAMALI, мама двух девочек. Начинали с 600 подписчиков.</p><div class="kv"><span><b>185&nbsp;000</b> подписчиков</span><span><b>100+&nbsp;млн</b> просмотров</span><span>топ-ролик <b>12&nbsp;млн</b></span><span>без&nbsp;рекламы</span></div><div class="galh">Подписки с&nbsp;одного ролика</div><div class="gal"><figure><img src="img/k-subs-1.jpg" alt="Статистика ролика"><figcaption>+20&nbsp;833<span>4,1&nbsp;млн просмотров</span></figcaption></figure><figure><img src="img/k-subs-2.jpg" alt="Статистика ролика"><figcaption>+10&nbsp;994<span>2,1&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-3.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;944<span>2,3&nbsp;млн</span></figcaption></figure><figure><img src="img/k-subs-4.jpg" alt="Статистика ролика"><figcaption>+5&nbsp;697<span>1,1&nbsp;млн</span></figcaption></figure></div><div class="galh">Просмотры</div><div class="gal v"><figure><img src="img/k-views-2.jpg" alt="Статистика просмотров"><figcaption>20,6&nbsp;млн<span>за&nbsp;месяц, +46,8&nbsp;тыс подписчиков</span></figcaption></figure><figure><img src="img/k-views-3.jpg" alt="Статистика просмотров"><figcaption>12,2&nbsp;млн<span>за&nbsp;30&nbsp;дней, +14&nbsp;470 подписчиков</span></figcaption></figure><figure><img src="img/k-views-4.jpg" alt="Статистика просмотров"><figcaption>12&nbsp;млн<span>за&nbsp;месяц, +14,9&nbsp;тыс подписчиков</span></figcaption></figure></div><a class="btn-inline" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Весь кейс</a></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head" style="text-align:center"><span class="eyebrow">Условия · 08</span><h2>Условия <em>партнёрства</em></h2></div><div class="price solo"><div class="pe">Партнёрство без фиксированной оплаты</div><div class="fifty">50 / 50</div><p class="pp">чистой прибыли со всех продаж с начала совместной работы</p></div><div class="terms"><h4>Как работаем</h4><ul><li><b>Делим чистую прибыль, а не выручку</b></li><li>Затраты на контент, съёмки и монтаж на Вашей стороне</li><li>Выход из партнёрства: предупреждаем друг друга за 30 дней, начатый поток доводим до конца, материалы остаются у Вас</li><li>Детали расчёта обсуждаем на созвоне</li></ul></div>
+</div></section>
+
+<footer class="closing"><div class="wrap">
+  <div class="ornament">◆ ◆&nbsp;◆</div>
+  <div class="author"><div class="nm">Малик Хашимов</div><div class="rl">продюсер женских&nbsp;блогов</div><div class="btns"><a href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
+  <p class="sign">Ноябрь&nbsp;2026</p>
+</div></footer>
 
 <script>
-/* без висячих строк: на последней строке абзаца не меньше трёх слов (рецепт Site-/ksenia-case) */
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
 (function () {
-  var SEL = 'p, li';
-  var NBSP = ' ';
+  var SEL = 'p, li, .gives, .verdict, .note, .sl';
+  var NBSP = '\u00a0';
   function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
     var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
     while ((n = w.nextNode())) {
       var pe = n.parentElement;
-      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName)) continue;
-      var v = n.nodeValue;
-      /* короткие слова (в, к, с, на, по...) не висят в конце строки */
-      v = v.replace(/(^|[\s «(])([А-Яа-яЁё]{1,2}) /g, '$1$2' + NBSP);
-      if (!pe.closest('h1, h2, h3')) v = v.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$₽])/g, '$1' + NBSP);
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .timeline-title, .hero')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
       if (v !== n.nodeValue) n.nodeValue = v;
     }
   }
@@ -403,6 +305,7 @@ footer .rule{margin:0 auto}
     return out;
   }
   function lastLine(el) {
+    /* сколько слов на последней строке */
     var words = [];
     texts(el).forEach(function (n) {
       var re = /\S+/g, m;
@@ -423,6 +326,7 @@ footer .rule{margin:0 auto}
     return counts.length < 2 ? 99 : counts[counts.length - 1];
   }
   function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
     var ns = texts(el), seen = false;
     for (var i = ns.length - 1; i >= 0; i--) {
       var t = ns[i].nodeValue;
@@ -444,19 +348,21 @@ footer .rule{margin:0 auto}
   }
   function fix() {
     document.querySelectorAll(SEL).forEach(function (el) {
-      if (el.querySelector('br')) return;
-      if (el.textContent.trim().split(/\s+/).length < 4) return;
+      if (el.querySelector('br') || el.closest('.timeline-title, .marquee')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
       for (var step = 0; step < 4 && lastLine(el) <= 2; step++) {
         var undo = glueOne(el);
         if (!undo) break;
         if (overflows(el)) { undo(); break; }
         lastLine(el);
-        if (lastLine.prev <= 1) { undo(); break; }
+        if (lastLine.prev <= 1) { undo(); break; }  /* не оставлять одно слово строкой выше */
       }
     });
   }
   function heads() {
-    document.querySelectorAll('h1, h2, h3').forEach(function (el) {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
       if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
       var undo = glueOne(el);
       if (undo && (overflows(el) || lastLine(el) === 99)) undo();
@@ -468,5 +374,4 @@ footer .rule{margin:0 auto}
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
 })();
 </script>
-</body>
-</html>
+</body></html>
