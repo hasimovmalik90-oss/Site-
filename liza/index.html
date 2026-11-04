@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Елизавета · партнёрство</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2a211b; --olive:#33301f; --deep:#1f1813;
+  --cream:#efe6d6; --text:#ddd2bf; --muted:#a89d88;
+  --gold:#c8a15f; --line:rgba(200,161,95,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--text);font:300 17px/1.65 Lato,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+p,li{text-wrap:pretty}
+h1,h2,h3,.lead,.quote{text-wrap:balance}
+.eyebrow,.sig,.num,.label{white-space:nowrap}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+section{padding:96px 0;border-top:1px solid var(--line)}
+section.olive{background:var(--olive)}
+section.deep{background:var(--deep)}
+.eyebrow{font:700 12px/1 Lato,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;justify-content:space-between;gap:16px;margin-bottom:28px}
+.eyebrow span:last-child{color:var(--muted);letter-spacing:.12em}
+h1,h2,h3{font-family:Lora,Georgia,serif;color:var(--cream);font-weight:500}
+h2{font-size:clamp(30px,4.6vw,44px);line-height:1.18;margin-bottom:22px}
+h3{font-size:22px;line-height:1.3;margin-bottom:14px}
+.lead{font-family:Lora,serif;font-size:20px;line-height:1.6;color:var(--text);max-width:760px}
+em,.gold{font-family:Lora,serif;font-style:italic;color:var(--gold)}
+.rule{width:80px;height:1px;background:var(--gold);margin:28px 0}
+.sig{font:400 12px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;border-top:0;padding:0;background:#120e0b}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 60%;opacity:.95}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,11,.45) 0%,rgba(18,14,11,0) 30%,rgba(18,14,11,.15) 50%,rgba(18,14,11,.85) 82%,#120e0b 100%)}
+.hero .wrap{position:relative;z-index:1;padding-top:120px;padding-bottom:72px;width:100%}
+.hero .top{position:absolute;top:36px;left:28px;right:28px;z-index:1;display:flex;justify-content:space-between;max-width:924px;margin:0 auto}
+.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.06;letter-spacing:.01em;margin-bottom:18px}
+.hero h1 .gold{display:block;font-size:.62em;margin-top:10px}
+.hero p{font-family:Lora,serif;font-size:19px;color:var(--text);max-width:620px}
+
+/* profile */
+.profile{display:flex;gap:22px;align-items:center;margin:8px 0 40px}
+.profile img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+.profile b{display:block;font:500 20px/1.3 Lora,serif;color:var(--cream)}
+.profile small{color:var(--muted);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--bg);padding:26px 20px}
+.stat .num{display:block;font:500 34px/1.1 Lora,serif;color:var(--cream);margin-bottom:10px}
+.stat p{font-size:14px;line-height:1.45;color:var(--muted)}
+.note{margin-top:34px;font-family:Lora,serif;font-size:19px;color:var(--cream)}
+
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:10px}
+.q{border-left:1px solid var(--gold);padding:6px 0 6px 22px}
+.q .label{font:700 11px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:block}
+.q .quote{font:italic 400 20px/1.5 Lora,serif;color:var(--gold)}
+
+/* steps */
+.steps{display:grid;gap:22px;margin-top:40px}
+.step{border:1px solid var(--line);background:rgba(0,0,0,.14);padding:34px 34px 30px}
+.step .head{display:flex;gap:18px;align-items:baseline;margin-bottom:18px}
+.step .head .num{font:400 15px/1 Lora,serif;color:var(--gold)}
+.step .head h3{margin:0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.cols .label,.mini{font:700 11px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+ul.dash{list-style:none}
+ul.dash li{position:relative;padding-left:22px;margin-bottom:10px;font-size:16px}
+ul.dash li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.accent{margin-top:22px;padding:18px 22px;border:1px solid var(--gold);font:italic 400 18px/1.55 Lora,serif;color:var(--cream)}
+.why{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.box{border-top:1px solid var(--gold);padding-top:22px}
+.box p{font-size:16px}
+.result{margin-top:40px;padding:30px 34px;background:var(--deep);border:1px solid var(--line)}
+.result ul{columns:2;column-gap:30px}
+
+/* includes */
+.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:36px}
+.inc ul.dash li{font-size:15.5px}
+
+/* case */
+.case{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.case-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.case-stats .stat{background:var(--olive)}
+.btn{display:inline-block;margin-top:26px;padding:15px 30px;border:1px solid var(--gold);color:var(--cream);text-decoration:none;font:700 12px/1 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:background .2s}
+.btn:hover{background:rgba(200,161,95,.15)}
+.btn.fill{background:var(--gold);color:#1f1813}
+.btn.fill:hover{background:#d6b276}
+
+/* terms */
+.terms{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
+.term{background:var(--deep);padding:26px 30px;display:grid;grid-template-columns:200px 1fr;gap:24px}
+.term .label{font:700 11px/1.5 Lato,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:normal}
+.term p{font-family:Lora,serif;font-size:18px;color:var(--cream)}
+footer{padding:80px 0 70px;text-align:center;border-top:1px solid var(--line)}
+footer .name{font:500 28px/1.2 Lora,serif;color:var(--cream);margin:18px 0 8px}
+footer .rule{margin:0 auto}
+
+@media (max-width:780px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  section{padding:68px 0}
+  .hero .top{left:18px;right:18px}
+  .hero img{object-position:40% 60%}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{padding:20px 16px}
+  .stat .num{font-size:28px}
+  .quotes,.cols,.why,.inc,.case{grid-template-columns:1fr}
+  .step{padding:26px 20px 22px}
+  .result{padding:24px 20px}
+  .result ul{columns:1}
+  .term{grid-template-columns:1fr;gap:8px;padding:22px 20px}
+  .lead{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img src="img/hero.jpg" alt="Елизавета">
+  <div class="top"><span class="sig">Ноябрь 2026</span><span class="sig">Для обсуждения</span></div>
+  <div class="wrap">
+    <div class="sig" style="color:var(--gold);margin-bottom:22px">Елизавета&nbsp;·&nbsp;Малик&nbsp;Хашимов</div>
+    <h1>Партнёрство<span class="gold">от блога к системе продаж</span></h1>
+    <p>Как мы вместе выстраиваем путь от подписчика до клиента. Начинаем с людей, которые уже есть в Вашем блоге.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span>Где блог сейчас</span><span>01</span></div>
+    <h2>Внимание к блогу уже есть</h2>
+    <div class="profile">
+      <img src="img/avatar.jpg" alt="">
+      <div><b>@eliz__sergeevna</b><small>Елизавета | Проводник в любовь к себе | Бали</small></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">10,4 тыс.</span><p>подписчиков в Instagram</p></div>
+      <div class="stat"><span class="num">5 млн</span><p>просмотров роликов с сентября 2025</p></div>
+      <div class="stat"><span class="num">936 тыс.</span><p>просмотров у самого большого ролика</p></div>
+      <div class="stat"><span class="num">6 866</span><p>медиана просмотров ролика в сентябре 2026, год назад было 1 835</p></div>
+      <div class="stat"><span class="num">1 033</span><p>подписчика в Telegram</p></div>
+      <div class="stat"><span class="num">10</span><p>человек на интенсиве</p></div>
+      <div class="stat"><span class="num">10</span><p>продаж мини-курса</p></div>
+      <div class="stat"><span class="num">4</span><p>кейса клиенток и альбом отзывов</p></div>
+    </div>
+    <p class="note">Аудитория и первые продажи уже есть. Следующий шаг: понять, кто эти люди, и собрать продукт под них.</p>
+  </div>
+</section>
+
+<section class="olive">
+  <div class="wrap">
+    <div class="eyebrow"><span>К чему идём</span><span>02</span></div>
+    <h2>Ваши слова о том, к чему ведёт работа</h2>
+    <div class="quotes">
+      <div class="q"><span class="label">Доход</span><p class="quote">«Я хочу выйти на доходность от миллиона рублей»</p></div>
+      <div class="q"><span class="label">Система</span><p class="quote">«Мне нужна система. Я хочу видеть, как клиент проходит все этапы, то есть подписчик становится клиентом»</p></div>
+      <div class="q"><span class="label">Продукт</span><p class="quote">«Покупает любой продукт на любой кошелёк»</p></div>
+      <div class="q"><span class="label">Воронки</span><p class="quote">«Пассивный доход через правильно выстроенные воронки»</p></div>
+      <div class="q"><span class="label">Партнёр</span><p class="quote">«Найти продюсера, партнёра, с которым мы можем пойти развивать это всё и зарабатывать»</p></div>
+      <div class="q"><span class="label">Блог</span><p class="quote">«Не сжимать себя только в экспертность»</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span>Шаг 0 · первый месяц</span><span>03</span></div>
+    <h2>Фундамент на том, что уже есть</h2>
+    <p class="lead">Прежде чем менять профиль, позиционирование и рилсы, разговариваем с людьми, которые уже в блоге. Так продукт, смыслы и продажи строятся на их словах, а не на догадках.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="head"><span class="num">01</span><h3>Кастдев аудитории</h3></div>
+        <div class="cols">
+          <div>
+            <span class="label">Что делаем</span>
+            <ul class="dash">
+              <li>Кастдев в Telegram и в Instagram</li>
+              <li>Созвоны с 5-15 людьми: записываем и расшифровываем</li>
+              <li>Анкеты всех прошлых и текущих клиентов</li>
+              <li>Делим людей на группы по боли, проблеме и уровню дохода</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Что это даёт</span>
+            <ul class="dash">
+              <li>Что у людей болит на самом деле</li>
+              <li>Где наши представления расходятся с тем, что думают люди</li>
+              <li>Сколько люди готовы платить в каждой группе</li>
+              <li>Язык, на котором с ними говорить в контенте и продажах</li>
+            </ul>
+          </div>
+        </div>
+        <p class="accent">Именно на самую большую группу людей в первую очередь направляем 90% усилий. Под неё делаем первый запуск: быстрый, комфортный, с первыми деньгами.</p>
+      </div>
+
+      <div class="step">
+        <div class="head"><span class="num">02</span><h3>Гипотезы продуктов и кастдев по ним</h3></div>
+        <div class="cols">
+          <div>
+            <span class="label">Что делаем</span>
+            <ul class="dash">
+              <li>Под каждую группу выписываем гипотезу продукта с учётом её покупательской способности</li>
+              <li>Ещё на первом кастдеве отмечаем самых заинтересованных: кто пишет в директ, кто комментирует</li>
+              <li>Выходим с ними на созвоны уже по продукту</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Что проверяем</span>
+            <ul class="dash">
+              <li>Подходит ли продукт по деньгам</li>
+              <li>Насколько он актуален</li>
+              <li>Подтверждаются ли наши гипотезы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="head"><span class="num">03</span><h3>Закрытые предпродажи и прогревы</h3></div>
+        <div class="cols">
+          <div>
+            <span class="label">Что делаем</span>
+            <ul class="dash">
+              <li>После созвонов доформировываем продукт под определённое количество людей и формат</li>
+              <li>Закрытые предпродажи и первые продажи</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Дальше</span>
+            <ul class="dash">
+              <li>Прогревы в сторис и в рилсах по лестнице Бена Ханта</li>
+              <li>Начинаем с продукта для самой большой группы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="box">
+        <span class="mini">Почему сначала так</span>
+        <p>Если менять профиль и рилсы до разговора с людьми, легко привлечь не тех людей, транслировать не те смыслы и промахнуться с продуктом. Продажи тогда идут тяжелее. Поэтому в первый месяц делаем кастдевы, а то, что уже получается, продолжаем и усиливаем.</p>
+      </div>
+      <div class="box">
+        <span class="mini">Про пассивный доход</span>
+        <p>Воронки, которые продают сами, строим на продукте, который люди уже покупают. Поэтому сначала живые разговоры и первые продажи, потом автоматизация.</p>
+      </div>
+    </div>
+
+    <div class="result">
+      <span class="mini">Итог первого месяца</span>
+      <ul class="dash">
+        <li>Группы аудитории и самая большая из них</li>
+        <li>Боли и язык людей из их собственных слов</li>
+        <li>Продукт, проверенный на созвонах</li>
+        <li>Закрытые предпродажи и первые деньги</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="olive">
+  <div class="wrap">
+    <div class="eyebrow"><span>Шаг 1 · что дальше</span><span>04</span></div>
+    <h2>Бизнес-модель к миллиону и план роста</h2>
+    <div class="cols" style="margin-top:30px">
+      <div>
+        <span class="label">Бизнес-модель к 1 млн ₽ в месяц</span>
+        <ul class="dash">
+          <li>Сколько нужно клиентов</li>
+          <li>Какие продукты актуальны</li>
+          <li>Какие форматы и на какие уровни их делим</li>
+          <li>Какие силы и затраты для этого нужны</li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">План роста</span>
+        <ul class="dash">
+          <li>Рост аудитории и привлечение клиентов</li>
+          <li>Работа с базой</li>
+        </ul>
+      </div>
+    </div>
+    <p class="accent">Прогноз дохода на старте не даю. Его даю, когда продукт проверен на людях и есть первые цифры продаж.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span>Продюсирование</span><span>05</span></div>
+    <h2>Что входит в мою работу</h2>
+    <div class="inc">
+      <div>
+        <span class="mini">Стратегия и продукт</span>
+        <ul class="dash">
+          <li>Вопросы и анкеты кастдева, разбор созвонов и ответов</li>
+          <li>Группы аудитории по боли, проблеме и доходу</li>
+          <li>Гипотезы продуктов под каждую группу</li>
+          <li>Кастдев по продуктам</li>
+          <li>Концепция и упаковка продукта, закрытые предпродажи</li>
+          <li>Бизнес-модель к 1 млн ₽</li>
+          <li>План роста аудитории, привлечения клиентов и работы с базой</li>
+          <li>Стратегия на каждый следующий месяц, утверждаем на итоговом созвоне</li>
+        </ul>
+      </div>
+      <div>
+        <span class="mini">Блог и контент</span>
+        <ul class="dash">
+          <li>Распаковка: 150-200 вопросов, Вы отвечаете голосовыми</li>
+          <li>Карта из 10-15 форматов и банк тем</li>
+          <li>Темы под каждый ролик: о чём говорим, как заходим, чем держим, как снимаем</li>
+          <li>Заголовки, подписи, обложки</li>
+          <li>Прогревы в сторис и рилсах по лестнице Бена Ханта, сторителлинги к актуальным</li>
+          <li>Согласование роликов, порядок и время выхода, разбор каждого ролика</li>
+          <li>Аналитика: охваты, просмотры, подписки. Зашедшие форматы превращаем в серии</li>
+          <li>Шапка, закреп и актуальные: в первый месяц не меняем, после кастдевов дорабатываем при необходимости</li>
+          <li>Съёмки и монтаж на Вашей стороне, я направляю</li>
+        </ul>
+      </div>
+      <div>
+        <span class="mini">Формат работы</span>
+        <ul class="dash">
+          <li>Созвон-разбор раз в неделю</li>
+          <li>Рабочий чат в Telegram, ответ в течение рабочего дня</li>
+          <li>Договорённости, темы и решения фиксируем письменно в чате</li>
+          <li>Отчёт в конце месяца: что сделано, цифры, план следующего</li>
+          <li>Все материалы остаются у Вас</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deep">
+  <div class="wrap">
+    <div class="eyebrow"><span>Кейс</span><span>06</span></div>
+    <div class="case">
+      <div>
+        <h2>Каролина Читанава</h2>
+        <p class="lead">Предпринимательница, владелица бренда JAMALI. Начинали с 600 подписчиков.</p>
+        <a class="btn" href="https://hasimovmalik90-oss.github.io/karolina-case/" target="_blank" rel="noopener">Весь кейс</a>
+      </div>
+      <div class="case-stats">
+        <div class="stat"><span class="num">185 000</span><p>подписчиков</p></div>
+        <div class="stat"><span class="num">100+ млн</span><p>просмотров</p></div>
+        <div class="stat"><span class="num">12 млн</span><p>топ-ролик</p></div>
+        <div class="stat"><span class="num">×285</span><p>рост базы, без рекламы</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="olive">
+  <div class="wrap">
+    <div class="eyebrow"><span>Условия</span><span>07</span></div>
+    <h2>Условия партнёрства</h2>
+    <div class="terms">
+      <div class="term"><span class="label">Оплата</span><p>Партнёрство без фиксированной оплаты.</p></div>
+      <div class="term"><span class="label">Доход</span><p>Делим 50 на 50 чистую прибыль со всех продаж с начала совместной работы.</p></div>
+      <div class="term"><span class="label">Затраты</span><p>Затраты на контент, съёмки и монтаж на Вашей стороне.</p></div>
+      <div class="term"><span class="label">Выход</span><p>Предупреждаем друг друга за 30 дней. Начатый поток доводим до конца. Материалы остаются у Вас.</p></div>
+    </div>
+    <p class="note">Детали расчёта обсуждаем на созвоне.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="rule"></div>
+    <div class="name">Малик&nbsp;Хашимов</div>
+    <div class="sig">продюсер&nbsp;женских&nbsp;блогов</div>
+    <a class="btn fill" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a>
+  </div>
+</footer>
+
+<script>
+/* без висячих строк: на последней строке абзаца не меньше трёх слов (рецепт Site-/ksenia-case) */
+(function () {
+  var SEL = 'p, li';
+  var NBSP = ' ';
+  function numbers() {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName)) continue;
+      var v = n.nodeValue;
+      /* короткие слова (в, к, с, на, по...) не висят в конце строки */
+      v = v.replace(/(^|[\s «(])([А-Яа-яЁё]{1,2}) /g, '$1$2' + NBSP);
+      if (!pe.closest('h1, h2, h3')) v = v.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$₽])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br')) return;
+      if (el.textContent.trim().split(/\s+/).length < 4) return;
+      for (var step = 0; step < 4 && lastLine(el) <= 2; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        if (overflows(el)) { undo(); break; }
+        lastLine(el);
+        if (lastLine.prev <= 1) { undo(); break; }
+      }
+    });
+  }
+  function heads() {
+    document.querySelectorAll('h1, h2, h3').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function run() { numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+</script>
+</body>
+</html>
