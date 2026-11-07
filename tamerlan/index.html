@@ -1,0 +1,182 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тамерлан Батыров · Личный бренд</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090A;--soft:#111113;--card:#131315;--card2:#17171A;--line:rgba(255,255,255,.06);--edge:rgba(201,183,155,.16);--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B;--glow:rgba(201,183,155,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,183,155,.13),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(201,183,155,.05),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(201,183,155,.05),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F2EEE8;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(42px,7vw,68px);font-weight:300;letter-spacing:.02em;text-shadow:0 0 40px rgba(201,183,155,.25)}
+h2{font-size:clamp(26px,3.6vw,36px)}
+h3{font-size:clamp(19px,2.2vw,22px)}
+p{margin:0 0 .8em;text-wrap:pretty} p:last-child{margin:0}
+em{color:var(--accent);font-style:normal}
+a{color:var(--accent);text-decoration:none}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05);box-shadow:0 0 18px -4px var(--glow)}
+section{padding:44px 0}
+.section-head{margin-bottom:22px}
+.section-head p{color:var(--mute);margin-top:12px;font-size:14.5px}
+/* card base */
+.card,.mblock,.outc,.obl,.rcard,.price,.total,.author,.part-head{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28),inset 0 1px 0 rgba(255,255,255,.03)}
+/* hero */
+.hero{text-align:center;padding:80px 0 40px}
+
+.hero-card{padding:44px 28px 38px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,183,155,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 80px -20px rgba(201,183,155,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.hero .fio{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--accent);margin:12px 0 18px}
+.hero .path{display:inline-flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mute);padding:8px 18px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.04)}
+.hero .path .ac{color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic}
+.hero .pos{max-width:520px;margin:20px auto 0;color:var(--mute);font-size:14px}
+.hdiv{display:none}
+/* team cards */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.outc{padding:24px}
+.outc-n{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);margin-bottom:6px;text-shadow:0 0 24px rgba(201,183,155,.35)}
+.outc h3{margin-bottom:10px} .outc p{color:var(--mute);font-size:14px}
+/* part header */
+.part-head{padding:28px 26px;margin-bottom:16px;background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(201,183,155,.12),transparent 65%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 70px -24px rgba(201,183,155,.3),inset 0 1px 0 rgba(255,255,255,.04)}
+.part-head h2{font-size:clamp(24px,3.2vw,32px)}
+/* stage cards */
+.mblock{padding:24px 26px;margin-bottom:14px}
+.mnum{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:26px;padding:0 10px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--accent);border:1px solid var(--edge);background:rgba(201,183,155,.06);box-shadow:0 0 16px -4px var(--glow);margin-bottom:12px}
+.mbody h3{margin-bottom:12px}
+.pts{list-style:none}
+.pts li{position:relative;padding:6px 0 6px 20px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+.gives{margin-top:14px;padding:14px 16px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.12);border-left:2px solid var(--accent);border-radius:12px;color:var(--mute);font-size:14px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;font-weight:600}
+/* lists in cards */
+.obls{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:0!important}
+.obl{padding:24px}
+.obl h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.obl ul{list-style:none}
+.obl li{padding:9px 0 9px 18px;position:relative;font-size:14px;border-bottom:1px solid var(--line);text-wrap:pretty}
+.obl li:last-child{border-bottom:none;padding-bottom:0}
+.obl li::before{content:'';position:absolute;left:1px;top:18px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+/* together */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.rcard{padding:22px 24px}
+.rcard h4{color:var(--accent);font-family:Mulish,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.rcard h3{margin-bottom:8px} .rcard p{color:var(--mute);font-size:14px}
+/* price */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.price{padding:30px 22px;text-align:center;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(201,183,155,.12),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 60px -22px rgba(201,183,155,.35),inset 0 1px 0 rgba(255,255,255,.04)}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.price .pv{font-family:'Cormorant Garamond',serif;font-size:46px;color:#F4F0EA;line-height:1;text-shadow:0 0 30px rgba(201,183,155,.3)}
+.price .pv span{font-size:22px;color:var(--mute)}
+.price .pp{color:var(--mute);font-size:13.5px;margin-top:10px}
+.total{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 24px;border-color:rgba(201,183,155,.35);box-shadow:0 0 50px -18px rgba(201,183,155,.4),inset 0 1px 0 rgba(255,255,255,.04)}
+.total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.total b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.35)}
+/* footer */
+.closing{text-align:center;padding:24px 0 64px}
+.ornament{color:var(--accent);letter-spacing:.5em;margin:0 0 26px;opacity:.6;font-size:11px}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.author{padding:26px 22px}
+.author .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.author .nm{font-family:'Cormorant Garamond',serif;font-size:30px;color:#F4F0EA;margin-bottom:2px}
+.author .rl{color:var(--accent);font-size:13px;margin-bottom:16px}
+.btns{display:flex;justify-content:center}
+.btns a{padding:11px 20px;border-radius:30px;font-size:13px;font-weight:500;border:1px solid rgba(201,183,155,.4);background:rgba(201,183,155,.06);box-shadow:0 0 22px -6px rgba(201,183,155,.4);transition:.18s}
+.btns a:hover{background:rgba(201,183,155,.14);box-shadow:0 0 28px -4px rgba(201,183,155,.55)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mute);margin-top:28px}
+@media(max-width:600px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:30px 0}
+  .hero{padding:40px 0 20px}
+  .hero-card{padding:32px 18px 28px;border-radius:20px}
+  h1{font-size:clamp(36px,11vw,46px)}
+  .hero .path{font-size:12px;padding:7px 14px;gap:8px}
+  .hero .path .ac{font-size:16px}
+  .part-head{padding:22px 18px}
+  .mblock{padding:20px 18px}
+  .outc,.obl,.rcard,.author{padding:20px 18px}
+  .pts li{font-size:14px}
+  .price{padding:26px 18px} .price .pv{font-size:40px}
+  .total{padding:18px}
+  .total b{font-size:28px}
+  .section-head{margin-bottom:18px}
+}
+.hero .wrap{max-width:880px}
+.closing .sign{margin-top:26px}
+.rgrid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:600px){.rgrid{grid-template-columns:1fr}.hero .top,.hero .fio{letter-spacing:.14em;font-size:10px}}
+.price.solo{max-width:560px;margin:0 auto;padding:38px 24px}.price.solo .pv{font-size:56px}
+@media(max-width:600px){.price.solo .pv{font-size:46px}}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.pay span{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:600}.pay b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:#F4F0EA}.pay i{font-style:normal;color:var(--mute);font-size:13px}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">Ноябрь 2026 · Предложение</div>
+  <p class="fio">Тамерлан Батыров</p>
+  <h1>Личный бренд</h1>
+  <p class="slogan">Блог психолога с&nbsp;нуля: от&nbsp;распаковки до&nbsp;регулярного&nbsp;выпуска</p>
+  <div class="path"><span>психодраматерапевт</span><span>·</span><span>тренер <span class="ac">ИППК</span></span></div>
+  <p class="pos">Что&nbsp;входит в&nbsp;работу на&nbsp;первый месяц, как&nbsp;устроены съёмки в&nbsp;Москве и&nbsp;что&nbsp;Вы&nbsp;получаете по&nbsp;итогу.</p>
+  <div class="hdiv"></div>
+</div></div></header>
+
+<section><div class="wrap">
+  <div class="section-head part-head"><span class="eyebrow">Работа · 01</span><h2>Контентное продюсирование <em>под&nbsp;ключ</em></h2>
+    <p>Цель первого месяца: собрать фундамент нового блога в&nbsp;Instagram, провести первый съёмочный выезд в&nbsp;Москве, снять контент на&nbsp;месяц вперёд и&nbsp;выйти на&nbsp;регулярный выпуск&nbsp;роликов.</p></div>
+
+  <div class="mblock"><span class="mnum">01</span><div class="mbody"><h3>Распаковка для&nbsp;контента</h3>
+    <ul class="pts"><li>150‑300 вопросов о&nbsp;Вас, Вашей практике и&nbsp;взглядах. Вы&nbsp;отвечаете голосовыми в&nbsp;рабочем&nbsp;чате</li><li>Ваши материалы: записи в&nbsp;Zoom, методы, наработки. Изучаю их&nbsp;параллельно с&nbsp;ответами, чтобы темы и&nbsp;сценарии опирались на&nbsp;Вашу практику, а&nbsp;не&nbsp;на&nbsp;мои&nbsp;догадки</li><li>Расшифровка и&nbsp;разбор&nbsp;ответов</li><li>Банк формулировок, историй, тем и&nbsp;случаев из&nbsp;Вашей&nbsp;практики</li></ul>
+    <div class="gives"><strong>Результат</strong>Документ распаковки, банк историй и&nbsp;тем. Что&nbsp;раскрываем, что&nbsp;усиливаем и&nbsp;чего не&nbsp;касаемся, решаем вместе с&nbsp;Вами.</div></div></div>
+
+  <div class="mblock"><span class="mnum">02</span><div class="mbody"><h3>Смыслы, позиционирование и&nbsp;упаковка нового&nbsp;профиля</h3>
+    <ul class="pts"><li>Ось блога: о&nbsp;чём блог и&nbsp;кто&nbsp;Вы&nbsp;в&nbsp;нём</li><li>Смыслы и&nbsp;темы, которые&nbsp;транслируем</li><li>Раскрытие личности через восемь сторон: характер, люди, ценности, путь, принципы, тело, места, быт. Под каждую сторону подбираем темы из&nbsp;распаковки</li><li>Чувствительные темы, например религиозные, прорабатываем заранее и&nbsp;берём только то, что&nbsp;близко&nbsp;Вам</li><li>Новый аккаунт на&nbsp;отдельный номер. Упаковка: имя профиля, шапка, аватар, закреп, структура актуальных, ссылка в&nbsp;шапке</li></ul>
+    <div class="gives"><strong>Результат</strong>Упакованный профиль. Человек, который пришёл после ролика, за&nbsp;несколько секунд понимает, кто&nbsp;Вы&nbsp;и&nbsp;зачем подписываться. Блог про&nbsp;Вас как&nbsp;про&nbsp;человека и&nbsp;специалиста.</div></div></div>
+
+  <div class="mblock"><span class="mnum">03</span><div class="mbody"><h3>Карта форматов и&nbsp;темы</h3>
+    <ul class="pts"><li>10‑15 форматов под&nbsp;Вас&nbsp;и&nbsp;Вашу&nbsp;нишу</li><li>Темы, заголовки, тексты, подписи</li><li>Созвон перед выездом: проходим каждую тему и&nbsp;порядок съёмки, вносим&nbsp;правки</li></ul>
+    <div class="gives"><strong>Результат</strong>Карта форматов и&nbsp;план съёмки, согласованные с&nbsp;Вами&nbsp;письменно.</div></div></div>
+
+  <div class="mblock"><span class="mnum">04</span><div class="mbody"><h3>Съёмочный выезд в&nbsp;Москве и&nbsp;монтаж</h3>
+    <ul class="pts"><li>Раз&nbsp;в&nbsp;месяц Вы&nbsp;прилетаете в&nbsp;Москву на&nbsp;2‑3&nbsp;дня, снимаем плотно и&nbsp;на&nbsp;месяц&nbsp;вперёд</li><li>Первый выезд: 23‑29&nbsp;ноября или 1‑6&nbsp;декабря, в&nbsp;зависимости от&nbsp;того, как&nbsp;быстро пройдём распаковку. Точные даты выбираем&nbsp;вместе</li><li>15‑30 роликов с&nbsp;одного выезда при&nbsp;готовых&nbsp;темах</li><li>Съёмка и&nbsp;монтаж роликов под&nbsp;ключ</li><li>На&nbsp;площадке подсказываю формулировки, делаем дубли. Подбираем форматы, в&nbsp;которых Вам легче: монолог на&nbsp;камеру или разговор с&nbsp;собеседником</li><li>Со&nbsp;следующих выездов добавляем форматы с&nbsp;людьми: мастер-классы, встречи с&nbsp;подопечными, выступления</li><li>Инструкция, как&nbsp;снимать ситуативный контент самому в&nbsp;Махачкале на&nbsp;телефон</li><li>Порядок и&nbsp;время выхода&nbsp;роликов</li></ul>
+    <div class="gives"><strong>Результат</strong>Контент на&nbsp;месяц вперёд, ролики выходят, тестируем&nbsp;форматы.</div></div></div>
+
+  <div class="mblock"><span class="mnum">05</span><div class="mbody"><h3>Аналитика и&nbsp;корректировка</h3>
+    <ul class="pts"><li>Выгрузка и&nbsp;разбор статистики: охваты, просмотры, подписки,&nbsp;вовлечённость</li><li>Что&nbsp;сработало, что&nbsp;нет, корректировка тем и&nbsp;форматов</li><li>Форматы, которые дают результат, развиваем дальше и&nbsp;усиливаем</li></ul>
+    <div class="gives"><strong>Результат</strong>Понятно, какие форматы дают рост, есть план на&nbsp;следующий&nbsp;выезд.</div></div></div>
+
+  <div class="obls" style="margin-top:0">
+    <div class="obl"><h4>Формат взаимодействия</h4><ul><li>Рабочий чат, связь в&nbsp;течение&nbsp;дня</li><li>Созвон-разбор с&nbsp;Вами раз&nbsp;в&nbsp;неделю</li><li>Темы и&nbsp;ролики согласуем с&nbsp;Вами до&nbsp;выхода</li><li>Договорённости, темы и&nbsp;даты выездов фиксируем письменно в&nbsp;чате</li><li>Отчёт план‑факт в&nbsp;конце месяца: что&nbsp;сделано, цифры за&nbsp;месяц, план&nbsp;следующего</li><li>Хранение всех материалов, исходников и&nbsp;записей&nbsp;созвонов</li></ul></div>
+    <div class="obl"><h4>Итог первого месяца</h4><ul><li>Распаковка и&nbsp;банк&nbsp;тем</li><li>Упакованный новый&nbsp;профиль</li><li>Карта форматов и&nbsp;темы</li><li>Проведённый выезд и&nbsp;15‑30 роликов</li><li>Первая аналитика и&nbsp;план на&nbsp;второй&nbsp;месяц</li><li>Все материалы и&nbsp;исходники остаются&nbsp;у&nbsp;Вас</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Условия · 02</span><h2>Договорённости <em>с&nbsp;двух&nbsp;сторон</em></h2></div>
+  <div class="obls">
+    <div class="obl"><h4>С&nbsp;моей стороны</h4><ul><li>Всё, что&nbsp;прописано в&nbsp;этапах, будет&nbsp;сделано</li><li>Ничего не&nbsp;выходит без&nbsp;Вашего&nbsp;согласия</li><li>Материалы и&nbsp;исходники остаются у&nbsp;Вас&nbsp;навсегда</li></ul></div>
+    <div class="obl"><h4>С&nbsp;Вашей стороны</h4><ul><li>Ответы на&nbsp;распаковку в&nbsp;течение двух&nbsp;недель</li><li>Приезд в&nbsp;Москву на&nbsp;согласованные&nbsp;даты</li><li>Согласование тем и&nbsp;роликов в&nbsp;чате</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head" style="text-align:center"><span class="eyebrow">Стоимость · 03</span><h2>Первый <em>месяц</em></h2></div>
+  <div class="price solo"><div class="pe">Итого</div><div class="pv">130&nbsp;000 <span>₽</span></div><p class="pp">Контентное продюсирование под&nbsp;ключ</p>
+    <div class="pay"><div><span>Первая часть</span><b>65&nbsp;000&nbsp;₽</b><i>внесена</i></div><div><span>Вторая часть</span><b>65&nbsp;000&nbsp;₽</b><i>через две&nbsp;недели</i></div></div></div>
+</div></section>
+
+<footer class="closing"><div class="wrap">
+  <div class="ornament">◆ ◆&nbsp;◆</div>
+  <div class="authors" style="max-width:420px;margin:0 auto">
+    <div class="author"><div class="lab">Контент</div><div class="nm">Малик</div><div class="rl">продюсер</div><div class="btns"><a class="ghost" href="https://t.me/mhashimov_23" target="_blank" rel="noopener">Telegram · @mhashimov_23</a></div></div>
+  </div>
+  <p class="sign">Ноябрь&nbsp;2026</p>
+</div></footer>
+
+</body></html>
