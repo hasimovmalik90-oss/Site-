@@ -283,6 +283,9 @@ section{padding:46px 0}
 .pal2 .sw i{display:block;height:58px;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
 .pal2 .sw span{display:block;font-size:11px;color:var(--mute);text-align:center;margin-top:6px;line-height:1.25}
 @media(max-width:640px){.pal2{gap:5px}.pal2 .sw span{font-size:9.5px}.pal2 .sw i{height:44px}}
+/* телефон: сетки не шире экрана */
+.weeks>*,.roles>*,.comp>*,.hstats>*,.split>*,.goals>*{min-width:0}
+@media(max-width:640px){.weeks,.roles,.comp,.split{grid-template-columns:1fr}}
 </style></head><body><div class="progress"><i></i></div><main><header class="hero"><div class="wrap"><div class="hero-card">
 <div class="top">Стратегия&nbsp;· Визуал&nbsp;· Производство контента&nbsp;· Руководство проектом</div>
 <div class="fio">Poker Room GTO |&nbsp;Раменки</div>
