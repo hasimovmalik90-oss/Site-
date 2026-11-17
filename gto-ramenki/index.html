@@ -1,0 +1,455 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Poker Room GTO · Раменки</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root{--bg:#09090A;--card:#131315;--card2:#17171A;--line:rgba(255,255,255,.06);--edge:rgba(201,183,155,.16);--text:#E8E4DE;--mute:#9E988E;--dim:#6A645B;--accent:#C9B79B;--gold:#D9C29A;--glow:rgba(201,183,155,.18)}
+*{box-sizing:border-box;margin:0;padding:0;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,183,155,.13),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(201,183,155,.05),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 80%,rgba(201,183,155,.05),transparent 70%)}
+main,nav,.progress{position:relative;z-index:1}
+::selection{background:var(--accent);color:#0B0B0C}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;color:#F2EEE8;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(34px,5.4vw,54px);font-weight:300;letter-spacing:.01em;text-shadow:0 0 40px rgba(201,183,155,.25)}
+h2{font-size:clamp(26px,3.6vw,38px)}
+h3{font-size:clamp(20px,2.4vw,24px)}
+p{text-wrap:pretty}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.22em;color:var(--accent);margin-bottom:14px;padding:6px 12px;border:1px solid var(--edge);border-radius:30px;background:rgba(201,183,155,.05);box-shadow:0 0 18px -4px var(--glow)}
+section{padding:46px 0}
+.section-head{margin-bottom:22px}
+.slead{color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,21px);margin-top:12px;text-wrap:balance}
+.card,.mblock,.rcard,.price,.goal,.chip{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 50px -28px rgba(201,183,155,.28),inset 0 1px 0 rgba(255,255,255,.03)}
+.card{padding:26px 28px;margin-bottom:14px}
+.card p+p{margin-top:.8em}
+.concept p{color:var(--text);font-size:15px}
+.quote{margin-top:18px!important;padding:16px 18px;border-left:2px solid var(--accent);background:rgba(201,183,155,.05);border-radius:0 12px 12px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.3vw,22px);line-height:1.35;color:#F2EEE8}
+.after{color:var(--mute);font-size:14.5px;margin:18px 2px 0}
+.lab{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px}
+.card>.lab:first-child,.card>.months:first-child{margin-top:0}
+.sub{font-family:'Cormorant Garamond',serif;font-size:19px;color:#F2EEE8;margin:18px 0 4px}
+.para{color:var(--text);font-size:14.5px;margin-top:8px}
+.note{color:var(--dim);font-size:13px;margin-top:10px;font-style:italic}
+.task{margin:2px 0 6px}.task .lab{margin-top:0}
+.lead{color:var(--mute);font-size:14.5px}
+/* hero */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60}
+.progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,transparent,var(--accent),#F4E3BF);box-shadow:0 0 12px var(--accent)}
+.tabs{position:sticky;top:0;z-index:50;background:rgba(9,9,10,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:26px;height:52px;align-items:stretch}
+.tabs a{display:flex;align-items:center;color:var(--mute);text-decoration:none;font-size:13px;letter-spacing:.06em;border-bottom:2px solid transparent;transition:color .3s,border-color .3s;white-space:nowrap}
+.tabs a.on{color:#F2EEE8;font-weight:500;border-color:var(--accent)}
+.hero{text-align:center;padding:56px 0 30px}
+.hero-card{position:relative;overflow:hidden;padding:56px 30px 40px;border-radius:24px;border:1px solid var(--edge);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,183,155,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 80px -20px rgba(201,183,155,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.halo{position:absolute;left:50%;top:-180px;width:520px;height:520px;margin-left:-260px;border-radius:50%;border:1px solid rgba(201,183,155,.14);pointer-events:none;animation:spin 40s linear infinite}
+.halo::before,.halo::after{content:'';position:absolute;border-radius:50%;border:1px dashed rgba(201,183,155,.12);inset:40px}
+.halo::after{inset:90px;border-style:solid;border-color:rgba(201,183,155,.08)}
+.halo{background:conic-gradient(from 0deg,transparent 0 80%,rgba(201,183,155,.18) 92%,transparent 100%);-webkit-mask:radial-gradient(circle,transparent 69%,#000 70%);mask:radial-gradient(circle,transparent 69%,#000 70%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .top{position:relative;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:22px;text-wrap:balance}
+.hero .fio{position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,28px);color:var(--accent);margin-bottom:12px;text-shadow:0 0 30px rgba(201,183,155,.35)}
+.hero h1{position:relative;max-width:700px;margin:0 auto}
+.hstats{position:relative;display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hstats div{min-width:120px;padding:14px 16px;border:1px solid var(--edge);border-radius:16px;background:rgba(201,183,155,.04)}
+.hstats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:36px;line-height:1;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.4)}
+.hstats span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.goal{padding:20px 22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .4s,box-shadow .4s}
+.goal:hover,.rcard:hover,.chip:hover{border-color:rgba(201,183,155,.4);box-shadow:0 0 40px -14px rgba(201,183,155,.4)}
+.gn{flex:none;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent);text-shadow:0 0 18px rgba(201,183,155,.4)}
+.goal p{font-size:14.5px;flex:1;min-width:0}
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rcard{padding:22px 24px;transition:border-color .4s,box-shadow .4s}
+.rcard h3{margin-bottom:8px}.rcard p{color:var(--mute);font-size:14px}
+/* timeline */
+.tl{position:relative;margin-top:30px;padding-left:34px}
+.tl-line{position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:rgba(201,183,155,.1);border-radius:2px}
+.tl-line i{display:block;width:100%;height:100%;transform-origin:50% 0;transform:scaleY(var(--p,0));background:linear-gradient(180deg,var(--accent),#F4E3BF);box-shadow:0 0 14px var(--accent);border-radius:2px}
+.mblock{position:relative;padding:26px 28px;margin-bottom:16px}
+.tl-dot{position:absolute;left:-30px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid rgba(201,183,155,.35);transition:background .5s,border-color .5s,box-shadow .5s}
+.mblock.lit .tl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 16px var(--accent)}
+.mnum{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:30px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--edge);background:rgba(201,183,155,.06);box-shadow:0 0 16px -4px var(--glow);margin-bottom:12px;white-space:nowrap}
+.mblock h3{margin-bottom:14px}
+.pts{list-style:none}
+.pts li{position:relative;padding:5px 0 5px 20px;font-size:14.5px;text-wrap:pretty}
+.pts li::before{content:'';position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(201,183,155,.7)}
+.gives{margin-top:16px;padding:14px 16px;background:rgba(201,183,155,.05);border:1px solid rgba(201,183,155,.12);border-left:2px solid var(--accent);border-radius:12px;color:var(--text);font-size:14.5px;text-wrap:pretty}
+.gives strong{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:600}
+/* charts */
+.rchart{margin:10px 0 12px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.18)}
+.rrow+.rrow{margin-top:14px}
+.rcap{display:flex;align-items:baseline;gap:10px;margin-bottom:7px}
+.rcap b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;line-height:1;color:#F4F0EA;min-width:62px;text-shadow:0 0 20px rgba(201,183,155,.35);white-space:nowrap}
+.rcap span{color:var(--mute);font-size:13.5px}
+.rtrack{position:relative;height:8px;border-radius:8px;background:rgba(201,183,155,.08);overflow:hidden}
+.rtrack i{position:absolute;top:0;bottom:0;left:var(--a);width:calc(var(--b) - var(--a));border-radius:8px;background:linear-gradient(90deg,rgba(201,183,155,.5),#F4E3BF);box-shadow:0 0 14px rgba(201,183,155,.6);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1) .2s}
+.rtrack::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(9,9,10,.6) calc(10% - 1px) 10%)}
+.rchart.in .rtrack i{transform:scaleX(1)}
+.rchart.in .rrow:nth-child(2) .rtrack i{transition-delay:.45s}.rchart.in .rrow:nth-child(3) .rtrack i{transition-delay:.7s}
+.viz{margin:6px auto 18px;max-width:520px}
+.viz svg{display:block;width:100%;height:auto;overflow:visible}
+.ring{fill:none;stroke:rgba(201,183,155,.25);stroke-width:1}
+.ring.in2{stroke-dasharray:3 5}
+.sp{stroke:rgba(201,183,155,.28);stroke-width:1;stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1s ease calc(var(--k)*.08s)}
+.fillp{fill:rgba(201,183,155,.07);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:1200;stroke-dashoffset:1200;filter:drop-shadow(0 0 8px rgba(201,183,155,.5));transition:stroke-dashoffset 2.2s ease .3s}
+.od{fill:var(--accent);opacity:0;filter:drop-shadow(0 0 6px var(--accent));transition:opacity .5s ease calc(.6s + var(--k)*.12s)}
+.ol{fill:#E8E4DE;font-family:Mulish,sans-serif;font-size:15px;font-weight:400;opacity:0;transition:opacity .6s ease calc(.7s + var(--k)*.12s)}
+.core{fill:#F4E3BF;filter:drop-shadow(0 0 10px var(--accent))}
+.viz.in .sp{stroke-dashoffset:0}.viz.in .fillp{stroke-dashoffset:0}.viz.in .od,.viz.in .ol{opacity:1}
+.vc{fill:rgba(201,183,155,.05);stroke:var(--accent);stroke-width:1.2;stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.8s ease}
+.v2{transition-delay:.3s}
+.viz.in .vc{stroke-dashoffset:0}
+.vt{fill:#F2EEE8;font-family:'Cormorant Garamond',serif;font-size:18px;text-anchor:middle;opacity:0;transition:opacity .8s ease 1s}
+.vm{fill:var(--accent);font-family:Mulish,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-anchor:middle;opacity:0;transition:opacity .8s ease 1.5s}
+.viz.in .vt,.viz.in .vm{opacity:1}
+.orbit{fill:none;stroke:rgba(201,183,155,.2);stroke-dasharray:4 6;animation:spin 60s linear infinite;transform-origin:260px 190px}
+.hn{opacity:0;transition:opacity .6s ease calc(.5s + var(--k)*.18s)}.viz.in .hn{opacity:1}
+.hn .od{opacity:1}
+.hc{fill:rgba(201,183,155,.08);stroke:var(--accent);stroke-width:1.2;filter:drop-shadow(0 0 16px rgba(201,183,155,.45));animation:pulse 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hct{fill:#F4F0EA;font-family:'Cormorant Garamond',serif;font-size:17px}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.ro{fill:none;stroke:rgba(201,183,155,.25);stroke-width:30;opacity:.35}
+.ro2{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:810;stroke-dashoffset:810;transition:stroke-dashoffset 2s ease .4s;filter:drop-shadow(0 0 8px rgba(201,183,155,.6))}
+.ri{fill:rgba(201,183,155,.06);stroke:rgba(201,183,155,.35);stroke-width:1}
+.rit{fill:#E8E4DE;font-family:'Cormorant Garamond',serif;font-size:17px}
+.rot{fill:var(--accent);font-family:Mulish,sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .8s ease 1.4s}
+.viz.in .ro2{stroke-dashoffset:0}.viz.in .rot{opacity:1}
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.chip{padding:16px 18px;font-size:14px;border-radius:14px;transition:border-color .4s,box-shadow .4s}
+/* results */
+.res{display:block}
+.resring{position:sticky;top:90px;width:140px;height:140px}
+.resring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.rr0{fill:none;stroke:rgba(201,183,155,.1);stroke-width:5}
+.rr1{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset 2.2s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 8px var(--accent))}
+.resring.in .rr1{stroke-dashoffset:0}
+.resring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:48px;color:#F4F0EA;text-shadow:0 0 24px rgba(201,183,155,.5)}
+.rlist{list-style:none;display:grid;gap:10px}
+.rlist li span{flex:1;min-width:0}
+.rlist li{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border:1px solid var(--edge);border-radius:14px;background:linear-gradient(180deg,var(--card2),var(--card));font-size:14.5px}
+.rlist li i{flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;border:1px solid var(--accent);position:relative;box-shadow:0 0 12px -2px var(--glow)}
+.rlist li i::after{content:'';position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid var(--accent);border-width:0 1.5px 1.5px 0;transform:rotate(45deg) scale(0);transition:transform .4s ease .5s}
+.rlist li.in i::after{transform:rotate(45deg) scale(1)}
+/* months */
+.months{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 14px}
+.mo{height:56px;border-radius:12px;border:1px solid var(--edge);background:rgba(201,183,155,.04);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.mo::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(201,183,155,.22),rgba(244,227,191,.08));transform-origin:0 50%;transform:scaleX(0);transition:transform .8s ease calc(var(--k)*.35s)}
+.months.in .mo::before{transform:scaleX(1)}
+.mo span{position:relative;font-family:'Cormorant Garamond',serif;font-size:26px;color:#F4F0EA}
+.mcap{grid-column:1/-1;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:6px}
+/* price */
+.price{padding:38px 24px;text-align:center;margin:0 auto 14px;max-width:560px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(201,183,155,.14),transparent 70%),linear-gradient(180deg,var(--card2),var(--card));box-shadow:0 0 70px -20px rgba(201,183,155,.45),inset 0 1px 0 rgba(255,255,255,.04)}
+.price::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(244,227,191,.12),transparent);transform:skewX(-20deg);animation:shine 5s ease-in-out infinite 1s}
+@keyframes shine{0%{left:-60%}35%,100%{left:130%}}
+.price .pe{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;text-wrap:balance}
+.price .pz{color:var(--mute);font-size:14px;margin-top:10px}
+.price .pv b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:56px;color:#F4F0EA;line-height:1;text-shadow:0 0 30px rgba(201,183,155,.4);white-space:nowrap}
+/* pilot */
+.pilot{display:flex;align-items:center;justify-content:center;gap:18px;margin:4px 0 22px}
+.pl{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pl span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.pl.one i{width:22px;height:22px;border-radius:50%;background:var(--accent);box-shadow:0 0 22px var(--accent);animation:pulse 2.6s ease-in-out infinite}
+.pl.net{display:grid;grid-template-columns:repeat(5,14px);gap:8px;justify-items:center}
+.pl.net span{grid-column:1/-1;margin-top:2px}
+.pl.net i{width:14px;height:14px;border-radius:50%;border:1px solid var(--accent);opacity:.25;transition:opacity .6s,background .6s,box-shadow .6s}
+.pilot.in .pl.net i{opacity:1;background:rgba(201,183,155,.5);box-shadow:0 0 10px var(--accent)}
+.pilot.in .pl.net i:nth-child(1){transition-delay:1s}.pilot.in .pl.net i:nth-child(2){transition-delay:1.2s}.pilot.in .pl.net i:nth-child(3){transition-delay:1.4s}.pilot.in .pl.net i:nth-child(4){transition-delay:1.6s}.pilot.in .pl.net i:nth-child(5){transition-delay:1.8s}
+.parrow{width:120px;height:2px;background:rgba(201,183,155,.12);position:relative;overflow:hidden}
+.parrow i{position:absolute;inset:0;background:linear-gradient(90deg,var(--accent),#F4E3BF);transform-origin:0 50%;transform:scaleX(0);transition:transform 1s ease .3s}
+.pilot.in .parrow i{transform:scaleX(1)}
+/* divider */
+.divider{display:flex;align-items:center;gap:18px;max-width:880px;margin:30px auto 0;padding:0 24px}
+.divider span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.divider b{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:20px;color:var(--accent);white-space:nowrap}
+.closing{text-align:center;padding:30px 0 70px}
+.ornament{color:var(--accent);letter-spacing:.5em;opacity:.6;font-size:11px}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease;transition-delay:calc(var(--d,0)*.1s)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}.halo,.orbit,.hc,.price::after{animation:none}}
+@media(max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  section{padding:32px 0}
+  .hero{padding:28px 0 14px}
+  .hero-card{padding:40px 18px 28px;border-radius:20px}
+  .hstats div{min-width:0;flex:1;padding:12px 8px}
+  .hstats b{font-size:30px}.hstats span{font-size:9.5px;letter-spacing:.1em}
+  .goals,.rgrid{grid-template-columns:1fr}
+  .chips{grid-template-columns:1fr}
+  .card,.mblock{padding:20px 18px}
+  .tl{padding-left:24px}.tl-line{left:4px}.tl-dot{left:-25px}
+  .res{grid-template-columns:1fr}.resring{position:relative;top:0;margin:0 auto;width:120px;height:120px}
+  .price .pz{color:var(--mute);font-size:14px;margin-top:10px}
+.price .pv b{font-size:44px}
+  .tabs .wrap{gap:22px}
+  .divider b{font-size:17px}
+  .ol{font-size:17px}
+  .viz.oct{margin-left:-6px;margin-right:-6px}
+}
+
+/* октагон: живая анимация */
+.sweep{transform-origin:200px 200px;animation:spin 7s linear infinite;opacity:0;transition:opacity 1s ease 2s}
+.viz.in .sweep{opacity:1}
+.swp{fill:url(#none);fill:rgba(201,183,155,.10)}
+.oct .fillp{transform-box:fill-box;transform-origin:center}
+.viz.oct.in .fillp{animation:breathe 4s ease-in-out 2.6s infinite}
+@keyframes breathe{50%{transform:scale(1.06);fill:rgba(201,183,155,.14)}}
+.viz.oct.in .od{animation:twinkle 2.8s ease-in-out infinite;animation-delay:calc(2s + var(--k)*.35s)}
+@keyframes twinkle{0%,100%{r:4;opacity:.8}40%{r:7;opacity:1}}
+.viz.oct.in .ol{animation:glowt 2.8s ease-in-out infinite;animation-delay:calc(2s + var(--k)*.35s)}
+@keyframes glowt{0%,100%{fill:#E8E4DE}40%{fill:#F4E3BF;filter:drop-shadow(0 0 6px rgba(201,183,155,.9))}}
+
+.nw{white-space:nowrap}
+@media(min-width:641px) and (max-width:900px){.chips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){
+  .card,.mblock{padding:18px 14px}
+  .tl{padding-left:18px}.tl-line{left:2px}.tl-dot{left:-21px;width:10px;height:10px}
+  h1{font-size:31px}
+  .pts li{font-size:14px}
+}
+/* ===== GTO: дополнительные блоки ===== */
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 18px}
+.stat{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:16px;padding:18px 16px;text-align:left}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,3.4vw,36px);color:#F4F0EA;line-height:1.05;text-shadow:0 0 24px rgba(201,183,155,.3)}
+.stat span{display:block;color:var(--mute);font-size:12.5px;margin-top:6px;line-height:1.4}
+.ig{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin:6px 0 14px}
+.ig a{position:relative;display:block;aspect-ratio:3/4;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.ig img{width:100%;height:100%;object-fit:cover;display:block}
+.ig a span{position:absolute;left:4px;bottom:4px;font-size:10px;padding:2px 6px;border-radius:20px;background:rgba(9,9,10,.78);color:#F2EEE8;letter-spacing:.02em}
+.ig.big{grid-template-columns:repeat(3,1fr);gap:8px;margin:0}
+.ig.big a span{font-size:11px}
+.comp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.cc{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;padding:18px}
+.cc h3{font-size:22px;margin-bottom:2px}
+.cc .h{color:var(--accent);font-size:12px;letter-spacing:.06em;margin-bottom:10px}
+.cc .nums{display:flex;gap:16px;margin:4px 0 10px;flex-wrap:wrap}
+.cc .nums div b{font-family:'Cormorant Garamond',serif;font-size:24px;color:#F4F0EA;font-weight:400}
+.cc .nums div span{display:block;color:var(--mute);font-size:11.5px}
+.cc p{font-size:14px;color:var(--text);margin-top:10px}
+.cc .ig{grid-template-columns:repeat(3,1fr);margin:0}
+.vis{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:center;margin-bottom:16px}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.shots img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block}
+.pal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.pal div{border-radius:12px;height:64px;border:1px solid rgba(255,255,255,.08);position:relative}
+.pal span{position:absolute;left:0;right:0;top:70px;font-size:11px;color:var(--mute);text-align:center;line-height:1.3}
+.palwrap{padding-bottom:34px}
+.ref{font-size:14.5px;color:var(--text)}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.role{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;padding:20px 22px}
+.role .who{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.role h3{margin:6px 0 8px}
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.wk{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--edge);border-radius:18px;padding:18px}
+.wk .n{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--accent);line-height:1}
+.wk .t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin:4px 0 8px}
+.wk .pts li{font-size:13.5px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.split .price{margin:0}
+.price.total{margin:0 0 14px}
+.who2{color:var(--mute);font-size:12.5px;margin-top:6px;text-align:center}
+@media(max-width:900px){
+  .ig{grid-template-columns:repeat(5,1fr)}
+  .comp,.vis,.roles,.split{grid-template-columns:1fr}
+  .weeks,.hstats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .ig{grid-template-columns:repeat(3,1fr)}
+  .shots{grid-template-columns:1fr 1fr}
+  .pal{grid-template-columns:repeat(5,1fr);gap:5px}
+  .pal span{font-size:9.5px}
+}
+/* правки после проверки */
+.term{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,34px);color:#F4F0EA;margin:6px 0 14px;text-shadow:0 0 24px rgba(201,183,155,.35)}
+.vis{grid-template-columns:1fr}
+.shots img{aspect-ratio:3/4}
+.goals .goal:last-child:nth-child(odd){grid-column:1/-1}
+.split .price .pv b{font-size:clamp(30px,3.6vw,40px)}
+.split .price .pe{font-size:10px}
+.wk .n{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-family:Mulish,sans-serif;font-weight:600}
+.wk .t{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:0;text-transform:none;color:#F2EEE8;margin:6px 0 10px}
+.deck .shots img{aspect-ratio:4/3}
+.pal2{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.pal2 .sw i{display:block;height:58px;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.pal2 .sw span{display:block;font-size:11px;color:var(--mute);text-align:center;margin-top:6px;line-height:1.25}
+@media(max-width:640px){.pal2{gap:5px}.pal2 .sw span{font-size:9.5px}.pal2 .sw i{height:44px}}
+</style></head><body><div class="progress"><i></i></div><main><header class="hero"><div class="wrap"><div class="hero-card">
+<div class="top">Стратегия&nbsp;· Визуал&nbsp;· Производство контента&nbsp;· Руководство проектом</div>
+<div class="fio">Poker Room GTO |&nbsp;Раменки</div>
+<h1>Новая картинка клуба: стратегия, визуальный стиль и контент под ключ</h1>
+</div></div></header><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">01</span><h2 class="rv">Где клуб сейчас</h2><p class="slead rv">Срез Instagram @pokeroomgto_ramenki на 17 ноября 2026</p></div><div class="hstats"><div class="stat rv"><b>3 270</b><span>подписчиков в Instagram</span></div><div class="stat rv"><b>34</b><span>публикации за последние 30 дней</span></div><div class="stat rv"><b>≈ 3 000</b><span>просмотров у типичного ролика с октября</span></div><div class="stat rv"><b>139 510</b><span>просмотров у лучшего ролика: викторина 12 октября</span></div></div><div class="lab rv">Последние публикации</div><div class="ig rv"><a href="https://www.instagram.com/reel/Dfm7DhEx_Ak/" target="_blank" rel="noopener"><img src="img/pokeroomgto_Dfm7DhEx_Ak.jpg?v=1" alt="" loading="lazy"><span>2 215 просм.</span></a><a href="https://www.instagram.com/reel/DfhYbX4TN7V/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfhYbX4TN7V.jpg?v=1" alt="" loading="lazy"><span>1 944 просм.</span></a><a href="https://www.instagram.com/reel/DfZls0yxiB_/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfZls0yxiB_.jpg?v=1" alt="" loading="lazy"><span>3 422 просм.</span></a><a href="https://www.instagram.com/reel/DfXhJ-uxvTu/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfXhJ-uxvTu.jpg?v=1" alt="" loading="lazy"><span>1 532 просм.</span></a><a href="https://www.instagram.com/reel/DfXRG7ttsoE/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfXRG7ttsoE.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DfSCNmpRFT9/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfSCNmpRFT9.jpg?v=1" alt="" loading="lazy"><span>1 191 просм.</span></a><a href="https://www.instagram.com/reel/DfNKiZTxYYB/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfNKiZTxYYB.jpg?v=1" alt="" loading="lazy"><span>3 051 просм.</span></a><a href="https://www.instagram.com/reel/DfKi3tUNKCb/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfKi3tUNKCb.jpg?v=1" alt="" loading="lazy"><span>1 663 просм.</span></a><a href="https://www.instagram.com/reel/DfHyjBTt5W5/" target="_blank" rel="noopener"><img src="img/pokeroomgto_DfHyjBTt5W5.jpg?v=1" alt="" loading="lazy"><span>3 134 просм.</span></a></div><div class="card concept"><p class="rv">Публикаций достаточно: клуб выходит в Instagram почти каждый день. Просмотры при этом держатся на одном уровне.</p><p class="rv">Ролики не складываются в единый образ. У каждого своя подача, свои титры и свой жанр: уличный опрос, афиша, костюмированная вечеринка, сценка. Зритель не успевает понять, какой это клуб.</p><p class="rv">Интерьер клуба сильный, но в кадре работает фоном. Люди и подача пока не соответствуют уровню места.</p><p class="quote rv">Задача не в том, чтобы выпускать больше. Задача в том, чтобы клуб выглядел так, как выглядит покер в голове у гостя.</p></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">02</span><h2 class="rv">Что происходит в нише</h2><p class="slead rv">Покерные клубы Москвы, которые видит Ваша аудитория</p></div><div class="comp"><div class="cc rv"><h3>Mask Off</h3><div class="h">@pokermoskva</div><div class="nums"><div><b>9 112</b><span>подписчиков</span></div><div><b>≈ 13 000</b><span>просмотров у типичного ролика</span></div></div><div class="ig"><a href="https://www.instagram.com/reel/Dfok-_XAMLW/" target="_blank" rel="noopener"><img src="img/pokermoskva_Dfok-_XAMLW.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DetWoLkgK2B/" target="_blank" rel="noopener"><img src="img/pokermoskva_DetWoLkgK2B.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/Ddn1MPFAziP/" target="_blank" rel="noopener"><img src="img/pokermoskva_Ddn1MPFAziP.jpg?v=1" alt="" loading="lazy"></a></div><p>Одна узнаваемая локация с неоновой вывеской, постоянные герои, короткие сценки. Клуб узнаётся с первого кадра. Самые высокие просмотры среди клубов, которые мы разобрали.</p></div><div class="cc rv"><h3>Quantum</h3><div class="h">@quantum.poker</div><div class="nums"><div><b>5 713</b><span>подписчиков</span></div><div><b>≈ 6 600</b><span>просмотров у типичного ролика</span></div></div><div class="ig"><a href="https://www.instagram.com/reel/Dd1usKks9kb/" target="_blank" rel="noopener"><img src="img/quantum_Dd1usKks9kb.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DewZ--VMiVF/" target="_blank" rel="noopener"><img src="img/quantum_DewZ--VMiVF.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/Dfh8kshMtjK/" target="_blank" rel="noopener"><img src="img/quantum_Dfh8kshMtjK.jpg?v=1" alt="" loading="lazy"></a></div><p>Единый красно-чёрный стиль, крупные планы рук, карт и фишек, тёплый свет. Самая цельная картинка в нише.</p></div><div class="cc rv"><h3>Magnum Club</h3><div class="h">@magnum_poker_moscow</div><div class="nums"><div><b>4 142</b><span>подписчиков</span></div><div><b>1,5 млн</b><span>просмотров у лучшего ролика</span></div></div><div class="ig"><a href="https://www.instagram.com/reel/DWhGO5KCCVT/" target="_blank" rel="noopener"><img src="img/magnum_DWhGO5KCCVT.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DW9kBFCiJee/" target="_blank" rel="noopener"><img src="img/magnum_DW9kBFCiJee.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DfX3SNFosCn/" target="_blank" rel="noopener"><img src="img/magnum_DfX3SNFosCn.jpg?v=1" alt="" loading="lazy"></a></div><p>Вирусные ролики построены на вопросе к зрителю: какая рука выиграет. Розыгрыш среди подписчиков собрал 2 373 комментария.</p></div><div class="cc rv"><h3>Play Way</h3><div class="h">@playway_rock</div><div class="nums"><div><b>1 566</b><span>подписчиков</span></div><div><b>ноябрь</b><span>открытие филиала на Юго-Западной</span></div></div><div class="ig"><a href="https://www.instagram.com/reel/Dfrnoa5tPae/" target="_blank" rel="noopener"><img src="img/playway_Dfrnoa5tPae.jpg?v=1" alt="" loading="lazy"></a><a href="https://www.instagram.com/reel/DfzCWZWjfHK/" target="_blank" rel="noopener"><img src="img/playway_DfzCWZWjfHK.jpg?v=1" alt="" loading="lazy"></a></div><p>Федеральная сеть открывает новый клуб в соседнем районе. За внимание той же аудитории станет больше конкуренции.</p></div></div><div class="card"><div class="lab rv">Что берём в работу</div><ul class="pts"><li class="rv">Узнаваемость с первого кадра: место, свет и люди, которые есть только у GTO.</li><li class="rv">Единый визуальный код во всех роликах и обложках.</li><li class="rv">Вопрос к зрителю как постоянный формат. У Вас он уже сработал: викторина собрала 139 510 просмотров.</li><li class="rv">Сценки и юмор только там, где они работают на образ клуба, а не против него.</li></ul></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">03</span><h2 class="rv">Наше видение</h2><p class="slead rv">Покер в голове у зрителя: статные люди, костюмы и вечерние образы, бокал виски, сосредоточенный взгляд за столом. Атмосфера фильмов о казино девяностых.</p></div><div class="vis"><div><div class="shots"><img class="rv" src="img/interior_28.jpg?v=1" alt="" loading="lazy"><img class="rv" src="img/interior_26.jpg?v=1" alt="" loading="lazy"><img class="rv" src="img/interior_15.jpg?v=1" alt="" loading="lazy"><img class="rv" src="img/interior_07.jpg?v=1" alt="" loading="lazy"></div></div><div class="card concept"><p class="rv">Именно эти ассоциации заставляют досмотреть ролик и захотеть оказаться за столом. Когда в кадре случайная подача, зритель не узнаёт в ней покер и пролистывает.</p><p class="rv">Интерьер GTO уже даёт эту картинку: тёмно-зелёные стены, дерево, латунь, тёплый свет ламп над столами. Не хватает людей и подачи под стать месту.</p><div class="lab rv">Палитра клуба</div><div class="pal2"><div class="sw rv"><i style="background:#16261F"></i><span>тёмно-зелёный</span></div><div class="sw rv"><i style="background:#5A3B26"></i><span>дерево</span></div><div class="sw rv"><i style="background:#B8914F"></i><span>латунь</span></div><div class="sw rv"><i style="background:#3A4048"></i><span>сукно</span></div><div class="sw rv"><i style="background:#0C0C0D"></i><span>ночь</span></div></div></div></div><div class="goals"><div class="goal rv" style="--d:0"><span class="gn">01</span><p><strong>Лица клуба.</strong> Фактурные люди из команды и постоянных гостей становятся героями роликов. В кадре костюм, рубашка, вечерний образ.</p></div><div class="goal rv" style="--d:1"><span class="gn">02</span><p><strong>Единый визуальный код.</strong> Цвета интерьера, тёплый свет, одна система титров и обложек. Любой ролик узнаётся как GTO.</p></div><div class="goal rv" style="--d:0"><span class="gn">03</span><p><strong>Кадр как в кино.</strong> Крупные планы рук, фишек, карт, бокалов и взглядов за столом. Темп и музыка под атмосферу вечера.</p></div><div class="goal rv" style="--d:1"><span class="gn">04</span><p><strong>Форматы, которые набирают.</strong> Вопрос к зрителю, постоянные рубрики с героями, вечер в клубе, турниры и финалы как событие.</p></div><div class="goal rv" style="--d:0"><span class="gn">05</span><p><strong>Уровень для новой аудитории.</strong> Подача, которая привлекает новых гостей района: Раменки, Мичуринский проспект, университет и соседние жилые комплексы.</p></div></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">04</span><h2 class="rv">Цели сотрудничества</h2></div><div class="goals"><div class="goal rv" style="--d:0"><span class="gn">01</span><p>Сформировать позиционирование и образ клуба, которые отличают GTO от других клубов Москвы.</p></div><div class="goal rv" style="--d:1"><span class="gn">02</span><p>Ввести единый визуальный стиль во всех каналах: Instagram, Telegram, обложки и оформление профиля.</p></div><div class="goal rv" style="--d:0"><span class="gn">03</span><p>Наладить регулярное производство контента нового уровня под ключ.</p></div><div class="goal rv" style="--d:1"><span class="gn">04</span><p>Выстроить управляемую систему продвижения: кто, что и когда делает.</p></div></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">05</span><h2 class="rv">Система работы</h2><p class="slead rv">Шесть этапов первого месяца</p></div><div class="tl"><div class="tl-line"><i></i></div><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 01 · Неделя 1</span><h3>Погружение и аудит</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Изучить клуб, команду, гостей и текущий контент, определить приоритеты первого месяца.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Знакомство с управляющим, командой и форматами вечеров.</li><li class="rv">Аудит Instagram и Telegram: контент, статистика, оформление.</li><li class="rv">Разбор клубов-конкурентов и форматов, которые работают в нише.</li><li class="rv">Определение аудиторий клуба и их ожиданий.</li><li class="rv">Выбор героев для съёмок из команды и постоянных гостей.</li><li class="rv">План работ на месяц.</li></ul><div class="gives rv"><strong>Результат для клуба</strong>Понятная картина клуба, приоритеты и план первого месяца.</div></article><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 02 · Гая</span><h3>Стратегия и позиционирование</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Определить, каким клуб видят гости и подписчики, и на чём строится весь контент.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Позиционирование клуба и его отличие от конкурентов.</li><li class="rv">Портреты аудиторий: постоянные игроки, новые гости района, гости событий.</li><li class="rv">Смысловые темы, рубрики и тон коммуникации.</li><li class="rv">Роли команды в контенте: кто становится лицом клуба.</li><li class="rv">Идеи событий и инфоповодов клуба для контента.</li><li class="rv">Связка контента с программой лояльности и сервисом клуба.</li></ul><div class="gives rv"><strong>Результат для клуба</strong>Стратегия, на которую опирается весь контент и вся коммуникация клуба.</div></article><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 03 · Малик</span><h3>Визуальная концепция</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Создать единый визуальный код клуба, по которому снимается и оформляется весь контент.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Визуальные референсы и настроение клуба.</li><li class="rv">Палитра, свет и композиция на основе интерьера.</li><li class="rv">Правила кадра для съёмок игр, вечеров и событий.</li><li class="rv">Образ людей в кадре: персонал, герои, гости.</li><li class="rv">Единая система титров и обложек.</li><li class="rv">Оформление профиля: шапка, актуальные, закреплённые публикации.</li></ul><div class="gives rv"><strong>Результат для клуба</strong>Визуальный стандарт клуба, который понятен команде и узнаваем для зрителя.</div></article><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 04 · Малик</span><h3>Производство контента под ключ</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Регулярно выпускать ролики нового уровня, которые раскрывают атмосферу клуба.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Сценарии и съёмочные планы.</li><li class="rv">Организация и проведение съёмок в клубе.</li><li class="rv">Работа с героями в кадре.</li><li class="rv">Монтаж, цвет, звук.</li><li class="rv">Обложки и тексты к публикациям.</li><li class="rv">График выхода и передача готовых роликов SMM-специалисту клуба.</li></ul><div class="lab rv">Плановый объём</div><div class="rchart rv"><div class="rrow"><div class="rcap"><b class="cnt" data-v="4">4</b><span>съёмочных выезда в клуб</span></div><div class="rtrack"><i style="--a:0.0%;--b:20.0%"></i></div></div><div class="rrow"><div class="rcap"><b class="cnt" data-v="15–20">15–20</b><span>вертикальных роликов за первый месяц</span></div><div class="rtrack"><i style="--a:75.0%;--b:100.0%"></i></div></div></div><div class="gives rv"><strong>Результат для клуба</strong>Пул роликов в едином стиле и отлаженный процесс производства.</div></article><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 05 · Гая</span><h3>Руководство проектом</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Управлять продвижением клуба как одной системой.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">План на месяц и на каждую неделю.</li><li class="rv">Руководство SMM-специалистом: контент-план, публикации, сторис, Telegram.</li><li class="rv">Постановка задач и контроль сроков.</li><li class="rv">Синхронизация с управляющим по графику, событиям и согласованиям.</li><li class="rv">Привязка контента к событиям клуба и открытию новых точек.</li><li class="rv">Еженедельный созвон и сводка по задачам.</li></ul><div class="gives rv"><strong>Результат для клуба</strong>Прозрачная система, в которой каждый участник знает свою задачу и срок.</div></article><article class="mblock stage rv"><span class="tl-dot"></span><span class="mnum">Этап 06 · Неделя 4</span><h3>Аналитика и план</h3><div class="task rv"><span class="lab">Задача</span><p class="lead">Оценить выполненный объём и определить приоритеты следующего месяца.</p></div><div class="lab rv">Состав работ</div><ul class="pts"><li class="rv">Сводка выполненных задач по принципу «план и факт».</li><li class="rv">Статистика по роликам и профилю.</li><li class="rv">Форматы и рубрики, которые сработали лучше всего.</li><li class="rv">План второго месяца.</li></ul><div class="gives rv"><strong>Результат для клуба</strong>Отчёт о проделанной работе и план следующего этапа.</div></article></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">06</span><h2 class="rv">Кто за что отвечает</h2></div><div class="roles"><div class="role rv"><div class="who">Стратег</div><h3>Гая</h3><ul class="pts"><li class="rv">Стратегия и позиционирование клуба.</li><li class="rv">Руководство проектом и командой.</li><li class="rv">Постановка задач SMM-специалисту и контроль сроков.</li><li class="rv">Связь с управляющим.</li></ul></div><div class="role rv"><div class="who">Продюсер</div><h3>Малик Хашимов</h3><ul class="pts"><li class="rv">Визуальная концепция клуба.</li><li class="rv">Сценарии и съёмки в клубе.</li><li class="rv">Монтаж, обложки, тексты.</li><li class="rv">Оформление профиля.</li></ul></div><div class="role rv"><div class="who">Публикации</div><h3>SMM-специалист клуба</h3><ul class="pts"><li class="rv">Публикации по контент-плану.</li><li class="rv">Сторис из клуба и афиши.</li><li class="rv">Telegram-канал.</li><li class="rv">Ответы подписчикам.</li></ul></div><div class="role rv"><div class="who">Согласования</div><h3>Управляющий</h3><ul class="pts"><li class="rv">Доступы к аккаунтам.</li><li class="rv">Согласование планов и материалов.</li><li class="rv">График съёмок в клубе.</li><li class="rv">Участие команды в кадре.</li></ul></div></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">07</span><h2 class="rv">План первого месяца</h2></div><div class="weeks"><div class="wk rv"><div class="n">Неделя 1</div><div class="t">Погружение</div><ul class="pts"><li class="rv">Знакомство с клубом и командой.</li><li class="rv">Аудит аккаунтов.</li><li class="rv">Выбор героев.</li><li class="rv">Черновик стратегии.</li></ul></div><div class="wk rv"><div class="n">Неделя 2</div><div class="t">Система</div><ul class="pts"><li class="rv">Стратегия и визуальная концепция утверждены.</li><li class="rv">Оформление профиля.</li><li class="rv">Первый съёмочный выезд.</li></ul></div><div class="wk rv"><div class="n">Неделя 3</div><div class="t">Производство</div><ul class="pts"><li class="rv">Второй и третий выезды.</li><li class="rv">Выход роликов по графику.</li><li class="rv">Контент-план SMM.</li></ul></div><div class="wk rv"><div class="n">Неделя 4</div><div class="t">Итоги</div><ul class="pts"><li class="rv">Четвёртый выезд.</li><li class="rv">Аналитика месяца.</li><li class="rv">План второго месяца.</li></ul></div></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">08</span><h2 class="rv">Формат взаимодействия</h2></div><div class="card"><ul class="pts"><li class="rv">Единый рабочий чат с управляющим и командой.</li><li class="rv">Письменная фиксация задач, сроков и договорённостей.</li><li class="rv">Согласование стратегии, визуальной концепции и графика съёмок.</li><li class="rv">Еженедельный созвон и сводка по задачам.</li><li class="rv">Все материалы и исходники хранятся в общей базе проекта и остаются у Вас.</li><li class="rv">Итоговый отчёт по завершении месяца.</li></ul></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">09</span><h2 class="rv">Результат первого месяца</h2><p class="slead rv">По итогам первого месяца у клуба есть:</p></div><div class="res"><ol class="rlist"><li class="rv" style="--d:0"><i></i><span>Позиционирование и стратегия клуба.</span></li><li class="rv" style="--d:1"><i></i><span>Визуальная концепция: палитра, свет, правила кадра, титры и обложки.</span></li><li class="rv" style="--d:2"><i></i><span>Обновлённое оформление профиля.</span></li><li class="rv" style="--d:0"><i></i><span>4 съёмочных выезда и 15–20 вертикальных роликов в едином стиле.</span></li><li class="rv" style="--d:1"><i></i><span>Определённые лица клуба из команды и гостей.</span></li><li class="rv" style="--d:2"><i></i><span>Контент-план и выстроенная работа SMM-специалиста.</span></li><li class="rv" style="--d:0"><i></i><span>Еженедельные сводки и итоговый отчёт.</span></li><li class="rv" style="--d:1"><i></i><span>План второго месяца.</span></li></ol></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">10</span><h2 class="rv">Сроки и стоимость</h2></div><div class="card"><div class="lab rv">Минимальный срок</div><div class="term rv">3 месяца</div><p class="para rv">Первый месяц: запуск и выстраивание системы. Стратегия, визуальная концепция, производство контента и руководство всей командой проекта.</p></div><div class="price solo rv"><div class="pe">Первый месяц</div><div class="pv"><b class="count" data-to="250000">250 000 руб.</b></div></div><div class="split"><div class="price solo rv"><div class="pe">Стратегия и руководство проектом</div><div class="pv"><b class="count" data-to="120000">120 000 руб.</b></div></div><div class="price solo rv"><div class="pe">Визуал и производство контента</div><div class="pv"><b class="count" data-to="130000">130 000 руб.</b></div></div></div><div class="card"><p class="para rv">Отдельно оплачиваются: приглашённые модели и гости, образы и реквизит для съёмок, работа фотографа, платные размещения и реклама. Все расходы заранее согласовываются с Вами.</p><div class="lab rv">Гарантия</div><p class="para rv">Мы гарантируем выполнение всего, что прописано в этапах. Все материалы и исходники остаются у Вас навсегда. Условие с Вашей стороны: доступ в клуб для съёмок, участие команды и согласования в оговорённые сроки.</p><div class="lab rv">Следующие месяцы</div><p class="para rv">По итогам первого месяца мы вместе смотрим на результаты и согласуем объём и стоимость следующего этапа до начала работ.</p></div></div></section><section><div class="wrap"><div class="section-head"><span class="eyebrow rv">11</span><h2 class="rv">Итоговое видение</h2></div><div class="pilot rv"><div class="pl one"><i></i><span>Раменки</span></div><div class="parrow"><i></i></div><div class="pl net"><i></i><i></i><i></i><i></i><i></i><span>новые точки</span></div></div><div class="card concept"><p class="rv">Первый месяц в Раменках становится пилотом: мы выстраиваем систему, в которой у клуба есть свой образ, свой визуальный код и регулярный контент нового уровня.</p><p class="rv">Дальше эту систему можно перенести на новую точку после ремонта и на другие заведения: стратегия, визуальный стандарт и процесс производства уже будут готовы.</p><p class="quote rv">Клуб, который узнают с первого кадра, привлекает гостей сам.</p></div></div></section><footer class="closing"><div class="ornament">◆ ◆ ◆</div></footer></main><script>(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* появление блоков по мере прокрутки */
+  var targets = document.querySelectorAll('.rv, .viz, .rchart, .months, .resring, .pilot, .rlist li');
+  if (!('IntersectionObserver' in window) || reduce) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+        var c = en.target.querySelector && en.target.querySelector('.count');
+        if (en.target.classList.contains('price') && c) countUp(c);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+  /* бегущая сумма */
+  function countUp(el) {
+    var to = +el.dataset.to, txt = el.textContent, suf = txt.replace(/[\d\s ]/g, '').trim(), t0 = null;
+    function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / 1600), v = Math.round(to * (1 - Math.pow(1 - p, 3)) / 1000) * 1000;
+      el.textContent = fmt(v) + ' ' + suf;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = txt.replace(/ /g, ' ');
+    }
+    if (reduce) return;
+    requestAnimationFrame(step);
+  }
+  /* линия этапов, прогресс, вкладки */
+  var bar = document.querySelector('.progress i'), tls = document.querySelectorAll('.tl'), tabs = document.querySelectorAll('.tabs a');
+  var parts = [document.getElementById('brand'), document.getElementById('dolina')];
+  function onScroll() {
+    var h = document.documentElement, y = window.scrollY, vh = window.innerHeight;
+    bar.style.transform = 'scaleX(' + (y / Math.max(1, h.scrollHeight - vh)) + ')';
+    tls.forEach(function (tl) {
+      var r = tl.getBoundingClientRect(), p = (vh * 0.6 - r.top) / r.height;
+      tl.querySelector('.tl-line i').style.setProperty('--p', Math.max(0, Math.min(1, p)));
+      tl.querySelectorAll('.stage').forEach(function (s) {
+        s.classList.toggle('lit', s.getBoundingClientRect().top < vh * 0.6);
+      });
+    });
+    var cur = parts[1] && parts[1].getBoundingClientRect().top < vh * 0.4 ? 'dolina' : 'brand';
+    tabs.forEach(function (a) { a.classList.toggle('on', a.dataset.t === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+/* без висячих строк: на последней строке абзаца — не меньше трёх слов */
+(function () {
+  var SEL = 'p, li, .gives, .chip, .rcard p, .sub, .lab, .slead, .pe, .pz';
+  var NBSP = '\u00a0';
+  function numbers() {
+    /* число не отрывается от следующего слова: «25 постов», «7 роликов» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('h1, h2, h3, .hero, svg')) continue;
+      var v = n.nodeValue.replace(/(\d) (?=[A-Za-zА-Яа-яЁё«%$])/g, '$1' + NBSP);
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  }
+  function texts(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n);
+    return out;
+  }
+  function lastLine(el) {
+    /* сколько слов на последней строке */
+    var words = [];
+    texts(el).forEach(function (n) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.nodeValue))) {
+        if (!/[0-9A-Za-zА-Яа-яЁё]/.test(m[0])) continue;
+        var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rs = r.getClientRects(); if (!rs.length) continue;
+        var b = rs[rs.length - 1]; words.push({ top: b.top, h: b.height });
+      }
+    });
+    if (words.length < 2) return 99;
+    var tops = [], counts = [];
+    words.forEach(function (w) {
+      var j = tops.length - 1;
+      if (j >= 0 && Math.abs(tops[j] - w.top) < w.h * 0.5) counts[j]++; else { tops.push(w.top); counts.push(1); }
+    });
+    lastLine.prev = counts.length > 1 ? counts[counts.length - 2] : 99;
+    return counts.length < 2 ? 99 : counts[counts.length - 1];
+  }
+  function glueOne(el) {
+    /* последний обычный пробел, после которого уже есть текст, — в неразрывный */
+    var ns = texts(el), seen = false;
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var t = ns[i].nodeValue;
+      for (var j = t.length - 1; j >= 0; j--) {
+        var c = t.charAt(j);
+        if (c === ' ' && seen) { var old = t; ns[i].nodeValue = t.slice(0, j) + NBSP + t.slice(j + 1); return function () { ns[i].nodeValue = old; }; }
+        if (/\S/.test(c) && c !== NBSP) seen = true;
+      }
+    }
+    return null;
+  }
+  function overflows(el) {
+    var box = el.getBoundingClientRect(), bad = false;
+    texts(el).forEach(function (n) {
+      var r = document.createRange(); r.selectNodeContents(n);
+      [].forEach.call(r.getClientRects(), function (q) { if (q.right > box.right + 1 || q.left < box.left - 1) bad = true; });
+    });
+    return bad;
+  }
+  function fix() {
+    /* последняя и предпоследняя строки — не меньше двух слов */
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.querySelector('br') || el.closest('svg')) return;
+      var words = el.textContent.trim().split(/\s+/).length;
+      if (words < 4) return;
+      var undos = [], last = lastLine(el), prev = lastLine.prev;
+      for (var step = 0; step < 5 && (last < 2 || prev < 2) && last !== 99; step++) {
+        var undo = glueOne(el);
+        if (!undo) break;
+        undos.push(undo);
+        if (overflows(el)) { break; }
+        last = lastLine(el); prev = lastLine.prev;
+      }
+      if (overflows(el) || (last !== 99 && (last < 2 || prev < 2))) {
+        while (undos.length) undos.pop()();
+        /* склейка не помогла — выравниваем строки по длине */
+        el.style.textWrap = 'balance';
+        if (lastLine(el) < 2) el.style.textWrap = '';
+      }
+    });
+  }
+  function heads() {
+    /* в заголовке последнее слово не остаётся одно, если пара влезает */
+    document.querySelectorAll('h1, h2, h3, h4').forEach(function (el) {
+      if (el.textContent.trim().split(/\s+/).length < 3 || lastLine(el) !== 1) return;
+      var undo = glueOne(el);
+      if (undo && (overflows(el) || lastLine(el) === 99)) undo();
+    });
+  }
+  function hyph() {
+    /* слова через дефис не рвутся по дефису: «инфлюенс-маркетинг», «бизнес-целями» */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, list = [];
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement;
+      if (!pe || /^(SCRIPT|STYLE)$/.test(pe.tagName) || pe.closest('svg, .nw')) continue;
+      if (/[0-9A-Za-zА-Яа-яЁё]-[0-9A-Za-zА-Яа-яЁё]/.test(n.nodeValue)) list.push(n);
+    }
+    list.forEach(function (n) {
+      var parts = n.nodeValue.split(/([^\s ]*[0-9A-Za-zА-Яа-яЁё]-[0-9A-Za-zА-Яа-яЁё][^\s ]*)/), f = document.createDocumentFragment();
+      parts.forEach(function (p, i) {
+        if (!p) return;
+        if (i % 2) { var s = document.createElement('span'); s.className = 'nw'; s.textContent = p; f.appendChild(s); }
+        else f.appendChild(document.createTextNode(p));
+      });
+      n.parentNode.replaceChild(f, n);
+    });
+  }
+  function run() { hyph(); numbers(); heads(); fix(); }
+  if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { heads(); fix(); }, 200); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { heads(); fix(); });
+})();
+</script></body></html>
