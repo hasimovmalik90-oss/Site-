@@ -8,7 +8,14 @@
 <meta name="theme-color" content="#070707">
 <meta property="og:title" content="MIRCAP XIII · Styling paste">
 <meta property="og:description" content="Матовая паста для укладки. Держит, пока Вы её не смоете.">
-<meta property="og:image" content="img/nb_front.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hasimovmalik90-oss.github.io/Site-/mircap/">
+<meta property="og:image" content="https://hasimovmalik90-oss.github.io/Site-/mircap/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
@@ -22,20 +29,21 @@ img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
 .brand{font-family:Cinzel,serif;font-weight:400;letter-spacing:.14em}
-.k{font-size:12px;letter-spacing:.38em;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.k{font-size:12px;letter-spacing:.38em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.blk{margin-top:64px}
 .h{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(38px,8.5vw,76px);line-height:1.06}
 .h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,7vw,60px);line-height:1.08}
 .p{font-size:clamp(17px,2.1vw,20px);line-height:1.65;color:var(--soft)}
 .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(26px,5vw,40px);line-height:1.3}
-.rule{width:48px;height:1px;background:var(--wine);margin:32px 0}
-section{position:relative;padding:96px 0}
+.rule{width:48px;height:1px;background:var(--wine);margin:24px 0}
+section{position:relative;padding:64px 0;scroll-margin-top:0}
 .line{border-top:1px solid var(--line)}
 
 /* шапка */
-header{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);padding-top:max(14px,env(safe-area-inset-top));background:rgba(7,7,7,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.04)}
-header .logo{font-size:15px;text-decoration:none}
+header{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:4px var(--pad);padding-top:max(4px,env(safe-area-inset-top));background:rgba(7,7,7,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.04)}
+header .logo{font-size:15px;text-decoration:none;padding:10px 0}
 header nav{display:flex;gap:18px;align-items:center}
-header nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--soft)}
+header nav a{padding:10px 0;font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--soft)}
 header nav a.hide-m{display:none}
 
 /* кнопки */
@@ -48,19 +56,19 @@ header nav a.hide-m{display:none}
 .hero{min-height:100svh;padding:0;display:flex;align-items:flex-end}
 .hero .bg{position:absolute;inset:0 0 38% 0;background:url(img/nb_front.webp) center 42%/cover no-repeat}
 .hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,7,.45) 0%,rgba(7,7,7,.1) 25%,rgba(7,7,7,.25) 60%,var(--bg) 96%)}
-.hero .wrap{position:relative;width:100%;padding-bottom:max(56px,env(safe-area-inset-bottom))}
+.hero .wrap{position:relative;width:100%;padding-bottom:max(40px,env(safe-area-inset-bottom))}
 .hero .brand{font-size:clamp(54px,14vw,128px);line-height:1}
-.hero .sub{font-size:13px;letter-spacing:.42em;color:var(--soft);margin:22px 0 36px}
-.hero .tags{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12px;letter-spacing:.24em;color:var(--mute);margin-bottom:36px}
+.hero .sub{font-size:13px;letter-spacing:.42em;color:var(--soft);margin:18px 0 24px}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12px;letter-spacing:.24em;color:var(--mute);margin-bottom:28px}
 
 /* split */
-.split{display:grid;gap:44px;align-items:center}
+.split{display:grid;gap:28px;align-items:center}
 .ph{position:relative;aspect-ratio:1/1;background-size:cover;background-position:center}
 .ph.fade{-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,#000 55%,transparent 100%)}
 
 /* сетки */
 .grid{display:grid;gap:0}
-.grid>div{padding:28px 0;border-top:1px solid var(--line)}
+.grid>div{padding:22px 0;border-top:1px solid var(--line);min-width:0}
 .gn{font-size:12px;letter-spacing:.3em;color:var(--wine2);margin-bottom:14px}
 .gt{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1.15;margin-bottom:10px}
 .gd{font-size:16px;line-height:1.6;color:var(--mute)}
@@ -68,7 +76,7 @@ header nav a.hide-m{display:none}
 
 /* цифры */
 .stats{display:grid;grid-template-columns:1fr;gap:0}
-.stats>div{padding:26px 0;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.stats>div{padding:20px 0;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:20px}
 .stat{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,92px);line-height:1}
 .stats .gd{text-align:right}
 
@@ -85,7 +93,7 @@ summary:after{content:"+";position:absolute;right:4px;top:20px;font-family:Monts
 details[open] summary:after{transform:rotate(45deg)}
 details .gd{padding:0 0 26px;max-width:760px}
 
-footer{padding:80px 0 calc(60px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid var(--line)}
+footer{padding:56px 0 calc(60px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid var(--line)}
 footer .brand{font-size:30px}
 footer .gd{margin-top:18px}
 
@@ -96,13 +104,11 @@ footer .gd{margin-top:18px}
 @media (min-width:760px){
   :root{--pad:40px}
   header nav a.hide-m{display:inline}
-  section{padding:140px 0}
-  .split{grid-template-columns:1fr 1fr;gap:80px}
+  section{padding:96px 0}
+  .split{grid-template-columns:1fr 1fr;gap:64px}
   .split.rev .ph{order:2}
-  .grid.c3{grid-template-columns:repeat(3,1fr)}
-  .grid.c4{grid-template-columns:repeat(4,1fr)}
-  .grid.c3>div,.grid.c4>div{padding:34px 32px 0 0}
-  .grid.c3>div+div,.grid.c4>div+div{padding-left:32px;border-left:1px solid var(--line)}
+  .grid.c4{grid-template-columns:repeat(2,1fr);column-gap:32px}
+  .blk{margin-top:88px}
   .stats{grid-template-columns:repeat(3,1fr)}
   .stats>div{display:block;padding:0 32px 0 0;border-top:0}
   .stats>div+div{padding-left:32px;border-left:1px solid var(--line)}
@@ -112,6 +118,12 @@ footer .gd{margin-top:18px}
   .hero .bg:after{background:linear-gradient(90deg,var(--bg) 0%,rgba(7,7,7,.6) 22%,rgba(7,7,7,0) 50%),linear-gradient(0deg,var(--bg) 0%,rgba(7,7,7,0) 25%)}
   .hero .wrap{padding-bottom:0}
   #partners .head{grid-template-columns:1.1fr .9fr;gap:80px}
+}
+@media (min-width:1000px){
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c4{grid-template-columns:repeat(4,1fr);column-gap:0}
+  .grid.c3>div,.grid.c4>div{padding:30px 28px 0 0}
+  .grid.c3>div+div,.grid.c4>div+div{padding-left:28px;border-left:1px solid var(--line)}
 }
 .h,.h2,.q,.gt,summary{text-wrap:balance}
 .p,.gd{text-wrap:pretty}
@@ -136,7 +148,7 @@ footer .gd{margin-top:18px}
     <h1 class="brand">MIRCAP<br>XIII</h1>
     <div class="sub">STYLING PASTE</div>
     <div class="tags"><span>STRONG HOLD</span><span>MATTE FINISH</span><span>95 ML</span></div>
-    <a class="btn" href="#order">Заказать <span class="ar">→</span></a>
+    <a class="btn" href="#order">Предзаказ <span class="ar">→</span></a>
   </div>
 </section>
 
@@ -165,7 +177,7 @@ footer .gd{margin-top:18px}
 <!-- эффект -->
 <section class="line">
   <div class="wrap reveal">
-    <div class="h2" style="margin-bottom:56px">Держит, пока Вы её не смоете.</div>
+    <div class="h2" style="margin-bottom:32px">Держит, пока Вы её не смоете.</div>
     <div class="grid c3">
       <div><div class="gn">01</div><div class="gt">Текстура</div><div class="gd">Матовый эффект без блеска. Подходит и для текстуры, и для классики.</div></div>
       <div><div class="gn">02</div><div class="gt">Чистота</div><div class="gd">Без грязного эффекта и тяжести. Легко смывается шампунем.</div></div>
@@ -180,7 +192,7 @@ footer .gd{margin-top:18px}
     <div class="ph fade reveal" style="background-image:url(img/nb_lid.webp);background-position:center 70%"></div>
     <div class="reveal">
       <div class="k">Аромат</div>
-      <div class="h2">Итальянская кожа</div>
+      <div class="h2">Итальянская кожа</div>
       <div class="rule"></div>
       <p class="p">Спокойный и мягкий. Не звучит ярко и не перебивает Ваш парфюм. Раскрывается, когда Вы укладываете волосы.</p>
     </div>
@@ -189,10 +201,10 @@ footer .gd{margin-top:18px}
 
 <!-- ритуал -->
 <section class="line" style="padding-top:0">
-  <div style="height:clamp(220px,38vw,460px);background:url(img/nb_paste.webp) center 45%/cover;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 55%,transparent 100%)"></div>
+  <div style="height:clamp(200px,32vw,400px);background:url(img/nb_paste.webp) center 45%/cover;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 55%,transparent 100%)"></div>
   <div class="wrap reveal">
     <div class="k">Ритуал</div>
-    <div class="h2" style="margin-bottom:48px">Одна минута утром</div>
+    <div class="h2" style="margin-bottom:28px">Укладка за минуту</div>
     <div class="grid c4">
       <div><div class="gn">01</div><div class="gd" style="color:var(--soft)">Дайте вымытым волосам подсохнуть <span style="white-space:nowrap">10–15</span> минут.</div></div>
       <div><div class="gn">02</div><div class="gd" style="color:var(--soft)">Разотрите немного пасты в ладонях до прозрачности.</div></div>
@@ -236,8 +248,8 @@ footer .gd{margin-top:18px}
 <!-- вопросы -->
 <section class="line">
   <div class="wrap reveal">
-    <div class="h2" style="margin-bottom:40px">Вопросы</div>
-    <details><summary>Кому подойдёт паста?</summary><div class="gd">Для всех типов волос. Единственное исключение: очень тонкие и слабые волосы. Им лучше брать совсем немного пасты и наносить на влажные волосы.</div></details>
+    <div class="h2" style="margin-bottom:24px">Вопросы</div>
+    <details><summary>Кому может не подойти?</summary><div class="gd">Почти всем. Исключение: очень тонкие и слабые волосы. Им лучше брать совсем немного пасты и наносить на влажные волосы.</div></details>
     <details><summary>Насколько хватает одной банки?</summary><div class="gd">В среднем на 4–5 месяцев, некоторым на полгода. Количество зависит от длины волос: после двух-трёх укладок Вы поймёте, сколько нужно именно Вам.</div></details>
     <details><summary>Чем матовая паста отличается от воска и геля?</summary><div class="gd">Гель склеивает волосы и даёт мокрый эффект. Воск держит слабо и через пару часов укладка разваливается. Матовая паста даёт естественную текстуру и держит весь день.</div></details>
     <details><summary>Как смывается?</summary><div class="gd">Легко, обычным шампунем. До этого укладка держится.</div></details>
@@ -259,17 +271,17 @@ footer .gd{margin-top:18px}
       <div class="ph" style="background-image:url(img/nb_front.webp);background-position:80% 65%;background-size:180%;-webkit-mask-image:radial-gradient(ellipse 60% 60% at 55% 50%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 60% 60% at 55% 50%,#000 40%,transparent 100%)"></div>
     </div>
 
-    <div class="reveal" style="margin-top:110px">
-      <div class="h2" style="margin-bottom:48px">Почему мастера выбирают MIRCAP</div>
+    <div class="reveal blk">
+      <div class="h2" style="margin-bottom:28px">Почему мастера выбирают MIRCAP</div>
       <div class="grid c3">
         <div><div class="gn">01</div><div class="gt">Качество</div><div class="gd">Сильная фиксация и естественная текстура для любых волос.</div></div>
-        <div><div class="gn">02</div><div class="gt">Без грязного эффекта</div><div class="gd">Клиент уходит с чистыми волосами и может поправить укладку в любой момент.</div></div>
+        <div><div class="gn">02</div><div class="gt">Без грязного эффекта</div><div class="gd">Клиент уходит с чистыми волосами и может поправить укладку в любой момент.</div></div>
         <div><div class="gn">03</div><div class="gt">Аромат</div><div class="gd">Спокойная итальянская кожа, которую замечают клиенты.</div></div>
       </div>
     </div>
 
-    <div class="reveal" style="margin-top:110px">
-      <div class="h2" style="margin-bottom:48px">Что получает партнёр</div>
+    <div class="reveal blk">
+      <div class="h2" style="margin-bottom:28px">Что получает партнёр</div>
       <div class="grid c3">
         <div><div class="gn">01</div><div class="gt">Обучение</div><div class="gd">Основатель лично приезжает в барбершоп и показывает работу с пастой.</div></div>
         <div><div class="gn">02</div><div class="gt">Поддержка</div><div class="gd">Материалы и поддержка в социальных сетях.</div></div>
@@ -277,27 +289,27 @@ footer .gd{margin-top:18px}
       </div>
     </div>
 
-    <div class="reveal" style="margin-top:110px">
-      <div class="h2" style="margin-bottom:48px">Форматы сотрудничества</div>
+    <div class="reveal blk">
+      <div class="h2" style="margin-bottom:28px">Форматы сотрудничества</div>
       <div class="grid c3">
         <div><div class="gt">Барбершопы</div><div class="gd">Паста в работе и на продаже в зале.</div></div>
-        <div><div class="gt">Частные мастера</div><div class="gd">Для сильных мастеров, которые работают самостоятельно.</div></div>
+        <div><div class="gt">Частные мастера</div><div class="gd">Для сильных мастеров, которые работают самостоятельно.</div></div>
         <div><div class="gt">Дистрибьюторы</div><div class="gd">Эксклюзив на город или район для ответственного партнёра.</div></div>
       </div>
       <p class="gd" style="margin-top:36px">Не продаётся в масс-маркете. Условия обсуждаются индивидуально.</p>
     </div>
 
-    <div class="reveal" style="margin-top:110px">
-      <div class="h2" style="margin-bottom:48px">География</div>
+    <div class="reveal blk">
+      <div class="h2" style="margin-bottom:28px">География</div>
       <div class="grid c4">
         <div><div class="gn">01</div><div class="gt">Россия</div></div>
-        <div><div class="gn">02</div><div class="gt">СНГ</div><div class="gd">Узбекистан, Казахстан, Кыргызстан, Таджикистан</div></div>
-        <div><div class="gn">03</div><div class="gt">Ближний Восток</div><div class="gd">Дубай, Саудовская Аравия</div></div>
+        <div><div class="gn">02</div><div class="gt">СНГ</div><div class="gd">Узбекистан, Казахстан, Кыргызстан, Таджикистан</div></div>
+        <div><div class="gn">03</div><div class="gt">Ближний Восток</div><div class="gd">Дубай, Саудовская Аравия</div></div>
         <div><div class="gn">04</div><div class="gt">Европа и США</div></div>
       </div>
     </div>
 
-    <div class="reveal" style="margin-top:110px">
+    <div class="reveal blk">
       <a class="btn js-partner" href="https://ig.me/m/mens.style__" target="_blank" rel="noopener">Стать партнёром <span class="ar">→</span></a>
     </div>
   </div>
