@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MIRCAP XIII · Instagram</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#070707">
+<link rel="icon" href="../mircap/img/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:Cinzel;src:url(../mircap/fonts/cinzel.ttf);font-display:swap}
+:root{--bg:#070707;--fg:#ece7df;--soft:#d6cfc4;--mute:#9e968b;--line:#1f1c1a;--wine:#a8434f;--pad:20px}
+*{box-sizing:border-box;margin:0;padding:0;font-variant-numeric:lining-nums}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:Montserrat,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;padding:0 var(--pad)}
+.k{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.h{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,7vw,56px);line-height:1.08;text-wrap:balance}
+.h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,5vw,40px);line-height:1.1;margin-bottom:20px}
+.p{color:var(--soft);text-wrap:pretty}
+.brand{font-family:Cinzel,serif;letter-spacing:.14em}
+header{padding:48px 0 28px}
+section{padding:44px 0;border-top:1px solid var(--line)}
+/* телефон */
+.phone{max-width:470px;margin:0 auto;border:1px solid #2a2522;border-radius:34px;overflow:hidden;background:#000}
+.pbar{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 6px;font-weight:500}
+.prof{display:flex;gap:18px;align-items:center;padding:10px 18px}
+.prof img{width:86px;height:86px;border-radius:50%}
+.cnt{display:flex;gap:18px;font-size:13px;color:var(--soft)}.cnt b{display:block;color:var(--fg);font-size:16px}
+.bio{padding:4px 18px 10px;font-size:14px;line-height:1.45}.bio .nm{font-weight:500}.bio a{color:#b9c8ff;text-decoration:none}
+.hls{display:flex;gap:14px;padding:6px 18px 14px;overflow-x:auto}
+.hl{text-align:center;font-size:12px;color:var(--soft)}.hl img{width:64px;height:64px;border-radius:50%;border:1px solid #333;padding:2px;display:block;margin-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cell{position:relative;aspect-ratio:3/4;border:0;padding:0;background:#111;cursor:pointer;overflow:hidden}
+.cell img{width:100%;height:100%;object-fit:cover;display:block}
+.ic{position:absolute;top:8px;right:9px;font-style:normal;font-size:14px;color:#fff;text-shadow:0 1px 4px #000}
+.no{position:absolute;left:8px;bottom:6px;font-size:11px;color:#fff;background:rgba(0,0,0,.55);padding:1px 7px;border-radius:9px}
+.hint{text-align:center;color:var(--mute);font-size:13px;margin-top:14px}
+/* списки */
+.ord{list-style:none}.ord li{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+.ord .pn{color:var(--wine);font-size:13px;letter-spacing:.2em;grid-row:span 2}.ord .pr{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.2}.ord .pf{color:var(--mute);font-size:14px}
+.set{display:grid;gap:18px}.row{border-top:1px solid var(--line);padding-top:14px}.row .k{margin-bottom:6px}
+.copy{margin-top:10px;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(214,190,160,.5);background:rgba(255,255,255,.03);color:var(--fg);font:inherit;font-size:14px;cursor:pointer}
+.copy.ok{border-color:#6fa37f;color:#bfe0c8}
+.hll{list-style:none}.hll li{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line)}.hll span{color:var(--soft)}
+pre.txt{white-space:pre-wrap;font:inherit;color:var(--soft)}
+/* модалка */
+.m{position:fixed;inset:0;z-index:50;background:#070707;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.m.on{display:block}
+.mb{max-width:980px;margin:0 auto;padding:20px var(--pad) 60px}
+.mt{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0 16px}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid #3a3330;background:#0e0d0c;color:var(--fg);font-size:22px;cursor:pointer;flex:none}
+.mg{display:grid;gap:26px}
+.sw{position:relative}.ar{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(214,190,160,.5);background:rgba(7,7,7,.6);color:var(--fg);font-size:20px;cursor:pointer}.ar.l{left:10px}.ar.r{right:10px}
+.sl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;border-radius:6px}
+.sl img{flex:0 0 100%;width:100%;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start;display:block;background:#111}
+.dots{text-align:center;color:var(--mute);font-size:13px;margin-top:8px}
+.nav{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
+.meta div{border-top:1px solid var(--line);padding:12px 0}
+.tags{color:#b9c8ff}
+table.sc{width:100%;border-collapse:collapse;font-size:14px}.sc td{border-top:1px solid var(--line);padding:9px 8px 9px 0;vertical-align:top;color:var(--soft)}.sc td:first-child{color:var(--wine);white-space:nowrap}
+.dl{color:var(--soft);font-size:14px}
+@media (min-width:860px){:root{--pad:40px}.mg{grid-template-columns:1fr 1fr;align-items:start}.cols{display:grid;grid-template-columns:1fr 1fr;gap:60px}}
+</style></head><body>
+<header><div class="wrap"><div class="k">План Instagram · 12 постов</div><div class="h"><span class="brand">MIRCAP XIII</span><br>Профиль бренда</div><p class="p" style="margin-top:16px;max-width:640px">Так профиль будет выглядеть после 12 публикаций. Нажмите на любой пост: откроются все слайды, подпись и хэштеги, которые можно скопировать.</p></div></header>
+
+<section style="border-top:0;padding-top:10px"><div class="wrap">
+<div class="phone">
+ <div class="pbar"><span>mircap.xiii</span><span style="color:var(--mute)">≡</span></div>
+ <div class="prof"><img src="img/avatar.webp" alt=""><div class="cnt"><div><b>12</b>публикаций</div></div></div>
+ <div class="bio"><div class="nm">MIRCAP XIII · паста для укладки</div><div style="color:var(--mute)">Косметика / уход за волосами</div>Styling paste · strong hold · matte finish<br>Создана барбером 13 by Timati: 3 года, 38 попыток<br>Старт продаж: декабрь 2026<br>Заявка на сайте ↓<br><a href="https://hasimovmalik90-oss.github.io/Site-/mircap/" target="_blank" rel="noopener">hasimovmalik90-oss.github.io/Site-/mircap/</a></div>
+ <div class="hls"><div class="hl"><img src="img/hl1.webp" alt=""><span>Продукт</span></div><div class="hl"><img src="img/hl2.webp" alt=""><span>Укладка</span></div><div class="hl"><img src="img/hl3.webp" alt=""><span>Аромат</span></div><div class="hl"><img src="img/hl4.webp" alt=""><span>Партнёрам</span></div><div class="hl"><img src="img/hl5.webp" alt=""><span>Заказ</span></div></div>
+ <div class="grid"><button class="cell" data-n="12" aria-label="Пост 12"><img src="img/p12-t.webp" alt="" loading="lazy"><i class="ic">❐</i><span class="no">12</span></button><button class="cell" data-n="11" aria-label="Пост 11"><img src="img/p11-t.webp" alt="" loading="lazy"><i class="ic">❐</i><span class="no">11</span></button><button class="cell" data-n="10" aria-label="Пост 10"><img src="img/p10-t.webp" alt="" loading="lazy"><span class="no">10</span></button><button class="cell" data-n="9" aria-label="Пост 9"><img src="img/p09-t.webp" alt="" loading="lazy"><span class="no">9</span></button><button class="cell" data-n="8" aria-label="Пост 8"><img src="img/p08-t.webp" alt="" loading="lazy"><span class="no">8</span></button><button class="cell" data-n="7" aria-label="Пост 7"><img src="img/p07-t.webp" alt="" loading="lazy"><i class="ic">❐</i><span class="no">7</span></button><button class="cell" data-n="6" aria-label="Пост 6"><img src="img/p06-t.webp" alt="" loading="lazy"><i class="ic">▶</i><span class="no">6</span></button><button class="cell" data-n="5" aria-label="Пост 5"><img src="img/p05-t.webp" alt="" loading="lazy"><span class="no">5</span></button><button class="cell" data-n="4" aria-label="Пост 4"><img src="img/p04-t.webp" alt="" loading="lazy"><i class="ic">❐</i><span class="no">4</span></button><button class="cell" data-n="3" aria-label="Пост 3"><img src="img/p03-t.webp" alt="" loading="lazy"><span class="no">3</span></button><button class="cell" data-n="2" aria-label="Пост 2"><img src="img/p02-t.webp" alt="" loading="lazy"><span class="no">2</span></button><button class="cell" data-n="1" aria-label="Пост 1"><img src="img/p01-t.webp" alt="" loading="lazy"><i class="ic">❐</i><span class="no">1</span></button></div>
+</div>
+<p class="hint">Публиковать по порядку от 1 до 12, тогда сетка сложится как здесь.</p>
+</div></section>
+
+<section><div class="wrap cols">
+ <div><div class="h2">Порядок публикаций</div><ul class="ord"><li data-n="1"><span class="pn">01</span><span class="pr">1 · Продукт</span><span class="pf">Карусель, 3 слайда</span></li><li data-n="2"><span class="pn">02</span><span class="pr">2 · Философия</span><span class="pf">Фото (карточка с цитатой)</span></li><li data-n="3"><span class="pn">03</span><span class="pr">5 · Мужской стиль</span><span class="pf">Фото</span></li><li data-n="4"><span class="pn">04</span><span class="pr">2 · Философия</span><span class="pf">Карусель, 7 слайдов</span></li><li data-n="5"><span class="pn">05</span><span class="pr">4 · Текстура</span><span class="pf">Фото</span></li><li data-n="6"><span class="pn">06</span><span class="pr">3 · Мастерство и эффект укладки</span><span class="pf">Reels, 25–35 секунд</span></li><li data-n="7"><span class="pn">07</span><span class="pr">6 · Детали</span><span class="pf">Карусель, 2 слайда</span></li><li data-n="8"><span class="pn">08</span><span class="pr">2 · Философия</span><span class="pf">Фото</span></li><li data-n="9"><span class="pn">09</span><span class="pr">1 · Продукт</span><span class="pf">Фото</span></li><li data-n="10"><span class="pn">10</span><span class="pr">5 · Мужской стиль</span><span class="pf">Фото</span></li><li data-n="11"><span class="pn">11</span><span class="pr">7 · Перевод интереса в покупку</span><span class="pf">Карусель, 4 слайда</span></li><li data-n="12"><span class="pn">12</span><span class="pr">7 · Перевод интереса в покупку</span><span class="pf">Карусель, 2 слайда</span></li></ul></div>
+ <div><div class="h2">Настройки профиля</div><div class="set">
+  <div class="row"><div class="k">Ник, варианты</div><div>@mircap.xiii · @mircap13 · @mircap.official</div></div>
+  <div class="row"><div class="k">Имя в профиле</div><div>MIRCAP XIII · паста для укладки</div><button class="copy" data-copy="MIRCAP XIII · паста для укладки">Скопировать</button></div>
+  <div class="row"><div class="k">Шапка</div><pre class="txt">Styling paste · strong hold · matte finish
+Создана барбером 13 by Timati: 3 года, 38 попыток
+Старт продаж: декабрь 2026
+Заявка на сайте ↓</pre><button class="copy" data-copy="Styling paste · strong hold · matte finish
+Создана барбером 13 by Timati: 3 года, 38 попыток
+Старт продаж: декабрь 2026
+Заявка на сайте ↓">Скопировать</button></div>
+  <div class="row"><div class="k">Ссылка</div><div>hasimovmalik90-oss.github.io/Site-/mircap/</div></div>
+  <div class="row"><div class="k">Категория</div><div>Косметика / уход за волосами</div></div>
+  <div class="row"><div class="k">Актуальное</div><ul class="hll"><li><b>Продукт</b><span>посты 1, 5, 7: банка, текстура, детали</span></li><li><b>Укладка</b><span>Reels «Укладка за минуту» и ответы Миира, как укладываться</span></li><li><b>Аромат</b><span>пост 9 + сторис, как звучит итальянская кожа</span></li><li><b>Партнёрам</b><span>условия для барбершопов и мастеров, ссылка на /#partners</span></li><li><b>Заказ</b><span>цена, объём, старт продаж, ссылка на заявку</span></li></ul></div>
+ </div></div>
+</div></section>
+
+<div class="m" id="m" role="dialog" aria-modal="true"><div class="mb">
+ <div class="mt"><div><div class="k" id="mk" style="margin:0"></div><div class="h2" id="mh" style="margin:4px 0 0"></div></div><button class="x" id="mx" aria-label="Закрыть">×</button></div>
+ <div class="mg">
+  <div><div class="sw"><div class="sl" id="sl"></div><button class="ar l" id="al" aria-label="Назад">‹</button><button class="ar r" id="ar" aria-label="Вперёд">›</button></div><div class="dots" id="dots"></div><div class="dl" id="dl"></div></div>
+  <div class="meta" id="meta"></div>
+ </div>
+ <div class="nav"><button class="copy" id="prev">← Предыдущий</button><button class="copy" id="next">Следующий →</button></div>
+</div></div>
+
+<script>
+var P=[{"n": 1, "slug": "знакомство", "rubric": "1 · Продукт", "fmt": "Карусель, 3 слайда", "frame": "Банка MIRCAP XIII в сцене со шлемом (кадр Nano Banana), затем текст бренда.", "cap": "Новый взгляд на мужской уход и укладку волос.\n\nMIRCAP XIII: бренд, созданный на пересечении профессионального мастерства, мужского стиля и внимания к деталям.\n\nНаш первый продукт: STYLING PASTE. STRONG HOLD. MATTE FINISH.\n\nМы начинаем с одного продукта, но с большим видением. Добро пожаловать в MIRCAP XIII.", "tags": "#матоваяпаста #пастадляукладки #мужскаяукладка", "src": "Текст Миира от 21.11, дословно", "slides": ["img/p01-1.webp", "img/p01-2.webp", "img/p01-3.webp"], "thumb": "img/p01-t.webp", "tagsFull": "#mircap #mircapxiii #матоваяпаста #пастадляукладки #мужскаяукладка"}, {"n": 2, "slug": "твёрдый-характер", "rubric": "2 · Философия", "fmt": "Фото (карточка с цитатой)", "frame": "Цитата Миира на тёмно-зелёном фоне: цвет бренда из его ответа про банку.", "cap": "Никаких громких слов о бренде не будет. Качество надо просто взять и почувствовать.\n\nЕсли запомнить о MIRCAP XIII одно, то это: твёрдый характер, качество и достойный продукт.\n\nМиир, основатель", "tags": "#мужскойстиль #барбер #укладкаволос", "src": "Вопросы 29 и 36", "slides": ["img/p02-1.webp"], "thumb": "img/p02-t.webp", "tagsFull": "#mircap #mircapxiii #мужскойстиль #барбер #укладкаволос"}, {"n": 3, "slug": "костюм", "rubric": "5 · Мужской стиль", "fmt": "Фото", "frame": "Мужчина в классическом костюме-тройке у окна, укладка с матовой текстурой (ИИ-кадр).", "cap": "Классический костюм и укладка, которая держится до вечера.\n\nЭтот образ Миир видит каждый день: люди, с которыми он работает, ходят в классике. Всегда ухоженные, всегда с аккуратной укладкой.\n\nМатовая паста MIRCAP XIII подходит и для текстуры, и для классики. Без блеска и без мокрого эффекта.", "tags": "#мужскойстиль #классическийкостюм #мужскаяукладка", "src": "Вопросы 19 и 30", "slides": ["img/p03-1.webp"], "thumb": "img/p03-t.webp", "tagsFull": "#mircap #mircapxiii #мужскойстиль #классическийкостюм #мужскаяукладка"}, {"n": 4, "slug": "история-38-попыток", "rubric": "2 · Философия", "fmt": "Карусель, 7 слайдов", "frame": "Обложка «3 года. 38 попыток», пять карточек истории, финальная цитата на зелёном.", "cap": "Три года. Тридцать восемь попыток. Одна банка.\n\nМиир никому не рассказывал о пасте, пока не добился эффекта, которого хотел сам. Каждую неделю новый образец, каждый образец семь-восемь дней на клиентах, каждая мелочь исправлена.\n\nЛистайте: как появилась паста MIRCAP XIII.", "tags": "#историябренда #барбер #мужскаяукладка", "src": "Вопросы 1, 4, 5, 7, 12, 15, 19, 33", "slides": ["img/p04-1.webp", "img/p04-2.webp", "img/p04-3.webp", "img/p04-4.webp", "img/p04-5.webp", "img/p04-6.webp", "img/p04-7.webp"], "thumb": "img/p04-t.webp", "tagsFull": "#mircap #mircapxiii #историябренда #барбер #мужскаяукладка"}, {"n": 5, "slug": "текстура", "rubric": "4 · Текстура", "fmt": "Фото", "frame": "Макросъёмка матовой пасты в открытой банке, след от пальца (ИИ-кадр).", "cap": "MATTE FINISH.\n\nМатовый эффект без блеска. Волосы не склеиваются, не тяжелеют и не выглядят грязными.\n\nНанесли, задали направление, и форма держится, пока Вы её не смоете. Поправить укладку можно в любой момент дня: после зала, в дороге.", "tags": "#матоваяпаста #текстура #укладкаволос", "src": "Вопросы 2, 7, 55", "slides": ["img/p05-1.webp"], "thumb": "img/p05-t.webp", "tagsFull": "#mircap #mircapxiii #матоваяпаста #текстура #укладкаволос"}, {"n": 6, "slug": "reels-укладка-за-минуту", "rubric": "3 · Мастерство и эффект укладки", "fmt": "Reels, 25–35 секунд", "frame": "Обложка готова (руки растирают пасту, ИИ-кадр). Само видео снимает Миир по сценарию ниже: он сам обещал показать, как укладываться.", "cap": "Укладка за минуту. Показывает Миир, основатель MIRCAP XIII.\n\n1. Вымытым волосам дайте подсохнуть 10–15 минут, фен не нужен.\n2. Немного пасты разотрите в ладонях, пока она не станет почти незаметной.\n3. Пройдите по всем волосам.\n4. Чуть приподнимите чёлку и задайте текстуру.\n\nСохраните, чтобы не потерять.", "tags": "#какуложитьволосы #мужскаяукладка #матоваяпаста", "src": "Вопросы 32 и 48", "script": [["0–2 с", "Миир у зеркала после душа, волосы мокрые.", "Титр: «Укладка за минуту»"], ["2–5 с", "Волосы подсохли, без фена.", "Голос: «Даю отсохнуть минут 10–15, пока завтракаю»"], ["5–9 с", "Крупно: открывает банку, берёт немного пасты.", "Титр: «Немного пасты»"], ["9–13 с", "Растирает в ладонях 2–3 раза, паста почти не видна.", "Голос: «Хорошенько растираю, чтобы на руках было почти незаметно»"], ["13–20 с", "Проходит по всем волосам.", "Голос: «По всем волосам, чтобы везде попало»"], ["20–26 с", "Приподнимает чёлку, придаёт текстуру и лёгкую небрежность.", "Титр: «Текстура»"], ["26–32 с", "Готовая укладка, поворот головы, банка на столе.", "Титр: «MIRCAP XIII · Strong hold · Matte finish»"]], "slides": ["img/p06-1.webp"], "thumb": "img/p06-t.webp", "tagsFull": "#mircap #mircapxiii #какуложитьволосы #мужскаяукладка #матоваяпаста"}, {"n": 7, "slug": "детали", "rubric": "6 · Детали", "fmt": "Карусель, 2 слайда", "frame": "Крышка со спартанцем крупно, затем банка с открытой крышкой (рендеры банки).", "cap": "Детали.\n\nТёмно-зелёный и холодный бордовый. Эти цвета Миир выбрал для банки, потому что они выглядят серьёзно.\n\nФорма простая, без лишнего. Всё внимание тому, что внутри.", "tags": "#дизайнупаковки #мужскаякосметика #детали", "src": "Вопрос 34", "slides": ["img/p07-1.webp", "img/p07-2.webp"], "thumb": "img/p07-t.webp", "tagsFull": "#mircap #mircapxiii #дизайнупаковки #мужскаякосметика #детали"}, {"n": 8, "slug": "основатель", "rubric": "2 · Философия", "fmt": "Фото", "frame": "Чёрно-белый портрет Миира (фото с аватарки).", "cap": "Миир. Барбер, 15 лет в профессии, мастер барбершопа 13 by Timati.\n\nВсе эти годы он ждал, что кто-то создаст пасту, которая держит весь день, легко смывается и приятно пахнет. Не дождался и сделал сам.\n\n«Бренд никогда не будет менять своё качество на деньги».", "tags": "#барбер #13bytimati #основатель", "src": "Вопрос 2, распаковка", "slides": ["img/p08-1.webp"], "thumb": "img/p08-t.webp", "tagsFull": "#mircap #mircapxiii #барбер #13bytimati #основатель"}, {"n": 9, "slug": "аромат-итальянская-кожа", "rubric": "1 · Продукт", "fmt": "Фото", "frame": "Натюрморт: кожаные перчатки, блокнот, ремень на тёмном дереве (ИИ-кадр).", "cap": "Итальянская кожа.\n\nМиир отказался от ярких популярных ароматов. Ему нужен был запах, который звучит мягко и не перебивает Ваш парфюм.\n\nЛетом он объездил шесть мастерских по ароматам, пока не услышал свой. Аромат раскрывается, когда Вы укладываете волосы. Кто его слышит, обычно спрашивает одно: что это?", "tags": "#аромат #итальянскаякожа #мужскаякосметика", "src": "Вопросы 21 и 33", "slides": ["img/p09-1.webp"], "thumb": "img/p09-t.webp", "tagsFull": "#mircap #mircapxiii #аромат #итальянскаякожа #мужскаякосметика"}, {"n": 10, "slug": "утро", "rubric": "5 · Мужской стиль", "fmt": "Фото", "frame": "Утро: мужчина в белой рубашке поправляет укладку пальцами (ИИ-кадр).", "cap": "Утро мужчины MIRCAP.\n\nПроснуться без будильника. Контрастный душ. Тренировка 30–40 минут: пробежка, бокс или дома. Завтрак с семьёй. Час на свои дела.\n\nИ только потом костюм, укладка за минуту и любимая работа.", "tags": "#мужскойстиль #утро #мужскаяукладка", "src": "Вопрос 31", "slides": ["img/p10-1.webp"], "thumb": "img/p10-t.webp", "tagsFull": "#mircap #mircapxiii #мужскойстиль #утро #мужскаяукладка"}, {"n": 11, "slug": "паста-воск-гель", "rubric": "7 · Перевод интереса в покупку", "fmt": "Карусель, 4 слайда", "frame": "Обложка: текстурная мужская укладка крупно (ИИ-кадр), затем три карточки сравнения.", "cap": "Паста, воск или гель: в чём разница?\n\nГель сильно склеивает волосы и даёт мокрый эффект. Воск держит слабо: через пару часов укладка разваливается. Матовая паста даёт естественную текстуру и держит весь день.\n\nСохраните и покажите другу, который до сих пор укладывается гелем.", "tags": "#матоваяпаста #укладкаволос #барбершоп", "src": "Вопрос 45", "slides": ["img/p11-1.webp", "img/p11-2.webp", "img/p11-3.webp", "img/p11-4.webp"], "thumb": "img/p11-t.webp", "tagsFull": "#mircap #mircapxiii #матоваяпаста #укладкаволос #барбершоп"}, {"n": 12, "slug": "предзаказ", "rubric": "7 · Перевод интереса в покупку", "fmt": "Карусель, 2 слайда", "frame": "Банка крупно с текстом «Предзаказ открыт», затем цена, объём и срок.", "cap": "Предзаказ MIRCAP XIII открыт.\n\nСтарт продаж: декабрь 2026. Цена банки 5 000 ₽, объём 95 ml. Одной банки хватает в среднем на 4–5 месяцев.\n\nОставьте заявку по ссылке в шапке профиля, и мы напишем Вам первыми, когда партия будет готова. Для покупателей первой партии будет особое предложение.", "tags": "#матоваяпаста #предзаказ #мужскаякосметика", "src": "Вопросы 41, 46, 51, 67", "slides": ["img/p12-1.webp", "img/p12-2.webp"], "thumb": "img/p12-t.webp", "tagsFull": "#mircap #mircapxiii #матоваяпаста #предзаказ #мужскаякосметика"}];
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var m=document.getElementById('m'),cur=1;
+function open_(n){
+  var p=P.find(function(x){return x.n==n});if(!p)return;cur=n;
+  document.getElementById('mk').textContent='Пост '+p.n+' из 12 · '+p.rubric;
+  document.getElementById('mh').textContent=p.fmt;
+  var sl=document.getElementById('sl');sl.innerHTML=p.slides.map(function(s){return '<img src="'+s+'" alt="">'}).join('');sl.scrollLeft=0;
+  document.getElementById('al').style.display=document.getElementById('ar').style.display=p.slides.length>1?'':'none';
+  var d=document.getElementById('dots');d.textContent=p.slides.length>1?'Листайте вбок · слайдов: '+p.slides.length:'';
+  document.getElementById('dl').innerHTML=p.slides.map(function(s,i){return '<a href="'+s+'" download style="color:var(--soft);margin-right:12px;white-space:nowrap">слайд '+(i+1)+'</a>'}).join('');
+  var h='<div><div class="k">Что в кадре</div>'+esc(p.frame)+'</div>';
+  h+='<div><div class="k">Подпись</div><pre class="txt">'+esc(p.cap)+'</pre><button class="copy" data-copy="'+esc(p.cap+'\n\n'+p.tagsFull)+'">Скопировать подпись с хэштегами</button></div>';
+  h+='<div><div class="k">Хэштеги</div><div class="tags">'+esc(p.tagsFull)+'</div></div>';
+  if(p.script){h+='<div><div class="k">Сценарий Reels для Миира</div><table class="sc">'+p.script.map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'<br><span style="color:var(--mute)">'+esc(r[2])+'</span></td></tr>'}).join('')+'</table></div>'}
+  h+='<div><div class="k">Откуда текст</div><span style="color:var(--mute)">Голосовые Миира: '+esc(p.src)+'</span></div>';
+  document.getElementById('meta').innerHTML=h;
+  m.classList.add('on');document.body.style.overflow='hidden';m.scrollTop=0;
+}
+function close_(){m.classList.remove('on');document.body.style.overflow=''}
+document.querySelectorAll('[data-n]').forEach(function(b){b.addEventListener('click',function(){open_(+b.getAttribute('data-n'))})});
+document.getElementById('mx').onclick=close_;
+function step(k){var sl=document.getElementById('sl');sl.scrollBy({left:k*sl.clientWidth,behavior:'smooth'})}
+document.getElementById('al').onclick=function(){step(-1)};document.getElementById('ar').onclick=function(){step(1)};
+m.addEventListener('click',function(e){if(e.target===m)close_()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close_()});
+document.getElementById('prev').onclick=function(){open_(cur>1?cur-1:12)};
+document.getElementById('next').onclick=function(){open_(cur<12?cur+1:1)};
+document.addEventListener('click',function(e){var b=e.target.closest('.copy[data-copy]');if(!b)return;var t=b.getAttribute('data-copy');
+  function ok(){var o=b.textContent;b.textContent='Скопировано';b.classList.add('ok');setTimeout(function(){b.textContent=o;b.classList.remove('ok')},1600)}
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()});else{fb(t);ok()}});
+function fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+</script>
+</body></html>
