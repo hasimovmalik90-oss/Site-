@@ -1,0 +1,225 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Лиана · Темник</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* пудрово-розовая палитра, как на liana-raspakovka */
+:root{--bg:#F7ECEC;--bg2:#FFFFFF;--card:#FFFFFF;--card2:#FBF3F3;--soft:#FDF8F8;--line:rgba(163,86,99,.14);--edge:rgba(199,123,134,.30);--text:#2E2326;--mute:#7A6468;--dim:#A08A8E;--accent:#C77B86;--accent-d:#A35663;--head:#2E2326;--milk:#2E2326;--taupe:#8C7377}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-size:15px;line-height:1.65;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(199,123,134,.20),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(226,180,186,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 85%,rgba(242,222,223,.8),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(52px,9vw,84px);font-weight:300;letter-spacing:.04em;color:var(--milk)}
+h2{font-size:clamp(30px,4vw,40px)}
+h3{font-size:clamp(20px,2.4vw,23px)}
+a{color:var(--accent-d);text-decoration:none}
+p{text-wrap:pretty}
+/* hero */
+.hero{text-align:center;padding:84px 0 24px}
+.hero-card{padding:50px 28px 36px;border-radius:24px;border:1px solid rgba(199,123,134,.35);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(199,123,134,.18),transparent 70%),var(--bg2);box-shadow:0 30px 70px -30px rgba(163,86,99,.30),0 0 60px -20px rgba(199,123,134,.35);border-top:4px solid var(--accent)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.3vw,23px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:600px;margin:18px auto 0;color:var(--taupe);font-size:14.5px}
+.navbox{margin:26px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.navbox a{display:flex;align-items:center;gap:8px;justify-content:center;min-height:44px;padding:8px 10px;border:1px solid rgba(199,123,134,.3);border-radius:10px;font-size:13px;color:var(--milk);background:#fff}
+.navbox a b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--accent)}
+.navbox a:hover{border-color:var(--accent)}
+/* how + top */
+.blk{padding:16px 0}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:20px;padding:30px 28px 22px;box-shadow:0 26px 60px -30px rgba(163,86,99,.25),0 0 40px -18px rgba(199,123,134,.35)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+.how{list-style:none;margin-top:14px}
+.how li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.how li:last-child{border-bottom:none}
+.how li::before{content:'';position:absolute;left:2px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.top5{list-style:none;counter-reset:t;margin-top:14px}
+.top5 li{counter-increment:t;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 0 12px 46px;position:relative;border-bottom:1px solid var(--line)}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(t);position:absolute;left:4px;top:6px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent-d)}
+.top5 a{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--head);line-height:1.25}
+.top5 .tp{order:-1;width:100%;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+/* pillar */
+.ph{display:flex;gap:18px;align-items:center}
+.pnum{flex:none;font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;line-height:.9;color:var(--accent)}
+.line{margin:14px 0 6px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:15px;color:var(--text)}
+.th{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px 14px;margin-top:12px;scroll-margin-top:16px}
+.th:target{border-color:var(--accent)}
+.thh{display:flex;gap:14px;align-items:flex-start}
+.tn{flex:none;min-width:24px;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent-d)}
+.star{display:inline-block;vertical-align:middle;margin-left:10px;font-family:Mulish,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent-d);border-radius:20px;padding:3px 9px}
+.what{font-size:14px;color:var(--mute);margin-top:4px}
+.tb{margin:10px 0 0 38px}
+.carrier{font-size:15px}
+.carrier b{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-bottom:3px}
+blockquote{margin:10px 0 0;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.35;color:var(--head)}
+.note{margin-top:10px;padding:9px 12px;border-radius:10px;border:1px dashed rgba(163,86,99,.4);font-size:13px;color:var(--mute)}
+.src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.src a{font-size:11.5px;border:1px solid var(--edge);border-radius:14px;padding:3px 10px;color:var(--mute);background:#fff}
+.src a:hover{border-color:var(--accent-d);color:var(--text)}
+.offl{list-style:none;margin-top:12px}
+.offl li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.offl li:last-child{border-bottom:none}
+.offl li::before{content:'—';position:absolute;left:0;color:var(--accent-d)}
+footer{text-align:center;padding:30px 0 64px;color:var(--taupe);font-size:13px}
+footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:8px}
+@media(max-width:600px){
+  body{font-size:14.5px}.wrap{padding:0 16px}
+  .hero{padding:40px 0 14px}.hero-card{padding:36px 16px 26px;border-radius:20px}
+  h1{font-size:clamp(46px,14vw,60px)}
+  .navbox{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.navbox a{font-size:12.5px}
+  .card{padding:22px 16px 16px;border-radius:16px}
+  .pnum{font-size:46px}.ph{gap:12px}
+  .th{padding:14px 13px 12px}.tb{margin-left:0}.tn{font-size:22px;min-width:20px}
+  blockquote{font-size:17.5px}.star{margin-left:0;margin-top:4px}
+}
+.gs{color:var(--mute);font-size:14px;margin-top:8px}
+.it{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 20px 14px;margin-top:12px}
+.ih{display:flex;gap:14px;align-items:flex-start}
+.n{flex:none;min-width:30px;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--accent-d)}
+.pl{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+.ib{margin:8px 0 0 44px}
+.st,.tm{font-size:15px;margin-top:6px}
+.st b,.tm b{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);margin-bottom:2px}
+.tm{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;line-height:1.3;color:var(--head);background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px;margin-top:10px}
+.tm b{font-family:Mulish,sans-serif;font-style:normal}
+@media(max-width:600px){.it{padding:14px 13px 12px}.ib{margin-left:0}.n{font-size:22px;min-width:24px}.tm{font-size:18px}.navbox{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+
+
+.subnav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:10px 12px;background:rgba(247,236,236,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(199,123,134,.22)}.subnav a{font-family:Mulish,sans-serif;font-size:12.5px;letter-spacing:.03em;line-height:1.2;padding:7px 14px;border-radius:30px;border:1px solid rgba(199,123,134,.4);color:#7A6468;background:#fff;text-decoration:none;transition:.15s}.subnav a:hover{color:#A35663;border-color:#C77B86;background:rgba(199,123,134,.18)}.subnav a.on{color:#fff;background:#C77B86;border-color:#C77B86;font-weight:700}@media(max-width:600px){.subnav{gap:5px;padding:8px 8px}.subnav a{font-size:11.5px;padding:6px 10px}}html{scroll-padding-top:64px}
+</style></head><body>
+<nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/liana/">Главная</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-temy/" class="on">Темник</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-raspakovka/">Вопросы</a></nav>
+
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">@tla.liana · ноябрь 2026</div>
+  <h1>Лиана</h1>
+  <p class="slogan">Темник · широкие темы через Ваши истории</p>
+  <p class="pos">35 тем в&nbsp;6 группах. Каждая начинается с&nbsp;того, что знакомо всем, и&nbsp;показывается через то, что было именно с&nbsp;Вами.</p>
+  <nav class="navbox"><a href="#g0">Этикет и&nbsp;рестораны</a><a href="#g1">Выбирать себя</a><a href="#g2">Одиночество и&nbsp;мужчины</a><a href="#g3">Работа и&nbsp;деньги</a><a href="#g4">Красота и&nbsp;стиль</a><a href="#g5">Москва и&nbsp;быт</a></nav>
+</div></div></header>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Как читать</span><h2>Что здесь</h2>
+  <ul class="how">
+    <li><b>Широкая тема:</b> то, что знакомо любому зрителю: рестораны, отношения, деньги, внешность, работа, быт.</li>
+    <li><b>Ваша история:</b> что было именно у&nbsp;Вас. Через неё широкая тема становится Вашей.</li>
+    <li><b>Тема:</b> как это может называться в&nbsp;ролике или посте.</li>
+    <li>Группы и&nbsp;темы внутри стоят по&nbsp;приоритету. Над каждой темой указан столб личного бренда, который она закрывает.</li>
+    <li>Под темой ссылки на&nbsp;первоисточник: Ваше голосовое или публикация в&nbsp;Instagram.</li>
+  </ul>
+</div></div></section>
+
+<section class="blk" id="g0"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 1 из 6</span><h2>Этикет и&nbsp;рестораны</h2><p class="gs">То, что уже сработало: ролик про табу за&nbsp;столом набрал 64 тысячи просмотров. 6 тем.</p>
+    <div class="it"><div class="ih"><span class="n">1</span><div class="iw"><span class="pl">Принципы</span><h3>Как вести себя в&nbsp;ресторане</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Вы&nbsp;два года работали в&nbsp;ресторане и&nbsp;каждый день видели гостей.</p><p class="tm"><b>Тема</b>«Пять вещей, которые нельзя делать за&nbsp;столом»</p><div class="src"><a href="https://www.instagram.com/p/DY6rCChByOT/" target="_blank" rel="noopener">Instagram, 29.05, 64 тыс.</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v50" target="_blank" rel="noopener">голосовое #50</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">2</span><div class="iw"><span class="pl">Принципы</span><h3>Сумка на&nbsp;столе</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Ваш второй ролик про табу набрал 5,4 тысячи.</p><p class="tm"><b>Тема</b>«Куда ставить сумку в&nbsp;ресторане»</p><div class="src"><a href="https://www.instagram.com/p/DZTPvIfoYjA/" target="_blank" rel="noopener">Instagram, 08.06, 5,4 тыс.</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">3</span><div class="iw"><span class="pl">Люди</span><h3>Мужчина на&nbsp;свидании</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Ваши обязательные пункты: открыть дверь, подвинуть стул, спросить, что Вы&nbsp;хотите, проводить до&nbsp;уборной.</p><p class="tm"><b>Тема</b>«По&nbsp;первому свиданию видно, воспитан ли&nbsp;мужчина»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v52" target="_blank" rel="noopener">голосовое #52</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">4</span><div class="iw"><span class="pl">Принципы</span><h3>Соседи за&nbsp;столом</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Громкий смех и&nbsp;мат рядом, когда у&nbsp;Вас деловая встреча.</p><p class="tm"><b>Тема</b>«Что раздражает в&nbsp;ресторанах Москвы»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v51" target="_blank" rel="noopener">голосовое #51</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">5</span><div class="iw"><span class="pl">Принципы</span><h3>Нужны ли&nbsp;табу</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Раньше табу у&nbsp;Вас были. Теперь Вы&nbsp;считаете: знай манеры и&nbsp;не&nbsp;перебарщивай.</p><p class="tm"><b>Тема</b>«Я&nbsp;передумала про табу в&nbsp;ресторане»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v51" target="_blank" rel="noopener">голосовое #51</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">6</span><div class="iw"><span class="pl">Быт и&nbsp;среда</span><h3>Любимые места</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Ла&nbsp;Маре за&nbsp;устрицами и&nbsp;Butcher за&nbsp;мясом.</p><p class="tm"><b>Тема</b>«Где в&nbsp;Москве самые вкусные устрицы и&nbsp;мясо»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v77" target="_blank" rel="noopener">голосовое #77</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="g1"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 2 из 6</span><h2>Выбирать себя</h2><p class="gs">Главная тема Вашей шапки, и&nbsp;у&nbsp;Вас есть своя история про неё. 6 тем.</p>
+    <div class="it"><div class="ih"><span class="n">7</span><div class="iw"><span class="pl">Характер</span><h3>Хорошая девочка</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>До&nbsp;28 лет Вы&nbsp;всем говорили «да» и&nbsp;всё делали ради семьи и&nbsp;окружения.</p><p class="tm"><b>Тема</b>«Как я&nbsp;перестала быть хорошей девочкой»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v41" target="_blank" rel="noopener">голосовое #41</a><a href="https://www.instagram.com/p/De9jjXrh6oU/" target="_blank" rel="noopener">Instagram, 26.10</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">8</span><div class="iw"><span class="pl">Ценности</span><h3>Жить для себя</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Этот год первый, когда Вы&nbsp;делаете всё для себя.</p><p class="tm"><b>Тема</b>«Что значит выбирать себя в&nbsp;28 лет»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v40" target="_blank" rel="noopener">голосовое #40</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">9</span><div class="iw"><span class="pl">Ценности</span><h3>Любовь к&nbsp;себе</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Для Вас это бережное отношение к&nbsp;себе, к&nbsp;телу и&nbsp;внутреннему миру.</p><p class="tm"><b>Тема</b>«Что для меня любовь к&nbsp;себе»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v37" target="_blank" rel="noopener">голосовое #37</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">10</span><div class="iw"><span class="pl">Ценности</span><h3>Совет подруге</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Вы&nbsp;советуете прямо: выбирайте себя и&nbsp;работайте над собой через «не&nbsp;могу».</p><p class="tm"><b>Тема</b>«Что я&nbsp;говорю подругам с&nbsp;низкой самооценкой»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v46" target="_blank" rel="noopener">голосовое #46</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v45" target="_blank" rel="noopener">голосовое #45</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">11</span><div class="iw"><span class="pl">Характер</span><h3>Теневые стороны</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Тема сексуальности раньше была для Вас закрыта, теперь Вы&nbsp;её&nbsp;принимаете.</p><p class="tm"><b>Тема</b>«Почему открыто одеться не&nbsp;стыдно»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v42" target="_blank" rel="noopener">голосовое #42</a><a href="https://www.instagram.com/p/De11FKrBPA4/" target="_blank" rel="noopener">Instagram, 23.10</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">12</span><div class="iw"><span class="pl">Характер</span><h3>Самовлюблённость</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Вам нравятся все Ваши ролики и&nbsp;фотографии.</p><p class="tm"><b>Тема</b>«Да, я&nbsp;люблю себя»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v33" target="_blank" rel="noopener">голосовое #33</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v9" target="_blank" rel="noopener">голосовое #9</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="g2"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 3 из 6</span><h2>Одиночество и&nbsp;мужчины</h2><p class="gs">Темы, на&nbsp;которые у&nbsp;Вас своя позиция, не&nbsp;как у&nbsp;всех. 6 тем.</p>
+    <div class="it"><div class="ih"><span class="n">13</span><div class="iw"><span class="pl">Люди</span><h3>Одиночество</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Ходите одна в&nbsp;кино, театр, на&nbsp;ужины и&nbsp;получаете от&nbsp;этого удовольствие.</p><p class="tm"><b>Тема</b>«Почему я&nbsp;люблю быть одна»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v91" target="_blank" rel="noopener">голосовое #91</a><a href="https://www.instagram.com/p/DfMf16asqTb/" target="_blank" rel="noopener">Instagram, 01.11</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">14</span><div class="iw"><span class="pl">Люди</span><h3>Семья и&nbsp;дети</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Все вокруг хотят семью, а&nbsp;Вы&nbsp;сейчас нет, и&nbsp;мама за&nbsp;Вас переживает.</p><p class="tm"><b>Тема</b>«Мне 28, и&nbsp;я&nbsp;не&nbsp;хочу замуж»</p><p class="note">Маму не&nbsp;показываем, её&nbsp;слова пересказываете Вы.</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v87" target="_blank" rel="noopener">голосовое #87</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v13" target="_blank" rel="noopener">голосовое #13</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">15</span><div class="iw"><span class="pl">Люди</span><h3>Какой мужчина нравится</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Босс для всех и&nbsp;котик для Вас.</p><p class="tm"><b>Тема</b>«Какой мужчина мне нравится»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v88" target="_blank" rel="noopener">голосовое #88</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">16</span><div class="iw"><span class="pl">Люди</span><h3>Красные флаги</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Эмоциональные качели, вещества, рука на&nbsp;девушку.</p><p class="tm"><b>Тема</b>«Три вещи, после которых я&nbsp;ухожу от&nbsp;мужчины»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v89" target="_blank" rel="noopener">голосовое #89</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">17</span><div class="iw"><span class="pl">Люди</span><h3>Уйти без разборок</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Вы&nbsp;не&nbsp;выясняете отношения, просто уходите.</p><p class="tm"><b>Тема</b>«Почему я&nbsp;никогда не&nbsp;выясняю отношения»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v48" target="_blank" rel="noopener">голосовое #48</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">18</span><div class="iw"><span class="pl">Люди</span><h3>Знакомства</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>В&nbsp;интернете не&nbsp;знакомитесь: улица, заведения, через знакомых.</p><p class="tm"><b>Тема</b>«Где знакомиться, если не&nbsp;в&nbsp;приложениях»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v90" target="_blank" rel="noopener">голосовое #90</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="g3"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 4 из 6</span><h2>Работа и&nbsp;деньги</h2><p class="gs">Истории о&nbsp;том, как Вы&nbsp;пришли к&nbsp;блогу. 6 тем.</p>
+    <div class="it"><div class="ih"><span class="n">19</span><div class="iw"><span class="pl">Путь</span><h3>Уйти с&nbsp;работы</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Три дня тревоги, потом прогулка, уборка, мантры и&nbsp;собеседования.</p><p class="tm"><b>Тема</b>«Что делать, если ушла с&nbsp;работы и&nbsp;страшно»</p><div class="src"><a href="https://www.instagram.com/p/DfC9POJMXFu/" target="_blank" rel="noopener">Instagram, 28.10</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v93" target="_blank" rel="noopener">голосовое #93</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">20</span><div class="iw"><span class="pl">Путь</span><h3>Выгорание</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Восемь лет в&nbsp;косметологии, свой кабинет, и&nbsp;Вы&nbsp;выгорели.</p><p class="tm"><b>Тема</b>«Я&nbsp;ушла из&nbsp;косметологии после восьми лет»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v18" target="_blank" rel="noopener">голосовое #18</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v16" target="_blank" rel="noopener">голосовое #16</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">21</span><div class="iw"><span class="pl">Путь</span><h3>Первая работа</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Листовки, Макдоналдс, Furla: с&nbsp;15 лет, и&nbsp;всегда в&nbsp;премиальные места.</p><p class="tm"><b>Тема</b>«Все мои работы с&nbsp;15 лет»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v18" target="_blank" rel="noopener">голосовое #18</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">22</span><div class="iw"><span class="pl">Путь</span><h3>Чужая профессия</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Медицину выбрали родители. Бывшая пациентка спросила, почему Вы&nbsp;ушли.</p><p class="tm"><b>Тема</b>«Как понять, что профессия не&nbsp;твоя»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v5" target="_blank" rel="noopener">голосовое #5</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v122" target="_blank" rel="noopener">голосовое #122</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">23</span><div class="iw"><span class="pl">Деньги</span><h3>Тихая роскошь</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Для Вас это частная жизнь, о&nbsp;которой никто не&nbsp;знает.</p><p class="tm"><b>Тема</b>«Что для меня тихая роскошь»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v76" target="_blank" rel="noopener">голосовое #76</a><a href="https://www.instagram.com/p/DZSSYXpxN69/" target="_blank" rel="noopener">Instagram, 07.06</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">24</span><div class="iw"><span class="pl">Деньги</span><h3>Вишлист</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Dyson, часы, бриллианты, сумка и&nbsp;отдых.</p><p class="tm"><b>Тема</b>«Мой вишлист на&nbsp;зиму»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v107" target="_blank" rel="noopener">голосовое #107</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="g4"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 5 из 6</span><h2>Красота и&nbsp;стиль</h2><p class="gs">Вы&nbsp;восемь лет были косметологом, и&nbsp;подписчицы просят показать всё. 7 тем.</p>
+    <div class="it"><div class="ih"><span class="n">25</span><div class="iw"><span class="pl">Тело</span><h3>Процедуры</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Ботокс, биоревитализация, чистки, фотолечение: Вы&nbsp;знаете их&nbsp;изнутри.</p><p class="tm"><b>Тема</b>«Что я&nbsp;делаю у&nbsp;косметолога, сама бывший косметолог»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v59" target="_blank" rel="noopener">голосовое #59</a><a href="https://www.instagram.com/p/DYWMcguEYuU/" target="_blank" rel="noopener">Instagram, 15.05</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">26</span><div class="iw"><span class="pl">Тело</span><h3>Губы</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Из&nbsp;уколов Вы&nbsp;делали только губы и&nbsp;готовы об&nbsp;этом говорить.</p><p class="tm"><b>Тема</b>«Я&nbsp;колола губы: как есть»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v60" target="_blank" rel="noopener">голосовое #60</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">27</span><div class="iw"><span class="pl">Тело</span><h3>Уход</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Немного средств, и&nbsp;все Вы&nbsp;берёте не&nbsp;первый раз.</p><p class="tm"><b>Тема</b>«Мой уход за&nbsp;пористой кожей»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v67" target="_blank" rel="noopener">голосовое #67</a><a href="https://www.instagram.com/p/DfJyU1tjJGn/" target="_blank" rel="noopener">Instagram, 31.10</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">28</span><div class="iw"><span class="pl">Тело</span><h3>Цена красоты</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Брови, ресницы и&nbsp;ногти обходятся примерно в&nbsp;30 тысяч в&nbsp;месяц.</p><p class="tm"><b>Тема</b>«Сколько я&nbsp;трачу на&nbsp;красоту в&nbsp;месяц»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v63" target="_blank" rel="noopener">голосовое #63</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">29</span><div class="iw"><span class="pl">Тело</span><h3>Женская энергия</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Спа, массаж, ванна, флирт, танцы.</p><p class="tm"><b>Тема</b>«Как я&nbsp;поднимаю женскую энергию»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v95" target="_blank" rel="noopener">голосовое #95</a><a href="https://www.instagram.com/p/DfuX5onMyM8/" target="_blank" rel="noopener">Instagram, 14.11</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">30</span><div class="iw"><span class="pl">Стиль</span><h3>Подборки</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Вас спрашивают артикулы, и&nbsp;Вы&nbsp;хотите делать подборки.</p><p class="tm"><b>Тема</b>«Подборка недели»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v74" target="_blank" rel="noopener">голосовое #74</a><a href="https://www.instagram.com/p/DfnRuhXCDpe/" target="_blank" rel="noopener">Instagram, 11.11</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">31</span><div class="iw"><span class="pl">Стиль</span><h3>Цвет в&nbsp;гардеробе</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Год назад Вы&nbsp;носили всё чёрное, сейчас много ярких цветов.</p><p class="tm"><b>Тема</b>«Как я&nbsp;ушла от&nbsp;чёрного гардероба»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v69" target="_blank" rel="noopener">голосовое #69</a></div></div></div>
+</div></div></section>
+
+<section class="blk" id="g5"><div class="wrap"><div class="card">
+  <span class="eyebrow">Группа 6 из 6</span><h2>Москва и&nbsp;быт</h2><p class="gs">Ваша жизнь как фон для всех остальных тем. 4 темы.</p>
+    <div class="it"><div class="ih"><span class="n">32</span><div class="iw"><span class="pl">Быт и&nbsp;среда</span><h3>Один день</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>То&nbsp;сериалы весь день, то&nbsp;собраться, гулять и&nbsp;делать покупки.</p><p class="tm"><b>Тема</b>«Один мой день для себя»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v44" target="_blank" rel="noopener">голосовое #44</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v98" target="_blank" rel="noopener">голосовое #98</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">33</span><div class="iw"><span class="pl">Быт и&nbsp;среда</span><h3>Спа</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>«Семь красок» и&nbsp;спа в&nbsp;Ritz-Carlton.</p><p class="tm"><b>Тема</b>«Где в&nbsp;Москве я&nbsp;отдыхаю душой и&nbsp;телом»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v81" target="_blank" rel="noopener">голосовое #81</a><a href="https://www.instagram.com/p/De43ryqD5I_/" target="_blank" rel="noopener">Instagram, 24.10</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">34</span><div class="iw"><span class="pl">Быт и&nbsp;среда</span><h3>Свой дом</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Третий месяц на&nbsp;Можайке, гуляете в&nbsp;Филях.</p><p class="tm"><b>Тема</b>«Моя квартира и&nbsp;мой район»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v83" target="_blank" rel="noopener">голосовое #83</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v79" target="_blank" rel="noopener">голосовое #79</a></div></div></div>
+    <div class="it"><div class="ih"><span class="n">35</span><div class="iw"><span class="pl">Быт и&nbsp;среда</span><h3>Сериалы</h3></div></div>
+      <div class="ib"><p class="st"><b>Ваша история</b>Тони Сопрано нравится Вам тем, как он&nbsp;заботится о&nbsp;семье и&nbsp;ходит к&nbsp;психотерапевту.</p><p class="tm"><b>Тема</b>«Чему меня научил Тони Сопрано»</p><div class="src"><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/#v30" target="_blank" rel="noopener">голосовое #30</a><a href="https://www.instagram.com/p/DfQNgQgs9cv/" target="_blank" rel="noopener">Instagram, 03.11, 25 тыс.</a></div></div></div>
+</div></div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Связанные страницы</span><h2>Где подробнее</h2>
+  <ul class="how">
+    <li><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/">Восемь столбов</a>: темы по&nbsp;столбам личного бренда.</li>
+    <li><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/">Ответы дословно</a>: все Ваши голосовые.</li>
+  </ul>
+</div></div></section>
+
+<footer><div class="wrap">Малик Хашимов · продюсер женских&nbsp;блогов<div class="sign">Ноябрь&nbsp;2026</div></div></footer>
+</body></html>

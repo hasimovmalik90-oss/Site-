@@ -1,0 +1,136 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Лиана · распаковка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* пудрово-розовая палитра, как на liana-raspakovka */
+:root{--bg:#F7ECEC;--bg2:#FFFFFF;--card:#FFFFFF;--card2:#FBF3F3;--soft:#FDF8F8;--line:rgba(163,86,99,.14);--edge:rgba(199,123,134,.30);--text:#2E2326;--mute:#7A6468;--dim:#A08A8E;--accent:#C77B86;--accent-d:#A35663;--head:#2E2326;--milk:#2E2326;--taupe:#8C7377}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip;width:100%;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:Mulish,system-ui,sans-serif;font-size:15px;line-height:1.65;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 70% 40% at 50% -5%,rgba(199,123,134,.20),transparent 70%),
+radial-gradient(ellipse 50% 35% at 100% 45%,rgba(226,180,186,.45),transparent 70%),
+radial-gradient(ellipse 50% 35% at 0% 85%,rgba(242,222,223,.8),transparent 70%)}
+body>*{position:relative;z-index:1}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--head);line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(56px,10vw,92px);font-weight:300;letter-spacing:.04em;color:var(--milk)}
+h2{font-size:clamp(30px,4vw,40px)}
+h3{font-size:clamp(22px,2.6vw,26px)}
+a{color:var(--accent-d);text-decoration:none}
+p{text-wrap:pretty}
+
+
+
+
+.hero{text-align:center;padding:60px 0 20px}
+.hero-card{padding:54px 28px 40px;border-radius:24px;border:1px solid rgba(199,123,134,.35);background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(199,123,134,.18),transparent 70%),var(--bg2);box-shadow:0 30px 70px -30px rgba(163,86,99,.30),0 0 60px -20px rgba(199,123,134,.35);border-top:4px solid var(--accent)}
+.hero .top{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px;font-weight:600}
+.hero .slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.3vw,23px);color:var(--accent);margin:12px 0 0}
+.hero .pos{max-width:580px;margin:18px auto 0;color:var(--taupe);font-size:14.5px}
+.swatch{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.swatch i{width:20px;height:20px;border-radius:50%;border:1px solid rgba(199,123,134,.12)}
+.blk{padding:16px 0}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:20px;padding:30px 28px 24px;box-shadow:0 26px 60px -30px rgba(163,86,99,.25),0 0 40px -18px rgba(199,123,134,.35)}
+.eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+.lead{font-size:16px;line-height:1.75;margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+.facts b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:1.1;color:var(--head)}
+.facts span{font-size:12px;color:var(--mute)}
+.pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+.pg{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--edge);border-radius:18px;padding:24px 22px 20px;color:var(--text);box-shadow:0 26px 60px -30px rgba(163,86,99,.25);transition:.18s}
+.pg:hover{transform:translateY(-2px);border-color:var(--accent)}
+.pg.wide{grid-column:1/-1}
+.pg.main{grid-column:1/-1;background:radial-gradient(ellipse 80% 90% at 0% 0%,rgba(199,123,134,.22),transparent 65%),var(--card)}
+.pg .num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;line-height:1;color:var(--accent)}
+.pg .tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.pg h3{margin-top:4px}
+.pg p{font-size:14px;color:var(--mute);margin-top:8px;flex:1}
+.pg .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--accent-d)}
+.sec-head{margin:10px 0 14px}
+.sec-head h2{color:var(--milk)}
+.sec-head .eyebrow{color:var(--accent)}
+.top5{list-style:none;counter-reset:t;margin-top:12px}
+.top5 li{counter-increment:t;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line)}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(t);position:absolute;left:4px;top:8px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent-d)}
+.top5 .tp{display:block;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.top5 a{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--head);line-height:1.25}
+.top5 p{font-size:14px;color:var(--mute);margin-top:2px}
+.offl{list-style:none;margin-top:12px}
+.offl li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+.offl li:last-child{border-bottom:none}
+.offl li::before{content:'—';position:absolute;left:0;color:var(--accent-d)}
+footer{text-align:center;padding:30px 0 64px;color:var(--taupe);font-size:13px}
+footer .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:8px}
+@media(max-width:700px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.pages{grid-template-columns:1fr}}
+@media(max-width:600px){
+  body{font-size:14.5px}.wrap{padding:0 16px}
+  .hero{padding:30px 0 12px}.hero-card{padding:38px 16px 28px;border-radius:20px}
+  h1{font-size:clamp(50px,15vw,64px)}
+  .card{padding:22px 16px 18px;border-radius:16px}.pg{padding:20px 16px 16px}
+  .lead{font-size:15px}.facts b{font-size:26px}
+}
+
+
+.subnav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:10px 12px;background:rgba(247,236,236,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(199,123,134,.22)}.subnav a{font-family:Mulish,sans-serif;font-size:12.5px;letter-spacing:.03em;line-height:1.2;padding:7px 14px;border-radius:30px;border:1px solid rgba(199,123,134,.4);color:#7A6468;background:#fff;text-decoration:none;transition:.15s}.subnav a:hover{color:#A35663;border-color:#C77B86;background:rgba(199,123,134,.18)}.subnav a.on{color:#fff;background:#C77B86;border-color:#C77B86;font-weight:700}@media(max-width:600px){.subnav{gap:5px;padding:8px 8px}.subnav a{font-size:11.5px;padding:6px 10px}}html{scroll-padding-top:64px}
+</style></head><body>
+<nav class="subnav"><a href="https://hasimovmalik90-oss.github.io/Site-/liana/" class="on">Главная</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/">Восемь столбов</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-temy/">Темник</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/">Ответы дословно</a><a href="https://hasimovmalik90-oss.github.io/Site-/liana-raspakovka/">Вопросы</a></nav>
+
+<header class="hero"><div class="wrap"><div class="hero-card">
+  <div class="top">@tla.liana · ноябрь 2026</div>
+  <h1>Лиана</h1>
+  <p class="slogan">Распаковка · всё в&nbsp;одном месте</p>
+  <p class="pos">Всё, что мы собрали по&nbsp;итогам распаковки: какая Вы, о&nbsp;чём блог и&nbsp;с&nbsp;чего начинаем. Отсюда переходы на&nbsp;подробные страницы.</p>
+  <div class="swatch"><i style="background:#2E2326"></i><i style="background:#A35663"></i><i style="background:#C77B86"></i><i style="background:#E2B4BA"></i><i style="background:#F2DEDF"></i><i style="background:#F7ECEC"></i><i style="background:#FFFFFF"></i></div>
+</div></div></header>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Портрет</span><h2>Коротко</h2>
+  <p class="lead">Лиана, 28&nbsp;лет. Выросли в&nbsp;Дагестане, в&nbsp;Москве с&nbsp;15&nbsp;лет. Медсестра по&nbsp;образованию, восемь лет в&nbsp;косметологии со&nbsp;своим кабинетом, потом два года в&nbsp;ресторане. Работаете с&nbsp;15&nbsp;лет, сейчас не&nbsp;работаете и&nbsp;хотите жить блогом. Третий месяц живёте одна в&nbsp;новой квартире на&nbsp;Можайке. С&nbsp;этого года учитесь выбирать себя. Ролик про&nbsp;табу в&nbsp;ресторане собрал больше всех просмотров за&nbsp;всё время.</p>
+  <div class="facts">
+    <div><b>653</b><span>подписчика на&nbsp;20.11</span></div>
+    <div><b>64 тыс.</b><span>лучший ролик, 29.05</span></div>
+    <div><b>141</b><span>голосовой ответ</span></div>
+    <div><b>10–15 тыс.</b><span>цель через полгода</span></div>
+  </div>
+</div></div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Страницы</span><h2>Что внутри</h2></div>
+  <div class="pages">
+    <a class="pg main" href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/"><span class="num">01</span><span class="tag">Главный документ · 41 тема</span><h3>Восемь столбов</h3><p>Восемь сторон личного бренда: ценности, люди, путь, принципы, характер, тело, деньги, быт. В&nbsp;каждом столбе темы по&nbsp;приоритету, у&nbsp;каждой Ваша история и&nbsp;Ваша цитата.</p><span class="go">Открыть →</span></a>
+    <a class="pg" href="https://hasimovmalik90-oss.github.io/Site-/liana-temy/"><span class="num">02</span><span class="tag">35 тем · 6 групп</span><h3>Темник</h3><p>Широкая тема, знакомая всем, и&nbsp;Ваша история, через которую она становится Вашей. С&nbsp;формулировкой темы для ролика.</p><span class="go">Открыть →</span></a>
+    <a class="pg" href="https://hasimovmalik90-oss.github.io/Site-/liana-doslovno/"><span class="num">03</span><span class="tag">141 голосовое · 41 минута</span><h3>Ответы дословно</h3><p>Все Ваши голосовые в&nbsp;тексте, разложенные по&nbsp;столбам. Сюда ведут ссылки со&nbsp;страниц столбов и&nbsp;темника.</p><span class="go">Открыть →</span></a>
+    <a class="pg wide" href="https://hasimovmalik90-oss.github.io/Site-/liana-raspakovka/"><span class="num">04</span><span class="tag">158 вопросов</span><h3>Вопросы распаковки</h3><p>Анкета, на&nbsp;которую Вы отвечали.</p><span class="go">Открыть →</span></a>
+  </div>
+</div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">С чего начинаем</span><h2>Пять главных тем</h2>
+  <ol class="top5">
+    <li><span class="tp">Принципы</span><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/#s0">Табу в&nbsp;ресторане</a><p>То, что уже сработало: 64&nbsp;тысячи просмотров.</p></li>
+    <li><span class="tp">Ценности</span><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/#s1">Учусь выбирать себя</a><p>Фраза из&nbsp;Вашей шапки, и&nbsp;за&nbsp;ней Ваша история.</p></li>
+    <li><span class="tp">Путь</span><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/#s2">Ушла с&nbsp;работы одним днём</a><p>Точка, с&nbsp;которой начинается Ваш блог сейчас.</p></li>
+    <li><span class="tp">Люди</span><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/#s3">Кайфую от&nbsp;одиночества</a><p>Позиция, которая есть не&nbsp;у&nbsp;всех.</p></li>
+    <li><span class="tp">Характер</span><a href="https://hasimovmalik90-oss.github.io/Site-/liana-stolby/#s4">Хорошая девочка</a><p>Из&nbsp;кого Вы выходите прямо сейчас.</p></li>
+  </ol>
+</div></div></section>
+
+<section class="blk"><div class="wrap"><div class="card">
+  <span class="eyebrow">Вне кадра</span><h2>Что не&nbsp;показываем</h2>
+  <ul class="offl">
+    <li>Семья и&nbsp;родственники. Исключение: разговорные ролики с&nbsp;мамой и&nbsp;братьями, если Вы решите.</li>
+    <li>Политика, религия как тема и&nbsp;национальности.</li>
+    <li>Мат. Если проскочит невзначай, не&nbsp;страшно.</li>
+    <li>Реклама купальников и&nbsp;нижнего белья.</li>
+  </ul>
+</div></div></section>
+
+<footer><div class="wrap">Малик Хашимов · продюсер женских&nbsp;блогов<div class="sign">Ноябрь&nbsp;2026</div></div></footer>
+</body></html>
